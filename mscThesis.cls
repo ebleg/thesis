@@ -1300,7 +1300,7 @@
     \pdfbookmark[0]{Title Page}{title_anchor}
     %
     \begin{center}
-        \Huge{\textbf{\textsf{\msctitle}}}\\ \Large{\textbf{\textsf{\mscsubtitle}}} \\[1cm]
+        \Huge{\textbf{\textsf{\msctitle}}}\\[0.2cm] \Large{\textbf{\textsf{\mscsubtitle}}} \\[1cm]
         \Large{\textsc{Master of Science Thesis}}\\[2cm]
         \Large{For the degree of Master of Science in \mscprogram\ at Delft University of Technology}\\[5cm]
         \Large{\mscname}\\[1cm]

@@ -1,0 +1,25 @@
+% --------------------------------------------------------------------
+%% PACKAGES
+% --------------------------------------------------------------------
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{patterns,decorations.pathmorphing,positioning}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{intersections, pgfplots.fillbetween}
+\usetikzlibrary{decorations.markings}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{external}
+\pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
+\pgfplotsset{compat=newest} 
+
+% --------------------------------------------------------------------
+%% SETTINGS
+% --------------------------------------------------------------------
+
+% Make sure that TikZ cache files are named properly
+\newcommand{\inputtikz}[1]{%
+  \tikzsetnextfilename{#1}%
+  \input{#1}%
+}

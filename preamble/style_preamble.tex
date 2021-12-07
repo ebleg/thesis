@@ -1,0 +1,64 @@
+% --------------------------------------------------------------------
+%% PACKAGES
+% --------------------------------------------------------------------
+
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+%\tcbuselibrary{skins}
+
+% --------------------------------------------------------------------
+%% ACCENT COLORS
+% --------------------------------------------------------------------
+
+\definecolor{accent1}{RGB}{61,152,222}
+\definecolor{accent2}{RGB}{216,74,59}
+\definecolor{accent3}{RGB}{46,204,113}
+\definecolor{accent4}{RGB}{241,196,15}
+% \definecolor{gray_custom}{}{}
+
+% --------------------------------------------------------------------
+%% TUD COLORS
+% --------------------------------------------------------------------
+
+\definecolor{tudCyan}{RGB}{61,152,222}
+\definecolor{tudBlack}{RGB}{0,0,0}
+\definecolor{tudWhite}{RGB}{255,255,255}
+
+\definecolor{tudSeaGreen}{RGB}{111,189,165}
+\definecolor{tudGreen}{RGB}{39,131,142}
+\definecolor{tudDarkBlue}{RGB}{34,70,122}
+\definecolor{tudPurple}{RGB}{36,46,131}
+\definecolor{tudTurquoise}{RGB}{50,154,179}
+\definecolor{tudSkyBlue}{RGB}{130,187,206}
+
+\definecolor{tudLavender}{RGB}{121,150,180}
+\definecolor{tudOrange}{RGB}{216,130,62}
+\definecolor{tudWarmPurple}{RGB}{110,50,122}
+\definecolor{tudFuchsia}{RGB}{178,72,146}
+\definecolor{tudBrightGreen}{RGB}{183,200,34}
+\definecolor{tudYellow}{RGB}{247,234,151}
+
+\definecolor{customBlockColor}{RGB}{200,228,250}
+\definecolor{customAlertColor}{RGB}{31,112,173}
+
+% --------------------------------------------------------------------
+%% TCOLORBLOCKS ENVIRONMENT
+% --------------------------------------------------------------------
+
+%\tcbset{skin=enhanced}
+\newenvironment{block}[1]{%
+    \tcolorbox[colback=accent1!20!,colframe=accent1,%
+    title=\textsf{#1}, breakable]}%
+    {\endtcolorbox}
+
+\newenvironment{econ}[1]{%
+    \tcolorbox[colback=accent3!20!,colframe=accent3,%
+    title=\textsf{#1}, breakable]}%
+    {\endtcolorbox}
+
+\newenvironment{thmblock}[1]{%
+    \tcolorbox[colback=accent2!20!,colframe=accent2,%
+    title=\textsf{#1}]}%
+    {\endtcolorbox}

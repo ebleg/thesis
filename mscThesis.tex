@@ -1,7 +1,18 @@
+%
+%        ████████ ██   ██ ███████ ███████ ██ ███████ 
+%           ██    ██   ██ ██      ██      ██ ██      
+%           ██    ███████ █████   ███████ ██ ███████ 
+%           ██    ██   ██ ██           ██ ██      ██ 
+%           ██    ██   ██ ███████ ███████ ██ ███████ 
+%
+
 \documentclass{mscThesis}
 % replace the previous line with the next to include a signature page
 % use the option 'nosignatures' to turn off the signatures page
+\usepackage{emielthesis}
 
+%\mscFaculty{Mechanical, Maritime and Materials Engineering (3mE)}
+\mscFaculty{Mechanical, Maritime and Materials Engineering}
 \mscDepartment{Delft Center for Systems and Control (\textsmaller{DCSC})}%
 \mscProgram{Systems and Control}
 
@@ -30,6 +41,9 @@
 %\includeonly{introduction, real_chapter, empty_chapter, long_chapter}%
 
 \lstset{lineskip=0pt plus 1pt minus 0pt} %%
+
+% Externalize tikz
+\tikzexternalize[prefix=media/cache/]
 
 \begin{document}
 
@@ -61,7 +75,7 @@
 \backmatter
 
 %\bibliographystyle{ieeetr}      % This style puts references in order of appearance
-\bibliographystyle{plain}      % This style puts references in alphabetic order
+%\bibliographystyle{plain}      % This style puts references in alphabetic order
 \printbib{library}
 
 \include{backmatter/glossary}

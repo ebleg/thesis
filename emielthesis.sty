@@ -1,0 +1,58 @@
+%
+% ██████  ██████  ███████  █████  ███    ███ ██████  ██      ███████ 
+% ██   ██ ██   ██ ██      ██   ██ ████  ████ ██   ██ ██      ██      
+% ██████  ██████  █████   ███████ ██ ████ ██ ██████  ██      █████   
+% ██      ██   ██ ██      ██   ██ ██  ██  ██ ██   ██ ██      ██      
+% ██      ██   ██ ███████ ██   ██ ██      ██ ██████  ███████ ███████ 
+%
+%                                                                   
+
+\ProvidesPackage{emielthesis}
+                                                                   
+% --------------------------------------------------------------------
+%% ESSENTIAL PACKAGES
+% --------------------------------------------------------------------
+
+% References
+\usepackage[square,numbers]{natbib}
+%\usepackage{ieeetran}
+\usepackage{cleveref}
+%\usepackage{cite}
+
+% Font shapes
+%\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+%\usepackage{anyfontsize}
+%\usepackage{lmodern}
+
+% Figures
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+% Misc
+\usepackage{lipsum}
+
+
+% --------------------------------------------------------------------
+%% SETTINGS
+% --------------------------------------------------------------------
+
+% Citations
+\bibliographystyle{IEEEtranN}
+%\bibliographystyle{IEEEtran}
+
+\newcommand{\towrite}[1]{{\centering (\texttt{... #1 ...})}}
+
+\makeindex
+\makenomenclature
+
+% --------------------------------------------------------------------
+%% OTHER PREAMBLES
+% --------------------------------------------------------------------
+
+\input{preamble/math_preamble}
+\input{preamble/style_preamble}
+\input{preamble/tikz_preamble}
