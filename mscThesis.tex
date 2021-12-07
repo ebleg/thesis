@@ -1,0 +1,72 @@
+\documentclass{mscThesis}
+% replace the previous line with the next to include a signature page
+% use the option 'nosignatures' to turn off the signatures page
+
+\mscDepartment{Delft Center for Systems and Control (\textsmaller{DCSC})}%
+\mscProgram{Systems and Control}
+
+\mscName{E. B. Legrand}%
+\mscDate{\today}%
+\mscTitle{Thesis Title}%
+\mscSubTitle{Optional Subtitle}%
+\mscKeyWords{thesis, msc, subject}% only used in PDF properties
+%\mscCoverPicture{media/template/COVER}% to place a picture ( here the example COVER.eps) on the cover page. Comment out if no picture is to be used
+
+\mscThirdPartyText{The work in this thesis was supported by Aquaduct Swimming Supplies Incorporated. Their cooperation is hereby gratefully acknowledged.}
+\mscThirdPartyLogo{media/template/EXAMPLELOGO}
+
+\mscSupervisorOne{prof.em.dr.ir.~M.~Mendel}
+%\mscSupervisorTwo{Dr.ir.~M.Y.~Second Super}
+%\mscSupervisorThree{}
+\mscReaderOne{prof.dr.ir.~M.Y.~First Reader}
+\mscReaderTwo{dr.ir.~F.S.T.~Reader-two}
+\mscReaderThree{ir.~Th.~Reader-three}
+%\mscReaderFour{}
+
+% Finalize the thesis data
+\setThesisInfo
+
+% Use \includeonly{} to build only certain parts of your thesis
+%\includeonly{introduction, real_chapter, empty_chapter, long_chapter}%
+
+\lstset{lineskip=0pt plus 1pt minus 0pt} %%
+
+\begin{document}
+
+%========================== Front matter ======================================
+
+\frontmatter %
+\maketitle
+
+\include{formalities/abstract}
+\tocloflot
+\include{formalities/preface}
+\include{formalities/acknowledgements}
+\include{formalities/dedication}
+
+%========================== Main matter ======================================
+
+\mainmatter
+
+\include{main/introduction}
+
+%========================== Appendices =======================================
+
+\appendix
+%\include{backmatter/app_back}
+%\include{backmatter/app_another}
+
+%========================== Back matter ======================================
+
+\backmatter
+
+%\bibliographystyle{ieeetr}      % This style puts references in order of appearance
+\bibliographystyle{plain}      % This style puts references in alphabetic order
+\printbib{MyBib}
+
+\include{glossary}
+
+\cleardoublepage
+\printindex
+
+\end{document}
