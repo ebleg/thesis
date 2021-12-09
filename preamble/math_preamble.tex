@@ -16,19 +16,25 @@
 \usepackage{dutchcal}
 \usepackage{MnSymbol}
 \usepackage{romanbar}
+\usepackage[sfdefault=cmbr,OMLmathsans]{isomath}  % Math alphabets for tensors and vectors
 \usepackage{nth}
 
 % --------------------------------------------------------------------------------
 %% MATH ALPHABET MACROS
 % --------------------------------------------------------------------------------
 
-\DeclareSymbolFont{tensors}{OML}{cmbrm}{b}{it}
-\DeclareSymbolFontAlphabet{\mathtens}{tensors}
+% Replace upper case Greek fonts with their italicized variant, 
+% put them in up[letter] macro's instead
+\let\epsilon\varepsilon
+
+%\DeclareSymbolFont{tensors}{OML}{cmbrm}{b}{it}
+%\DeclareSymbolFontAlphabet{\mathtens}{tensors}
 
 % Vectors, Tensors, Matrices
 % Vector notation: bold italic
-\renewcommand{\vec}[1]{\vb*{#1}}
-\newcommand{\tens}[1]{\ensuremath{\mathtens{#1}}}
+\renewcommand{\vec}[1]{\ensuremath{\mathbold{#1}}}
+\newcommand{\tens}[1]{\ensuremath{\mathboldsans{#1}}}
+% additionally, there is the \mathsans font which is not used currently
 
 % --------------------------------------------------------------------------------
 % MATH CONSTANT MACROS
@@ -108,6 +114,9 @@
 \newcommand{\tran}[1]{\ensuremath{#1^{\top}}}
 
 \newcommand{\largefrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
+\newcommand{\christ}{\ensuremath{\mathrm{\Gamma}}}
+\renewcommand{\var}{\ensuremath{\delta}}
 
 \DeclareMathOperator{\sgn}{sgn}
 
