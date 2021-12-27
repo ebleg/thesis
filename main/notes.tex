@@ -1,3 +1,59 @@
 \chapter{Notes}
 
-\section{Mathematical Investigations in the Theory of Value and Prices \cite{Fisher}}
+\section{Mathematical Investigations in the Theory of Value and Prices}
+\subsection*{Utility as a quantity}
+The total utility of a given quantity of a commodity at a given time and for a given individual is the integral of the marginal utility times the differential of that commodity:
+$$ \text{ut. of }(x) = \int^x_0 \dv{U}{x}\dd{x} $$
+The \emph{gain} or consumer's rent is total utility minus utility value
+$$ \text{gain} = \underbrace{\int^x_0 \dv{U}{x}\dd{x}}_{\text{total utility}} - \underbrace{x\,\dv{U}{x}}_{\text{utility value}} $$
+The latter clearly is a Legendre transform.
+\begin{table}[h]
+    \centering
+    \caption{Mechanical analogies as proposed by \citet{Fisher1892}.}
+    \begin{tabular}{ll}
+    \toprule
+        \textbf{Mechanics} &  \textbf{Economics}\\
+    \midrule
+         Particle & Individual \\
+         Space & Commodity \\
+         Force & Marginal utility \\
+         Work & Disutility \\
+         Energy & Utility \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection*{The `hydraulic' Fisher market}
+Fisher considers a market with $n$ individuals and $m$ commodities. The commodity quantities are denoted by $A, B, C \ldots$\footnote{Fisher mentions that these quantities are tacitly assumed to be on a yearly basis; in the economic engineering framework, they are $\gvel$'s instead of $\gpos$'s.}, while the individuals are numbered from 1 to $m$. The market is subject to a few conditions:
+\begin{itemize}
+    \item For each of the commodities, there is a total endowment that fixes the total amount of that commodity in the market:
+    \begin{equation*}
+            \sum_{i = 1}^{n} A_i = K_a
+            \quad \sum_{i = 1}^{n} B_i = K_b
+            \quad \ldots \quad \sum_{i = 1}^{n} M_i = K_m
+    \end{equation*}
+    \item The total income of any individual is a given as well:
+    \begin{equation*}
+        \begin{split}
+            A_1\,p_a + B_1\,p_b + \ldots + M_1\,p_m &= K_1 \\
+            A_2\,p_a + B_2\,p_b + \ldots + M_2\,p_m &= K_2 \\
+            \vdots&\\
+            A_n\,p_a + B_n\,p_b + \ldots + M_2\,p_m &= K_2 \\
+        \end{split}
+    \end{equation*}
+    \item Furthermore, the marginal utility associated with the quantity of goods consumed is determined by a certain function that is represented by the the `cistern shape':
+    \begin{equation*}
+        \dv{U}{A_i} = F(A_i) \quad \dv{U}{B_i} = F(B_i) \quad 
+        \ldots \quad
+        \dv{U}{M_i} = F(M_i)
+    \end{equation*}
+    In this case, the cistern shape depends both on the consumer and the commodity, so $F$ is different for all of them; Fisher's notation is somewhat confusing at times. Also, if $U$ is a function that encompasses all consumers and commodities, this derivative should be a partial derivative. 
+    \item Finally, there is the \emph{principle of proportion}, which states that the marginal utility of an individual is equal to the product of the marginal utility of money itself with the 'exchange ratio for money and that commodity'; that is, the infinitesimal utility of the product and the exchanged money must be the same every time:
+    $$ \underbrace{\dv{U}{A}\dd{A}}_{\text{inf. utility of the product}} = \underbrace{\dv{U}{m}\dd{m}}_{\text{inf. utility of the money}} $$
+    Hence,
+    $$ \dv{U}{A} = \dv{U}{m} \, \dv{m}{A} =  \dv{U}{m}\,p_a,$$
+    which basically means that the marginal utility of a product is related to the prices through the personal utility of money of that particular consumer. However, there are two important observations to make here. Firstly, the utility of money is a parameter that is associated with an individual, but it is equal for all the commodities. In contrast, the price of a commodity is the same for all individuals. As such, one can say that 
+    $$ p_a \, : \, p_b \, : \, \ldots\,: \,p_m  = \dv{U}{A} \, : \, \dv{U}{B} \, : \ldots \, : \dv{U}{M}$$
+    
+    
+\end{itemize}
