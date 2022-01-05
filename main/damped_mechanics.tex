@@ -1,2 +1,60 @@
 \chapter{Dissipative Classical Mechanics}
 \section{The Bateman approach}
+The approach used by \citet{Bateman1931} starts from a simple linear scalar second-order differential equation:
+$$ \ddot{x} + 2c\dot{x} + kx = 0.$$
+This equation can be written as the solution of a variational expression like so:
+$$ \var \int \underbrace{y(\ddot{x} + c\dot{x} + kx )}_{\lag} \dd{t} = 0; $$
+where the Lagrangian is the argument of the time integral. To account for the presence of $\ddot{x}$, Euler-Lagrange equation can be readily extended to higher derivatives. The most general expression is, for $p$ functions of $m$ independent variables up to the $n$th derivative: 
+$$ \pdv{\lag}{q_i} 
+   + \sum^n_{j=1} \sum_{\mu_1\leq\ldots\leq\mu_j} (-1)^j \frac{\partial^j}{\partial t_{\mu_1} \ldots \partial t_{\mu_j}} \qty(\pdv{\lag}{q_{\mu_1\ldots\mu_j}})= 0, $$ 
+where $i = 1, \ldots p$ and $\mu_j = 1,\ldots,m$.
+In this case however, there is only one independent variable, $m = 1$, and the highest derivative taken into account is $n = 2$. The variational problem then yields two equations: the original differential equation and a complementary equation in $y$:
+
+$$ \ddot{x} + 2c\dot{x} + kx = 0 \qquad \ddot{y} - 2c\dot{y} + ky = 0 $$
+However, the presence of the second derivative in the Lagrangian is altoghether undesirable, so one can effect the substitution
+$$ \ddot{x}y\dd{t} = \dd{(\dot{x}y)} - \dot{x}\dot{y}\dd{t}.$$
+Because the solution of the Euler-Lagrange equation is independent from total differentials added to the Lagrangian, the first term can be neglected. As such, the Lagrangian becomes:
+$$ \lag = -\dot{x}\dot{y} + 2cy\dot{x} + kyx. $$
+
+\subsection{Towards the bicomplex Hamiltonian}
+From the two resulting differential equations, it is clear that $x$ and $y$ represent the state evolution in opposite directions of time (in case they are initialized properly); because first (odd) derivative carries the minus sign (that is canceled in the second derivative; which is invariant with respect to a time reversal). This symmetry may become more apparent from the Lagrangian by using integration by parts a second time, i.e.  
+$$ \dd{(xy)} = \dot{x}y\dd{t} + \dot{y}x\dd{t}, $$
+such that
+$$ \lag = -\dot{x}\dot{y} + c\qty(y\dot{x} + \dd{(xy)} - \dot{y}x) + kyx, $$
+where the total differential may again be neglected. This the negative of the Lagrangian considered by \citet{Dekker1981}; the latter is assumed in further calculations (of course, multiplying the Lagrangian by -1 does not alter the solutions of the variational problem). Using this Lagrangian, the two two conjugate momenta are, by definition:
+$$ p_x \triangleq \pdv{\lag}{\dot{x}} = \dot{y} - cy\qquad p_y \triangleq \pdv{\lag}{\dot{y}} = \dot{x} + cx.$$
+A Legendre transform then leads to the associated Hamiltonian
+$$\ham = p_x \dot{x} + p_y \dot{y} - \lag = p_xp_y - c(xp_x - yp_y) + (k - c^2)xy.$$
+This expression already reflects the structure of the bicomplex Hamiltonian proposed by \citet{Hutters2020}. However, it still contains the states of both the system and the antisystem, i.e. $x$, $y$, $p_y$, $p_x$. As shown by \citet{Bopp1974}, a complexification of the states allows to rewrite the above Hamiltonian into two separate components corresponding to the system and the antisystem.
+%\todo{transformation from Bateman to the complexified Bopp state}
+
+\textbf{TODO} write complex transformation from Bateman to Bopp
+
+\subsubsection{Complex state}
+Now consider the complexified state:
+$$ z = \frac{1}{\sqrt{2\omega_d}} \qty(p + (\lambda - \ii\omega_d)q) $$
+with $\omega_d = \sqrt{\omega - \lambda^2}$. The Bopp Hamiltonian then reads
+\begin{equation} 
+    \begin{split}
+    \ham_\text{Bopp} = & (\omega_d - \ii\lambda)z\conj{z} \\
+                     = & \frac{1}{2}\qty(1 - \ii\frac{\lambda}{\omega_d})\qty((p + \lambda q)^2 + \omega_d^2q^2)\\
+                     = & \frac{1}{2}\qty(1 - \ii\frac{\lambda}{\omega_d})\qty(p + 2\lambda pq + \lambda^2q^2 + \omega_d^2q^2)\\
+                     = & \frac{1}{2}\qty(1 - \ii\frac{\lambda}{\omega_d})\qty(p + 2\lambda pq + \omega^2q^2)
+    \end{split}
+\end{equation}
+Then, choosing a new state $a = \frac{1}{\sqrt{2\omega}}(\omega q + \ii p)$ such that 
+$$ \omega a \conj{a} = \frac{1}{2}\qty(p^2 + \omega^2q^2) $$
+one can substitute
+\begin{equation}
+    \ham_\text{Bopp} = \qty(1 - \ii\frac{\lambda}{\omega_d})\qty(\omega a \conj{a} + \lambda pq)
+\end{equation}
+Additionally,
+$$
+    a^2 = \frac{1}{2\omega}(\omega^2 q^2 - p^2 + 2\ii\omega p q )
+$$
+such that $ a^2 - \conj{a}^2 = 2\ii p q$, which can also be substituted in the Hamiltonian expression:
+\begin{equation}
+    \ham_\text{Bopp} = \qty(1 - \ii\frac{\lambda}{\omega_d})\qty(\omega a \conj{a} + \ii \frac{\lambda}{2} \qty(a^2 - \conj{a}^2) )
+\end{equation}
+
+
