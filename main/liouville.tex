@@ -1,0 +1,40 @@
+\chapter{The Liouville theorem}
+
+\section{Harmonic oscillator}
+Although the Liouville theorem is usually expressed directly in terms of Poisson brackets (which, in turn, have a trivial form if expressed in Darboux coordinates), a slightly more insightful approach will be taken here. More specifically, instead of applying the Poisson brackts directly, they are formulated like so:
+$$ \poisson{f}{g} = X_g(f) $$
+where $X_g$ is the Hamiltonian vector field associated to $g$. The defintion of Poisson brackets in terms of Hamiltonian vector fields makes it easy to draw connection between fluid mechanics and the classical mechanics.
+
+For the simple, undamped harmonic oscillator, the configuration manifold $M$ is simply $\real$. As such, the cotangent bundle $T^*M = \real^2$. The Hamiltonian, being a smooth function on $T^*M$, is simply a 0-form given in Darboux coordinates $(q, p)$ by:
+\begin{equation}
+    \ham:\quad T^*M \to \real:\quad \ham(q, p) = \frac{m}{2}p^2 + \frac{k}{2}q^2.
+\end{equation}
+To apply Liouville's theorem, the Hamiltonian vector field $X_\ham$ associated with $\ham$ must be found. By definition, one can do this by virtue of the natural isomorphism induced by the symplectic 2-form:
+$$ \dd{\ham}(\cdot) = \omega^2(X_{\ham}, \cdot), $$
+this isomorphism is sometimes called $\raiseIndex{\omega}$, or the `musical isomorphism' \cite{Abraham1978}. When applied as a simple transformation from $\real^{2n} \to \real^{2n}$, this isomorphism can be identified with the transformation matrix \cite{Arnold1989}
+$$ \bmqty{0_n & -I_n \\ I_n & 0_n}. $$
+The differential 1-form $\dd{\ham}$ is
+$$ \dd{\ham} = kq\dd{q} + \frac{p}{m}\dd{p}, $$ 
+such that the Hamiltonian vector field becomes (in the chart-induced basis)
+$$ X_{\ham} = kq\pdv{}{p} - \frac{p}{m}\pdv{}{q}. $$
+Having found the Hamiltonian vector field, Liouville's theorem can be applied to to an arbitrary distribution $\rho$ over the phase space:
+\begin{equation}
+    \pdv{\rho}{t} = -\poisson{H}{\rho} = \poisson{\rho}{H} = X_H(\rho) = kq\pdv{\rho}{p} - \frac{p}{m}\pdv{\rho}{q}.
+    \label{eq:pde_ho}
+\end{equation}
+This is a simple transport equation without diffusion; hence, the initial probability distribution will simply `drift' along the streamlines of the Hamiltonian flow. The transport equation may be solved using the method of characteristics.
+
+\paragraph{The method of characteristics}
+\Cref{eq:pde_ho} is part of a larger class of linear first-order PDE's of the form\footnote{If the functions $a$ and $c$ depend on $\rho$, the equation is called \emph{semilinear}. This is, however, never the case for a PDE arising from the Liouville equation.} \cite[p. 207]{Farlow1989}.
+\begin{equation}
+    \sum_{i=1}^n a_i(x_1, \ldots, x_n, \rho) \pdv{\rho}{x_i} = c(x_1, \ldots, x_n, \rho),
+\end{equation}
+which are traditionally solved using the \emph{method of characteristics}. This method attempts to find characteristic lines along which the solution is constant, as to convert the PDE problem into an ODE problem. More specifically, one whishes to find a parameterization of $x_i$ and $u$ such that:
+\begin{equation}
+    \begin{split}
+        \dv{x_i}{s} &= a_i\\
+        \dv{\rho}{s} &= c.
+    \end{split}
+\end{equation}
+Given this parameterization, the PDE can be easily rewritten as follows: \cite{Farlow1989}
+$$ \dv{\rho}{s} = \sum_{i = 1}^n \pdv{\rho}{x_i}\dv{x_i}{s} $$
