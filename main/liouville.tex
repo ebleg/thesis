@@ -5,16 +5,16 @@ Although the Liouville theorem is usually expressed directly in terms of Poisson
 $$ \poisson{f}{g} = X_g(f) $$
 where $X_g$ is the Hamiltonian vector field associated to $g$. The defintion of Poisson brackets in terms of Hamiltonian vector fields makes it easy to draw connection between fluid mechanics and the classical mechanics.
 
-For the simple, undamped harmonic oscillator, the configuration manifold $M$ is simply $\real$. As such, the cotangent bundle $T^*M = \real^2$. The Hamiltonian, being a smooth function on $T^*M$, is simply a 0-form given in Darboux coordinates $(q, p)$ by:
+For the simple, undamped harmonic oscillator, the configuration manifold $M$ is simply $\real$. As such, the cotangent bundle $T^*M = \real^2$. The Hamiltonian, being a smooth function on $T^*M$, is simply a 0-form given in Darboux coordinates $(p, q)$ by:
 \begin{equation}
-    \ham:\quad T^*M \to \real:\quad \ham(q, p) = \frac{m}{2}p^2 + \frac{k}{2}q^2.
+    \ham:\quad T^*M \to \real:\quad \ham(p, q) = \frac{m}{2}p^2 + \frac{k}{2}q^2.
 \end{equation}
 To apply Liouville's theorem, the Hamiltonian vector field $X_\ham$ associated with $\ham$ must be found. By definition, one can do this by virtue of the natural isomorphism induced by the symplectic 2-form:
 $$ \dd{\ham}(\cdot) = \omega^2(X_{\ham}, \cdot), $$
 this isomorphism is sometimes called $\raiseIndex{\omega}$, or the `musical isomorphism' \cite{Abraham1978}. When applied as a simple transformation from $\real^{2n} \to \real^{2n}$, this isomorphism can be identified with the transformation matrix \cite{Arnold1989}
-$$ \bmqty{0_n & -I_n \\ I_n & 0_n}. $$
+$$ \mqty(0_n & -I_n \\ I_n & 0_n). $$
 The differential 1-form $\dd{\ham}$ is
-$$ \dd{\ham} = kq\dd{q} + \frac{p}{m}\dd{p}, $$ 
+$$ \dd{\ham} = \frac{p}{m}\dd{p} + kq\dd{q}, $$ 
 such that the Hamiltonian vector field becomes (in the chart-induced basis)
 $$ X_{\ham} = kq\pdv{}{p} - \frac{p}{m}\pdv{}{q}. $$
 Having found the Hamiltonian vector field, Liouville's theorem can be applied to to an arbitrary distribution $\rho$ over the phase space:
@@ -22,19 +22,58 @@ Having found the Hamiltonian vector field, Liouville's theorem can be applied to
     \pdv{\rho}{t} = -\poisson{H}{\rho} = \poisson{\rho}{H} = X_H(\rho) = kq\pdv{\rho}{p} - \frac{p}{m}\pdv{\rho}{q}.
     \label{eq:pde_ho}
 \end{equation}
-This is a simple transport equation without diffusion; hence, the initial probability distribution will simply `drift' along the streamlines of the Hamiltonian flow. The transport equation may be solved using the method of characteristics.
+This is a simple transport equation without diffusion; hence, the initial probability distribution will simply `drift' along the streamlines of the Hamiltonian flow. As such, this problem is analogous to a flow that is purely characterized by convection. The convection equation may be readily solved using the method of characteristics.
 
-\paragraph{The method of characteristics}
-\Cref{eq:pde_ho} is part of a larger class of linear first-order PDE's of the form\footnote{If the functions $a$ and $c$ depend on $\rho$, the equation is called \emph{semilinear}. This is, however, never the case for a PDE arising from the Liouville equation.} \cite[p. 207]{Farlow1989}.
-\begin{equation}
-    \sum_{i=1}^n a_i(x_1, \ldots, x_n, \rho) \pdv{\rho}{x_i} = c(x_1, \ldots, x_n, \rho),
-\end{equation}
-which are traditionally solved using the \emph{method of characteristics}. This method attempts to find characteristic lines along which the solution is constant, as to convert the PDE problem into an ODE problem. More specifically, one whishes to find a parameterization of $x_i$ and $u$ such that:
+\begin{aside}{The method of characteristics}
+    \Cref{eq:pde_ho} is part of a larger class of linear first-order PDE's of the form\footnote{If the functions $a$ and $c$ depend on $\rho$, the equation is called \emph{semilinear}. This is, however, never the case for a PDE arising from the Liouville equation.} \cite[p. 207]{Farlow1989}.
+    \begin{equation}
+        \sum_{i=1}^n a_i(x_1, \ldots, x_n, \rho) \pdv{\rho}{x_i} = c(x_1, \ldots, x_n, \rho),
+    \end{equation}
+    which are traditionally solved using the \emph{method of characteristics}. This method attempts to find characteristic lines along which the solution is constant, as to convert the PDE problem into an ODE problem. More specifically, one whishes to find a parameterization of $x_i$ and $\rho$ such that:
+    \begin{equation}
+        \begin{split}
+            \dv{x_i}{s} &= a_i\\
+            \dv{\rho}{s} &= c.
+        \end{split}
+    \end{equation}
+    Given this parameterization, the PDE can be easily rewritten as follows: \cite{Farlow1989}
+    $$ \dv{\rho}{s} = \sum_{i = 1}^n \pdv{\rho}{x_i}\dv{x_i}{s}. $$
+    The solution of the ODE problem then produces the trajectories for the characteristics. The reparameterization in terms of $s$ must be accompagnied by another reparameterization of the initial conditions in terms of the variable(s) $r_i$; essentially, $s$ provides the parameterization along the characteristic curves while $r_i$ is the parameterization of the initial curves. The expressions for $r_i$ are found by asserting that $x_i(0) = r_i$, and then solving for the integration constants that are still present in the found ODE solutions. Then, finally, one solves the ODE in terms of the characteristic parameterization $\qty(s, r_1, \ldots, r_n)$
+    $$ \dv{\rho}{s} + c\qty(x_1(s, r), \ldots, x_n(s, r))\rho = 0, $$
+    after which that solution can be written in terms of the old coordinates to obtain the solution of the PDE.
+
+\end{aside}
+As it turns out, the method of characteristics takes a particularly simple form for the harmonic oscillator (and Hamiltonian systems in general). The reparameterization in terms of $s$ is
 \begin{equation}
     \begin{split}
-        \dv{x_i}{s} &= a_i\\
-        \dv{\rho}{s} &= c.
+        \dv{p}{s} &= kq \\
+        \dv{q}{s} &= -\frac{p}{m}\\
+        \dv{t}{s} &= -1.
     \end{split}
 \end{equation}
-Given this parameterization, the PDE can be easily rewritten as follows: \cite{Farlow1989}
-$$ \dv{\rho}{s} = \sum_{i = 1}^n \pdv{\rho}{x_i}\dv{x_i}{s} $$
+which immediately yields $t = -s + c_1$ (with the immediate choice that $c_1$ be zero), and the former two equations simply resort to a time-reversed solution of the Hamiltonian problem in terms of $p$ and $q$. Hence, solving the ODE to obtain the characteristic lines is, rather unsurprisingly, equivalent to finding the phase trajectories. For the harmonic oscillator, these trajectories are
+\begin{equation}
+    \begin{split}
+        p(s) &= c_3\cos(\omega s) + m\omega c_1 \sin(\omega s). \\
+        q(s) &= c_2\cos(\omega s) - \frac{c_3}{m\omega}\sin(\omega s)\\
+    \end{split}
+\end{equation}
+Solving for $q(0) = r_1$ and $p(0) = r_2$, yields $r_1 = c_2$ and $r_2 = c_3$. Now, because the `forcing term' $c(\cdot)$ is not present in the Liouville equation (for autonomous systems), the solution of the second ODE is trivial:
+$$ \rho(s) = \rho_0(r_1, \ldots, r_2), $$
+where $\rho_0$ is the initial distribution. It is an encouraging observation that the method of characteristics is easily extended towards non-autonomous systems, leaving the possibility for control action or external disturbances, which may well be of a stochastic nature themselves.
+
+The solution to the Liouville equation is found by writing the initial distribution in terms of $p$, $q$ and $t$. Since $q$ and $p$ depend linearly on $r_1$ and $r_2$, this is a matter of taking the inverse of the associated matrix.
+$$ \mqty(p\\q) = 
+    \mqty( \cos(\omega s) & m\omega \sin(\omega s) \\\  -\frac{1}{m\omega}\sin(\omega s) & cos(\omega s) )\mqty(r_1\\r_2).  $$
+This transformation matrix represents a symplectic transformation of the phase plane; symplectic matrices have a unit determinant\footnote{Due to the equivalence of $\spgroup{2}{\real}$ and $\slgroup{2, \real}$, having a unit determinant is a necessary and sufficient condition for a $2\times2$ matrix to be symplectic; this condition is only necessary for higher dimensional vector spaces \cite{Arnold1989}.}. Inversion and resubstitution of $t$ then yields:
+$$ \mqty(r_1\\r_2) = \underbrace{\mqty( \cos(\omega t) & m\omega \sin(\omega t) \\\  -\frac{1}{m\omega}\sin(\omega t) & cos(\omega t) )}_{\Phi(t)}\mqty(p\\q).$$
+
+\paragraph{Initial Gaussian distribution} The solution of the Liouville equation to any initial distribution is simply found by substituting the $(p,q)$ dependence with transformation stated above. For example, an initial bivariate Gaussian distribution centered at some initial point $(p_0, q_0)$ with covariance matrix $\Sigma$ subject to the linear transformation $\Phi(t)$ yields again a Gaussian: \cite{Schon2011}
+$$ \mqty(p(t)\\q(t)) \quad \sim \quad \gaussian{R(t)\mqty(p_0\\q_0)}{R^\top(t)\Sigma R(t)}. $$
+This result is, after all, not quite a surprise: the Gaussian distribution is transported by the convective stream of the phase space fluid; the mean drifts along its original phase space trajectory as if it where a single particle. The variance changes continuously by the similarity transform given by $R$. Interestingly, because $R$ has a unit determinant, it does not influence the determinant of the transported distribution; as such, the \emph{entropy} of the Gaussian remains constant throughout, and equal to its initial value
+$$ \frac{1}{2}\log(\det(2\pic\ec\sigma)). $$
+
+\paragraph{Averages in time and space}
+The motion of the harmonic oscillator is periodic.
+
+\section{Damped harmonic oscillator}
