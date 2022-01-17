@@ -14,7 +14,7 @@
 \usepackage{xfrac}
 \usepackage{nomencl}
 \usepackage{dutchcal}
-%\usepackage{MnSymbol}
+\usepackage{MnSymbol}
 \usepackage{romanbar}
 \usepackage[sfdefault=cmbr,OMLmathsans]{isomath}  % Math alphabets for tensors and vectors
 \usepackage{nth}
@@ -51,10 +51,6 @@
 % NUMBER SET & SPACE MACROS
 % --------------------------------------------------------------------------------
 
-\newcommand{\han}{\ensuremath{\zeta}\xspace} % Hyperbolic angle
-\newcommand{\hanv}{\ensuremath{\delta}\xspace} % Hyperbolic angular velocity
-\newcommand{\amnt}{\ensuremath{A}\xspace} % Amount function
-\newcommand{\ininv}{\ensuremath{K}\xspace} % Initial investment; arm
 \renewcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\field}{\ensuremath{\mathbb{F}}\xspace}
 
@@ -63,13 +59,13 @@
 \newcommand{\complex}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand{\integer}{\ensuremath{\mathbb{Z}}\xspace}
 \newcommand{\sphere}[1]{\ensuremath{\mathbb{S}^{#1}}\xspace}
-
+\newcommand{\torus}[1]{\ensuremath{\mathbb{T}^{#1}}\xspace}
 
 % --------------------------------------------------------------------------------
 % ANALYTICAL MECHANICS 
 % --------------------------------------------------------------------------------
 
-\newcommand{\lag}{\ensuremath{\mathscr{L}}}
+\newcommand{\lag}{\ensuremath{L}}
 %\newcommand{\ham}{\ensuremath{\mathscr{H}}}
 \newcommand{\ham}{\ensuremath{H}}
 
@@ -80,7 +76,6 @@
 \newcommand{\gpos}{\ensuremath{\vec{q}}\xspace}
 \newcommand{\gvel}{\ensuremath{\dot{\vec{q}}}\xspace}
 \newcommand{\gmom}{\ensuremath{\vec{p}}\xspace}
-
 
 % --------------------------------------------------------------------------------
 % GROUP MACROS
@@ -106,6 +101,8 @@
 \newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}}
 \newcommand{\inner}[2]{\ensuremath{\langle #1,\, #2\rangle}}
 \newcommand{\wedgep}[2]{\ensuremath{ #1\,\wedge\,#2 }}
+\newcommand{\lied}[2]{\ensuremath{\mathscr{L}_{#1}#2}}
+\newcommand{\intpr}[2]{\ensuremath{#1\!\righthalfcup#2}}
 
 \newcommand{\corresponds}{\ensuremath{\quad \leftrightsquigarrow \quad}}
 \newcommand{\conj}[1]{\ensuremath{\bar{#1}}}

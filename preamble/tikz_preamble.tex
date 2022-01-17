@@ -12,7 +12,11 @@
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{external}
 \pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
-\pgfplotsset{compat=newest} 
+\pgfplotsset{compat=newest}
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+\pgfplotsset{%
+    colormap={accentmap}{color=(accent1) color=(accent3) color=(accent4)}%
+}%    
 
 % --------------------------------------------------------------------
 %% SETTINGS
