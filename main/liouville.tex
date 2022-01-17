@@ -20,7 +20,7 @@ For the undamped harmonic oscillator, the configuration manifold $M$ is simply $
 \end{equation}
 To apply Liouville's theorem, the Hamiltonian vector field $X_\ham$ associated with $\ham$ must be found. By definition, one can do this by virtue of the canonical isomorphism induced by the symplectic 2-form:
 $$ \dd{\ham}(\cdot) = \omega(X_{\ham}, \cdot), $$
-this isomorphism is sometimes denoted by $\raiseIndex{\omega}$, colloquially called the `musical isomorphism'. In terms of the interior product, this pairing takes the form \cite{Abraham1978}
+this isomorphism is sometimes denoted by $\raiseIndex{\omega}$, colloquially called the `musical isomorphism'. In terms of the interior product, this pairing takes the form \cite{Osborne2017,Abraham1978}
 \begin{equation} 
     \intpr{X_H}{\omega} = \dd{H}.
     \label{eq:canonical_isomorphism}
@@ -85,22 +85,30 @@ As it turns out, the method of characteristics takes a particularly simple form 
 which immediately yields $t = s + c_1$ (choose $c_1 = 0$ without loss of generalization), and the former two equations simply resort to a time-reversed solution of the Hamiltonian problem in terms of $p$ and $q$. Solving the ODE to obtain the characteristic lines is therefore, rather unsurprisingly, equivalent to finding the phase trajectories of the Hamiltonian system. For the harmonic oscillator, these trajectories are
 \begin{equation}
     \begin{split}
-        p(t) &= c_3\cos(\omega t) + m\omega c_1 \sin(\omega t). \\
-        q(t) &= c_2\cos(\omega t) - \frac{c_3}{m\omega}\sin(\omega t)\\
+        q(t) &= c_2\cos(\omega t) + \frac{c_3}{m\omega}\sin(\omega t)\\
+        p(t) &= c_3\cos(\omega t) - m\omega c_1 \sin(\omega t). \\
     \end{split}
 \end{equation}
 Solving for $q(0) = r_1$ and $p(0) = r_2$, yields $r_1 = c_2$ and $r_2 = c_3$. Now, because the `forcing term' $c(\cdot)$ is not present in the Liouville equation (for autonomous systems), the solution of the second ODE is trivial:
-$$ \rho(s) = \rho_0(r_1, \ldots, r_2), $$
+$$ \rho(t) = \rho_0(r_1, \ldots, r_2), $$
+\towrite{Jacobian?}\\
 where $\rho_0$ is the initial distribution. It is an encouraging observation that the method of characteristics is easily extended towards non-autonomous systems, leaving the possibility for control action or external disturbances, which may well be of a stochastic nature themselves.
 
 The solution to the Liouville equation is found by writing the initial distribution in terms of $p$, $q$ and $t$. Since $q$ and $p$ depend linearly on $r_1$ and $r_2$, this is a matter of taking the inverse of the associated matrix.
-$$ \mqty(p\\q) = 
-    \mqty( \cos(\omega s) & m\omega \sin(\omega s) \\\  -\frac{1}{m\omega}\sin(\omega s) & \cos(\omega s) )\mqty(r_1\\r_2).  $$
-This transformation matrix represents a symplectic transformation of the phase plane; symplectic matrices have a unit determinant\footnote{Due to the equivalence of $\spgroup{2}{\real}$ and $\slgroup{2, \real}$, having a unit determinant is a necessary and sufficient condition for a $2\times2$ matrix to be symplectic; this condition is only necessary for higher dimensional vector spaces \cite{Arnold1989}.}. Inversion and resubstitution of $t$ then yields:
-$$ \mqty(r_1\\r_2) = \underbrace{\mqty( \cos(\omega t) & m\omega \sin(\omega t) \\\  -\frac{1}{m\omega}\sin(\omega t) & \cos(\omega t) )}_{\Phi(t)}\mqty(p\\q).$$
+$$ 
+    \mqty(q\\p) = 
+    \underbrace{\mqty( 
+        \cos(\omega t) & \frac{1}{m\omega}\sin(\omega t) \\
+        -m\omega \sin(\omega t) & \cos(\omega t)
+    )}_{\Phi(t)}
+    \mqty(r_1\\r_2).
+$$
+This transformation matrix represents a symplectic transformation of the phase plane; symplectic matrices have a unit determinant\footnote{Due to the equivalence of $\spgroup{2}{\real}$ and $\slgroup{2, \real}$, having a unit determinant is a necessary and sufficient condition for a $2\times2$ matrix to be symplectic; this condition is only necessary for higher dimensional vector spaces \cite{Arnold1989}.}. More specifically, the above matrix is a `squeezed' rotation matrix Inversion and resubstitution of $t$ then yields:
+$$ \mqty(r_1\\r_2) = \mqty(\cos(\omega t) & \frac{-1}{m\omega}\sin(\omega t) \\\  m\omega\sin(\omega t) & \cos(\omega t) )\mqty(q\\p),$$
+this is the time-reversed flow of the Hamiltonian vector field; a counterclockwise rotation in the phase plane.
 
 \paragraph{Motivation using exterior calculus}
-In this section, the reasoning given by \citet{Burke1985} using exterior calculus is applied to the problem to motivate the validity of the solution given above. The solution is the integral manifold of tangent vectors to the contact space $(t, q, p, \xi_t, \xi_q, \xi_p, \rho)$, where $\xi_t = \pdv{\rho}{t}$ etc. As such, the tangent vectors $\vec{v}$ and $\vec{w}$ can be associated with seven-tuples:
+In this section, the reasoning given by \citet{Burke1985} using exterior calculus is applied to the problem to motivate the validity of the solution given above. The solution is the integral manifold of tangent vectors to the contact space $(t,\,q,\,p,\,\xi_t,\,\xi_q,\,\xi_p,\,\rho)$, where $\xi_t = \pdv{\rho}{t}$ etc. As such, the tangent vectors $\vec{v}$ and $\vec{w}$ can be associated with seven-tuples:
 \footnote{With respect to the basis $\mqty(\pdv{}{t} & \pdv{}{q} & \pdv{}{p} & \pdv{}{\xi_t} & \pdv{}{\xi_q} & \pdv{}{\xi_p} & \pdv{}{\rho})$.}
 $$\vec{v} = \mqty(v_t & v_q & v_p & v_{\xi_t} & v_{\xi_q} & v_{\xi_p} & v_{\rho})$$
 $$\vec{w} = \mqty(w_t & w_q & w_p & w_{\xi_t} & w_{\xi_q} & w_{\xi_p} & w_{\rho}).$$
@@ -136,9 +144,13 @@ $$ \pdv{}{t} + \frac{p}{m}\pdv{}{q} - kq\pdv{}{p}, $$
 which is precisely the Hamiltonian vector field in the extended (contact) phase space, or to quote \citet[p. 237]{Arnold1989}, \emph{the velocity vector of the phase flow in extended phase space}; the integral lines are the \emph{vortex lines} of the integral invariant of Poincaré-Cartan $p\dd{q} - \ham\dd{t}$. Hence, to find a solution of the PDE problem, one strives to integrate the above vector field, where the initial conditions serve as parameters. The initial conditions can then be solved at the point $t=0$ for the initial solution. This is precisely the methodology that is applied \emph{ad hoc} in the previous section.
 
 \subsection{Initial Gaussian distribution} 
-The solution of the Liouville equation to any initial distribution is simply found by substituting the $(p,q)$ dependence with transformation stated above. For example, an initial bivariate Gaussian distribution centered at some initial point $(p_0, q_0)$ with covariance matrix $\Sigma$ subject to the linear transformation $\Phi = \Phi(t)$ yields again a Gaussian: \cite{Schon2011}
+The solution of the Liouville equation to any initial distribution is simply found by substituting the $(q,p)$ dependence with transformation stated above. This solution is simply obtained by effecting the substitution 
+$$\mqty(q\\p) \mapsto \Phi^{-1}(t)\mqty(q\\p)$$
+in the original distribution $\rho_0$. Alternatively, one can see this as an affine transformation of the original random variable in the other direction, that is, 
+$$\mqty(q_0\\p_0) \mapsto \Phi(t)\mqty(q_0\\p_0) = \mqty(q\\p)$$
+For example, an initial bivariate Gaussian distribution centered at some initial point $(q_0, p_0)$ with covariance matrix $\Sigma$ subject to the linear transformation $\Phi = \Phi(t)$ yields again a Gaussian: \cite{Schon2011}
 \begin{equation}
-    \mqty(p(t)\\q(t)) \quad \sim \quad \gaussian{\Phi\mqty(p_0\\q_0)}{\Phi\Sigma\Phi^\top}.
+    \mqty(q(t)\\p(t)) \quad \sim \quad \gaussian{\Phi\mqty(q_0\\p_0)}{\Phi\Sigma\Phi^\top}.
     \label{eq:ho_gaussian}
 \end{equation}
 This result is, after all, not quite a surprise: the Gaussian distribution is transported by the convective stream of the phase space fluid; the mean drifts along its original phase space trajectory as if it were a single particle. The variance changes continuously by the transform given by $\Phi$. Interestingly, because $\Phi$ has a unit determinant, $\det(\Phi\Sigma\Phi^\top) = \det(\Sigma)$; as such, the \emph{entropy} of the Gaussian remains constant throughout, and equal to its initial value
@@ -147,12 +159,12 @@ $$ \frac{1}{2}\log(\det(2\pic\ec\Sigma)). $$
 \paragraph{Marginal distributions} \Cref{eq:ho_gaussian} represents a specific bivariate Gaussian distribution at any point in time. Therefore, the marginal time-dependent distributions of $p$ and $q$ as a function of time may readily be obtained from the joint distribution: \cite{Schon2011}
 \begin{equation}
     \begin{split}
-        p(t) &\sim \gaussian{\cos(\omega t)p_0 + m\omega\sin(\omega t)q_0}{\sigma_p\cos[2](\omega t) + \sigma_{pq}m\omega\sin(2\omega t) + \sigma_q m^2\omega^2\sin[2](\omega t)} \\
-        q(t) &\sim \gaussian{\cos(\omega t)q_0 + \frac{-1}{m\omega}\sin(\omega t)p_0}{\sigma_q\cos[2](\omega t) + \frac{\sigma_{pq}}{m\omega}\sin(2\omega t) + \frac{\sigma_p}{m^2\omega^2}\sin[2](\omega t)},
+        q(t) &\sim \gaussian{\cos(\omega t)q_0 + \frac{1}{m\omega}\sin(\omega t)p_0}{\sigma_q\cos[2](\omega t) + \frac{\sigma_{pq}}{m\omega}\sin(2\omega t) + \frac{\sigma_p}{m^2\omega^2}\sin[2](\omega t)}, \\
+        p(t) &\sim \gaussian{\cos(\omega t)p_0 - m\omega\sin(\omega t)q_0}{\sigma_p\cos[2](\omega t) - \sigma_{pq}m\omega\sin(2\omega t) + \sigma_q m^2\omega^2\sin[2](\omega t)}
     \end{split}
     \label{eq:ho_marginal}
 \end{equation}
-given that $\Sigma = \mqty(\sigma_p & \sigma_{pq}\\\sigma_{pq} & \sigma_q)$. \Cref{fig:pq_marginal_ho} shows the time-varying distribution of $p$ and $q$ in the form of the mean with a $2\sigma$-confidence interval.
+given that $\Sigma = \mqty(\sigma_q & \sigma_{qp}\\\sigma_{qp} & \sigma_p)$. \Cref{fig:pq_marginal_ho} shows the time-varying distribution of $q$ and $p$ in the form of the mean with a $2\sigma$-confidence interval.
 \begin{figure}[h]
     \centering
     \input{media/tikz/pq_marginal_ho}
