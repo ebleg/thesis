@@ -1,7 +1,7 @@
-% arara: lualatex: { shell: yes }
+% arara: lualatex: { shell: yes, interaction: nonstopmode }
 % arara: bibtex
-% arara: lualatex: { shell: yes }
-% arara: lualatex: { shell: yes }
+% arara: lualatex: { shell: yes, interaction: nonstopmode }
+% arara: lualatex: { shell: yes, interaction: nonstopmode }
 
 %
 %        ████████ ██   ██ ███████ ███████ ██ ███████ 
@@ -68,15 +68,14 @@
 \mainmatter
 
 \include{main/introduction}
-\include{main/notes}
+%\include{main/notes}
 \include{main/damped_mechanics}
 \include{main/liouville}
 
 %========================== Appendices =======================================
 
 \appendix
-%\include{backmatter/app_back}
-%\include{backmatter/app_another}
+\include{backmatter/symplectic_geometry}
 
 %========================== Back matter ======================================
 
