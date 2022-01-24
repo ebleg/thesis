@@ -11,7 +11,7 @@ Although the harmonic oscillator is a topic that has been studied in tremendous 
 
 \subsection{The Hamiltonian vector field}
 Although the Liouville theorem is usually expressed directly in terms of Poisson brackets (which, in turn, have a trivial form if expressed in Darboux coordinates), a slightly more insightful approach is taken here. More specifically, instead of applying the Poisson brackts directly, they are formulated like so:
-$$ \poisson{f}{g} = X_g(f) $$
+$$ \poisson{f}{g} = X_g(f) = \lied{X_g}{f} $$
 where $X_g$ is the Hamiltonian vector field associated to $g$. The definition of Poisson brackets in terms of Hamiltonian vector fields makes it easy to draw connection between fluid mechanics and the classical mechanics.
 
 For the undamped harmonic oscillator, the configuration manifold $M$ is simply $\real$. As such, the cotangent bundle $T^*\!M = \real^2$. The Hamiltonian, being a smooth function on $T^*M$, is simply a 0-form given in Darboux coordinates $(p, q)$ by:
@@ -201,13 +201,64 @@ where $u_c$ refers to the Heaviside step delayed by $c$, and $\vec{x} = \qty(p\;
 $I_0$ being the modified Bessel function of the first kind \cite{Gradshteyn2007}.
 }
 
-\paragraph{Energy distribution} The energy distribution is a generalized chi-squared distribution, becuase it is a general quadratic form of a normally distributed vector with nonzero mean \cite{Das2021}.
+\paragraph{Energy distribution} The energy distribution is a generalized chi-squared distribution, because it is a general quadratic form of a normally distributed vector with nonzero mean \cite{Das2021}.
 
 \subsection{Verification using a Monte-Carlo method}
 
 \section{Damped harmonic oscillator}
 
+\subsection{Dissipative Hamiltonian mechanics: a brief overview}
+
+\subsection{Time-dependent Hamiltonian}
+\paragraph{Symplectic structure} In this section, the method proposed by \citet{Mendel2021} is used to deal with the problem of dissipative systems in the framework of Hamiltonian mechanics. The prototypical example that is the harmonic oscillator with a linear (parallel) damping element. As noted, using a time-dependent Hamiltonian to include dissipative mechanics is not quite a new idea (cf. \citet{Dekker1981}), but the salient point here is the \emph{symplectization} of the contact structure that normally underlies such a system. That is to say, there is an additional dimension on top of $p, q, t$ to allow the manifold to be symplectic in the first place. For the damped harmonic oscillator, this boils down to a 2-dimensional configuration manifold $Q$ with coordinates $(q,\,t)$, with at each point attached a cotangent space which contains elements of the form $\alpha\dd{q} + \beta\dd{t}$. To turn the cotangent bundle into a symplectic manifold by virtue of the bundle structure, define the tautological 1-form
+$$ \alpha = p\dd{q} + W\dd{t} \quad \alpha \in \cotangent{(\cotangent{Q})},$$
+from which the symplectic 2-form is obtained:
+$$ \omega = -\dd{\alpha} = \wedgep{\dd{q}}{\dd{p}} + \wedgep{\dd{t}}{\dd{W}}.$$
+This results in a four-dimensional symplectic manifold $(M, \omega)$. 
+
+\towrite{Check whether the v-notation as generalized coordinates makes sense}
+It does, but say explicitly that the coordinate representation is chosen directly such that the tangent vector components are the generalized velocities. 
+
+\paragraph{Lagrangian function} The starting point of Mendel's method is the `discounted Lagrangian', which is a function of the cotangent bundle $TQ$. The salient fact is that, because $t$ is now a coordinate of the configuration manifold (that is, it plays the role of a \emph{generalized position}), the `canonical' coordinates of the tangent bundle are
+$$ \qty(q,\,t,\,v_q,\,v_t) \in TQ$$
+where $v_q$ and $v_t$ are tangent vector components in the $q$ and $t$-direction respectively. The discounted Lagrangian is then defined as follows:\footnote{\citet{Mendel2021} makes use of a different time coordinate called `proper time', denoted by $\tau$. In the more geometric approach taken here, the notation in terms of tangent vectors makes the explicit mention of this `indexing variable' redundant.}
+$$ \mathscr{L}:\,TQ\to\real:\,\qty(q,\,t,\,v_q,\,v_t) \mapsto v_t\,L(q,\,t,\,v_q,\,v_t), $$
+where $L$ denotes the traditional Lagrangian, being the difference of the kinetic co-energy and potential energy of the system, and $v_t$ is also called the `discount factor' in the economic engineering context. \emph{However}, the kinetic co-energy is traditionally expressed in terms of $\dot{q} = \dv{q}{t}$, which is not an `independent' tangent vector of the system; that is to say, it cannot be varied independently from the chosen coordinates:
+$$ \dot{q} = \frac{v_q}{v_t}. $$
+This presents some subtle complications when evaluating the partial derivatives with respect to the coordinates, like so. Given that $\mathscr{L} = v_t\,L = v_t\qty(T(q,\,t,\,v_q,\,v_t) - V(q,\,t))$, the conjugate momenta that prevail in the Hamiltonian framework can be found by taking the `fiber derivative'\footnote{The fiber derivative of a function $\mathscr{L}: TQ \to \real$ is defined as $$ \mathbb{F}\mathscr{L}: TQ \to \cotangent{Q}: \mathbb{F}\lag(\vec{v})\cdot\vec{w} = \left.\dv{}{s}\right|_{s = 0} \mathscr{L}(\vec{v} + s\vec{w}), $$ it is the derivative of $\mathscr{L}$ in the direction of the fiber $\vec{w}$ \cite[p. 179]{Marsden1998}.} over $\mathbb{F}\mathscr{L}: TQ \to \cotangent{Q}$: \cite{Abraham1978}
+$$ \pdv{\mathscr{L}}{v_q} = v_t\pdv{L}{\dot{q}}\pdv{\dot{q}}{v_t} = \pdv{L}{\dot{q}}  \equiv p,$$
+hence, the important observation is made that the derivatives of $\mathscr{L}$ and $L$ with respect to the $q$-fiber are identical, which is why the conjugate momentum is conveniently denoted by $p$. Secondly, the conjugate momentum with respect to the $t$-fiber,
+$$ \pdv{\mathscr{L}}{v_t} = L + v_t\pdv{L}{v_t} = L + v_t\pdv{L}{\dot{q}}\pdv{\dot{q}}{v_t} = L - \pdv{L}{\dot{q}}\underbrace{\frac{v_q}{v_t}}_{\dot{q}} \equiv W, $$
+which is equal to the negative of the mechanical energy present in the system (that is, the sum of the kinetic and potential energy).
+
+\towrite{Lagrange 1-form and 2-form, see Marsden and Abraham}
+
+For the damped harmonic oscillator, the Lagrangian has the form
+$$ \mathscr{L}(q, t, v_q, v_t) = v_t\,\frac{1}{2}\qty(m\qty(\frac{v_q}{v_t})^2 - kq^2) $$
+such that the Euler-Lagrange equations become
+
+\towrite{Equations of motion}
+
+\paragraph{Legendre transform} The Legendre transform `preserves information' (that is, it is involutive and unique) for convex functions. The Hessian of $\mathscr{L}$ with respect to the generalized velocities is
+$$ \mqty(\pdv[2]{L}{\dot{q}}{v_q} & \pdv[2]{L}{\dot{q}}{v_t} \\ \pdv[2]{L}{\dot{q}}{v_t} & \pdv{}{v_t}\qty(L - \pdv{L}{\dot{q}}\dot{q}) ) = \mqty(\pdv[2]{L}{\dot{q}}{v_q} & \pdv[2]{L}{\dot{q}}{v_t} \\ \pdv[2]{L}{\dot{q}}{v_t} & -\pdv[2]{L}{\dot{q}}{v_t}\dot{q}) = \mqty(\pdv{p}{v_q} & \pdv{p}{v_t} \\ \pdv{p}{v_t} & -\pdv{p}{v_t}\dot{q}) $$
+such that the determinant of this Hessian is
+$$ \pdv{p}{v_q}\dot{q}\,\pdv{p}{v_t} - \qty(\pdv{p}{v_t})^2\; \stackrel{\footnotemark}{=}\; \qty(\pdv{p}{v_t})^2 - \qty(\pdv{p}{v_t})^2 = 0, $$
+\footnotetext{Because $\displaystyle \pdv{p}{v_q}\dot{q}=\pdv{p}{v_t}\pdv{v_t}{\dot{q}}\pdv{\dot{q}}{v_q}\dot{q} = \pdv{q}{v_t}\frac{-v_q}{\dot{q}^2}\frac{1}{v_t}\dot{q} = -\pdv{p}{v_t}$. }
+i.e. the Hessian is singular and has one vanishing eigenvalue; because the other eigenvalue is positive (the trace of the Hessian can be shown to be positive if $v_t$ is), the Hessian is positive semidefinite. This prevents one to easily effect the Legendre transform of $\mathscr{L}$, for this Hessian is the Jacobian of the fiber derivative $\mathbb{F}\mathscr{L}$, which means that the fiber derivative does not provide a bijective mapping beteen the tangent and cotangent bundles (cf. the implicit function theorem). More concretely, there is no unique way to assign the velocity pair $(v_q,\,v_t)$ to a conjugate momentum pair $(p, W)$. Indeed, as discussed by \citet[p. 122]{Cannas2001}, \emph{strict convexity} of a function $\mathscr{L}$, that is, the Hessian of $\mathscr{L}$ be positive definite, is required for the Legendre transform to be a diffeomorphism between $TQ$ and $\cotangent{Q}$. The root of this issue can be found in the fact that $p$, $W$ only depend on $\dot{q}$, which fixes only the relative proportion between $v_q$ and $v_t$ --- roughly speaking, it acts on the \emph{projectivization} of the cotangent space.
+\begin{figure}[h]
+    \centering
+    \input{media/tikz/fiber_derivative}
+    \label{fig:fiber_derivative}
+    \caption{Fiber derivative}
+\end{figure}
+All of this boils down to the fact that the fiber derivative/Legendre transform is unable to express the transformed Lagrangian function completely in terms of the coordinates of the cotangent bundle. This problem can be remedied by asserting an dependence of $v_t$ with respect to $t$, so as to write the resulting Hamiltonian in terms of the projective coordinate, $q$ and $t$. 
+\towrite{Figure out partial derivatives of the Hamiltonian}
+
+\subsection{Complex Hamiltonian}
+Coen's method
+
 \section{Nonlinear systems}
+SYMPLECTIC INTEGRATORS!!!
 \subsection{Double pendulum}
 use a wrapped normal distribution / von Mises distribution for the circular dimensions
 
