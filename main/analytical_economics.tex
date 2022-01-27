@@ -1,1 +1,43 @@
 \chapter{Analytical economics}
+
+\begin{aside}{Lie derivatives \& Max' question}
+    The Lie derivative of the tautological form $\alpha = p\dd{q}$ with respect to the
+    Hamiltonian vector field
+    $$ X_H = \pdv{H}{p}\pdv{}{q} - \pdv{H}{p}\pdv{}{p}$$
+    is denoted by
+    $$ \lied{X_H}{\alpha}.$$
+    Using Cartan's magic formula ($ \lied{V}{\theta} = \dd{(\intpr{V}{\theta})} + \intpr{V}{\dd{\theta}}$), this expression
+    can be written as
+    \begin{equation*} 
+        \begin{split}
+            \lied{X_H}{p\dd{q}} &= \dd{(\intpr{X_H}{p\dd{q}})} + \intpr{X_H}{\dd{(p\dd{q})}} \\
+                                &= \dd{(\intpr{X_H}{p\dd{q}})} - \intpr{X_H}{\omega} \\
+                                &= \dd{(\intpr{X_H}{p\dd{q}})} - \dd{H} \\
+                                &= \dd{\qty(\pdv{H}{p}p)} - \dd{H} \\
+                                &= \dd{(\dot{q}p)} - \dd{H} \\
+                                &= \dd{(\dot{q}p - H)} \\
+                                &= \dd{L} \\
+        \end{split}
+    \end{equation*}
+
+    Explicitly in components:
+    \begin{equation*}
+        \lied{X_H}{\alpha} = \qty[X_H^{\nu}(\partial_{\nu}\alpha_{\mu}) + (\partial_{\mu} X_H^{\nu})\alpha_{\nu}]\dd{x}^{\mu}
+    \end{equation*}
+    \begin{equation*}
+        \begin{split}
+            \lied{X_H}{\alpha} =\, &\qty[\pdv{H}{p}\qty(\pdv{}{q}p) + \qty(\pdv{}{q}\pdv{H}{p})p - \pdv{H}{q}\qty(\pdv{}{p}p) - \qty(\pdv{}{q}\pdv{H}{q})0]\dd{q} \\
+                                + &\qty[\pdv{H}{p}\qty(\pdv{}{q}0) + \qty(\pdv{}{p}\pdv{H}{p})p - \pdv{H}{q}\qty(\pdv{}{q} 0) - \qty(\pdv{}{p}\pdv{H}{q})0]\dd{p} \\
+                               =\,&\qty[ \qty(\pdv{}{q}\pdv{H}{p})p - \pdv{H}{q}]\dd{q} + \qty[\qty(\pdv{}{p}\pdv{H}{p})p]\dd{p}\\
+        \end{split}
+    \end{equation*}
+    Compare this with the expression using the Cartan equation:
+    \begin{equation*}
+        \begin{split}
+            \dd{\qty(\pdv{H}{p}p - H)} &= \pdv{}{q}\qty(\pdv{H}{p}p)\dd{q} + \pdv{}{p}\qty(\pdv{H}{p}p)\dd{p} - \pdv{H}{q}\dd{q} - \pdv{H}{p}\dd{p}\\
+                                       &= \qty[p\pdv{}{q}\qty(\pdv{H}{p}) + \pdv{H}{p}\pdv{p}{q} - \pdv{H}{q}]\dd{q} + \qty[p\pdv{}{p}\qty(\pdv{H}{p}) + \pdv{H}{p}\pdv{p}{p} - \pdv{H}{p}]\dd{p}
+        \end{split}
+    \end{equation*}
+    which coincides with the previous expression.
+
+\end{aside}
