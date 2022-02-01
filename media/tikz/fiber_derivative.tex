@@ -14,7 +14,7 @@
     \draw[->] (7.5, 0) -- (10.5, 0) node[anchor=west] {$p$};
     \draw[->] (9, -1.5) -- (9, 1.5) node[anchor=south] {$W$};
     \draw[thick, domain=-1:1] 
-        plot ({9 + \x}, {\x*\x + 0.5} ) node[anchor=south west] {$\text{im}_{\mathbb{F}\mathscr{L}}\,\{T_x Q\}$};
-    \node at (10, -1) {$T_x^*\!Q$};
+        plot ({9 + \x}, {-\x*\x - 0.5} ) node[anchor=south west] {$\text{im}_{\mathbb{F}\mathscr{L}}\,\{T_x Q\}$};
+    \node at (10, 1) {$T_x^*\!Q$};
     \draw[->] (1.5, 1) .. controls (3, 1.5) and (6 , 1.5) .. (8, 1) node[pos=0.5, anchor=south] {$\mathbb{F}\mathscr{L}$};
 \end{tikzpicture}
