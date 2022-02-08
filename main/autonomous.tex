@@ -196,8 +196,6 @@ $I_0$ being the modified Bessel function of the first kind \cite{Gradshteyn2007}
 
 \paragraph{Energy distribution} The energy distribution is a generalized chi-squared distribution, because it is a general quadratic form of a normally distributed vector with nonzero mean \cite{Das2021}.
 
-\subsection{Verification using a Monte-Carlo method}
-
 \FloatBarrier
 \clearpage
 \section{Damped harmonic oscillator}
@@ -249,7 +247,7 @@ Please note that the old generalized velocity $\dot{q}$ is not an independent va
 Now, the homogenenization trick does not cause any special properties of the Lagrangian in and of its own. The second ingredient of the method is the following holonomic constraint
 \begin{equation} 
     \frac{\dv*[2]{\tau}{t}}{\dv*{\tau}{t}} = -\gamma
-    \quad\text{such that}\quad
+    \quad\text{which implies}\quad
     \tau = C_2 - \frac{C_1}{\gamma}\ec^{-\gamma t},
     \label{eq:dho_constraint}
 \end{equation}
@@ -287,26 +285,15 @@ Hence, the following observations are made:
     \item The momentum conjugate to time is the negative of the mechanical energy in the system. Given an appropriate initial constant for the initial energy, this represents exactly the energy dissipated by the damper.
 \end{enumerate}
 Furthermore, the corresponding derivatives with respect to proper time are
-\begin{center}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{General}
-        \begin{equation*}
-            \begin{split} 
-                \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_q}) &=  \\
-                \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_t}) &=  \\
-            \end{split}
-        \end{equation*}
-    \end{minipage}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{Parameterized}
-        \begin{equation*}
-            \begin{split}
-                \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_q}) &= \frac{m}{v_t^2}\qty(\dv{v_q}{\tau}v_t - v_q\dv{v_t}{\tau}) \\
-                \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_t}) &=  \\
-            \end{split}
-        \end{equation*}
-    \end{minipage}
-\end{center}
+\begin{equation*}
+    \begin{split}
+        \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_q}) 
+        &= \frac{m}{v_t^2}\qty(\dv{v_q}{\tau}v_t - v_q\dv{v_t}{\tau}) 
+        = \frac{m}{v_t}\dv{v_t}{\tau} - m\dot{q}\frac{1}{v_t}\frac{}{} 
+        \\
+        \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_t}) &=  \\
+    \end{split}
+\end{equation*}
 
 \subsubsection{Legendre transform}
 \label{sssec:mendel_legendre}
@@ -387,4 +374,6 @@ use a wrapped normal distribution / von Mises distribution for the circular dime
 
 
 \subsection{Van der Pol oscilator}
+
+\section{Monte-Carlo verification}
 
