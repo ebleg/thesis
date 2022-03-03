@@ -30,6 +30,7 @@ Having found the Hamiltonian vector field, Liouville's theorem can be applied to
 This is a simple transport equation without diffusion (that is, $\rho$ is a \emph{passive scalar}); hence, the initial probability distribution will simply `drift' along the streamlines of the Hamiltonian flow. As such, this problem is analogous to a flow that is purely characterized by convection. 
 
 \subsection{Solution of the Liouville equation}
+\label{ssec:ho_liouville_solution}
 The convection equation may be readily solved using the method of characteristics.
 \begin{aside}{The method of characteristics}
     \Cref{eq:pde_ho} is part of a larger class of linear first-order PDE's of the form\footnote{If the functions $a$ and $c$ depend on $\rho$, the equation is called \emph{semilinear}. This is, however, never the case for a PDE arising from the Liouville equation.} \cite[p. 207]{Farlow1989}. \begin{equation} \sum_{i=1}^n a_i(x_1, \ldots, x_n, \rho) \pdv{\rho}{x_i} = c(x_1, \ldots, x_n, \rho), \label{eq:fo_pde}\end{equation}
@@ -222,78 +223,39 @@ Moreover, the system is assumed to be underdamped, or equivalentl $\zeta < 1$. S
 $$ $$
 
 \subsection{Discounted state functions}
-The method proposed by \citet{Mendel2021} is closely related to the time-dependent Caldirola-Kanai Hamiltonian (as mentioned, the corresponding Lagrangian was already devised by Bateman in 1931 \cite{Bateman1931, Dekker1981}). However, there are some important differences: the time-dependent method takes the dissipation into account simply wrapping the Lagrangian with an exponential discount function so as to include the real part of the eigenvalues into the solution. In contrast, the Mendel method makes use of the `homogenization trick' in combination with a rheonomic constraint, which allow to describe the system in an extended configuration space that includes the time $t$. The Lagrangian method is discussed first, after which the Dirac method is used to make the passage from the Lagrangian to the Hamiltonian description.
+The method proposed by \citet{Mendel2021} is closely related to the time-dependent Caldirola-Kanai Hamiltonian (as mentioned, the corresponding Lagrangian was already devised by Bateman in 1931 \cite{Bateman1931, Dekker1981}). However, there are some important differences: the time-dependent method takes the dissipation into account simply wrapping the Lagrangian with an exponential discount function so as to include the real part of the eigenvalues into the solution.
 
 \towrite{discuss contribution}
 
-\subsubsection{Lagrangian function}
+\subsubsection{Lagrangian mechanics}
 \label{sssec:mendel_lagrangian}
-The starting point of Mendel's method is a Lagrangian over the extended configuration space $X$\footnote{In this section, $X$ refers to the extended configuration space, with the corresponding coordinate vector referred to as $\vec{x} = (q,\,t)$. Proper time derivatives are either denoted explicitly or by a prime. In case of the generalized velocities, the notation $v_q$, $v_t$ is used instead, to highlight the fact that they are indeed independent coordinates of the tangent bundle.}, which includes both the regular position coordinate $q$ as well as the time $t$. The tangent bundle $TX$ then has two additional coordinates for the respective generalized velocities, a position velocity $v_q$ and a `time velocity' $v_t$; they are the components of the tangent vector to a generalized position $\vec{x} = (q,\,t)$ in the chart-induced basis. The role of the path indexation variable that is normally reserved for time is now played by $\tau$, appropriately named `proper time' by \citet{Mendel2021}. The Lagrangian is then a function over the contact bundle $TX\times\real$.
+This approach for Lagrangian systems to damped systems (the prototypical example here is, of course, the damped harmonic oscillator) revolves around the definition of a nonstandard Lagrangian function on an extended configuration space. Instead of only position $q$, the extended configuration space is a pair that fixes both position and time. The extended space is denoted by $M$, consequently $m \in M$ has natural coordinates $(q, t)$. Hence, whereas the standard configuration manifold is one-dimensional, it is now two-dimensional, which means the corresponding tangent and cotangent bundles are four-dimensional\footnote{The inclusion of time into the configuration space (or phase space in the Hamiltonian context) is a recurring theme in many important works for various reasons. For example \citet[p. 90]{Arnold1989} uses it to apply the Noether theorem to time-invariance, while \cite[p. 332]{Burke1985} uses it to treat time-dependent systems as if they were time-independent (this is essentially equivalent to the method given here). As is discussed later in this section, \citet{Dirac1950} touches upon it in his discussion of homogeneous Lagrangians and the Legendre transform thereof.}.
 
-In general, the Lagrangian function $\mathscr{L}:\, TX\times\real \to \real$ is given as the homogenization of the traditional Lagrangian $L$, which is the difference between the kinetic and potential energy in the system. This is a common approach in classical mechanics literature as a trick to `fake' a time-dependence in the Lagrangian, e.g. to show the conservation of energy as a consequence of the Noether theorem (see \citet[p. 90]{Arnold1989}). In the remainder of this section, the general derivation will be given on par with the specific case for the damped harmonic oscillator. The `proper' Lagrangian is then defined as:
-\begin{center}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{General}
-        $$ \mathscr{L}\bigg(q,\,t,\,\underbrace{\dv{q}{\tau}}_{v_q},\,\underbrace{\dv{t}{\tau}}_{v_t}\bigg) 
-        =  L\bigg(q,\,\underbrace{\frac{\dd{q}/\dd{\tau}}{\dd{t}/\dd{\tau}}}_{\dot{q}}\bigg)\,\underbrace{\dv{t}{\tau}}_{v_t} $$
-    \end{minipage}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{Parameterized}
-        $$ \mathscr{L} = v_t\qty(\frac{1}{2}m\qty(\frac{v_q}{v_t})^2 - \frac{1}{2}kq^2). $$
-    \end{minipage}
-\end{center}
-Please note that the old generalized velocity $\dot{q}$ is not an independent variable anymore but rather expressed as $v_q/v_t$ as a consequence of the chain rule.
+Because $t$ defines the configuration of the system, it is not an independent coordinate; that is, it can be varied at will. The independent coordinate is denoted by $\tau$, also referred to as the `path indexation variable', for that is its only significance. \citet{Mendel2021} calls this \emph{proper time} as a testament to its parallel in the theory of special relativity \cite{Landau1971}.
 
-Now, the homogenenization trick does not cause any special properties of the Lagrangian in and of its own. The second ingredient of the method is the following holonomic constraint
-\begin{equation} 
-    \frac{\dv*[2]{\tau}{t}}{\dv*{\tau}{t}} = -\gamma
-    \quad\text{which implies}\quad
-    \tau = C_2 - \frac{C_1}{\gamma}\ec^{-\gamma t},
-    \label{eq:dho_constraint}
-\end{equation}
-where $C_1$ and $C_2$ are arbitrary integration constants --- the proper time is therefore only defined up to affine transformations. In the case of the damped harmonic oscillator, $\gamma = b/m$ denotes the decay rate of the system. This constraint can be rewritten in the form $\phi(t, \tau) = 0$, and is \emph{rheonomic}, for it is (proper) time-dependent. It could be used to reduce the number of degrees of freedom directly, but the Lagrangian would then immediately reduce to time-dependent Caldirola-Kanai form. This would  defeat the purpose of the Lagrangian formulation in the extended configuration space. Rather, one wishes not to `spend' the constraint, but keep it in implicit form using Lagrange multipliers to explicitly determine the constraint forces that keep the system on the submanifold that would otherwise be assumed a priori. The reason to do so is twofold: (i) the constraint forces have a compelling physical interpretation and (ii) it can be used in more general damping cases where the constraint \cref{eq:dho_constraint} cannot be integrated explicitly.
+Traditionally, Lagrangian mechanics is staged in the tangent bundle to the configuration manifold. The notation used in this section is something of a delicate matter, sinds the traditional dot notation for tangent vectors usually refers to the actual time $t$, not $\tau$. It is considered undesirable to break with this convention, which is why the tangent velocity vectors with respect to the $q$ and $t$-coordinate are denoted by $v_q$ and $v_t$ respectively. Hence, the tangent bundle at issue has the chart-induced coordinates $(q, t, v_q, v_t)$. As \citet{Burke1985} points out, for (proper) time-dependent systems, it is more natural to look at the contact bundle $\contact{M}$ rather than the tangent bundle $\tangent{M}$ because it makes it possible to deal with the explicit $\tau$-dependence directly. Hence, consider the line-element contact bundle $C\!Q$ with projection map $\pi$,
+$$ C\!M \xrightarrow{\pi} M \quad\text{with}\quad \pi: (\tau, q, t, v_q, v_t) \mapsto (\tau, q, t). $$
+The idea is, again, now to establish a differential ideal (like in \cref{ssec:ho_liouville_solution}) whose integral manifolds are the solution trajectories of the damped harmonic oscillator system. Although it is not specifically required to use this approach, it helps to sort out some delicacies that appear in taking derivatives that would otherwise be concealed as a consequence of ambiguities in the Leibniz notation.
 
-Given the Lagrangian function, the equations of motion can be obtained using the Euler-Lagrange equations:
-\begin{equation}
-    \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v^{\mu}}) - \pdv{\mathscr{L}}{x^{\mu}} = \lambda\pdv{\phi}{x^\mu}\qquad \mu = 1,\,2.
-    \label{eq:dho_euler_lagrange}
-\end{equation}
-It is wortwhile to dwell briefly on the conjugate momenta $\pdv*{\mathscr{L}}{v^\mu}$ and their proper time derivatives. Evaluating the partial derivatives yields:
-\begin{center}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{General}
-        \begin{equation*}
-            \begin{split} 
-                \pdv{\mathscr{L}}{v_q} &= v_t \pdv{L}{\dot{q}}\pdv{\dot{q}}{v_q} = \pdv{L}{\dot{q}} \equiv p \\
-                \pdv{\mathscr{L}}{v_t} &= L - v_t\pdv{L}{\dot{q}}\pdv{\dot{q}}{v_t} = L - p\dot{q} \equiv D \\
-            \end{split}
-        \end{equation*}
-    \end{minipage}
-    \begin{minipage}[t]{7.5cm}
-        \textsc{Parameterized}
-        \begin{equation*}
-            \begin{split}
-                \pdv{\mathscr{L}}{v_q} &= m\qty(\frac{v_q}{v_t}) = m\dot{q} \\
-                \pdv{\mathscr{L}}{v_q} &= -\qty(\frac{1}{2}m\dot{q}^2 + \frac{1}{2}kq^2)
-            \end{split}
-        \end{equation*}
-    \end{minipage}
-\end{center}
-Hence, the following observations are made:
-\begin{enumerate}[itemsep=0.5ex, topsep=1ex, label=(\roman*)]
-    \item The momentum the position velocity coincides with the `traditional' notion of momentum.
-    \item The momentum conjugate to time is the negative of the mechanical energy in the system. Given an appropriate initial constant for the initial energy, this represents exactly the energy dissipated by the damper.
-\end{enumerate}
-Furthermore, the corresponding derivatives with respect to proper time are
-\begin{equation*}
-    \begin{split}
-        \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_q}) 
-        &= \frac{m}{v_t^2}\qty(\dv{v_q}{\tau}v_t - v_q\dv{v_t}{\tau}) 
-        = \frac{m}{v_t}\dv{v_t}{\tau} - m\dot{q}\frac{1}{v_t}\frac{}{} 
-        \\
-        \dv{}{\tau}\qty(\pdv{\mathscr{L}}{v_t}) &=  \\
-    \end{split}
-\end{equation*}
+There are seven forms that constitute the differential ideal:
+\begin{itemize}
+    \item Two 1-forms, $\alpha_1$ and $\alpha_2$ define the contact structure. Roughly speaking, they provide the `bookkeeping' of the derivatives. The larger spaces $\contact{M}$ and $\tangent{M}$ essentially offer too much `freedom': not every curve in these spaces coincides to lifted version of the solution curve on $M$. Said otherwise, they guarantee tangency (or contact) when the solution trajectory is brought down to the configuration manifold. These 1-forms are:
+    \begin{equation} 
+        \begin{split}
+            \alpha_1 &= \dd{q} - v_q\dd{\tau}\\
+            \alpha_2 &= \dd{t} - v_t\dd{\tau}.
+        \end{split}
+    \end{equation}
+    \item Secondly, there are two 1-forms that provide the mechanics of the system. This is where the `proper' Lagrangian comes in to play. The proper Lagrangian $\mathscr{L}$ is defined as a discounted version of the naive Lagrangian $L$ which one would use for an undamped system by taking the difference of the kinetic and potential energy of the system. The naive Lagrangian is equal to $$ L = \frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2. $$
+    However, as a consequence of the extended phase space $\dot{q}$ does not represent a generalized velocity. By means of the chain rule, it can readily be expressed as a function of $v_q$ and $v_t$:
+    $$ \dot{q} = \frac{v_q}{v_t}, $$
+    which allows to take derivatives with respect to the chosen coordinates of $\contact{M}$. The proper Lagrangian $\mathscr{L}$ is defined as:
+        $$ \mathscr{L}:\,\tangent{M}\to\real : (q, t, v_q, v_t) \mapsto \equiv v_t L(q, t, v_q, v_t), $$
+    that is, the Lagrangian is `discounted' by $v_t$. The term discounting is used here because the solution of $v_t$ will turn out to be an exponential, which makes it analogous to the practice of discounting in economics and finance.
+
+
+
+\end{itemize}
 
 \subsubsection{Legendre transform}
 \label{sssec:mendel_legendre}
@@ -349,7 +311,7 @@ $$ W + \frac{1}{2m}p^2 + \frac{1}{2}kq^2 = 0 $$
 
 The Lagrangian 1-form is the pullback of the tautological 1-form under the fiber derivative. Lagrangian 1-form and 2-form, economic interpretation: market elasticities. Lagrange 2-form contains the market elasticities, quite literally the geometric encoding of the corresponding bond graph.
     
-\subsubsection{Time-dependent Hamiltonian}
+\subsubsection{Hamiltonian mechanics}
 \label{sssec:mendel_hamiltonian}
 In this section, the method proposed by \citet{Mendel2021} is used to deal with the problem of dissipative systems in the framework of Hamiltonian mechanics. The prototypical example that is the harmonic oscillator with a linear (parallel) damping element. As noted, using a time-dependent Hamiltonian to include dissipative mechanics is not quite a new idea (cf. \citet{Dekker1981}), but the salient point here is the \emph{symplectization} of the contact structure that normally underlies such a system. That is to say, there is an additional dimension on top of $p, q, t$ to allow the manifold to be symplectic in the first place. For the damped harmonic oscillator, this boils down to a 2-dimensional configuration manifold $Q$ with coordinates $(q,\,t)$, with at each point attached a cotangent space which contains elements of the form $\alpha\dd{q} + \beta\dd{t}$. To turn the cotangent bundle into a symplectic manifold by virtue of the bundle structure, define the tautological 1-form
 $$ \alpha = p\dd{q} + W\dd{t} \quad \alpha \in \cotangent{(\cotangent{Q})},$$
