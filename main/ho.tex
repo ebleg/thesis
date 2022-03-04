@@ -1,0 +1,197 @@
+\chapter{Harmonic oscillator}
+Although the harmonic oscillator is a topic that has been studied in tremendous detail, also from a stochastic perspective because of its importance in quantum mechanics, it proves to be an instructive starting point for this research as well \cite{Dekker1975}. Several reasons apply, most importantly that the solutions may be obtained analytically and that the Hamiltonian phase space is two-dimensional, which allows for straightforward visualization of the result.
+
+Although the Liouville theorem is usually expressed directly in terms of Poisson brackets (which, in turn, have a trivial form if expressed in Darboux coordinates), a slightly more insightful approach is taken here. More specifically, instead of applying the Poisson brackts directly, they are formulated like so:
+$$ \poisson{f}{g} = X_g(f) = \lied{X_g}{f} $$
+where $X_g$ is the Hamiltonian vector field associated to $g$. The definition of Poisson brackets in terms of Hamiltonian vector fields makes it easy to draw connection between fluid mechanics and the classical mechanics.
+
+For the undamped harmonic oscillator, the configuration manifold $M$ is simply $\real$. As such, the cotangent bundle $T^*\!M = \real^2$. The Hamiltonian, being a smooth
+\begin{equation}
+    \ham:\quad T^*M \to \real:\quad \ham(p, q) = \frac{m}{2}p^2 + \frac{k}{2}q^2.
+\end{equation}
+To apply Liouville's theorem, the Hamiltonian vector field $X_\ham$ associated with $\ham$ must be found. By definition, one can do this by virtue of the canonical isomorphism induced by the symplectic 2-form:
+$$ \dd{\ham}(\cdot) = \omega(X_{\ham}, \cdot), $$
+this isomorphism is sometimes denoted by $\raiseIndex{\omega}$, colloquially called the `musical isomorphism'. In terms of the interior product, this pairing takes the form \cite{Osborne2017,Abraham1978}
+\begin{equation} 
+    \intpr{X_H}{\omega} = \dd{H}.
+    \label{eq:canonical_isomorphism}
+\end{equation}
+The differential 1-form $\dd{\ham}$ is
+$$ \dd{\ham} = kq\dd{q} + \frac{p}{m}\dd{p}, $$ 
+such that, by means of \cref{eq:canonical_isomorphism}, the Hamiltonian vector field becomes
+$$ X_{\ham} =  \frac{p}{m}\pdv{}{q} - kq\pdv{}{p}. $$
+Having found the Hamiltonian vector field, Liouville's theorem can be applied to to an arbitrary distribution $\rho$ over the phase space:
+\begin{equation}
+    \pdv{\rho}{t} = -\poisson{\rho}{H} = -X_H(\rho) = -\frac{p}{m}\pdv{\rho}{q} + kq\pdv{\rho}{p}.
+    \label{eq:pde_ho}
+\end{equation}
+This is a simple transport equation without diffusion (that is, $\rho$ is a \emph{passive scalar}); hence, the initial probability distribution will simply `drift' along the streamlines of the Hamiltonian flow. As such, this problem is analogous to a flow that is purely characterized by convection. 
+
+\section{Solution of the Liouville equation}
+\label{ssec:ho_liouville_solution}
+The convection equation may be readily solved using the method of characteristics.
+\begin{aside}{The method of characteristics}
+    \Cref{eq:pde_ho} is part of a larger class of linear first-order PDE's of the form\footnote{If the functions $a$ and $c$ depend on $\rho$, the equation is called \emph{semilinear}. This is, however, never the case for a PDE arising from the Liouville equation.} \cite[p. 207]{Farlow1989}. \begin{equation} \sum_{i=1}^n a_i(x_1, \ldots, x_n, \rho) \pdv{\rho}{x_i} = c(x_1, \ldots, x_n, \rho), \label{eq:fo_pde}\end{equation}
+    which are traditionally solved using the \emph{method of characteristics}. This method attempts to find characteristic lines along which the solution is constant, as to convert the PDE problem into an ODE problem. More specifically, one whishes to find a parameterization of $x_i$ and $\rho$ such that:
+    \begin{equation}
+        \begin{split}
+            \dv{x_i}{s} &= a_i\\
+            \dv{\rho}{s} &= c.
+        \end{split}
+    \end{equation}
+    Given this parameterization, the PDE can be easily rewritten as follows: \cite{Farlow1989}
+    $$ \dv{\rho}{s} = \sum_{i = 1}^n \pdv{\rho}{x_i}\dv{x_i}{s}. $$
+    The solution of the ODE problem then produces the trajectories for the characteristics. The reparameterization in terms of $s$ must be accompagnied by another reparameterization of the initial conditions in terms of the variable(s) $r_i$; essentially, $s$ provides the parameterization along the characteristic curves while $r_i$ is the parameterization of the initial curves. The expressions for $r_i$ are found by asserting that $x_i(0) = r_i$, and then solving for the integration constants that are still present in the found ODE solutions. Then, finally, one solves the ODE in terms of the characteristic parameterization $\qty(s, r_1, \ldots, r_n)$
+    $$ \dv{\rho}{s} + c\qty(x_1(s, r), \ldots, x_n(s, r))\rho = 0, $$
+    after which that solution can be written in terms of the old coordinates to obtain the solution of the PDE.
+    \tcblower
+    The former approach presents a `classical' engineering perspective of the method of characteristics. However, the underlying mechanism may also be explained using the language of exterior calculus and contact geometry, which already plays a prominent role in this text. As outlined by \citet{Burke1985}, the solution of a first-order PDE may be represented as an integral manifold of the \emph{differential ideal} of two particular differential forms\footnote{For an algebra $A$, an ideal is $R$ is a subset of a $A$ such that for all $a \in A$ and $x \in I$, it is true that $x \bullet a \in I$; i.e. it is closed under the multiplication operator $\bullet$ of the algebra $A$ \cite{Schuller2014}. In this case, the vector space is the space of 1-forms on the contact space $(\vec{x}, \pdv{\rho}{\vec{x}}, \rho)$. The $\bullet$ operation of the algebra of forms is the exterior multiplication (or wedge product); the term \emph{differential ideal} refers to the fact that the ideal is closed under the \emph{derivation} on the algebra as well. Here, the derivation on the algebra of forms is the exterior derivative.}.
+    The PDE given by \cref{eq:fo_pde} is `encoded' in two particular 1-forms that will constitute the differential ideal. The purpose is to find a general expression for the associated vector field that generates the integral manifold. The first 1-form, $\theta$, contains the `total differential' of $\rho$:
+    $$ \theta = \dd{\rho} - \sum_{i = 1}^n\underbrace{\pdv{\rho}{x_i}}_{\xi_i}\dd{x}_i. $$
+    Secondly, the PDE itself (that is, the functions $a_i, c$) must be captured by another form, in this case the 0-form
+    $$ \phi = \sum_{i = 1}^n a_i\xi_i - c, $$
+    from which a 1-form can be constructed using the exterior derivative:
+    $$ \dd{\phi} = \sum_{i=1}^n \qty( a_i\dd{\xi}_i + \pdv{\phi}{x_i}\dd{x}_i) + \pdv{\phi}{\rho}\dd{\rho}.$$
+    The purpose is then to find characteristic vectors $v, w$, whose integral curves are the characteristics of the solution. The vectors $v, w$ must satisfy the conditions: \cite[p. 215]{Burke1985}
+    \begin{equation}
+        \intpr{v}{\dd{\phi}} = 0 \qquad \intpr{w}{\dd{\phi}} = 0
+        \label{eq:v_cond_1}
+    \end{equation}
+    to ensure that it satisfies the PDE equation (this means that $v$ is tangent to the hypersurface given by $\phi$);
+    \begin{equation}
+        \intpr{v}{\theta} = 0 \qquad \intpr{w}{\theta} = 0,
+        \label{eq:v_cond_2}
+    \end{equation}
+    to enforce that $\vec{\xi}$ are truly partial derivatives (they have no component pointing in the direction of the characteristics); and finally
+    \begin{equation}
+        \intpr{w}{\intpr{v}{\dd{\theta}}} = 0
+        \label{eq:v_cond_3}
+    \end{equation}
+    to form a integral ideal. The integral manifold of the characteristic vectors then constitutes the solution of the PDE.
+\end{aside}
+
+As it turns out, the method of characteristics takes a particularly simple form for the harmonic oscillator (and Hamiltonian systems in general). The reparameterization in terms of $s$ is
+\begin{equation}
+        \dv{p}{s} = -kq \qquad \dv{q}{s} = \frac{p}{m} \qquad \dv{t}{s} = 1.
+\end{equation}
+which immediately yields $t = s + c_1$ (choose $c_1 = 0$ without loss of generalization), and the former two equations simply resort to a time-reversed solution of the Hamiltonian problem in terms of $p$ and $q$. Solving the ODE to obtain the characteristic lines is therefore, rather unsurprisingly, equivalent to finding the phase trajectories of the Hamiltonian system. For the harmonic oscillator, these trajectories are
+\begin{equation}
+    \begin{split}
+        q(t) &= c_2\cos(\omega t) + \frac{c_3}{m\omega}\sin(\omega t)\\
+        p(t) &= c_3\cos(\omega t) - m\omega c_1 \sin(\omega t). \\
+    \end{split}
+\end{equation}
+Solving for $q(0) = r_1$ and $p(0) = r_2$, yields $r_1 = c_2$ and $r_2 = c_3$. Now, because the `forcing term' $c(\cdot)$ is not present in the Liouville equation (for autonomous systems), the solution of the second ODE is trivial:
+$$ \rho(t) = \rho_0(r_1, \ldots, r_2), $$
+\towrite{Jacobian?}\\
+where $\rho_0$ is the initial distribution. It is an encouraging observation that the method of characteristics is easily extended towards non-autonomous systems, leaving the possibility for control action or external disturbances, which may well be of a stochastic nature themselves.
+
+The solution to the Liouville equation is found by writing the initial distribution in terms of $p$, $q$ and $t$. Since $q$ and $p$ depend linearly on $r_1$ and $r_2$, this is a matter of taking the inverse of the associated matrix.
+$$ 
+    \mqty(q\\p) = 
+    \underbrace{\mqty( 
+        \cos(\omega t) & \frac{1}{m\omega}\sin(\omega t) \\
+        -m\omega \sin(\omega t) & \cos(\omega t)
+    )}_{\Phi(t)}
+    \mqty(r_1\\r_2).
+$$
+This transformation matrix represents a symplectic transformation of the phase plane; symplectic matrices have a unit determinant\footnote{Due to the equivalence of $\spgroup{2}{\real}$ and $\slgroup{2, \real}$, having a unit determinant is a necessary and sufficient condition for a $2\times2$ matrix to be symplectic; this condition is only necessary for higher dimensional vector spaces \cite{Arnold1989}.}. More specifically, the above matrix is a `squeezed' rotation matrix Inversion and resubstitution of $t$ then yields:
+$$ \mqty(r_1\\r_2) = \mqty(\cos(\omega t) & \frac{-1}{m\omega}\sin(\omega t) \\\  m\omega\sin(\omega t) & \cos(\omega t) )\mqty(q\\p),$$
+this is the time-reversed flow of the Hamiltonian vector field; a counterclockwise rotation in the phase plane.
+
+\subsection{Motivation using exterior calculus}
+In this section, the reasoning given by \citet{Burke1985} using exterior calculus is applied to the problem to motivate the validity of the solution given above. The solution is the integral manifold of tangent vectors to the contact space $(t,\,q,\,p,\,\xi_t,\,\xi_q,\,\xi_p,\,\rho)$, where $\xi_t = \pdv{\rho}{t}$ etc. As such, the tangent vectors $\vec{v}$ and $\vec{w}$ can be associated with seven-tuples:\footnote{With respect to the basis $\mqty(\pdv{}{t} & \pdv{}{q} & \pdv{}{p} & \pdv{}{\xi_t} & \pdv{}{\xi_q} & \pdv{}{\xi_p} & \pdv{}{\rho})$.}
+$$\vec{v} = \mqty(v_t & v_q & v_p & v_{\xi_t} & v_{\xi_q} & v_{\xi_p} & v_{\rho})$$
+$$\vec{w} = \mqty(w_t & w_q & w_p & w_{\xi_t} & w_{\xi_q} & w_{\xi_p} & w_{\rho}).$$
+Likewise, the one-forms $\theta$ and $\dd{\phi}$ can be written as seven-tuples, too:\footnote{With respect to the basis $\mqty(\dd{t} & \dd{q} & \dd{p} & \dd{\xi_t} & \dd{\xi_q} & \dd{\xi_p} & \dd{\rho})$.}
+$$\theta = \mqty(-\xi_t & -\xi_q & -\xi_p & 0 & 0 & 0 & 1)$$
+$$\dd{\phi} = \mqty(\pdv{\phi}{t} & \pdv{\phi}{q} & \pdv{\phi}{p} & 1 & \frac{p}{m} & -kq & \pdv{\phi}{\rho}).$$
+
+Applying the conditions \cref{eq:v_cond_1} and \cref{eq:v_cond_2} to $\vec{v}$ is simply equivalent to the application of a `dot product' (i.e. a duality pairing);
+$$ \theta(\vec{v}) = 0 \iff v_\rho = v_t\xi_t + v_q\xi_q + v_p\xi_p. $$
+$$ \dd{\phi}(\vec{v}) = 0 \iff \pdv{\phi}{t}v_t + \pdv{\phi}{q}v_q + \pdv{\phi}{p}v_p + v_{\xi_t} + \frac{p}{m} v_{\xi_q} - kq v_{\xi_p} + \pdv{\phi}{\rho}v_\rho = 0. $$
+Finally, all the conditions on $\vec{w}$ can be combined into the following statement: since $\intpr{\vec{w}}{\theta} = 0$ and $\intpr{\vec{w}}{\dd{\phi}} = 0$, condition \cref{eq:v_cond_3} is equivalent to stating that the 1-form $\intpr{\vec{v}}{\dd{\theta}}$ is a linear combination of $\theta$ and $\dd{\phi}$ \cite{Burke1985}. Using the Lagrange multipliers $\lambda$ and $\mu$, the condition reverts to
+$$\intpr{\vec{v}}{\dd{\theta}} = \lambda \theta + \mu \dd{\phi}.$$
+Using the properties of the interior product and the exterior derivative, one obtains
+$$ v_t\dd{\xi_t} - v_{\xi_t}\dd{t} + v_q\dd{\xi_q} - v_{\xi_q}\dd{q} + v_p\dd{\xi_p} - v_{\xi_p}\dd{p} = \lambda \theta + \mu \dd{\phi}. $$
+A particular choice of the Lagrange multipliers can be made to cancel two of the seven components, in this case those in $\dd{\xi_t}$ and $\dd{\rho}$, respectively the fourth and last entry in the ordered tuple representation, $\lambda = -v_t\pdv{\phi}{\rho}$ and $\mu = v_t$ This results in five additional equations:
+\begin{equation*}
+    \begin{split}
+        v_{\xi_t} &= -v_t\qty(\xi_t\pdv{\phi}{\rho} + \pdv{\phi}{t}) \\
+        v_{\xi_q} &= -v_t\qty(\xi_q\pdv{\phi}{\rho} + \pdv{\phi}{q}) \\
+        v_{\xi_p} &= -v_t\qty(\xi_p\pdv{\phi}{\rho} + \pdv{\phi}{p}) \\
+        v_q &= \frac{p}{m}v_t\\
+        v_p &= -kq v_t\\
+    \end{split}
+\end{equation*}
+These equations, combined with the former two conditions can be used to determine $\vec{v}$ up to a factor (choose $v_t = 1$):
+$$ \vec{v} = \mqty(1 & \frac{p}{m} & -kq 
+                   & -\xi_t\pdv{\phi}{\rho} - \pdv{\phi}{t} & 
+                   & -\xi_q\pdv{\phi}{\rho} - \pdv{\phi}{q} & 
+                   & -\xi_p\pdv{\phi}{\rho} - \pdv{\phi}{p} & 0). $$
+Now, observe that, because of the (semi-)linearity of the original equation, the vector $\vec{v}$ can be projected to the $(t, q, p)$-space (the other components have no influence on the solution). As such, one must find the integral curves of the projected vector field
+$$ \pdv{}{t} + \frac{p}{m}\pdv{}{q} - kq\pdv{}{p}, $$
+which is precisely the Hamiltonian vector field in the extended (contact) phase space, or to quote \citet[p. 237]{Arnold1989}, \emph{the velocity vector of the phase flow in extended phase space}; the integral lines are the \emph{vortex lines} of the integral invariant of Poincaré-Cartan $p\dd{q} - \ham\dd{t}$. Hence, to find a solution of the PDE problem, one strives to integrate the above vector field, where the initial conditions serve as parameters. The initial conditions can then be solved at the point $t=0$ for the initial solution. This is precisely the methodology that is applied \emph{ad hoc} in the previous section.
+
+\section{Initial Gaussian distribution} 
+The solution of the Liouville equation to any initial distribution is simply found by substituting the $(q,p)$ dependence with transformation stated above. This solution is simply obtained by effecting the substitution 
+$$\mqty(q\\p) \mapsto \Phi^{-1}(t)\mqty(q\\p)$$
+in the original distribution $\rho_0$. Alternatively, one can see this as an affine transformation of the original random variable in the other direction, that is, 
+$$\mqty(q_0\\p_0) \mapsto \Phi(t)\mqty(q_0\\p_0) = \mqty(q\\p)$$
+For example, an initial bivariate Gaussian distribution centered at some initial point $(q_0, p_0)$ with covariance matrix $\Sigma$ subject to the linear transformation $\Phi = \Phi(t)$ yields again a Gaussian: \cite{Schon2011}
+\begin{equation}
+    \mqty(q(t)\\p(t)) \quad \sim \quad \gaussian{\Phi\mqty(q_0\\p_0)}{\Phi\Sigma\Phi^\top}.
+    \label{eq:ho_gaussian}
+\end{equation}
+This result is, after all, not quite a surprise: the Gaussian distribution is transported by the convective stream of the phase space fluid; the mean drifts along its original phase space trajectory as if it were a single particle. The variance changes continuously by the transform given by $\Phi$. Interestingly, because $\Phi$ has a unit determinant, $\det(\Phi\Sigma\Phi^\top) = \det(\Sigma)$; as such, the \emph{entropy} of the Gaussian remains constant throughout, and equal to its initial value
+$$ \frac{1}{2}\log(\det(2\pic\ec\Sigma)). $$
+
+\paragraph{Marginal distributions} \Cref{eq:ho_gaussian} represents a specific bivariate Gaussian distribution at any point in time. Therefore, the marginal time-dependent distributions of $p$ and $q$ as a function of time may readily be obtained from the joint distribution: \cite{Schon2011}
+\begin{equation}
+    \begin{split}
+        q(t) &\sim \gaussian{\cos(\omega t)q_0 + \frac{1}{m\omega}\sin(\omega t)p_0}{\sigma_q\cos[2](\omega t) + \frac{\sigma_{pq}}{m\omega}\sin(2\omega t) + \frac{\sigma_p}{m^2\omega^2}\sin[2](\omega t)}, \\
+        p(t) &\sim \gaussian{\cos(\omega t)p_0 - m\omega\sin(\omega t)q_0}{\sigma_p\cos[2](\omega t) - \sigma_{pq}m\omega\sin(2\omega t) + \sigma_q m^2\omega^2\sin[2](\omega t)}
+    \end{split}
+    \label{eq:ho_marginal}
+\end{equation}
+given that $\Sigma = \mqty(\sigma_q & \sigma_{qp}\\\sigma_{qp} & \sigma_p)$. \Cref{fig:pq_marginal_ho} shows the time-varying distribution of $q$ and $p$ in the form of the mean with a $2\sigma$-confidence interval.
+\begin{figure}[h]
+    \centering
+    \input{media/tikz/pq_marginal_ho}
+    \caption{The marginal distributions given by \cref{eq:ho_marginal}. The solid line represents the evolution of the mean, while the shaded area is a 95\% confidence interval, i.e. two standard deviations from the mean, given that the distribution is normal.}
+    \label{fig:pq_marginal_ho}
+\end{figure}
+Clearly, the uncertainty for $p$ is largest when it's change is minimal; at the troughs and peaks of the sine wave; the same is true for $q$. Because both are a quarter cycle out of phase, their uncertainties 'exchange'. This is a compelling substantiation of Heisenberg's uncertainty principle, which states that canonical variables such as $p$ and $q$ cannot be measured simultaneously to arbitrary precision. [discuss with Max]
+\begin{aside}{Fourier duality and the Heisenberg uncertainty principle}
+    Bla bla bla
+\end{aside}
+
+\paragraph{Averages in time}
+The motion of the harmonic oscillator is periodic. As such, the `average distribution over time' may be given a compact support over a single period. The distribution given by \cref{eq:ho_gaussian} may be considered to be a distribution \emph{conditioned} on time. To find the averaged distribution, the joint distribution $\Pr(p, q, t) = \Pr(p, q \mid t)\Pr(t)$ may be marginalized with respect to $t$:
+$$ \rho(p, q) = \int \rho(p, q\mid t)\rho(t) \dd{t}. $$
+Assuming that time is uniformly distributed over the period of the oscillations, the former expression is equivalent to:
+\begin{equation}
+    \begin{split}
+        \rho(\vec{x}) &= \int_{0}^{\infty} \rho_\text{normal}\qty(\vec{x};\; \Phi(t)\vec{x}_0,\,\Phi(t)\Sigma\Phi(t)^\top)\rho_\text{uni}
+        \qty(t;\; 0, T)\dd{t} \\
+        &= \int_{0}^{\infty} \frac{1}{T\sqrt{4\pic^2\det(\Sigma)}}
+        \ec^{-\frac{1}{2}\qty(\vec{x} - \Phi(t)\vec{x}_0)^\top(\Phi\Sigma\Phi^\top)^{-1}\qty(\vec{x} - \Phi(t)\vec{x}_0)}\, \qty(u_0(t) - u_T\qty(t)) \dd{t},\\
+        &= \int_{0}^{T} \frac{1}{T\sqrt{4\pic^2\det(\Sigma)}}
+        \ec^{-\frac{1}{2}\qty(\vec{x} - \Phi(t)\vec{x}_0)^\top(\Phi(t)\Sigma\Phi(t)^\top)^{-1}\qty(\vec{x} - \Phi(t)\vec{x}_0)} \dd{t},
+    \end{split}
+    \label{eq:time_averaged_pq}
+\end{equation}
+where $u_c$ refers to the Heaviside step delayed by $c$, and $\vec{x} = \qty(p\;\;q)$. Furthermore, probability density functions are unconventionally denoted by $\rho(\cdot\,;\,\cdot)$ to maintain the analogy with fluid dynamics, where the arguments and parameters are separated by a semicolon. In this case $\rho_\text{normal}(\vec{x}; \vec{\mu}, \Sigma)$ refers to a multivariate normal distribution with mean vector $\vec{\mu}$ and covariance matrix $\Sigma$, and $\rho_\text{uni}(t; a, b)$ refers to a scalar uniform distribution with bounds $a$ and $b$. \Cref{fig:time_average_ho} visualizes a numerical solution for this integral for some particular parameter values. 
+\begin{figure}[h]
+    \centering
+    %\input{media/tikz/time_average_ho}
+    \includegraphics{media/other/time_averaged_ho.pdf}
+    \caption{Numerical solution of the time-averaged distribution given by \cref{eq:time_averaged_pq}, for $m = 1$, $k = 2$, $\Sigma = \mqty(0.2 & 0.1 \\ 0.1 & 0.2)$ and $\vec{x}_0 = \mqty(1\\1)$. The marginalized distributions for $p$ and $q$ are shown as well.}
+    \label{fig:time_average_ho}
+\end{figure}
+\Cref{eq:time_averaged_pq} may be solved analytically for a simple case (normalized units and diagonal covariance), where the final solution is expressed in terms of the modified Bessel functions.\footnote{In this case $\Phi$ becomes an orthogonal matrix, which considerably simplifies the evaluation of the integral; the time-dependent argument of the exponential then reverts to a simple rotation, which can then be solved using the integral identity:
+    $$ \int^{2\pic}_0 \ec^{A\cos(\varphi) + B\sin(\varphi)}\dd{\varphi} = 2\pic I_0\qty(\sqrt{A^2 + B^2}),  $$
+$I_0$ being the modified Bessel function of the first kind \cite{Gradshteyn2007}.
+}
+
+\paragraph{Energy distribution} The energy distribution is a generalized chi-squared distribution, because it is a general quadratic form of a normally distributed vector with nonzero mean \cite{Das2021}.
