@@ -1,7 +1,7 @@
 \chapter{Damped harmonic oscillator}
 In their most traditional fashion, the Hamiltonian and Lagrangian treatments of mechanical systems do not incorporate energy dissipation; that is, they assume the conservation of (mechanical) energy in the system. The classical theory does allow for an optional explicit time-dependence of the Hamiltonian and Lagrangian, but although this may allow one to incorporate dissipation, it is no direct solution for the dissipation problem. Although this may seem odd from the perspective of the engineering field, where dissipation really is the rule rather than the exception, dissipation is arguably not of primary concern for physicists. This is because dissipation is considered to be a \emph{macro-phenomenon}; that is, it arises because one chooses not to model certain degrees of freedom in the system, while physicists are often concerned with ideal system descriptions on the macro-scale. Nonetheless, the celebrated report by \citet{Dekker1981} provides an overview of the (often fruitful) attempts that have been made to include dissipation in the Hamiltonian and Lagrangian description; the former may allow one to consider dissipation on the quantum level as well --- this is beyond the scope of this text. In addition to these methods, recent developments in the economic engineering group have proposed two new methods to deal with linear damping in mechanical systems, see \citet{Hutters2020a} and \citet{Mendel2021}. In the following section, these methods are placed in a slightly more rigorous (read: geometric) context, after which they serve as the apparatus for the Liouville equation on the damped harmonic oscillator.
 
-\section{A quick tour of dissipative classical mechanics}
+\section{Dissipative classical mechanics: an overview}
 \begin{figure}[ht]
     \centering
     \input{media/tikz/damper_oscillator}
@@ -30,26 +30,65 @@ This approach for Lagrangian systems to damped systems (the prototypical example
 
 Because $t$ defines the configuration of the system, it is not an independent coordinate; that is, it can be varied at will. The independent coordinate is denoted by $\tau$, also referred to as the `path indexation variable', for that is its only significance. \citet{Mendel2021} calls this \emph{proper time} as a testament to its parallel in the theory of special relativity \cite{Landau1971}.
 
-Traditionally, Lagrangian mechanics is staged in the tangent bundle to the configuration manifold. The notation used in this section is something of a delicate matter, sinds the traditional dot notation for tangent vectors usually refers to the actual time $t$, not $\tau$. It is considered undesirable to break with this convention, which is why the tangent velocity vectors with respect to the $q$ and $t$-coordinate are denoted by $v_q$ and $v_t$ respectively. Hence, the tangent bundle at issue has the chart-induced coordinates $(q, t, v_q, v_t)$. As \citet{Burke1985} points out, for (proper) time-dependent systems, it is more natural to look at the contact bundle $\contact{M}$ rather than the tangent bundle $\tangent{M}$ because it makes it possible to deal with the explicit $\tau$-dependence directly. Hence, consider the line-element contact bundle $C\!Q$ with projection map $\pi$,
+Traditionally, Lagrangian mechanics is staged in the tangent bundle to the configuration manifold. The notation used in this section is something of a delicate matter, sinds the traditional dot notation for tangent vectors usually refers to the actual time $t$, not $\tau$. It is considered undesirable to break with this convention, which is why the tangent velocity vectors with respect to the $q$ and $t$-coordinate are denoted by $v_q$ and $v_t$ respectively. Hence, the tangent bundle at issue has the chart-induced coordinates $(q, t, v_q, v_t)$. As \citet{Burke1985} points out, for (proper) time-dependent systems, it is more natural to look at the contact bundle $\contact{M}$ rather than the tangent bundle $\tangent{M}$ because it makes it possible to deal with the explicit $\tau$-dependence directly\footnote{Intuitively, one can think of a contact bundle as a `homogenized' version of a tangent bundle. When two submanifolds are in contact, it means their tangent spaces coincide locally; tangency is a stronger condition that also involves the \emph{magnitude} of the tangent vectors. A \emph{contact element} is an equivalence class of submanifolds in contact at a point. A \emph{contact bundle} is the manifold of points in the underlying base manifold, each paired with a contact element.}. Hence, consider the line-element contact bundle $C\!Q$ with projection map $\pi$,
 $$ C\!M \xrightarrow{\pi} M \quad\text{with}\quad \pi: (\tau, q, t, v_q, v_t) \mapsto (\tau, q, t). $$
 The idea is, again, now to establish a differential ideal (like in \cref{ssec:ho_liouville_solution}) whose integral manifolds are the solution trajectories of the damped harmonic oscillator system. Although it is not specifically required to use this approach, it helps to sort out some delicacies that appear in taking derivatives that would otherwise be concealed as a consequence of ambiguities in the Leibniz notation.
 
-There are seven forms that constitute the differential ideal:
-\begin{itemize}
-    \item Two 1-forms, $\alpha_1$ and $\alpha_2$ define the contact structure. Roughly speaking, they provide the `bookkeeping' of the derivatives. The larger spaces $\contact{M}$ and $\tangent{M}$ essentially offer too much `freedom': not every curve in these spaces coincides to lifted version of the solution curve on $M$. Said otherwise, they guarantee tangency (or contact) when the solution trajectory is brought down to the configuration manifold. These 1-forms are:
+There are seven forms that constitute the differential ideal: two define the contact structure, two define the system dynamics and one defines a constraint that ties $t$ and $\tau$ together.
+\paragraph{Contact structure} Two 1-forms, $\alpha_1$ and $\alpha_2$ define the contact structure. Roughly speaking, they provide the `bookkeeping' of the derivatives. The larger spaces $\contact{M}$ and $\tangent{M}$ essentially offer too much `freedom': not every curve in these spaces coincides to lifted version of the solution curve on $M$. Said otherwise, they guarantee tangency (or contact) when the solution trajectory is brought down to the configuration manifold. These 1-forms are:
     \begin{equation} 
         \begin{split}
             \alpha_1 &= \dd{q} - v_q\dd{\tau}\\
             \alpha_2 &= \dd{t} - v_t\dd{\tau}.
         \end{split}
     \end{equation}
-    \item Secondly, there are two 1-forms that provide the mechanics of the system. This is where the `proper' Lagrangian comes in to play. The proper Lagrangian $\mathscr{L}$ is defined as a discounted version of the naive Lagrangian $L$ which one would use for an undamped system by taking the difference of the kinetic and potential energy of the system. The naive Lagrangian is equal to $$ L = \frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2. $$
+    \paragraph{System dynamics} The mechanics of the system are enforced by two additional 1-forms $\beta_1$ and $\beta_2$. This is where the `proper' Lagrangian comes in to play. The proper Lagrangian $L$ is defined as a discounted version of the naive Lagrangian $L$ which one would use for an undamped system by taking the difference of the kinetic and potential energy of the system. The naive Lagrangian is equal to $$ L_0 = \frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2. $$
     However, as a consequence of the extended phase space $\dot{q}$ does not represent a generalized velocity. By means of the chain rule, it can readily be expressed as a function of $v_q$ and $v_t$:
     $$ \dot{q} = \frac{v_q}{v_t}, $$
-    which allows to take derivatives with respect to the chosen coordinates of $\contact{M}$. The proper Lagrangian $\mathscr{L}$ is defined as:
-        $$ \mathscr{L}:\,\tangent{M}\to\real : (q, t, v_q, v_t) \mapsto \equiv v_t L(q, t, v_q, v_t), $$
-    that is, the Lagrangian is `discounted' by $v_t$. The term discounting is used here because the solution of $v_t$ will turn out to be an exponential, which makes it analogous to the practice of discounting in economics and finance.
-\end{itemize}
+    which allows to take derivatives with respect to the chosen coordinates of $\contact{M}$. The proper Lagrangian $L$ is defined as:
+        $$ L:\,\tangent{M}\to\real:\;L(q, t, v_q, v_t) \equiv v_t \; L_0(q, t, v_q, v_t), $$
+    that is, the naive Lagrangian is `discounted' by $v_t$. The term discounting is used here because the solution of $v_t$ will turn out to be an exponential, which makes it analogous to the practice of discounting in economics and finance. As stated by \citet{Burke1985}, these `mechanical' 1-forms have the general form
+    \begin{equation}
+        \begin{split}
+            \beta_1 &= \dd{\qty(\pdv{L}{v_q})} - \pdv{L}{q}\dd{\tau}, \\
+            \beta_2 &= \dd{\qty(\pdv{L}{v_t})} - \pdv{L}{t}\dd{\tau}. \\
+        \end{split}
+    \end{equation}
+    To find these $\beta$'s, one must therefore evaluate the appropriate partial derivatives of the Lagrangian. First, the conjugate momenta can be obtained by taking the partial derivative of the Lagrangian with respect to both generalized velocities. Firstly, 
+    \begin{equation}
+        \pdv{L}{v_q} = v_t \pdv{L_0}{\dot{q}}\pdv{\dot{q}}{v_q} = v_t m \qty(\frac{v_q}{v_t}) \frac{1}{v_t} = m\dot{q} \equiv p,
+        \label{eq:dho_lag_v_q}
+    \end{equation} 
+    which means that the momentum conjugate to $v_q$ is \emph{equal to the classical notion of momentum} $p = m\dot{q}$.
+    Secondly,
+    \begin{equation}
+        \begin{split}
+            \pdv{L}{v_t} &= L_0 + v_t\pdv{L_0}{v_t} = L_0 + v_t\pdv{L_0}{\dot{q}}\pdv{\dot{q}}{v_t} \\
+                         &= L_0 - v_t\pdv{L_0}{\dot{q}}\frac{v_q}{v_t^2} = -\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2 \equiv W,
+            \label{eq:dho_lag_v_t}
+        \end{split}
+    \end{equation}
+    i.e. the momentum conjugate to $v_t$ is the negative of the total mechanical energy of the system\footnote{This is precisely how \citet{Arnold1989} demonstrates the conservation of energy as a consequence of Noether's theorem applied to Lagrangians invariant under time translations.}. When added to an appropriate constant for the initial mechanical energy, $W$ yields the total work dissipated by the damper. The `force' terms are less involved, for they have only a dependence on a single coordinate:
+    \begin{equation}
+        \pdv{L}{q} = -kq \quad\text{and}\quad \pdv{L}{t} = 0. 
+        \label{eq:dho_lag_force}
+    \end{equation}
+    Taking exterior derivatives of \cref{eq:dho_lag_v_q} and \cref{eq:dho_lag_v_t}, the mechanical 1-forms can be obtained:
+    \begin{equation}
+        \begin{split}
+            \beta_1 &= \frac{m}{v_t}\dd{v_q} - \frac{v_q}{v_t^2}\dd{v_t} + kq\dd{\tau} \\
+            \beta_2 &= \qty(\frac{v_q}{v_t})\frac{m}{v_t}\dd{v_q} - \qty(\frac{v_q}{v_t})\frac{m v_q}{v_t^2}\dd{v_t} + kq\dd{q}.
+        \end{split}
+    \end{equation}
+
+\paragraph{Constraint equation}
+Finally, the damping structure of the system is encoded in the `discount rate' of time $t$ with respect to proper time, given by the 1-form
+    \begin{equation}
+        \phi = \dd{t} - \frac{\dd{\tau}}{\lambda \tau}.     
+    \end{equation}
+This 1-form is, for all intents and purposes, `embarrassingly integrable' --- it provides a direct one-to-one relation between $t$ and $\tau$, and therefore represens a proper time-dependent holonomic (rheonomic) constraint on the system.
+
+\paragraph{Solution of the exterior system}
 
 \section{Legendre transform}
 \label{sssec:mendel_legendre}

@@ -1089,11 +1089,11 @@
 \renewcommand{\nomname}{List of Symbols}
 \setlength{\nomitemsep}{-0.5\parsep}
 \newcommand{\abbrev}[2]%
-           {#2 (#1)\nomenclature[a ]{#1}{\MakeUppercase#2}}
+           {(#1)\nomenclature[a ]{#1}{\MakeUppercase#2}}
 \newcommand{\lsymb}[2]%
-           {#1\nomenclature[c ]{#1}{\MakeUppercase#2}}
+           {\nomenclature[c ]{#1}{\MakeUppercase#2}}
 \newcommand{\gsymb}[2]%
-           {#1\nomenclature[b ]{#1}{\MakeUppercase#2}}
+           {\nomenclature[b ]{#1}{\MakeUppercase#2}}
 \newcommand{\subs}[2]%
            {\nomenclature[d ]{$ _{#1} $}{\MakeUppercase#2}}
 \newcommand{\supers}[2]%
