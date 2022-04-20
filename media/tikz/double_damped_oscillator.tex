@@ -1,0 +1,45 @@
+\begin{tikzpicture}[every node/.style={outer sep=0pt,thick}]
+% Spring style
+\tikzstyle{spring} = [thick, 
+                      decorate,
+                      decoration={zigzag,pre length=0.2cm,post length=0.2cm,segment length=6}]
+
+% Damper style
+\tikzstyle{damper}= [thick, 
+                     decoration={markings,  
+                     mark connection node=dmp,
+                     mark=at position 0.5 with 
+                     {
+                       \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                       \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                       \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+                     }
+                    }, decorate]
+                    
+\tikzstyle{ground} = [fill, 
+                      pattern = north east lines, 
+                      draw = none,
+                      minimum width = 0.75cm,
+                      minimum height = 0.3cm]
+
+\node (M) [draw,minimum width=1cm, minimum height=1.5cm] {$m$};
+
+\node (ground) [ground,anchor=north,yshift=-0.25cm,minimum width=1.5cm] at (M.south) {};
+\draw (ground.north east) -- (ground.north west);
+\draw [thick] (M.south west) ++ (0.2cm,-0.125cm) circle (0.125cm)  (M.south east) ++ (-0.2cm,-0.125cm) circle (0.125cm);
+
+\node (wall) [ground, rotate=-90, minimum width=2.5cm,yshift=-3cm] {};
+\node [xshift=-1.2cm, circle, fill=black, inner sep = 1pt] (p1) at ($(M.north west)!(wall.160)!(M.south west)$) {};
+\node [yshift=0.3cm] at (p1) {$q_1$};
+\draw (wall.north east) -- (wall.north west);
+\node[anchor=south] at (M.north) {$q_2$};
+
+%\node (coord1) [yshift=1.5cm, minimum width=0.3cm] at (wall) {};
+%\draw[->] (coord1) -- ++(1cm, 0);
+
+\draw [spring] (wall.160) -- (p1) node[pos=0.5,anchor=south, outer sep=4pt] {$k$};
+\draw [damper] (wall.20) -- ($(M.north west)!(wall.20)!(M.south west)$) node[pos=0.5, anchor=north, outer sep=8pt] {$b_p$};
+\draw[damper] (p1) -- ($(M.north west)!(wall.160)!(M.south west)$) node[pos=0.5, anchor=south, outer sep=8pt] {$b_s$};
+
+
+\end{tikzpicture}

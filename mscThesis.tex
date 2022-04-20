@@ -28,8 +28,8 @@
 \mscKeyWords{thesis, msc, subject}% only used in PDF properties
 %\mscCoverPicture{media/template/COVER}% to place a picture ( here the example COVER.eps) on the cover page. Comment out if no picture is to be used
 
-\mscThirdPartyText{The work in this thesis was supported by Rabobank. Their cooperation is hereby gratefully acknowledged.}
-\mscThirdPartyLogo{media/template/RABO_LOGO.eps}
+%\mscThirdPartyText{The work in this thesis was supported by Rabobank. Their cooperation is hereby gratefully acknowledged.}
+%\mscThirdPartyLogo{media/template/RABO_LOGO.eps}
 
 \mscSupervisorOne{prof.em.dr.ir.~M.~Mendel}
 %\mscSupervisorTwo{Dr.ir.~M.Y.~Second Super}
@@ -57,33 +57,33 @@
 \frontmatter %
 \maketitle
 
-\include{formalities/abstract}
+\input{formalities/abstract}
 \tocloflot
-\include{formalities/preface}
-\include{formalities/acknowledgements}
-\include{formalities/dedication}
+\input{formalities/preface}
+\input{formalities/acknowledgements}
+\input{formalities/dedication}
 
 %========================== Main matter ======================================
 
 \mainmatter
 
-\include{main/introduction}
+\input{main/introduction}
 
 \part{Symplectic Economic Theory}
-\include{main/hamilton_econ}
-\include{main/lagrangian_econ}
+\input{main/hamilton_econ}
+\input{main/lagrangian_econ}
 
 \part{Autonomous systems}
 % \include{main/liouville}
-\include{main/ho.tex}
-\include{main/dho.tex}
+\input{main/ho}
+\input{main/dho}
 \part{Non-autonomous Systems}
-\include{main/nonautonomous}
+\input{main/nonautonomous}
 
 %========================== Appendices =======================================
 
 \appendix
-\include{backmatter/symplectic_geometry}
+%\input{backmatter/symplectic_geometry}
 
 %========================== Back matter ======================================
 

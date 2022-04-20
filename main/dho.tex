@@ -84,11 +84,45 @@ There are seven forms that constitute the differential ideal: two define the con
 \paragraph{Constraint equation}
 Finally, the damping structure of the system is encoded in the `discount rate' of time $t$ with respect to proper time, given by the 1-form
     \begin{equation}
-        \phi = \dd{t} - \frac{\dd{\tau}}{\lambda \tau}.     
+        \phi = \dd{t} - \frac{\dd{\tau}}{\lambda \tau}.
     \end{equation}
-This 1-form is, for all intents and purposes, `embarrassingly integrable' --- it provides a direct one-to-one relation between $t$ and $\tau$, and therefore represens a proper time-dependent holonomic (rheonomic) constraint on the system.
+This 1-form is, for all intents and purposes, `embarrassingly integrable' --- it provides a direct one-to-one relation between $t$ and $\tau$, and therefore represents a proper time-dependent holonomic (rheonomic) constraint on the system.
 
 \paragraph{Solution of the exterior system}
+
+\begin{aside}{Naive solution}
+    The key insight of the method resides in the evaluation of the second time derivative. Use the `second derivative chain rule' from \citet{Bartlett2019}:
+    $$ \dv{}{x}\qty(\dv{y}{x}) = \dv[2]{y}{x} - \dv{y}{x}\dv[2]{x}{x}, $$
+    where it is important to keep in mind that when $x$ is not the independent variable, the second term is not necessarily equal to 0.
+    Hence, evaluating the `momentum' term of the Euler-Lagrange equation,
+    $$ \dv{}{\tau}\qty(\dv{q}{t}) = v_t \dv{}{t}\qty(\dv{q}{t}) = v_t\qty(\ddot{q} + \gamma \dot{q}) $$
+
+\end{aside}
+
+\clearpage
+\subsection{Harmonic oscillator with parallel and serial damper}
+A harmonic oscillator with a damper and spring in series and additional parallel damper is depicted by \cref{fig:ddho}. Here, the damping coefficients of the parallel and serial dampers are denoted by $b_s$ and $b_p$ respectively. Because of the serial damper, an additional degree of freedom in terms of position arises; these are expressed in terms of the coordinates $q_1$ and $q_2$. However, because there is no mass attached to $q_1$ and no spring to $q_2$, the system exhibits coupled first-order dynamics, which may be rewritten as a second-order equation for $q_1$.
+\begin{figure}
+    \centering
+    \input{media/tikz/double_damped_oscillator}
+    \label{fig:ddho}
+    \caption{Harmonic oscillator with parallel and serial damper.}
+\end{figure}
+The equations of motion are:
+\begin{equation}
+    \dv{}{t}\mqty(q_1\\\dot{q}_2) = \mqty(-\lambda_s & 1\\ -\omega_n^2 & -\lambda_p)\mqty(q_1\\\dot{q}_2).
+    \label{eq:ddho}
+\end{equation}
+By taking the time derivative of the first equation and performing the appropriate substitution, a second-order differential equation in $q_1$ can be obtained as well:
+\begin{equation}
+    0 = \ddot{q}_1 + (\lambda_s + \lambda_p)\dot{q}_1 + (\omega_n^2 + \lambda_p\lambda_s)q_1, 
+\end{equation}
+which may be regarded as an equivalent parallel system with an adjusted value for the damping and spring constants.
+
+\subsubsection{As the algebra of split-quaternions}
+The algebra of $2\times2$ matrices is isomorphic to the algebra of split-quaternions. Expressing the matrix given by \cref{eq:ddho} as a split-quaternion  
+
+
 
 \section{Legendre transform}
 \label{sssec:mendel_legendre}
