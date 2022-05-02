@@ -33,6 +33,8 @@
 % Vectors, Tensors, Matrices
 % Vector notation: bold italic
 \renewcommand{\vec}[1]{\ensuremath{\mathbold{#1}}}
+\newcommand{\uvec}[1]{\ensuremath{\hat{\mathbold{#1}}}}
+\newcommand{\mat}[1]{\ensuremath{\mathbold{#1}}}
 \newcommand{\tens}[1]{\ensuremath{\mathboldsans{#1}}}
 % additionally, there is the \mathsans font which is not used currently
 
@@ -44,23 +46,25 @@
 \newcommand{\ec}{\ensuremath{\mathrm{e}}}          % Euler's constant
 \newcommand{\ii}{\ensuremath{\mathrm{i}}}          % Imaginary unit
 \newcommand{\jj}{\ensuremath{\mathrm{j}}}          % Split-complex unit
-\newcommand{\jjp}{\ensuremath{\mathrm{j}_{_+}}}          % Split-complex unit
-\newcommand{\jjm}{\ensuremath{\mathrm{j}_{_-}}}         % Split-complex unit
+%\newcommand{\jjp}{\ensuremath{\mathrm{j}_{_+}}}    % Split-complex unit
+%\newcommand{\jjm}{\ensuremath{\mathrm{j}_{_-}}}    % Split-complex unit
 
 % --------------------------------------------------------------------------------
 % NUMBER SET & SPACE MACROS
 % --------------------------------------------------------------------------------
 
+% Spaces and number systems
 \renewcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\field}{\ensuremath{\mathbb{F}}\xspace}
 
-\newcommand{\hyperbolic}{\ensuremath{\mathbf{H}}\xspace}
 \newcommand{\quaternions}{\ensuremath{\mathbb{H}}\xspace}
+\newcommand{\spquaternions}{\ensuremath{\hat{\mathbb{H}}}\xspace}
 \newcommand{\complex}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand{\integer}{\ensuremath{\mathbb{Z}}\xspace}
 \newcommand{\sphere}[1]{\ensuremath{\mathbb{S}^{#1}}\xspace}
 \newcommand{\torus}[1]{\ensuremath{\mathbb{T}^{#1}}\xspace}
 
+% Tangent, cotangent, contact bundles
 \renewcommand{\cotangent}[1]{\ensuremath{T^*\!#1}}
 \renewcommand{\tangent}[1]{\ensuremath{T\!#1}}
 \newcommand{\contact}[1]{\ensuremath{C\!#1}}
@@ -102,15 +106,30 @@
 %% OPERATORS & SYMBOLS MACROS
 % --------------------------------------------------------------------------------
 
+% Poisson bracket
 \newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}}
+
+% Inner product
 \newcommand{\inner}[2]{\ensuremath{\langle #1,\, #2\rangle}}
+\newcommand{\lorinner}[2]{\ensuremath{\langle #1,\, #2\rangle_\text{\tiny{L}}}}
+
+% Cross product
+\newcommand{\crossp}[2]{\ensuremath{#1\times#2}}
+\newcommand{\lorcrossp}[2]{\ensuremath{#1\times_\text{\tiny{L}} #2}}
+
+% Wedge product
 \newcommand{\wedgep}[2]{\ensuremath{ #1\,\wedge\,#2 }}
+
+% Lie derivative
 \newcommand{\lied}[2]{\ensuremath{\mbox{\Large $\mathsterling$}_{#1}#2}}
+
+% Interior product
 \newcommand{\intpr}[2]{\ensuremath{#1\!\righthalfcup#2}}
 
 \newcommand{\corresponds}{\ensuremath{\quad \leftrightsquigarrow \quad}}
 \newcommand{\conj}[1]{\ensuremath{\bar{#1}}}
 
+% Quaternion
 \newcommand{\quat}[4]{\ensuremath{#1 + #2\vb{i} + #3\vb{j} + #4\vb{k}}\xspace}
 
 \newcommand{\ctran}[1]{\ensuremath{#1^{\dagger}}}
@@ -120,7 +139,7 @@
 \newcommand{\lowerIndex}[1]{\ensuremath{#1^\flat}}
 \newcommand{\raiseIndex}[1]{\ensuremath{#1^\sharp}}
 
-\newcommand{\christ}{\ensuremath{\mathrm{\Gamma}}}
+%\newcommand{\christ}{\ensuremath{\mathrm{\Gamma}}}
 %\renewcommand{\var}{\ensuremath{\mathrm{\delta}}}
 \renewcommand{\var}{\ensuremath{\textnormal{\delta}}}   
 
@@ -148,3 +167,5 @@
 
 \DeclareSIUnit\money{\$}
 \DeclareSIUnit\year{yr}
+
+\renewcommand\qedsymbol{$\blacksquare$}
