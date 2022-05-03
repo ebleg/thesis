@@ -1,0 +1,22 @@
+\chapter{Symplectified Contact Mechanics for Dissipative Systems}
+
+The traditional view is that the methods of analytical mechanics, such as the Lagrangian and Hamiltonian formalisms, are only suited for conservative systems. However, several attempts, especially in the previous century, have been made to extend these principles to dissipative systems as well. This chapter (and the application in the following chapter) will be primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator, with the governing second-order differential equation being
+\begin{equation}  
+  m\ddot{q} + b\dot{q} + k\dot{q} = 0.
+\end{equation}
+The choice for this system is rather perspicuous, it is arguably the `easiest` dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics \cite{Dekker1981,Hutters2020b}.
+
+The first attempt is arguably made in the work of \citet{Bateman1931} in 1931, who used a `mirror` system in combination with the real system that runs with an opposite time direction --- as such, the irreversible dynamics are compensated by the mirror system, which ensures that the overal system can be cast in the necessarily even-dimensional (the Bateman approach automatically doubles the number of dimensions in the system) symplectic setting that underpins the Hamiltonian formalism\footnote{Strictly speaking, Bateman only covered the Lagrangian part of the story in his paper}. 
+
+From a more practical standpoint, a Rayleigh damping term can be included in the Lagrangian to emulate linear damping forces, and this works `mathematically` to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for engineering problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only `works' on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks.
+
+The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A seminal paper by \citet{Dekker1981} provides an excellent summary of many attempts up to 1981. A brief summary (with some recent additions) is given below [motivate]. In this and the following chapter, some important connections between these methods that were not mentioned in Dekker's treatment.
+\begin{itemize}
+    \item The \textbf{mirror system} or \textbf{Bateman} approach, doubles the number of system dimensions by including a mirror system that runs opposite in time. Arguably the most flexible of all methods, it is 
+    \item Expressing the Hamiltonian in \textbf{complex coordinates} has also produced promising results: notable are the attempts of \citet{Bopp1974}, \citet{Dedene1980} and the very recent contribution by \citet{Hutters2020b} in the research group to which the author belongs as well.
+    \item A different approach, related to the contact method, are the 
+    \item Contact mechanics
+    \item Mathematical Hamiltonians
+\end{itemize}
+
+[Mention Max as contributor]

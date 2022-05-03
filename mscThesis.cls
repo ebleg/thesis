@@ -1086,7 +1086,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%
-\renewcommand{\nomname}{List of Symbols}
+\renewcommand{\nomname}{Mathematical notation}
 \setlength{\nomitemsep}{-0.5\parsep}
 \newcommand{\abbrev}[2]%
            {(#1)\nomenclature[a ]{#1}{\MakeUppercase#2}}
@@ -1124,6 +1124,7 @@
   \phantomsection % Added by Martijn van de Giessen
     \addcontentsline{toc}{section}{\numberline{}\nomname}
 %  \markboth{\nomname}{\nomname}
+  %\section*{Mathematical notation}
   \printnomenclature[0.8in]
 }
 \newcommand{\printacronyms}{%

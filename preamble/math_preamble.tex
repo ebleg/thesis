@@ -65,9 +65,10 @@
 \newcommand{\torus}[1]{\ensuremath{\mathbb{T}^{#1}}\xspace}
 
 % Tangent, cotangent, contact bundles
-\renewcommand{\cotangent}[1]{\ensuremath{T^*\!#1}}
-\renewcommand{\tangent}[1]{\ensuremath{T\!#1}}
-\newcommand{\contact}[1]{\ensuremath{C\!#1}}
+\newcommand{\ctbundle}[1]{\ensuremath{T^*\!#1}}
+\newcommand{\tbundle}[1]{\ensuremath{T\!#1}}
+\newcommand{\clbundle}[1]{\ensuremath{C\!#1}}
+\newcommand{\chbundle}[1]{\ensuremath{C^*\!#1}}
 
 % --------------------------------------------------------------------------------
 % ANALYTICAL MECHANICS 
@@ -76,6 +77,8 @@
 \newcommand{\lag}{\ensuremath{L}}
 %\newcommand{\ham}{\ensuremath{\mathscr{H}}}
 \newcommand{\ham}{\ensuremath{H}}
+
+\newcommand{\bundle}[3]{\ensuremath{#1\xrightarrow[]{#2}#3}}
 
 \newcommand{\ecokin}{\ensuremath{T^*}\xspace}
 \newcommand{\ekin}{\ensuremath{T}\xspace}
@@ -106,8 +109,14 @@
 %% OPERATORS & SYMBOLS MACROS
 % --------------------------------------------------------------------------------
 
+% Exterior derivative
+\newcommand{\extdiff}[1]{\ensuremath{\vb{d}#1}}
+
 % Poisson bracket
 \newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}}
+
+% Lie bracket
+\newcommand{\liebr}[2]{\ensuremath{\qty{#1,\,#2}}}
 
 % Inner product
 \newcommand{\inner}[2]{\ensuremath{\langle #1,\, #2\rangle}}
