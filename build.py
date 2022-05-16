@@ -60,8 +60,8 @@ print("Compilation finished")
 print()
 
 # Clean build dir
-for file in os.listdir(os.path.join(HOME, BUILD)):
-    shutil.remove(file)
+for file in os.listdir(os.path.join(HOME, BUILD_DIR)):
+    os.remove(file)
 
 # Move everything back
 files_to_move = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
