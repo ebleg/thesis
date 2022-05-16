@@ -3,17 +3,19 @@
 import subprocess
 #import sys
 import os
+import glob
 import texoutparse
 from termcolor import colored
 import shutil
 
 FILENAME = "mscThesis.tex"
 BUILD_DIR = "build"
-BUILD_DIR = "."
-BUILD_NAME = "mscThesis"
-PPDFLATEX = "~/GitHub/pplatex-1.0-rc2/bin/ppdflatex"
+BUILD_NAME = "thesis_build"
 
 HOME = os.getcwd()
+
+# Steps to take 2. Clean directory 3. Copy build directory 4. build 5. Clean build directory
+# 6. Copy build files to build (spare pdf)
 
 # Functions for pretty printing
 def print_colored_header(text, color):
@@ -28,27 +30,44 @@ def boxed(msg, indent=0, padding=2):
     middle_line = indent*" " + "│" + padding*" " + msg + padding*" " + "│\n" 
     bottom_line = indent*" " + "└" + (l+2*padding)*"─" + "┘\n" 
     return top_line + middle_line + bottom_line
- 
 
 print()
 print(colored(boxed("THESIS COMPILATION", indent=1, padding=28), "blue"))
 print()
 
+print("Clean directory")
+files_to_remove = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
+for file in files_to_remove:
+    shutil.remove(file)
+    print(f"Removed {file}")
+print()
+
+print("Copy from build dir")
+files_to_move = glob.glob(os.path.join(HOME, BUILD_DIR, f"{BUILD_NAME}.*"))
+for file in files_to_move:
+    try:
+        shutil.move(file, HOME)
+    except shutil.Error:
+        print(f"Could not move file {file}")
+
 # Compilation
 print("Start compilation")
 print(80*"⎯")
-result = subprocess.run(["latexmk", "-pdf", "-quiet", f"-jobname={BUILD_DIR}/{BUILD_NAME}"], capture_output=False)
+result = subprocess.run(["latexmk", "-pdf", "-quiet", f"-jobname={BUILD_NAME}"], capture_output=False)
 print(80*"⎯")
 print("Compilation finished")
 print()
 
-# Place pdf in the correct folder
-#pdfname = f"{BUILD_NAME}.pdf"
-#if os.path.exists(os.path.join(HOME, pdfname)):
-#    os.remove(os.path.join(HOME, pdfname))
-#
-#if os.path.exists(os.path.join(HOME, BUILD_DIR, pdfname)):
-#    shutil.copy(os.path.join(HOME, BUILD_DIR, pdfname), os.path.join(HOME, pdfname))
+# Clean build dir
+for file in os.listdir(os.path.join(HOME, BUILD))
+    shutil.remove(file)
+
+# Move everything back
+files_to_move = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
+
+for file in files_to_move:
+    if file[:-4] != ".pdf"
+        shutil.move(file, os.path.join(HOME, BUILD_DIR))
 
 # Parsing
 #parse_result = subprocess.run([PPDFLATEX, os.path.join(HOME, BUILD_DIR, f"{BUILD_NAME}.log")])
