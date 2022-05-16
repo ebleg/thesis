@@ -10,7 +10,7 @@ import shutil
 
 FILENAME = "mscThesis.tex"
 BUILD_DIR = "build"
-BUILD_NAME = "thesis_build"
+BUILD_NAME = "mscThesis"
 
 HOME = os.getcwd()
 
@@ -38,8 +38,9 @@ print()
 print("Clean directory")
 files_to_remove = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
 for file in files_to_remove:
-    shutil.remove(file)
-    print(f"Removed {file}")
+    if file[:-4] not in [".pdf", ".cls"]:
+        shutil.remove(file)
+        print(f"Removed {file}")
 print()
 
 print("Copy from build dir")
@@ -59,7 +60,7 @@ print("Compilation finished")
 print()
 
 # Clean build dir
-for file in os.listdir(os.path.join(HOME, BUILD))
+for file in os.listdir(os.path.join(HOME, BUILD)):
     shutil.remove(file)
 
 # Move everything back
