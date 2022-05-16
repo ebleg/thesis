@@ -9,6 +9,7 @@ import shutil
 
 FILENAME = "mscThesis.tex"
 BUILD_DIR = "build"
+BUILD_DIR = "."
 BUILD_NAME = "mscThesis"
 PPDFLATEX = "~/GitHub/pplatex-1.0-rc2/bin/ppdflatex"
 
@@ -42,12 +43,12 @@ print("Compilation finished")
 print()
 
 # Place pdf in the correct folder
-pdfname = f"{BUILD_NAME}.pdf"
-if os.path.exists(os.path.join(HOME, pdfname)):
-    os.remove(os.path.join(HOME, pdfname))
-
-if os.path.exists(os.path.join(HOME, BUILD_DIR, pdfname)):
-    shutil.copy(os.path.join(HOME, BUILD_DIR, pdfname), os.path.join(HOME, pdfname))
+#pdfname = f"{BUILD_NAME}.pdf"
+#if os.path.exists(os.path.join(HOME, pdfname)):
+#    os.remove(os.path.join(HOME, pdfname))
+#
+#if os.path.exists(os.path.join(HOME, BUILD_DIR, pdfname)):
+#    shutil.copy(os.path.join(HOME, BUILD_DIR, pdfname), os.path.join(HOME, pdfname))
 
 # Parsing
 #parse_result = subprocess.run([PPDFLATEX, os.path.join(HOME, BUILD_DIR, f"{BUILD_NAME}.log")])
@@ -63,9 +64,9 @@ if len(parser.badboxes) != 0:
     print()
 
 if len(parser.warnings) != 0:
-    print(colored(boxed("WARNINGS", indent=32), "orange"))
+    print(colored(boxed("WARNINGS", indent=32), "yellow"))
     for warningmsg in parser.warnings:
-        print_colored_header(str(warningmsg), "orange")
+        print_colored_header(str(warningmsg), "yellow")
         print()
     print()
 
