@@ -38,8 +38,8 @@ print()
 print("Clean directory")
 files_to_remove = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
 for file in files_to_remove:
-    if file[:-4] not in [".pdf", ".cls"]:
-        shutil.remove(file)
+    if not (file[-4:] in [".pdf", ".cls", ".tex"]):
+        os.remove(file)
         print(f"Removed {file}")
 print()
 
@@ -67,7 +67,7 @@ for file in os.listdir(os.path.join(HOME, BUILD)):
 files_to_move = glob.glob(os.path.join(HOME, f"{BUILD_NAME}.*"))
 
 for file in files_to_move:
-    if file[:-4] != ".pdf"
+    if not (file[-4:] in [".pdf", ".cls", ".tex"]):
         shutil.move(file, os.path.join(HOME, BUILD_DIR))
 
 # Parsing
