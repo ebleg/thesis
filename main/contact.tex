@@ -31,7 +31,7 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
 %the Hamiltonian formalism\footnote{Strictly speaking, Bateman only covered the Lagrangian part of the story in his
 %paper}.
 
-\section{Historical perspective}
+\section{Historical perspectives}
 A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term
 in the Lagrangian to emulate linear damping forces, and this works `mathematically` to derive the correct equations of
 motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of
@@ -56,7 +56,7 @@ and the corresponding Hamiltonian function:
     \label{eq:ham_CK}
 \end{equation}
 In the Hamiltonian equation, $\mathfrak{p}$ refers\footnote{Not to be confused with the conventional notation for (Lie)
-algebras} to a special `canonical momentum' (which is to be made clear later), defined by $\mathfrak{p} = p\ec^{\gamma
+algebras.} to a special `canonical momentum' (which is to be made clear later), defined by $\mathfrak{p} = p\ec^{\gamma
 t} = m\dot{x}\ec^{\gamma t}$. From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\mathfrak{p}$ after which the transformation to $p$ can be effected).
 Indeed, after taking the appropriate derivatives, one obtains:
@@ -79,10 +79,43 @@ involved since one must invoke the product rule as a result of their time-depend
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the
 latter is very well-behaved (that is, it has no zeros), it can be divided without any problems.
 
-Some peculiarities of the Caldirola-Kanai method deserve to be pointed out, since they will play a vital role in what
-is to come in the remainder of this chapter.
+\paragraph{Geometric perspective}
+The derivation stated above corresponds to the \emph{suspension} of the time-dependent Hamiltonian vector field: 
+\footnote{A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: N\times\real \to \tbundle{M}$ such that for each $t \in \real$, the
+restriction $X_t$ of $X$ to $N \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction
+of importance, called the \emph{suspension} of the vector field, (...)}
+    $$ X_{\Hck} = -kx\ec^{\gamma t}\pdv{}{\mathfrak{p}} + \frac{\mathfrak{p}}{m}\ec^{-\gamma t}\pdv{}{x} + \pdv{}{t}$$
+dictated by the symplectic 2-form (in terms of the canonical momentum)
+    $$ \vec{\omega} = \wedgep{\dd{x}}{\dd{\mathfrak{p}}}, $$
+such that $\intpr{X_{\Hck}\vert_t}{\vec{\omega}} = \dd(H_CK)$ !!! not yet correct
+
+Suspension includes the $\pdv{}{t}$ coordinate in the vector field, see Foundations p. 373
+
+Some peculiarities of the Caldirola-Kanai method deserve to be pointed out, since they will play a vital role in what 
+is to come in the remainder of this chapter. [...]
 
 \subsection{Contact manifolds}
+
+!!!
+Our Lagrangian \emph{is} CK-Lagrangian, but
+derivative wrt $\dot{q}$ => obtain correct momentum for Hamiltonian formulation.
+In Hamiltonian formulation, choose $p_0$ and $q_0$ accordingly
+
+`Contact' Hamiltonian (naive, from CK -> not complete!)
+$$ \hat{H} = \frac{p^2}{2m} + V(q) $$
+Look at CK, call $p_0 = \ec^{\gamma t}$ and $p = p_1/p_0$ (for now explicit definition). Symplectify, i.e. 
+$$ H = p_0 (\frac{1}{2m}\qty(\frac{p_1}{p_0})^2 + V(q)) $$
+such that indeed, 
+$$ H(p_0, p_1, q)= p_0 \hat{H}(p, q) = p_0 \hat{H}\qty(p_1/p_0, q) $$
+and we can use the contact relations given. Clearly, they are equivalent to the CK-method.
+HOWEVER:
+
+observe that, $q_0 = \int L \dd{t}$, and that $\pdv{\hat{H}}{q_0} = \frac{\dot{p_0}}{p_0}$.
+Hence, the contact Hamiltonian can be modified to incorporate this, and presto, there is Bravetti's Hamiltonian. Hence,
+these methods are precisely equivalent through symplectization.
+TODO: Lagrangian counterpart, recover from our method what is three to save
+
+
 
 
 %\begin{itemize}
