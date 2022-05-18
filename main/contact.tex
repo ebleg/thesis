@@ -23,7 +23,7 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
     \caption{Schematic of the mass-spring-damper system.}
     \label{fig:dho}
 \end{figure}
-
+\towrite{Discuss parameter notation}
 %The first attempt is arguably made in the work of \citet{Bateman1931} in 1931, who used a `mirror` system in
 %combination with the real system that runs with an opposite time direction --- as such, the irreversible dynamics are
 %compensated by the mirror system, which ensures that the overal system can be cast in the necessarily even-dimensional
@@ -32,20 +32,10 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
 %paper}.
 
 \section{Historical perspectives}
-A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term
-in the Lagrangian to emulate linear damping forces, and this works `mathematically` to derive the correct equations of
-motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of
-the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently
-part of the system. As such, this method only `works' on a superficial level: the pristine differential geometric
-foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian
-counterpart for this method. 
+A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically` to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only `works' on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
 
-The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the
-(dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound
-mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
-\citet{Dekker1981} provides an excellent summary of many attempts up to 1981. Indeed, the well-studied approach
-developed by \citet{Caldirola1941} and \citet{Kanai1948} was intended exactly for this purpose. This method features an
-explicit time-dependence both in the Lagrangian function
+The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
+\citet{Dekker1981} provides an excellent summary of many attempts up to 1981. Indeed, the well-studied approach developed by \citet{Caldirola1941} and \citet{Kanai1948} was intended exactly for this purpose. This method features an explicit time-dependence both in the Lagrangian function
 \begin{equation}
     \Lck(q, \dot{q}, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2),
     \label{eq:lag_CK}
@@ -58,16 +48,15 @@ and the corresponding Hamiltonian function:
 In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
 $$ \Pcan \equiv \pdv{\Lck}{\dot{q}}, $$
 which is related to the `true` kinematic momentum by the relation $\Pcan = p\ec^{\gamma
-t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions
-are related by the Legendre transform \emph{with respect to the canonical momentum}:\footnote{In the first place, the
-`Legendre transform' refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in \functions{M}$. Then the fiber derivative is
- defined als 
+t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transform \emph{with respect to the canonical momentum}:\footnote{The `Legendre transform'
+refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in
+\functions{M}$. Then the fiber derivative is defined als 
     $$ \fiberder{L}: \tbundle{L}\to\ctbundle{L}: \fiberder{L}(\vec{v})\cdot\vec{w} = \left. \dv{}{s}\right\vert_{s = 0} L(\vec{v} +
     s\vec{w}). $$
  Hence, the Legendre transform is in the first place the mapping that associates the generalized velocities with the
  associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
  $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
- it.}
+ it. \cite{Marsden1998}.}
 $$ \Hck = \Pcan \dot{q} - \Lck. $$
 From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\Pcan$ after which the transformation to $p$ can be effected).
@@ -85,31 +74,23 @@ for the Lagrangian case. Hamilton's equations amount to: \cite{Tokieda2021}
         \dot{\Pcan} &= -\pdv{\Hck}{q} = -kq\ec^{\gamma t}.\\
     \end{split}
 \end{equation*}
-The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pcan}$ is slightly more
-involved since one must invoke the product rule as a result of their time-dependencent relation:
+The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependencent relation:
     $$ \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p} + \gamma p). $$
-Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the
-latter is very well-behaved (that is, it has no zeros), it can be removed without any problems.
+Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the latter is sufficiently well-behaved (that is, it has no zeros), it can be removed without any problems.
 
 \paragraph{Geometric perspective}
-The derivation stated above corresponds to the \emph{suspension} of the time-dependent Hamiltonian vector field: 
-\footnote{A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: N\times\real \to \tbundle{M}$ such that for each $t \in \real$, the
-restriction $X_t$ of $X$ to $N \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction
-of importance, called the \emph{suspension} of the vector field, (...)}
-    $$ X_{\Hck} = -kq\ec^{\gamma t}\pdv{}{\Pcan} + \frac{\Pcan}{m}\ec^{-\gamma t}\pdv{}{q} + \pdv{}{t}$$
-dictated by the symplectic 2-form (in terms of the canonical momentum)
-    $$ \vec{\omega} = \wedgep{\dd{q}}{\dd{\Pcan}}, $$
-such that $\intpr{X_{\Hck}\vert_t}{\vec{\omega}} = \dd(H_CK)$ !!! not yet correct
-
-Suspension includes the $\pdv{}{t}$ coordinate in the vector field, see Foundations p. 373
-
-Some peculiarities of the Caldirola-Kanai method deserve to be pointed out, since they will play a vital role in what 
-is to come in the remainder of this chapter. [...]
+To put the above derivation in a geometric setting, define the Liouville 1-form as
+$$ \vec{\theta} = \Pcan\dd{q} \quad \Rightarrow \quad \vec{\omega} = -\dd{\vec{\theta}} = \wedgep{\dd{q}}{\dd{\Pcan}},$$
+where the symplectic 2-form will be used to obtain Hamilton's equations. The Hamiltonian \cref{eq:ham_CK} is explicitly time-dependent. This will give rise to a time-dependent vector field governing the solution curves.\footnote
+{A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: M\times\real \to \tbundle{M}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $M \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times M \to \tbundle{(\real \times M)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, it lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
+The construction of the Hamiltonian vector field associated with a time-dependent Hamiltonian is, follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\vec{\omega}$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
+$$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
+The suspension is crucial to make the final coordinate transform from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \rho, t) \mapsto (q, \ec^{-\gamma t}, t)$, one obtains
+$$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
+It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, (...)
 
 \subsection{Contact manifolds}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of academic interest in
-very recent years, see for example \citet{VanderSchaft2018,VanderSchaft2021,VanderSchaft2021a,Bravetti2017,DeLeon2020},
-while dating back to the original works of \cite{Arnold1989} and
+The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2018,VanderSchaft2021,VanderSchaft2021a,Bravetti2017,DeLeon2020}. The conception of the idea arguably traces back to 
 
 Our Lagrangian \emph{is} CK-Lagrangian, but
 derivative wrt $\dot{q}$ => obtain correct momentum for Hamiltonian formulation.
