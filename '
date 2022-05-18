@@ -64,10 +64,10 @@ are related by the Legendre transform \emph{with respect to the canonical moment
  defined als 
     $$ \fiberder{L}: \tbundle{L}\to\ctbundle{L}: \fiberder{L}(\vec{v})\cdot\vec{w} = \left. \dv{}{s}\right\vert_{s = 0} L(\vec{v} +
     s\vec{w}). $$
- Hence, the Legendre transform is in the first place the mapping that associates the generalized velocities with the
- associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
- $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
- it.}
+ In a slightly dubious fashion, the following is meant by the Legendre transform of the associated function $L$:
+    
+
+}
 $$ \Hck = \Pcan \dot{q} - \Lck. $$
 From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\Pcan$ after which the transformation to $p$ can be effected).
@@ -89,7 +89,7 @@ The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pc
 involved since one must invoke the product rule as a result of their time-dependencent relation:
     $$ \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p} + \gamma p). $$
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the
-latter is very well-behaved (that is, it has no zeros), it can be removed without any problems.
+latter is very well-behaved (that is, it has no zeros), it can be divided without any problems.
 
 \paragraph{Geometric perspective}
 The derivation stated above corresponds to the \emph{suspension} of the time-dependent Hamiltonian vector field: 
@@ -107,10 +107,6 @@ Some peculiarities of the Caldirola-Kanai method deserve to be pointed out, sinc
 is to come in the remainder of this chapter. [...]
 
 \subsection{Contact manifolds}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of academic interest in
-very recent years, see for example \citet{VanderSchaft2018,VanderSchaft2021,VanderSchaft2021a,Bravetti2017,DeLeon2020},
-while dating back to the original works of \cite{Arnold1989} and
-
 Our Lagrangian \emph{is} CK-Lagrangian, but
 derivative wrt $\dot{q}$ => obtain correct momentum for Hamiltonian formulation.
 In Hamiltonian formulation, choose $p_0$ and $q_0$ accordingly
@@ -127,6 +123,11 @@ HOWEVER:
 observe that, $q_0 = \int L \dd{t}$, and that $\pdv{\hat{H}}{q_0} = \frac{\dot{p_0}}{p_0}$.
 Hence, the contact Hamiltonian can be modified to incorporate this, and presto, there is Bravetti's Hamiltonian. Hence,
 these methods are precisely equivalent through symplectization.\\
+TODO: Lagrangian counterpart, recover from our method what is there to save \\
+"symplectified" Lagrangian mechanics, no mention of sources yet
+
+
+$\Pcan$
 
 
 %\begin{itemize}

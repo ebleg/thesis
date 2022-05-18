@@ -13,7 +13,7 @@
 \usepackage{alphabeta}
 \usepackage{xfrac}
 \usepackage{nomencl}
-\usepackage{dutchcal}
+%\usepackage{dutchcal}
 \usepackage{MnSymbol}
 \usepackage{romanbar}
 \usepackage[sfdefault=cmbr,OMLmathsans]{isomath}  % Math alphabets for tensors and vectors
@@ -69,6 +69,16 @@
 \newcommand{\tbundle}[1]{\ensuremath{T\!#1}}
 \newcommand{\clbundle}[1]{\ensuremath{C\!#1}}
 \newcommand{\chbundle}[1]{\ensuremath{C^*\!#1}}
+
+% Bundle sections
+\newcommand{\bsection}[1]{\ensuremath{\mathrm{\Gamma}}\qty(#1)}
+
+% Vector fields
+\newcommand{\vfields}[1]{\ensuremath{\mathscr{X}}\qty(#1)}
+
+% Smooth functions
+\newcommand{\functions}[1]{\ensuremath{C^\infty}\!\qty(#1)}
+
 
 % --------------------------------------------------------------------------------
 % ANALYTICAL MECHANICS 
@@ -132,6 +142,10 @@
 % Lie derivative
 \newcommand{\lied}[2]{\ensuremath{\mbox{\Large $\mathsterling$}_{#1}#2}}
 
+% Fiber derivative
+\newcommand{\fiberder}[1]{\ensuremath{\mathbb{F}#1}}
+
+
 % Interior product
 \newcommand{\intpr}[2]{\ensuremath{#1\!\righthalfcup#2}}
 
@@ -154,6 +168,7 @@
 
 \DeclareMathOperator{\sgn}{sgn}
 
+
 % --------------------------------------------------------------------------------
 %% DISTRIBUTIONS
 % --------------------------------------------------------------------------------
@@ -167,6 +182,7 @@
 % All with capital
 \newcommand{\Lck}{\ensuremath{L_\text{\tiny{\textsc{CK}}}}}
 \newcommand{\Hck}{\ensuremath{H_\text{\tiny{\textsc{CK}}}}}
+\newcommand{\Pcan}{\ensuremath{\rho}}
 
 % --------------------------------------------------------------------------------
 %% SETTINGS 

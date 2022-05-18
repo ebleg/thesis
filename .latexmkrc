@@ -1,4 +1,4 @@
-$pdflatex = 'pdflatex -interaction=batchmode  -shell-escape';
+$pdflatex = 'lualatex -interaction=batchmode  -shell-escape';
 $pdf_mode = 1;
 add_cus_dep( 'nlo', 'nls', 0, 'makenlo2nls' );
 sub makenlo2nls {
