@@ -108,29 +108,49 @@ $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pd
 It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the 
 
 \section{Dissipative contact Hamiltonian mechanics}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, e.g. \citet{Arnold1989} and \citet{Libermann1987}.
+The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989} and \citet{Libermann1987}.
 
 \begin{mathbox}{Contact manifolds}
-    A \emph{contact element} on a manifold $M$ is a point $m \in M$ combined with a tangent hyperplane $\xi_m \subset \tspace{m}{M}$ (i.e. a subspace of the tangent space  with codimension 1). The term `contact' refers to the intuitive that if two submanifolds share a contact element, they are \emph{in contact}, which is a slightly weaker condition than tangency. \cite{Cannas2001}
+    A \textbf{contact element} on a manifold $M$ is a point $m \in M$ combined with a tangent hyperplane $\xi_m \subset \tspace{m}{M}$ (i.e. a subspace of the tangent space  with codimension 1). The term `contact' refers to the intuitive notion that if two submanifolds `touch', they share a contact element: they are \emph{in contact} (which is a slightly weaker condition than tangency). \cite{Cannas2001}
 
-    A \emph{contact manifold} is an odd-dimensional manifold with a \emph{contact structure}, that is a smooth field (or distribution) of contact elements on that manifold.
+    A \textbf{contact manifold} is a manifold $M$ (of dimension $2n+1$) with a \textbf{contact structure}, that is a smooth field (or distribution) of contact elements on that manifold. Locally, any contact element determines a 1-form $\alpha$ (up to multiplication by a nonzero scalar) whose kernel constitutes the tangent hyperplane distribution, i.e. 
+    $$ \xi_m = \ker \alpha_m $$
+    This $\alpha$ is called the (local) \emph{contact form}. The field of hyperplanes must satisfy a nondegeneracy condition: it must be \emph{nonintegrable}, i.e. it \emph{never} satisfies the Frobenius integrability condition: \cite{Cannas2001,Abraham1978,Arnold1989}
+    $$ \wedgep{\alpha}{(\dd{\alpha})^n} \neq 0, $$
+    where integrable distributions would have this expression vanish everywhere. Roughly equivalent statements are that (i) one cannot find foliations of $M$ such that the $\xi$ is everywhere tangent to it, or (ii) that $\dd{\alpha}\vert_\xi$ is a \emph{symplectic form}. In this treatment, all contact forms are assumed to be global, which is the case if the quotient $TM/\xi$ is a trivial line bundle, i.e. the orientation is preserved across the entire manifold \cite{Geiges2008}.
 
-    Locally, the field of tangent hyperplanes is given by a the kernel of a 1-form, the contact form. If this 1-form can be extended to the entire manifold, the contact manifold is called \emph{exact}. In this thesis, all contact manifolds are assumed to be exact.
+    \tclower
+    The \textbf{Darboux theorem} for contact manifolds states that it is always possible to find coordinates $z, x_i, y_i$ such that locally, the contact form is equal to 
+    $$ \dd{z} - \Sum y_i\dd{x_i}, $$
+    which is also called the standard or natural contact structure. The standard contact structure on $\real^3$ is illustrated below.
+        \begin{center}
+            \input{media/tikz/standard_contact}
+            %\vspace{0.3cm}
+        \end{center}
+        \begin{center}
+            \begin{minipage}{12cm}
+                {\small The standard contact structure on $\real^3$, given by the contact form $\dd{z} - y\dd{x}$; the hyperplanes tilt more in the increasing $y$-direction.}
+            \end{minipage}
+        \end{center}
+    Finally, it is clear that the contact form singles out a `special direction' in the tangent space at every point of the manifold. This direction is given by the unique \textbf{Reeb vector field},
+    $$ R_\alpha \in \vfields{M}:\quad \intpr{R_\alpha}{\dd{\alpha}}= 0 \quad \text{and} \quad \intpr{R_\alpha}{\alpha} = 1,$$
+    that is, it locally points in the `direction' of the contact form.
 \end{mathbox}
+
+\begin{mathbox}{Manifold of contact elements}
+    It was prevously noted that a contact manifold is simply a manifold with a contact structure. However, there is, associated to any manifold $N$ a \emph{canonical} contact manifold, just like one can always find a canonical symplectic structure on $\ctbundle{N}$.
+\end{mathbox}
+
+\begin{mathbox}{Liouville geometry}
+    blabla
+\end{mathbox}
+
 
 \begin{itemize}
     \item Cosymplectic
     \item Presymplectic
     \item Precontact
 \end{itemize}
-
-    \begin{figure}
-        \begin{center}
-            \input{media/tikz/standard_contact}
-        \end{center}
-        \caption{}
-        \label{fig:}
-    \end{figure}
 
 
 \begin{enumerate}
