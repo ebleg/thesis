@@ -7,26 +7,32 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=4.602in,
-height=3.075in,
-at={(0.772in,0.457in)},
-scale only axis,
-plot box ratio=3 3 1,
-xmin=-1.2,
-xmax=1.2,
-tick align=outside,
-ymin=-1.2,
-ymax=1.2,
-zmin=-0.4,
-zmax=0.4,
-view={-39.1473836532351}{27.2327575315137},
-axis background/.style={fill=white},
-axis x line*=bottom,
-axis y line*=left,
-axis z line*=left
+    width=4.in,
+    height=2.8in,
+    at={(0.772in,0.457in)},
+    scale only axis,
+    plot box ratio=3 3 1,
+    xmin=-1.2,
+    grid,
+    3d box = complete,
+    xmax=1.2,
+    tick align=outside,
+    ymin=-1.2,
+    ymax=1.2,
+    zmin=-0.4,
+    zmax=0.4,
+    view={-39.1473836532351}{27.2327575315137},
+    xlabel = $x$,
+    ylabel = $y$,
+    zlabel = $z$,
+    axis background/.style={fill=white},
+    %axis x line*=origin,
+    %axis y line*=origin,
+    %axis z line*=origin
+    %axis lines = middle,
 ]
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.936360389693211	0.91	-0.0636396103067893\\
@@ -35,7 +41,7 @@ x	y	z\\
 1.06363961030679	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.929721807150127	0.71	-0.0562225542798982\\
@@ -44,7 +50,7 @@ x	y	z\\
 1.07027819284987	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.922825636685871	0.51	-0.0463046179884774\\
@@ -53,7 +59,7 @@ x	y	z\\
 1.07717436331413	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.916437097820327	0.31	-0.0334251608718693\\
@@ -62,7 +68,7 @@ x	y	z\\
 1.08356290217967	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.911747739187817	0.11	-0.0176504521624366\\
@@ -71,7 +77,7 @@ x	y	z\\
 1.08825226081218	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.91	-0.09	-0\\
@@ -80,7 +86,7 @@ x	y	z\\
 1.09	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.911747739187817	-0.29	0.0176504521624366\\
@@ -89,7 +95,7 @@ x	y	z\\
 1.08825226081218	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.916437097820327	-0.49	0.0334251608718693\\
@@ -98,7 +104,7 @@ x	y	z\\
 1.08356290217967	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.922825636685871	-0.69	0.0463046179884774\\
@@ -107,7 +113,7 @@ x	y	z\\
 1.07717436331413	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.929721807150127	-0.89	0.0562225542798982\\
@@ -116,7 +122,7 @@ x	y	z\\
 1.07027819284987	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.936360389693211	-1.09	0.0636396103067893\\
@@ -125,7 +131,7 @@ x	y	z\\
 1.06363961030679	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.736360389693211	0.91	-0.0636396103067893\\
@@ -134,7 +140,7 @@ x	y	z\\
 0.863639610306789	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.729721807150127	0.71	-0.0562225542798982\\
@@ -143,7 +149,7 @@ x	y	z\\
 0.870278192849873	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.722825636685871	0.51	-0.0463046179884774\\
@@ -152,7 +158,7 @@ x	y	z\\
 0.877174363314129	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.716437097820327	0.31	-0.0334251608718693\\
@@ -161,7 +167,7 @@ x	y	z\\
 0.883562902179673	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.711747739187817	0.11	-0.0176504521624366\\
@@ -170,7 +176,7 @@ x	y	z\\
 0.888252260812183	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.71	-0.09	-0\\
@@ -179,7 +185,7 @@ x	y	z\\
 0.89	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.711747739187817	-0.29	0.0176504521624366\\
@@ -188,7 +194,7 @@ x	y	z\\
 0.888252260812183	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.716437097820327	-0.49	0.0334251608718693\\
@@ -197,7 +203,7 @@ x	y	z\\
 0.883562902179673	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.722825636685871	-0.69	0.0463046179884774\\
@@ -206,7 +212,7 @@ x	y	z\\
 0.877174363314129	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.729721807150127	-0.89	0.0562225542798982\\
@@ -215,7 +221,7 @@ x	y	z\\
 0.870278192849873	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.736360389693211	-1.09	0.0636396103067893\\
@@ -224,7 +230,7 @@ x	y	z\\
 0.863639610306789	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.536360389693211	0.91	-0.0636396103067893\\
@@ -233,7 +239,7 @@ x	y	z\\
 0.663639610306789	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.529721807150127	0.71	-0.0562225542798982\\
@@ -242,7 +248,7 @@ x	y	z\\
 0.670278192849873	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.522825636685871	0.51	-0.0463046179884774\\
@@ -251,7 +257,7 @@ x	y	z\\
 0.677174363314129	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.516437097820327	0.31	-0.0334251608718693\\
@@ -260,7 +266,7 @@ x	y	z\\
 0.683562902179673	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.511747739187817	0.11	-0.0176504521624366\\
@@ -269,7 +275,7 @@ x	y	z\\
 0.688252260812183	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.51	-0.09	-0\\
@@ -278,7 +284,7 @@ x	y	z\\
 0.69	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.511747739187817	-0.29	0.0176504521624366\\
@@ -287,7 +293,7 @@ x	y	z\\
 0.688252260812183	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.516437097820327	-0.49	0.0334251608718693\\
@@ -296,7 +302,7 @@ x	y	z\\
 0.683562902179673	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.522825636685871	-0.69	0.0463046179884774\\
@@ -305,7 +311,7 @@ x	y	z\\
 0.677174363314129	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.529721807150127	-0.89	0.0562225542798982\\
@@ -314,7 +320,7 @@ x	y	z\\
 0.670278192849873	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.536360389693211	-1.09	0.0636396103067893\\
@@ -323,7 +329,7 @@ x	y	z\\
 0.663639610306789	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.336360389693211	0.91	-0.0636396103067893\\
@@ -332,7 +338,7 @@ x	y	z\\
 0.463639610306789	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.329721807150127	0.71	-0.0562225542798982\\
@@ -341,7 +347,7 @@ x	y	z\\
 0.470278192849873	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.322825636685871	0.51	-0.0463046179884774\\
@@ -350,7 +356,7 @@ x	y	z\\
 0.477174363314129	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.316437097820327	0.31	-0.0334251608718693\\
@@ -359,7 +365,7 @@ x	y	z\\
 0.483562902179673	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.311747739187817	0.11	-0.0176504521624366\\
@@ -368,7 +374,7 @@ x	y	z\\
 0.488252260812183	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.31	-0.09	-0\\
@@ -377,7 +383,7 @@ x	y	z\\
 0.49	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.311747739187817	-0.29	0.0176504521624366\\
@@ -386,7 +392,7 @@ x	y	z\\
 0.488252260812183	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.316437097820327	-0.49	0.0334251608718693\\
@@ -395,7 +401,7 @@ x	y	z\\
 0.483562902179673	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.322825636685871	-0.69	0.0463046179884774\\
@@ -404,7 +410,7 @@ x	y	z\\
 0.477174363314129	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.329721807150127	-0.89	0.0562225542798982\\
@@ -413,7 +419,7 @@ x	y	z\\
 0.470278192849873	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.336360389693211	-1.09	0.0636396103067893\\
@@ -422,7 +428,7 @@ x	y	z\\
 0.463639610306789	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.136360389693211	0.91	-0.0636396103067893\\
@@ -431,7 +437,7 @@ x	y	z\\
 0.263639610306789	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.129721807150127	0.71	-0.0562225542798982\\
@@ -440,7 +446,7 @@ x	y	z\\
 0.270278192849873	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.122825636685871	0.51	-0.0463046179884774\\
@@ -449,7 +455,7 @@ x	y	z\\
 0.277174363314129	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.116437097820327	0.31	-0.0334251608718693\\
@@ -458,7 +464,7 @@ x	y	z\\
 0.283562902179673	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.111747739187817	0.11	-0.0176504521624366\\
@@ -467,7 +473,7 @@ x	y	z\\
 0.288252260812183	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.11	-0.09	-0\\
@@ -476,7 +482,7 @@ x	y	z\\
 0.29	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.111747739187817	-0.29	0.0176504521624366\\
@@ -485,7 +491,7 @@ x	y	z\\
 0.288252260812183	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.116437097820327	-0.49	0.0334251608718693\\
@@ -494,7 +500,7 @@ x	y	z\\
 0.283562902179673	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.122825636685871	-0.69	0.0463046179884774\\
@@ -503,7 +509,7 @@ x	y	z\\
 0.277174363314129	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.129721807150127	-0.89	0.0562225542798982\\
@@ -512,7 +518,7 @@ x	y	z\\
 0.270278192849873	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 0.136360389693211	-1.09	0.0636396103067893\\
@@ -521,7 +527,7 @@ x	y	z\\
 0.263639610306789	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0636396103067893	0.91	-0.0636396103067893\\
@@ -530,7 +536,7 @@ x	y	z\\
 0.0636396103067893	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0702781928498727	0.71	-0.0562225542798982\\
@@ -539,7 +545,7 @@ x	y	z\\
 0.0702781928498727	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.077174363314129	0.51	-0.0463046179884774\\
@@ -548,7 +554,7 @@ x	y	z\\
 0.077174363314129	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0835629021796733	0.31	-0.0334251608718693\\
@@ -557,7 +563,7 @@ x	y	z\\
 0.0835629021796733	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0882522608121828	0.11	-0.0176504521624366\\
@@ -566,7 +572,7 @@ x	y	z\\
 0.0882522608121828	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.09	-0.09	-0\\
@@ -575,7 +581,7 @@ x	y	z\\
 0.09	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0882522608121828	-0.29	0.0176504521624366\\
@@ -584,7 +590,7 @@ x	y	z\\
 0.0882522608121828	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0835629021796733	-0.49	0.0334251608718693\\
@@ -593,7 +599,7 @@ x	y	z\\
 0.0835629021796733	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.077174363314129	-0.69	0.0463046179884774\\
@@ -602,7 +608,7 @@ x	y	z\\
 0.077174363314129	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0702781928498727	-0.89	0.0562225542798982\\
@@ -611,7 +617,7 @@ x	y	z\\
 0.0702781928498727	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.0636396103067893	-1.09	0.0636396103067893\\
@@ -620,7 +626,7 @@ x	y	z\\
 0.0636396103067893	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.263639610306789	0.91	-0.0636396103067893\\
@@ -629,7 +635,7 @@ x	y	z\\
 -0.136360389693211	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.270278192849873	0.71	-0.0562225542798982\\
@@ -638,7 +644,7 @@ x	y	z\\
 -0.129721807150127	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.277174363314129	0.51	-0.0463046179884774\\
@@ -647,7 +653,7 @@ x	y	z\\
 -0.122825636685871	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.283562902179673	0.31	-0.0334251608718693\\
@@ -656,7 +662,7 @@ x	y	z\\
 -0.116437097820327	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.288252260812183	0.11	-0.0176504521624366\\
@@ -665,7 +671,7 @@ x	y	z\\
 -0.111747739187817	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.29	-0.09	-0\\
@@ -674,7 +680,7 @@ x	y	z\\
 -0.11	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.288252260812183	-0.29	0.0176504521624366\\
@@ -683,7 +689,7 @@ x	y	z\\
 -0.111747739187817	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.283562902179673	-0.49	0.0334251608718693\\
@@ -692,7 +698,7 @@ x	y	z\\
 -0.116437097820327	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.277174363314129	-0.69	0.0463046179884774\\
@@ -701,7 +707,7 @@ x	y	z\\
 -0.122825636685871	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.270278192849873	-0.89	0.0562225542798982\\
@@ -710,7 +716,7 @@ x	y	z\\
 -0.129721807150127	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.263639610306789	-1.09	0.0636396103067893\\
@@ -719,7 +725,7 @@ x	y	z\\
 -0.136360389693211	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.463639610306789	0.91	-0.0636396103067893\\
@@ -728,7 +734,7 @@ x	y	z\\
 -0.336360389693211	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.470278192849873	0.71	-0.0562225542798982\\
@@ -737,7 +743,7 @@ x	y	z\\
 -0.329721807150127	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.477174363314129	0.51	-0.0463046179884774\\
@@ -746,7 +752,7 @@ x	y	z\\
 -0.322825636685871	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.483562902179673	0.31	-0.0334251608718693\\
@@ -755,7 +761,7 @@ x	y	z\\
 -0.316437097820327	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.488252260812183	0.11	-0.0176504521624366\\
@@ -764,7 +770,7 @@ x	y	z\\
 -0.311747739187817	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.49	-0.09	-0\\
@@ -773,7 +779,7 @@ x	y	z\\
 -0.31	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.488252260812183	-0.29	0.0176504521624366\\
@@ -782,7 +788,7 @@ x	y	z\\
 -0.311747739187817	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.483562902179673	-0.49	0.0334251608718693\\
@@ -791,7 +797,7 @@ x	y	z\\
 -0.316437097820327	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.477174363314129	-0.69	0.0463046179884774\\
@@ -800,7 +806,7 @@ x	y	z\\
 -0.322825636685871	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.470278192849873	-0.89	0.0562225542798982\\
@@ -809,7 +815,7 @@ x	y	z\\
 -0.329721807150127	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.463639610306789	-1.09	0.0636396103067893\\
@@ -818,7 +824,7 @@ x	y	z\\
 -0.336360389693211	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.663639610306789	0.91	-0.0636396103067893\\
@@ -827,7 +833,7 @@ x	y	z\\
 -0.536360389693211	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.670278192849873	0.71	-0.0562225542798982\\
@@ -836,7 +842,7 @@ x	y	z\\
 -0.529721807150127	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.677174363314129	0.51	-0.0463046179884774\\
@@ -845,7 +851,7 @@ x	y	z\\
 -0.522825636685871	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.683562902179673	0.31	-0.0334251608718693\\
@@ -854,7 +860,7 @@ x	y	z\\
 -0.516437097820327	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.688252260812183	0.11	-0.0176504521624366\\
@@ -863,7 +869,7 @@ x	y	z\\
 -0.511747739187817	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.69	-0.09	-0\\
@@ -872,7 +878,7 @@ x	y	z\\
 -0.51	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.688252260812183	-0.29	0.0176504521624366\\
@@ -881,7 +887,7 @@ x	y	z\\
 -0.511747739187817	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.683562902179673	-0.49	0.0334251608718693\\
@@ -890,7 +896,7 @@ x	y	z\\
 -0.516437097820327	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.677174363314129	-0.69	0.0463046179884774\\
@@ -899,7 +905,7 @@ x	y	z\\
 -0.522825636685871	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.670278192849873	-0.89	0.0562225542798982\\
@@ -908,7 +914,7 @@ x	y	z\\
 -0.529721807150127	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.663639610306789	-1.09	0.0636396103067893\\
@@ -917,7 +923,7 @@ x	y	z\\
 -0.536360389693211	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.863639610306789	0.91	-0.0636396103067893\\
@@ -926,7 +932,7 @@ x	y	z\\
 -0.736360389693211	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.870278192849873	0.71	-0.0562225542798982\\
@@ -935,7 +941,7 @@ x	y	z\\
 -0.729721807150127	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.877174363314129	0.51	-0.0463046179884774\\
@@ -944,7 +950,7 @@ x	y	z\\
 -0.722825636685871	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.883562902179673	0.31	-0.0334251608718693\\
@@ -953,7 +959,7 @@ x	y	z\\
 -0.716437097820327	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.888252260812183	0.11	-0.0176504521624366\\
@@ -962,7 +968,7 @@ x	y	z\\
 -0.711747739187817	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.89	-0.09	-0\\
@@ -971,7 +977,7 @@ x	y	z\\
 -0.71	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.888252260812183	-0.29	0.0176504521624366\\
@@ -980,7 +986,7 @@ x	y	z\\
 -0.711747739187817	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.883562902179673	-0.49	0.0334251608718693\\
@@ -989,7 +995,7 @@ x	y	z\\
 -0.716437097820327	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.877174363314129	-0.69	0.0463046179884774\\
@@ -998,7 +1004,7 @@ x	y	z\\
 -0.722825636685871	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.870278192849873	-0.89	0.0562225542798982\\
@@ -1007,7 +1013,7 @@ x	y	z\\
 -0.729721807150127	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -0.863639610306789	-1.09	0.0636396103067893\\
@@ -1016,7 +1022,7 @@ x	y	z\\
 -0.736360389693211	-1.09	-0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.06363961030679	0.91	-0.0636396103067893\\
@@ -1025,7 +1031,7 @@ x	y	z\\
 -0.936360389693211	0.91	0.0636396103067893\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.07027819284987	0.71	-0.0562225542798982\\
@@ -1034,7 +1040,7 @@ x	y	z\\
 -0.929721807150127	0.71	0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.07717436331413	0.51	-0.0463046179884774\\
@@ -1043,7 +1049,7 @@ x	y	z\\
 -0.922825636685871	0.51	0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.08356290217967	0.31	-0.0334251608718693\\
@@ -1052,7 +1058,7 @@ x	y	z\\
 -0.916437097820327	0.31	0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.08825226081218	0.11	-0.0176504521624366\\
@@ -1061,7 +1067,7 @@ x	y	z\\
 -0.911747739187817	0.11	0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.09	-0.09	-0\\
@@ -1070,7 +1076,7 @@ x	y	z\\
 -0.91	-0.09	0\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.08825226081218	-0.29	0.0176504521624366\\
@@ -1079,7 +1085,7 @@ x	y	z\\
 -0.911747739187817	-0.29	-0.0176504521624366\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.08356290217967	-0.49	0.0334251608718693\\
@@ -1088,7 +1094,7 @@ x	y	z\\
 -0.916437097820327	-0.49	-0.0334251608718693\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.07717436331413	-0.69	0.0463046179884774\\
@@ -1097,7 +1103,7 @@ x	y	z\\
 -0.922825636685871	-0.69	-0.0463046179884774\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.07027819284987	-0.89	0.0562225542798982\\
@@ -1106,7 +1112,7 @@ x	y	z\\
 -0.929721807150127	-0.89	-0.0562225542798982\\
 }--cycle;
 
-\addplot3[area legend, draw=black, fill=red, forget plot]
+\addplot3[area legend, draw=black, fill=accent1, forget plot]
 table[row sep=crcr] {%
 x	y	z\\
 -1.06363961030679	-1.09	0.0636396103067893\\

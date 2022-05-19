@@ -54,7 +54,7 @@ for file in files_to_move:
 # Compilation
 print("Start compilation")
 print(80*"⎯")
-result = subprocess.run(["latexmk", "-pdf", "-quiet", f"-jobname={BUILD_NAME}"], capture_output=False)
+result = subprocess.run(["latexmk", "-pdf", "-quiet"], capture_output=False)
 print(80*"⎯")
 print("Compilation finished")
 print()
