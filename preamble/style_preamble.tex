@@ -50,20 +50,20 @@
 %\tcbset{skin=enhanced}
 \newenvironment{block}[1]{%
     \tcolorbox[colback=accent1!20!,colframe=accent1,%
-    title=\textsf{#1}, breakable]}%
+    title=\textsf{#1}, breakable,parbox=false]}%
     {\endtcolorbox}
 
 \newenvironment{econ}[1]{%
     \tcolorbox[colback=accent3!20!,colframe=accent3,%
-    title=\textsf{#1}, breakable]}%
+    title=\textsf{#1}, breakable,parbox=false]}%
     {\endtcolorbox}
 
 \newenvironment{thmblock}[1]{%
-    \tcolorbox[colback=accent2!20!,colframe=accent2,%
-    title=\textsf{#1}, breakable]}%
+    \tcolorbox[colback=accent3!20!,colframe=accent3,%
+    title=\textsf{#1}, breakable,parbox=false]}%
     {\endtcolorbox}
 
-\newenvironment{aside}[1]{%
+\newenvironment{mathbox}[1]{%
     \tcolorbox[colback=accent1!20!,colframe=accent1,%
-    title=\textsf{#1}, breakable]}%
+    title=\textsf{#1}, breakable,parbox=false]}%
     {\endtcolorbox}

@@ -24,6 +24,24 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
     \label{fig:dho}
 \end{figure}
 \towrite{Discuss parameter notation}
+
+\begin{table}[h!]
+    \caption{Parameter conventions of the damped harmonic oscillator. To avoid confusion with the symplectic form $\omega$, angular frequencies are denoted by $\Omega$ instead of the conventional lower case Greek letter.}
+    \label{tab:dho_params}
+    \begin{center}
+        \begin{tabular}{llll}
+            \toprule
+            \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
+            \midrule
+            Damping coefficient & $\gamma$ & $b/m$ & \si{\per \second }\\[0.4cm]
+            Undamped frequency & $\Omega_o$ & $\sqrt{k/m}$ & \si{\per \second }\\[0.4cm]
+            Damped frequency & $\Omega_d$ & $\sqrt{\Omega_0^2 - \qty(\frac{\gamma}{2})^2}$ & \si{\per \second }\\[0.4cm]  
+            Damping ratio & $\zeta$ & $\frac{b}{2\sqrt{mk}}$ & -- \\[0.2cm]
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{table}
+
 %The first attempt is arguably made in the work of \citet{Bateman1931} in 1931, who used a `mirror` system in
 %combination with the real system that runs with an opposite time direction --- as such, the irreversible dynamics are
 %compensated by the mirror system, which ensures that the overal system can be cast in the necessarily even-dimensional
@@ -80,35 +98,47 @@ Substition yields the correct equation for $p$, though the equation is again mul
 
 \paragraph{Geometric perspective}
 To put the above derivation in a geometric setting, define the Liouville 1-form as
-$$ \vec{\theta} = \Pcan\dd{q} \quad \Rightarrow \quad \vec{\omega} = -\dd{\vec{\theta}} = \wedgep{\dd{q}}{\dd{\Pcan}},$$
+$$ \alpha = \Pcan\dd{q} \quad \Rightarrow \quad \omega = -\dd{\alpha} = \wedgep{\dd{q}}{\dd{\Pcan}},$$
 where the symplectic 2-form will be used to obtain Hamilton's equations. The Hamiltonian \cref{eq:ham_CK} is explicitly time-dependent. This will give rise to a time-dependent vector field governing the solution curves.\footnote
 {A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: M\times\real \to \tbundle{M}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $M \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times M \to \tbundle{(\real \times M)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, it lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
-The construction of the Hamiltonian vector field associated with a time-dependent Hamiltonian is, follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\vec{\omega}$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
+The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\omega$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
 $$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
-The suspension is crucial to make the final coordinate transform from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \rho, t) \mapsto (q, \ec^{-\gamma t}, t)$, one obtains
+The suspension is important to make the final coordinate transform from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \rho, t) \mapsto (q, \ec^{-\gamma t}, t)$, one obtains
 $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
-It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, (...)
+It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the 
 
-\subsection{Contact manifolds}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2018,VanderSchaft2021,VanderSchaft2021a,Bravetti2017,DeLeon2020}. The conception of the idea arguably traces back to 
+\section{Dissipative contact Hamiltonian mechanics}
+The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, e.g. \citet{Arnold1989} and \citet{Libermann1987}.
 
-Our Lagrangian \emph{is} CK-Lagrangian, but
-derivative wrt $\dot{q}$ => obtain correct momentum for Hamiltonian formulation.
-In Hamiltonian formulation, choose $p_0$ and $q_0$ accordingly
+\begin{mathbox}{Contact manifolds}
+    A \emph{contact element} on a manifold $M$ is a point $m \in M$ combined with a tangent hyperplane $\xi_m \subset \tspace{m}{M}$ (i.e. a subspace of the tangent space  with codimension 1). The term `contact' refers to the intuitive that if two submanifolds share a contact element, they are \emph{in contact}, which is a slightly weaker condition than tangency. \cite{Cannas2001}
 
-`Contact' Hamiltonian (naive, from CK -> not complete!)
-$$ \hat{H} = \frac{p^2}{2m} + V(q) $$
-Look at CK, call $p_0 = \ec^{\gamma t}$ and $p = p_1/p_0$ (for now explicit definition). Symplectify, i.e. 
-$$ H = p_0 \qty[\frac{1}{2m}\qty(\frac{p_1}{p_0})^2 + V(q)] $$
-such that indeed, 
-$$ H(p_0, p_1, q)= p_0 \hat{H}(p, q) = p_0 \hat{H}\qty(p_1/p_0, q) $$
-and we can use the contact relations given. Clearly, they are equivalent to the CK-method.
-HOWEVER:
+    A \emph{contact manifold} is an odd-dimensional manifold with a \emph{contact structure}, that is a smooth field (or distribution) of contact elements on that manifold.
 
-observe that, $q_0 = \int L \dd{t}$, and that $\pdv{\hat{H}}{q_0} = \frac{\dot{p_0}}{p_0}$.
-Hence, the contact Hamiltonian can be modified to incorporate this, and presto, there is Bravetti's Hamiltonian. Hence,
-these methods are precisely equivalent through symplectization.\\
+    Locally, the field of tangent hyperplanes is given by a the kernel of a 1-form, the contact form. If this 1-form can be extended to the entire manifold, the contact manifold is called \emph{exact}. In this thesis, all contact manifolds are assumed to be exact.
+\end{mathbox}
 
+\begin{itemize}
+    \item Cosymplectic
+    \item Presymplectic
+    \item Precontact
+\end{itemize}
+
+    \begin{figure}
+        \begin{center}
+            \input{media/tikz/standard_contact}
+        \end{center}
+        \caption{}
+        \label{fig:}
+    \end{figure}
+
+
+\begin{enumerate}
+    \item (Briefly) introduce contact Hamiltions á la van der Schaft 
+    \item Briefly explain Bravetti's Hamiltonian
+    \item From CK to Bravetti
+    \item Integral invariants + Lagrangian?
+\end{enumerate}
 
 %\begin{itemize}
 %    \item The \textbf{mirror system} or \textbf{Bateman} approach, doubles the number of system dimensions by including a mirror system that runs opposite in time. Arguably the most flexible of all methods, it is 
