@@ -119,9 +119,9 @@ The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has be
     $$ \wedgep{\alpha}{(\dd{\alpha})^n} \neq 0, $$
     where integrable distributions would have this expression vanish everywhere. Roughly equivalent statements are that (i) one cannot find foliations of $M$ such that the $\xi$ is everywhere tangent to it, or (ii) that $\dd{\alpha}\vert_\xi$ is a \emph{symplectic form}. In this treatment, all contact forms are assumed to be global, which is the case if the quotient $TM/\xi$ is a trivial line bundle, i.e. the orientation is preserved across the entire manifold \cite{Geiges2008}.
 
-    \tclower
+    \tcblower
     The \textbf{Darboux theorem} for contact manifolds states that it is always possible to find coordinates $z, x_i, y_i$ such that locally, the contact form is equal to 
-    $$ \dd{z} - \Sum y_i\dd{x_i}, $$
+    $$ \dd{z} - \sum y_i\dd{x_i}, $$
     which is also called the standard or natural contact structure. The standard contact structure on $\real^3$ is illustrated below.
         \begin{center}
             \input{media/tikz/standard_contact}
@@ -137,8 +137,22 @@ The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has be
     that is, it locally points in the `direction' of the contact form.
 \end{mathbox}
 
-\begin{mathbox}{Manifold of contact elements}
-    It was prevously noted that a contact manifold is simply a manifold with a contact structure. However, there is, associated to any manifold $N$ a \emph{canonical} contact manifold, just like one can always find a canonical symplectic structure on $\ctbundle{N}$.
+\begin{mathbox}{Manifold of contact elements and projectivization}
+    It was prevously noted that a contact manifold is simply a manifold with a contact structure. However, there is, associated to any manifold $Q$ a \emph{canonical} contact manifold, just like one can always find a canonical symplectic structure on $\ctbundle{Q}$ of dimension $2n$. 
+
+    The \textbf{manifold of contact elements} of an $n$-dimensional manifold is \cite{Cannas2001}
+    $$ C = \qty{(q, \xi_q) \mid q \in Q \text{ and } \xi_q \text{ a hyperplane on } \tspace{q}{Q}} $$
+    This manifold $C$ has dimension $2n - 1$. It is clear that $C$ has a natural bundle structure, i.e. $\bundle{C}{\pi}{Q}$ where the bundle projection `forgets' the contact element.
+    
+    As it turns out, there is a convenient way to view this manifold of contact elements, for it is isomorphic to the \textbf{projectivization of the cotangent bundle} to $N$, denoted by $\pctbundle{Q}$. This `projectivization' can be defined in terms of an equivalence relation between two nonzero elements in the cotangent space at every point in the manifold:
+    $$ \vec{\eta},\vec{\chi}\in \ctspace{q}{Q} \setminus \{\mathbf{0}\}:\quad (q, \vec{\eta}) \sim (q, \vec{\chi}) \Leftrightarrow \vec{\eta} = \lambda \vec{\chi},\quad \lambda \in \real_0, \text{ for all } q \in Q.$$
+    $\pctbundle{Q}$ is then the quotient set of $\ctbundle{Q}$ (with the zero section removed) with respect to the equivalence relation $\sim$. It can be shown that this space is bundle-isomorphic to the manifold $C$.
+
+    It has mentioned that $C \cong \pctbundle{Q}$ is a contact manifold.\footnote
+    {Again, observe the tautological nature of this construction. A canonical field of hyperplanes (contact structure) is defined \emph{on} the manifold of contact elements, simply by lifting them. This is a classic theme in differential geometry that causes a great deal of confusion.}
+    Indeed, there is a canonical field of hyperplanes \emph{on} $C$, which lifts the hyperplane tangent to $Q$ to a hyperplane tangent to $C$ (this is akin to the `tautological` trick played in the symplectic structure of the cotangent bundle). Locally, the contact form associated to this contact structure is
+    $$ \alpha = \dd{x}_0 + \sum_{i=1}^n \eta_i\dd{x}_i + \sum_{i=1}^n 0\dd{\eta_i}, $$
+    where any $\eta$ represents any of the equivalence classes that constitute $\pctbundle{Q}$. [...] to complete!! see da Silva p. 70
 \end{mathbox}
 
 \begin{mathbox}{Liouville geometry}
