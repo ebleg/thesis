@@ -37,7 +37,7 @@ The choice for this system is rather perspicuous, since it is arguably the `easi
     \end{center}
 \end{table}
 
-\section{Historical perspectives}
+\section{The Caldirola-Kanai method}
 \label{sec:historical}
 A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically' to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only works on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
 
@@ -66,7 +66,7 @@ refers, in the context of fiber bundles, to the so-called fiber derivative. On a
  Hence, the Legendre transform is in the first place the mapping that associates the generalized velocities with the
  associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
  $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
- it. \cite{Marsden1998}.}
+ it. \cite{Marsden1998}}
 $$ \Hck = \Pcan \dot{q} - \Lck. $$
 From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\Pcan$ after which the transformation to $p$ can be effected).
@@ -100,15 +100,11 @@ $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pd
 It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the 
 
 \section{Symplectification and Liouville structures}
-Quickly cover contact geometry, Liouville geometry and symplectic geometry, introduce notation.
+We start with an $n$-dimensional \emph{base manifold} $Q$. In the context mechanical systems, this manifold is the configuration manifold of the system, \emph{extended} with an additional, `special` position coordinate coordinate that will be interpreted later. Let us assume that $Q$ has coordinates $\vec{q} = \qty(q_0, q_1, \ldots, q_n)$. For the damped harmonic oscillator, this manifold is two-dimensional, for it contains just the special coordinate and the position of the mass. Without loss of generalization, we will denote the special position coordinate by $q_0$.
 
+Now, introduce the \emph{manifold of contact elements} $\cbundle{Q}$, to the base manifold $Q$. This is the manifold of all points in $Q$, with the space of all possible tangent hyperplanes at every point. This manifold has dimension $2n-1$.
 
-\textbf{Zoo of structures in literature}
-\begin{itemize}
-    \item Cosymplectic = structure on odd-dimensional manifold, closed 2-form $\omega$ and closed 1-form $\eta$, with $\wedgep{\eta}{\omega^n} \neq 0$. 
-    \item Presymplectic = structure on an even-dimensional manifold, rank of 2-form not maximal but at least constant.
-    \item Precontact system = odd-dimensional extension of presymplectic.
-\end{itemize}
+The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
 
 \section{Dissipative contact Hamiltonian mechanics}
 The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989} and \citet{Libermann1987}.
@@ -144,8 +140,8 @@ $$ \omega = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q_1}}{\dd{\rho_1}}$$
 and proceed as usual. The contact equations of motion are then obtained through the relation between $p, \rho_0$ and $\rho_1$.
 
 \section{Dissipative contact Lagrangian mechanics}
-
 TODO: fix notation, always include `1` subscripts?
+$\ctzbundle{Q}$
 
 
 

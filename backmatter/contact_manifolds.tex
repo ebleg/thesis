@@ -50,7 +50,7 @@ This equivalence relations identifies all the covectors in the cotangent space t
 
 As shown in \cref{fig:contact_element}, coordinates of the equivalence class of 1-forms are `projective coordinates', $[\eta_0\;:\;\eta_1:\ldots :\eta_{n-1}]$, where $\eta_i$ are coordinates for $\ctspace{q}{Q}$. The projective coordinates acknowledge the invariance under multiplication by a nonzero number. If one assumes $\eta_0$ to be nonzero, the tuple $(1, \eta_1, \ldots, \eta_n)$ provides coordinates that cover most of $\pctbundle{Q}$. 
 
-Now, it remains to be explained why the `manifold of contact elements` is itself a contact manifold. Indeed, there is a canonical field of hyperplanes \emph{on} $\cbundle{Q}$, which lifts the hyperplane tangent to $Q$ to a hyperplane tangent to $C$ (this is akin to the `tautological' trick played in the symplectic structure of the cotangent bundle). The contact structure distinguishes the curves in $\cbundle{Q}$ that are lifted versions from curves in $Q$. This is illustrated in \cref{fig:contact_lift}. \cite{Burke1985}
+Now, it remains to be explained why the `manifold of contact elements` is itself a contact manifold. Indeed, there is a canonical field of hyperplanes \emph{on} $\cbundle{Q}$, which lifts the hyperplane tangent to $Q$ to a hyperplane tangent to $\cbundle{Q}$ (this is akin to the `tautological' trick played in the symplectic structure of the cotangent bundle). The contact structure distinguishes the curves in $\cbundle{Q}$ that are lifted versions from curves in $Q$. This is illustrated in \cref{fig:contact_lift}. \cite{Burke1985}
 Said otherwise, a tangent vector on $\cbundle{Q}$ lies in the hyperplane defined by the contact structure if its projection down on $Q$ lies in the hyperplane on $Q$ defined by the given point on the $\cbundle{Q}$. This contact structure is associated with the 1-form:
 $$ \alpha = \dd{x}_0 + \sum_{i = 1}^{n-1} \eta_i\dd{x}_i,$$
 given that the $\eta_0$ is the `special' coordinate wich is chosen to be 1.
@@ -62,3 +62,11 @@ given that the $\eta_0$ is the `special' coordinate wich is chosen to be 1.
     \caption{Intuitive picture of the canonical contact on the manifold of contact elements. In this case, let $ (t, q) \in Q$, and let $v$ be a coordinate for the contact (line) element. The standard contact form is then $\dd{q} - v\dd{t}$. On the left, the curve corresponding to a falling object is shown in $Q$. When this curve is `lifted' to $\cbundle{Q}$, the contact structure imposes that it be locally tangent to the contact structure, or that $v = \dv{q}{t}$. If the vertical direction is projected down onto the $(q-t)$-plane ($\cbundle(Q) \to Q$), the hyperplanes defined by the contact structure are line elements tangent to the trajectory, making $v$ the actual velocity of the curve.}
     \label{fig:contact_lift}
 \end{figure}
+
+\textbf{Zoo of structures in literature}
+\begin{itemize}
+    \item Cosymplectic = structure on odd-dimensional manifold, closed 2-form $\omega$ and closed 1-form $\eta$, with $\wedgep{\eta}{\omega^n} \neq 0$. 
+    \item Presymplectic = structure on an even-dimensional manifold, rank of 2-form not maximal but at least constant.
+    \item Precontact system = odd-dimensional extension of presymplectic.
+\end{itemize}
+
