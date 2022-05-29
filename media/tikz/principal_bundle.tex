@@ -31,7 +31,7 @@
     \draw (m2) circle (1);
     \draw[->] (m2) ++(1, -1.3) -- ++(0, 2.6) node[anchor=south] {$p$} ;
     \draw (m2.center) -- ++(1, 0.577) node[circle,fill=black, inner sep = 1pt] {};
-    \draw (m2.center) -- ++(1, 0);
+    \draw (m2.center) -- ++(1, 0) node[pos=0.5,anchor=north] {\footnotesize{1}};
     %\draw[->] (m) ++(-1.5, 0) -- ++(3, 0) node[anchor=west] {$\rho_0$};
     %\draw[->] (m) ++(0, -1.5) -- ++(0, 3) node[anchor=south] {$\rho$};
     
@@ -39,5 +39,4 @@
      
     \node at (2, -0.5) {$\ctzbundle{M}$};
     \node at (8.5, -0.5) {$\pctbundle{M}$};
-    
 \end{tikzpicture}

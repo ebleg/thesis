@@ -42,7 +42,7 @@ The choice for this system is rather perspicuous, since it is arguably the `easi
 \end{table}
 
 \section{The Caldirola-Kanai method}
-\label{sec:historical}
+\label{sec:caldirola}
 A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically' to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only works on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
 
 The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
@@ -111,29 +111,48 @@ It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai 
 %
 %The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
 
-\section{From time-dependent to contact Hamiltonians}
-In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include the damped element. First of all, contact manifolds are odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}. \cite{VanderSchaft2021a} However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. \cite{Arnold1989a} Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system.
+\section{From time-dependent to contact Hamiltonian systems}
+In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include dissipation in the Hamiltonian formalism. First of all, to a contact manifold, which is odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}, denoted by $q_0$.  However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system. \cite{VanderSchaft2021a,Arnold1989a}
 
-The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, which will denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
+\subsection{Symplectization \& Liouville structures}
+The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
 \begin{equation}
     \alpha = \dd{q}_0 - p\dd{q},
     \label{eq:dho_contact_form}
 \end{equation}
-which accentuates the special role of the $q_0$ in the system dynamics. Contact forms are, by their very nature, ambiguous, for they represent a distribution of hyperplanes, which coincides with the kernel of the 1-form. Multiplication with a nonzero factor yields a different form with the same kernel, that is to say, they represent the same contact structure. This is the reason behind the `projective' nature of contact mechanics\footnote{As explained in \cref{app:contact_geometry}, the manifold of contact elements is bundle-isomorphic to the projectivization of the cotangent bundle.}. %Hence, one may just as well use homogeneous coordinates for the fiber using a nonzero multiplication factor $\rho_0$; and call
-%$$ \theta = \rho_0\qty(\dd{q}_0 - p\dd{q}). $$
+which accentuates the special role of the $q_0$ in the system dynamics. Contact forms are, by their very nature, ambiguous, for they represent a distribution of hyperplanes, which coincides with the kernel of the 1-form. Multiplication with a nonzero factor yields a different form with the same kernel, that is to say, they represent the same contact structure. This is the reason behind the `projective' nature of contact mechanics\footnote{As explained in \cref{app:contact_geometry}, the manifold of contact elements is bundle-isomorphic to the projectivization of the cotangent bundle.}. Hence, one may just as well multiply the 1-form with a nonzero factor $\lambda$:
+$$ \lambda\qty(\dd{q}_0 - p\dd{q}) \quad \lambda \in \real_0. $$
+The factor $\lambda$ can be considered to be an extra degree of freedom (leaving the contact structure unaffected), which provides a `lift' from the odd-dimensional manifold to an even-dimensional one, which is called the symplectification of the contact manifold. \cite{Arnold1989}
 
-More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber, which amounts to an equal scaling of all the cotangent variables. Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed (this is required for the group to act freely). In coordinates, the manifold $\ctzbundle{M}$ consists of all four-tuples $(q_0, q, \rho_0, \rho)$ for which $\rho_0$ and $\rho$ do not simultaneously vanish. 
+More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber which amounts to an equal scaling of all the cotangent variables (this is the multiplication by $\lambda$ in the above expression). Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed --- this is required for the group to act freely). This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
+$$ \theta = \lambda ( \dd{q_0} + p \dd{q} ). $$
+To restate the above in canonical coordinates, choose
+\begin{equation}
+    \rho_0 = \lambda \quad \text{and} \quad \rho = -\lambda p
+    \label{eq:homo_coords}
+\end{equation}
+such that
+\begin{equation} 
+    \theta = \rho_0\dd{q}_0 + \rho\dd{q}, 
+    \label{eq:dho_liouville_form}
+\end{equation}
+which is the Liouville form on $\ctbundle{M}$. \cite[p. 308]{Libermann1987}  The Liouville form defines a symplectic structure given by\footnote
+{The nondegeneracy condition on the contact structure guarantees that this structure is indeed symplectic.}
+$$\omega = -\dd{\theta}.$$ The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifolds, and consists of all four-tuples $(q_0, q, \rho_0, \rho)$ for which $\rho_0$ and $\rho$ do not simultaneously vanish. For now, we have not assigned any specific meaning to the coordinates given above, but they will turn out to match with the convention adhered to in \cref{eq:lag_CK,eq:ham_CK}, etc.
 
-This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered (symplectic) Liouville structure}, which is given by the form \cite{Libermann1987}
-$$ \theta = \rho_0 \dd{q_0} + \rho \dd{q}. $$
+To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
 
 \begin{figure}[ht]
     \begin{center}
         \input{media/tikz/principal_bundle}
     \end{center}
-    \caption{}
+    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/rho_0$, i.e. such that $p$ is a coordinate for the projectivization by stereographic projection, as shown on the right.}
     \label{fig:principal_bundle}
 \end{figure}
+
+\subsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{sec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system. This will result in a `horizontal' and `vertical' part of the resulting vector field, which distinguishes the dissipative from the purely conservative dynamics.
+
+Consider the bla bla
 
 
 %\begin{itemize}
