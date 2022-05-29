@@ -19,7 +19,7 @@ The symplectic structure of Hamiltonian mechanics is related to the conservation
 \end{figure}
 This chapter (and the application in the following chapter) is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
 \begin{equation}  
-  m\ddot{q}_1 + b\dot{q}_1 + kq = 0.
+  m\ddot{q} + b\dot{q} + kq = 0.
 \end{equation}
 The choice for this system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics
 \cite{Dekker1981,Hutters2020b}. However, the method described in this section can be generalized directly to a general (possibly time-dependent) potential function $V = V(q, t)$. To make calculations and notation easier, some special parameters are frequently used throughout this chapter, they are summarized in \cref{tab:dho_params}.
@@ -48,7 +48,7 @@ A traditional, engineering-inclined method to incorporate damping in the framewo
 The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
 \citet{Dekker1981} provides an excellent summary of many attempts up to 1981. Indeed, the well-studied approach developed by \citet{Caldirola1941} and \citet{Kanai1948} was intended exactly for this purpose. This method features an explicit time-dependence both in the Lagrangian function
 \begin{equation}
-    \Lck(q, \dot{q}_1, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq_1^2),
+    \Lck(q, \dot{q}, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq_1^2),
     \label{eq:lag_CK}
 \end{equation}
 and the corresponding Hamiltonian function:
@@ -58,11 +58,11 @@ and the corresponding Hamiltonian function:
 \end{equation}
 In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
 \begin{equation}
-    \Pcan \equiv \pdv{\Lck}{\dot{q}_1},
+    \Pcan \equiv \pdv{\Lck}{\dot{q}},
     \label{eq:can_momentum}
 \end{equation}
 which is related to the `true` kinematic momentum by the relation $\Pcan = p\ec^{\gamma
-t} = m\dot{q}_1\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transform \emph{with respect to the canonical momentum}:
+t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transform \emph{with respect to the canonical momentum}:
 %\footnote{The `Legendre transform'
 %refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in
 %\functions{M}$. Then the fiber derivative is defined als 
@@ -72,20 +72,20 @@ t} = m\dot{q}_1\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kan
 % associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
 % $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
 % it. \cite{Marsden1998}}
-$$ \Hck = \Pcan \dot{q}_1 - \Lck. $$
+$$ \Hck = \Pcan \dot{q} - \Lck. $$
 From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\Pcan$ after which the transformation to $p$ can be effected).
 Indeed, after taking the appropriate derivatives, one obtains:
 \begin{equation*} 
     \begin{split}
-        \dv{}{t}\qty(\pdv{\Lck}{\dot{q}_1}) - \pdv{\Lck}{q} &= 0 \\
-        \Rightarrow \ec^{\gamma t}\qty(m\ddot{q}_1 + m\gamma\dot{q}_1 + kq) &= 0
+        \dv{}{t}\qty(\pdv{\Lck}{\dot{q}}) - \pdv{\Lck}{q} &= 0 \\
+        \Rightarrow \ec^{\gamma t}\qty(m\ddot{q} + m\gamma\dot{q} + kq) &= 0
     \end{split}
 \end{equation*}
 for the Lagrangian case. Likewise, Hamilton's equations yield: \cite{Tokieda2021}
 \begin{equation*}
     \begin{split}
-        \dot{q}_1 &= \pdv{\Hck}{\Pcan} = \frac{\Pcan}{m}\ec^{-\gamma t} =  \frac{p}{m}, \\
+        \dot{q} &= \pdv{\Hck}{\Pcan} = \frac{\Pcan}{m}\ec^{-\gamma t} =  \frac{p}{m}, \\
         \dot{\Pcan} &= -\pdv{\Hck}{q} = -kq\ec^{\gamma t}.\\
     \end{split}
 \end{equation*}
@@ -112,35 +112,28 @@ It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai 
 %The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
 
 \section{From time-dependent to contact Hamiltonians}
-In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include the damped element. First of all, contact manifolds are odd-dimensional: as mentioned, an additional coordinate is necessary to keep track of the dissipation in the system, that has no momentum counterpart. However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. \cite{Arnold1989a} Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case.
+In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include the damped element. First of all, contact manifolds are odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}. \cite{VanderSchaft2021a} However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. \cite{Arnold1989a} Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system.
 
-The coordinates of the contact manifold are $q_0, q$ and $p$, with contact structure
-
+The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, which will denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
 \begin{equation}
-    \Hck(q, \Pcan, t) = \ec^{\gamma t}\qty[\frac{1}{2m}\qty(\frac{\Pcan}{\ec^{\gamma t}})^2 + \frac{1}{2}kq^2].
+    \alpha = \dd{q}_0 - p\dd{q},
+    \label{eq:dho_contact_form}
 \end{equation}
-The idea is to view this Hamiltonian as a homogeneous function by introducing appropriate coordinates. Homogeneous momenta are denoted by $\rho_i$. By inspection, choose (with slight abuse of notation)
-$$ \rho = \rho,\quad \rho_0 = \ec^{\gamma t}\quad \text{and } q = q$$
-such that the Caldirola-Kanai Hamiltonian becomes
-\begin{equation}
-    H(q, \rho_0, \rho) = \rho_0\qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2].
-\end{equation}
-which is homogeneous in fiber dimensions $\rho_0$ and $\rho$. That is to say,
-$$ H(q, \lambda \rho_0, \lambda \rho) = \lambda H(q, \rho_0, \rho) \quad \lambda \in \real_0$$
-From the definition in \cref{eq:can_momentum}, one can see that the `real', kinematic momentum is equal to
-$$ p \equiv \frac{\rho}{\rho_0}. $$
-As such, we can make the distinction between two Hamiltonian functions: firstly, there is the \emph{contact Hamiltonian}
-$$ \hat{H}(p, q) = \qty(\frac{1}{2m}p^2 + \frac{1}{2}kq^2), $$
-and secondly, the \emph{homogeneous Hamiltonian},
-$$ H(\rho_0, \rho, q) = \rho_0 \hat{H}\qty(\frac{\rho}{\rho_0}, q).$$
-which is the `symplectified' version of the contact Hamiltonian. This allows us to derive the equations of motion using the symplectic structure
-$$ \omega = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}$$
-and proceed as usual. The contact equations of motion are then obtained through the relation between $p, \rho_0$ and $\rho$.
+which accentuates the special role of the $q_0$ in the system dynamics. Contact forms are, by their very nature, ambiguous, for they represent a distribution of hyperplanes, which coincides with the kernel of the 1-form. Multiplication with a nonzero factor yields a different form with the same kernel, that is to say, they represent the same contact structure. This is the reason behind the `projective' nature of contact mechanics\footnote{As explained in \cref{app:contact_geometry}, the manifold of contact elements is bundle-isomorphic to the projectivization of the cotangent bundle.}. %Hence, one may just as well use homogeneous coordinates for the fiber using a nonzero multiplication factor $\rho_0$; and call
+%$$ \theta = \rho_0\qty(\dd{q}_0 - p\dd{q}). $$
 
-\section{Dissipative contact Lagrangian mechanics}
-TODO: fix notation, always include `1` subscripts?
-$\ctzbundle{Q}$
+More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber, which amounts to an equal scaling of all the cotangent variables. Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed (this is required for the group to act freely). In coordinates, the manifold $\ctzbundle{M}$ consists of all four-tuples $(q_0, q, \rho_0, \rho)$ for which $\rho_0$ and $\rho$ do not simultaneously vanish. 
 
+This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered (symplectic) Liouville structure}, which is given by the form \cite{Libermann1987}
+$$ \theta = \rho_0 \dd{q_0} + \rho \dd{q}. $$
+
+\begin{figure}[ht]
+    \begin{center}
+        \input{media/tikz/principal_bundle}
+    \end{center}
+    \caption{}
+    \label{fig:principal_bundle}
+\end{figure}
 
 
 %\begin{itemize}
