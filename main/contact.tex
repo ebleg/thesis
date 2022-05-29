@@ -1,21 +1,17 @@
 \chapter{Symplectified Contact Mechanics for Dissipative Systems}
+\label{chap:contact_mechanics}
 
 The traditional view is that the methods of analytical mechanics, such as the Lagrangian and Hamiltonian formalisms, are
 only suited for conservative systems. However, several attempts, especially in the previous century, have been made to
 extend these principles to dissipative systems as well. 
 
 \section{The damped harmonic oscillator}
-This chapter (and the application in the following chapter) is
-primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator
-depicted in \cref{fig:dho}, with the governing second-order differential equation being
+This chapter (and the application in the following chapter) is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
 \begin{equation}  
   m\ddot{q} + b\dot{q} + kq = 0.
 \end{equation}
-The choice for this system is rather perspicuous, since it is arguably the `easiest` dissipative system that also
-exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case
-of the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics
-\cite{Dekker1981,Hutters2020b}. However, the method described in this section can be generalized directly to a general
-(possibly time-dependent) potential function $V = V(q, t)$.
+The choice for this system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics
+\cite{Dekker1981,Hutters2020b}. However, the method described in this section can be generalized directly to a general (possibly time-dependent) potential function $V = V(q, t)$.
 \begin{figure}
     \begin{center}
         \input{media/tikz/damper_oscillator}
@@ -23,9 +19,8 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
     \caption{Schematic of the mass-spring-damper system.}
     \label{fig:dho}
 \end{figure}
-\towrite{Discuss parameter notation}
 
-\begin{table}[h!]
+\begin{table}[ht!]
     \caption{Parameter conventions of the damped harmonic oscillator. To avoid confusion with the symplectic form $\omega$, angular frequencies are denoted by $\Omega$ instead of the conventional lower case Greek letter.}
     \label{tab:dho_params}
     \begin{center}
@@ -42,15 +37,9 @@ of the overwhelming majority of research into dissipative Lagrangian and Hamilto
     \end{center}
 \end{table}
 
-%The first attempt is arguably made in the work of \citet{Bateman1931} in 1931, who used a `mirror` system in
-%combination with the real system that runs with an opposite time direction --- as such, the irreversible dynamics are
-%compensated by the mirror system, which ensures that the overal system can be cast in the necessarily even-dimensional
-%(the Bateman approach automatically doubles the number of dimensions in the system) symplectic setting that underpins
-%the Hamiltonian formalism\footnote{Strictly speaking, Bateman only covered the Lagrangian part of the story in his
-%paper}.
-
-\section{Historical perspectives}
-A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically` to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only `works' on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
+\section{The Caldirola-Kanai method}
+\label{sec:historical}
+A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically' to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only works on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
 
 The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
 \citet{Dekker1981} provides an excellent summary of many attempts up to 1981. Indeed, the well-studied approach developed by \citet{Caldirola1941} and \citet{Kanai1948} was intended exactly for this purpose. This method features an explicit time-dependence both in the Lagrangian function
@@ -64,7 +53,10 @@ and the corresponding Hamiltonian function:
     \label{eq:ham_CK}
 \end{equation}
 In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
-$$ \Pcan \equiv \pdv{\Lck}{\dot{q}}, $$
+\begin{equation}
+    \Pcan \equiv \pdv{\Lck}{\dot{q}},
+    \label{eq:can_momentum}
+\end{equation}
 which is related to the `true` kinematic momentum by the relation $\Pcan = p\ec^{\gamma
 t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transform \emph{with respect to the canonical momentum}:\footnote{The `Legendre transform'
 refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in
@@ -74,7 +66,7 @@ refers, in the context of fiber bundles, to the so-called fiber derivative. On a
  Hence, the Legendre transform is in the first place the mapping that associates the generalized velocities with the
  associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
  $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
- it. \cite{Marsden1998}.}
+ it. \cite{Marsden1998}}
 $$ \Hck = \Pcan \dot{q} - \Lck. $$
 From either \cref{eq:lag_CK} or \cref{eq:ham_CK}, the equations of motion are readily
 derived (for the Hamiltonian case with respect to $\Pcan$ after which the transformation to $p$ can be effected).
@@ -85,14 +77,14 @@ Indeed, after taking the appropriate derivatives, one obtains:
         \Rightarrow \ec^{\gamma t}\qty(m\ddot{q} + m\gamma\dot{q} + kq) &= 0
     \end{split}
 \end{equation*}
-for the Lagrangian case. Hamilton's equations amount to: \cite{Tokieda2021}
+for the Lagrangian case. Likewise, Hamilton's equations yield: \cite{Tokieda2021}
 \begin{equation*}
     \begin{split}
         \dot{q} &= \pdv{\Hck}{\Pcan} = \frac{\Pcan}{m}\ec^{-\gamma t} =  \frac{p}{m}, \\
         \dot{\Pcan} &= -\pdv{\Hck}{q} = -kq\ec^{\gamma t}.\\
     \end{split}
 \end{equation*}
-The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependencent relation:
+The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependent relation:
     $$ \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p} + \gamma p). $$
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the latter is sufficiently well-behaved (that is, it has no zeros), it can be removed without any problems.
 
@@ -107,72 +99,51 @@ The suspension is important to make the final coordinate transform from $\rho$ t
 $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
 It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the 
 
+\section{Symplectification and Liouville structures}
+We start with an $n$-dimensional \emph{base manifold} $Q$. In the context mechanical systems, this manifold is the configuration manifold of the system, \emph{extended} with an additional, `special` position coordinate coordinate that will be interpreted later. Let us assume that $Q$ has coordinates $\vec{q} = \qty(q_0, q_1, \ldots, q_n)$. For the damped harmonic oscillator, this manifold is two-dimensional, for it contains just the special coordinate and the position of the mass. Without loss of generalization, we will denote the special position coordinate by $q_0$.
+
+Now, introduce the \emph{manifold of contact elements} $\cbundle{Q}$, to the base manifold $Q$. This is the manifold of all points in $Q$, with the space of all possible tangent hyperplanes at every point. This manifold has dimension $2n-1$.
+
+The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
+
 \section{Dissipative contact Hamiltonian mechanics}
 The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989} and \citet{Libermann1987}.
 
-\begin{mathbox}{Contact manifolds}
-    A \textbf{contact element} on a manifold $M$ is a point $m \in M$ combined with a tangent hyperplane $\xi_m \subset \tspace{m}{M}$ (i.e. a subspace of the tangent space  with codimension 1). The term `contact' refers to the intuitive notion that if two submanifolds `touch', they share a contact element: they are \emph{in contact} (which is a slightly weaker condition than tangency). \cite{Cannas2001}
+In this section, the direct connection is made between the Caldirola-Kanai Hamiltonian given by \cref{eq:ham_CK} and the contact Hamiltonian described by \citet{Bravetti2017}, using Liouville geometry\footnote{It is interesting to note that Bravetti gives the Caldirola-Kanai method as an example of dissipative Hamiltonians in his paper, but fails to make the connection with his own method.}. It then proceeds to \emph{contact Lagrangian mechanics}, strongly related to the Herglotz' work. Finally, the whole theory can be explained from a thermodynamic perspective. While it was already known for some time (dating back to Arnol'd) that contact geometry is the preferred geometry for thermodynamics, its equivalence to contact geometry in (dissipative) classical mechanics has not been desribed in past literature. This somehow underpins a famous statement by Vladimir Arnol'd that `Contact geometry is all geometry', in the sense that conservative mechanical systems can be considered as part of a larger class of systems for which energy dissipation \emph{is} allowed. \cite{Geiges2008}
 
-    A \textbf{contact manifold} is a manifold $M$ (of dimension $2n+1$) with a \textbf{contact structure}, that is a smooth field (or distribution) of contact elements on that manifold. Locally, any contact element determines a 1-form $\alpha$ (up to multiplication by a nonzero scalar) whose kernel constitutes the tangent hyperplane distribution, i.e. 
-    $$ \xi_m = \ker \alpha_m $$
-    This $\alpha$ is called the (local) \emph{contact form}. The field of hyperplanes must satisfy a nondegeneracy condition: it must be \emph{nonintegrable}, i.e. it \emph{never} satisfies the Frobenius integrability condition: \cite{Cannas2001,Abraham1978,Arnold1989}
-    $$ \wedgep{\alpha}{(\dd{\alpha})^n} \neq 0, $$
-    where integrable distributions would have this expression vanish everywhere. Roughly equivalent statements are that (i) one cannot find foliations of $M$ such that the $\xi$ is everywhere tangent to it, or (ii) that $\dd{\alpha}\vert_\xi$ is a \emph{symplectic form}. In this treatment, all contact forms are assumed to be global, which is the case if the quotient $TM/\xi$ is a trivial line bundle, i.e. the orientation is preserved across the entire manifold \cite{Geiges2008}.
+\subsection{From Caldirola-Kanai to contact mechanics}
+Recall the Caldirola-Kanai Hamiltonian from \cref{sec:historical},
+\begin{equation}
+    \Hck(q, \Pcan, t) = \frac{\Pcan^2}{2m}\ec^{-\gamma t} + \frac{1}{2}kq^2\ec^{\gamma t},
+    \label{eq:ham_CK2}
+\end{equation}
+and rewrite it as
+\begin{equation}
+    \Hck(q, \Pcan, t) = \ec^{\gamma t}\qty(\frac{1}{2m}\qty(\frac{\Pcan}{\ec^{\gamma t}})^2 + \frac{1}{2}kq^2).
+\end{equation}
+The idea is to view this Hamiltonian as a homogeneous function by introducing appropriate coordinates. Homogeneous momenta are denoted by $\rho_i$. By inspection, choose (with slight abuse of notation)
+$$ \rho_1 = \rho,\quad \rho_0 = \ec^{\gamma t}\quad \text{and } q_1 = q$$
+such that the Caldirola-Kanai Hamiltonian becomes
+\begin{equation}
+    H(q, \rho_0, \rho_1) = \rho_0\qty(\frac{1}{2m}\qty(\frac{\rho_1}{\rho_0})^2 + \frac{1}{2}kq_1^2).
+\end{equation}
+which is homogeneous in fiber dimensions $\rho_0$ and $\rho_1$. That is to say,
+$$ H(q, \lambda \rho_0, \lambda \rho_1) = \lambda H(q, \rho_0, \rho_1) \quad \lambda \in \real_0$$
+From the definition in \cref{eq:can_momentum}, one can see that the `real', kinematic momentum is equal to
+$$ p \equiv \frac{\rho_1}{\rho_0}. $$
+As such, we can make the distinction between two Hamiltonian functions: firstly, there is the \emph{contact Hamiltonian}
+$$ \hat{H}(p, q_1) = \qty(\frac{1}{2m}p^2 + \frac{1}{2}kq^2), $$
+and secondly, the \emph{homogeneous Hamiltonian},
+$$ H(\rho_0, \rho_1, q_1) = \rho_0 \hat{H}\qty(\frac{\rho_1}{\rho_0}, q_1).$$
+which is the `symplectified' version of the contact Hamiltonian. This allows us to derive the equations of motion using the symplectic structure
+$$ \omega = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q_1}}{\dd{\rho_1}}$$
+and proceed as usual. The contact equations of motion are then obtained through the relation between $p, \rho_0$ and $\rho_1$.
 
-    \tcblower
-    The \textbf{Darboux theorem} for contact manifolds states that it is always possible to find coordinates $z, x_i, y_i$ such that locally, the contact form is equal to 
-    $$ \dd{z} - \sum y_i\dd{x_i}, $$
-    which is also called the standard or natural contact structure. The standard contact structure on $\real^3$ is illustrated below.
-        \begin{center}
-            \input{media/tikz/standard_contact}
-            %\vspace{0.3cm}
-        \end{center}
-        \begin{center}
-            \begin{minipage}{12cm}
-                {\small The standard contact structure on $\real^3$, given by the contact form $\dd{z} - y\dd{x}$; the hyperplanes tilt more in the increasing $y$-direction.}
-            \end{minipage}
-        \end{center}
-    Finally, it is clear that the contact form singles out a `special direction' in the tangent space at every point of the manifold. This direction is given by the unique \textbf{Reeb vector field},
-    $$ R_\alpha \in \vfields{M}:\quad \intpr{R_\alpha}{\dd{\alpha}}= 0 \quad \text{and} \quad \intpr{R_\alpha}{\alpha} = 1,$$
-    that is, it locally points in the `direction' of the contact form.
-\end{mathbox}
-
-\begin{mathbox}{Manifold of contact elements and projectivization}
-    It was prevously noted that a contact manifold is simply a manifold with a contact structure. However, there is, associated to any manifold $Q$ a \emph{canonical} contact manifold, just like one can always find a canonical symplectic structure on $\ctbundle{Q}$ of dimension $2n$. 
-
-    The \textbf{manifold of contact elements} of an $n$-dimensional manifold is \cite{Cannas2001}
-    $$ C = \qty{(q, \xi_q) \mid q \in Q \text{ and } \xi_q \text{ a hyperplane on } \tspace{q}{Q}} $$
-    This manifold $C$ has dimension $2n - 1$. It is clear that $C$ has a natural bundle structure, i.e. $\bundle{C}{\pi}{Q}$ where the bundle projection `forgets' the contact element.
-    
-    As it turns out, there is a convenient way to view this manifold of contact elements, for it is isomorphic to the \textbf{projectivization of the cotangent bundle} to $N$, denoted by $\pctbundle{Q}$. This `projectivization' can be defined in terms of an equivalence relation between two nonzero elements in the cotangent space at every point in the manifold:
-    $$ \vec{\eta},\vec{\chi}\in \ctspace{q}{Q} \setminus \{\mathbf{0}\}:\quad (q, \vec{\eta}) \sim (q, \vec{\chi}) \Leftrightarrow \vec{\eta} = \lambda \vec{\chi},\quad \lambda \in \real_0, \text{ for all } q \in Q.$$
-    $\pctbundle{Q}$ is then the quotient set of $\ctbundle{Q}$ (with the zero section removed) with respect to the equivalence relation $\sim$. It can be shown that this space is bundle-isomorphic to the manifold $C$.
-
-    It has mentioned that $C \cong \pctbundle{Q}$ is a contact manifold.\footnote
-    {Again, observe the tautological nature of this construction. A canonical field of hyperplanes (contact structure) is defined \emph{on} the manifold of contact elements, simply by lifting them. This is a classic theme in differential geometry that causes a great deal of confusion.}
-    Indeed, there is a canonical field of hyperplanes \emph{on} $C$, which lifts the hyperplane tangent to $Q$ to a hyperplane tangent to $C$ (this is akin to the `tautological` trick played in the symplectic structure of the cotangent bundle). Locally, the contact form associated to this contact structure is
-    $$ \alpha = \dd{x}_0 + \sum_{i=1}^n \eta_i\dd{x}_i + \sum_{i=1}^n 0\dd{\eta_i}, $$
-    where any $\eta$ represents any of the equivalence classes that constitute $\pctbundle{Q}$. [...] to complete!! see da Silva p. 70
-\end{mathbox}
-
-\begin{mathbox}{Liouville geometry}
-    blabla
-\end{mathbox}
+\section{Dissipative contact Lagrangian mechanics}
+TODO: fix notation, always include `1` subscripts?
+$\ctzbundle{Q}$
 
 
-\begin{itemize}
-    \item Cosymplectic
-    \item Presymplectic
-    \item Precontact
-\end{itemize}
-
-
-\begin{enumerate}
-    \item (Briefly) introduce contact Hamiltions á la van der Schaft 
-    \item Briefly explain Bravetti's Hamiltonian
-    \item From CK to Bravetti
-    \item Integral invariants + Lagrangian?
-\end{enumerate}
 
 %\begin{itemize}
 %    \item The \textbf{mirror system} or \textbf{Bateman} approach, doubles the number of system dimensions by including a mirror system that runs opposite in time. Arguably the most flexible of all methods, it is 
