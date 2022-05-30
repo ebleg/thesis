@@ -124,7 +124,7 @@ which accentuates the special role of the $q_0$ in the system dynamics. Contact 
 $$ \lambda\qty(\dd{q}_0 - p\dd{q}) \quad \lambda \in \real_0. $$
 The factor $\lambda$ can be considered to be an extra degree of freedom (leaving the contact structure unaffected), which provides a `lift' from the odd-dimensional manifold to an even-dimensional one, which is called the symplectification of the contact manifold. \cite{Arnold1989}
 
-More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber which amounts to an equal scaling of all the cotangent variables (this is the multiplication by $\lambda$ in the above expression). Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed --- this is required for the group to act freely). This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
+More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber which amounts to an equal scaling of all the cotangent variables (this is the multiplication by $\lambda$ in the above expression). Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed --- this is required for the group to act freely. This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
 $$ \theta = \lambda ( \dd{q_0} + p \dd{q} ). $$
 To restate the above in canonical coordinates, choose
 \begin{equation}
@@ -138,29 +138,53 @@ such that
 \end{equation}
 which is the Liouville form on $\ctbundle{M}$. \cite[p. 308]{Libermann1987}  The Liouville form defines a symplectic structure given by\footnote
 {The nondegeneracy condition on the contact structure guarantees that this structure is indeed symplectic.}
-$$\omega = -\dd{\theta}.$$ The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifolds, and consists of all four-tuples $(q_0, q, \rho_0, \rho)$ for which $\rho_0$ and $\rho$ do not simultaneously vanish. For now, we have not assigned any specific meaning to the coordinates given above, but they will turn out to match with the convention adhered to in \cref{eq:lag_CK,eq:ham_CK}, etc.
-
-To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
-
-\begin{figure}[ht]
+$$\omega = -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.$$ 
+The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifolds, and consists of all four-tuples $(q_0, q, \rho_0, \rho)$ for which $\rho_0$ and $\rho$ do not simultaneously vanish. For now, we have not assigned any specific meaning to the coordinates given above, but they will turn out to match with the notation used in \cref{eq:lag_CK,eq:ham_CK}, etc.
+\begin{figure}[h!]
     \begin{center}
         \input{media/tikz/principal_bundle}
     \end{center}
-    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/rho_0$, i.e. such that $p$ is a coordinate for the projectivization by stereographic projection, as shown on the right.}
+    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/\rho_0$, i.e. such that $p$ is a coordinate for the projectivization by stereographic projection, as shown on the right.}
     \label{fig:principal_bundle}
 \end{figure}
 
-\subsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{sec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system. This will result in a `horizontal' and `vertical' part of the resulting vector field, which distinguishes the dissipative from the purely conservative dynamics.
+Finally, the \emph{Liouville vector field} $Z$ associated with the Liouville structure is the vector field that represents the dilation of the fiber in the symplectization. It is defined as
+\begin{equation}
+    Z = \raiseIndex{\theta} = \rho_0\pdv{}{\rho_0} + \rho\pdv{}{\rho}. 
+    \label{eq:liouville_vf}
+\end{equation}
+Vector field (components) colinear with the Liouville vector fields are called \emph{vertical}; they represent dissipative action in the system. After the vertical components are removed, they remaining vector field is called \emph{horizontal}.
 
-Consider the bla bla
+To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
+
+\subsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{sec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
+
+There is a one-to-one correspondence between contact Hamiltonians on $\pctbundle{M}$ and a special class of Hamiltonians on the symplectified space $\ctzbundle{M}$. These are the Hamiltonians which are \emph{homogeneous} in the cotangent variables with degree 1:\footnote
+{This is a consequence of the Euler theorem for homogeneous functions. If $H = H(\vec{q}, \vec{\rho})$ is homogeneous of degree $r$ in $\vec{\rho}$, then
+    $$ \sum_{i = 1}^n \rho_i \pdv{H}{\rho_i} = r H. $$
+ Hence for homogeneity of degree 1, we have: 
+ $$ \lied{Z}{H} = Z(H) = \sum_{i=1}^n \rho_i \pdv{H}{\rho_i} = H \quad \text{with}\quad Z \equiv \sum \rho_i \pdv{}{\rho_i}. $$
+}
+\begin{equation}
+    H(q_0, q, \lambda \rho_0, \rho) = \lambda H(q_0, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{H} = H,
+\end{equation}
+with $\lambda \in \real_0,\: H \in \functions{\ctzbundle{M}}$ and $Z$ defined according to \cref{eq:liouville_vf}. Given that $H$ is indeed homogeneous of degree 1, this correspondence is in canonical cooridinates:
+\begin{equation}
+    H(q_0, q_1, \rho_0, \rho_1) = \rho_0 \hat{H}\qty(q_0, q_1, \frac{\rho_1}{\rho_0})
+    \label{eq:H_correspondence}
+\end{equation}
+where $H \in \functions{\ctzbundle{M}}$, $\hat{H} \in \functions{\pctbundle{M}}$ and let $p = \rho_i / \rho_0$ be a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, because it offers computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight and as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
+
+Now, recall the Caldirola-Kanai Hamiltonian. Instead of assuming a direct time-dependence, we will think of the time-dependence as the gauge momentum, i.e. $\rho_0 = \ec^{\gamma t}$. However, we will now consider $\rho_0$ to be a coordinate in its own right, instead of directly using the expression above. The Caldirola-Kanai Hamiltonian is then written as (cf. \cref{eq:ham_CK}):
+\begin{equation}
+    H: \ctzbundle{M} \to \real: \quad H(q_0, q, \rho_0, \rho) = \rho_0 \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0}) + \frac{1}{2}kq^2]. 
+    \label{eq:homo_hck}
+\end{equation}
+The motivation to make this particular choice is twofold: first, observe that $H$ is homogeneous in the cotangent variables $\rho_0, \rho$, and second, that their fraction yields the \emph{real} momentum: $ p = \rho/\rho_0 $. Using the correspondence given by \cref{eq:H_correspondence}, the Hamiltonian may be `projected' to the contact Hamiltonian $\hat{H}$:
+\begin{equation}
+    \hat{H}: \pctbundle{M} \to \real: \quad \hat{H}(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2.
+\end{equation}
+Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped particle, but it is defined on the contact manifold that also takes into account the gauge variable $q_0$. 
 
 
-%\begin{itemize}
-%    \item The \textbf{mirror system} or \textbf{Bateman} approach, doubles the number of system dimensions by including a mirror system that runs opposite in time. Arguably the most flexible of all methods, it is 
-%    \item Expressing the Hamiltonian in \textbf{complex coordinates} has also produced promising results: notable are the attempts of \citet{Bopp1974}, \citet{Dedene1980} and the very recent contribution by \citet{Hutters2020b} in the research group to which the author belongs as well.
-%    \item A different approach, related to the contact method, are the 
-%    \item Contact mechanics
-%    \item Mathematical Hamiltonians
-%\end{itemize}
-%
-%[Mention Max as contributor]
+
