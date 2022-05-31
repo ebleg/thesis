@@ -19,6 +19,8 @@
 \usepackage[sfdefault=cmbr,OMLmathsans]{isomath}  % Math alphabets for tensors and vectors
 \usepackage{nth}
 
+\setlength{\jot}{10pt} % affecting the line spacing in the split environment
+
 % --------------------------------------------------------------------------------
 %% MATH ALPHABET MACROS
 % --------------------------------------------------------------------------------
@@ -65,18 +67,18 @@
 \newcommand{\torus}[1]{\ensuremath{\mathbb{T}^{#1}}\xspace}
 
 % Tangent, cotangent, contact bundles
-\newcommand{\ctbundle}[1]{\ensuremath{T^*#1}}
-\newcommand{\ctzbundle}[1]{\ensuremath{T^*_0#1}}
-\newcommand{\tbundle}[1]{\ensuremath{T#1}}
+\newcommand{\ctbundle}[1]{\ensuremath{\mathrm{T}^*#1}}
+\newcommand{\ctzbundle}[1]{\ensuremath{\mathrm{T}^*_0#1}}
+\newcommand{\tbundle}[1]{\ensuremath{\mathrm{T}#1}}
 
-\newcommand{\ctspace}[2]{\ensuremath{T_#1^*\!#2}}
-\newcommand{\tspace}[2]{\ensuremath{T_#1#2}}
+\newcommand{\ctspace}[2]{\ensuremath{\mathrm{T}_#1^*\!#2}}
+\newcommand{\tspace}[2]{\ensuremath{\mathrm{T}_#1#2}}
 
 % Projectivized cotangent bundle and space
-\newcommand{\pctbundle}[1]{\ensuremath{\mathbb{P}\qty(T^*\!#1)}}
-\newcommand{\pctspace}[2]{\ensuremath{\mathbb{P}\qty(T_#1^*\!#2)}}
+\newcommand{\pctbundle}[1]{\ensuremath{\mathbb{P}\qty(\mathrm{T}^*#1)}}
+\newcommand{\pctspace}[2]{\ensuremath{\mathbb{P}\qty(\mathrm{T}_#1^*#2)}}
 
-\newcommand{\cbundle}[1]{\ensuremath{C#1}}
+\newcommand{\cbundle}[1]{\ensuremath{\mathrm{C}#1}}
 %\newcommand{\chbundle}[1]{\ensuremath{C^*\!#1}}
 
 % Bundle sections
@@ -130,13 +132,13 @@
 % --------------------------------------------------------------------------------
 
 % Exterior derivative
-\newcommand{\extdiff}[1]{\ensuremath{\vb{d}#1}}
+\newcommand{\extdiff}[1]{\ensuremath{\vb{d}#1}\xspace}
 
 % Poisson bracket
-\newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}}
+\newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}\xspace}
 
 % Lie bracket
-\newcommand{\liebr}[2]{\ensuremath{\qty{#1,\,#2}}}
+\newcommand{\liebr}[2]{\ensuremath{\qty{#1,\,#2}}\xspace}
 
 % Inner product
 \newcommand{\inner}[2]{\ensuremath{\langle #1,\, #2\rangle}}
@@ -169,8 +171,8 @@
 \newcommand{\tran}[1]{\ensuremath{#1^{\top}}}
 
 \newcommand{\largefrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
-\newcommand{\lowerIndex}[1]{\ensuremath{{}^\flat#1}}
-\newcommand{\raiseIndex}[1]{\ensuremath{{}^\sharp#1}}
+\newcommand{\toDual}[1]{\ensuremath{#1^\flat}}
+\newcommand{\fromDual}[1]{\ensuremath{#1^\sharp}}
 
 %\newcommand{\christ}{\ensuremath{\mathrm{\Gamma}}}
 %\renewcommand{\var}{\ensuremath{\mathrm{\delta}}}

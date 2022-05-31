@@ -90,7 +90,10 @@ for the Lagrangian case. Likewise, Hamilton's equations yield: \cite{Tokieda2021
     \end{split}
 \end{equation*}
 The relation between the time derivatives of the momenta $\dot{p}_1$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependent relation:
-    $$ \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p}_1 + \gamma p). $$
+\begin{equation}
+    \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p}_1 + \gamma p).  
+    \label{eq:momentum_relation}
+\end{equation}
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the latter is sufficiently well-behaved (that is, it has no zeros), it can be removed without any problems.
 
 \paragraph{Geometric perspective}
@@ -125,8 +128,9 @@ $$ \lambda\qty(\dd{q}_0 - p\dd{q}) \quad \lambda \in \real_0. $$
 The factor $\lambda$ can be considered to be an extra degree of freedom (leaving the contact structure unaffected), which provides a `lift' from the odd-dimensional manifold to an even-dimensional one, which is called the symplectification of the contact manifold. \cite{Arnold1989}
 
 More formally, introduce the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$, where $\mgroup$ acts in the fiber through `dilations' of the fiber which amounts to an equal scaling of all the cotangent variables (this is the multiplication by $\lambda$ in the above expression). Here, $\ctzbundle{M}$ is the cotangent bundle to $M$, but with the zero section removed --- this is required for the group to act freely. This principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits what is called a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
-$$ \theta = \lambda ( \dd{q_0} + p \dd{q} ). $$
-To restate the above in canonical coordinates, choose
+$$ \theta = \lambda ( \dd{q_0} - p \dd{q} ). $$
+To restate the above in canonical coordinates, choose\footnote
+{The minus sign is necessary to obtain the convential form of the Liouville form in symplectic geometry.}
 \begin{equation}
     \rho_0 = \lambda \quad \text{and} \quad \rho = -\lambda p
     \label{eq:homo_coords}
@@ -150,42 +154,70 @@ The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifo
 
 Finally, the \emph{Liouville vector field} $Z$ associated with the Liouville structure is the vector field that represents the dilation of the fiber in the symplectization. It is defined as
 \begin{equation}
-    Z = \raiseIndex{\theta} = \rho_0\pdv{}{\rho_0} + \rho\pdv{}{\rho}. 
+    Z = \fromDual{\omega}(\theta) = \rho_0\pdv{}{\rho_0} + \rho\pdv{}{\rho}. 
     \label{eq:liouville_vf}
 \end{equation}
 Vector field (components) colinear with the Liouville vector fields are called \emph{vertical}; they represent dissipative action in the system. After the vertical components are removed, they remaining vector field is called \emph{horizontal}.
+
+[Liouville automorphisms, commute with the Liouville vector field -> very important in the chapter about split-quaternions]
 
 To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
 
 \subsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{sec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
 
 There is a one-to-one correspondence between contact Hamiltonians on $\pctbundle{M}$ and a special class of Hamiltonians on the symplectified space $\ctzbundle{M}$. These are the Hamiltonians which are \emph{homogeneous} in the cotangent variables with degree 1:\footnote
-{This is a consequence of the Euler theorem for homogeneous functions. If $H = H(\vec{q}, \vec{\rho})$ is homogeneous of degree $r$ in $\vec{\rho}$, then
-    $$ \sum_{i = 1}^n \rho_i \pdv{H}{\rho_i} = r H. $$
- Hence for homogeneity of degree 1, we have: 
- $$ \lied{Z}{H} = Z(H) = \sum_{i=1}^n \rho_i \pdv{H}{\rho_i} = H \quad \text{with}\quad Z \equiv \sum \rho_i \pdv{}{\rho_i}. $$
+{This is a consequence of the Euler theorem for homogeneous functions. If $\mathscr{H} = \mathscr{H}(\vec{q}, \vec{\rho})$ is homogeneous of degree $r$ in $\vec{\rho}$, then
+    $$ \sum_{i = 1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = r \mathscr{H}. $$
+ Therefore, for homogeneity of degree 1, we have: 
+ $$ \lied{Z}{\mathscr{H}} = Z(\mathscr{H}) = \sum_{i=1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H} \quad \text{with}\quad Z \equiv \sum \rho_i \pdv{}{\rho_i}. $$
  The correspondence between the 
 }
 \begin{equation}
-    H(q_0, q, \lambda \rho_0, \rho) = \lambda H(q_0, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{H} = H,
+    \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\,\mathscr{H}(q_0, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{H} = H,
 \end{equation}
 with $\lambda \in \real_0,\: H \in \functions{\ctzbundle{M}}$ and $Z$ defined according to \cref{eq:liouville_vf}. Given that $H$ is indeed homogeneous of degree 1, this correspondence is in canonical cooridinates:
 \begin{equation}
-    H(q_0, q_1, \rho_0, \rho_1) = \rho_0 \hat{H}\qty(q_0, q_1, \frac{\rho_1}{\rho_0})
+    \mathscr{H}(q_0, q_1, \rho_0, \rho_1) = -\rho_0\,H\qty(q_0, q_1, -\frac{\rho_1}{\rho_0})
     \label{eq:H_correspondence}
 \end{equation}
-where $H \in \functions{\ctzbundle{M}}$, $\hat{H} \in \functions{\pctbundle{M}}$ and let $p = \rho_i / \rho_0$ be a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, because it offers computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight and as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
+where $\mathscr{H} \in \functions{\ctzbundle{M}}$, $H \in \functions{\pctbundle{M}}$ and $p = -\rho_i / \rho_0$ is a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, because it offers computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
 
-Now, recall the Caldirola-Kanai Hamiltonian. Instead of assuming a direct time-dependence, we will think of the time-dependence as the gauge momentum, i.e. $\rho_0 = \ec^{\gamma t}$. However, we will now consider $\rho_0$ to be a coordinate in its own right, instead of directly using the expression above. The Caldirola-Kanai Hamiltonian is then written as (cf. \cref{eq:ham_CK}):
+Now, recall the Caldirola-Kanai Hamiltonian in \cref{eq:ham_CK}. Instead of assuming a direct time-dependence, we will think of the time-dependence as the gauge momentum, i.e. $\rho_0 = -\ec^{\gamma t}$. However, we will now consider $\rho_0$ to be a coordinate in its own right, instead of directly using the expression above. The Caldirola-Kanai Hamiltonian is then written as (cf. \cref{eq:ham_CK}):
 \begin{equation}
-    H: \ctzbundle{M} \to \real: \quad H(q_0, q, \rho_0, \rho) = \rho_0 \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0}) + \frac{1}{2}kq^2]. 
+    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2]. 
     \label{eq:homo_hck}
 \end{equation}
-The motivation to make this particular choice is twofold: first, observe that $H$ is homogeneous in the cotangent variables $\rho_0, \rho$, and second, that their fraction yields the \emph{real} momentum: $ p = \rho/\rho_0 $. Using the correspondence given by \cref{eq:H_correspondence}, the Hamiltonian may be `projected' to the contact Hamiltonian $\hat{H}$:
+The motivation to make this particular choice is twofold: first, observe that $\mathscr{H}$ is homogeneous in the cotangent variables $\rho_0, \rho$, and second, that their fraction yields the \emph{real} momentum: $ p = -\rho/\rho_0 $. Using the correspondence given by \cref{eq:H_correspondence}, the Hamiltonian may be `projected' to the contact Hamiltonian $H$:
 \begin{equation}
-    \hat{H}: \pctbundle{M} \to \real: \quad \hat{H}(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2.
+    H: \pctbundle{M} \to \real: \quad H(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2.
 \end{equation}
-Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped particle, but it is defined on the contact manifold that also takes into account the gauge variable $q_0$. 
+Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $q_0$.
 
+Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
+$$ X_\mathscr{H} = \fromDual{\omega}(\dd{\mathscr{H}}) $$
+corresponds to Hamilton's equations in the familiar form:
+\begin{equation}
+    \dv{\rho}{t} = -\pdv{\mathscr{H}}{q},\quad
+        \dv{\rho_0}{t} = -\pdv{\mathscr{H}}{q_0},\quad
+        \dv{q}{t} = \pdv{\mathscr{H}}{\rho},\quad
+        \dv{q_0}{t} = \pdv{\mathscr{H}}{\rho_0}.
+\end{equation}
+Observe that this motivates why one has to take the partial with respect to the `other' momentum in the Caldirola-Kanai momentum: we are dealing with a specific instance of a more general class of homogeneous coordinates of the cotangent variables. Of course, the variable of interest is the actual momentum $p$, not the scaled version $\rho$. The time-derivative of $p$ can be written in terms of $\rho$ and $\rho_0$, completely analogous to \cref{eq:momentum_relation}:
+\begin{equation}
+    p = -\rho/\rho_0 \quad\Rightarrow\quad \dv{p}{t} = -\frac{1}{\rho_0}\dv{\rho}{t} + \frac{\rho}{\rho_0^2}\dv{\rho_0}{t}. 
+    \label{eq:homo_momenta}
+\end{equation}
+Given \cref{eq:homo_hck}, the partial derivatives of $\mathscr{H}$ and $H$ are related through the by relations: \cite{Arnold1989}
+\begin{equation}
+    \begin{split}
+        \pdv{\mathscr{H}}{q} &= \rho_0 \pdv{H}{q} \\
+        \pdv{\mathscr{H}}{q_0} &= \rho_0 \pdv{H}{q_0} \\
+        \pdv{\mathscr{H}}{\rho} &= \rho_0 \pdv{H}{p}\pdv{p}{\rho} = \pdv{H}{p} \\
+        \pdv{\mathscr{H}}{\rho_0} &= \rho_0 \pdv{H}{p}\pdv{p}{\rho_0} = \pdv{H}{p}p \\
+    \end{split}
+    \label{eq:partial_relation}
+\end{equation}
+Hence, the \emph{contact} equations of motion can be found by combining of \cref{eq:momentum_relation} and \cref{eq:partial_relation}:
 
+!!!!!!! Minus sign check
 
