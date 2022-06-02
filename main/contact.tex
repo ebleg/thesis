@@ -62,13 +62,13 @@ In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
     \label{eq:can_momentum}
 \end{equation}
 which is related to the `true` kinematic momentum by the relation $\Pcan = p\ec^{\gamma
-t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transform \emph{with respect to the canonical momentum}:
+t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transformation \emph{with respect to the canonical momentum}:
 %\footnote{The `Legendre transform'
 %refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in
 %\functions{M}$. Then the fiber derivative is defined als 
 %    $$ \fiberder{L}: \tbundle{L}\to\ctbundle{L}: \fiberder{L}(\vec{v})\cdot\vec{w} = \left. \dv{}{s}\right\vert_{s = 0} L(\vec{v} +
 %    s\vec{w}). $$
-% Hence, the Legendre transform is in the first place the mapping that associates the generalized velocities with the
+% Hence, the Legendre transformation is in the first place the mapping that associates the generalized velocities with the
 % associated (canonical) generalized momenta. Importantly, this mapping is a diffeomorphism (that is, invertible and onto) if the Hessian of
 % $L$ is nondegenerate - roughly equivalent to the statement that every generalized velocity has an associated `mass` to
 % it. \cite{Marsden1998}}
@@ -103,7 +103,7 @@ where the symplectic 2-form will be used to obtain Hamilton's equations. The Ham
 {A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: M\times\real \to \tbundle{M}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $M \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times M \to \tbundle{(\real \times M)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, it lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
 The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\omega$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
 $$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
-The suspension is important to make the final coordinate transform from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \Pcan, t) \mapsto (q, \ec^{-\gamma t}\Pcan, t)$, one obtains
+The suspension is important to make the final coordinate transformation from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \Pcan, t) \mapsto (q, \ec^{-\gamma t}\Pcan, t)$, one obtains
 $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p_1}{m}\pdv{}{q} + \pdv{}{t}.$$
 It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the special role of the time coordinate, which is merely a parameter in the Hamiltonian function; for it does not partake in the dynamics of the system. Finally, there is the special role of the factor $\ec^{\gamma t}$ through which the time-dependence makes its appearance both in the Lagrangian and the Hamiltonian.
 
@@ -246,7 +246,7 @@ Some observations are important to note:
 
 We are now ready to determine the nature of the as of yet unknown function $f$ to obtain the correct equations of motion. By comparing \cref{eq:homo_momenta} and \cref{eq:contact_eom}, the following relation must hold:
 $$ \frac{1}{\rho_0}\dv{\rho_0}{t} = \pdv{H}{q_0} = \dv{f}{q_0}. $$
-Furthermore, since we initial `substituted' $\ec^{\gamma t}$ in favor of $\rho_0$, the left hand side of the equation should be equal to $\gamma$ for it to be consistent with the Caldirola-Kanai Hamiltonian. Hence, we know that $\dv{f}{q_0} = \gamma$, or $f(q_0) = \gamma q_0$ up to a constant, which we choose to be zero. Although this may seem like an odd construction, the only thing we did is made the contact equation of motions equivalent with the time-dependent equations of motion. Now, the fact that $\rho_0 = \ec^{\gamma t}$, ceases to be an a priori assumption, and is derivable through Hamilton's equations. Indeed, 
+Furthermore, since we initial `substituted' $\ec^{\gamma t}$ in favor of $\rho_0$, the left hand side of the equation should be equal to $\gamma$ for it to be consistent with the Caldirola-Kanai Hamiltonian. Hence, we know that $\dv{f}{q_0} = \gamma$, or $f(q_0) = \gamma q_0$ up to a constant, which we choose to be zero. Although this may seem like an odd construction, the only thing we did is made the contact equation of motions equivalent with the time-dependent equations of motion. Now, the fact that $\rho_0 = \ec^{\gamma t}$, ceases to be an a priori assumption, and is derivable through Hamilton's equations:
 $$ \dv{\rho_0}{t} = -\pdv{\mathscr{H}} = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C$$
 
 As such, we have for the contact Hamiltonian:
@@ -255,10 +255,31 @@ As such, we have for the contact Hamiltonian:
 \end{equation}
 and this is precisely Bravetti's result. For the homogenous Hamiltonian on the symplectified space, we have:
 \begin{equation}
-    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
+    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
 \end{equation}
 It is easily verified that the contact Hamilton equations $\cref{eq:contact_eom}$ yield the correct equations of motion for the damped harmonic oscillator:
 $$ \dv{q}{t} = p/m \qquad \dv{p}{t} = -kq -\gamma p.$$
 On the other hand, the equation of motion for $q_0$ requires some additional considerations; this is the subject of the next section.
 
 \subsection{Interpretation of the canonical variables}
+From \cref{eq:contact_eom}, the time-rate of change of $q_0$ is equal to Legendre transformation of $H$ with respect to $p$. This Legendre transformation is equal to the Lagrangian. 
+
+\citet{Libermann1987} refer to this function, which is formally equal to 
+$$ A = \intpr{Z}{\dd{H}} - H $$
+by the name \emph{elementary action}. Probably, this is the $H$ \emph{without} the $q_0$ term. So this would be the abbreviated action.
+
+Hence, we have
+$$ q_0 = \int_0^t () \dd{t} $$
+
+\section{Legendre involution}
+In the classic, symplectic case, the Legendre transformation is used to pass from the Hamiltonian to the Lagrangian formalism and vice versa. This is because the Legendre transform facilitates a mapping between the tangent and cotangent bundle. If the Lagrangian (or Hamiltonian) is (hyper)regular (i.e. the mass matrix is invertible), this mapping is a diffeomorphism. \cite{Carinena1990}
+
+One would be tempted to use the normal Legendre transformation on the symplectified Hamiltonian $\mathscr{H}$. This approach will meet some problems though:
+\begin{itemize}
+    \item A homogeneous function is not regular in the homogeneous variables --- naturally, a degree of freedom still resides in the action of the multiplicative group. Therefore, the mapping from the cotangent to the tangent bundle is not a diffeomorphism. Said otherwise, there is not a one-to-one correspondence between the homogeneous momenta and the associated velocities in the Lagrangian description.
+    \item As a consequence of Euler's theorem for homogeneous functions, the Legendre transformation for a homogeneous function is necessarily equal to zero. For any homogeneous function $H$ (of degree 1), Euler's theorem states that
+    $$ \sum_{i = 1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H}, $$
+        i.e. the function is equal to its associated `action', and therefore the expression for the Legendre transformation vanishes. \cite{Dirac1950,Dirac1933}
+\end{itemize}
+There is a better path to take. In essence the Legendre transform is (and was originally meant to be) a \emph{contact transformation}.
+
