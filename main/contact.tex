@@ -89,9 +89,9 @@ for the Lagrangian case. Likewise, Hamilton's equations yield: \cite{Tokieda2021
         \dot{\Pcan} &= -\pdv{\Hck}{q} = -kq\ec^{\gamma t}.\\
     \end{split}
 \end{equation*}
-The relation between the time derivatives of the momenta $\dot{p}_1$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependent relation:
+The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pcan}$ is slightly more involved since one must invoke the product rule as a result of their time-dependent relation:
 \begin{equation}
-    \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p}_1 + \gamma p).  
+    \dot{\Pcan} = \ec^{\gamma t}\qty(\dot{p} + \gamma p).  
     \label{eq:momentum_relation}
 \end{equation}
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the latter is sufficiently well-behaved (that is, it has no zeros), it can be removed without any problems.
@@ -205,7 +205,10 @@ The motivation to make this particular choice is twofold: first, observe that $\
 Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $q_0$.
 
 Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
-$$ X_\mathscr{H} = \fromDual{\omega}(\dd{\mathscr{H}}) $$
+\begin{equation}
+    X_\mathscr{H} = \fromDual{\omega}(\dd{\mathscr{H}})
+    \label{eq:ham_vf}
+\end{equation}
 corresponds to Hamilton's equations in the familiar form:
 \begin{equation}
     \dv{\rho}{t} = -\pdv{\mathscr{H}}{q},\quad
@@ -256,20 +259,34 @@ As such, we have for the contact Hamiltonian:
 and this is precisely Bravetti's result. For the homogenous Hamiltonian on the symplectified space, we have:
 \begin{equation}
     \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
+    \label{eq:H_dho_homo}
 \end{equation}
-It is easily verified that the contact Hamilton equations $\cref{eq:contact_eom}$ yield the correct equations of motion for the damped harmonic oscillator:
-$$ \dv{q}{t} = p/m \qquad \dv{p}{t} = -kq -\gamma p.$$
-On the other hand, the equation of motion for $q_0$ requires some additional considerations; this is the subject of the next section.
+%It is easily verified that the contact Hamilton equations $\cref{eq:contact_eom}$ yield the correct equations of motion for the damped harmonic oscillator:
+%$$ \dv{q}{t} = p/m \qquad \dv{p}{t} = -kq -\gamma p.$$
+%On the other hand, the equation of motion for $q_0$ requires some additional considerations; this is the subject of the next section.
+
+The Hamiltonian vector field $X_\mathscr{H} \in \vfields{\ctzbundle{M}}$ is then, using \cref{eq:H_dho_homo} and \cref{eq:ham_vf}:
+$$ X_{\mathscr{H}} = \frac{p}{2m}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.$$ 
+
+The contact Hamiltonian vector field $X_H \in \vfields{\pctbundle{M}}$ is obtained either by using the contact Hamilton equations given by \cref{eq:contact_eom}, or by using the pushforward of the projection map $\sigma$:
+$$\sigma : \ctzbundle{M} \to \pctbundle{M}: (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0)$$
+$$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{2m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
+This is essentially the equivalent of the time-dependent transformation performed in \cref{sec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
 
 \subsection{Interpretation of the canonical variables}
-From \cref{eq:contact_eom}, the time-rate of change of $q_0$ is equal to Legendre transformation of $H$ with respect to $p$. This Legendre transformation is equal to the Lagrangian. 
+The great advantage of using the purely symplectic formalism on the lifted space is the fact that the Hamiltonian is invariant under the flow it generates, since the explicit time-dependence has been removed:
+$$ \dv{\mathscr{H}}{t} = \poisson{\mathscr{H}}{\mathscr{H}} = \lied{X_{\mathscr{H}}}{\mathscr{H}} = 0. $$
+We may therefore associate the homogeneous Hamiltonian with a constant. By inspection of \cref{eq:H_correspondence}, 
+$$ \mathscr{H} = -\rho_0\,\underbrace{\qty(\mathscr{H}_0\,\rho_0^{-1})}_{H} \qquad \mathscr{H}_0 \in \real.$$
+Recall that we made the assumption earlier that $\rho_0$ is a function \emph{without zeros}. The constant $\mathscr{H}_0$ is a degree of freedom in the system that we are free to choose, for the equations of motion will be consistent with any chosen value. This is 
 
-\citet{Libermann1987} refer to this function, which is formally equal to 
-$$ A = \intpr{Z}{\dd{H}} - H $$
-by the name \emph{elementary action}. Probably, this is the $H$ \emph{without} the $q_0$ term. So this would be the abbreviated action.
-
-Hence, we have
-$$ q_0 = \int_0^t () \dd{t} $$
+The mechanical energy, denoted by $E$, is equal to 
+$$ E(q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
+which can be lifted to the symplectified space
+$$ \mathscr{E}(q_0, q, \rho_0, \rho) = \frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2.$$
+One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts. For example, the change of dissipative energy in the system is:
+$$ \dv{\mathscr{E}}{t} = \poisson{\mathscr{H}}{\mathscr{E}} = \lied{X_\mathscr{H}}{\mathscr{E}} = \frac{\gamma}{2m}\qty(\frac{\rho}{\rho_0})^2 = \frac{\gamma}{2m}p^2,$$
+which is precisely the dissipative power in the damping element.
 
 \section{Legendre involution}
 In the classic, symplectic case, the Legendre transformation is used to pass from the Hamiltonian to the Lagrangian formalism and vice versa. This is because the Legendre transform facilitates a mapping between the tangent and cotangent bundle. If the Lagrangian (or Hamiltonian) is (hyper)regular (i.e. the mass matrix is invertible), this mapping is a diffeomorphism. \cite{Carinena1990}
@@ -279,6 +296,7 @@ One would be tempted to use the normal Legendre transformation on the symplectif
     \item A homogeneous function is not regular in the homogeneous variables --- naturally, a degree of freedom still resides in the action of the multiplicative group. Therefore, the mapping from the cotangent to the tangent bundle is not a diffeomorphism. Said otherwise, there is not a one-to-one correspondence between the homogeneous momenta and the associated velocities in the Lagrangian description.
     \item As a consequence of Euler's theorem for homogeneous functions, the Legendre transformation for a homogeneous function is necessarily equal to zero. For any homogeneous function $H$ (of degree 1), Euler's theorem states that
     $$ \sum_{i = 1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H}, $$
+
         i.e. the function is equal to its associated `action', and therefore the expression for the Legendre transformation vanishes. \cite{Dirac1950,Dirac1933}
 \end{itemize}
 There is a better path to take. In essence the Legendre transform is (and was originally meant to be) a \emph{contact transformation}.
