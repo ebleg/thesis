@@ -4,6 +4,7 @@
 
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{etoolbox}
 
 \usetikzlibrary{patterns,decorations.pathmorphing,positioning}
 \usetikzlibrary{shapes,arrows}
@@ -11,6 +12,7 @@
 \usetikzlibrary{intersections, pgfplots.fillbetween}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{calc}
+\usetikzlibrary{cd}
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{external}
 
@@ -20,6 +22,10 @@
 \pgfplotsset{%
     colormap={accentmap}{color=(accent1) color=(accent3) color=(accent4)}%
 }%    
+
+% To make tikzcd work with externalize
+\AtBeginEnvironment{tikzcd}{\tikzexternaldisable}
+\AtEndEnvironment{tikzcd}{\tikzexternalenable}
 
 % --------------------------------------------------------------------
 %% SETTINGS
