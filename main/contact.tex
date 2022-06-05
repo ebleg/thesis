@@ -148,7 +148,7 @@ Let us now formalize the Liouville structure in the language of principal bundle
     \begin{center}
         \input{media/tikz/principal_bundle}
     \end{center}
-    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/\rho_0$, i.e. such that $p$ is a coordinate for the projectivization by gnomonic projection, as shown on the right.}
+    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/\rho_0$, i.e. such that $p$ is a coordinate for the projectivization by stereographic projection, as shown on the right.}
     \label{fig:principal_bundle}
 \end{figure}
 
@@ -163,9 +163,16 @@ As illustrated in \cref{fig:principal_bundle}, the \emph{orbit space} of $\ctzbu
     \end{tikzcd}
 \end{center}
 The removal of the zero section is required for the group action to be free. The principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
-$$ \theta = \rho_0\dd{q_0} - \rho\dd{q}. $$
+$$ \theta = \rho_0\dd{q_0} + \rho\dd{q}, $$
+and the associated two-form $\omega = -\dd{\theta}$. The distinctive feature of these forms that makes this a Liouville structure is that they both commute with the group action $\raction{}$: \cite{Libermann1987}
+$$ (\raction{\lambda})^* \theta = \lambda \theta \qquad \lambda \in \real_*,$$
+which makes them homogeneous forms of degree 1.
+
 The projection map $\sigma$ of the principal bundle is locally defined as 
-$$\sigma : \ctzbundle{M} \to \pctbundle{M}: (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0),$$
+\begin{equation}
+    \sigma : \ctzbundle{M} \to \pctbundle{M}: (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0), 
+    \label{eq:principal_projection}
+\end{equation}
 with $p \equiv -\rho/\rho_0$ a coordinate for the projectivized fiber. This coordinate does not cover the entire fiber: the points for which $\rho_0 = 0$ is missing (in \cref{fig:principal_bundle}, this point is the only point on the circle that cannot be projected on the $p$-axis). However, we will make the deliberate assumption that in our application, $\rho_0$ is never equal to zero.
 %The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifold. For now, we have not assigned any specific meaning to the coordinates given above, but they will turn out to match with the notation used in \cref{eq:lag_CK,eq:ham_CK}, etc.
 
@@ -201,12 +208,12 @@ There is a one-to-one correspondence between contact Hamiltonians on $\pctbundle
 \begin{equation}
     \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\,\mathscr{H}(q_0, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{\mathscr{H}} = \mathscr{H},
 \end{equation}
-with $\lambda \in \real_0,\: H \in \functions{\ctzbundle{M}}$ and $Z$ defined according to \cref{eq:liouville_vf}. Given that $H$ is indeed homogeneous of degree 1, this correspondence is in canonical cooridinates:
+with $\lambda \in \real_0,\: H \in \functions{\ctzbundle{M}}$ and $Z$ defined according to \cref{eq:liouville_vf}. Given that $H$ is indeed homogeneous of degree 1, this correspondence is in canonical coordinates:
 \begin{equation}
-    \mathscr{H}(q_0, q_1, \rho_0, \rho_1) = -\rho_0\,H\qty(q_0, q_1, -\frac{\rho_1}{\rho_0})
+    \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,H\qty(q_0, q, -\frac{\rho}{\rho_0})
     \label{eq:H_correspondence}
 \end{equation}
-where $\mathscr{H} \in \functions{\ctzbundle{M}}$, $H \in \functions{\pctbundle{M}}$ and $p = -\rho_i / \rho_0$ is a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, because it offers computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
+where $\mathscr{H} \in \functions{\ctzbundle{M}}$, $H \in \functions{\pctbundle{M}}$ and $p = -\rho / \rho_0$ is a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, it offers significant computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
 
 Now, recall the Caldirola-Kanai Hamiltonian in \cref{eq:ham_CK}. Instead of assuming a direct time-dependence, we will think of the time-dependence as the gauge momentum, i.e. $\rho_0 = -\ec^{\gamma t}$. However, we will now consider $\rho_0$ to be a coordinate in its own right, instead of directly using the expression above. The Caldirola-Kanai Hamiltonian is then written as (cf. \cref{eq:ham_CK}):
 $$ \Hck = -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2]. $$
@@ -221,7 +228,7 @@ The motivation to make this particular choice is twofold: first, observe that $\
 \end{equation}
 Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $q_0$.
 
-Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
+\emph{Equations of motion} Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
 \begin{equation}
     X_\mathscr{H} = \fromDual{\omega}(\dd{\mathscr{H}})
     \label{eq:ham_vf}
@@ -290,15 +297,21 @@ The contact Hamiltonian vector field $X_H \in \vfields{\pctbundle{M}}$ is obtain
 $$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{2m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
 This is essentially the equivalent of the time-dependent transformation performed in \cref{sec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
 
-The mechanical energy, denoted by $E$, is equal to 
-$$ E(q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
-which can be lifted to the symplectified space
-$$ \mathscr{E}(q_0, q, \rho_0, \rho) = \frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2.$$
-One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts. For example, the change of dissipative energy in the system is:
-$$ \dv{\mathscr{E}}{t} = \poisson{\mathscr{H}}{\mathscr{E}} = \lied{X_\mathscr{H}}{\mathscr{E}} = \frac{\gamma}{2m}\qty(\frac{\rho}{\rho_0})^2 = \frac{\gamma}{2m}p^2,$$
-which is precisely the dissipative power in the damping element.
+\paragraph{Mehcanical energy} One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts. Define therefore a lift that takes functions from the contact manifold to the symplectified manifold:
+$$ 
+    \ell : \functions{\pctbundle{M}} \to \functions{\ctzbundle{M}}: \quad g \mapsto g \circ \sigma,
+$$
+with $\sigma$ as in \cref{eq:principal_projection}. The function takes the same value but is expressed in terms of the coordinates of the symplectified space.
 
-!! perhaps the usage of two different $\mathscr{E}$'s is inconsistent, because $\mathscr{H}$ is not just a lift but a different function.
+The mechanical energy, denoted by $E$, is equal to 
+$$ E(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
+which can be lifted to the symplectified space
+$$ 
+    \ell(E)(q_0, q, \rho_0, \rho) = \frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2.
+$$
+The change of mechanical energy in the system is then readily determined using the Poisson brackets:
+$$ \dv{E}{t} = \poisson{\mathscr{H}}{\ell(E)} = \lied{X_\mathscr{H}}{\ell(E)} = \frac{\gamma}{2m}\qty(\frac{\rho}{\rho_0})^2 = \frac{\gamma}{2m}p^2,$$
+which is precisely the dissipative power in the damping element.
 
 \subsection{Interpretation of the canonical variables}
 Another advantage of using the purely symplectic formalism on the lifted space is the fact that the homogeneous Hamiltonian is invariant under the flow it generates, since the explicit time-dependence has been removed:
@@ -307,7 +320,7 @@ We may therefore associate the homogeneous Hamiltonian with a constant. By inspe
 $$ \mathscr{H} = -\rho_0\,\underbrace{\qty(C\rho_0^{-1})}_{H} \qquad C \in \real.$$
 Recall that we made the assumption earlier that $\rho_0$ is a function \emph{without zeros}. 
 
-The constant $C$ is a degree of freedom in the system that we are free to choose, for the equations of motion will be consistent with any chosen value. This called a \emph{gauge} of the system, and its choice will influence the value of the gauge variable directly. The contact Hamiltonian is not a constant of motion however (at least, for dissipative systems). With some abuse of notation, we will now let $H$ also represent the function with the same value on the symplectified space:
+The constant $C$ is a degree of freedom in the system that we are free to choose, for the equations of motion will be consistent with any chosen value. This called a \emph{gauge} of the system, and its choice will influence the value of the gauge variable directly. The contact Hamiltonian is not a constant of motion however (at least, for dissipative systems). With some abuse of notation
 $$ \dv{H}{t} = C\,\dv{\rho_0}{t}  = -C\,\pdv{\mathscr{H}}{q_0}.$$
 Until now, there were no assumptions regarding the value of the damping constant $\gamma$: indeed, the `normal' equations of motion are readily derived when $\gamma$ is set to zero. We will now add the assumption that there is at least some dissipation present in the system ($\gamma \neq 0$) to assign further intrepretation to the gauge variable. The evolution of $q_0$ is directly related to the evolution of $H$ by \cref{eq:H_dho}
 $$ q_0 = \frac{1}{\gamma} \qty(\rho_0 C - E). $$
