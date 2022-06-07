@@ -15,7 +15,9 @@
 \usepackage{nomencl}
 %\usepackage{dutchcal}
 \usepackage{MnSymbol}
+\usepackage{cancel}
 \usepackage{romanbar}
+\usepackage{stmaryrd}
 \usepackage[sfdefault=cmbr,OMLmathsans]{isomath}  % Math alphabets for tensors and vectors
 \usepackage{nth}
 
@@ -136,6 +138,9 @@
 
 % Poisson bracket
 \newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}\xspace}
+
+% Jacobi bracket
+\newcommand{\jacobi}[2]{\ensuremath{\left\llbracket #1,\,#2\right\rrbracket}}
 
 % Lie bracket
 \newcommand{\liebr}[2]{\ensuremath{\qty{#1,\,#2}}\xspace}

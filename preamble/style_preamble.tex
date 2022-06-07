@@ -32,6 +32,7 @@
 \definecolor{tudPurple}{RGB}{36,46,131}
 \definecolor{tudTurquoise}{RGB}{50,154,179}
 \definecolor{tudSkyBlue}{RGB}{130,187,206}
+\definecolor{todoGray}{RGB}{127,140,141}
 
 \definecolor{tudLavender}{RGB}{121,150,180}
 \definecolor{tudOrange}{RGB}{216,130,62}
@@ -67,3 +68,10 @@
     \tcolorbox[colback=accent1!20!,colframe=accent1,%
     title=\textsf{#1}, breakable, parbox=false]}%
     {\endtcolorbox}
+
+\newenvironment{todobox}{%
+    \tcolorbox[colback=todoGray!20!,colframe=todoGray,%
+    title=\textbf{\textsf{TODO}}, breakable, parbox=false]}%
+    {\endtcolorbox}
+
+\newcommand{\todo}[1]{\begin{todobox} #1 \end{todobox}}
