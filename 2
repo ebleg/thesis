@@ -113,16 +113,14 @@ Hence, we have $g = -R_\alpha(\dd{H})$. Because the vertical component of $X_H$ 
     \label{eq:basic_form}
 \end{equation}
 We must therefore recover $X^\text{hor}_H$ from the above expression. Define the mapping  
-$$ \toDual{\alpha}: \tbundle{M} \to \ctbundle{M}: X \mapsto  \intpr{X}{\dd{\alpha}},$$
+$$ \toDual{\alpha}: \tbundle{M} \to \ctbundle{M}: X \mapsto - \intpr{X}{\dd{\alpha}},$$
 when restricted to the space of horizontal vector fields, this mapping is an isomorphism onto the `semi-basic' forms\footnote{Semi-basic forms are forms that vanish when contracted with a vertical vector field. \cite{Libermann1987}}. Define the inverse mapping of $\toDual{\alpha}$ by $\fromDual{\alpha}$, such that
 $$ X_H^\text{hor} = \fromDual{\alpha}\qty(\dd{H} - \qty(\intpr{R_\alpha}{\dd{H}})\,\alpha). $$
 As such, the Hamiltonian vector field associated to the contact Hamiltonian $H$ is
 \begin{equation}
-    X_H = H R_\alpha + \fromDual{\alpha}(-\dd{H} + \qty(\intpr{R_\alpha}{\dd{H}})\,\alpha).
+    X_H = H R_\alpha + \fromDual{\alpha}(\dd{H}) - \qty(\intpr{R_\alpha}{\dd{H}})\,\alpha).
     \label{eq:contact_ham_vf_cofree}
 \end{equation}
-
-\todo{Mapping for Libermann seems to have inverted sign, check, check, check super confusing! Follow vdSchaft and Bravetti instead}
 
 \paragraph{Coordinate expression} Given the contact manifold $(M, \xi)$ with contact form
 $$ \dd{q_0} - \sum_{i = 1}^n p_i\dd{q_i}, $$
