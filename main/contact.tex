@@ -61,7 +61,7 @@ In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
     \Pcan \equiv \pdv{\Lck}{\dot{q}},
     \label{eq:can_momentum}
 \end{equation}
-which is related to the `true` kinematic momentum by the relation $\Pcan = p\ec^{\gamma
+which is related to the `true' kinematic momentum by the relation $\Pcan = p\ec^{\gamma
 t} = m\dot{q}\ec^{\gamma t}$. As such, it is also clear that the Caldirola-Kanai Lagrangian and Hamiltonian functions are related by the Legendre transformation \emph{with respect to the canonical momentum}:
 %\footnote{The `Legendre transform'
 %refers, in the context of fiber bundles, to the so-called fiber derivative. On a manifold $M$, let $L \in
@@ -104,7 +104,7 @@ where the symplectic 2-form will be used to obtain Hamilton's equations. The Ham
 The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\omega$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
 $$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
 The suspension is important to make the final coordinate transformation from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \Pcan, t) \mapsto (q, \ec^{-\gamma t}\Pcan, t)$, one obtains
-$$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p_1}{m}\pdv{}{q} + \pdv{}{t}.$$
+$$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
 It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two-different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the special role of the time coordinate, which is merely a parameter in the Hamiltonian function; for it does not partake in the dynamics of the system. Finally, there is the special role of the factor $\ec^{\gamma t}$ through which the time-dependence makes its appearance both in the Lagrangian and the Hamiltonian.
 
 %\section{Symplectification and Liouville structures}
@@ -293,20 +293,12 @@ This is essentially the equivalent of the time-dependent transformation performe
     $$ \poisson{f}{g} = \omega(X_f, X_g) = \lied{X_g}{f},$$
  where $X_f$ and $X_g$ are the Hamiltonian vector fields of $f$ and $g$. \cite{Libermann1987}
 } 
-Define therefore a lift that takes functions from the contact manifold to the symplectified manifold:
-$$ 
-    \ell : \functions{\pctbundle{M}} \to \functions{\ctzbundle{M}}: \quad g \mapsto g \circ \sigma,
-$$
-with $\sigma$ as in \cref{eq:principal_projection}. The function takes the same value but is expressed in terms of the coordinates of the symplectified space.
-
 The mechanical energy, denoted by $E$, is equal to 
 $$ E: \pctbundle{M} \to \real: \quad E(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
-which can be lifted to the symplectified space
-$$ 
-    \ell(E)(q_0, q, \rho_0, \rho) = \frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2.
-$$
+With some abuse of notation, we will denote both functions on the contact space and their lifted version to the symplectified space by the same symbol. That is to say, the function $E$ both refers to $E \in \functions{\pctbundle{M}}$ and $(E \circ \sigma) \in \functions{\ctzbundle}$.
+
 The change of mechanical energy in the system is then readily determined using the Poisson brackets:
-$$ \dv{E}{t} = \poisson{\ell(E)}{\mathscr{H}} = \lied{X_\mathscr{H}}{\ell(E)} = -\frac{\gamma}{2m}\qty(\frac{\rho}{\rho_0})^2 = -\frac{\gamma}{2m}p^2,$$
+$$ \dv{E}{t} = \poisson{E}{\mathscr{H}} = \lied{X_\mathscr{H}}{E} = -\frac{\gamma}{2m}\qty(\frac{\rho}{\rho_0})^2 = -\frac{\gamma}{2m}p^2,$$
 which is precisely the dissipative power in the damping element.
 
 \todo{Check minus signs of the change in mechanical energy, should be opposite to heat generated.}
@@ -331,7 +323,7 @@ which is precisely the dissipative power in the damping element.
 Another advantage of using the purely symplectic formalism on the lifted space is the fact that the homogeneous Hamiltonian is invariant under the flow it generates, since the explicit time-dependence has been removed:
 $$ \dv{\mathscr{H}}{t} = \poisson{\mathscr{H}}{\mathscr{H}} = \lied{X_{\mathscr{H}}}{\mathscr{H}} = 0. $$
 We may therefore associate the homogeneous Hamiltonian with a constant. By inspection of \cref{eq:H_correspondence}, 
-$$ \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\underbrace{\qty(C\rho_0^{-1})}_{\ell(H)} \qquad C \in \real.$$
+$$ \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\underbrace{\qty(C\rho_0^{-1})}_{H} \qquad C \in \real.$$
 Recall that we made the assumption earlier that $\rho_0$ is a function \emph{without zeros}. 
 
 The constant $C$ is a degree of freedom in the system that we are free to choose, for the equations of motion will be consistent with any chosen value. This called a \emph{gauge} of the system, and its choice will influence the value of the gauge variable directly. The contact Hamiltonian is not a constant of motion however (at least, for dissipative systems). With some abuse of notation
