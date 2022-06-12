@@ -128,6 +128,7 @@
 \newcommand{\firstff}{\ensuremath{\text{\textsf{\textbf{\Romanbar{I}}}}}}
 \newcommand{\secondff}{\ensuremath{\firstff\!\firstff}}
 \newcommand{\mgroup}{\ensuremath{\real_{\times}}}
+\newcommand{\digroup}[1]{\ensuremath{\mathrm{D}_#1}}
 
 % --------------------------------------------------------------------------------
 %% OPERATORS & SYMBOLS MACROS
@@ -167,10 +168,18 @@
 \newcommand{\intpr}[2]{\ensuremath{#1\!\righthalfcup#2}}
 
 \newcommand{\corresponds}{\ensuremath{\quad \leftrightsquigarrow \quad}}
-\newcommand{\conj}[1]{\ensuremath{\bar{#1}}}
+\newcommand{\conj}[1]{\ensuremath{#1^*}}
 
 % Quaternion
 \newcommand{\quat}[4]{\ensuremath{#1 + #2\vb{i} + #3\vb{j} + #4\vb{k}}\xspace}
+\newcommand{\quatvec}[3]{\ensuremath{#1\vb{i} + #2\vb{j} + #3\vb{k}}\xspace}
+\newcommand{\quati}{\ensuremath{\vb{i}}\xspace}
+\newcommand{\quatj}{\ensuremath{\vb{j}}\xspace}
+\newcommand{\quatk}{\ensuremath{\vb{k}}\xspace}
+
+\newcommand{\vecpart}[1]{\ensuremath{\mathrm{vec}\qty(#1)}\xspace}
+\newcommand{\scapart}[1]{\ensuremath{\mathrm{sca}\qty(#1)}\xspace}
+
 
 \newcommand{\ctran}[1]{\ensuremath{#1^{\dagger}}}
 \newcommand{\tran}[1]{\ensuremath{#1^{\top}}}

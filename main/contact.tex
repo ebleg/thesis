@@ -219,7 +219,7 @@ The motivation to make this particular choice is twofold: first, observe that $\
 \end{equation}
 Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $q_0$.
 
-\emph{Equations of motion} Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
+\paragraph{Equations of motion} Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
 \begin{equation}
     X_\mathscr{H} = \fromDual{\omega}(\dd{\mathscr{H}})
     \label{eq:ham_vf}
@@ -282,10 +282,10 @@ and this is precisely Bravetti's result. For the homogenous Hamiltonian on the s
 %On the other hand, the equation of motion for $q_0$ requires some additional considerations; this is the subject of the next section.
 
 The Hamiltonian vector field $X_\mathscr{H} \in \vfields{\ctzbundle{M}}$ is then, using \cref{eq:H_dho_homo} and \cref{eq:ham_vf}:
-$$ X_{\mathscr{H}} = \frac{p}{2m}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.$$ 
+$$ X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.$$ 
 
 The contact Hamiltonian vector field $X_H \in \vfields{\pctbundle{M}}$ is obtained either by using the contact Hamilton equations given by \cref{eq:contact_eom}, or by using the pushforward of the projection map $\sigma$:
-$$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{2m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2 - \gamma q_0)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
+$$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2 - \gamma q_0)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
 This is essentially the equivalent of the time-dependent transformation performed in \cref{sec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
 
 \paragraph{Mechanical energy} One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts.\footnote

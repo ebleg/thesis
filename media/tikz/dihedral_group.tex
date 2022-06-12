@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+    \node[draw, thick, circle, fill=accent1!40] (e) at (0, 0) {};
+    
+    \node[thick, draw, circle, below right=0.8cm and 0.5cm of e] (r1) {};
+    \node[thick, draw, circle, below left=0.8cm and 0.5cm of e] (r2) {};
+    \node[thick, draw, circle, left of= r2] (r3) {};
+    \node[thick, draw, circle, right of= r1] (r4) {};
+    \node[thick, draw, circle, above=1.5cm of e] (ro2) {};
+    \node[thick, draw, circle, above right=0.7cm and 1cm of e] (ro1) {};
+    \node[thick, draw, circle, above left=0.7cm and 1cm of e] (ro3) {};
+    
+    \draw[thick] (e) -- (r1);
+    \draw[thick] (e) -- (r2);
+    \draw[thick] (e) -- (r3);
+    \draw[thick] (e) -- (r4);
+    
+    \draw[thick] (e) -- (ro1) -- (ro2) -- (ro3) -- (e);
+
+\end{tikzpicture}
