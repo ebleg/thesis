@@ -66,7 +66,27 @@ Even though they behave similarly, the imaginary unit $\ii$ is not to be confuse
 \paragraph{Vector norm}
 Apart from the split-quaternion norm, we can also define a norm that only considers the vector part of the split-quaternion. This norm is defined in accordance with the overall quaternion norm given by \cref{eq:quat_norm}:
 $$ \mathscr{N}_v(\vec{a}) = a_1^2 - a^2_2 - a^2_3. $$
-The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$. \cite{Jafari2014} Observe that this quadratic form is not positive-definite either; in the the same veign as before, we can therefore classify quaternions by the `sign' of their vector part again. We refer to these classes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same way. As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamic systems.
+The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$. \cite{Jafari2014} Observe that this quadratic form is not positive-definite either; in the the same veign as before, we can therefore classify quaternions by the `sign' of their vector part again. We refer to these classes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same way. 
+
+Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that is to say, a spacelike split-quaternion always has a spacelike vector part. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible combinaions are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamic systems.
+
+\begin{table}[ht]
+    \centering
+    \caption{All the possible combinations of the class of a split-quaternion and its vector part. Spacelike split-quaternions can only have a spacelike vector, while lightlike split-quaternions can only have lightlike or spacelieke vector parts.}
+    \label{tab:class_combinations}
+    \begin{tabular}{c|cccc}
+        \toprule
+        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vb{a}) $} \\
+        \hline
+        &  & \emph{spacelike} & \emph{lightlike} & \emph{timelike} \\
+        & \emph{spacelike} & \circled{1} & --- & --- \\
+        & \emph{lightlike} & \circled{2} & \circled{3} & --- \\
+        \multirow{-3}{*}{$ \mathscr{N}(a) $} & \emph{timelike} & \circled{4} & \circled{5} & \circled{6} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+%As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). 
  
 \subsection{Relation with two-dimensional matrix algebra}
 The algebra of split-quaternions is isomorphic to the algebra of real two-dimensional matrices. This fact underlies this entire chapter, for it allows us to find an alternative for the traditional matrix description of linear dynamical systems. 
@@ -99,20 +119,47 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
         {The adjugate of a matrix is the transpose of its cofactor matrix.}
         $$ \phi(\conj{a}) = \adjugate(A). $$
     \item The \emph{trace} of the matrix coincides with the \emph{real or scalar part} of the split-quaternion:
-        $$ \scapart{a} = \trace(A). $$
+        $$ \scapart{a} = \frac{\trace(A)}{2}. $$
     \item The \emph{determinant} of the matrix is equal to \emph{norm} of the split-quaternion:
         $$ \mathscr{N}(a) = \det(A). $$
+    \item The equivalence of the determinant and the split-quaternion norm hints at the fact that the multiplicative inverse of a split-quaternion does not always exist: only when its norm is nonzero. In that case, it is clear that
+        $$ \phi\qty(a^{-1}) = A^{-1} \qquad \mathscr{N}(A) \neq 0. $$
+    The determinant properties also learns us something about the behavior of the classification under the split-quaternion multiplication
+        \begin{table}[ht!]
+        \centering
+        \caption{Propagation of the class of split-quaternions when multiplied with a split-quaternion of another class. The timelike split-quaternions form a subgroup under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
+        \label{tab:multiplication_class}
+        \begin{tabular}{c|ccc}
+            \toprule
+            $\times$ & \emph{space} & \emph{light} & \emph{time} \\
+            \hline
+            \emph{space} & time  & light & space \\
+            \emph{light} & light & light & light \\
+            \emph{time} &  space & light & time \\
+            \bottomrule
+        \end{tabular}
+        \end{table}
     \item The eigenvalues of a $2\times2$-matrix can be expressed in terms of its trace and its determinant:
         $$ \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.$$
         The argument of the square root is equal to the \emph{negative of the vector norm} of $a$. We therefore have:
-        $$ \lambda_A = \frac{a_0 \pm \ii\norm{\vb{a}}}{2}.$$
-        Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix multiplied by one half.
+        $$ \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}.$$
+        Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix.
 \end{itemize}
 
 The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) also consitute the Lie algebra $\glalg{2}{\real}$ of the two-dimensional general linear group $\glgroup{2}{\real}$. Furthermore, the traceless matrices, or equivalently, the split-quaternions with zero real part form the subalgebra $\slalg{2}{\real}$ of the special linear group $\slgroup{2}{\real}$. These are the volume-preserving automorphisms on $\real^2$. Because in $\real^2$, volume and area coincide, the special linear group and the symplectic group $\spgroup{1}$ are equivalent. For higher dimensions, this is not the case: area preservation is generally a stronger condition than volume preservation. The Lie algebra elements of the symplectic group are called Hamiltonian matrices; therefore, split-quaternions without real part are referred to as \emph{Hamiltonian}.
 
 \section{Classification of dynamical systems}
 \label{sec:system_classification}
+The classification of two-dimensional linear dynamical systems is important, or they also locally represent the fixed points of general nonlinear systems. Traditionally, these
+
+\begin{figure}
+    \begin{center}
+        \input{media/tikz/poincare_diagram}
+    \end{center}
+    \caption{}
+    \label{fig:}
+\end{figure}
+
 
 \section{Notes}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.

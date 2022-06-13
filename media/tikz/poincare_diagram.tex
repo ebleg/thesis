@@ -1,0 +1,36 @@
+% Poincaré Diagram: Classification of Phase Portraits in the (det A,Tr A)-plane
+% Author: Gernot Salzer, 22 Jan 2017
+% from texample, but no rights reserved
+\begin{tikzpicture}[line cap=round,line join=round]
+  % MAIN DIAGRAM
+  \draw [main,->] (0,-0.3) -- (0,4.7)                            % vertical axis
+    node [label={[above]$\scriptstyle\det A$}] {}
+    node [label={[above,yshift=0.8cm]%
+      {\sffamily\large Poincar\'e Diagram: Classification of Phase
+      Portraits in the $(\det A,\trace A)$-plane}}] {};
+  \draw [main,->] (-5,0) -- (5,0)                              % horizontal axis
+    node [label={[right,yshift=-0.5ex]$\scriptstyle\trace A$}] {}; 
+  \draw [main, domain=-4:4] plot (\x, {0.25*\x*\x});                % main graph
+  \node at (-4,4) [pin={[above]$\scriptstyle\Delta=0$}] {};
+  \node at ( 4,4) [pin={[above,align=left]%
+    {$\scriptstyle\Delta=0:\;\det A=\frac{1}{4}(\trace A)^2$}}] {};
+  % TEMPLATES describing areas
+  \node at ( 0  ,-1.4) {\template\saddle};
+  \node at (-4  , 1  ) {\template\sink};
+  \node at ( 4  , 1  ) {\template\source}; 
+  \node at (-1.8, 3.7) {\template\spiralsink};
+  \node at ( 1.8, 3.7) {\template\spiralsource};
+  % TEMPLATES labeling lines and points
+  \node at ( 0  , 1.2) [pin={[draw,right,xshift=0.3cm]%
+    \template{\centre}] {};
+  \node at (-3  , 0  ) [pin={[draw,below,yshift=-1cm]%
+    \template{\stablefp}] {};
+  \node at ( 3  , 0  ) [pin={[draw,below,yshift=-1cm]%
+    \template{\unstablefp}] {};
+  \node at (-3.5,{0.25*3.5*3.5}) [pin={[draw,left,xshift=-1.15cm,yshift=-0.3cm]%
+    \template{\degensink}] {};
+  \node at ( 3.5,{0.25*3.5*3.5}) [pin={[draw,right,xshift=0.9cm,yshift=-0.3cm]%
+    \template{\degensource}] {};
+  \node at ( 0  , 0  ) [pin={[draw,above left,align=center,xshift=-0.3cm]%
+    \templatecaption{uniform}\\[-1ex]\templatecaption{motion}}] {};
+\end{tikzpicture}
