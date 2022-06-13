@@ -115,6 +115,7 @@
 % GROUP MACROS
 % --------------------------------------------------------------------------------
 
+% (Lie) groups
 \newcommand{\moebiusgroup}{\ensuremath{\text{Möb}}\xspace}
 \newcommand{\automorphgroup}[1]{\ensuremath{\mathrm{Aut}(#1)}\xspace}
 \newcommand{\pglgroup}[2]{\ensuremath{\mathrm{PGL}(#1, #2)}\xspace}
@@ -124,11 +125,16 @@
 \newcommand{\sogroup}{\ensuremath{\mathrm{SO}(3, \real)}\xspace}
 \newcommand{\sugroup}[1]{\ensuremath{\mathrm{SU}(#1)}\xspace} % SU(2) etc
 \newcommand{\restlorentzgroup}{\ensuremath{\mathrm{SO^{+}(1, 3, \real)}}}
-\newcommand{\spgroup}[2]{\ensuremath{\mathrm{Sp}(#1, #2)}}
+\newcommand{\spgroup}[1]{\ensuremath{\mathrm{Sp}(#1)}}
 \newcommand{\firstff}{\ensuremath{\text{\textsf{\textbf{\Romanbar{I}}}}}}
 \newcommand{\secondff}{\ensuremath{\firstff\!\firstff}}
 \newcommand{\mgroup}{\ensuremath{\real_{\times}}}
 \newcommand{\digroup}[1]{\ensuremath{\mathrm{D}_#1}}
+
+% (Lie) algebras
+\newcommand{\glalg}[2]{\ensuremath{\mathfrak{gl}(#1, #2)}\xspace}
+\newcommand{\slalg}[2]{\ensuremath{\mathfrak{sl}(#1, #2)}\xspace}
+\newcommand{\spalg}[1]{\ensuremath{\mathfrak{sp}(#1)}}
 
 % --------------------------------------------------------------------------------
 %% OPERATORS & SYMBOLS MACROS
@@ -169,6 +175,7 @@
 
 \newcommand{\corresponds}{\ensuremath{\quad \leftrightsquigarrow \quad}}
 \newcommand{\conj}[1]{\ensuremath{#1^*}}
+\DeclareMathOperator{\adjugate}{adj}
 
 % Quaternion
 \newcommand{\quat}[4]{\ensuremath{#1 + #2\vb{i} + #3\vb{j} + #4\vb{k}}\xspace}
