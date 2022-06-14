@@ -53,11 +53,7 @@
   main/.style = {line width=1pt}                    % thick lines for main graph
  }
 
-% \newtemplate[Scaling, default 0.18]{\NameOfTemplate}{Caption}{Code}
-%
-% Typesets Code and stores it in the box \NameOfTemplate.
-% This way we avoid nested tikzpictures when inserting the templates into the
-% main picture, since nesting is not guaranteed to work.
+
 \newcommand\newtemplate[4][0.18]%
  {\newsavebox#2%
   \savebox#2%
@@ -71,7 +67,7 @@
  }
 \newcommand\template[1]{\usebox{#1}}             % use the Code stored in box #1
 \newcommand\templatecaption[1]{{\sffamily\scriptsize#1}}       % typeset caption
-%\newcommand\Tr{\mathop{\mathrm{Tr}}}
+
 
 \newtemplate\sink{sink}%
  {\foreach \sx in {+,-}                   % for right/left half do:
