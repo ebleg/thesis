@@ -27,18 +27,16 @@ The important distinction from conventional quaternions resides in the diagonal 
 
 \paragraph{Dihedral group} he basis elements of the split-quaternions form a group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation and two reflections (cf. \cref{fig:square_symmetry}).
 \begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/square_symmetry}
-    \end{center}
+    \centering
+    \input{media/tikz/square_symmetry}
     \caption{The dihedral group \digroup{4} is the symmetry group of a square. This group is isomorphic to the group formed by $1, \quati, \quatj$ and \quatk under multiplication.}
     \label{fig:square_symmetry}
 \end{figure}
 
 The structure of the dihedral group can be visualized by its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the topology of this cycle graph. One example is the split nature of the quaternions: the \quati-element generates an order four cycle, while \quatj and \quatk generate order two cycles (in contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements).
 \begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/dihedral_group}
-    \end{center}
+    \centering
+    \input{media/tikz/dihedral_group}
     \caption{Cycle graph of the dihedral group. There are five cycles: one of order four which represents the rotations (or the element \quati), and four order 2 cycles, which are all the possible reflections. The colored element represents the identity.}
     \label{fig:cycle_graph}
 \end{figure}
@@ -127,7 +125,7 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
     The determinant properties also learns us something about the behavior of the classification under the split-quaternion multiplication
         \begin{table}[h!]
         \centering
-        \caption{Propagation of the class of split-quaternions when multiplied with a split-quaternion of another class. The timelike split-quaternions form a subgroup under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
+        \caption{Class transition under the action of split-quaternion multiplication. The timelike split-quaternions form a subgroup under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
         \label{tab:multiplication_class}
         \begin{tabular}{c|ccc}
             \toprule
@@ -155,9 +153,8 @@ The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) a
 \label{sec:system_classification}
 The classification of two-dimensional linear dynamical systems is important, or they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix matrix $A$, or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}.
 \begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/poincare_diagram}
-    \end{center}
+    \centering
+    \input{media/tikz/poincare_diagram}
     \caption{The classic Poincaré diagram, based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix $A$.}
     \label{fig:poincare_diagram}
 \end{figure}
@@ -187,11 +184,17 @@ Because the split-quaternion norms are directly related to the real and imaginar
 \todo{Basis vector fields}
 
 \begin{figure}
-    \begin{center}
-        \input{media/tikz/basis_vectorfields}
-    \end{center}
+    \centering
+    \input{media/tikz/basis_vectorfields}
     \caption{Basis vector fields corresponding to the basis elements of the split-quaternions.}
     \label{fig:basis_vf}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \input{media/tikz/double_damped_oscillator}
+    \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
+    \label{fig:double_damped_osc}
 \end{figure}
 
 \section{Notes}

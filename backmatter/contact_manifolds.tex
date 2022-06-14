@@ -20,9 +20,8 @@ The \emph{Darboux theorem} for contact manifolds states that it is always possib
 $$ \dd{z} - \sum y_i\dd{x_i}, $$
 which is also called the standard or natural contact structure. The standard contact structure on $\real^3$ is illustrated in \cref{fig:standard_contact}.
 \begin{figure}
-    \begin{center}
-        \input{media/tikz/standard_contact}
-    \end{center}
+    \centering
+    \input{media/tikz/standard_contact}
     \caption{The standard contact structure on $\real^3$, given by the contact form $\dd{z} - y\dd{x}$; the hyperplanes tilt more in the increasing $y$-direction.}
     \label{fig:standard_contact}
 \end{figure}
@@ -41,10 +40,9 @@ The \emph{manifold of contact elements} of an $n$-dimensional manifold is \cite{
 $$ \cbundle{Q} = \qty{(q, \xi_q) \mid q \in Q \text{ and } \xi_q \text{ a hyperplane on } \tspace{q}{Q}}. $$
 This manifold $\cbundle{Q}$ has dimension $2n - 1$. It is clear that $C$ has a natural bundle structure, i.e. $\bundle{C}{\pi}{Q}$ where the bundle projection `forgets' the contact element, that is
 $$ \pi: \cbundle{Q} \to {Q}: (q, \xi_q) \mapsto q.$$
-\begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/contact_element}
-    \end{center}
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/contact_element}
     \caption{A point in the manifold of contact elements on $Q = \real^2$. A coordinate system for $\cbundle{Q}$ consists of $(x_0, x_1)$ to indicate a point on $Q$, and projective coordinates $[\eta_0:\eta_1]$, which denote the contact element at that point. Without loss of generalization, one can choose $\eta_0 = 1$, and the remaining coordinate $\eta_1$ covers all but one points in the projective space. A potential confusion rests in this two-dimensional example, since both the `hyperplane` and the equivalence class of 1-forms are both lines in the tangent and cotangent space respectively. This is not the case for higher-dimensions, for which $n - 1 \neq 1$.}
     \label{fig:contact_element}
 \end{figure}
@@ -61,9 +59,8 @@ $$ \alpha = \dd{x}_0 + \sum_{i = 1}^{n-1} \eta_i\dd{x}_i,$$
 given that the $\eta_0$ is the `special' coordinate wich is chosen to be 1.
 
 \begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/contact_lift}
-    \end{center}
+    \centering
+    \input{media/tikz/contact_lift}
     \caption{Intuitive picture of the canonical contact on the manifold of contact elements. In this case, let $ (t, q) \in Q$, and let $v$ be a coordinate for the contact (line) element. The standard contact form is then $\dd{q} - v\dd{t}$. On the left, the curve corresponding to a falling object is shown in $Q$. When this curve is `lifted' to $\cbundle{Q}$, the contact structure imposes that it be locally tangent to the contact structure, or that $v = \dv{q}{t}$. If the vertical direction is projected down onto the $(q-t)$-plane ($\cbundle(Q) \to Q$), the hyperplanes defined by the contact structure are line elements tangent to the trajectory, making $v$ the actual velocity of the curve.}
     \label{fig:contact_lift}
 \end{figure}

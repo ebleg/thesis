@@ -1,6 +1,6 @@
 \chapter{Liouville Geometry for Dissipative Systems}
 \label{chap:contact_mechanics}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989} and \citet{Libermann1987}.
+The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989,Arnold1989a,Arnold1989b,Arnold1991} and \citet{Libermann1987}.
 
 In this chapter, the direct connection is made between the Caldirola-Kanai Hamiltonian given by \cref{eq:ham_CK} and the contact Hamiltonian described by \citet{Bravetti2017}, using Liouville geometry\footnote{It is interesting to note that Bravetti gives the Caldirola-Kanai method as an example of dissipative Hamiltonians in his paper, but fails to make the connection with his own method.}. We then proceed to \emph{contact Lagrangian mechanics}, strongly related to the Herglotz' work. Finally, the whole theory is explained from a thermodynamic perspective as well. While it was already known for some time (dating back to Arnol'd) that contact geometry is the preferred geometry for thermodynamics, its equivalence to contact geometry in (dissipative) classical mechanics has not been desribed in past literature. This underpins a famous statement by Vladimir Arnol'd that `contact geometry is all geometry', in the sense that conservative mechanical systems can be considered as part of a larger class of systems for which energy dissipation \emph{is} allowed. \cite{Geiges2008}
 
@@ -11,9 +11,8 @@ A vital property of symplectic manifolds (which include the cotangent bundle) is
 The symplectic structure of Hamiltonian mechanics is related to the conservation of energy principle, The Hamiltonian function is conserved along the integral curves of the Hamiltonian vector field that it generates. For dissipative mechanics, this strict reciprocity between position and momentum is broken. Either, one constructs an explicit time-dependence and acknowledges the special nature of time, or one can introduce another coordinate that acts as `reservoir' to facilitate the dissipation in the system. These Hamiltonian systems are known as \emph{contact Hamiltonian systems}. One of the contributions of this thesis is to show how both methods are essentially equivalent, by connecting the most famous time-dependent model by Caldirola and Kanai to the contact Hamiltonian by \citet{Bravetti2017}.
 
 \begin{figure}[ht!]
-    \begin{center}
-        \input{media/tikz/damper_oscillator}
-    \end{center}
+    \centering
+    \input{media/tikz/damper_oscillator}
     \caption{Schematic of the mass-spring-damper system.}
     \label{fig:dho}
 \end{figure}
@@ -145,9 +144,8 @@ $$\omega = -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\
 \paragraph{Principal bundles}
 Let us now formalize the Liouville structure in the language of principal bundles. The projectivized cotangent bundle $\pctbundle{M}$ has as its fiber the space of lines passing through the origin. These lines are also the orbits of the multiplicative group $\mgroup$ acting through dilations on the fiber of a bundle with two-dimensional fibers: the cotangent bundle of $M$ without zero section, denoted by $\ctzbundle{M}$. Using the canonical coordinates defined previously, coordinates for $\ctzbundle{M}$ are $(q_0, q, \rho_0, \rho)$, where $\rho$ and $\rho_0$ cannot vanish at the same time (the zero section). 
 \begin{figure}[h!]
-    \begin{center}
-        \input{media/tikz/principal_bundle}
-    \end{center}
+    \centering
+    \input{media/tikz/principal_bundle}
     \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. The total space $\ctzbundle{M}$ is the cotangent bundle to $M$ with zero section removed, which is shown on the left. The action by the multiplicative group $\mgroup$ is illustrated by the arrows, for it acts as a scaling (dilation) on all the cotangent variables. The origin is not part of the fiber, for it is part of the zero section. The bundle projection $\pi$ projects all points that are on the same orbit (straight lines through the origin) to a single point on the base manifold: the projectivized cotangent bundle $\pctbundle{M}$. The former space has a symplectic structure while the latter space has a contact structure. Observe from \cref{eq:homo_coords} that $p = \rho/\rho_0$, i.e. such that $p$ is a coordinate for the projectivization by stereographic projection, as shown on the right.}
     \label{fig:principal_bundle}
 \end{figure}
