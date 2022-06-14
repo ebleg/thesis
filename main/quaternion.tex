@@ -142,7 +142,10 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
     \item The eigenvalues of a $2\times2$-matrix can be expressed in terms of its trace and its determinant:
         $$ \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.$$
         The argument of the square root is equal to the \emph{negative of the vector norm} of $a$. We therefore have:
-        $$ \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}.$$
+        \begin{equation}
+            \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}. 
+            \label{eq:quat_eigvals}
+        \end{equation}
         Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix.
 \end{itemize}
 
@@ -174,8 +177,8 @@ Because the split-quaternion norms are directly related to the real and imaginar
 \subsubsection*{Timelike split-quaternion norm}
     \begin{itemize}
         \item[\circled{4}] \emph{Spacelike vector norm}: this case gives rise to eigenvalues that are purely real; the fixed point is called a \emph{node}. Depending on the sign of the scalar part, the fixed point can be an unstable node or \emph{source} ($a_0 > 0$) or a stable node or \emph{sink} ($a_0 < 0$). An example of such a system is the overdamped harmonic oscillator.
-        \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}.
-        \item[\circled{6}] Blabla
+        \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator.
+        \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Likewise, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
     \end{itemize}
 
 \todo{Connection with root locus}
@@ -183,6 +186,13 @@ Because the split-quaternion norms are directly related to the real and imaginar
 
 \todo{Basis vector fields}
 
+\begin{figure}
+    \begin{center}
+        \input{media/tikz/basis_vectorfields}
+    \end{center}
+    \caption{Basis vector fields corresponding to the basis elements of the split-quaternions.}
+    \label{fig:basis_vf}
+\end{figure}
 
 \section{Notes}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.
