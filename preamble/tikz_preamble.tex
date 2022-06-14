@@ -8,6 +8,7 @@
 
 \usetikzlibrary{patterns,decorations.pathmorphing,positioning}
 \usetikzlibrary{shapes,arrows}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
 \usetikzlibrary{intersections, pgfplots.fillbetween}
 \usetikzlibrary{decorations.markings}
@@ -41,14 +42,8 @@
 %% TEMPLATES FOR POINCARE DIAGRAM
 % --------------------------------------------------------------------
 
-% \newtemplate[Scaling, default 0.18]{\NameOfTemplate}{Caption}{Code}
-%
-% Typesets Code and stores it in the box \NameOfTemplate.
-% This way we avoid nested tikzpictures when inserting the templates into the
-% main picture, since nesting is not guaranteed to work.
-
 \tikzset
- {every pin/.style = {pin edge = {<-}},    % pins are arrows from label to point
+ {every pin/.style = {pin edge = {black, <-}},    % pins are arrows from label to point
   > = stealth,                            % arrow tips look like stealth bombers
   flow/.style =    % everything marked as "flow" will be decorated with an arrow
    {decoration = {markings, mark=at position #1 with {\arrow{>}}},
@@ -57,6 +52,7 @@
   flow/.default = 0.5,          % default position of the arrow is in the middle
   main/.style = {line width=1pt}                    % thick lines for main graph
  }
+
 
 \newcommand\newtemplate[4][0.18]%
  {\newsavebox#2%
@@ -71,6 +67,7 @@
  }
 \newcommand\template[1]{\usebox{#1}}             % use the Code stored in box #1
 \newcommand\templatecaption[1]{{\sffamily\scriptsize#1}}       % typeset caption
+
 
 \newtemplate\sink{sink}%
  {\foreach \sx in {+,-}                   % for right/left half do:
@@ -92,7 +89,7 @@
    }
  }
 
-\newtemplate\stablefp{line of stable fixed points}%
+\newtemplate\stablefp{stable line}%
  {\draw (-4,0) -- (4,0);                  % draw horizontal axis
   \foreach \sy in {+,-}                   % for upper/lower half do:
    {\draw[flow] (0,\sy4) -- (0,0);        %   draw half of vertical axis
@@ -101,7 +98,7 @@
    }
  }
 
-\newtemplate\unstablefp{line of unstable fixed points}%
+\newtemplate\unstablefp{unstable line}%
  {\draw (-4,0) -- (4,0);                  % draw horizontal axis
   \foreach \sy in {+,-}                   % for upper/lower half do:
    {\draw[flow] (0,0) -- (0,\sy4);        %   draw half of vertical axis
@@ -168,3 +165,4 @@
         .. (\s-3.5,\s\a);
    }
  }
+

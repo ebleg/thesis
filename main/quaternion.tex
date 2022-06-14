@@ -125,7 +125,7 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
     \item The equivalence of the determinant and the split-quaternion norm hints at the fact that the multiplicative inverse of a split-quaternion does not always exist: only when its norm is nonzero. In that case, it is clear that
         $$ \phi\qty(a^{-1}) = A^{-1} \qquad \mathscr{N}(A) \neq 0. $$
     The determinant properties also learns us something about the behavior of the classification under the split-quaternion multiplication
-        \begin{table}[ht!]
+        \begin{table}[h!]
         \centering
         \caption{Propagation of the class of split-quaternions when multiplied with a split-quaternion of another class. The timelike split-quaternions form a subgroup under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
         \label{tab:multiplication_class}
@@ -142,7 +142,10 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
     \item The eigenvalues of a $2\times2$-matrix can be expressed in terms of its trace and its determinant:
         $$ \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.$$
         The argument of the square root is equal to the \emph{negative of the vector norm} of $a$. We therefore have:
-        $$ \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}.$$
+        \begin{equation}
+            \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}. 
+            \label{eq:quat_eigvals}
+        \end{equation}
         Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix.
 \end{itemize}
 
@@ -150,16 +153,46 @@ The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) a
 
 \section{Classification of dynamical systems}
 \label{sec:system_classification}
-The classification of two-dimensional linear dynamical systems is important, or they also locally represent the fixed points of general nonlinear systems. Traditionally, these
-
-\begin{figure}
+The classification of two-dimensional linear dynamical systems is important, or they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix matrix $A$, or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}.
+\begin{figure}[h!]
     \begin{center}
         \input{media/tikz/poincare_diagram}
     \end{center}
-    \caption{}
-    \label{fig:}
+    \caption{The classic Poincaré diagram, based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix $A$.}
+    \label{fig:poincare_diagram}
 \end{figure}
 
+Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, this classification is more naturally done in the realm of split-quaternions.
+
+\subsubsection*{Spacelike split-quaternion norm}
+    \begin{itemize}
+        \item[\circled{1}] For spacelike split-quaternions, there is only one possibility: a negative split-quaternion norm corresponds to a negative determinant, which means that the fixed point is a \emph{saddle}. We can distinguish one particular case: if the scalar part of the split-quaternion is zero ($a_0 = 0$), the saddle is `balanced', and generates a proper \emph{squeeze mapping}, which is a symplectomorphism of the phase space. The split-quaternion is therefore Hamiltonian. An example of the latter is the linearization of the unstable fixed point of a rotational pendulum.
+    \end{itemize}
+
+\subsubsection*{Lightlike split-quaternion norm}
+    \begin{itemize}
+        \item[\circled{2}] \emph{Spacelike vector norm}: in this case, there is not just a fixed point but a fixed line in the phase space. This fixed line is stable or unstable depending on the sign of the scalar part of the quaternion. 
+        \item[\circled{3}] \emph{Lightlike vector norm}: this case is degenerate of the second degree; it coincides with the origin in the Poincaré diagram. The associated vector field is purely translational. An example is an object in uniform motion.
+    \end{itemize}
+\subsubsection*{Timelike split-quaternion norm}
+    \begin{itemize}
+        \item[\circled{4}] \emph{Spacelike vector norm}: this case gives rise to eigenvalues that are purely real; the fixed point is called a \emph{node}. Depending on the sign of the scalar part, the fixed point can be an unstable node or \emph{source} ($a_0 > 0$) or a stable node or \emph{sink} ($a_0 < 0$). An example of such a system is the overdamped harmonic oscillator.
+        \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator.
+        \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Likewise, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
+    \end{itemize}
+
+\todo{Connection with root locus}
+\todo{Connection with Jordan decomposition}
+
+\todo{Basis vector fields}
+
+\begin{figure}
+    \begin{center}
+        \input{media/tikz/basis_vectorfields}
+    \end{center}
+    \caption{Basis vector fields corresponding to the basis elements of the split-quaternions.}
+    \label{fig:basis_vf}
+\end{figure}
 
 \section{Notes}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.
