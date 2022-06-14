@@ -63,7 +63,7 @@
   \savebox#2%
    {\begin{tabular}{@{}c@{}}
       \begin{tikzpicture}[scale=#1]
-      #4
+          #4
       \end{tikzpicture}\\[-1ex]
       \templatecaption{#3}\\[-1ex]
     \end{tabular}%
@@ -100,6 +100,7 @@
     \foreach \x in {-3,-2,-1,1,2,3}       %   draw six vertical half-lines
       \draw[flow] (\x,\sy3) -- (\x,0);
    }
+   \node[circle, fill=white, inner sep = 0mm] at (3.5, 3.5) {\circled{2}};
  }
 
 \newtemplate\unstablefp{unstable line}%
@@ -109,6 +110,7 @@
     \foreach \x in {-3,-2,-1,1,2,3}       %   draw six vertical half-lines
       \draw[flow] (\x,0) -- (\x,\sy3);
    }
+   \node[circle, fill=white, inner sep =0mm] at (3.5, 3.5) {\circled{2}};
  }
 
 \newtemplate\spiralsink{spiral sink}%
@@ -129,11 +131,12 @@
   \draw[<-] ({-\x r}:{0.005*\x*\x}) -- +(0.01,-0.008);%   tangent for the arrow.
  }
 
-\newtemplate[0.15]\centre{center}% British spelling since \center is in use
+\newtemplate[0.15]\centre{center} % British spelling since \center is in use
  {\draw (-4,0) -- (4,0);                  % draw horizontal axis
   \draw (0,-4) -- (0,4);                  % draw vertical axis
-  \foreach \r in {1,2,3}                  % draw three circles
+  \foreach \r in {1,2,3}                   % draw three circles
     \draw[flow=0.63] (\r,0) arc (0:-360:\r cm);
+   \node[circle, fill=white, inner sep = 0mm, outer sep=0mm] at (3, 3) {\circled{6}};
  }
 
 \newtemplate\saddle{saddle}%
@@ -157,6 +160,7 @@
         .. controls (\s\b,\s\c) and (\s\b,\s\d)
         .. (0,0);
    }
+   \node[circle, fill=white, inner sep = 0mm] at (3.5, 3.5) {\circled{5}};
  }
 
 \newtemplate\degensource{degenerate source}%
@@ -168,5 +172,6 @@
         .. controls (\s\b,\s\d) and (\s\b,\s\c)
         .. (\s-3.5,\s\a);
    }
+   \node[circle, fill=white, inner sep = 0mm] at (3.5, 3.5) {\circled{5}};
  }
 

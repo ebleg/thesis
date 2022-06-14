@@ -2,7 +2,7 @@
   % BACKGROUND FILLS
   \fill [main, domain=-4.3:4.3, accent1!40] plot (\x, {0.25*\x*\x}) -- cycle; % main graph
   \fill [main, domain=-4.3:4.3, accent2!40] (-4.3, 0) -- plot (\x, {0.25*\x*\x}) -- (4.3, 0) -- cycle; % main graph
-  \fill [main, domain=-4.3:4.3, todoGray!30] (-4.3, 0) -- (-4.3, -2.5) -- (4.3, -2.5) -- (4.3, 0) -- cycle; % main graph
+  \fill [main, todoGray!30] (-4.3, 0) -- (-4.3, -2.7) -- (4.3, -2.7) -- (4.3, 0) -- cycle; % main graph
 
   % MAIN DIAGRAM
   \draw [main,->] (0,-0.3) -- (0,4.8)  % vertical axis
@@ -27,17 +27,25 @@
   \node at ( 1.8, 3.7) {\template\spiralsource};
 
   % TEMPLATES labeling lines and points
-  \node at ( 0  , 1.1) [pin={[draw,fill=white,right,xshift=0.3cm]%
+  \node at ( 0  , 1.1) [inner sep= 1mm, outer sep = 0mm, pin={[draw,fill=white,right,xshift=0.2cm]%
     \template\centre}] {};
-  \node at (-3  , 0  ) [pin={[draw,fill=white,below,yshift=-1cm]%
+  \node at (-3  , 0  ) [inner sep= 1mm, outer sep = 0mm, pin={[draw,fill=white,below,yshift=-1cm]%
     \template\stablefp}] {};
-  \node at ( 3  , 0  ) [pin={[draw,fill=white,below,yshift=-1cm]%
+  \node at ( 3  , 0  ) [inner sep= 1mm, outer sep = 0mm, pin={[draw,fill=white,below,yshift=-1cm]%
     \template\unstablefp}] {};
-  \node at (-3.5,{0.25*3.5*3.5}) [pin={[draw,left,fill=white,xshift=-1.15cm,yshift=-0.3cm]%
+  \node at (-3.5,{0.25*3.5*3.5}) [inner sep= 1mm, outer sep = 0mm, pin={[draw,left,fill=white,xshift=-1.15cm,yshift=-0.3cm]%
     \template\degensink}] {};
-  \node at (3.5,{0.25*3.5*3.5}) [pin={[draw,fill=white,right,xshift=1.15cm,yshift=-0.3cm]%
+  \node at (3.5,{0.25*3.5*3.5}) [inner sep= 1mm, outer sep = 0mm, pin={[draw,fill=white,right,xshift=1.15cm,yshift=-0.3cm]%
     \template\degensource}] {};
-  \node at ( 0  , 0  ) [pin={[draw,above left,fill=white,align=center,xshift=-0.3cm]%
-    \templatecaption{uniform}\\[-1ex]\templatecaption{motion}}] {};
+  \node at ( 0  , 0  ) [inner sep= 1mm, outer sep = 0mm, pin={[draw, above left,fill=white,align=center,xshift=-0.3cm]%
+    ~\\[-0.9ex]\templatecaption{\normalsize{\circled{3}}}\\[-0.6ex]\templatecaption{uniform}\\[-1ex]\templatecaption{motion}}] {};
+%% sdafasd
+
+ % Place nodes for numbering classes
+    \node at (-3.7, 2.3) {\circled{4}};
+    \node at (3.7, 2.3) {\circled{4}};
+    \node at (-1.8, 2.3) {\circled{6}};
+    \node at (3, 4) {\circled{6}};
+    \node at (1, -2) {\circled{1}};
 
 \end{tikzpicture}
