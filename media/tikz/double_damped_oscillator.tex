@@ -30,9 +30,22 @@
 
 \node (wall) [ground, rotate=-90, minimum width=2.5cm,yshift=-3cm] {};
 \node [xshift=-1.2cm, circle, fill=black, inner sep = 1pt] (p1) at ($(M.north west)!(wall.160)!(M.south west)$) {};
-\node [yshift=0.3cm] at (p1) {$q_1$};
+%\node [yshift=0.3cm] at (p1) {$q_1$};
 \draw (wall.north east) -- (wall.north west);
-\node[anchor=south] at (M.north) {$q_2$};
+%\node[anchor=south] at (M.north) {$q_2$};
+
+\node[above=1.5cm of wall, outer sep = 0mm, inner sep=0mm] (p3) {};
+\node[above=2.3cm of wall, outer sep = 0mm, inner sep=0mm] (p4) {};
+
+
+\path (p3) -| node[outer sep = 0mm, inner sep=0mm] (p5) {} (p1);
+\path (p4) -| node[outer sep = 0mm, inner sep=0mm] (p6) {} (M);
+
+\draw[|->] (p3) -- (p5) node[anchor=south,pos=0.5] {$q$};
+\draw[|->] (p4) -- (p6) node[anchor=south,pos=0.5] {$q_1$};
+
+\draw (p5) ++(0, 0.2) -- ++(0,-1.2);
+\draw (p6) ++(0, 0.2) -- ++(0,-1.7);
 
 %\node (coord1) [yshift=1.5cm, minimum width=0.3cm] at (wall) {};
 %\draw[->] (coord1) -- ++(1cm, 0);
