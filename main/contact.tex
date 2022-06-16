@@ -26,18 +26,17 @@ The choice for this system is rather perspicuous, since it is arguably the `easi
 \begin{table}[ht!]
     \caption{Parameter conventions of the damped harmonic oscillator. To avoid confusion with the symplectic form $\omega$, angular frequencies are denoted by $\Omega$ instead of the conventional lower case Greek letter.}
     \label{tab:dho_params}
-    \begin{center}
-        \begin{tabular}{llll}
-            \toprule
-            \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
-            \midrule
-            Damping coefficient & $\gamma$ & $b/m$ & \si{\per \second }\\[0.4cm]
-            Undamped frequency & $\Omega_o$ & $\sqrt{k/m}$ & \si{\per \second }\\[0.4cm]
-            Damped frequency & $\Omega_d$ & $\sqrt{\Omega_0^2 - \qty(\frac{\gamma}{2})^2}$ & \si{\per \second }\\[0.4cm]  
-            Damping ratio & $\zeta$ & $\frac{b}{2\sqrt{mk}}$ & -- \\[0.2cm]
-            \bottomrule
-        \end{tabular}
-    \end{center}
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
+        \midrule
+        Damping coefficient & $\gamma$ & $b/m$ & \si{\per \second }\\[0.4cm]
+        Undamped frequency & $\Omega_o$ & $\sqrt{k/m}$ & \si{\per \second }\\[0.4cm]
+        Damped frequency & $\Omega_d$ & $\sqrt{\Omega_0^2 - \qty(\frac{\gamma}{2})^2}$ & \si{\per \second }\\[0.4cm]  
+        Damping ratio & $\zeta$ & $\frac{b}{2\sqrt{mk}}$ & -- \\[0.2cm]
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 \section{The Caldirola-Kanai method}
@@ -142,7 +141,8 @@ which is the Liouville form on $\ctbundle{M}$. \cite[p. 308]{Libermann1987}  The
 $$\omega = -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.$$ 
 
 \paragraph{Principal bundles}
-Let us now formalize the Liouville structure in the language of principal bundles. The projectivized cotangent bundle $\pctbundle{M}$ has as its fiber the space of lines passing through the origin. These lines are also the orbits of the multiplicative group $\mgroup$ acting through dilations on the fiber of a bundle with two-dimensional fibers: the cotangent bundle of $M$ without zero section, denoted by $\ctzbundle{M}$. Using the canonical coordinates defined previously, coordinates for $\ctzbundle{M}$ are $(q_0, q, \rho_0, \rho)$, where $\rho$ and $\rho_0$ cannot vanish at the same time (the zero section). 
+Let us now formalize the Liouville structure in the language of principal bundles. The projectivized cotangent bundle $\pctbundle{M}$ has as its fiber the space of lines passing through the origin. These lines are also the orbits of the multiplicative group $\mgroup$ acting through dilations on the fiber of a bundle with two-dimensional fibers: the cotangent bundle of $M$ without zero section, denoted by $\ctzbundle{M}$. Using the canonical coordinates defined previously, coordinates for $\ctzbundle{M}$ are $(q_0, q, \rho_0, \rho)$, where $\rho$ and $\rho_0$ cannot vanish at the same time (the zero section).\footnote
+{An instructive example of principal bundles in system theory is the set of all controllable and observable LTI systems, specified by the matrices $A$, $B$, $C$ and $D$. This is the total space. The base space is the space of all transfer functions of the appropriate dimensions. The correspondence of matrix systems with transfer functions is not injective: the matrix systems are only `unique' up to a similarity transform, which is a $\glgroup{n}{\real}$-action on the manifold of matrix systems. Hence, we have a principal bundle with (i) as total space the observable and controllable systems, (ii) as base space of the transfer functions (of appropriate order) and (iii) a $\glgroup{n}{\real}$-action in the form of a similarity transform. \cite{Hermann1984}}
 \begin{figure}[h!]
     \centering
     \input{media/tikz/principal_bundle}
@@ -154,7 +154,7 @@ Define the \mgroup-\emph{action} $\raction{}$ on $\ctzbundle{M}$ as:
 $$ \raction: \ctzbundle{M}\times\mgroup \to \ctzbundle{M} : \quad (q_0, q, \rho_0, \rho) \blacktriangleleft \lambda = (q_0, q, \lambda \rho_0, \lambda \rho ) \qquad \lambda \in \mgroup,$$
 which are referred to as dilations of the fiber.
 
-As illustrated in \cref{fig:principal_bundle}, the \emph{orbit space} of $\ctzbundle{M}$ with respect to the group action $\raction{}$ is the space of all points in $\ctzbundle{M}$ with all points on the same line through the origin (in the fiber) identified. This space is precisely equal to the projectivization of the cotangent bundle $\pctbundle{M}$. Hence, consider the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\sigma}{\pctbundle{M}}$ 
+As illustrated in \cref{fig:principal_bundle}, the \emph{orbit space} of $\ctzbundle{M}$ with respect to the group action $\raction{}$ is the space of all points in $\ctzbundle{M}$ with all points on the same line through the origin (in the fiber) identified. This space is precisely equal to the projectivization of the cotangent bundle $\pctbundle{M}$. Hence, consider the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\sigma}{\pctbundle{M}}$
 \begin{center}
     \begin{tikzcd}
         \ctzbundle{M} \\ \ctzbundle{M} \arrow[u, "\raction{\mgroup}"] \arrow[d, "\sigma"] \\ \pctbundle{M} \cong \cbundle{M}

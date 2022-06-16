@@ -1,4 +1,19 @@
-\chapter{Symplectic geometry}
+\chapter{Symplectic geometry in Analytical Mechanics}
 \label{app:symplectic_geometry}
 
-Bla bla symplectic
+\section{The Lagrangian formalism and the geometry of the tangent bundle}
+Just like the cotangent bundle, the tangent bundle admits a canonical structure, which is called the \emph{vertical endomorphism}. Its construction is slightly more convoluted than the canonical symplectic structure of the cotangent bundle, but nevertheless essential for a proper geometric interpretation of Lagrangian mechanics. 
+
+Vectors on the tangent bundle $\tbundle{M}$ are called vertical if they vanish under the action of the pushforward of the bundle projection map $\pi: \tbundle{M} \to M$. These vectors point entirely in the `direction' of the fiber: in the Lagrangian formalism, they reflect a pure change in velocity, and no change in the generalized position. Furthermore, define the \emph{vertical lift}: \cite{Carinena1990} 
+$$ \xi_{\vec{v}}: \tspace{m}{M} \to \tspace{\vec{v}}{\qty(\tbundle{M})}:\quad \xi_{\vec{v}}(\vec{w})\,f = \left. \dv{}{t} f(\vec{v} + t\vec{w})\right |_{t = 0}\qquad q \in M,\: \vec{v},\vec{w}\in \tspace{m}{M},: f \in \functions{\tbundle{M}}. $$
+In components, if $ \displaystyle \vec{w} = w_i \pdv{}{q_i}, $ then the vertical lift produces $ \displaystyle \xi_{\vec{v}} = w_i \pdv{}{v_i} $. The vertical lift can also lift entire vector fields by simply applying the vertical lift at every point.
+
+Using the concept of the vertical lift, we can define the \emph{vertical isomorphism} from the double tangent bundle to itself:
+$$ S: \tbundle{\qty(\tbundle{M})} \to \tbundle{\qty(\tbundle{M})}: \quad S(q, \vec{v}) u = \xi(\pi_* u).  $$
+The vertical isomorphism is therefore a tensor of valence (1, 1); locally, it can be expressed as:
+$$ S = \pdv{}{v_i}\otimes \dd{q_i} $$
+
+
+\url{https://en.wikipedia.org/wiki/Double_tangent_bundle}
+
+

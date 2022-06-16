@@ -6,18 +6,17 @@
 
   % MAIN DIAGRAM
   \draw [main,->] (0,-0.3) -- (0,4.8)  % vertical axis
-    node [label={[above,yshift=-0.2cm]$\scriptstyle\det(A)$}] {};
+    node [label={[above,yshift=-0.2cm] $\scriptstyle\det(A)\,=\,\mathscr{N}(a)$}] {};
 
   \draw [main,->] (-4.5,0) -- (4.5,0)  % horizontal axis
-    node [label={[right,yshift=-0.5ex]$\scriptstyle \trace(A)$}] {}; 
+    node [label={[right,yshift=-0.5ex]$\scriptstyle \trace(A)\,=\,a_0$}] {}; 
 
   \draw [main, domain=-4.3:4.3, smooth] plot (\x, {0.25*\x*\x}); % main graph
   %\node at (-4,4) [pin={[above]$\scriptstyle\Delta=0$}] {};
 
   %\node at (-4,4) [pin={[above]$\scriptstyle\Delta=0$}] {};
 
-  \node at (4,4.2) [pin={[above,align=left, yshift=-0.2cm]%
-    {$\scriptstyle \det(A)\,=\,\frac{\trace^2(A)}{4}$}}] {};
+    \node at (4,4.2) [pin={[above,align=left, yshift=-0.2cm] {$\scriptstyle \det(A)\,=\,\frac{\trace^2(A)}{4} \text{ or } \norm{\vec{a}} = 0$}}] {};
 
   % TEMPLATES describing areas
   \node at ( 0  ,-1.4) {\template\saddle};

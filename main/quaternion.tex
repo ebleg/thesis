@@ -74,7 +74,7 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that 
     \label{tab:class_combinations}
     \begin{tabular}{c|cccc}
         \toprule
-        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vb{a}) $} \\
+        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vec{a}) $} \\
         \hline
         & & & & \\[-1ex]
         &  & \emph{spacelike} & \emph{lightlike} & \emph{timelike} \\
@@ -84,7 +84,6 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that 
         \bottomrule
     \end{tabular}
 \end{table}
-
 %As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). 
  
 \subsection{Relation with two-dimensional matrix algebra}
@@ -127,7 +126,7 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
     The determinant properties also learns us something about the behavior of the classification under the split-quaternion multiplication
         \begin{table}[h!]
         \centering
-        \caption{Class transition under the action of split-quaternion multiplication. The timelike split-quaternions form a subgroup under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
+        \caption{Class transition under the action of split-quaternion multiplication. The timelike split-quaternions form a group under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
         \label{tab:multiplication_class}
         \begin{tabular}{c|ccc}
             \toprule
@@ -143,7 +142,7 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
         $$ \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.$$
         The argument of the square root is equal to the \emph{negative of the vector norm} of $a$. We therefore have:
         \begin{equation}
-            \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vb{a}}. 
+            \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = a_0 \pm \ii\norm{\vec{a}}. 
             \label{eq:quat_eigvals}
         \end{equation}
         Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix.
@@ -206,7 +205,7 @@ The classification of two-dimensional linear dynamical systems is important, for
         \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator. 
 
         We can also relate the vector norm to the Jordan form of the associated matrix. Recall that the Jordan form is `special' if a matrix is not completely diagonalizable: in the case of two identical eigenvalues, their geometric multiplicity is equal to one instead of two. In terms of the corresponding matrix, the vector norm is equal to: 
-            $$ \mathscr{N}_v(\vb{a}) = \det(A - \frac{\trace(A)}{2}) $$
+            $$ \mathscr{N}_v(\vec{a}) = \det(A - \frac{\trace(A)}{2}) $$
         when two eigenvalues are identical, $\trace(A) = 2\lambda$, the above expression vanishes and the split-quaternion has a lightlike vector. If the matrix is nevertheless diagonalizable, it must be a scalar multiple of the identity. The corresponding split-quaternion is then purely real --- it has no vector part (of course, the vector is then lightlike in a trivial sense). The associate fixed point is then a \emph{proper node}. Conversely, if the vector norm is zero but the vector part not, the matrix is not diagonalizable, and the fixed point is an \emph{improper node}.
         \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Likewise, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
     \end{itemize}
@@ -221,6 +220,40 @@ We will now proceed by using a mechanical `prototype' example for our mechanical
     \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
     \label{fig:double_damped_osc}
 \end{figure}
+
+\subsection{Equations of motion}
+The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}. The equations of motion can be readily derived:
+\begin{equation}
+    \begin{split}
+        m\ddot{q}_1 &= -kq - b_p \dot{q}_1 \\
+        kq &= b_s(\dot{q}_1 - \dot{q}) \\
+    \end{split}
+\end{equation}
+Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection ($q$) and the position of the mass ($q_1$). However, the node connecting the serial damper and the spring has no mass, and therefore no second order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. The equations of motion than have the matrix form:
+\begin{equation*}
+    \mqty(\dot{q}\\\dot{p}) = \mqty(-k/b_s & 1/m \\ -kq & - b_p/m)\mqty(q \\ p),
+\end{equation*}
+or, using the parameters defined in \cref{tab:ddho_params}:
+\begin{equation}
+    \mqty(\dot{q}\\\dot{p}) = \mqty(-\gamma_s & 1/m \\ -m\Omega^2 & - \gamma_p)\mqty(q \\ p),
+\end{equation}
+The nontrivial relation between momentum and the $\dot{q}$ also precludes us from expressing this system in a Lagrangian fashion, because the vector field is not second-order.\footnote{A second order vector field}
+
+\begin{table}[ht!]
+    \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
+    \label{tab:ddho_params}
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
+        \midrule
+            Serial damping coefficient & $\gamma_s$ & $k/b_s$ & \si{\per \second} \\
+            Parallel damping coefficient & $\gamma_p$ & $b_p/m$ & \si{\per \second} \\
+            Natural frequency & $\Omega$ & $\sqrt{k/m}$ & \si{\per \second} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \FloatBarrier
 \section{Notes}

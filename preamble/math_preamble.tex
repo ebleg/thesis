@@ -178,11 +178,17 @@
 \DeclareMathOperator{\adjugate}{adj}
 
 % Quaternion
-\newcommand{\quat}[4]{\ensuremath{#1 + #2\vb{i} + #3\vb{j} + #4\vb{k}}\xspace}
-\newcommand{\quatvec}[3]{\ensuremath{#1\vb{i} + #2\vb{j} + #3\vb{k}}\xspace}
-\newcommand{\quati}{\ensuremath{\vb{i}}\xspace}
-\newcommand{\quatj}{\ensuremath{\vb{j}}\xspace}
-\newcommand{\quatk}{\ensuremath{\vb{k}}\xspace}
+%\newcommand{\quati}{\ensuremath{\text{\textbf{î}}}\xspace}
+%\newcommand{\quatj}{\ensuremath{\text{\textbf{\^{\j}}}\xspace}}
+%\newcommand{\quatk}{\ensuremath{\vb{\hat{k}}}\xspace}
+
+% Serif
+\newcommand{\quati}{\ensuremath{\text{\textit{\textbf{î}}}}\xspace}
+\newcommand{\quatj}{\ensuremath{\text{\textit{\textbf{\^{\j}}}}\xspace}}
+\newcommand{\quatk}{\ensuremath{\vec{\hat{k}}}\xspace}
+
+\newcommand{\quat}[4]{\ensuremath{#1 + #2\quati + #3\quatj + #4\quatk}\xspace}
+\newcommand{\quatvec}[3]{\ensuremath{#1\quati + #2\quatj + #3\quatk}\xspace}
 
 \newcommand{\vecpart}[1]{\ensuremath{\mathrm{vec}\qty(#1)}\xspace}
 \newcommand{\scapart}[1]{\ensuremath{\mathrm{sca}\qty(#1)}\xspace}
