@@ -1,19 +1,79 @@
 \chapter{Symplectic geometry in Analytical Mechanics}
 \label{app:symplectic_geometry}
 
-\section{The Lagrangian formalism and the geometry of the tangent bundle}
+\section{Symplectic geometry}
+
+\section{Hamiltonian mechanics}
+
+\section{Lagrangian mechanics}
 Just like the cotangent bundle, the tangent bundle admits a canonical structure, which is called the \emph{vertical endomorphism}. Its construction is slightly more convoluted than the canonical symplectic structure of the cotangent bundle, but nevertheless essential for a proper geometric interpretation of Lagrangian mechanics. 
 
-Vectors on the tangent bundle $\tbundle{M}$ are called vertical if they vanish under the action of the pushforward of the bundle projection map $\pi: \tbundle{M} \to M$. These vectors point entirely in the `direction' of the fiber: in the Lagrangian formalism, they reflect a pure change in velocity, and no change in the generalized position. Furthermore, define the \emph{vertical lift}: \cite{Carinena1990} 
-$$ \xi_{\vec{v}}: \tspace{m}{M} \to \tspace{\vec{v}}{\qty(\tbundle{M})}:\quad \xi_{\vec{v}}(\vec{w})\,f = \left. \dv{}{t} f(\vec{v} + t\vec{w})\right |_{t = 0}\qquad q \in M,\: \vec{v},\vec{w}\in \tspace{m}{M},: f \in \functions{\tbundle{M}}. $$
-In components, if $ \displaystyle \vec{w} = w_i \pdv{}{q_i}, $ then the vertical lift produces $ \displaystyle \xi_{\vec{v}} = w_i \pdv{}{v_i} $. The vertical lift can also lift entire vector fields by simply applying the vertical lift at every point.
+\paragraph{The vertical endomorphism} The \emph{double tangent bundle} is the tangent bundle to $\tbundle{M}$, denoted by $\tbundle{(\tbundle{M})}$. This space has not one but two canonical vector bundle structures, defined by projection maps from $\tbundle{(\tbundle{M})} \to \tbundle{M}$. First, there is the trivial projection $\pi_{\tbundle{M}}$ thats `forgets' about the tangent elements to $\tbundle{M}$. Secondly, there is $ (\pi_{M})_* $ the pushforward (tangent map) of the projection map $\pi_M: \tbundle{M} \to M$. \cite{Abraham1978}
+\begin{center}
+   \begin{tikzcd} 
+                    & \tbundle{(\tbundle{M})} \arrow[rd, "\pi_{\tbundle{M}}"] \arrow[ld, swap, "(\pi_M)_*"] & \\
+        \tbundle{M} \arrow[rd, swap, "\pi_M"] &   & \tbundle{M} \arrow[ld, "\pi_M"] \\
+                    & M        &  
+   \end{tikzcd}
+\end{center}
+Vectors on the tangent bundle $\tbundle{M}$ (they live in $\tbundle{(\tbundle{M})}$) are called vertical if they vanish under the action of $ (\pi_M)_* $. These vectors point entirely in the `direction' of the fiber: in the Lagrangian formalism, they reflect a pure change in velocity, and no change in the generalized position. The \emph{vertical lift} $\Psi$ maps a vector on $M$ to a vertical vector on $\tbundle{M}$. \cite{Carinena1990}
+\begin{equation}
+    \begin{split}
+        \Psi_{\vec{v}}: \tspace{q}{M} \to & \tspace{\vec{v}}{\qty(\tspace{q}{M})}: \\ 
+        & \Psi_{\vec{v}}(\vec{w})\,f = \left. \dv{}{t} f(\vec{v} + t\vec{w})\right |_{t = 0}
+        \qquad q \in M,\:\: \vec{v},\vec{w}\in \tspace{q}{M},\:\: f \in \functions{\tbundle{M}}.
+    \end{split}
+\end{equation}
+In components, the effect of the vertical lift is as follows:
+$$\Psi_{\vec{v}}: \quad \vec{w} = \left. w_i \pdv{}{q_i}\right|_q \quad \mapsto \quad  \Psi_{\vec{v}}(\vec{w}) = \left.w_i \pdv{}{v_i}\right|_{(q, \vec{v})}. $$
+The vertical lift can also lift entire sections of $\tbundle{M}$ by simply applying the vertical lift pointwise.
 
-Using the concept of the vertical lift, we can define the \emph{vertical isomorphism} from the double tangent bundle to itself:
-$$ S: \tbundle{\qty(\tbundle{M})} \to \tbundle{\qty(\tbundle{M})}: \quad S(q, \vec{v}) u = \xi(\pi_* u).  $$
-The vertical isomorphism is therefore a tensor of valence (1, 1); locally, it can be expressed as:
-$$ S = \pdv{}{v_i}\otimes \dd{q_i} $$
+Using the concept of the vertical lift, we can define the \emph{vertical isomorphism} from the double tangent bundle to itself, first by projecting with $(\pi_M)_*$ and then lifting again:
+$$ S: \tbundle{\qty(\tbundle{M})} \to \tbundle{\qty(\tbundle{M})}: \quad S(q, \vec{v})\,u = \qty(\Psi_{\vec{v}} \circ (\pi_M)_*)\,u \qquad u \in \tspace{(q, \vec{v})}{\tbundle{M}}.  $$
+The action of $S$ can also be stated in the form of the following diagram:
+\begin{center}
+   \begin{tikzcd} 
+        \tbundle{(\tbundle{M})} \arrow[d, swap, "(\pi_M)_*"] \arrow[r, "S"] & \tbundle{(\tbundle{M})} \\
+        \tbundle{M} \arrow[r, swap, "\mathrm{id}_{\tbundle{M}}"] &  \tbundle{M} \arrow[swap, u, "\Psi"]  \\
+   \end{tikzcd}.
+\end{center}
+The action of the vertical endomorphism on the chart-induced basis is:
+$$ S: \quad \left. \pdv{}{q_i}\right|_{(q, \vec{v})} \mapsto \left.\pdv{}{v_i}\right|_{(q, \vec{v})} \qquad  \left. \pdv{}{v_i}\right|_{(q, \vec{v})} \mapsto 0. $$
+The vertical isomorphism is therefore a tensor of valence (1, 1) --- it takes a vector and produces another. Locally, $S$ can be expressed as:
+$$ S = \pdv{}{v_i}\otimes \dd{q_i}. $$
+with $\otimes$ being the tensor product. \cite{Carinena1990}
 
+The Lagrangian formalism only applies to second-order vector fields. A second-order vector field is a vector field $X$ such that $(\pi_M \circ X) = \mathrm{id}_{\tbundle{M}}$; i.e. the following diagram commutes: \cite{Abraham1978}
+\begin{center}
+   \begin{tikzcd} 
+                    & \tbundle{(\tbundle{M})} \arrow[ld, swap, "(\pi_M)_*"] & \\
+        \tbundle{M} \arrow[rr, swap, "\mathrm{id}_{\tbundle{M}}"] &   & \tbundle{M} \arrow[swap, lu, "X"]  \\
+   \end{tikzcd}.
+\end{center}
+The identity on $\tbundle{M}$ is $\mathrm{id}_{\tbundle{M}}: (q, \vec{v}) \mapsto (q, \vec{v})$. Therefore, for a vector field $X$ to be second order, we should have that the component in $\pdv{}{q_i}$ that is picked out by $(\pi_M)_*$ should be equal to $v_i$; for example
+$$ X = \sum_{i=1}^n \qty[v_i \pdv{q_i} + F_i(q_i, v_i)\pdv{v_i}]. $$
+The corresponding differential equations are
+$$ \dv{q_i}{t} = v_i \qquad \dv{v_i}{t} = F_i(q_i, v_i), $$
+which means that the second-order vector field coincides with the notion of a 'second-order differential equation' in $q_i$.
 
-\url{https://en.wikipedia.org/wiki/Double_tangent_bundle}
-
+\paragraph{The Euler-Lagrange equations} With the infrastructure set up in the preceding paragraph, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function $L \in \functions{\tbundle{M}}$, define the \emph{Lagrange 1-form}\footnote
+{\citet{Carinena1990} calls $\theta_L$ the Euler-Poincaré form.}
+\begin{equation}
+    \alpha_L = \dd{L} \circ S = \sum_{i=1}^n \pdv{L}{v_i}\dd{q_i}.
+\end{equation}
+Furthermore, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena1990}
+\begin{equation}
+    \omega_L = - \dd{\alpha}_L = \sum_{i, j}^n\qty[\pdv[2]{L}{v_i}{v_j}\wedgep{\dd{q_i}}{\dd{v_j}} + \pdv[2]{L}{v_i}{q_j}\wedgep{\dd{q_i}}{\dd{q_j}}].
+\end{equation}
+The Lagrangian vector field $X_L$ is the unique vector field defined by 
+\begin{equation}
+    \begin{split}
+        \lied{X_L}{\alpha_L} &= \dd{L} \\
+        \intpr{X_L}{\dd{\alpha_L}} + \dd{\qty(\intpr{X_L}{\alpha_L})} &= \dd{L} \\
+        \dd{\qty(\intpr{X_L}{\alpha_L} - L)} &= \intpr{X_L}{\omega_L} \\
+        \dd{\qty(\sum_{i=1}^n \pdv{L}{v_i}v_i - L)} &= \intpr{X_L}{\omega_L} \\
+    \end{split}
+\end{equation}
+%$$ \intpr{\Gamma_L}{\omega_L} = E_L  $$
+This is essentially the equivalent of the Hamiltonian vector field, pushed to the tangent bundle.
 
