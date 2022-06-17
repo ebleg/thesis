@@ -57,23 +57,28 @@ $$ \dv{q_i}{t} = v_i \qquad \dv{v_i}{t} = F_i(q_i, v_i), $$
 which means that the second-order vector field coincides with the notion of a 'second-order differential equation' in $q_i$.
 
 \paragraph{The Euler-Lagrange equations} With the infrastructure set up in the preceding paragraph, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function $L \in \functions{\tbundle{M}}$, define the \emph{Lagrange 1-form}\footnote
-{\citet{Carinena1990} calls $\theta_L$ the Euler-Poincaré form.}
+{\citet{Carinena1990} calls $\alpha_L$ the Euler-Poincaré 1-form.}
+
+!!! Einstein convention from now !!!
+
 \begin{equation}
-    \alpha_L = \dd{L} \circ S = \sum_{i=1}^n \pdv{L}{v_i}\dd{q_i}.
+    \alpha_L \equiv \dd{L} \circ S = \sum_{i=1}^n \pdv{L}{v^i}\dd{q^i}.
 \end{equation}
-Furthermore, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena1990}
+Secondly, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena1990}
 \begin{equation}
-    \omega_L = - \dd{\alpha}_L = \sum_{i, j}^n\qty[\pdv[2]{L}{v_i}{v_j}\wedgep{\dd{q_i}}{\dd{v_j}} + \pdv[2]{L}{v_i}{q_j}\wedgep{\dd{q_i}}{\dd{q_j}}].
+    \omega_L \equiv - \dd{\alpha}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^i}}{\dd{v^j}} + \pdv[2]{L}{v^i}{q^j}\wedgep{\dd{q^i}}{\dd{q^j}}.
 \end{equation}
-The Lagrangian vector field $X_L$ is the unique vector field defined by 
+The final ingredient is the \emph{energy function}
+$$ E \equiv Z(L) - L, $$
+where $Z = \sum v^i \pdv{}{v^i}$ is the Liouville vector field on $\tbundle{M}$.
+
+The \emph{Lagrangian vector field} $X_L$ is then unique vector field that satisfies the following equation:
 \begin{equation}
-    \begin{split}
-        \lied{X_L}{\alpha_L} &= \dd{L} \\
-        \intpr{X_L}{\dd{\alpha_L}} + \dd{\qty(\intpr{X_L}{\alpha_L})} &= \dd{L} \\
-        \dd{\qty(\intpr{X_L}{\alpha_L} - L)} &= \intpr{X_L}{\omega_L} \\
-        \dd{\qty(\sum_{i=1}^n \pdv{L}{v_i}v_i - L)} &= \intpr{X_L}{\omega_L} \\
-    \end{split}
+    \intpr{X_L}{\omega_L} = \dd{E},
 \end{equation}
-%$$ \intpr{\Gamma_L}{\omega_L} = E_L  $$
-This is essentially the equivalent of the Hamiltonian vector field, pushed to the tangent bundle.
+or in components:
+
+Check \citet[p. 170]{Godbillon1969}
+
+It is easily observed that the vector field $X_L$ must be second-order. Given that that is indeed the case, the above equation is equivalent to the following:
 
