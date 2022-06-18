@@ -2,8 +2,21 @@
 \label{app:symplectic_geometry}
 
 \section{Symplectic geometry}
+A \emph{symplectic manifold} $(M, \omega)$ is a manifold $M$ equipped with a closed, nondegenerate (and therefore symplectic) 2-form $\omega$.
+ 
+\begin{itemize}
+    \item Darboux theorem
+    \item Lagrangian submanifolds
+    \item Canonical symplectic structure on the cotangent bundle
+\end{itemize}
 
 \section{Hamiltonian mechanics}
+
+\begin{itemize}
+    \item Hamiltonian vector field
+    \item Poisson bracket
+    \item Integral invariant (?)
+\end{itemize}
 
 \section{Lagrangian mechanics}
 Just like the cotangent bundle, the tangent bundle admits a canonical structure, which is called the \emph{vertical endomorphism}. Its construction is slightly more convoluted than the canonical symplectic structure of the cotangent bundle, but nevertheless essential for a proper geometric interpretation of Lagrangian mechanics. 
@@ -51,34 +64,77 @@ The Lagrangian formalism only applies to second-order vector fields. A second-or
    \end{tikzcd}.
 \end{center}
 The identity on $\tbundle{M}$ is $\mathrm{id}_{\tbundle{M}}: (q, \vec{v}) \mapsto (q, \vec{v})$. Therefore, for a vector field $X$ to be second order, we should have that the component in $\pdv{}{q_i}$ that is picked out by $(\pi_M)_*$ should be equal to $v_i$; for example
-$$ X = \sum_{i=1}^n \qty[v_i \pdv{q_i} + F_i(q_i, v_i)\pdv{v_i}]. $$
+$$ X = \sum_{i=1}^n \qty[v_i \pdv{q_i} + F_i\pdv{v_i}]. $$
 The corresponding differential equations are
-$$ \dv{q_i}{t} = v_i \qquad \dv{v_i}{t} = F_i(q_i, v_i), $$
+$$ \dv{q_i}{t} = v_i \qquad \dv{v_i}{t} = F_i, $$
 which means that the second-order vector field coincides with the notion of a 'second-order differential equation' in $q_i$.
 
 \paragraph{The Euler-Lagrange equations} With the infrastructure set up in the preceding paragraph, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function $L \in \functions{\tbundle{M}}$, define the \emph{Lagrange 1-form}\footnote
 {\citet{Carinena1990} calls $\alpha_L$ the Euler-Poincaré 1-form.}
-
-!!! Einstein convention from now !!!
-
 \begin{equation}
-    \alpha_L \equiv \dd{L} \circ S = \sum_{i=1}^n \pdv{L}{v^i}\dd{q^i}.
+    \alpha_L \equiv \dd{L} \circ S = \sum_{j=1}^n \pdv{L}{v^j}\dd{q^j}.
 \end{equation}
+Observe that the Lagrange 1-form is also equal to the pullback of the Liouville form under the Legendre transformation: $\alpha_L = (\fiberder{L})^* \alpha$. \cite{Abraham1978}
 Secondly, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena1990}
 \begin{equation}
-    \omega_L \equiv - \dd{\alpha}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^i}}{\dd{v^j}} + \pdv[2]{L}{v^i}{q^j}\wedgep{\dd{q^i}}{\dd{q^j}}.
+    \omega_L \equiv - \dd{\alpha}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^j}}{\dd{v^i}} + \pdv[2]{L}{q^i}{v^j}\wedgep{\dd{q^j}}{\dd{q^i}}.
 \end{equation}
-The final ingredient is the \emph{energy function}
+Because the exterior derivative and the pullback commute, the Lagrange 2-form is equal to the pullback of the symplectic 2-form under the Legendre transform. If the rank of the Hessian $ \pdv[2]{L}{v^i}{v^j}$ is full (and constant), then $\omega_L$ is nondegenerate and therefore defines a symplectic structure on $\tbundle{M}$. However, observe that whether $\omega_L$ is symplectic or not depends on the nature of the Lagrangian, while the symplectic structure in the Hamiltonian setting is canonically derived from the cotangent bundle itself --- there is no need for the Hamiltonian to be regular.
+
+The final ingredient for the Euler-Lagrange equations is the \emph{energy function}
 $$ E \equiv Z(L) - L, $$
 where $Z = \sum v^i \pdv{}{v^i}$ is the Liouville vector field on $\tbundle{M}$.
 
-The \emph{Lagrangian vector field} $X_L$ is then unique vector field that satisfies the following equation:
+The \emph{Lagrangian vector field} $X_L$ is then the unique vector field that satisfies the equation: \cite{Godbillon1969}
 \begin{equation}
     \intpr{X_L}{\omega_L} = \dd{E},
+    \label{eq:EL_nocomp}
 \end{equation}
-or in components:
+In components, the right hand side of this equation is:
+\begin{equation}
+    \begin{split}
+        \dd{E} &= \sum_{i, j}\qty(\pdv[2]{L}{v_j}{q_i}v_j\dd{q_i} + \pdv[2]{L}{v_j}{v_i}v_j\dd{v_i} + \pdv{L}{v_j}\dd{v_j}) - \dd{L}, \\
+        \dd{E} &= \sum_{i, j}\qty(\pdv[2]{L}{v_j}{q_i}v_j\dd{q_i} + \pdv[2]{L}{v_j}{v_i}v_j\dd{v_i} - \pdv{L}{q_j}\dd{q_j}).
+    \end{split}
+    \label{eq:dE}
+\end{equation}
+Let $X_L = \sum_i \qty( A_i \pdv{}{q_i} + B_i\pdv{}{v_i}) $; the left hand side can then be written as follows:
+\begin{equation}
+    \intpr{X_L}{\omega_L} =  - \sum_{i,j} A_i \pdv[2]{L}{q_i}{v_j}\dd{q_j} 
+                             + \sum_{i,j} A_j \pdv[2]{L}{q_i}{v_j}\dd{q_i} 
+                             - \sum_{i, j} B_i \pdv[2]{L}{v_i}{v_j}\dd{q_j}
+                             + \sum_{i, j} A_j \pdv[2]{L}{v_i}{v_j}\dd{v_i}.
+\end{equation}
+Comparing this expression with \cref{eq:dE}, it is immediately clear that
+$$ A_j \pdv[2]{L}{v_i}{v_j} = v_j \pdv[2]{L}{v_i}{v_j}.$$
+We therefore have that $A_j = v_j$, but \emph{only} if the Hessian of $L$ with respect to the velocities is nonsingular. If this is indeed the case (i.e. $L$ is regular), and the condition implies that the vector field $X_L$ is second-order. We can use this knowledge to obtain a second condition (since the terms in $\dd{q_i}$ cancel): 
+$$
+    \sum_{i} B_i \pdv[2]{L}{v_i}{v_j} = \pdv{L}{q_j} - \sum_{i} v_i \pdv[2]{L}{q_i}{v_j}.  
+$$
+The Hessian of $L$ in the velocities $M_{ij} = \pdv[2]{L}{v_i}{v_j}$ is also called the mass matrix of the system. We have already assumed that this matrix is invertible (i.e. $L$ is regular). As such, we have that
+$$ \sum_{i}\pdv[2]{L}{v_i}{v_j}\dv[2]{q_j}{t} + \sum_{i} \pdv[2]{L}{q_i}{v_j}\dv{q_i}{t} = \pdv{L}{q_j}, $$
+or equivalently
+$$ \dv{}{t}\qty(\pdv{L}{v_j}) - \pdv{L}{q_j} = 0, $$
+which is the traditional form of the Euler-Lagrange equations.
 
-Check \citet[p. 170]{Godbillon1969}
-
-It is easily observed that the vector field $X_L$ must be second-order. Given that that is indeed the case, the above equation is equivalent to the following:
-
+Provided that $X_L$ is a second-order vector field, the equation \cref{eq:EL_nocomp} is equivalent to the following statement:
+\begin{equation}
+    \lied{X_L}{\alpha_L} = \dd{L}.
+\end{equation}
+The equivalence is easily shown using the Cartan formula:
+\begin{equation*}
+    \begin{split}
+        \lied{X_L}{\alpha_L} &= \dd{L} \\
+        \dd{\qty(\intpr{X_L}{\alpha_L})} + \intpr{X_L}{\dd{\alpha_L}} &= \dd{L} \\
+        \dd{\qty(\intpr{X_L}{\alpha_L})} - \intpr{X_L}{\omega_L} &= \dd{L}
+    \end{split}
+\end{equation*}
+The fact that $X_L$ is second-order implies that $\intpr{X_L}{\alpha_L} = Z(L)$. Therefore 
+\begin{equation*}
+    \begin{split}
+        \dd{(Z(L))} - \intpr{X_L}{\omega_L} &= \dd{L} \\
+        \intpr{X_L}{\omega_L} &= \dd{Z(L) - L} \\
+        \intpr{X_L}{\omega_L} &= \dd{E}.
+    \end{split}
+\end{equation*}
+Lagrangians are not unique: from \cref{eq:EL_nocomp} we can deduce that the addition of a closed 1-form (as a map from $\tbundle{M} \to \real$) to the Lagrangian will not alter the Euler-Lagrange equations. The closed 1-forms on $M$  therefore constitute the \emph{gauge group} of Lagrangian mechanics. An equivalent statement is that the Euler-Lagrange equations remain invariant if a total derivative is added to the Lagrangian function. \cite{Abraham1978}
