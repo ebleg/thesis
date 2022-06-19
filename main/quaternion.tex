@@ -75,7 +75,7 @@ The quadratic form of the squared vector norm is not positive-definite either; i
 
 In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$, and call it the Lorentzian three-space. \cite{Jafari2014} 
 
-Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that is to say, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible regime combinations for split-quaternions and their vector parts are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamical systems. It will play a central role throughout this chapter.
+Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}(\vec{a}) < 0$; that is to say, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible regime combinations for split-quaternions and their vector parts are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamical systems. It will play a central role throughout this chapter.
 
 \begin{table}[ht]
     \centering
@@ -83,7 +83,7 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that 
     \label{tab:class_combinations}
     \begin{tabular}{c|cccc}
         \toprule
-        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vec{a}) $} \\[1mm]
+        &  & \multicolumn{3}{c}{$ \mathscr{N}(\vec{a}) $} \\[1mm]
         \hline
         & & & & \\[-1.7ex]
         &  & \emph{spacelike} & \emph{lightlike} & \emph{timelike} \\
@@ -221,7 +221,7 @@ The classification of two-dimensional linear dynamical systems is important, for
         \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator. 
 
         We can also relate the vector norm to the Jordan form of the associated matrix. Recall that the Jordan form is `special' if a matrix is not completely diagonalizable: in the case of two identical eigenvalues, their geometric multiplicity is equal to one instead of two. In terms of the corresponding matrix, the vector norm is equal to: 
-            $$ \mathscr{N}_v(\vec{a}) = \det(A - \frac{\trace(A)}{2}) $$
+            $$ \mathscr{N}(\vec{a}) = \det(A - \frac{\trace(A)}{2}) $$
         when two eigenvalues are identical, $\trace(A) = 2\lambda$, the above expression vanishes and the split-quaternion has a lightlike vector. If the matrix is nevertheless diagonalizable, it must be a scalar multiple of the identity. The corresponding split-quaternion is then purely real --- it has no vector part (of course, the vector is then lightlike in a trivial sense). The associate fixed point is then a \emph{proper node}. Conversely, if the vector norm is zero but the vector part not, the matrix is not diagonalizable, and the fixed point is an \emph{improper node}.
         \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Likewise, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
     \end{itemize}
@@ -241,15 +241,15 @@ i.e. we can only `split' the exponential of a sum if the two elements \emph{comm
 $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
 as the sum of $a_0$ and $\quatvec{a_1}{a_2}{a_3}$. The real part is distinguished from the other three parts in the sense that it commutes
 with every other element (cf. \cref{ssec:vf_algebra}). We may therefore use the former property and apply it to the split-quaternion exponential as well:
-$$ \exp(a) = \ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}). $$
-We therefore only have to be considered with the evaluation exponential of $\vec{a}$. To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. As such $ \conj{\vec{a}} = -\vec{a} $ and the `vector norm' is simply the negative of the square of the vector part:
-$$ \mathscr{N}_v(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2. $$
+$$ \exp(a) \, = \,\ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}). $$
+We therefore only have to be considered with the evaluation exponential of $\vec{a}$. To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. As such $ \conj{\vec{a}} = -\vec{a} $, and the `vector norm' is simply the negative of the square of the vector part:
+$$ \mathscr{N}(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2. $$
 Furthermore, consider the \emph{unit} split-quaternion
-$$ \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}_v(\vec{a})}}} $$
+$$ \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}(\vec{a})}}} $$
 which squares to
-$$ \hat{\vec{a}}^2 = - \mathscr{N}_v(\hat{\vec{a}}) 
-                   = - \frac{\mathscr{N}_v(\vec{a})}{\abs{\mathscr{N}_v(\vec{a})}} 
-                   = - \sgn(\mathscr{N}_v(\vec{a}))
+$$ \hat{\vec{a}}^2 = - \mathscr{N}(\hat{\vec{a}}) 
+                   = - \frac{\mathscr{N}(\vec{a})}{\abs{\mathscr{N}(\vec{a})}} 
+                   = - \sgn(\mathscr{N}(\vec{a}))
 $$
 From this expression, we can distinguish three possibilities: \cite{Motter1998,Harkin2004}
 \begin{itemize}
