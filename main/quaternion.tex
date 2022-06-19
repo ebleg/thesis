@@ -6,7 +6,10 @@ In this chapter, the geometric connection is made between the algebra of split-q
 
 \section{Split-quaternion algebra}
 \subsection{Basic properties}
-Like the conventional quaternions, the split-quaternions are a number system that consists of linear combinations of four basis elements, which will be denoted by \quati, \quatj and \quatk. The algebra of split-quaternions is associative but not commutative --- formally speaking, the algebraic structure is a \emph{noncommutative ring}. The multiplication table for the split-quaternion algebra is shown in \cref{tab:quat_table}. The set of split-quaternions is denoted by \spquaternions (since \quaternions is reserved for conventional quaternions).
+Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which will be denoted by 1, \quati, \quatj and \quatk.\footnote
+{Even though they behave similarly, the imaginary unit $\ii$ is not to be confused with the split-quaternion basis element \quati, because they belong to different number systems.}
+The algebra of split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative ring}. The multiplication table for the split-quaternion algebra is shown in \cref{tab:quat_table}. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
+{The `$\mathbb{H}$' is in honour of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis. \cite{Stillwell2008}}
 \begin{table}[ht!]
     \centering
     \caption{Multiplication table for the split-quaternion algebra.}
@@ -23,9 +26,9 @@ Like the conventional quaternions, the split-quaternions are a number system tha
     \end{tabular}
 \end{table}
 
-The important distinction from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. Whereas for quaternions all the nonreal basis elements square to $-1$, this is not the case for the split-quaternions (only \quati does). This is precisely the reason why split-quaternions are `split', for this difference in sign gives rise to an indefinite quadratic form when computing the norm of the split-quadratic form. Because the quadratic form is indefinite, it classifies the set of split-quaternions into several subsets, which is to be discussed later.
+The important distinction from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all the nonreal basis elements square to $-1$, this is not the case for the split-quaternions (only \quati does). This is precisely the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of $(+, +, +, +)$, for the split-quaternions we have $(+, +, -, -)$. The distinctive `metric' signature makes the algebra of split-quaternions  different from its conventional quaternion counterpart.
 
-\paragraph{Dihedral group} he basis elements of the split-quaternions form a group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation and two reflections (cf. \cref{fig:square_symmetry}).
+\paragraph{Dihedral group} The basis elements of the split-quaternions $\qty{1, \quati, \quatj, \quatk}$ form a finite group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation and two reflections, as illustrated in \cref{fig:square_symmetry}. \cite{Dummit2004}
 \begin{figure}[h!]
     \centering
     \input{media/tikz/square_symmetry}
@@ -33,40 +36,46 @@ The important distinction from conventional quaternions resides in the diagonal 
     \label{fig:square_symmetry}
 \end{figure}
 
-The structure of the dihedral group can be visualized by its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the topology of this cycle graph. One example is the split nature of the quaternions: the \quati-element generates an order four cycle, while \quatj and \quatk generate order two cycles (in contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements).
+The structure of the dihedral group can be visualized by its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the shape of this cycle graph. One example is the split nature of the quaternions: the \quati-element generates an order-4 cycle, while \quatj and \quatk generate order-2 cycles (in contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements). \cite{Dummit2004}
 \begin{figure}[h!]
     \centering
     \input{media/tikz/dihedral_group}
-    \caption{Cycle graph of the dihedral group. There are five cycles: one of order four which represents the rotations (or the element \quati), and four order 2 cycles, which are all the possible reflections. The colored element represents the identity.}
+    \caption{Cycle graph of the dihedral group. There are five cycles: one of order four which represents the rotations (or the element \quati), and four order-2 cycles, which are all the possible reflections. The colored element represents the identity.}
     \label{fig:cycle_graph}
 \end{figure}
 
-\paragraph{Split-quaternion norm} Complex numbers have a real and imaginary part. Likewise, (split)-quaternions have a similar notion: a \emph{scalar} (or real) and \emph{vector} (or imaginary) components. For an arbitrary split-quaternion $q \in \spquaternions$, \cite{Jafari2014}
+\paragraph{Split-quaternion norm} Complex numbers have a real and imaginary part. Likewise, (split)-quaternions have a similar notion: a \emph{scalar} (or real) and \emph{vector} (or imaginary) components. For an arbitrary split-quaternion $a \in \spquaternions$, \cite{Jafari2014}
 $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
 the real part is $\scapart{h} = a_0$ and the vector part is $ \vecpart{a} = \quatvec{a_1}{a_2}{a_3}$. For convenience, the vector part will be referred to in traditional bold vector notation:
-$$ \vec{a} = \vecpart{a} = \quatvec{a_1}{a_2}{a_3}. $$
+$$ \vec{a} \equiv \vecpart{a} \equiv \quatvec{a_1}{a_2}{a_3}. $$
 
 Furthermore, for every split-quaternion there is a unique \emph{conjugate}
 $$ \conj{a} = \scapart{a} - \vecpart{a} = a_0 - a_1\quati - a_2\quatj - a_3\quatk, $$
-through which the \emph{split-quaternion norm} is defined:
+which we require to define the \emph{squared split-quaternion norm}:
 \begin{equation}
-    \mathscr{N}(a) = a\conj{h} = a_0^2 + a_1^2 - a_2^2 - a_3^2. 
+    \mathscr{N}:\;\spquaternions \to \real:\;\;\mathscr{N}(a) \equiv a\conj{a} = a_0^2 + a_1^2 - a_2^2 - a_3^2. 
     \label{eq:quat_norm}
 \end{equation}
-As mentioned, this norm is not positive definite, in stark contrast to quaternions or complex numbers. Split-quaternions can be categorized into three regimes based on their norm being negative, zero or positive. In the tradition of special relativity, these regimes are named \emph{spacelike}, \emph{lightlike} and \emph{timelike} respectively: \cite{Misner1970,Landau1971}
+As mentioned, this norm is not positive definite, in stark contrast to quaternions (or complex numbers, for that matter). Split-quaternions can be categorized into three regimes based on their norm being negative, zero or positive. In the tradition of special relativity, these regimes are named\footnote
+{Spacetime is also four-dimensional, but the signature of the Minkowski metric is different from the split-quaternion signature: it is either $(-, +, +, +)$ or equivalently $ (+, -, -, -)$ depending on the sign convention one chooses to follow. However, the terminology (i.e. spacelike, timelike, lightlike) still applies.} \cite{Misner1970,Landau1971}
 \begin{itemize}
-    \item \textbf{Timelike}: $ \mathscr{N}(a) > 0 $, with length $ \norm{a} = \sqrt{a \conj{a}}$. 
-    \item \textbf{Lightlike}: $ \mathscr{N}(a) = 0 $, with length $\norm{a} = 0$. 
-    \item \textbf{Spacelike}: $ \mathscr{N}(a) < 0 $, with length $\norm{a} = \sqrt{\abs{a\conj{a}}}$.
+    \item \emph{timelike} if $ \mathscr{N}(a) > 0 $,
+    \item \emph{lightlike} if $ \mathscr{N}(a) = 0 $, 
+    \item \emph{spacelike} if $ \mathscr{N}(a) < 0 $.
 \end{itemize}
-Even though they behave similarly, the imaginary unit $\ii$ is not to be confused with the split-quaternion basis element \quati, because they belong to different number systems.
+The \emph{split-quaternion norm} is then defined as
+$$ \norm{a} \equiv \sqrt{\abs{\mathscr{N}(a)}}. $$
 
 \paragraph{Vector norm}
-Apart from the split-quaternion norm, we can also define a norm that only considers the vector part of the split-quaternion. This norm is defined in accordance with the overall quaternion norm given by \cref{eq:quat_norm}:
-$$ \mathscr{N}_v(\vec{a}) = a_1^2 - a^2_2 - a^2_3. $$
-The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$. \cite{Jafari2014} Observe that this quadratic form is not positive-definite either; in the the same veign as before, we can therefore classify quaternions by the `sign' of their vector part again. We refer to these regimes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same way. 
+Apart from the split-quaternion norm, we may also define a (square) norm that only considers the \emph{vector part} of the split-quaternion. This squared norm is defined in accordance with the overall squared split-quaternion norm given by \cref{eq:quat_norm}:
+$$ \mathscr{N}(\vec{a}) = a_1^2 - a^2_2 - a^2_3. $$
+The notation used here is not abusive: $\vec{a}$ simply refers to the split-quaternion with the same vector part as $a$ but with zero scalar part. We can therefore use the same function with no ambiguity. Likewise, the vector norm is $ \norm{\vec{a}} = \sqrt{\abs{\mathscr{N}(\vec{a})}} $. 
 
-Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that is to say, a spacelike split-quaternion always has a spacelike vector part. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible combinaions are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamic systems.
+The quadratic form of the squared vector norm is not positive-definite either; in the the same vein as before, we can therefore classify split-quaternions by the `sign' of their vector part again. We refer to (vectors in) these regimes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same fashion. 
+
+In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$, and call it the Lorentzian three-space. \cite{Jafari2014} 
+
+Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that is to say, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible regime combinations for split-quaternions and their vector parts are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamical systems. It will play a central role throughout this chapter.
 
 \begin{table}[ht]
     \centering
@@ -74,9 +83,9 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that 
     \label{tab:class_combinations}
     \begin{tabular}{c|cccc}
         \toprule
-        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vec{a}) $} \\
+        &  & \multicolumn{3}{c}{$ \mathscr{N}_v(\vec{a}) $} \\[1mm]
         \hline
-        & & & & \\[-1ex]
+        & & & & \\[-1.7ex]
         &  & \emph{spacelike} & \emph{lightlike} & \emph{timelike} \\
         & \emph{spacelike} & \circled{1} & --- & --- \\
         & \emph{lightlike} & \circled{2} & \circled{3} & --- \\
@@ -88,7 +97,7 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}_v(\vec{a}) < 0$; that 
  
 \subsection{Relation with two-dimensional matrix algebra}
 \label{ssec:quat_isomorphism}
-The algebra of split-quaternions is isomorphic to the algebra of real two-dimensional matrices. This fact underlies this entire chapter, for it allows us to find an alternative for the traditional matrix description of linear dynamical systems. 
+The usefulness of split-quaternions (for our purpose) originates from the fact that the algebra of split-quaternions is isomorphic to the algebra of real two-dimensional matrices. This underlies this entire chapter, for it allows us to find an alternative for the traditional matrix description of linear dynamical systems. 
 
 Formally, an algebra is a vector space combined with a vector space $V$ over a field \field, combined with an addition operation, scalar multiplication, and an \field-bilinear product operation $V\times V \to V$. \cite{Schuller2014}
 \begin{itemize}
@@ -97,7 +106,7 @@ Formally, an algebra is a vector space combined with a vector space $V$ over a f
 \end{itemize}
 An algebra isomorphism is an isomorphism between vector spaces that also commutes with the respective product operations in both vector spaces. If $(V, \bullet)$ and $(W, \diamond)$ are vector spaces equipped with their product operations, then $\phi: V \to W$ is an algebra isomorphism if (i) $\phi$ is a vector space isomorphism between $V$ and $W$, and (ii) \cite{Lang2002}
 $$ \phi(v_1 \bullet v_2) = \phi(v_1)\diamond\phi(v_2) \qquad v_1, v_2 \in V. $$
-In the case of the split-quaternions and the matrices, it is sufficient to map the basis elements of the split-quaternions to four linearly independent `basis' matrices, and show that the resulting matrices observe the same multiplication rules as defined in \cref{tab:quat_table}. Indeed, define the mapping $\phi$ by 
+In the case of the split-quaternions and two-dimensional matrices, it is sufficient to map the basis elements of the split-quaternions to four linearly independent `basis' matrices, and show that the resulting matrices observe the same multiplication rules as defined in \cref{tab:quat_table}. Indeed, define the mapping $\phi$ by 
 \begin{equation}
     \begin{split}
         \phi: \spquaternions \to \real^{2\times2}: \quad &  
@@ -116,22 +125,22 @@ $$ \phi^{-1}\mqty(b_0 & b_1 \\ b_2 & b_3) \quad = \quad \quat{\frac{b_0 + b_3}{2
 One of the powerful features of the mapping $\phi$ is that it maps natural properties of the split-quaternion to natural properties of the associated matrix. Hence, given that $A = \phi(a)$ with $a \in \spquaternions$ and $A \in \real^{2\times2}$, we have the following properties: 
 \begin{itemize}
     \item The \emph{conjugate} of the split-quaternion maps to the \emph{adjugate} of the matrix:\footnote
-        {The adjugate of a matrix is the transpose of its cofactor matrix.}
+        {The adjugate of a matrix is the transpose of its cofactor matrix. \cite{Verhaegen2007}}
         $$ \phi(\conj{a}) = \adjugate(A). $$
     \item The \emph{trace} of the matrix coincides with the \emph{real or scalar part} of the split-quaternion:
-        $$ \scapart{a} = \frac{\trace(A)}{2}. $$
-    \item The \emph{determinant} of the matrix is equal to \emph{norm} of the split-quaternion:
+        $$ \scapart{a} = a_0 = \frac{\trace(A)}{2}. $$
+    \item The \emph{determinant} of the matrix is equal to the \emph{squared norm} of the split-quaternion:
         $$ \mathscr{N}(a) = \det(A). $$
     \item The equivalence of the determinant and the split-quaternion norm hints at the fact that the multiplicative inverse of a split-quaternion does not always exist: only when its norm is nonzero. In that case, it is clear that
-        $$ \phi\qty(a^{-1}) = A^{-1} \qquad \mathscr{N}(A) \neq 0. $$
-    The determinant properties also learns us something about the behavior of the classification under the split-quaternion multiplication
+        $$ \phi\qty(a^{-1}) = A^{-1} \qquad \mathscr{N}(a) \neq 0. $$
+    The determinant property also shows us what the regime will be of the product of two split-quaternions; this is shown in \cref{tab:multiplication_class}.
         \begin{table}[h!]
         \centering
         \caption{Regime transition under the action of split-quaternion multiplication. The timelike split-quaternions form a group under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
         \label{tab:multiplication_class}
         \begin{tabular}{c|ccc}
             \toprule
-            $\times$ & \emph{space} & \emph{light} & \emph{time} \\
+            $\times$ & \emph{space} & \emph{light} & \emph{time} \\[1mm]
             \hline
             \emph{space} & time  & light & space \\
             \emph{light} & light & light & light \\
@@ -141,13 +150,13 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
         \end{table}
     \item The eigenvalues of a $2\times2$-matrix can be expressed in terms of its trace and its determinant:
         $$ \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.$$
-        The argument of the square root is equal to the \emph{negative of the vector norm} of $a$. We therefore have:
+        The argument of the square root is equal to the \emph{negative of the squared vector norm} of $a$. We therefore have:
         \begin{equation}
             \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = 
             \begin{cases}
-                a_0 \pm \ii\norm{\vec{a}} & \vec{a} \text{ timelike}\\
-                a_0  & \vec{a} \text{ lightlike}\\
-                a_0 \pm \norm{\vec{a}} & \vec{a} \text{ spacelike}\\.
+                a_0 \pm \ii\norm{\vec{a}} & \vec{a} \text{ timelike},\\[1ex]
+                a_0 \pm 0  & \vec{a} \text{ lightlike},\\[1ex]
+                a_0 \pm \norm{\vec{a}} & \vec{a} \text{ spacelike}.\\
             \end{cases}
             \label{eq:quat_eigvals}
         \end{equation}
@@ -232,7 +241,7 @@ i.e. we can only `split' the exponential of a sum if the two elements \emph{comm
 $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
 as the sum of $a_0$ and $\quatvec{a_1}{a_2}{a_3}$. The real part is distinguished from the other three parts in the sense that it commutes
 with every other element (cf. \cref{ssec:vf_algebra}). We may therefore use the former property and apply it to the split-quaternion exponential as well:
-$$ \exp(a) = \exp(a_0)\,\exp(\quatvec{a_1}{a_2}{a_3}). $$
+$$ \exp(a) = \ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}). $$
 We therefore only have to be considered with the evaluation exponential of $\vec{a}$. To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. As such $ \conj{\vec{a}} = -\vec{a} $ and the `vector norm' is simply the negative of the square of the vector part:
 $$ \mathscr{N}_v(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2. $$
 Furthermore, consider the \emph{unit} split-quaternion
@@ -251,29 +260,53 @@ From this expression, we can distinguish three possibilities: \cite{Motter1998,H
 Now to return to the exponential function:
 \begin{equation}
     \begin{split}
-        \exp(a) &= \exp(a_0)\qty(\sum_{k=0}^n \frac{1}{k!} \vec{a}^k) \\
-                &= \exp(a_0)\qty[\sum_{k=0}^n \frac{\qty(\vec{a}^2)^k}{(2k)!}  + \sum_{k=0}^n \frac{\vec{a}\qty(\vec{a}^2)^k}{(2k+1)!}] \\
-                &= \exp(a_0)\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\, \qty(\uvec{a}^2)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(\uvec{a}^2)^k}{(2k+1)!}] \\
+        \exp(a) &= \ec^{a_0}\;\qty(\sum_{k=0}^n \frac{1}{k!} \vec{a}^k) \\
+                &= \ec^{a_0}\;\qty[\sum_{k=0}^n \frac{\qty(\vec{a}^2)^k}{(2k)!}  + \sum_{k=0}^n \frac{\vec{a}\qty(\vec{a}^2)^k}{(2k+1)!}] \\
+                &= \ec^{a_0}\;\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\, \qty(\uvec{a}^2)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(\uvec{a}^2)^k}{(2k+1)!}] \\
     \end{split}
 \end{equation}
-We must know acknowledge the three possiblities that were identified before
+Hence, we have isolated the expression $\uvec{a}$ in the above expression; the value of the exponential therefore depends on the three cases for $\uvec{a}$ that were identified before:
 \begin{itemize}
     \item If $\vec{a}$ is \emph{timelike}, then the above expression reverts to
         \begin{equation}
             \begin{split}
-                \exp(a) &= \exp(a_0)\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\, \qty(-1)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(-1)^k}{(2k+1)!}] \\
-                        &= \exp(a_0)\qty[\cos(\norm{a})  + \uvec{a}\sin(\norm{a})] \\
-
+                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\,\qty(-1)^k}{(2k)!} 
+                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(-1)^k}{(2k+1)!}], \\
+                        &= \ec^{a_0}\qty\big[\cos(\norm{a})  + \uvec{a}\sin(\norm{a})]. \\
             \end{split}
         \end{equation}
-    \item lightlike $0^0$??
+        This is roughly equivalent to the Euler identity for complex numbers, which is not quite surprising since we found before that $\uvec{a}$ can be associated with the imaginary unit if $\vec{a}$ is timelike.
+    \item Secondly, if $\vec{a}$ is \emph{lightlike}, \footnote{We define $0^0 \equiv 1$, a common convention in power series and algebra. \cite{Graham1994}}
         \begin{equation}
             \begin{split}
-                \exp(a) &= \exp(a_0)\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\, \qty(0)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(0)^k}{(2k+1)!}] \\
-                        &= \exp(a_0)\qty[\cos(\norm{a})  + \uvec{a}\sin(\norm{a})] \\
+                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\,\qty(0)^k}{(2k)!} 
+                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(0)^k}{(2k+1)!}], \\
+                        &= \ec^{a_0}\qty(1 + \vec{a}). \\
+            \end{split}
+        \end{equation}
+    \item Finally, if $\vec{a}$ is \emph{spacelike}, we have
+        \begin{equation}
+            \begin{split}
+                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}}{(2k)!} 
+                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1}}{(2k+1)!}], \\
+                        &= \ec^{a_0}\qty\big[\cosh(\norm{a}) + \uvec{a}\sinh(\norm{a})]. \\
             \end{split}
         \end{equation}
 \end{itemize}
+The relevance of the exponential map lies of course in the fact that the solution of the linear differential equation
+$$ \dv{\vec{x}}{t} = A\vec{x} $$
+is equal to \cite{Arnold1984}
+$$ \vec{x}(t) = \exp(At)\vec{x}_0, $$
+where the one-parameter group of transformations generated by $\exp(A t)$ is referred to as the \emph{flow} of the vector field $A\vec{x}$. Hence, for two-dimensional systems, the matrix $A$ can be represented by a split-quaternion, and we have just derived easy and insightful ways to evaluate its exponential: 
+$$ 
+    \exp(a t) = 
+    \begin{cases}
+        \phantom \quad \ec^{a_0 t}\qty\big[\cos(\norm{\vec{a}} t) + \uvec{a}\sin(\norm{\vec{a}} t)] & $\vec{a}$ \text{ timelike}, \\[1.5ex]
+        \phantom \quad \ec^{a_0 t}\qty(1 + \norm{\vec{a}}t ) & $\vec{a}$ \text{ lightlike}, \\[1.5ex]
+        \phantom \quad \ec^{a_0 t}\qty\big[\cosh(\norm{\vec{a}} t) + \uvec{a}\sinh(\norm{\vec{a}} t)] & $\vec{a}$ \text{ spacelike}. \\[1.5ex]
+    \end{cases}
+$$
+Evaluating a matrix exponential by hand usually involves diagonalizing (or at least, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix $A$; especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector $\uvec{a}$ are discussed in greater detail. \cite{Moler2003}
 
 \section{Application to mechanical systems}
 We will now proceed by using a mechanical `prototype' example for our mechanical system: the harmonic oscillator with \emph{two} dampers: one in series and one in parallel. The two dampers are interesting because they completely fill the state transition matrix: as such, this system can represent all the possible cases discussed in the previous section. Furthermore, the two dampers have a very distinctive interpretation within the field of economic engineering.
@@ -312,7 +345,8 @@ The nontrivial relation between momentum and the $\dot{q}$ also precludes us fro
         \midrule
             Serial damping coefficient & $\gamma_s$ & $k/b_s$ & \si{\per \second} \\
             Parallel damping coefficient & $\gamma_p$ & $b_p/m$ & \si{\per \second} \\
-            Natural frequency & $\Omega$ & $\sqrt{k/m}$ & \si{\per \second} \\
+            Natural frequency & $\Omega_n$ & $\sqrt{k/m}$ & \si{\per \second} \\
+            Damped frequency & $\Omega_d$ &  & \si{\per \second} \\
         \bottomrule
     \end{tabular}
 \end{table}
