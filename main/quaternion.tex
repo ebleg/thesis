@@ -179,15 +179,15 @@ The vector field element $X_1$, corresponding to the identity element is an infi
     \label{fig:basis_vf}
 \end{figure}
 
-Apart from the multiplication operation for split-quaternions and matrices, one can also define the \emph{commutator} of a binary operation; which measures exactly by how much two elements don't commute. For split-quaternions, matrices and vector fields the commutator is defined as: 
+Apart from the multiplication operation for split-quaternions and matrices, one can also define the \emph{commutator} of a binary operation, which measures exactly by how much two elements fail to commute. For split-quaternions, matrices and vector fields the commutator is defined as (in that order): 
 \begin{equation}
     \begin{split}
-        \liebr{a}{b} &= ab - ba,\quad a, b \in \spquaternions \\
-        \liebr{A}{B} &= AB - BA,\quad A, B \in \real^{2\times 2} \\
-        \liebr{X}{Y} &= \lied{X}{Y},\quad X,Y\in \vfields{M}.
+        \liebr{a}{b} &= ab - ba,\quad a, b \in \spquaternions, \\
+        \liebr{A}{B} &= AB - BA,\quad A, B \in \real^{2\times 2}, \\
+        \liebr{X}{Y} &= \lied{X}{Y},\quad X,Y\in \vfields{M},
     \end{split}
 \end{equation}
-for some smooth manifold $M$ of the appropriate dimension. For vector fields, the commutator is also referred to as the \emph{Lie bracket}, and it defines a \emph{Lie algebra}. The commutation relations (or \emph{structure constants}) for the basis vector fields are \cite{Schuller2014}
+for some smooth manifold $M$ of the appropriate dimension. For vector fields, the commutator is also referred to as the \emph{Lie bracket} (it therefore defines the \emph{Lie algebra} $\slalg{2}{\real}$). The commutation relations (or \emph{structure constants}) for the basis vector fields are \cite{Schuller2014}
 \begin{gather}
     \liebr{X_1}{X_{\quati}} = \liebr{X_1}{X_{\quatj}} = \liebr{X_1}{X_{\quatk}} = 0, \\
     \liebr{X_{\quati}}{X_{\quatj}} = 2X_{\quatk}, \qquad  
@@ -197,11 +197,11 @@ for some smooth manifold $M$ of the appropriate dimension. For vector fields, th
 Of course, these commutation relations are exactly the same for the corresponding split-quaternion or matrix basis elements. Scalar multiples of the identity element commute with every other element of the algebra; they are in the \emph{center} of the algebra. Importantly, the associate vector field also commutes with all the other vector fields. 
 
 \subsection{Classification of dynamical systems}
-The classification of two-dimensional linear dynamical systems is important, for they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix matrix $A$, or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}. Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, this classification is more naturally done in the realm of split-quaternions, based on their (vector) norm, on par with the regimes defined in \cref{tab:class_combinations}.
+The classification of two-dimensional linear dynamical systems is important, for they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix matrix $A$, or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}. Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, this classification is more naturally done in the realm of split-quaternions, based on their squared (vector) norm, on par with the regimes defined in \cref{tab:class_combinations}.
 \begin{figure}[h!]
     \centering
     \input{media/tikz/poincare_diagram}
-    \caption{The classic Poincaré diagram, based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix $A$. The corresponding split-quaternion regimes defined in \cref{tab:class_combinations} are displayed as well. The determinant axis coincides with the norm of the split quaternion being 0, while all the points on the parabolic line correspond to split-quaternions with zero \emph{vector} norm. A further distinction is made with the scalar part of the split-quaternion, which, for each of the regimes, determines (asymptotic) (in)stability.}
+    \caption{The classic Poincaré diagram, based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix $A$. The corresponding split-quaternion regimes defined in \cref{tab:class_combinations} are displayed as well. The determinant axis coincides with the squared norm of the split quaternion being 0, while all the points on the parabolic line correspond to split-quaternions with zero \emph{vector} norm. A further distinction is made with the scalar part of the split-quaternion, which, for each of the regimes, determines (asymptotic) (in)stability.}
     \label{fig:poincare_diagram}
 \end{figure}
 
@@ -242,63 +242,77 @@ $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
 as the sum of $a_0$ and $\quatvec{a_1}{a_2}{a_3}$. The real part is distinguished from the other three parts in the sense that it commutes
 with every other element (cf. \cref{ssec:vf_algebra}). We may therefore use the former property and apply it to the split-quaternion exponential as well:
 $$ \exp(a) \, = \,\ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}). $$
-We therefore only have to be considered with the evaluation exponential of $\vec{a}$. To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. As such $ \conj{\vec{a}} = -\vec{a} $, and the `vector norm' is simply the negative of the square of the vector part:
+We therefore only have to be considered with the evaluation exponential of $\vec{a}$. To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. This means that $ \conj{\vec{a}} = -\vec{a} $, and the squared vector norm is simply the negative of the square of the vector part:
 $$ \mathscr{N}(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2. $$
-Furthermore, consider the \emph{unit} split-quaternion
-$$ \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}(\vec{a})}}} $$
+Let us now introduce the concept of \emph{unit split-quaternion vectors}, which are vector split-quaternions with a vector norm of $\pm 1$. The unit vector may be obained by normalization of the vector part:
+$$ \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}(\vec{a})}}} \qquad \mathscr{N}(\vec{a}) \neq 0, $$
 which squares to
 $$ \hat{\vec{a}}^2 = - \mathscr{N}(\hat{\vec{a}}) 
                    = - \frac{\mathscr{N}(\vec{a})}{\abs{\mathscr{N}(\vec{a})}} 
-                   = - \sgn(\mathscr{N}(\vec{a}))
+                   = - \sgn(\mathscr{N}(\vec{a})).
 $$
-From this expression, we can distinguish three possibilities: \cite{Motter1998,Harkin2004}
+Normalizing lightlike vectors is not possible, because they have all the same length of zero (one could say that they are normalized by default). Based on the regime of the vector part, three possiblities arise: \cite{Motter1998,Harkin2004}
 \begin{itemize}
-    \item If $\vec{a}$ is timelike, then $\uvec{a}^2 = -1$. We can therefore say that the unit vector `behaves' like the imaginary unit $\ii$ ($\ii^2 = -1$). In general, we can identify the split-quaternion $ a_0 + \norm{a}\uvec{a}$ with the \emph{complex number} $a_0 + \norm{a}\ii$. 
-    \item If $\vec{a}$ is lightlike, then $\uvec{a}^2 = 0$. This is analogous to the nilpotent unit $\epsilon$, whose defining property is $ \epsilon^2 = 0$. Split-quaternions with timelike vector part can be identified with the \emph{dual number} $a_0 + \norm{a}\epsilon$. 
-    \item Finally, if $\vec{a}$ is spacelike, then $\uvec{a}^2 = 1$. The unit vector behaves like the idempotent unit $\jj$, with defining property $\jj^2 = 1$ ($\jj \notin \real$!). Likewise, a split-quaternion with spacelike vector part is analogous to the split-complex number (or hyperbolic number) $a_0 + \norm{a}\jj$.
+    \item If $\vec{a}$ is timelike, then $\uvec{a}^2 = -1$. We can therefore say that the unit vector `behaves' like the imaginary unit $\ii$ ($\ii^2 = -1$). In general, we can identify the split-quaternion (with timelike vector part) $ a_0 + \norm{a}\uvec{a}$ with the \emph{complex number} $a_0 + \norm{a}\ii$. 
+    \item If $\vec{a}$ is lightlike, then $\vec{a}^2 = 0$, and the notion of the unit vector is not well-defined. Because the vector is nilpotent with degree 2, it is analogous to the nilpotent unit $\epsilon$ (for which we have that $\epsilon^2 = 0$). Split-quaternions with timelike vector part can be identified with the \emph{dual number} $a_0 + \epsilon$. 
+    \item Finally, if $\vec{a}$ is spacelike, then $\uvec{a}^2 = 1$. The unit vector behaves like the idempotent unit $\jj$, with defining property $\jj^2 = 1$ ($\jj \notin \real$!). Likewise, a split-quaternion with spacelike vector part is analogous to the \emph{split-complex number} (or hyperbolic number) $a_0 + \norm{a}\jj$.
 \end{itemize}
 
+This connections with the generalized complex numbers\footnote
+{For more details on generalized complex numbers, the reader is referred to \citet{Harkin2004}.}
+sheds some additional light on the behavior of the eigenvalues of the associated matrix $A$ by means of the root locus plot (see \cref{eq:quat_eigvals}). A common type of root locus branch consists of a complex pole pair approaching the real axis when the gain is increased. When they finally collide on the real axis, they each go their opposite ways on the real axis, essentially breaking the symmetry with respect to the real axis. The split-quaternions and hypercomplex numbers paint a slightly more elegant picture, which is shown in \cref{fig:root_locus}:
+\begin{itemize}
+    \item As shown above, when the pole pair is complex, the associated split-quaternion vector is timelike. The eigenvalues are naturally conjugate with respect to the real axis, i.e.
+        $$ \lambda_A = a_0 \pm \norm{a}\ii.$$
+    \item When the pole pair collides on the real axis (often called the \emph{branch point}), the imaginary part of the eigenvalue is zero, and the vector is timelike. Observe that we can make the case that, because the branches continue afterwards in a separate manner, they cannot be \emph{exactly} the same. Indeed, the eigenvalues are
+        $$ \lambda_A = a_0 \pm \epsilon.$$
+    The nilpotent unit $\epsilon$ is often interpreted as a differential, or an infinitesimally small quantity.\footnote{A common application of dual numbers is automatic differentiation: because higher powers vanish, they can be used to generate first-order polynomial approximations. The unit `circle' for dual numbers consists of two vertical lines crossing the horizontal axis at $\pm 1$. These lines can again be interpreted as linear approximations of the actual unit circle (or unit hyperbola) associated to (split-)complex numbers.} and we could say that in this case, the pole pair is still conjugate, but the poles differ only by an infinitesimal amount.
+    \item When the gain is increased further, the poles are real and the symmetry with respect to the real axis is broken. However, we can infer from the preceding discussion that the imaginary part is now hyperbolic instead, i.e.
+        $$ \lambda_A = a_0 \pm \norm{a}\jj. $$
+        Of course, it is possible to project these points on the real axis, but this obscures the natural symmetry of the root locus branch. In \cref{fig:root_locus}, we therefore put the hyperbolic part on a third axis.
+\end{itemize}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \input{media/tikz/root_locus}
-    \caption{Blabla}
+    \caption{Generalized version of a root locus plot in terms of hypercomplex numbers. The traditional root locus is set in the complex $s$-plane (shown in blue), but we added a third axis for the hyperbolic part of the eigenvalue. When the gain is increased, the initially complex pole pair ventures towards the real axis. If the pole pair is critically damped, both poles are separated from the real axis by an infinitesimal distance of $\epsilon$. Increasing the gain even more pushes the pole pair into the hyperbolic regime (the associated split-quaternion vector is now spacelike). Observe that in this picture, the symmetry with respect to the real axis is preserved. In the traditional root locus, these points are projected onto the real axis, indicated by the dashed lines. }
     \label{fig:root_locus}
 \end{figure}
 
-
-Now to return to the exponential function:
-\begin{equation}
+Let us now return to the exponential function. We can manipulate the definition of $\exp(a)$ as follows:
+\begin{equation*}
     \begin{split}
-        \exp(a) &= \ec^{a_0}\;\qty(\sum_{k=0}^n \frac{1}{k!} \vec{a}^k) \\
-                &= \ec^{a_0}\;\qty[\sum_{k=0}^n \frac{\qty(\vec{a}^2)^k}{(2k)!}  + \sum_{k=0}^n \frac{\vec{a}\qty(\vec{a}^2)^k}{(2k+1)!}] \\
-                &= \ec^{a_0}\;\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\, \qty(\uvec{a}^2)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(\uvec{a}^2)^k}{(2k+1)!}] \\
+        \exp(a) &= \ec^{a_0}\;\qty(\sum_{k=0}^\infty \frac{1}{k!} \vec{a}^k) \\
+                &= \ec^{a_0}\;\qty[\sum_{k=0}^\infty \frac{\qty(\vec{a}^2)^k}{(2k)!}  + \sum_{k=0}^\infty \frac{\vec{a}\qty(\vec{a}^2)^k}{(2k+1)!}]. \\
     \end{split}
-\end{equation}
-Hence, we have isolated the expression $\uvec{a}$ in the above expression; the value of the exponential therefore depends on the three cases for $\uvec{a}$ that were identified before:
+\end{equation*}
+Furthermore, if $\vec{a}$ is not lightlike, we have:
+\begin{equation*}
+    \exp(a) = \ec^{a_0}\;\qty[\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k}\, \qty(\uvec{a}^2)^k}{(2k)!}  + \uvec{a}\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k+1} \, \qty(\uvec{a}^2)^k}{(2k+1)!}].
+\end{equation*}
+Once again, there are three possibilities, depending on the regime of $\vec{a}$:
 \begin{itemize}
     \item If $\vec{a}$ is \emph{timelike}, then the above expression reverts to
         \begin{equation}
             \begin{split}
-                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\,\qty(-1)^k}{(2k)!} 
-                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(-1)^k}{(2k+1)!}], \\
+                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k}\,\qty(-1)^k}{(2k)!} + \uvec{a}\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k+1} \, \qty(-1)^k}{(2k+1)!}], \\
                         &= \ec^{a_0}\qty\big[\cos(\norm{a})  + \uvec{a}\sin(\norm{a})]. \\
             \end{split}
         \end{equation}
-        This is roughly equivalent to the Euler identity for complex numbers, which is not quite surprising since we found before that $\uvec{a}$ can be associated with the imaginary unit if $\vec{a}$ is timelike.
-    \item Secondly, if $\vec{a}$ is \emph{lightlike}, \footnote{We define $0^0 \equiv 1$, a common convention in power series and algebra. \cite{Graham1994}}
+        This is roughly equivalent to the Euler identity for complex numbers: this is not at all surprising, since we found before that $\uvec{a}$ can be associated with the imaginary unit if $\vec{a}$ is timelike.
+    \item Secondly, if $\vec{a}$ is \emph{lightlike}, we can simply use the definition of the expontial in its original form: \footnote{We can also use the `split' expression, defining that $0^0 \equiv 1$, a common convention in power series and algebra. Observe that the trigonometric functions associated to the dual numbers (i.e. the lightlike vectors) are then equal to the small-angle approximation for $\sin$ and $\cos$. \cite{Graham1994, Harkin2004}}
         \begin{equation}
             \begin{split}
-                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}\,\qty(0)^k}{(2k)!} 
-                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1} \, \qty(0)^k}{(2k+1)!}], \\
+                \exp(a) &= \ec^{a_0}\,\sum^{\infty}_{k=0} \frac{\vec{a}^k}{k!}, \\
+                        &= \ec^{a_0}\qty[1 + \vec{a} + \sum^{\infty}_{k=2} \frac{\vec{a}^{k-2}\vec{a}^2}{k!}], \\
                         &= \ec^{a_0}\qty(1 + \vec{a}). \\
             \end{split}
         \end{equation}
     \item Finally, if $\vec{a}$ is \emph{spacelike}, we have
         \begin{equation}
             \begin{split}
-                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k}}{(2k)!} 
-                           + \uvec{a}\sum_{k=0}^n \frac{\norm{\vec{a}}^{2k + 1}}{(2k+1)!}], \\
+                \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k}}{(2k)!} 
+                           + \uvec{a}\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k+1}}{(2k+1)!}], \\
                         &= \ec^{a_0}\qty\big[\cosh(\norm{a}) + \uvec{a}\sinh(\norm{a})]. \\
             \end{split}
         \end{equation}
@@ -316,7 +330,7 @@ $$
         \phantom \quad \ec^{a_0 t}\qty\big[\cosh(\norm{\vec{a}} t) + \uvec{a}\sinh(\norm{\vec{a}} t)] & $\vec{a}$ \text{ spacelike}. \\[1.5ex]
     \end{cases}
 $$
-Evaluating a matrix exponential by hand usually involves diagonalizing (or at least, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix $A$; especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector $\uvec{a}$ are discussed in greater detail. \cite{Moler2003}
+Evaluating a matrix exponential by hand usually involves diagonalizing (strictly speaking, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix $A$; especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector $\uvec{a}$ are discussed in greater detail. \cite{Moler2003}
 
 \section{Application to mechanical systems}
 We will now proceed by using a mechanical `prototype' example for our mechanical system: the harmonic oscillator with \emph{two} dampers: one in series and one in parallel. The two dampers are interesting because they completely fill the state transition matrix: as such, this system can represent all the possible cases discussed in the previous section. Furthermore, the two dampers have a very distinctive interpretation within the field of economic engineering.
