@@ -57,7 +57,7 @@ which we require to define the \emph{squared split-quaternion norm}:
     \label{eq:quat_norm}
 \end{equation}
 As mentioned, this norm is not positive definite, in stark contrast to quaternions (or complex numbers, for that matter). Split-quaternions can be categorized into three regimes based on their norm being negative, zero or positive. In the tradition of special relativity, these regimes are named\footnote
-{Spacetime is also four-dimensional, but the signature of the Minkowski metric is different from the split-quaternion signature: it is either $(-, +, +, +)$ or equivalently $ (+, -, -, -)$ depending on the sign convention one chooses to follow. However, the terminology (i.e. spacelike, timelike, lightlike) still applies.} \cite{Misner1970,Landau1971}
+{Spacetime is also four-dimensional, but the signature of the Minkowski metric is different from the split-quaternion signature: it is either $(-, +, +, +)$ or equivalently $ (+, -, -, -)$ depending on the sign convention we choose to follow. However, the terminology (i.e. spacelike, timelike, lightlike) still applies.} \cite{Misner1970,Landau1971}
 \begin{itemize}
     \item \emph{timelike} if $ \mathscr{N}(a) > 0 $,
     \item \emph{lightlike} if $ \mathscr{N}(a) = 0 $, 
@@ -118,9 +118,15 @@ In the case of the split-quaternions and two-dimensional matrices, it is suffici
     \label{eq:basis_elements}
 \end{equation}
 It is easily verified that (i) these matrices span $\real^{2\times2}$ and (ii) that the multiplication rules for split-quaternions are in accordance when translated to the respective matrices under matrix multiplication. Due to the bilinearity of the product, any linear combination of the basis elements will therefore satisfy the rules as well. Hence, we have established an algebra isomorphism between the split-quaternions and the $2\times 2$-matrices. Based on this mapping for the basis vectors, a general quaternion maps to 
-$$ \phi(\quat{a_0}{a_1}{a_2}{a_3}) \quad = \quad \mqty(a_0 + a_3 & a_1 + a_2 \\ a_2 - a_1 & a_0 - a_3). $$
+\begin{equation}
+    \phi(\quat{a_0}{a_1}{a_2}{a_3}) \quad = \quad \mqty(a_0 + a_3 & a_1 + a_2 \\ a_2 - a_1 & a_0 - a_3). 
+    \label{eq:quat_isom}
+\end{equation}
 Likewise, the inverse mapping on an arbitrary matrix yields
-$$ \phi^{-1}\mqty(b_0 & b_1 \\ b_2 & b_3) \quad = \quad \quat{\frac{b_0 + b_3}{2}}{\qty(\frac{b_1 - b_2}{2})}{\qty(\frac{b_1 + b_2}{2})}{\qty(\frac{b_0 - b_3}{2})}.$$
+\begin{equation}
+    \phi^{-1}\mqty(b_0 & b_1 \\ b_2 & b_3) \quad = \quad \quat{\frac{b_0 + b_3}{2}}{\qty(\frac{b_1 - b_2}{2})}{\qty(\frac{b_1 + b_2}{2})}{\qty(\frac{b_0 - b_3}{2})}. 
+    \label{eq:inv_quat_isom}
+\end{equation}
 
 One of the powerful features of the mapping $\phi$ is that it maps natural properties of the split-quaternion to natural properties of the associated matrix. Hence, given that $A = \phi(a)$ with $a \in \spquaternions$ and $A \in \real^{2\times2}$, we have the following properties: 
 \begin{itemize}
@@ -179,7 +185,7 @@ The vector field element $X_1$, corresponding to the identity element is an infi
     \label{fig:basis_vf}
 \end{figure}
 
-Apart from the multiplication operation for split-quaternions and matrices, one can also define the \emph{commutator} of a binary operation, which measures exactly by how much two elements fail to commute. For split-quaternions, matrices and vector fields the commutator is defined as (in that order): 
+Apart from the multiplication operation for split-quaternions and matrices, we can also define the \emph{commutator} of a binary operation, which measures exactly by how much two elements fail to commute. For split-quaternions, matrices and vector fields the commutator is defined as (in that order): 
 \begin{equation}
     \begin{split}
         \liebr{a}{b} &= ab - ba,\quad a, b \in \spquaternions, \\
@@ -251,11 +257,13 @@ $$ \hat{\vec{a}}^2 = - \mathscr{N}(\hat{\vec{a}})
                    = - \frac{\mathscr{N}(\vec{a})}{\abs{\mathscr{N}(\vec{a})}} 
                    = - \sgn(\mathscr{N}(\vec{a})).
 $$
-Normalizing lightlike vectors is not possible, because they have all the same length of zero (one could say that they are normalized by default). Based on the regime of the vector part, three possiblities arise: \cite{Motter1998,Harkin2004}
+Normalizing lightlike vectors is not possible, because they have all the same length of zero (we could say that they are normalized by default). Based on the regime of the vector part, three possiblities arise: \cite{Motter1998,Harkin2004}
 \begin{itemize}
     \item If $\vec{a}$ is timelike, then $\uvec{a}^2 = -1$. We can therefore say that the unit vector `behaves' like the imaginary unit $\ii$ ($\ii^2 = -1$). In general, we can identify the split-quaternion (with timelike vector part) $ a_0 + \norm{a}\uvec{a}$ with the \emph{complex number} $a_0 + \norm{a}\ii$. 
     \item If $\vec{a}$ is lightlike, then $\vec{a}^2 = 0$, and the notion of the unit vector is not well-defined. Because the vector is nilpotent with degree 2, it is analogous to the nilpotent unit $\epsilon$ (for which we have that $\epsilon^2 = 0$). Split-quaternions with timelike vector part can be identified with the \emph{dual number} $a_0 + \epsilon$. 
-    \item Finally, if $\vec{a}$ is spacelike, then $\uvec{a}^2 = 1$. The unit vector behaves like the idempotent unit $\jj$, with defining property $\jj^2 = 1$ ($\jj \notin \real$!). Likewise, a split-quaternion with spacelike vector part is analogous to the \emph{split-complex number} (or hyperbolic number) $a_0 + \norm{a}\jj$.
+    \item Finally, if $\vec{a}$ is spacelike, then $\uvec{a}^2 = 1$. The unit vector behaves like the idempotent unit $\jj$, with defining property $\jj^2 = 1$ ($\jj \notin \real$!).\footnote
+        {Again, we must take care not to confuse the hyperbolic unit with the split-quaternion basis element $\quatj$. They behave the same, and are related in the sense that they give rise to `split' behavior, but are part of a very different number systems.}
+        Likewise, a split-quaternion with spacelike vector part is analogous to the \emph{split-complex number} (or hyperbolic number) $a_0 + \norm{a}\jj$.
 \end{itemize}
 
 This connections with the generalized complex numbers\footnote
@@ -351,13 +359,13 @@ The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc
 \end{equation}
 Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection $q$ and the position of the mass $q_1$. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. The equations of motion than have the matrix form:
 \begin{equation*}
-    \mqty(\dot{q}\\\dot{p}) = \mqty(-k/b_s & 1/m \\ -kq & - b_p/m)\mqty(q \\ p),
+    \mqty(\dot{q}\\\dot{p}) = \mqty(-k/b_s & 1/m \\ -k & - b_p/m)\mqty(q \\ p),
 \end{equation*}
 or, using the parameters defined in \cref{tab:ddho_params}:
 \begin{equation}
-    \mqty(\dot{q}\\\dot{p}) = \mqty(-\gamma_s & 1/m \\ -m\Omega^2 & - \gamma_p)\mqty(q \\ p),
+    \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & 1/m \\ -m\Omega^2 & - \gamma_p)}_A \mqty(q \\ p).
 \end{equation}
-The nontrivial relation between momentum and the $\dot{q}$ also precludes us from casting this system directly to the Lagrangian formalism, because the vector field is not second-order.\footnote{A second-order vector field implies that the `velocities' really are the time derivatives of the `positions',  cf. \cref{app:symplectic_geometry} for more details.}
+The nontrivial relation between momentum and the $\dot{q}$ also precludes us from casting this system directly to the Lagrangian formalism, because the vector field is not second-order. A second-order vector field implies that the `velocities' really are the time derivatives of the `positions', (cf. \cref{app:symplectic_geometry} for a more formal discussion).
 
 \begin{table}[ht!]
     \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
@@ -375,10 +383,27 @@ The nontrivial relation between momentum and the $\dot{q}$ also precludes us fro
     \end{tabular}
 \end{table}
 
-\todo{Lagrangian transformation}
-\todo{Conversion to sp quaternion}
+The split-quaternion associated with the $A$-matrix of the doubly damped system can easily be found using the mapping defined by $\cref{eq:inv_quat_isom}$:
+\begin{equation}
+    a\:=\: -\tfrac{1}{2}\qty(\gamma_s + \gamma_p)\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega^2)\quati\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega^2)\quatj\:+\:\tfrac{1}{2}\qty(\gamma_p - \gamma_s)\quatk. 
+    \label{eq:ddho_quat}
+\end{equation}
+Now, a very important comment is to be made about the previous expression. Observe that both $\gamma_s$ and $\gamma_p$ have units of \si{\per \second}; so adding (or subtracting) them is perfectly allowed. \emph{However}, the quantities (at least, in the matrix) $1/m$ and $m\Omega^2$ have units \si{\per \kilogram} and \si{\kilogram \per \second \squared} respectively. Common sense tells one (rightfully so) not to add such numbers, or at least not without caution. To make the mapping from the matrix to the split-quaternions work conceptually, it is therefore vital to associate the units in the matrix with the \emph{basis elements}, and not with the componets of the split-quaternions. For example, the $\quati$ then has units
+$$ \phi(\quati) = \mqty(0 & 1\,\si{\per \kilogram} \\ -1\,\si{\kilogram \per \second \squared} & 0).  $$
+This has a consequence that the components of the split-quaternion can be treated as dimensionless numbers, which really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaterions back to the realm of the matrices. 
 
+The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. First, observe that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
+$$ N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*, $$
+which form the group isomorphic to $(\real^*)^2$. This transformation of the vector space manifests itself on the $A$-matrix as: $ A' = N^{-1}A N$. It is easy to see that the basis matrices (or vector fields) for `1' and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not. A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. For example, it is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
+$$ p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q, $$
+such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This essentially resolves the unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj component.
 
+In this section, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, also those that are not invariant under the action of the structure group $(\real^*)^2$ that contains the changes of units. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(n)$) produces a split-quaternion with zero $\quatj$-component. To conclude, it is not so much the case that unit transformations are not allowed in the split-quaternion space, but the question as to what the units of the \quatj-components are is moot.
+
+\subsection{Eigenvalues}
+
+\subsection{Eigenvector geometry in \sogroup{1, 2}}
+ 
 \FloatBarrier
 \section{Notes}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.

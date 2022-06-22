@@ -115,6 +115,24 @@ It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai 
 \section{From time-dependent to contact Hamiltonian systems}
 In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include dissipation in the Hamiltonian formalism. First of all, to a contact manifold, which is odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}, denoted by $q_0$.  However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system. \cite{VanderSchaft2021a,Arnold1989a}
 
+\subsection{Arguments from thermodynamics}
+
+\textbf{First law of thermodynamics}
+$$ \dd{U} = \eta - \beta $$
+where $U$ is the internal energy of the system, $\eta$ the heat form and $\beta$ the work form. \cite{Frankel2012,Arnold1989b,Bamberg1988}
+We shall \emph{not} denote these forms by $\eta \neq \text{\dj}Q$, because the work and heat forms are definitely not closed (and therefore not exact!). The real `power' of the first law resides in the fact that $\dd{U}$ \emph{exists} --- an arbitrary form, say $\theta$, would of course yield a meaningless statement. Indeed, the first law states that the difference between the energy and work forms is exact. Furthermore, we have that the form given by 
+$$ \theta = \dd{U} - \eta + \beta $$
+pulls back to zero.
+
+The system boundary contains both the mass, the spring and the fluid contained in the damper. One may abstract this damper by considering it to be a thermal heat bath connected to the system, where the damper system merely acts as a connecting interface between the two. The internal energy of the system is:
+$$ U = \text{mechanical energy} + \text{internal energy of the damper}  $$
+Naturally, the mechanical energy of the system is equal to the sum of the kinetic energy stored in the mass, and the potential energy stored in the spring. The internal energy of the damper fluid is a function of the entropy of the fluid, or, as we will see later, the temperature of the fluid.
+
+Gibbs 1-form
+$$ \theta = \dd{U} - T\dd{S} - P\dd{V} $$
+
+Equilibrium question: some (Hermann) define $\varphi^*(\theta)$ as a condition for equilibrium conditions, which is not necessarily the case (right).
+
 \subsection{Symplectization \& Liouville structures}
 The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
 \begin{equation}
