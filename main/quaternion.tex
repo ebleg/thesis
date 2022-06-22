@@ -6,6 +6,7 @@ In this chapter, the geometric connection is made between the algebra of split-q
 
 \section{Split-quaternion algebra}
 \subsection{Basic properties}
+\label{ssec:quat_basics}
 Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which will be denoted by 1, \quati, \quatj and \quatk.\footnote
 {Even though they behave similarly, the imaginary unit $\ii$ is not to be confused with the split-quaternion basis element \quati, because they belong to different number systems.}
 The algebra of split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative ring}. The multiplication table for the split-quaternion algebra is shown in \cref{tab:quat_table}. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
@@ -73,7 +74,7 @@ The notation used here is not abusive: $\vec{a}$ simply refers to the split-quat
 
 The quadratic form of the squared vector norm is not positive-definite either; in the the same vein as before, we can therefore classify split-quaternions by the `sign' of their vector part again. We refer to (vectors in) these regimes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same fashion. 
 
-In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{2, 1}$, and call it the Lorentzian three-space. \cite{Jafari2014} 
+In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent the Lorentz norm applied to a vector in $\real^3$; we will denote $\real^3$ equipped with the Lorentz norm by $\real^{1, 2}$, and call it the Lorentzian three-space. \cite{Jafari2014} 
 
 Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}(\vec{a}) < 0$; that is to say, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible regime combinations for split-quaternions and their vector parts are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamical systems. It will play a central role throughout this chapter.
 
@@ -401,9 +402,38 @@ such that the Hamiltonian reverts to a particularly convenient form. We can see 
 In this section, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, also those that are not invariant under the action of the structure group $(\real^*)^2$ that contains the changes of units. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(n)$) produces a split-quaternion with zero $\quatj$-component. To conclude, it is not so much the case that unit transformations are not allowed in the split-quaternion space, but the question as to what the units of the \quatj-components are is moot.
 
 \subsection{Eigenvalues}
+Underdamped, overdamped critically damped.
 
-\subsection{Eigenvector geometry in \sogroup{1, 2}}
- 
+\subsection{Eigenvector geometry in SO(3, R)}
+We have learned in \cref{ssec:quat_isomorphism} that the eigenvalues of a $2\times 2$-matrix can be expressed in terms of the scalar part and vector norm of the associated split-quaternion. Once we have removed the scalar part and normalized the vector part with its norm (if admissible), we are left with the unit vector part of the split-quaternion. Hence, this two-dimensional object contains the remaining information present in the matrix: the eigenvectors. The great advantage of split-quaternions is that the unit vector is entirely unambiguous, which is not the case for eigenvectors, for they represent only a direction, while the length of the eigenvector is arbitrary. The unit vector part of the split-quaternion encodes this information in a \emph{single two-dimensional object}.
+
+As mentioned in \cref{ssec:quat_basics}, the split-quaternion vectors live in the Lorentzian three-space $\real^{1, 2}$. The \emph{unit vectors} in this space live in a particular subspace, the Lorentzian equivalent of the unit sphere in this space. Due to the indefiniteness of the Lorentz norm, this subspace is disconnected: it consists out of three connected parts (shown in \cref{fig:hyperboloids}):
+\begin{itemize}
+    \item The \emph{one-sheet hyperboloid}, which contains all the \emph{spacelike} unit vectors (overdamped systems).
+    \item The \emph{light cone}, which contains all the \emph{lightlike} vectors (the notion of a unit vector is not well defined in this region) (critically damped systems).
+    \item The \emph{two-sheet hyperboloid}; which contains all the \emph{timelike} unit vectors (underdamped systems).
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[]{media/other/lorentz_space.png}
+    \caption{The three surfaces in Lorentzian 3-space which are }
+    \label{fig:hyperboloids}
+\end{figure}
+
+Given the regime of the mechanical systems, the eigenvectors of the state transition matrix determine the particular shape of the trajectories in the phase plane. We distinguish three types of shapes:
+\begin{itemize}
+    \item[\circled{1}] Saddle point: two directions
+    \item[\circled{2}] Stable line: two direction (?)
+    \item[\circled{3}] Pure translation: translation direction?
+    \item[\circled{4}] Node: two directions
+    \item[\circled{6}] A center/spiral, which has elliptic trajectories. These also include the spiral nodes, since the scalar part (contraction) is not part of the vector. We can characterize the shape of the elliptic trajectories by the \emph{eccentricity} and their \emph{tilt} (i.e. the rotation of the major axes of the ellipse with respect to the phase plane axes). 
+\end{itemize}
+
+Compute real eigenvectors by substituting the action of multiplying with a vector \emph{in} the split-quaternion and solving appropriately.
+
+\subsubsection{Underdamped systems}
+
 \FloatBarrier
 \section{Notes}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.
