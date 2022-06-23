@@ -70,14 +70,14 @@ $$ \dv{q_i}{t} = v_i \qquad \dv{v_i}{t} = F_i, $$
 which means that the second-order vector field coincides with the notion of a 'second-order differential equation' in $q_i$.
 
 \paragraph{The Euler-Lagrange equations} With the infrastructure set up in the preceding paragraph, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function $L \in \functions{\tbundle{M}}$, define the \emph{Lagrange 1-form}\footnote
-{\citet{Carinena1990} calls $\alpha_L$ the Euler-Poincaré 1-form.}
+{\citet{Carinena1990} calls $\theta$ the Euler-Poincaré 1-form.}
 \begin{equation}
-    \alpha_L \equiv \dd{L} \circ S = \sum_{j=1}^n \pdv{L}{v^j}\dd{q^j}.
+    \theta_L \equiv \dd{L} \circ S = \sum_{j=1}^n \pdv{L}{v^j}\dd{q^j}.
 \end{equation}
-Observe that the Lagrange 1-form is also equal to the pullback of the Liouville form under the Legendre transformation: $\alpha_L = (\fiberder{L})^* \alpha$. \cite{Abraham1978}
+Observe that the Lagrange 1-form is also equal to the pullback of the Liouville form under the Legendre transformation: $\theta_L = (\fiberder{L})^* \theta$. \cite{Abraham1978}
 Secondly, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena1990}
 \begin{equation}
-    \omega_L \equiv - \dd{\alpha}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^j}}{\dd{v^i}} + \pdv[2]{L}{q^i}{v^j}\wedgep{\dd{q^j}}{\dd{q^i}}.
+    \omega_L \equiv - \dd{\theta}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^j}}{\dd{v^i}} + \pdv[2]{L}{q^i}{v^j}\wedgep{\dd{q^j}}{\dd{q^i}}.
 \end{equation}
 Because the exterior derivative and the pullback commute, the Lagrange 2-form is equal to the pullback of the symplectic 2-form under the Legendre transform. If the rank of the Hessian $ \pdv[2]{L}{v^i}{v^j}$ is full (and constant), then $\omega_L$ is nondegenerate and therefore defines a symplectic structure on $\tbundle{M}$. However, observe that whether $\omega_L$ is symplectic or not depends on the nature of the Lagrangian, while the symplectic structure in the Hamiltonian setting is canonically derived from the cotangent bundle itself --- there is no need for the Hamiltonian to be regular.
 
@@ -119,17 +119,17 @@ which is the traditional form of the Euler-Lagrange equations.
 
 Provided that $X_L$ is a second-order vector field, the equation \cref{eq:EL_nocomp} is equivalent to the following statement:
 \begin{equation}
-    \lied{X_L}{\alpha_L} = \dd{L}.
+    \lied{X_L}{\theta_L} = \dd{L}.
 \end{equation}
 The equivalence is easily shown using the Cartan formula:
 \begin{equation*}
     \begin{split}
-        \lied{X_L}{\alpha_L} &= \dd{L} \\
-        \dd{\qty(\intpr{X_L}{\alpha_L})} + \intpr{X_L}{\dd{\alpha_L}} &= \dd{L} \\
-        \dd{\qty(\intpr{X_L}{\alpha_L})} - \intpr{X_L}{\omega_L} &= \dd{L}
+        \lied{X_L}{\theta_L} &= \dd{L} \\
+        \dd{\qty(\intpr{X_L}{\theta_L})} + \intpr{X_L}{\dd{\theta_L}} &= \dd{L} \\
+        \dd{\qty(\intpr{X_L}{\theta_L})} - \intpr{X_L}{\omega_L} &= \dd{L}
     \end{split}
 \end{equation*}
-The fact that $X_L$ is second-order implies that $\intpr{X_L}{\alpha_L} = Z(L)$. Therefore 
+The fact that $X_L$ is second-order implies that $\intpr{X_L}{\theta_L} = Z(L)$. Therefore 
 \begin{equation*}
     \begin{split}
         \dd{(Z(L))} - \intpr{X_L}{\omega_L} &= \dd{L} \\
