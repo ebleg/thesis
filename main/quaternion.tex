@@ -258,13 +258,13 @@ $$ \hat{\vec{a}}^2 = - \mathscr{N}(\hat{\vec{a}})
                    = - \frac{\mathscr{N}(\vec{a})}{\abs{\mathscr{N}(\vec{a})}} 
                    = - \sgn(\mathscr{N}(\vec{a})).
 $$
-Normalizing lightlike vectors is not possible, because they have all the same length of zero (we could say that they are normalized by default). Based on the regime of the vector part, three possiblities arise: \cite{Motter1998,Harkin2004}
+Normalizing lightlike vectors is not possible, because they have all the same length of zero: there is no point in making the distinction between vector and unit vector. Based on the regime of the vector part, three possiblities arise: \cite{Motter1998,Harkin2004}
 \begin{itemize}
-    \item If $\vec{a}$ is timelike, then $\uvec{a}^2 = -1$. We can therefore say that the unit vector `behaves' like the imaginary unit $\ii$ ($\ii^2 = -1$). In general, we can identify the split-quaternion (with timelike vector part) $ a_0 + \norm{a}\uvec{a}$ with the \emph{complex number} $a_0 + \norm{a}\ii$. 
+    \item If $\vec{a}$ is timelike, then $\uvec{a}^2 = -1$. We can therefore say that the unit vector `behaves' like the imaginary unit $\ii$ ($\ii^2 = -1$). In general, we can identify the split-quaternion (with timelike vector part) $ a_0 + \norm{a}\uvec{a}$ with the \emph{complex number} $a_0 + \norm{\vec{a}}\ii$. 
     \item If $\vec{a}$ is lightlike, then $\vec{a}^2 = 0$, and the notion of the unit vector is not well-defined. Because the vector is nilpotent with degree 2, it is analogous to the nilpotent unit $\epsilon$ (for which we have that $\epsilon^2 = 0$). Split-quaternions with timelike vector part can be identified with the \emph{dual number} $a_0 + \epsilon$. 
     \item Finally, if $\vec{a}$ is spacelike, then $\uvec{a}^2 = 1$. The unit vector behaves like the idempotent unit $\jj$, with defining property $\jj^2 = 1$ ($\jj \notin \real$!).\footnote
         {Again, we must take care not to confuse the hyperbolic unit with the split-quaternion basis element $\quatj$. They behave the same, and are related in the sense that they give rise to `split' behavior, but are part of a very different number systems.}
-        Likewise, a split-quaternion with spacelike vector part is analogous to the \emph{split-complex number} (or hyperbolic number) $a_0 + \norm{a}\jj$.
+        Likewise, a split-quaternion with spacelike vector part is analogous to the \emph{split-complex number} (or hyperbolic number) $a_0 + \norm{\vec{a}}\jj$.
 \end{itemize}
 
 This connections with the generalized complex numbers\footnote
@@ -275,13 +275,13 @@ sheds some additional light on the behavior of the eigenvalues of the associated
         $$ \lambda_A = a_0 \pm \norm{a}\ii.$$
     \item When the pole pair collides on the real axis (often called the \emph{branch point}), the imaginary part of the eigenvalue is zero, and the vector is timelike. Observe that we can make the case that, because the branches continue afterwards in a separate manner, they cannot be \emph{exactly} the same. Indeed, the eigenvalues are
         $$ \lambda_A = a_0 \pm \epsilon.$$
-    The nilpotent unit $\epsilon$ is often interpreted as a differential, or an infinitesimally small quantity.\footnote{A common application of dual numbers is automatic differentiation: because higher powers vanish, they can be used to generate first-order polynomial approximations. The unit `circle' for dual numbers consists of two vertical lines crossing the horizontal axis at $\pm 1$. These lines can again be interpreted as linear approximations of the actual unit circle (or unit hyperbola) associated to (split-)complex numbers.} and we could say that in this case, the pole pair is still conjugate, but the poles differ only by an infinitesimal amount.
+        The nilpotent unit $\epsilon$ is often interpreted as a differential, or an infinitesimally small quantity.\footnote{A common application of dual numbers is automatic differentiation: because higher powers vanish, they can be used to generate first-order polynomial approximations. The unit `circle' for dual numbers consists of two vertical lines crossing the horizontal axis at $\pm 1$. These lines can again be interpreted as linear approximations of the actual unit circle (or unit hyperbola) associated to (split-)complex numbers. The plane spanned by the $\jj$-axis and the real axis is the split-complex plane. The `projection' to the real axis is in this plane a reflection with respect to the light cone (first diagonal).} We argue that in this case, the pole pair is still conjugate, but the poles differ only by an infinitesimal amount.
     \item When the gain is increased further, the poles are real and the symmetry with respect to the real axis is broken. However, we can infer from the preceding discussion that the imaginary part is now hyperbolic instead, i.e.
         $$ \lambda_A = a_0 \pm \norm{a}\jj. $$
         Of course, it is possible to project these points on the real axis, but this obscures the natural symmetry of the root locus branch. In \cref{fig:root_locus}, we therefore put the hyperbolic part on a third axis.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \input{media/tikz/root_locus}
     \caption{Generalized version of a root locus plot in terms of hypercomplex numbers. The traditional root locus is set in the complex $s$-plane (shown in blue), but we added a third axis for the hyperbolic part of the eigenvalue. When the gain is increased, the initially complex pole pair ventures towards the real axis. If the pole pair is critically damped, both poles are separated from the real axis by an infinitesimal distance of $\epsilon$. Increasing the gain even more pushes the pole pair into the hyperbolic regime (the associated split-quaternion vector is now spacelike). Observe that in this picture, the symmetry with respect to the real axis is preserved. In the traditional root locus, these points are projected onto the real axis, indicated by the dashed lines. }
@@ -343,7 +343,7 @@ Evaluating a matrix exponential by hand usually involves diagonalizing (strictly
 
 \section{Application to mechanical systems}
 We will now proceed by using a mechanical `prototype' example for our mechanical system: the harmonic oscillator with \emph{two} dampers: one in series and one in parallel. The two dampers are interesting because they completely fill the state transition matrix: as such, this system can represent all the possible cases discussed in the previous section. Furthermore, the two dampers have a very distinctive interpretation within the field of economic engineering.
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \input{media/tikz/double_damped_oscillator}
     \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
@@ -360,11 +360,12 @@ The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc
 \end{equation}
 Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection $q$ and the position of the mass $q_1$. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. The equations of motion than have the matrix form:
 \begin{equation*}
-    \mqty(\dot{q}\\\dot{p}) = \mqty(-k/b_s & 1/m \\ -k & - b_p/m)\mqty(q \\ p),
+    \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p),
 \end{equation*}
 or, using the parameters defined in \cref{tab:ddho_params}:
 \begin{equation}
-    \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & 1/m \\ -m\Omega^2 & - \gamma_p)}_A \mqty(q \\ p).
+    \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & \frac{1}{m} \\ -m\Omega_n^2 & - \gamma_p)}_A \mqty(q \\ p).
+    \label{eq:ddho_eom}
 \end{equation}
 The nontrivial relation between momentum and the $\dot{q}$ also precludes us from casting this system directly to the Lagrangian formalism, because the vector field is not second-order. A second-order vector field implies that the `velocities' really are the time derivatives of the `positions', (cf. \cref{app:symplectic_geometry} for a more formal discussion).
 
@@ -384,22 +385,36 @@ The nontrivial relation between momentum and the $\dot{q}$ also precludes us fro
     \end{tabular}
 \end{table}
 
-The split-quaternion associated with the $A$-matrix of the doubly damped system can easily be found using the mapping defined by $\cref{eq:inv_quat_isom}$:
+The split-quaternion associated with the $A$-matrix of the doubly damped system can easily be found using the mapping defined by \cref{eq:inv_quat_isom}. We must, however, be careful when dealing with physical systems, because the entries of the $A$-matrix are not dimensionless. In a vector space, we associate the units with the basis vectors, not with the components. For example, in a two-dimensional vector space spanned by a axis for apples and and an axis for pears, and we wish to represent that someone possesses three apples and four pairs, the \emph{components} of that vector are $(3, 4)$, and the \emph{unit vectors} are $(1 \text{ apple}, 1\text{ pear})$. Along the same line, we must define the units in the $A$-matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and $m_0, t_0$. The basis elements are then mapped in terms of these reference quantities:
+$$ 
+    \phi(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \quad 
+    \phi(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  -\tfrac{m_0}{t_0^2} & 0), \quad
+    \phi(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  \tfrac{m_0}{t_0^2} & 0), \quad
+    \phi(\quatk) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & -\tfrac{1}{t_0}), \quad 
+$$
+where, in case we would use SI units, $m_0 = \SI{1}{\kilogram}$ and $t_0 = \SI{1}{\second}$. As a result, the split-quaternion associated with the $A$-matrix given in \cref{eq:ddho_eom} becomes
 \begin{equation}
-    a\:=\: -\tfrac{1}{2}\qty(\gamma_s + \gamma_p)\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega^2)\quati\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega^2)\quatj\:+\:\tfrac{1}{2}\qty(\gamma_p - \gamma_s)\quatk. 
+    a\:=\: -\frac{1}{2}\qty(t_0\gamma_s + t_0\gamma_p)\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quati\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quatj\:+\:\frac{1}{2}\qty(t_0\gamma_p - t_0\gamma_s)\quatk. 
+    \label{eq:ddho_quat_units}
+\end{equation}
+Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaterions back to the realm of the matrices. 
+
+The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that $\gamma_s$ and $\gamma_p$ have the same units, whereas $\tfrac{1}{m}$ and $\Omega_n^2$ do not. So, in which sense can the $\quati$ and $\quatj$-components be of any signficance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
+$$ N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*, $$
+which form the group isomorphic to $(\real^*)^2$. This transformation of the vector space manifests itself on the $A$-matrix as: $ A' = N^{-1}A N$. It is easy to see that the basis matrices (or vector fields) for `1' and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not (that is, without making use of the reference quantities). A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. It is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
+$$ p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q, $$
+such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This would essentially resolve this `unit problem', because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
+
+In contrast to common practice in physics, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group $(\real^*)^2$ that contains the changes of units. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(n)$) produces a split-quaternion with zero $\quatj$-component. 
+
+As a final argument, we can say that the `rescaling of the axes', while common in physics and mathematically allowed, is of little use for engineers, since they tend to stick to SI units in the first place. The `scale of the axes' is therefore a physical reality. This is why we choose not to discard the $\quatj$-component through a rescaling.
+
+To conclude, it is not so much the case that unit transformations are not allowed in the split-quaternion space, but the question as to what the units of the \quatj-components are is moot. Unfortunately, the notation in \cref{eq:ddho_quat_units} is rather obfuscating. Hence, we take the freedom to choose $m_0 = 1 (\si{\kilogram})$ and $t_0 = 1 (\si{\second})$, and write the split-quaternion as follows:
+\begin{equation}
+    a\:=\: -\tfrac{1}{2}\qty(\gamma_s + \gamma_p)\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega_n^2)\quati\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega_n^2)\quatj\:+\:\tfrac{1}{2}\qty(\gamma_p - \gamma_s)\quatk. 
     \label{eq:ddho_quat}
 \end{equation}
-Now, a very important comment is to be made about the previous expression. Observe that both $\gamma_s$ and $\gamma_p$ have units of \si{\per \second}; so adding (or subtracting) them is perfectly allowed. \emph{However}, the quantities (at least, in the matrix) $1/m$ and $m\Omega^2$ have units \si{\per \kilogram} and \si{\kilogram \per \second \squared} respectively. Common sense tells one (rightfully so) not to add such numbers, or at least not without caution. To make the mapping from the matrix to the split-quaternions work conceptually, it is therefore vital to associate the units in the matrix with the \emph{basis elements}, and not with the componets of the split-quaternions. For example, the $\quati$ then has units
-$$ \phi(\quati) = \mqty(0 & 1\,\si{\per \kilogram} \\ -1\,\si{\kilogram \per \second \squared} & 0).  $$
-This has a consequence that the components of the split-quaternion can be treated as dimensionless numbers, which really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaterions back to the realm of the matrices. 
-
-The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. First, observe that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
-$$ N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*, $$
-which form the group isomorphic to $(\real^*)^2$. This transformation of the vector space manifests itself on the $A$-matrix as: $ A' = N^{-1}A N$. It is easy to see that the basis matrices (or vector fields) for `1' and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not. A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. For example, it is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
-$$ p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q, $$
-such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This essentially resolves the unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj component.
-
-In this section, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, also those that are not invariant under the action of the structure group $(\real^*)^2$ that contains the changes of units. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(n)$) produces a split-quaternion with zero $\quatj$-component. To conclude, it is not so much the case that unit transformations are not allowed in the split-quaternion space, but the question as to what the units of the \quatj-components are is moot.
+This of course requires the implicit understanding that all the components are dimensionless, and that we are not just adding apples and pears. 
 
 \subsection{Eigenvalues}
 Underdamped, overdamped critically damped.
@@ -414,7 +429,7 @@ As mentioned in \cref{ssec:quat_basics}, the split-quaternion vectors live in th
     \item The \emph{two-sheet hyperboloid}; which contains all the \emph{timelike} unit vectors (underdamped systems).
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[]{media/other/lorentz_space.png}
     \caption{The disconnected `unit sphere' in the Lorentzian 3-space. The blue surface is the one-sheet hyperboloid, containing all the spacelike unit vectors; the gray sheet is the light cone, that contains all the lightlike `null' vectors with zero norm. Finally, the red surface is the two-sheet hyperboloid, which is the space of all timelike unit vectors.}
