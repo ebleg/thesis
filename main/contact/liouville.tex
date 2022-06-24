@@ -1,46 +1,7 @@
-\chapter{Liouville Geometry for Dissipative Systems}
-\label{chap:contact_mechanics}
-The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989,Arnold1989a,Arnold1989b,Arnold1991} and \citet{Libermann1987}.
+\section{Contact structure from time-dependence}
 
-In this chapter, the direct connection is made between the Caldirola-Kanai Hamiltonian given by \cref{eq:ham_CK} and the contact Hamiltonian described by \citet{Bravetti2017}, using Liouville geometry\footnote{It is interesting to note that Bravetti gives the Caldirola-Kanai method as an example of dissipative Hamiltonians in his paper, but fails to make the connection with his own method.}. We then proceed to \emph{contact Lagrangian mechanics}, strongly related to the Herglotz' work. Finally, the whole theory is explained from a thermodynamic perspective as well. While it was already known for some time (dating back to Arnol'd) that contact geometry is the preferred geometry for thermodynamics, its equivalence to contact geometry in (dissipative) classical mechanics has not been desribed in past literature. This underpins a famous statement by Vladimir Arnol'd that `contact geometry is all geometry', in the sense that conservative mechanical systems can be considered as part of a larger class of systems for which energy dissipation \emph{is} allowed. \cite{Geiges2008}
-
-The traditional picture is that Hamiltonian mechanics takes place in the space of generalized positions and momenta, colloquialy denoted by $q$'s and $p$'s. The generalized positions form coordinates of the configuration manifold, which encodes all the possible positions that the system can find itself in. The momenta, on the other hand, are \emph{cotangent variables}: they live in the cotangent space of linear functions acting on tangent (velocity) vectors to the configuration manifold $Q$. We say that the Hamiltonian is a function on the \emph{cotangent bundle} to the configuration manifold $\ctbundle{Q}$. This cotangent bundle has a canonical `symplectic' structure, given by its symplectic form $\omega$, that pairs every position direction with its corresponding momenta:
-$$ \omega = \sum \wedgep{\dd{q^i}}{\dd{p_i}}. $$
-A vital property of symplectic manifolds (which include the cotangent bundle) is the fact that they are always even-dimensional: every position coordinate has a corresponding momentum and vice versa. Likewise, in an economic context this asserts that every product has its own price. It is precisely this symmetry that is broken by the introduction of contact manifolds.
-
-The symplectic structure of Hamiltonian mechanics is related to the conservation of energy principle, The Hamiltonian function is conserved along the integral curves of the Hamiltonian vector field that it generates. For dissipative mechanics, this strict reciprocity between position and momentum is broken. Either, one constructs an explicit time-dependence and acknowledges the special nature of time, or one can introduce another coordinate that acts as `reservoir' to facilitate the dissipation in the system. These Hamiltonian systems are known as \emph{contact Hamiltonian systems}. One of the contributions of this thesis is to show how both methods are essentially equivalent, by connecting the most famous time-dependent model by Caldirola and Kanai to the contact Hamiltonian by \citet{Bravetti2017}.
-
-\begin{figure}[ht!]
-    \centering
-    \input{media/tikz/damper_oscillator}
-    \caption{Schematic of the mass-spring-damper system.}
-    \label{fig:dho}
-\end{figure}
-This chapter (and the application in the following chapter) is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
-\begin{equation}  
-  m\ddot{q} + b\dot{q} + kq = 0.
-\end{equation}
-The choice for this system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics
-\cite{Dekker1981,Hutters2020b}. However, the method described in this section can be generalized directly to a general (possibly time-dependent) potential function $V = V(q, t)$. To make calculations and notation easier, some special parameters are frequently used throughout this chapter, they are summarized in \cref{tab:dho_params}.
-
-\begin{table}[ht!]
-    \caption{Parameter conventions of the damped harmonic oscillator. To avoid confusion with the symplectic form $\omega$, angular frequencies are denoted by $\Omega$ instead of the conventional lower case Greek letter.}
-    \label{tab:dho_params}
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
-        \midrule
-        Damping coefficient & $\gamma$ & $b/m$ & \si{\per \second }\\[0.4cm]
-        Undamped frequency & $\Omega_o$ & $\sqrt{k/m}$ & \si{\per \second }\\[0.4cm]
-        Damped frequency & $\Omega_d$ & $\sqrt{\Omega_0^2 - \qty(\frac{\gamma}{2})^2}$ & \si{\per \second }\\[0.4cm]  
-        Damping ratio & $\zeta$ & $\frac{b}{2\sqrt{mk}}$ & -- \\[0.2cm]
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\section{The Caldirola-Kanai method}
-\label{sec:caldirola}
+\subsection{The Caldirola-Kanai method}
+\label{ssec:caldirola}
 A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically' to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only works on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
 
 The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
@@ -94,10 +55,8 @@ The relation between the time derivatives of the momenta $\dot{p}$ and $\dot{\Pc
 \end{equation}
 Substition yields the correct equation for $p$, though the equation is again multiplied by $\ec^{\gamma t}$. Because the latter is sufficiently well-behaved (that is, it has no zeros), it can be removed without any problems.
 
-\paragraph{Geometric perspective}
-To put the above derivation in a geometric setting, define the Liouville 1-form as
-$$ \alpha = \Pcan\dd{q} \quad \Rightarrow \quad \omega = -\dd{\alpha} = \wedgep{\dd{q}}{\dd{\Pcan}},$$
-where the symplectic 2-form will be used to obtain Hamilton's equations. The Hamiltonian \cref{eq:ham_CK} is explicitly time-dependent. This will give rise to a time-dependent vector field governing the solution curves.\footnote
+\subsubsection{Geometric approach}
+The Hamiltonian \cref{eq:ham_CK} is explicitly time-dependent. This will give rise to a time-dependent vector field governing the solution curves.\footnote
 {A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: M\times\real \to \tbundle{M}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $M \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times M \to \tbundle{(\real \times M)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, it lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
 The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\omega$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
 $$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
@@ -112,28 +71,10 @@ It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai 
 %
 %The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
 
-\section{From time-dependent to contact Hamiltonian systems}
+\subsection{From time-dependent to contact Hamiltonian systems}
 In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include dissipation in the Hamiltonian formalism. First of all, to a contact manifold, which is odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}, denoted by $q_0$.  However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system. \cite{VanderSchaft2021a,Arnold1989a}
 
-\subsection{Arguments from thermodynamics}
-
-\textbf{First law of thermodynamics}
-$$ \dd{U} = \eta - \beta $$
-where $U$ is the internal energy of the system, $\eta$ the heat form and $\beta$ the work form. \cite{Frankel2012,Arnold1989b,Bamberg1988}
-We shall \emph{not} denote these forms by $\eta \neq \text{\dj}Q$, because the work and heat forms are definitely not closed (and therefore not exact!). The real `power' of the first law resides in the fact that $\dd{U}$ \emph{exists} --- an arbitrary form, say $\theta$, would of course yield a meaningless statement. Indeed, the first law states that the difference between the energy and work forms is exact. Furthermore, we have that the form given by 
-$$ \theta = \dd{U} - \eta + \beta $$
-pulls back to zero.
-
-The system boundary contains both the mass, the spring and the fluid contained in the damper. One may abstract this damper by considering it to be a thermal heat bath connected to the system, where the damper system merely acts as a connecting interface between the two. The internal energy of the system is:
-$$ U = \text{mechanical energy} + \text{internal energy of the damper}  $$
-Naturally, the mechanical energy of the system is equal to the sum of the kinetic energy stored in the mass, and the potential energy stored in the spring. The internal energy of the damper fluid is a function of the entropy of the fluid, or, as we will see later, the temperature of the fluid.
-
-Gibbs 1-form
-$$ \theta = \dd{U} - T\dd{S} - P\dd{V} $$
-
-Equilibrium question: some (Hermann) define $\varphi^*(\theta)$ as a condition for equilibrium conditions, which is not necessarily the case (right).
-
-\subsection{Symplectization \& Liouville structures}
+\subsubsection{Symplectization \& Liouville structures}
 The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
 \begin{equation}
     \alpha = \dd{q}_0 - p\dd{q},
@@ -203,7 +144,7 @@ Vector field (components) colinear with the Liouville vector fields are called \
 
 To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
 
-\subsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{sec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
+\subsubsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{ssec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
 
 There is a one-to-one correspondence between contact Hamiltonians on $\pctbundle{M}$ and a special class of Hamiltonians on the symplectified space $\ctzbundle{M}$. These are the Hamiltonians which are \emph{homogeneous} in the cotangent variables with degree 1:\footnote
 {This is a consequence of the Euler theorem for homogeneous functions. If $\mathscr{H} = \mathscr{H}(\vec{q}, \vec{\rho})$ is homogeneous of degree $r$ in $\vec{\rho}$, then
@@ -302,7 +243,7 @@ $$ X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{
 
 The contact Hamiltonian vector field $X_H \in \vfields{\pctbundle{M}}$ is obtained either by using the contact Hamilton equations given by \cref{eq:contact_eom}, or by using the pushforward of the projection map $\sigma$:
 $$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2 - \gamma q_0)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
-This is essentially the equivalent of the time-dependent transformation performed in \cref{sec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
+This is essentially the equivalent of the time-dependent transformation performed in \cref{ssec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
 
 \paragraph{Mechanical energy} One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts.\footnote
 {The Poisson bracket is defined as 
@@ -335,7 +276,7 @@ which is precisely the dissipative power in the damping element.
     $ \real^4 / \{(q_0, q, 0, 0)\} $ not simply connected
 \end{mathbox}
 
-\subsection{Physical interpretation of the gauge variables}
+\subsubsection{Physical interpretation of the gauge variables}
 Another advantage of using the purely symplectic formalism on the lifted space is the fact that the homogeneous Hamiltonian is invariant under the flow it generates, since the explicit time-dependence has been removed:
 $$ \dv{\mathscr{H}}{t} = \poisson{\mathscr{H}}{\mathscr{H}} = \lied{X_{\mathscr{H}}}{\mathscr{H}} = 0. $$
 We may therefore associate the homogeneous Hamiltonian with a constant. By inspection of \cref{eq:H_correspondence}, 
@@ -373,20 +314,3 @@ $$
 \todo{Action-angle coordinates}
 \todo{Generalization using Jacobi problems}
 
-
-\section{Legendre involution}
-In the classic, symplectic case, the Legendre transformation is used to pass from the Hamiltonian to the Lagrangian formalism and vice versa. This is because the Legendre transform facilitates a mapping between the tangent and cotangent bundle. If the Lagrangian (or Hamiltonian) is (hyper)regular (i.e. the mass matrix is invertible), this mapping is a diffeomorphism. \cite{Carinena1990}
-
-One would be tempted to use the normal Legendre transformation on the symplectified Hamiltonian $\mathscr{H}$. This approach will meet some problems though:
-\begin{itemize}
-    \item A homogeneous function is not regular in the homogeneous variables --- naturally, a degree of freedom still resides in the action of the multiplicative group. Therefore, the mapping from the cotangent to the tangent bundle is not a diffeomorphism. Said otherwise, there is not a one-to-one correspondence between the homogeneous momenta and the associated velocities in the Lagrangian description.
-    \item As a consequence of Euler's theorem for homogeneous functions, the Legendre transformation for a homogeneous function is necessarily equal to zero. For any homogeneous function $H$ (of degree 1), Euler's theorem states that
-    $$ \sum_{i = 1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H}, $$
-
-        i.e. the function is equal to its associated `action', and therefore the expression for the Legendre transformation vanishes. \cite{Dirac1950,Dirac1933}
-\end{itemize}
-There is a better path to take. In essence the Legendre transform is (and was originally meant to be) a \emph{contact transformation}.
-
-\section{Notes}
-
-\input{main/old/hamilton_econ}
