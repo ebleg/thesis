@@ -14,14 +14,53 @@ $$ U = U_1 + U_2 = \frac{p^2}{2m} + \frac{1}{2}kq^2 + U_2. $$
 If specific assumptions are made about the nature of the heat bath, an explicit expression for $U_2$ may be found as well, but we will leave this possibility open for now. The first law can also be applied to these two subsystems as well. We know that the mechanical system performs work on the damper fluid, which manifests itself as heat added to that system. We therefore have
 \begin{equation}
     \begin{split}
-        \dd{U}_1 = 
+        \dd{U}_1 =& -\beta_1 \\
+        \dd{U}_2 =&  \eta_2 \\
     \end{split}
 \end{equation}
+From the preceding discussions we have that, because the total system is isolated, that $ \beta_1 = \eta_2 $; i.e. all the work done by the damper enters the fluid as heat. For a linearly damped system, the work form is equal to 
+$$ \beta = \gamma p \dd{q}. $$
+As such, the contact form dictated by the first law on the three-dimensional manifold constituted by the internal energy of the heat bath $U_2$, the momentum of the mass $p$ and the position of the mass $q$
+\begin{equation}
+    \alpha = \dd{U}_2 - \gamma p \dd{q};
+    \label{eq:dho_contact_form}
+\end{equation}
+Given this contact structure, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha$ is a contact structure on the manifold and $H$ is the Hamiltonian function that generates the dynamics. Just like in the conservative symplectic case the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to decompose any vector field into a horizontal and a vertical vector field; that is
+$$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
+where the vertical component is in the kernel of $ \dd{\alpha}$, and the horizontal vector field in the kernel of $ \alpha $. The Hamiltonian vector field is then 
+$$ X_H = X_H^\text{ver} + X_H^\text{hor.} $$
+Furthermore, we impose two conditions on the Hamiltonian vector field $X_H$ associated to the Hamiltonian $H$. First, we have that $ H = = \intpr{X_H}{\alpha} $. The second condition is that $\lied{X_H}\alpha = s \alpha $ with $s$ some function; which is to say that $X_H$ is an infinitesimal contact transformation. 
 
+The vertical part of the vector field is easy to find based on the first condition, and is equal to
+$$ X_H^\text{ver} = -H R_\alpha. $$
+However, for reasons that will become later, the horizontal part is of our prime interest. This part is obtained using the second condition, which is equivalent to
+\begin{equation}
+    \intpr{X_H^\text{hor}}{\dd{\alpha}} = \dd{H} - (\intpr{R_\alpha}{\dd{H}}) \alpha 
+    \label{eq:hor_vfield_condition}
+\end{equation}
 
+Now, recall that for a purely symplectic (i.e. energy-conserving) Hamiltonian system, the relation between the Hamiltonian vector field and the Hamiltonian is given by (see \cref{app:symplectic_geometry} for details) 
+$$ \dd{H} = \intpr{X_H}{\omega}, $$
+where $\omega$ is the symplectic form, in this case $\omega = \intpr{\dd{q}}{\dd{p}}$. By definition, we have that the form $\dd{\alpha}$ is also symplectic; it is easily checked that we have that $\dd{\alpha} = \omega$. The relation above then becomes 
+$$ \dd{U_1} = \intpr{X_{U_1}}{\dd{\alpha}} - \text{dissipation}, $$
+since the Hamiltonian of this system will be purely given by the mechanical energy in the absence of a dissipative element. Naturally, the system at issue is \emph{not} conservative, which is why we cannot expect the symplectic relation to hold. Instead, we expect to see a defect that measures the deviation from the ideal symplectic situation in the form of an extra term appearing in the above relation, representing the `leakage' of mechanical energy from the system. This is indeed what is obsered from \cref{eq:hor_vfield_condition}: the second term appearing on the right represents the dissipative action. Based on the expression for the contact form in \cref{eq:dho_contact_form}, we have
+\begin{equation} 
+    \begin{split}
+        \intpr{X_H^\text{hor}}{\dd{\alpha}} &= \dd{H}  - \pdv{H}{U_2}U_2 + \pdv{H}{U_2}\gamma p\dd{q} \\
+        \intpr{X_H^\text{hor}}{\dd{\alpha}} - \pdv{H}{U_2}\gamma p\dd{q} &= \dd{H}  - \pdv{H}{U_2}\dd{U_2}
+    \end{split}
+\end{equation}
+As such, we recover the expected expression stated above \emph{if} $\dd{H} - \pdv{H}{U_2}\dd{U_2} = \dd{U_1}$. Let us make the convenient choice that $\pdv{H}{U_2} = 1$, which means that 
+$$ H = U = U_1 + U_2, $$
+at up to an arbitrary additive constant, which we choose to be zero. Hence, the \emph{contact Hamiltonian is equal to the total internal energy in the system}.
 
+The contact Hamiltonian vector field then becomes  
+$$ \text{derive equations of motion} $$
 
+The vertical vector field is proportional to the numerical value of the Hamiltonian, and it contributes to the time-rate of change of the heat bath internal energy $U_2$. However, we have stipulated earlier that the change in $U_2$ is equal to the work done by the damper, and this term is entirely represented in the horizontal part of the Hamiltonian vector field. The presence of the vertical vector field gives rise to an additional exponential growth (since $X_H^\text{ver}$ is proportional to the Hamiltonian, which contains $U_2$ itself). Hence, if we we want to impose that $U_2$ indeed represents the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is only the case if the Hamiltonian is numerically equal to zero, i.e. $H = 0$.
 
+The fact that $H = 0$ is very crucial, and it has been overlooked in the work of \citet{Bravetti2017} which is the go-to reference for the application of contact Hamiltonian systems. There are at least two more arguments why this is a valid (and necessary) choice to make. We first remark that it is also makes sense to choose the internal energy of a system to be zero, as stated by \cite{Fermi1936}, but this does not give a satisfactory mathematical explanation.
 
-
+A first mathematical argument, given by \cite{Mrugala1991} is as follows. Submanifolds of $M$ on which the contact form pulls back to zero are called \emph{Legendre submanifolds}.
+A vector field is tangent to a Legendre submanifold if it vanishes when contracted with the contact form, or $ \intpr{X_H}{\alpha} = 0$. But, this condition is precisely equal to the definition of the contact Hamiltonian! Hence, to remain on the same Legendre submanifold, the Hamiltonian function must amount to zero. 
 

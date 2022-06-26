@@ -1,7 +1,7 @@
 \begin{tikzpicture}[scale=1.5]
 
-    \draw[thin,->] (0, -1.5) -- (0, 4) node[anchor=south] {$i$};
-    \draw[thin,->] (-4, 0) -- (4, 0) node[anchor=west] {$j$};
+    \draw[thin,->] (0, -1.5) -- (0, 4) node[anchor=south] {$\quati$};
+    \draw[thin,->] (-4, 0) -- (4, 0) node[anchor=west] {$\quatj$};
 
     \draw [semithick, smooth, samples=100 ,domain=-2:2] plot({sinh(\x)}, {cosh(\x)});
     
@@ -34,8 +34,8 @@
     \path[->] (e) |- node (rpc) {} (0, 1.5);
     \path[->] (f) |- node (rk) {} (0, 2);
     
-    \draw[dotted, very thin] (e) ++(0, 0.1) -- (rpc);
-    \draw[dotted, very thin] (f) ++(0, 0.1) -- (rk);
+    \draw[densely dotted, thin] (e) ++(0, 0.1) -- (rpc);
+    \draw[densely dotted, thin] (f) ++(0, 0.1) -- (rk);
     
     \draw[->|] (0, 1.5) -- (rpc.center) node[pos=0.5, anchor=south] {\footnotesize $r_\text{pc}$};
     \draw[->|] (0, 2) -- (rk.center) node[pos=0.5, anchor=south] {\footnotesize $r_\text{k}$};
@@ -45,12 +45,12 @@
     
     \draw[thick] (0, -3.3) circle (1);
     
-    \draw[dotted, very thin] (-1, 1) -- (-1, -3.3); 
-    \draw[dotted, very thin] (1, 1) -- (1, -3.3); 
-    \draw[thin, ->] (0, -3.3) ++(0, -1.3) -- ++ (0, 2.6) node[anchor = west] {$k$};
-    \draw[thin, ->] (0, -3.3) ++(-1.3, 0) -- ++ (2.6, 0) node[anchor = west] {$i$};
+    \draw[densely dotted, thin] (-1, 1) -- (-1, -3.3); 
+    \draw[densely dotted, thin] (1, 1) -- (1, -3.3); 
+    \draw[thin, ->] (0, -3.3) ++(0, -1.3) -- ++ (0, 2.6) node[anchor = west] {$\quatk$};
+    \draw[thin, ->] (0, -3.3) ++(-1.3, 0) -- ++ (2.6, 0) node[anchor = west] {$\quati$};
     
-    \draw[dotted, very thin] (e) -- ++(0, -3.3) node[circle, fill=black, draw, inner sep = 0.3mm] {}; 
-    \draw[dotted, very thin] (f) -- ++(0, -4.3) node[circle, fill=black, draw, inner sep = 0.3mm] {};
+    \draw[densely dotted, thin] (e) -- ++(0, -3.3) node[circle, fill=black, draw, inner sep = 0.3mm] {}; 
+    \draw[densely dotted, thin] (f) -- ++(0, -4.3) node[circle, fill=black, draw, inner sep = 0.3mm] {};
     
 \end{tikzpicture}
