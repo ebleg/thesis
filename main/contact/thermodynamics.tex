@@ -1,9 +1,11 @@
 \section{Contact structure from thermodynamics}
+\label{sec:thermodynamics}
 It has been known for some time that contact geometry is the proper mathematical framework for the theory of thermodynamics; dating from the original work of Gibbs, to \citet{Arnold1989b} and \citet{Hermann1973}. The contact structure arises as a consequence of the first law of the thermodynamics, that is
 \begin{equation}
     \dd{U} = \eta - \beta,
+    \label{eq:thermo_first_law}
 \end{equation}
-where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment. Both $\eta$ and $\beta$ are 1-forms that are not exact; which is why it makes no sense (in the context of exterior systems) to denote them by $\dd{Q}$ and $\dd{W}$. The essence of the first law really is that the difference of these forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the forms 
+where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment. Both $\eta$ and $\beta$ are 1-forms that are not exact; which is why it makes no sense (in the context of exterior systems) to denote them by $\dd{Q}$ and $\dd{W}$. The essence of the first law really is that the difference of these forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
 $$ \dd{\chi} = \dd{U} - \eta + \beta $$
 should pull back to zero over the `allowable' states of the systems. This form defines a contact structure, which means that the allowable trajectories live on Legendre submanifolds of the overall contact manifold. \cite{Frankel2012,Bamberg1988} In literature, such submanifolds are called \emph{thermodynamic manifolds}.
 
@@ -25,10 +27,11 @@ As such, the contact form dictated by the first law on the three-dimensional man
     \alpha = \dd{U}_2 - \gamma p \dd{q};
     \label{eq:dho_contact_form_thermo}
 \end{equation}
-Given this contact structure, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha$ is a contact structure on the manifold and $H$ is the Hamiltonian function that generates the dynamics. Just like in the conservative symplectic case the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to decompose any vector field into a horizontal and a vertical vector field; that is
+Given this contact structure, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha$ is a contact structure on the manifold and $H$ is the Hamiltonian function that generates the dynamics. Just like in the conservative symplectic case the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to decompose the Hamiltonian vector field into a horizontal and a vertical vector field; that is
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
 where the vertical component is in the kernel of $ \dd{\alpha}$, and the horizontal vector field in the kernel of $ \alpha $. The Hamiltonian vector field is then 
-$$ X_H = X_H^\text{ver} + X_H^\text{hor.} $$
+$$ X_H = X_H^\text{ver} + X_H^\text{hor.}, $$
+with $X_H^\text{ver} \in \ker \dd{\alpha}$ and $X_H^\text{hor} \in \ker \alpha$.
 Furthermore, we impose two conditions on the Hamiltonian vector field $X_H$ associated to the Hamiltonian $H$. First, we have that $ H = = \intpr{X_H}{\alpha} $. The second condition is that $\lied{X_H}\alpha = s \alpha $ with $s$ some function; which is to say that $X_H$ is an infinitesimal contact transformation. 
 
 The vertical part of the vector field is easy to find based on the first condition, and is equal to
@@ -59,8 +62,10 @@ $$ \text{derive equations of motion} $$
 
 The vertical vector field is proportional to the numerical value of the Hamiltonian, and it contributes to the time-rate of change of the heat bath internal energy $U_2$. However, we have stipulated earlier that the change in $U_2$ is equal to the work done by the damper, and this term is entirely represented in the horizontal part of the Hamiltonian vector field. The presence of the vertical vector field gives rise to an additional exponential growth (since $X_H^\text{ver}$ is proportional to the Hamiltonian, which contains $U_2$ itself). Hence, if we we want to impose that $U_2$ indeed represents the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is only the case if the Hamiltonian is numerically equal to zero, i.e. $H = 0$.
 
-The fact that $H = 0$ is very crucial, and it has been overlooked in the work of \citet{Bravetti2017} which is the go-to reference for the application of contact Hamiltonian systems. There are at least two more arguments why this is a valid (and necessary) choice to make. We first remark that it is also makes sense to choose the internal energy of a system to be zero, as stated by \cite{Fermi1936}, but this does not give a satisfactory mathematical explanation.
-
-A first mathematical argument, given by \cite{Mrugala1991} is as follows. Submanifolds of $M$ on which the contact form pulls back to zero are called \emph{Legendre submanifolds}.
+The fact that $H = 0$ is crucial, and it has been overlooked in the work of \citet{Bravetti2017} which is the go-to reference for the application of contact Hamiltonian systems. There are at least two more arguments why this is a valid (and necessary) choice to make. We first remark that it is also makes sense to choose the internal energy of a system to be zero, as stated by \cite{Fermi1936}, but this does not give a satisfactory mathematical explanation.
+\begin{itemize}
+\item A first mathematical argument, given by \cite{Mrugala1991} is as follows. Submanifolds of $M$ on which the contact form pulls back to zero are called \emph{Legendre submanifolds}.
 A vector field is tangent to a Legendre submanifold if it vanishes when contracted with the contact form, or $ \intpr{X_H}{\alpha} = 0$. But, this condition is precisely equal to the definition of the contact Hamiltonian! Hence, to remain on the same Legendre submanifold, the Hamiltonian function must amount to zero. 
+\item A second argument can be given from the fact that in case the Hamiltonian is not zero, its value depends on the contact \emph{form}. Although mathematically allowed, this is not desirable from a conceptual perspective, since contact forms are only unique up to a nonzero multiplicative constant, in the sense that they define the same contact structure. If we want to demand that the Hamiltonian system only depends on the contact structure, the Hamiltonian must be zero.
+\end{itemize}
 
