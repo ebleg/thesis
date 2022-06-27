@@ -173,7 +173,7 @@ The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) a
 The isomorphism between the split-quaternions and the algebra of two-dimensional square matrices exposed in the preceding section can be used to develop an alternative representation of linear dynamical systems. Indeed, an autonomous dynamical system is defined by a \emph{vector field} on the state space. If this vector field is a linear mapping from the state space into the tangent space, it can be represented by a matrix. These vector fields form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements $1,\,\quati,\,\quatj,\,\quatk$ corresponds to a specific `basis' vector field, denoted by $X_1$, $X_{\quati}$, $X_{\quatj}$ and $X_{\quatk}$ respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
 
 The vector field element $X_1$, corresponding to the identity element is an infinitesimal dilation, while $X_{\quati}$ represents an infinitesimal clockwise rotation, and $X_{\quatj}$ and $X_{\quatj}$ are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two differents sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \input{media/tikz/basis_vectorfields}
     \caption{Basis vector fields corresponding to the basis elements of the split-quaternions.}
@@ -199,7 +199,7 @@ Of course, these commutation relations are exactly the same for the correspondin
 
 \subsection{Classification of dynamical systems}
 The classification of two-dimensional linear dynamical systems is important, for they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix matrix $A$, or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}. Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, this classification is more naturally done in the realm of split-quaternions, based on their squared (vector) norm, on par with the regimes defined in \cref{tab:class_combinations}.
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \input{media/tikz/poincare_diagram}
     \caption{The classic Poincaré diagram, based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix $A$. The corresponding split-quaternion regimes defined in \cref{tab:class_combinations} are displayed as well. The determinant axis coincides with the squared norm of the split quaternion being 0, while all the points on the parabolic line correspond to split-quaternions with zero \emph{vector} norm. A further distinction is made with the scalar part of the split-quaternion, which, for each of the regimes, determines (asymptotic) (in)stability.}

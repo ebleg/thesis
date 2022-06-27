@@ -23,7 +23,7 @@ $$ \beta = \gamma p \dd{q}. $$
 As such, the contact form dictated by the first law on the three-dimensional manifold constituted by the internal energy of the heat bath $U_2$, the momentum of the mass $p$ and the position of the mass $q$
 \begin{equation}
     \alpha = \dd{U}_2 - \gamma p \dd{q};
-    \label{eq:dho_contact_form}
+    \label{eq:dho_contact_form_thermo}
 \end{equation}
 Given this contact structure, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha$ is a contact structure on the manifold and $H$ is the Hamiltonian function that generates the dynamics. Just like in the conservative symplectic case the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to decompose any vector field into a horizontal and a vertical vector field; that is
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
@@ -43,7 +43,7 @@ Now, recall that for a purely symplectic (i.e. energy-conserving) Hamiltonian sy
 $$ \dd{H} = \intpr{X_H}{\omega}, $$
 where $\omega$ is the symplectic form, in this case $\omega = \intpr{\dd{q}}{\dd{p}}$. By definition, we have that the form $\dd{\alpha}$ is also symplectic; it is easily checked that we have that $\dd{\alpha} = \omega$. The relation above then becomes 
 $$ \dd{U_1} = \intpr{X_{U_1}}{\dd{\alpha}} - \text{dissipation}, $$
-since the Hamiltonian of this system will be purely given by the mechanical energy in the absence of a dissipative element. Naturally, the system at issue is \emph{not} conservative, which is why we cannot expect the symplectic relation to hold. Instead, we expect to see a defect that measures the deviation from the ideal symplectic situation in the form of an extra term appearing in the above relation, representing the `leakage' of mechanical energy from the system. This is indeed what is obsered from \cref{eq:hor_vfield_condition}: the second term appearing on the right represents the dissipative action. Based on the expression for the contact form in \cref{eq:dho_contact_form}, we have
+since the Hamiltonian of this system will be purely given by the mechanical energy in the absence of a dissipative element. Naturally, the system at issue is \emph{not} conservative, which is why we cannot expect the symplectic relation to hold. Instead, we expect to see a defect that measures the deviation from the ideal symplectic situation in the form of an extra term appearing in the above relation, representing the `leakage' of mechanical energy from the system. This is indeed what is obsered from \cref{eq:hor_vfield_condition}: the second term appearing on the right represents the dissipative action. Based on the expression for the contact form in \cref{eq:dho_contact_form_thermo}, we have
 \begin{equation} 
     \begin{split}
         \intpr{X_H^\text{hor}}{\dd{\alpha}} &= \dd{H}  - \pdv{H}{U_2}U_2 + \pdv{H}{U_2}\gamma p\dd{q} \\
