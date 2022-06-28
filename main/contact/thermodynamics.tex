@@ -1,13 +1,54 @@
 \section{Contact structure from thermodynamics}
 \label{sec:thermodynamics}
-It has been known for some time that contact geometry is the proper mathematical framework for the theory of thermodynamics; dating from the original work of Gibbs, to \citet{Arnold1989b} and \citet{Hermann1973}. The contact structure arises as a consequence of the first law of the thermodynamics, that is
+As mentioned before, the `geometry of thermodynamics' is contact geometry. The contact structure arises as a consequence of the first law of the thermodynamics, which says that the change in internal energy of the system is equal to the difference between the heat added to the system and the work performed \emph{by} the system. Formally, this is stated as
 \begin{equation}
     \dd{U} = \eta - \beta,
     \label{eq:thermo_first_law}
 \end{equation}
-where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment. Both $\eta$ and $\beta$ are 1-forms that are not exact; which is why it makes no sense (in the context of exterior systems) to denote them by $\dd{Q}$ and $\dd{W}$. The essence of the first law really is that the difference of these forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
-$$ \dd{\chi} = \dd{U} - \eta + \beta $$
-should pull back to zero over the `allowable' states of the systems. This form defines a contact structure, which means that the allowable trajectories live on Legendre submanifolds of the overall contact manifold. \cite{Frankel2012,Bamberg1988} In literature, such submanifolds are called \emph{thermodynamic manifolds}.
+where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment. Both $\eta$ and $\beta$ are 1-forms that are not exact. This is why it makes no sense (in the context of exterior systems) to denote them by $\dd{Q}$ and $\dd{W}$, or worse, using the `inexact' surrogate notation $\text{đ}$ or $\delta$. The essence of the first law really is that the difference of the heat and work forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
+$$ \alpha = \dd{U} - \eta + \beta $$
+should pull back to zero over the `allowable' states of the systems.
+
+\subsection{Gibbs' fundamental relation} 
+The thermodynamic state of a system is given by a collection of thermodynamic state variables or properties. For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know, that for an ideal gas, the following relation must hold:
+\begin{equation}
+    PV = nRT,
+    \label{eq:ideal_gas}
+\end{equation}
+with $n$ is the amount of substance (measured in \si{\mole}), and $R = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for a constant number of moles the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint.  \cite{Balian2001, Giancoli2014}
+
+Now, if we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas} will not suffice because it does not contain \emph{all} the thermodynamic information of the system. The additional information is supplied (for example) in terms of the entropy $S$ in the system. A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also inver the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation}. \cite{VanderSchaft2021a}
+
+In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy on top of the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space} $M$. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints. The first law of thermodynamics states that
+$$ \dd{U} - \eta + \beta, $$
+where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $ \eta = T\dd{S} $. As such, the first law states that the form
+\begin{equation} 
+    \alpha = \dd{U} - T\dd{S} + P\dd{V}
+    \label{eq:gibbs_relation}
+\end{equation}
+should pull back to zero on the allowable states. This relation is known as Gibbs' fundamental relation. \emph{By definition}, we furthermore have that
+$$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
+As such, the condition that $\alpha = 0$ defines an two-dimensional submanifold of the larger five-dimensional space for which we have:
+\begin{equation}
+    T = \pdv{U}{S} \qquad P = -\pdv{U}{V}. 
+\end{equation}
+The form $\alpha$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
+$$ \wedgep{\alpha}{(\dd{\alpha})^2} = 2\,\dd{U}\wedge\dd{S}\wedge\dd{T}\wedge\dd{P}\wedge\dd{V}, $$
+which is a top form on the thermodynamic phase space.\footnote
+{
+    Because 
+    \begin{equation*} 
+        \begin{split}
+            (\dd{\alpha})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2 \\
+                            &= \wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} + \wedgep{\wedgep{\dd{P}}{\dd{V}}}{\wedgep{\dd{S}}{\dd{T}}} \\
+                            &= 2\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} \\
+        \end{split}
+    \end{equation*}
+    since the permutation $ (S, T, P, V) \mapsto (P, V, S, T) $ is even.
+}
+Manifolds on which $\alpha$ pulls back to zero are called integral submanifold. Due to the nondegeneracy of the contact form, these submanifolds have a dimension of 2; these maximal integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotable role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} calls them \emph{thermodynamic manifolds}).
+
+\subsection{Mechanical systems}
 
 For the damped harmonic oscillator, we consider the \emph{overall} system to be completely isolated; that is, there is no energy in the form of work or heat added to the system (for we consider the damper part of the system itself). As a result, the first law simply states that
 $$ \dd{U} = 0. $$

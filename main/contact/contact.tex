@@ -1,5 +1,5 @@
 \chapter{Liouville and Contact Geometry for Dissipative Systems}
-\label{chap:contact_mechanics}
+\label{chap:contact_mechanics} 
 %The contact-geometric counterpart of Hamiltonian and Lagrangian mechanics has been the subject of increasing academic interest in recent years, see for example \citet{VanderSchaft2021a,VanderSchaft2018,Maschke2018,Bravetti2017,DeLeon2020}, etc. The conception of the idea arguably traces back to the work of Herglotz \cite{Guenther1996}, who derived it using the variational principle, and the developments in differential geometry, by e.g. \citet{Arnold1989,Arnold1989a,Arnold1989b,Arnold1991} and \citet{Libermann1987}.
 %
 %In this chapter, the direct connection is made between the Caldirola-Kanai Hamiltonian given by \cref{eq:ham_CK} and the contact Hamiltonian described by \citet{Bravetti2017}, using Liouville geometry\footnote{It is interesting to note that Bravetti gives the Caldirola-Kanai method as an example of dissipative Hamiltonians in his paper, but fails to make the connection with his own method.}. We then proceed to \emph{contact Lagrangian mechanics}, strongly related to the Herglotz' work. Finally, the whole theory is explained from a thermodynamic perspective as well. While it was already known for some time (dating back to Arnol'd) that contact geometry from fitting geometrical framework for thermodynamics, its equivalence to contact geometry in (dissipative) classical mechanics has not been desribed in past literature. This underpins a famous statement by Vladimir Arnol'd that `contact geometry is all geometry', in the sense that conservative mechanical systems can be considered as part of a larger class of systems for which energy dissipation \emph{is} allowed. \cite{Geiges2008}
@@ -32,12 +32,17 @@ There are generally two ways to look at contact manifolds: one is directly throu
 \end{itemize}
 Both viewpoints have their advantages: the contact structure corresponds directly to the physical states of the system, but the mathematics of contact Hamiltonian systems has little of the mathematical elegance that a purely symplectic system offers. From a computational viewpoint, the symplectification is more approachable.
 
+[Lagrangian formalism]
+
+[Generalizations]
+
 \paragraph{Notation} This chapter is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
 \begin{equation}  
   m\ddot{q} + b\dot{q} + kq = 0,
 \end{equation}
-where $m$ is the mass of the object, $b$ the damping coefficient, and $k$ the spring constant. 
-The choice for this system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics.
+where $m$ is the mass of the object, $b$ the damping coefficient, and $k$ the spring constant. However, we prefer to express the dynamics in terms of some other parameters which are derived from these quantities; they are defined in \cref{tab:dho_params}.
+
+The choice of the damped harmonic oscillator as examplary system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics.
 \cite{Dekker1981,Hutters2020b}
 
 Position coordinates are denoted by $q$ (with optional subscript), while $p$ refers to the associated (generalized) momentum. We denote the symplectic 2-form by $\omega$, the Liouville 1-form by $\theta$ and the contact form by $\alpha$.
@@ -65,7 +70,6 @@ Position coordinates are denoted by $q$ (with optional subscript), while $p$ ref
         \bottomrule
     \end{tabular}
 \end{table}
-
 
 %% THERMODYNAMIC REASONING
 \input{main/contact/thermodynamics}
