@@ -1,0 +1,41 @@
+\begin{tikzpicture}[every node/.style={outer sep=0pt,thick}, scale=2]
+    \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=1cm,post length=1cm,segment length=12, amplitude=0.2cm}]
+    \tikzstyle{damper}=[thick,decoration={markings,  
+      mark connection node=dmp,
+      mark=at position 0.4 with 
+      {
+        \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=30pt,minimum height=30pt,draw=none] {};
+        \draw [thick, {Bar[width=6pt]}-{Bar[width=6pt]}] ($(dmp.north east)+(16pt,13pt)$) -- ($(dmp.north east)+(16pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(16pt,0)$) -- ($(dmp.north west)+(16pt,-13pt)$);
+        \draw [very thick] ($(dmp.north)+(0pt,-12pt)$) -- ($(dmp.north)+(0pt,12pt)$);
+      }
+    }, decorate]
+    
+    \tikzstyle{ground}=[thick,fill,pattern=north east lines,draw=none,minimum width=0.75cm]
+    
+    \node at (-2.7, -0.9) (leftcorner) {};
+    \node at (0.7, 0.9) (rightcorner) {};
+    \node at (-2.7, 0.05) (leftsplit) {};
+    \node at (-1, -0.9) (rightsplit) {};
+    
+    %\draw[] (-2.7, 0.05) -| (-1, -0.9); 
+    
+    \draw[thick] (-2.7, -0.9) rectangle (0.7, 0.9); 
+    \filldraw[fill=accent2!30] ($(leftsplit) +(1.5pt,-0.75pt)$) rectangle ($(rightsplit) +(-0.75 pt,1.5pt)$);
+    \filldraw[fill=accent1!30] ($(rightsplit) +(0.75 pt,1.5pt)$) -| ($(rightcorner) +(-1.5pt,-1.5pt)$) -| ($(leftsplit) +(1.5pt,0.75 pt)$) -| cycle;
+    
+    \node (M) [draw,minimum width=2cm, minimum height=3cm] {};
+    
+    \node (ground) [thick,anchor=north,yshift=-0.25cm,minimum width=1.5cm] at (M.south) {};
+    %\draw (ground.north east) -- (ground.north west);
+    %\draw [thick] (M.south west) ++ (0.2cm,-0.125cm) circle (0.125cm)  (M.south east) ++ (-0.2cm,-0.125cm) circle (0.125cm);
+    
+    \node (wall) [ground,thick, rotate=-90, minimum width=4cm,yshift=-6cm] {};
+    \draw (wall.north east) -- (wall.north west);
+    
+    \draw [spring] (wall.172) -- ($(M.north west)!(wall.172)!(M.south west)$) node[pos=0.5,anchor=south, outer sep=8pt] {};
+    \draw [damper] (wall.8) -- ($(M.north west)!(wall.8)!(M.south west)$) node[pos=0.5,anchor=north, outer sep=20pt] {};
+    
+    \draw[{Circle[open,length=2pt]}-] (-0.7, 0.6) -- (-0.7, 1.5) node[draw, thin, anchor=south] {\small{$\displaystyle U_1 = \frac{p^2}{2m} + \frac{1}{2}kq^2$}}; 
+    \draw[{Circle[open,length=2pt]}-] (-1.2, -0.6) -- (-1.2, -1.3) node[draw, thin, anchor=north] {\small{$U_2 = U_2(S)$}}; 
+    
+\end{tikzpicture}
