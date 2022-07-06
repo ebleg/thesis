@@ -1,0 +1,35 @@
+%% if level == 1
+\section*{\VAR{title}}
+%% elif level == 2
+\subsection*{\VAR{title}}
+%% else
+\subsubsection*{\VAR{title}}
+%% endif
+
+% Greek symbols
+\begin{tabular}{p{0.1\textwidth}p{0.5\textwidth}}
+%% for symbol in symbols
+    %% if "greek" in symbol.tags
+   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    %% endif
+%% endfor
+% --------- Letter symbols
+%% for symbol in symbols
+    %% if "letter" in symbol.tags
+   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    %% endif
+%% endfor
+% ---------- Groups
+%% for symbol in symbols
+    %% if "group" in symbol.tags
+   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    %% endif
+%% endfor
+% ---------- Other symbols
+%% for symbol in symbols
+    %% if not "greek" in symbol.tags and not "letter" in symbol.tags and not "group" in symbol.tags
+   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    %% endif
+%% endfor
+\end{tabular}
+

@@ -40,6 +40,8 @@
 %\usepackage[table]{xcolor}
 %\usepackage{colortbl}
 
+\usepackage{etoolbox}
+% For various tools, 
 
 % --------------------------------------------------------------------
 %% SETTINGS
@@ -53,6 +55,17 @@
 
 \makeindex
 \makenomenclature
+
+\renewcommand{\nomname}{}
+
+% For nomenclature groups
+\renewcommand\nomgroup[1]{%
+  \item[\vspace{1cm} \textbf \large
+  \ifstrequal{#1}{G}{General}{%
+  \ifstrequal{#1}{E}{Economic Engineering}{%
+  \ifstrequal{#1}{C}{Contact geometry}{%%
+  \ifstrequal{#1}{S}{Split-quaternions}{}}}}%%
+]}
 
 % --------------------------------------------------------------------
 %% OTHER PREAMBLES

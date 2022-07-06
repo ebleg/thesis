@@ -1122,9 +1122,9 @@
    }}}}}}
 \newcommand{\printnomencl}{%
   \phantomsection % Added by Martijn van de Giessen
-    \addcontentsline{toc}{section}{\numberline{}\nomname}
-%  \markboth{\nomname}{\nomname}
-  %\section*{Mathematical notation}
+    %\addcontentsline{toc}{section}{\numberline{}\nomname}
+    %\markboth{\nomname}{\nomname}
+    %\section*{Mathematical notation}
   \printnomenclature[0.8in]
 }
 \newcommand{\printacronyms}{%

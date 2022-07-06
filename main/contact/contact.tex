@@ -14,7 +14,7 @@
 \paragraph{Historical perspective} The traditional symplectic structure of Hamiltonian systems does not intrinsically support energy dissipation. Some efforts have been made to make this possible; the celebrated report by \citet{Dekker1981} provides an excellent overview of the advances on this field. Roughly, four approaches exist:
 \begin{itemize}
     \item The \emph{Bateman approach}, doubles the number of degrees of freedom in the system to create a `mirror system' that runs in the opposite time direction. \cite{Bateman1931}. In the overall system the irreversible effects cancel out due to the two time directions, which is why it behaves in a symplectic fashion.
-    \item The family of \emph{complex dissipative Hamiltonians} proposed in various forms by \citet{Bopp1974}, \citet{Dekker1975}, \citet{Dedene1980}, \citet{Rajeev2007}, and more recently, \citet{Hutters2020b} in the research group of the author. Originally, this method was developed to facilitate the quantization of dissipative mechanics for applications in quantum mechanics. The relation of the work in this thesis with the complex dissipative Hamiltonians is given in \cref{ssec:complex_ham}.
+    \item The family of \emph{complex dissipative Hamiltonians} proposed in various forms by \citet{Bopp1974}, \citet{Dekker1975}, \citet{Dedene1980}, \citet{Rajeev2007}, and more recently, \citet{Hutters2020} in the research group of the author. Originally, this method was developed to facilitate the quantization of dissipative mechanics for applications in quantum mechanics. The relation of the work in this thesis with the complex dissipative Hamiltonians is given in \cref{ssec:complex_ham}.
     \item Some purely mathematical constructs have been devised as well, e.g. by \citet{Havas1957} solving the so-called Helmholtz conditions. These \emph{mathematical Hamiltonians} do not offer insights from a physical standpoint (i.e. the Hamiltonian representing the energy in the system); and they rely on singularities of the Hamiltonian function to get around the inevitable limitations imposed by de Rham's theorem (this point is discussed in greater detail later in \cref{sec:liouville}).
     \item Finally, the time-dependent Hamiltonian (and Lagrangian) functions include the dissipative action through an explicit time-dependence that takes care of the `energy shrinkage' of the system. Although reinvented by several authors, this approach is commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, which it is why it is usually referred to as the Caldirola-Kanai Hamiltonian.
 \end{itemize}
@@ -39,8 +39,7 @@ Both viewpoints have their advantages: the contact structure corresponds directl
 \end{equation}
 where $m$ is the mass of the object, $b$ the damping coefficient, and $k$ the spring constant. However, we prefer to express the dynamics in terms of some other parameters which are derived from these quantities; they are defined in \cref{tab:dho_params}.
 
-The choice of the damped harmonic oscillator as examplary system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics.
-\cite{Dekker1981,Hutters2020b}
+The choice of the damped harmonic oscillator as examplary system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics \cite{Dekker1981,Hutters2020}.
 
 Position coordinates are denoted by $q$ (with optional subscript), while $p$ refers to the associated (generalized) momentum. We denote the symplectic 2-form by $\omega$, the Liouville 1-form by $\theta$ and the contact form by $\alpha$.
 
@@ -67,6 +66,8 @@ Position coordinates are denoted by $q$ (with optional subscript), while $p$ ref
         \bottomrule
     \end{tabular}
 \end{table}
+
+%<symbol: \gamma> <expl: Damping coefficient> <tags: greek, contact>
 
 %% THERMODYNAMIC REASONING
 \input{main/contact/thermodynamics}

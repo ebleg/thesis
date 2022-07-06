@@ -2,13 +2,29 @@
 % Glossary
 \chapter{Glossary} %
 %
-\printacronyms
-\begin{acronym}[\hspace{0.8in}] % 0.8in is also used by the nomenclature
-	\acro{3mE}[3\textlarger{m}E]{Mechanical, Maritime and Materials Engineering}%
-	\acro{AMS}{American Mathematical Society}%
-	\acro{DCSC}{Delft Center for Systems and Control}%
-	\acro{TU}[TU D\textlarger{elft}]{Delft University of Technology}%
-\end{acronym}%
+%\printacronyms
+%\begin{acronym}[\hspace{0.8in}] % 0.8in is also used by the nomenclature
+%	\acro{3mE}[3\textlarger{m}E]{Mechanical, Maritime and Materials Engineering}%
+%	\acro{AMS}{American Mathematical Society}%
+%	\acro{DCSC}{Delft Center for Systems and Control}%
+%	\acro{TU}[TU D\textlarger{elft}]{Delft University of Technology}%
+%\end{acronym}%
 %
 % Nomenclature
-\printnomencl
+
+  %\ifstrequal{#1}{G}{General}{%
+  %\ifstrequal{#1}{E}{Economic Engineering}{%
+  %\ifstrequal{#1}{C}{Contact geometry}{}}}%%
+  %\ifstrequal{#1}{S}{Split-quaternions}{%%
+
+    % Nomenclature test
+
+%    \nomenclature[G]{$p$}{Momentum}
+%    \nomenclature[S]{$\spquaternions$}{Split-quaternions}
+%    \nomenclature[C]{$\alpha$}{Contact form}
+%
+%\printnomenclature
+
+\input{backmatter/symbols_econ}
+\input{backmatter/symbols_physics}
+\input{backmatter/symbols_math}

@@ -1,35 +1,43 @@
 \section{Contact structure from thermodynamics}
 \label{sec:thermodynamics}
-It has already been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure even came to invention. \cite{Wightman1979} 
-In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991}, \citet{Balian2001}, \citet{VanderSchaft2021a}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
+It has already been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure even came to invention \cite{Wightman1979}. 
+In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a}, \citet{Bravetti2015}, and \citet{Simoes2020}. Interestingly, the applicability of the contact Hamiltonian formalism for mechanical systems with dissipation has been described already by \citet{Bravetti2017}, in particular for the damped harmonic oscillator. However, we argue that his argument is purely mathematical (that is, it produces the correct equations of motion) without interpretation. Indeed, the case is made here that it is also essential to recognize the Hamiltonian function as the total energy in the system, even for dissipative systems; this point is also not addressed by \citeauthor{Bravetti2017}. Precisely these insights lead allow us to use the theory from thermodynamics to find a constructive approach to dissipative systems.
 
 The contact structure in thermodynamics arises as a consequence of the First Law, which says that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. Formally, this is stated as
 \begin{equation}
     \dd{U} = \eta - \beta,
     \label{eq:thermo_first_law}
 \end{equation}
-where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment. Both $\eta$ and $\beta$ are 1-forms that are not exact. This is why it makes no sense (in the context of exterior systems) to denote them by \dj and $\dd{W}$, or worse, using the `inexact' surrogate notation $\text{đ}$ or $\delta$. The essence of the first law really is that the difference of the heat and work forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
+where $U$ is the internal energy of the system, $\eta$ the heat added to the system and $\beta$ the work done by the system on its environment \cite{Bamberg1988,Frankel2012}. Both $\eta$ and $\beta$ are 1-forms that are not exact.  This is why it makes no sense (in the context of exterior systems) to denote them by \dj and $\dd{W}$, or worse, using the `inexact' surrogate notation $\text{đ}$ or $\delta$. The essence of the First Law really is that the difference of the heat and work forms is \emph{closed}. Locally, it can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
 $$ \alpha = \dd{U} - \eta + \beta $$
 should pull back to zero over the `allowable' states of the systems.
 
+Classical thermodynamics is usually geared towards systems containing expanding gases or chemical mixtures, and not purely mechanical systems. This is why in the next section is first applied to a simple thermodynamic system to elucidate the significance of contact geometry in thermodynamics, after which \cref{ssec:thermo_dho} is concerned with the application to purely mechanical systems.
+
 \subsection{Contact structures in thermodynamics} 
-The thermodynamic state of a system is given by a collection of thermodynamic state variables or properties. For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know, that for an ideal gas, the following relation must hold:
+%<symbol: P> <expl: Pressure> <tags: letter, thermo>
+%<symbol: V> <expl: Volume> <tags: letter, thermo>
+%<symbol: T> <expl: Temperature> <tags: letter, thermo>
+%<symbol: A> <expl: Test> <tags: letter, thermo>
+%<symbol: R> <expl: Universal gas constant> <tags: letter, thermo>
+%<symbol: n> <expl: Amount of substance> <tags: letter, thermo>
+The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know, that for an ideal gas, the following relation must hold:
 \begin{equation}
     PV = nRT,
     \label{eq:ideal_gas}
 \end{equation}
-with $n$ is the amount of substance (measured in \si{\mole}), and $R = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for a constant number of moles the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint.  \cite{Balian2001, Giancoli2014}
+with $n$ is the amount of substance (measured in \si{\mole}), and $R = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for a constant number of moles the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint  \cite{Balian2001, Giancoli2014}.
 
-Now, if we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas} will not suffice because it does not contain \emph{all} the thermodynamic information of the system. The additional information is supplied (for example) in terms of the entropy $S$ in the system. A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also inver the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation}. \cite{VanderSchaft2021a}
+Now, if we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas} will not suffice because it does not contain \emph{all} the thermodynamic information of the system. The additional information is supplied (for example) in terms of the entropy $S$ in the system. A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
 
-In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy on top of the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space} $M$. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints.The first law of thermodynamics states that
+In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space} $M$. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints. The First Law of thermodynamics states that
 $$ \dd{U} = \eta - \beta, $$
-where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $ \eta = T\dd{S} $. As such, the first law states that the form
+where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $ \eta = T\dd{S} $. As such, the First Law states that the form
 \begin{equation} 
     \alpha = \dd{U} - T\dd{S} + P\dd{V}
     \label{eq:gibbs_relation}
 \end{equation}
-should pull back to zero on the allowable states. This relation is known as Gibbs' fundamental relation. \emph{By definition}, we furthermore have that
+should pull back to zero on the allowable states. This relation is known as Gibbs' fundamental relation. By definition --- given that the internal energy is a function of the extensive state variables ---  we furthermore have that
 $$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
 As such, the condition that $\alpha = 0$ defines an two-dimensional submanifold of the larger five-dimensional space for which we have:
 \begin{equation}
@@ -49,10 +57,13 @@ which is a top form on the thermodynamic phase space.\footnote
     \end{equation*}
     since the permutation $ (S, T, P, V) \mapsto (P, V, S, T) $ is even.
 }
-Manifolds on which $\alpha$ pulls back to zero are called integral submanifold. Due to the nondegeneracy of the contact form, these submanifolds have a dimension of 2; these maximal integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotable role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}).
+Manifolds on which $\alpha$ pulls back to zero are called integral submanifold. Due to the nondegeneracy of the contact form, these submanifolds are of dimension 2; these maximal integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotable role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}).
 
 \subsection{Thermodynamics of the damped oscillator}
-For the damped harmonic oscillator, we consider the \emph{overall} system to be completely isolated; that is, there is no energy in the form of work or heat added to the system (for we consider the damper part of the system itself). As a result, the first law simply states that
+\label{ssec:thermo_dho}
+\paragraph{Extensive and intensive variables} In contrast to thermodynamics, there does not seem to be an unequivocal distinction between extensive and intensive variables for mechanical systems. Although it is not strictly a problem from a mathematical standpoint, the internal energy is usually stated to be a function of the extensive state properties. To incorporate kinetic energy, the internal energy function should be a function of either momentum or velocity: the former is used necessarily used in the Hamiltonian formalism. However, it is not so clear whether momentum is intensive rather than extensive. For example, \citet{Franksen1969} argues that momentum should be considered as extensive, for mass is related to the `size' of the system. 
+
+\paragraph{Contact structure} For the damped harmonic oscillator, we consider the \emph{overall} system to be completely isolated: that is, there is no energy in the form of work or heat added to the system (for we consider the damper part of the system itself). As a result, the First Law simply states that
 $$ \dd{U} = 0. $$
 The internal energy of the mass-spring-damper system is a function of the position $q$ of the mass, the momentum $p$ of the mass and the entropy $S$ generated by the damper, i.e.
 $$ U = U(q, p, S). $$
@@ -66,7 +77,7 @@ If specific assumptions are made about the nature of the heat bath, an explicit 
     \caption{Blabla}
     \label{fig:oscillator_thermo}
 \end{figure}
-Because there is transfer of energy within the system, we must apply the first law these two subsystems separately as well. We know that the first subsystem performs work on the damper fluid, which manifests itself as heat added to the second subsystem. We therefore have
+Because there is transfer of energy within the system, we must apply the First Law these two subsystems separately as well. We know that the first subsystem performs work on the damper fluid, which manifests itself as heat added to the second subsystem. We therefore have
 \begin{equation}
     \begin{split}
         \dd{U}_1 &= -\beta_1, \\
@@ -77,7 +88,7 @@ Because there is transfer of energy within the system, we must apply the first l
 \end{equation}
 where $\beta_1$ is the (differential) work done by the mechanical subsystem and $\eta_2$ is the (differential) heat added to the second subsystem. From the preceding discussions we have that, because the total system is isolated, that $ \beta_1 = \eta_2 $; i.e. all the work done by the damper enters the fluid as heat. For a linearly damped system, the work form is equal to 
 $$ \beta \coloneq \gamma p \dd{q}. $$
-As such, the contact form dictated by the first law on the three-dimensional manifold constituted by the internal energy of the heat bath $U_2$, the momentum of the mass $p$ and the position of the mass $q$
+As such, the contact form dictated by the First Law on the three-dimensional manifold constituted by the internal energy of the heat bath $U_2$, the momentum of the mass $p$ and the position of the mass $q$
 \begin{equation}
     \alpha_2 = \dd{U}_2 - \gamma p \dd{q};
     \label{eq:dho_contact_form_thermo}
