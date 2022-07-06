@@ -17,7 +17,7 @@ GREEK_LETTER = ("alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "th
                 "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega")
 
 class Nomenclature(object):
-    def __init__(self, template_folder: str, scan_folder: str, exclude: tuple = ()):
+    def __init__(self, template_folder: str, scan_folder: list, exclude: tuple = ()):
         self.symbols = []
 
         self.jinja_env = jinja2.Environment(
@@ -35,10 +35,11 @@ class Nomenclature(object):
         )
 
         # Loop over file
-        for subdir, dirs, files in os.walk(scan_folder):
-            for file in files:
-                if os.path.join(subdir, file) not in exclude:
-                    self.parse_file(os.path.join(subdir, file))
+        for folder in scan_folder:
+            for subdir, dirs, files in os.walk(folder):
+                for file in files:
+                    if os.path.join(subdir, file) not in exclude:
+                        self.parse_file(os.path.join(subdir, file))
 
     def parse_file(self, file):
         with open(file) as f:

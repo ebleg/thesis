@@ -49,11 +49,13 @@ print()
 # Generate nomenclature
 # --------------------------------------------------------------------------------------------------------------------
 print("Generate nomenclature")
-nomencl = Nomenclature(os.path.join(HOME, "backmatter"), os.path.join(HOME, "main"))
+nomencl = Nomenclature(os.path.join(HOME, "backmatter"), [os.path.join(HOME, "main"), 
+                                                          os.path.join(HOME, "backmatter", "appendix"), 
+                                                          os.path.join(HOME, "preamble")])
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_econ.tex"),
                                     "Economic symbols", 
-                                    filter_fcn=lambda symbol: set(("econ")).intersection(set(symbol.tags)), 
+                                    filter_fcn=lambda symbol: set(("econ", "test")).intersection(set(symbol.tags)), 
                                     level=1)
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_math.tex"), 
@@ -63,7 +65,7 @@ nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HO
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", 
                                     "symbols_physics.tex"), "Physical symbols", 
-                                    filter_fcn=lambda symbol: set(("thermo", "physics")).intersection(set(symbol.tags)), 
+                                    filter_fcn=lambda symbol: set(("thermo", "mech", "physics")).intersection(set(symbol.tags)), 
                                     level=1)
 
 

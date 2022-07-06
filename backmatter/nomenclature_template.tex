@@ -5,31 +5,39 @@
 %% else
 \subsubsection*{\VAR{title}}
 %% endif
-
 % Greek symbols
-\begin{tabular}{p{0.1\textwidth}p{0.5\textwidth}}
+\begin{itemize}[itemsep=0pt, leftmargin=2cm, labelsep=0cm, labelwidth=1.9cm, align=left]
 %% for symbol in symbols
     %% if "greek" in symbol.tags
-   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    \item[$\VAR{symbol.latex_string}$] \VAR{symbol.explanation}
     %% endif
 %% endfor
+%
 % --------- Letter symbols
 %% for symbol in symbols
     %% if "letter" in symbol.tags
-   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    \item[$\VAR{symbol.latex_string}$] \VAR{symbol.explanation}
     %% endif
 %% endfor
+%
+% ---------- Number sets
+%% for symbol in symbols
+    %% if "numberset" in symbol.tags
+    \item[$\VAR{symbol.latex_string}$] \VAR{symbol.explanation}
+    %% endif
+%% endfor
+%
 % ---------- Groups
 %% for symbol in symbols
     %% if "group" in symbol.tags
-   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    \item[$\VAR{symbol.latex_string}$] \VAR{symbol.explanation}
     %% endif
 %% endfor
+%
 % ---------- Other symbols
 %% for symbol in symbols
-    %% if not "greek" in symbol.tags and not "letter" in symbol.tags and not "group" in symbol.tags
-   $\VAR{symbol.latex_string}$ & \VAR{symbol.explanation} \\[0.2cm]
+    %% if "misc" in symbol.tags
+    \item[$\VAR{symbol.latex_string}$]  \VAR{symbol.explanation}
     %% endif
 %% endfor
-\end{tabular}
-
+\end{itemize}

@@ -18,7 +18,6 @@ Classical thermodynamics is usually geared towards systems containing expanding 
 %<symbol: P> <expl: Pressure> <tags: letter, thermo>
 %<symbol: V> <expl: Volume> <tags: letter, thermo>
 %<symbol: T> <expl: Temperature> <tags: letter, thermo>
-%<symbol: A> <expl: Test> <tags: letter, thermo>
 %<symbol: R> <expl: Universal gas constant> <tags: letter, thermo>
 %<symbol: n> <expl: Amount of substance> <tags: letter, thermo>
 The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know, that for an ideal gas, the following relation must hold:
@@ -32,6 +31,10 @@ Now, if we are allowed to add heat to the gas in the piston, or we use its expan
 
 In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space} $M$. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints. The First Law of thermodynamics states that
 $$ \dd{U} = \eta - \beta, $$
+%<symbol: U> <expl: Internal energy> <tags: letter, thermo>
+%<symbol: \eta> <expl: Heat 1-form> <tags: greek, thermo>
+%<symbol: \beta> <expl: Work 1-form> <tags: greek, thermo>
+%<symbol: S> <expl: Entropy> <tags: letter, thermo>
 where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $ \eta = T\dd{S} $. As such, the First Law states that the form
 \begin{equation} 
     \alpha = \dd{U} - T\dd{S} + P\dd{V}

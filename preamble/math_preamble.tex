@@ -71,13 +71,20 @@
 \newcommand{\sphere}[1]{\ensuremath{\mathbb{S}^{#1}}\xspace}
 \newcommand{\torus}[1]{\ensuremath{\mathbb{T}^{#1}}\xspace}
 
+%<symbol: \real^n> <expl: Real coordinate space of dimension $n$> <tags: numberset, math>
+
 % Tangent, cotangent, contact bundles
 \newcommand{\ctbundle}[1]{\ensuremath{\mathrm{T}^*#1}}
 \newcommand{\ctzbundle}[1]{\ensuremath{\mathrm{T}^*_0#1}}
 \newcommand{\tbundle}[1]{\ensuremath{\mathrm{T}#1}}
 
-\newcommand{\ctspace}[2]{\ensuremath{\mathrm{T}_{#1}^*\!#2}}
+\newcommand{\ctspace}[2]{\ensuremath{\mathrm{T}_{#1}^*#2}}
 \newcommand{\tspace}[2]{\ensuremath{\mathrm{T}_{#1}#2}}
+
+%<symbol: \tbundle{M}> <expl: Tangent bundle of the manifold $M$> <tags: misc, math> <sortkey: a3>
+%<symbol: \ctbundle{M}> <expl: Cotangent bundle of the manifold $M$> <tags: misc, math> <sortkey: a4>
+%<symbol: \tspace{x}{M}> <expl: Tangent space to the manifold $M$ at the point $x$> <tags: misc, math> <sortkey: a1>
+%<symbol: \ctspace{x}{M}> <expl: Cotangent space of the manifold $M$ at the point $x$> <tags: misc, math> <sortkey: a2>
 
 % Projectivized cotangent bundle and space
 \newcommand{\pctbundle}[1]{\ensuremath{\mathbb{P}\qty(\mathrm{T}^*#1)}}
@@ -91,10 +98,15 @@
 
 % Vector fields
 \newcommand{\vfields}[1]{\ensuremath{\mathscr{X}}\qty(#1)}
+%<symbol: \vfields{M}> <expl: Set of vector fields (smooth sections of \tbundle{M}) on the manifold $M$> <tags: misc, math> <sortkey: a5>
 
 % Smooth functions
 \newcommand{\functions}[1]{\ensuremath{C^\infty}\!\qty(#1)}
+%<symbol: \functions{M}> <expl: Set of smooth functions on the manifold $M$> <tags: misc, math> <sortkey: a6>
 
+% Differential n-forms
+\newcommand{\nforms}[2]{\ensuremath{\Lambda^{#1}(#2)}}
+%<symbol: \nforms{n}{M}> <expl: Set of differential $n$-forms on the manifold $M$> <tags: misc, math> <sortkey: a7>
 
 % --------------------------------------------------------------------------------
 % ANALYTICAL MECHANICS 
@@ -105,14 +117,12 @@
 \newcommand{\ham}{\ensuremath{H}}
 
 \newcommand{\bundle}[3]{\ensuremath{#1\xrightarrow[]{#2}#3}}
+%<symbol: \bundle{E}{\pi}{B}> <expl: Bundle with total space $E$, projection map $\pi$ and base space $B$> <tags: misc, math> <sortkey: a0>
 
 \newcommand{\ecokin}{\ensuremath{T^*}\xspace}
 \newcommand{\ekin}{\ensuremath{T}\xspace}
 \newcommand{\epot}{\ensuremath{U}\xspace}
 \newcommand{\ecopot}{\ensuremath{U^*}\xspace}
-\newcommand{\gpos}{\ensuremath{\vec{q}}\xspace}
-\newcommand{\gvel}{\ensuremath{\dot{\vec{q}}}\xspace}
-\newcommand{\gmom}{\ensuremath{\vec{p}}\xspace}
 
 % --------------------------------------------------------------------------------
 % GROUP MACROS
