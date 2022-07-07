@@ -1,9 +1,11 @@
-\section{Contact structure from thermodynamics}
+\section{Contact structure based on thermodynamic principles}
 \label{sec:thermodynamics}
 It has already been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure even came to invention \cite{Wightman1979}. 
-In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a}, \citet{Bravetti2015}, and \citet{Simoes2020}. Interestingly, the applicability of the contact Hamiltonian formalism for mechanical systems with dissipation has been described already by \citet{Bravetti2017}, in particular for the damped harmonic oscillator. However, we argue that his argument is purely mathematical (that is, it produces the correct equations of motion) without interpretation. Indeed, the case is made here that it is also essential to recognize the Hamiltonian function as the total energy in the system, even for dissipative systems; this point is also not addressed by \citeauthor{Bravetti2017}. Precisely these insights lead allow us to use the theory from thermodynamics to find a constructive approach to dissipative systems.
+In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
-The contact structure in thermodynamics arises as a consequence of the First Law, which says that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. Formally, this is stated as
+On the other hand, the applicability of the contact Hamiltonian formalism for mechanical systems with dissipation has been described already by \citet{Bravetti2017}, in particular for the damped harmonic oscillator. However, we argue that his argument is purely mathematical (that is, it produces the correct equations of motion) without interpretation. Indeed, the case is made here that it is also essential to recognize the Hamiltonian function as the total energy in the system, even for dissipative systems; this point is also not addressed by \citeauthor{Bravetti2017}. Precisely these insights lead to a constructive approach for dissipative mechanical systems.
+
+The contact structure in thermodynamics arises as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. Formally, this is stated as
 \begin{equation}
     \dd{U} = \eta - \beta,
     \label{eq:thermo_first_law}
@@ -12,113 +14,158 @@ where $U$ is the internal energy of the system, $\eta$ the heat added to the sys
 $$ \alpha = \dd{U} - \eta + \beta $$
 should pull back to zero over the `allowable' states of the systems.
 
-Classical thermodynamics is usually geared towards systems containing expanding gases or chemical mixtures, and not purely mechanical systems. This is why in the next section is first applied to a simple thermodynamic system to elucidate the significance of contact geometry in thermodynamics, after which \cref{ssec:thermo_dho} is concerned with the application to purely mechanical systems.
+Classical thermodynamics is usually geared towards systems containing expanding gases or chemical mixtures, and not purely mechanical systems. This is why the next section is concerned with a simple thermodynamic system to elucidate the significance of contact geometry in thermodynamics, after which we proceed in \cref{ssec:thermo_dho} with the application to purely mechanical systems.
 
-\subsection{Contact structures in thermodynamics} 
+\subsection{Contact geometry in thermodynamics} 
 %<symbol: P> <expl: Pressure> <tags: letter, thermo>
 %<symbol: V> <expl: Volume> <tags: letter, thermo>
 %<symbol: T> <expl: Temperature> <tags: letter, thermo>
 %<symbol: R> <expl: Universal gas constant> <tags: letter, thermo>
 %<symbol: n> <expl: Amount of substance> <tags: letter, thermo>
-The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know, that for an ideal gas, the following relation must hold:
+The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. However, we also know that, for an ideal gas
 \begin{equation}
     PV = nRT,
     \label{eq:ideal_gas}
 \end{equation}
-with $n$ is the amount of substance (measured in \si{\mole}), and $R = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for a constant number of moles the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint  \cite{Balian2001, Giancoli2014}.
+with $n$ is the amount of substance (measured in \si{\mole}), and $R = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for a constant number of moles the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
 
-Now, if we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas} will not suffice because it does not contain \emph{all} the thermodynamic information of the system. The additional information is supplied (for example) in terms of the entropy $S$ in the system. A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
+Now, if we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas} will not suffice, because it does not contain \emph{all} the thermodynamic information of the system. The additional information is supplied (for example) in terms of the entropy $S$ in the system. A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
 
-In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space} $M$. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints. The First Law of thermodynamics states that
+In the spirit of the preceding discussion, we now consider a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints. The First Law of thermodynamics states that
 $$ \dd{U} = \eta - \beta, $$
 %<symbol: U> <expl: Internal energy> <tags: letter, thermo>
+%<symbol: E> <expl: (Mechanical) energy> <tags: letter, thermo>
 %<symbol: \eta> <expl: Heat 1-form> <tags: greek, thermo>
 %<symbol: \beta> <expl: Work 1-form> <tags: greek, thermo>
 %<symbol: S> <expl: Entropy> <tags: letter, thermo>
-where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $ \eta = T\dd{S} $. As such, the First Law states that the form
+%<symbol: p> <expl: Momentum> <tags: letter, physics>
+%<symbol: q> <expl: Position> <tags: letter, physics>
+where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $\eta = T\dd{S}$. As such, the First Law states that the form
 \begin{equation} 
-    \alpha = \dd{U} - T\dd{S} + P\dd{V}
+    \alpha_\text{G} = \dd{U} - T\dd{S} + P\dd{V}
     \label{eq:gibbs_relation}
 \end{equation}
-should pull back to zero on the allowable states. This relation is known as Gibbs' fundamental relation. By definition --- given that the internal energy is a function of the extensive state variables ---  we furthermore have that
+should pull back to zero on the allowable states. This relation is known as Gibbs' fundamental relation. By definition --- given that the internal energy is a function of the extensive state variables ---  we furthermore know that
 $$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
-As such, the condition that $\alpha = 0$ defines an two-dimensional submanifold of the larger five-dimensional space for which we have:
+As such, the condition that $\alpha = 0$ defines an two-dimensional submanifold of the larger five-dimensional space determined by the conditions
 \begin{equation}
     T = \pdv{U}{S} \qquad P = -\pdv{U}{V}. 
 \end{equation}
-The form $\alpha$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
-$$ \wedgep{\alpha}{(\dd{\alpha})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
+The form $\alpha_\text{G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
+$$ \wedgep{\alpha_G}{(\dd{\alpha_G})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
 which is a top form on the thermodynamic phase space.\footnote
 {
     Because 
     \begin{equation*} 
         \begin{split}
-            (\dd{\alpha})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2 \\
+            (\dd{\alpha_\text{G}})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2 \\
                             &= \wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} + \wedgep{\wedgep{\dd{P}}{\dd{V}}}{\wedgep{\dd{S}}{\dd{T}}} \\
                             &= 2\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} \\
         \end{split}
     \end{equation*}
     since the permutation $ (S, T, P, V) \mapsto (P, V, S, T) $ is even.
 }
-Manifolds on which $\alpha$ pulls back to zero are called integral submanifold. Due to the nondegeneracy of the contact form, these submanifolds are of dimension 2; these maximal integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotable role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}).
+%<symbol: \wedgep{}{}> <expl: Wedge (or exterior) product> <tags: misc, math>
+%<symbol: \intpr{}{}> <expl: Interior product> <tags: misc, math>
+%<symbol: \dd{}> <expl: Exterior derivative> <tags: misc, math>
+%<symbol: \lied{X}{}> <expl: Lie derivative with respect to the vector field $X$> <tags: misc, math>
 
-\subsection{Thermodynamics of the damped oscillator}
+%<symbol: M> <expl: Phase space; general manifold> <tags: letter, math>
+%<symbol: Q> <expl: Configuration space> <tags: letter, math>
+Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds are at most two-dimensional; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotable role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
+
+\subsection{Contact structure of the damped oscillator}
 \label{ssec:thermo_dho}
-\paragraph{Extensive and intensive variables} In contrast to thermodynamics, there does not seem to be an unequivocal distinction between extensive and intensive variables for mechanical systems. Although it is not strictly a problem from a mathematical standpoint, the internal energy is usually stated to be a function of the extensive state properties. To incorporate kinetic energy, the internal energy function should be a function of either momentum or velocity: the former is used necessarily used in the Hamiltonian formalism. However, it is not so clear whether momentum is intensive rather than extensive. For example, \citet{Franksen1969} argues that momentum should be considered as extensive, for mass is related to the `size' of the system. 
 
-\paragraph{Contact structure} For the damped harmonic oscillator, we consider the \emph{overall} system to be completely isolated: that is, there is no energy in the form of work or heat added to the system (for we consider the damper part of the system itself). As a result, the First Law simply states that
-$$ \dd{U} = 0. $$
-The internal energy of the mass-spring-damper system is a function of the position $q$ of the mass, the momentum $p$ of the mass and the entropy $S$ generated by the damper, i.e.
-$$ U = U(q, p, S). $$
-In this system, internal energy can be stored either in the form of macroscopic kinetic energy in the mass, potential energy in the spring and as microscopic kinetic energy of the damper fluid. Please note that the damper fluid is rather loosely defined: it can also encompass a body of surrounding air, or anything to which we may attach the conceptual picture of a `heat bath' that absorbs the dissipated energy in the form of heat. Furthermore, we assume that the heat bath is the only part of the system that can store entropy. Let uw now decompose the system into two subsystems: first, the mass-spring system storing the mechanical energy. 
-The total internal energy then becomes:
-$$ U(q, p, S) = U_1(q, p) + U_2(S) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + U_2(S). $$
-If specific assumptions are made about the nature of the heat bath, an explicit expression for $U_2$ may be found as well (e.g. an ideal gas), but we will leave this possibility open for now. The decomposition into the two subsystems is illustrated by \cref{fig:oscillator_thermo}.
+%\paragraph{Extensive and intensive variables} In contrast to thermodynamics, there does not seem to be an unequivocal distinction between extensive and intensive variables for mechanical systems. Although it is not strictly a problem from a mathematical standpoint, the internal energy is usually stated to be a function of the extensive state properties. To incorporate kinetic energy, the internal energy function should be a function of either momentum or velocity: the former is used necessarily used in the Hamiltonian formalism. However, it is not so clear whether momentum is intensive rather than extensive. For example, \citet{Franksen1969} argues that momentum should be considered as extensive, for mass is related to the `size' of the system. 
+When applying the thermodynamic framework discussed in the previous section to mechanical systems, we make the distinction between macroscopic and microscopic states. That is, energy can manifest itself in the kinetic energy of small particles, which does not manifest itself as an \emph{observable} movement of the overall system, but rather as \emph{temperature}. The associated kinetic energy is called internal energy $U$. On the other hand, the movement of the mass in the oscillator system \emph{is} observable, and we consider its kinetic energy to be of a different kind. In addition, there is the energy which arises as a consequence of external potentials. Both the macroscopic kinetic energy and potential energy are subsumed in the \emph{mechanical energy} $E$. This distinction between mechanical and internal energy is rather artificial, but it fits better in the notational and conceptual conventions of both mechanics and thermodynamics. The total energy in the system is then the sum of its total mechanical energy and total internal energy.
+
+\subsubsection{Thermodynamics of the damped oscillator}
+In the damped oscillator system, internal energy can be stored either in the form of macroscopic kinetic energy in the mass, potential energy in the spring and as microscopic kinetic energy of the `heat reservoir'. Please note that the `heat reservoir' is rather loosely defined: it can encompass the fluid in the damper, a body of surrounding air (or both), or anything to which we may attach the conceptual picture of a `heat bath' that absorbs the dissipated energy in the form of heat. If the heat bath is heterogeneous (for example, containing damper fluid and the surrounding air), it will not have a single temperature. We will not be concerned with all these possibilities and consider a single heat bath with single temperature; generalizations to other thermodynamic systems are immediate.
+
+The overall system (i.e. mass, spring and heat bath) is assumed to be completely isolated: there is no exchange of energy nor matter with the environment. We therefore have, according to the First Law:
+\begin{equation}
+    \dd{(U + E)} = 0. 
+    \label{eq:dho_first_law}
+\end{equation}
+The mechanical energy of the mass-spring-damper system is a function of the position $q$ of the mass and the momentum $p$ of the mass, that is
+\begin{equation}
+    E \coloneq E(p, q) = \frac{p^2}{2m} + \frac{1}{2}kq^2. 
+    \label{eq:dho_mech_energy}
+\end{equation}
+Furthermore, we assume that the heat bath is the only part of the system that can store entropy, and that it has no other degrees of freedom:
+\begin{equation}
+    U \coloneq U(S).  
+    \label{eq:dho_int_energy}
+\end{equation}
+Let uw now decompose the system analogous to $E$ and $U$ into two subsystems, one containing the mass and the spring and one the heat bath, as illustrated in \cref{fig:oscillator_thermo}. 
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/damper_oscillator_thermo}
-    \caption{Blabla}
+    \caption{System boundaries in the damper-oscillator system. The mechanical subsystem stores mechanical energy $E$ in the form of kinetic and potential energy, while the heat bath stores internal energy in the form of heat. They interface through the action of the damper.}
     \label{fig:oscillator_thermo}
 \end{figure}
-Because there is transfer of energy within the system, we must apply the First Law these two subsystems separately as well. We know that the first subsystem performs work on the damper fluid, which manifests itself as heat added to the second subsystem. We therefore have
+Through the dissipative action of the damper, energy flows from the mechanical subsystem to the heat bath. We can apply the First Law these two subsystems separately as well: he first subsystem performs work on the damper, which manifests itself as heat added to the heat bath. We therefore have
 \begin{equation}
     \begin{split}
-        \dd{U}_1 &= -\beta_1, \\
-        \pdv{U_1}{p}\dd{p} + \pdv{U_1}{q}\dd{q} &= -\beta_1, \\[0.2cm]
-        \dd{U}_2 &= \eta_2, \\
-        \pdv{U_2}{S}\dd{S} &= \eta_2, \\
+        \dd{E} &= -\beta, \\
+        \pdv{E}{p}\dd{p} + \pdv{E}{q}\dd{q} &= -\beta, \\[0.2cm]
+        \dd{U} &= \eta, \\
+        \pdv{U}{S}\dd{S} &= \eta, \\
     \end{split}
 \end{equation}
-where $\beta_1$ is the (differential) work done by the mechanical subsystem and $\eta_2$ is the (differential) heat added to the second subsystem. From the preceding discussions we have that, because the total system is isolated, that $ \beta_1 = \eta_2 $; i.e. all the work done by the damper enters the fluid as heat. For a linearly damped system, the work form is equal to 
-$$ \beta \coloneq \gamma p \dd{q}. $$
-As such, the contact form dictated by the First Law on the three-dimensional manifold constituted by the internal energy of the heat bath $U_2$, the momentum of the mass $p$ and the position of the mass $q$
+where $\beta$ is the (differential) work done \emph{by} the mechanical subsystem on the damper and $\eta$ is the (differential) heat added \emph{to} the second subsystem as a result of this. From the preceding discussion we have that, because the total system is isolated, that $ \beta = \eta $; i.e. all the work done by the damper enters the fluid as heat. For a linearly damped system, the work form is equal to 
 \begin{equation}
-    \alpha_2 = \dd{U}_2 - \gamma p \dd{q};
+    \beta \coloneq \gamma p \dd{q},
+    \label{eq:dho_work_form}
+\end{equation}
+with $\gamma$ the damping ratio as defined in \cref{tab:dho_params}. The above equations dictate a contact structure on the three-dimensional phase space $M$ constituted by the internal energy $U$, the momentum $p$ and the position $p$, or equivalently, on the `other' space $\tilde{M}$ with the mechanical energy $E$, $p$ and $q$:
+$$ \dd{U} - \gamma p \dd{q} \: \in \: \ctbundle{M}, \qquad \quad \dd{E} + \gamma p \dd{q} \: \in \: \ctbundle{\tilde{M}}. $$
+In the following section, we will define the contact Hamiltonian system on the former space, and denote the associated contact form by $\alpha$, i.e.
+\begin{equation}
+    \alpha \coloneq \dd{U} - \gamma p \dd{q}
     \label{eq:dho_contact_form_thermo}
 \end{equation}
-or equivalently
-\begin{equation*}
-    \alpha_1 = -\dd{U}_1 + \gamma p \dd{q}.
-\end{equation*}
+It is important to keep in mind that contact forms are by definition nonunique: $\alpha$ is only determined up to multiplication by a function $f \in \functions{M}$ without zeros --- that is to say, any of those forms gives rise to the same contact \emph{structure}.
 
-Given this contact structure, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha$ is a contact structure on the manifold and $H$ is the Hamiltonian function that generates the dynamics. Just like in the conservative symplectic case the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to decompose the Hamiltonian vector field into a horizontal and a vertical vector field; that is
+%As such, the contact form dictated by the First Law on the three-dimensional manifold constituted by the internal energy of the heat bath $U$, the momentum of the mass $p$ and the position of the mass $q$
+%\begin{equation}
+%    \alpha_2 = \dd{U}_2 - \gamma p \dd{q};
+%    \label{eq:dho_contact_form_thermo}
+%\end{equation}
+%or equivalently
+%\begin{equation*}
+%    \alpha_1 = -\dd{U}_1 + \gamma p \dd{q}.
+%\end{equation*}
+\subsubsection{Contact Hamiltonian function for the damped oscillator}
+A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha \in \ctbundle{M}$ is a contact form on the manifold and $H \in \functions{M}$ is the Hamiltonian function that generates the dynamics. Given the contact form in \cref{eq:dho_contact_form_thermo}, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system.  Just like in the conservative case with a symplectic structure, the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. For a given function $H$ (which does not necessarily has to be `the' Hamiltonian), the associated \emph{Hamiltonian vector field} is denoted by $X_H$. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. The trick is to separate the Hamiltonian vector field into a \emph{horizontal} vector field $X^\text{hor}_H$  and a vertical vector field $X^\text{ver}_H$; according to the following decomposition of the tangent bundle to $M$ \cite{Libermann1987}
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
-where the vertical component is in the kernel of $ \dd{\alpha}$, and the horizontal vector field in the kernel of $ \alpha $. The Hamiltonian vector field is then 
+where the vertical component is in the kernel of $ \dd{\alpha}$, the horizontal vector field in the kernel of $\alpha$, and $\oplus$ denotes the Whitney sum. The Hamiltonian vector field is then 
 $$ X_H = X_H^\text{ver} + X_H^\text{hor.}, $$
 with $X_H^\text{ver} \in \ker \dd{\alpha}$ and $X_H^\text{hor} \in \ker \alpha$.
-Furthermore, we impose two conditions on the Hamiltonian vector field $X_H$ associated to the Hamiltonian $H$. First, we have that $ H = = \intpr{X_H}{\alpha} $. The second condition is that $\lied{X_H}\alpha = s \alpha $ with $s$ some function; which is to say that $X_H$ is an infinitesimal contact transformation. 
+
+Furthermore, we impose two conditions on the Hamiltonian vector field $X_H$ associated to the Hamiltonian $H$:
+\begin{itemize}
+    \item First, we have that $ H = -\intpr{X_H}{\alpha} $. 
+    \item Secondly, $\lied{X_H}\alpha = s \alpha $ with $s$ some function; which is to say that $X_H$ is an infinitesimal contact transformation. 
+\end{itemize}
 
 The vertical part of the vector field is easy to find based on the first condition, and is equal to
-$$ X_H^\text{ver} = -H R_\alpha. $$
-However, for reasons that will become later, the horizontal part is of our prime interest. This part is obtained using the second condition, which is equivalent to
+$$ X_H^\text{ver} = - H R_\alpha, $$
+with $R_\alpha$ the Reeb vector field of the contact form,
+$$ R_\alpha = \pdv{}{U}.$$ 
+
+However, for reasons that will become later, the horizontal part is our prime interest. This part is obtained using the second condition, which is equivalent to (cf. \cref{sec:contact_ham_systems})
 \begin{equation}
-    \intpr{X_H^\text{hor}}{\dd{\alpha}} = \dd{H} - (\intpr{R_\alpha}{\dd{H}}) \alpha 
+    \intpr{X_H^\text{hor}}{\dd{\alpha}} =  = \dd{H} - s \alpha, 
     \label{eq:hor_vfield_condition}
 \end{equation}
+with $s = \intpr{R_\alpha}{\dd{H}} = \pdv{H}{U}$. Hence, the function $s$ reflects the dependence of the Hamiltonian function on the variable $U$.
 
-Now, recall that for a purely symplectic (i.e. energy-conserving) Hamiltonian system, the relation between the Hamiltonian vector field and the Hamiltonian is given by (see \cref{app:symplectic_geometry} for details) 
+Now, recall that for a \emph{purely symplectic} (i.e. energy-conserving) Hamiltonian system, the relation between the Hamiltonian vector field and the Hamiltonian is given by (see \cref{app:symplectic_geometry} for details) 
 $$ \dd{H} = \intpr{X_H}{\omega}, $$
-where $\omega$ is the symplectic form, in this case $\omega = \wedgep{\dd{q}}{\dd{p}}$. By definition, we have that the form $\dd{\alpha}$ is also symplectic; it is easily checked that we have that $\dd{\alpha} = \omega$. The relation above then becomes 
+where $\omega$ is the symplectic form, in this case $\omega = \wedgep{\dd{q}}{\dd{p}}$. 
+By definition, we have that the form $\dd{\alpha}$ is also symplectic; it is easily checked that we have that $\dd{\alpha} = \gamma \omega$. The relation above then becomes 
 $$ \dd{U_1} = \intpr{X_{U_1}}{\dd{\alpha}} - \text{dissipation}, $$
 since the Hamiltonian of this system will be purely given by the mechanical energy in the absence of a dissipative element. Naturally, the system at issue is \emph{not} conservative, which is why we cannot expect the symplectic relation to hold. Instead, we expect to see a defect that measures the deviation from the ideal symplectic situation in the form of an extra term appearing in the above relation, representing the `leakage' of mechanical energy from the system. This is indeed what is obsered from \cref{eq:hor_vfield_condition}: the second term appearing on the right represents the dissipative action. Based on the expression for the contact form in \cref{eq:dho_contact_form_thermo}, we have
 \begin{equation} 
