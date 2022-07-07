@@ -286,4 +286,7 @@ TSWLatexianTemp*
 !media/other/*.pdf
 !mscLiterature.pdf
 
-*/__pychache__/*
+*.pyc
+
+media/cache/*
+!media/cache/dummy.txt
