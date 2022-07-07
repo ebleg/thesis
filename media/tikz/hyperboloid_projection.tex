@@ -3,14 +3,13 @@
     \draw[thin,->] (0, -1.5) -- (0, 4) node[anchor=south] {$\quati$};
     \draw[thin,->] (-4, 0) -- (4, 0) node[anchor=west] {$\quatj$};
 
-    \draw [semithick, smooth, samples=100 ,domain=-2:2] plot({sinh(\x)}, {cosh(\x)});
+    \draw [thick, smooth, samples=100 ,domain=-2:2] plot({sinh(\x)}, {cosh(\x)});
     
     %\draw[dashed] (1, 0) arc (0:180:1);
     %\draw[dashed] (1, 0) -- (1, 3);
 
-    \draw[thick, name path=pdisk] (-1, 0) node[circle, draw, fill=white, inner sep = 0.3mm] {} -- (1, 0) node[circle, draw, fill=white, inner sep = 0.3mm] {}; 
-
-    \draw[thick, name path=cdisk] (-1, 1) node[circle, draw, fill=white, inner sep = 0.3mm] {} -- (1, 1) node[circle, draw, fill=white, inner sep = 0.3mm] {}; 
+    \draw[very thick, name path=pdisk] (-1, 0) node[circle, draw, fill=white, inner sep = 0.3mm] {} -- (1, 0) node[circle, draw, fill=white, inner sep = 0.3mm] {}; 
+    \draw[very thick, name path=cdisk] (-1, 1) node[circle, draw, fill=white, inner sep = 0.3mm] {} -- (1, 1) node[circle, draw, fill=white, inner sep = 0.3mm] {}; 
     
     \node[] (p) at (0, -1) {-};
     
@@ -26,6 +25,7 @@
     \node[circle, fill=black, draw, inner sep = 0.3mm]  at (e) {};
     \node[circle, fill=black, draw, inner sep = 0.3mm]  at (f) {};
     %\node[circle, fill=black, draw, inner sep = 0.3mm]  at (f) {};
+
     
     \node[anchor=west] at (p) {\footnotesize{$-1$}};
     \node[anchor=north west, outer sep=1mm] at (1, 0) {\footnotesize{$1$}};
@@ -34,23 +34,28 @@
     \path[->] (e) |- node (rpc) {} (0, 1.5);
     \path[->] (f) |- node (rk) {} (0, 2);
     
-    \draw[densely dotted, thin] (e) ++(0, 0.1) -- (rpc);
-    \draw[densely dotted, thin] (f) ++(0, 0.1) -- (rk);
+    %\draw[densely dotted, thin] (e) ++(0, 0.1) -- (rpc);
+    %\draw[densely dotted, thin] (f) ++(0, 0.1) -- (rk);
     
     \draw[->|] (0, 1.5) -- (rpc.center) node[pos=0.5, anchor=south] {\footnotesize $r_\text{pc}$};
     \draw[->|] (0, 2) -- (rk.center) node[pos=0.5, anchor=south] {\footnotesize $r_\text{k}$};
     
-    \node[anchor=north west] at (0.5, 1) {\scriptsize \textsc{Cayley-Klein}};
-    \node[anchor=south west] at (0.5, 0) {\scriptsize \textsc{Poincaré}};
+    \node[anchor=west] at (1, 1) {\scriptsize \textsc{Cayley-Klein}};
+    \node[anchor=south west] at (1, 0) {\scriptsize \textsc{Poincaré}};
     
     \draw[thick] (0, -3.3) circle (1);
     
-    \draw[densely dotted, thin] (-1, 1) -- (-1, -3.3); 
-    \draw[densely dotted, thin] (1, 1) -- (1, -3.3); 
     \draw[thin, ->] (0, -3.3) ++(0, -1.3) -- ++ (0, 2.6) node[anchor = west] {$\quatk$};
     \draw[thin, ->] (0, -3.3) ++(-1.3, 0) -- ++ (2.6, 0) node[anchor = west] {$\quati$};
     
-    \draw[densely dotted, thin] (e) -- ++(0, -3.3) node[circle, fill=black, draw, inner sep = 0.3mm] {}; 
-    \draw[densely dotted, thin] (f) -- ++(0, -4.3) node[circle, fill=black, draw, inner sep = 0.3mm] {};
-    
+    \draw[densely dotted, thin] (rpc) -- ++(0, -4.8) node[circle, fill=black, draw, solid, inner sep = 0.3mm] {}; 
+    \draw[densely dotted, thin] (rk) -- ++(0, -5.3) node[circle, fill=black, draw, solid, inner sep = 0.3mm] {};
+    %\draw[densely dotted, thin] (-1, 0) -- (-1, -3.3); 
+    %\draw[densely dotted, thin] (1, 0) -- (1, -3.3); 
+
+    % To keep nodes on top of dotted lines
+    \node[circle, draw, fill=white, inner sep = 0.3mm] at (-1, 1) {};
+    \node[circle, draw, fill=white, inner sep = 0.3mm] at (1, 1) {};
+    \node[circle, draw, fill=white, inner sep = 0.3mm] at (1, 0) {};
+    \node[circle, draw, fill=white, inner sep = 0.3mm] at (-1, 0) {};
 \end{tikzpicture}
