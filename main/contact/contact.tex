@@ -38,13 +38,16 @@ Both viewpoints have their advantages: the contact structure corresponds directl
 \subsection{Notation} 
 This chapter is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
 \begin{equation}  
-  m\ddot{q} + b\dot{q} + kq = 0,
+    m\dv[2]{q}{t} + b\dv{q}{t} + kq = 0,
+    \label{eq:dho_eom}
 \end{equation}
 where $m$ is the mass of the object, $b$ the damping coefficient, and $k$ the spring constant. However, we prefer to express the dynamics in terms of some other parameters which are derived from these quantities; they are defined in \cref{tab:dho_params}.
 
 The choice of the damped harmonic oscillator as examplary system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics \cite{Dekker1981,Hutters2020}.
 
-Position coordinates are denoted by $q$ (with optional subscript), while $p$ refers to the associated (generalized) momentum. We denote the symplectic 2-form by $\omega$, the Liouville 1-form by $\theta$ and the contact form by $\alpha$.
+Position coordinates are denoted by $q$ (with optional subscript), while $p$ refers to the associated (generalized) momentum. We denote symplectic 2-forms by $\omega$, Liouville 1-forms by $\theta$ and contact forms by $\alpha$.
+%<symbol: \theta> <expl: Liouville 1-form> <tags: greek, math>
+%<symbol: \omega> <expl: Symplectic 2-form> <tags: greek, math>
 
 %However, the method described in this section can be generalized directly to a general (possibly time-dependent) potential function $V = V(q, t)$. To make calculations and notation easier, some special parameters are frequently used throughout this chapter, they are summarized in \cref{tab:dho_params}.
 \begin{figure}[ht!]
