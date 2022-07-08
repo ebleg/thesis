@@ -134,7 +134,7 @@ In terms of the basis vectors, the mapping $\toDual{\alpha}$ is
 $$ \pdv{}{q_i} \mapsto \dd{p_i} \qquad \pdv{}{p_i} \mapsto -\dd{q_i} \qquad \pdv{}{q_0} \mapsto 0 \qquad i = 1, \ldots, n.$$
 The inverse transformation is slightly ambiguous at first sight, since any $\pdv{}{q_0}$ cannot be recovered directly from the `forward' mapping. However, we know that $\fromDual{\alpha}$ must produce a horizontal vector field. Therefore, first perform the inverse mapping in the $q_i, p_i$-components to obtain
 $$ - \sum_{i = 1}^n \qty(\pdv{H}{q_i} + p_i \pdv{H}{q_0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{H}{p_i}\pdv{}{q_i}. $$
-Contracting this expression with $\alpha$ produces $ - \sum_{i=1}^n p\pdv{H}{p_i} $. Hence, we can use this knowledge to find the actual horizontal component:
+Contracting this expression with $\alpha$ produces $\displaystyle - \sum_{i=1}^n p_i\pdv{H}{p_i} $. Hence, we can use this knowledge to find the actual horizontal component:
 $$ X_H^\text{hor} = \sum_{i=1}^n p\pdv{H}{p_i} \pdv{}{q_0}- \sum_{i = 1}^n \qty(\pdv{H}{q_i} + p_i \pdv{H}{q_0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{H}{p_i}\pdv{}{q_i}. $$
 As such, the coordinate expression of \cref{eq:contact_ham_vf_cofree} is 
 \begin{equation}
