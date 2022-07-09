@@ -33,6 +33,7 @@
 % Replace upper case Greek fonts with their italicized variant, 
 % put them in up[letter] macro's instead
 \let\epsilon\varepsilon
+\let\theta\vartheta
 
 %\DeclareSymbolFont{tensors}{OML}{cmbrm}{b}{it}
 %\DeclareSymbolFontAlphabet{\mathtens}{tensors}
@@ -98,6 +99,7 @@
 
 % Vector fields
 \newcommand{\vfields}[1]{\ensuremath{\mathscr{X}}\qty(#1)}
+\newcommand{\vsfields}[2]{\ensuremath{\mathscr{X}_{#1}}\qty(#2)}
 %<symbol: \vfields{M}> <expl: Set of vector fields (smooth sections of \tbundle{M}) on the manifold $M$> <tags: misc, math> <sortkey: a5>
 
 % Smooth functions
@@ -250,7 +252,7 @@
 \theoremstyle{plain}
 \newtheorem*{question}{Question}
 
-\theoremstyle{plain}
+\theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
 \DeclareSIUnit\money{\$}

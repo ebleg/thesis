@@ -16,7 +16,7 @@ should pull back to zero over the `allowable' states of the systems.
 
 Classical thermodynamics is usually geared towards systems containing expanding gases or chemical mixtures, and not purely mechanical systems. This is why the next section is concerned with a simple thermodynamic system to elucidate the significance of contact geometry in thermodynamics, after which we proceed in \cref{ssec:thermo_dho} with the application to purely mechanical systems.
 
-\subsection{Contact geometry in thermodynamics} 
+\subsection{Contact geometry in classical thermodynamics} 
 %<symbol: P> <expl: Pressure> <tags: letter, thermo>
 %<symbol: V> <expl: Volume> <tags: letter, thermo>
 %<symbol: T> <expl: Temperature> <tags: letter, thermo>
@@ -74,7 +74,7 @@ which is a top (or volume) form on the thermodynamic phase space.\footnote
 %<symbol: Q> <expl: Configuration space> <tags: letter, math>
 Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds are at most two-dimensional; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
 
-\subsection{Contact structure of the damped oscillator}
+\subsection{Contact geometry in classical mechanics}
 \label{ssec:thermo_dho}
 
 %\paragraph{Extensive and intensive variables} In contrast to thermodynamics, there does not seem to be an unequivocal distinction between extensive and intensive variables for mechanical systems. Although it is not strictly a problem from a mathematical standpoint, the internal energy is usually stated to be a function of the extensive state properties. To incorporate kinetic energy, the internal energy function should be a function of either momentum or velocity: the former is used necessarily used in the Hamiltonian formalism. However, it is not so clear whether momentum is intensive rather than extensive. For example, \citet{Franksen1969} argues that momentum should be considered as extensive, for mass is related to the `size' of the system. 
@@ -119,7 +119,7 @@ where $\beta$ is the (differential) work done \emph{by} the mechanical subsystem
 \end{equation}
 with $\gamma$ being the damping coefficient as defined in \cref{tab:dho_params}. The above equations dictate a contact structure on the three-dimensional phase space $M$ constituted by the internal energy $U$, the momentum $p$ and the position $p$, or equivalently, on the `other' space $\tilde{M}$ with the mechanical energy $E$, $p$ and $q$:
 $$ \dd{U} - \gamma p \dd{q} \: \in \: \ctbundle{M}, \qquad \quad \dd{E} + \gamma p \dd{q} \: \in \: \ctbundle{\tilde{M}}. $$
-Formally, we have that the position $q$ is a coordinate of the configuration space $Q$, to which we attach the cotangent bundle whose fibers contain the momentum: $ (q, p) \in \ctbundle{Q}$. The latter space is then extended with a single dimension for either $U$ or $E$. Both spaces $M$ and $\tilde{M}$ are isomorphic, but are equipped with a different contact structure; i.e. $M \cong \tilde{M} = \real \times \ctbundle{Q} \cong \real^3$. Because the topology of these spaces is trivial, we assume the contact forms to be defined globaly: they are \emph{exact} contact manifolds.
+Formally, we have that the position $q$ is a coordinate of the configuration space $Q$, to which we attach the cotangent bundle whose fibers contain the momentum: $ (q, p) \in \ctbundle{Q}$. The latter space is then extended with a single dimension for either $U$ or $E$. Both spaces $M$ and $\tilde{M}$ are isomorphic, but are equipped with a different contact structure; i.e. $M \cong \tilde{M} = \real \times \ctbundle{Q} \cong \real^3$. Because the topology of these spaces is trivial, we assume the contact forms to be defined globally: they are \emph{exact} or \emph{strictly} contact manifolds. All the contact structures discussed in this treatment are assumed to be exact.
 
 In the following section, we define the contact Hamiltonian system on $M$ (i.e. in terms of the internal energy), and denote the associated contact form by $\alpha$, i.e.
 \begin{equation}
@@ -137,35 +137,39 @@ It is important to keep in mind that contact forms are by definition nonunique: 
 %\begin{equation*}
 %    \alpha_1 = -\dd{U}_1 + \gamma p \dd{q}.
 %\end{equation*}
-\subsubsection{Contact Hamiltonian function for the damped oscillator}
-A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha \in \ctbundle{M}$ is a contact form on the manifold and $H \in \functions{M}$ is the Hamiltonian function that generates the dynamics. Given the contact form in \cref{eq:dho_contact_form_thermo}, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. Just like in the conservative case with a symplectic structure, the contact structure provides a mapping between the functions on the manifold and the `contact Hamiltonian vector fields' on that manifold. For \emph{any} given function $H$ (which does not necessarily has to be `the' Hamiltonian), the associated \emph{Hamiltonian vector field} is denoted by $X_H$. This mapping is discussed in detail in \cref{sec:contact_ham_systems}. We really are interested in the \emph{inverse} mapping, that is to say, from the vector field to the Hamiltonian function, since the dynamics of the damped oscillator can be easily derived from Newtonian mechanics (\cref{eq:dho_eom}). 
+\subsubsection{Contact Hamiltonian system for the damped oscillator}
+A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifold, $\alpha \in \ctbundle{M}$ is a contact form on the manifold and $H \in \functions{M}$ is the Hamiltonian function that generates the dynamics. Given the contact form in \cref{eq:dho_contact_form_thermo}, we are now to find the contact Hamiltonian function to complete the picture of the contact Hamiltonian system. Just like in the conservative case with a symplectic structure, the contact structure $\alpha$ provides an isomorphism $\Psi_{\alpha}$ between the functions on the manifold and the infinitesimal strict contactomorphisms $\vsfields{c}{M}$, which are vector fields that preserve the exact contact structure. For \emph{any} given function $H$ (which does not necessarily has to be `the' Hamiltonian), the associated \emph{Hamiltonian vector field} is denoted by $X_H$:
+\begin{equation}
+    \Psi_\alpha: \: \vsfields{c}{M} \to \functions{M}: \: X_H \mapsto H. 
+\end{equation}
+The precise nature of $\Phi$ is discussed in detail in \cref{sec:contact_ham_systems}. The `forward mapping' is defined as
+$$ \Psi_\alpha(X_H) \coloneq \intpr{X_H}{\alpha}. $$
+To go the other way is not so simple, since $ \Phi_\alpha^{-1}$ must map the general class of smooth functions to a special subclass of inifinitesimal exact contactomorphims $\vsfields{c}{M}$. For $X_H$ to be an infinitesimal exact contactomorphism means that it must satisfy the following condition:
+$$ \lied{X_H}{\alpha} = s \alpha, $$
+with $s$ some function (zeros allowed) on $M$.
 
-The trick is to separate the Hamiltonian vector field into a \emph{horizontal} vector field $X^\text{hor}_H$  and a vertical vector field $X^\text{ver}_H$; according to the following decomposition of the tangent bundle to $M$ \cite{Libermann1987}
+The trick to find $\Phi_\alpha^{-1}(X_H)$ is to separate the Hamiltonian vector field into a \emph{horizontal} vector field $X^\text{hor}_H$  and a vertical vector field $X^\text{ver}_H$ according to the following splitting of the tangent bundle to $M$ \cite{Libermann1987}
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
 where the vertical field is in the kernel of $ \dd{\alpha}$, the horizontal vector field in the kernel of $\alpha$, and $\oplus$ denotes the Whitney sum. The Hamiltonian vector field is then 
-$$ X_H = X_H^\text{ver} + X_H^\text{hor.}, $$
+$$ X_H = X_H^\text{ver} + X_H^\text{hor}, $$
 with $X_H^\text{ver} \in \ker \dd{\alpha}$ and $X_H^\text{hor} \in \ker \alpha$.
+%<symbol: \oplus> <expl: Whitney sum; direct sum> <tags: misc, math>
+%<symbol: \times> <expl: Cartesian product; cross product (depending on context)> <tags: misc, math>
 
-Furthermore, we impose two conditions on the Hamiltonian vector field $X_H$ associated to the Hamiltonian $H$:
-\begin{itemize}
-    \item First, we have that $ H = -\intpr{X_H}{\alpha} $. 
-    \item Secondly, $\lied{X_H}\alpha = s \alpha $ with $s$ some function; which is to say that $X_H$ is an infinitesimal contact transformation. 
-\end{itemize}
-
-The vertical part of the vector field is easy to find based on the first condition, and is equal to
+The vertical part of the vector field is easy to find based on the definition of $\Phi$, and is equal to
 \begin{equation}
     X_H^\text{ver} = - H R_\alpha, 
     \label{eq:vertical_vf}
 \end{equation}
-where $R_\alpha$ refers to the Reeb vector field of the contact form. In components, the Reeb vector field is
+where $R_\alpha$ refers to the Reeb vector field of the contact form. In components, the Reeb vector field is\footnote
+{
+    Clearly, the vertical part of the vector field is always colinear with the Reeb vector field. However, this does not preclude the horizontal vector field to have a component in the direction of the Reeb vector field as well; as long as it is part of the kernel of $\alpha$. It is therefore not the case that the horizontal vector field is symplectic, which one might intuitively assume.
+}
 $$ 
     R_\alpha = \pdv{}{U}.
 $$ 
-\begin{remark}
-    Clearly, the vertical part of the vector field is always colinear with the Reeb vector field. However, this does not preclude the horizontal vector field to have a component in the direction of the Reeb vector field as well; as long as it is part of the kernel of $\alpha$. It is therefore not the case that the horizontal vector field is symplectic, which one might intuitively assume.
-\end{remark}
 
-For reasons that will become later, it is the horizontal part is our prime interest, rather than the vertical part. The horizontal vector field is obtained using the second (and first) condition, which is equivalent to (by virtue of Cartan's magic formula, see \cref{sec:contact_ham_systems})
+For reasons that will become later, it is the horizontal part that is our prime interest, rather than the vertical part. The horizontal vector field is obtained using the second (and first) condition, which is equivalent to (by virtue of Cartan's magic formula, see \cref{sec:contact_ham_systems})
 \begin{equation}
     \intpr{X_H^\text{hor}}{\dd{\alpha}} = \dd{H} - s \alpha, 
     \label{eq:hor_vfield_condition}
@@ -187,18 +191,39 @@ The left hand side of the above expression and the symplectic case given by \cre
 $$ \dd{H}  = \gamma \dd{E} + \pdv{H}{U}\dd{U}. $$
 Furthermore, choose $ \displaystyle \pdv{H}{U} \coloneq \gamma $, such that
 $$ \dd{H} = \gamma (\dd{E} + \dd{U}). $$
-Therefore the contact Hamiltonian is equal to
+As a result, the contact Hamiltonian is equal to
 \begin{equation}
     H = \gamma (E + U) = \gamma \qty(\frac{p^2}{2m} + \frac{1}{2}kq^2 + U), 
 \end{equation}
 at least up to the addition of a closed form (i.e. a first integral or total differential). The Hamiltonian is therefore equal to the total energy of the system multiplied by the damping coefficient. The horizontal component of the Hamiltonian vector field is then
 $$ 
-    X^\text{hor}_H = \frac{p}{m}\pdv{}{q} - ( kq + \gamma p)\pdv{}{p} - \gamma \frac{p^2}{m}\pdv{}{U}.
+    X^\text{hor}_H = \frac{p}{m}\pdv{}{q} - ( kq + \gamma p)\pdv{}{p} + \gamma \frac{p^2}{m}\pdv{}{U}.
 $$
 This vector field gives the correct dynamics for $q$ and $p$. The rate of change of $U$ (by the horizontal vector field) is given by the $ 
-\gamma \frac{p^2}{m}$, which is precisely equal to the power dissipated by the damper. As such, it seems that the correct dynamics are entirely represented by the horizontal vector field. On the other hand, the vertical vector field, given by \cref{eq:vertical_vf}, is proportional to the numerical value of the Hamiltonian, and it also contributes to the time-rate of change of $U$. The presence of the vertical vector field gives rise to an additional exponential growth (since $X_H^\text{ver}$ is proportional to the Hamiltonian, which contains $U$ itself). Hence, if we we want to impose that $U$ indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is only the case if the Hamiltonian is numerically equal to zero, i.e. $H = 0$. From a thermodynamic standpoint, energy is only determined up to an additive constant, so this assertion would be admissible from a conceptual standpoint. Additionally, a value of 0 for the total energy is a common convention in literature, see for example \citet{Fermi1936}. 
+\gamma \tfrac{p^2}{m}$, which is precisely equal to the power dissipated by the damper. As such, it seems that the correct dynamics are entirely represented by the horizontal vector field. On the other hand, the vertical vector field, given by \cref{eq:vertical_vf}, is proportional to the numerical value of the Hamiltonian, and it also contributes to the time-rate of change of $U$. The presence of the vertical vector field gives rise to an additional exponential growth (since $X_H^\text{ver}$ is proportional to the Hamiltonian, which contains $U$ itself). Hence, if we we want to impose that $U$ indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is only the case if the Hamiltonian is numerically equal to zero, i.e. $H = 0$. From a thermodynamic standpoint, energy is only determined up to an additive constant, so this assertion would be admissible from a conceptual standpoint. Additionally, a value of 0 for the total energy is a common convention in literature, see for example \citet{Fermi1936}. 
 
-The preceding arguments do not provide a sound mathematical basis for this particular assumption (that $H = 0$). Indeed, we could (and should) be leery of cancelling terms using zero factors, for it often leads to unanticipated consequences or even downright contradictions. The fact that $H = 0$ is crucial for its interpretation as (the scaled) total energy of the system; this point is missed entirely by many applied texts on this subject, including \citet{Bravetti2017}, but also \citet{valcazar2019}. Leaving the vertical vector field in leads to extra `parasetic' dynamics that are unphysical and delude us from the actual significance of the variable $U$.
+The assumption that the contact Hamiltonian should be equal to zero is rather striking, and the preceding arguments do not provide a sound mathematical basis for it. Indeed, we could (and should) be quite leery of cancelling terms using zero factors, for it often leads to unanticipated consequences or even downright contradictions. But it is clear, from the discussion above that the fact that $H = 0$ is crucial for its interpretation as (the scaled) total energy of the system; this point is missed entirely by many applied texts on this subject, including \citet{Bravetti2017}, but also \citet{valcazar2019}. Leaving the vertical vector field in leads to extra `parasitic' dynamics that are unphysical and delude us from the actual significance of the variable $U$.
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/dho_trajectories}
+    \caption{Simulation of $X_H$ for $b = \SI{0.3}{\kilogram \per \second}$, $ m = \SI{1}{\kilogram}$ and  $k = \SI{10}{\kilogram \per \second \squared}$. The left plot shows the physical trajectory ($H = 0$) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for $U$ (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, $U$ clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
+    \label{fig:dho_trajectories}
+\end{figure}
 
-Now to the mathematics. Recall that by definition $H = \intpr{X_H}{\alpha}$. In the previous section we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, $H$ measures in essence how `non-Legendrian' an integral manifold of $X_H$ is. We have stipulated earlier that Legendre submanifolds are the only ones with physical meaning, which is why this condition makes sense. If $H \neq 0$, trajectories either approach a Legendre submanifold (stable), i.e. becoming tangent in the limit for time to infinity, or diverge from it (unstable). Furthermore, since the Hamiltonian is defined through the contact structure, and the contact structure is only defined up to a 
+Now to the mathematics. Recall that by definition $H = \intpr{X_H}{\alpha}$. In the previous section we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, $H$ measures in essence how `non-Legendrian' an integral manifold of $X_H$ is. We have stipulated earlier that Legendre submanifolds are the only ones with physical meaning, which is why this condition is essential. For the same reason, we can show that
+$$ \lied{X^{\text{hor}}_H}{H} = 0 \quad \Rightarrow \quad \dv{H}{t} = \lied{X^{\text{ver}}_H}{H} = -H\pdv{H}{U}. $$
+Hence, if the Hamiltonian does not vanish, it changes exponentially over time (for its change is proportional to its own value). If $\gamma > 0$, the Hamiltonian decays exponentially from its initial value:
+$$ H(t) = H_0\,\ec^{-\gamma t}.$$
+As a result, any nonphysical trajectories will approach a Legendre submanifold as time proceeds; the associated vector fields also become ever more tangent to the Legendre submanifold. Based on the expression for $H$, an expression for $U$ may also be derived:
+$$ U(t) = \frac{1}{\gamma}\qty( H_0\,\ec^{-\gamma t} - E ). $$
+Hence, if $H = 0$, the internal energy is equal to the negative of the mechanical energy in the system. These findings are illustrated by \cref{fig:dho_trajectories}: the left plot shows perturbations of the `ideal' physical trajectory. The right plot shows the trajectories for an initial value of $U = 0$ (also with perturbations); as a result of the above equation, $U$ `wobbles' around its zero point; but it is clearly not a physical trajectory.
+
+As an additional argument, recall that the contact form $\alpha$ is not unique: multiplication with any nonzero function gives rise to the same contact \emph{structure}. We can consider this to be a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Phi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
+\begin{equation}
+    \Phi^{-1}_{\tilde{\alpha}}(H) = \Phi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
+    \label{eq:contact_ham_scaling}
+\end{equation}
+The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $H = 0$.
+
+The Hamiltonian and contact structure used here are not precisely the same as the one proposed by \citet{Bravetti2017}, for they differ by multiplication of $\gamma$. It is clear from the derivations in this section that, although the thermodynamic picture is clear, the derivations in the contact framework are implicit and inintuitive. An additional disadvantage presents itself in the fact that $\alpha$ is not specified in Darboux coordinates, which makes the derivations even more clumsy and precludes us from using the standard coordinate expressions. In the next section, a more elegant approach is taken using the symplectification of the contact manifold.
 
