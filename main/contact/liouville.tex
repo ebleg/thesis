@@ -1,25 +1,24 @@
-\section{Contact structure from time-dependence}
+\section{Liouville structure from time-dependence}
 \label{sec:liouville}
-Bla bla
+As mentioned in \cref{sec:contact_intro}, the Caldirola-Kanai method uses an explicit time-dependence in the Lagrangian and the Hamiltonian function to accomodate the effect of dissipation. In this section, we will explain how the Caldirola-Kanai method is really a `concealed' version of a \emph{homogeneous} Hamiltonian function. This is a special type of Hamiltonian function that arises after a contact Hamiltonian system is lifted to a symplectic space, a procedure colloquially called \emph{symplectization} of the contact structure. The result is a symplectic structure with an extra homogeneity structure, called a \emph{(symplectic) Liouville structure}\footnote{The name `Liouville structure' stems from the fact that the associated structure is based on the Liouville 1-form, which makes its appearance under a myriad of names, such as the canonical 1-form, tautological 1-form, Poincaré 1-form or the symplectic potential. }.
+
+First, the Caldirola-Kanai method is briefly explained in \cref{ssec:caldirola}. Then, the theory of symplectization and Liouville structures is presented in \cref{ssec:symplectization}, after which it is used to construct homogeneous Hamiltonian systems in \cref{ssec:homogeneous_systems}.
+
 \subsection{The Caldirola-Kanai method}
 \label{ssec:caldirola}
-%A traditional, engineering-inclined method to incorporate damping in the framework is to include a Rayleigh damping term in the Lagrangian to emulate linear damping forces, and this works `mathematically' to derive the correct equations of motion \cite{Goldstein2011}. Although frequently used for practical problems, this damping term is not really part of the \emph{actual} Lagrangian --- rather, it simply makes use of the notion of a generalized force that is not inherently part of the system. As such, this method only works on a superficial level: the pristine differential geometric foundations of mechanics do not leave room for such ad hoc tricks. There is, as a result, also no Hamiltonian counterpart for this method. 
-
-%The historical attempts to do better than the Rayleigh method were primarily motivated by the application of the (dissipative) Hamiltonian formalism in quantum mechanics through discretization. For this application, a sound mathematical structure is of the essence, which calls for a more rigorous approach. A celebrated paper by
-%\citet{Dekker1981} provides an excellent summary of many attempts up to 1981. Indeed, the well-studied approach developed by \citet{Caldirola1941} and \citet{Kanai1948} was intended exactly for this purpose. This method features an explicit time-dependence both in the Lagrangian function
-introduction
+The Caldirola-Kanai Lagrangian is
 \begin{equation}
     \Lck(q, \dot{q}, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq_1^2),
     \label{eq:lag_CK}
 \end{equation}
-and the corresponding Hamiltonian function:
+with the corresponding Hamiltonian function:
 \begin{equation}
     \Hck(q, \Pcan, t) = \frac{\Pcan^2}{2m}\ec^{-\gamma t} + \frac{1}{2}kq^2\ec^{\gamma t}.
     \label{eq:ham_CK}
 \end{equation}
 In latter equation, $\Pcan$ refers to a special `canonical momentum', that is
 \begin{equation}
-    \Pcan \equiv \pdv{\Lck}{\dot{q}},
+    \Pcan \coloneq \pdv{\Lck}{\dot{q}},
     \label{eq:can_momentum}
 \end{equation}
 which is related to the `true' kinematic momentum by the relation $\Pcan = p\ec^{\gamma
@@ -60,31 +59,46 @@ Substition yields the correct equation for $p$, though the equation is again mul
 
 \subsubsection{Geometric approach}
 The Hamiltonian \cref{eq:ham_CK} is explicitly time-dependent. This will give rise to a time-dependent vector field governing the solution curves.\footnote
-{A \emph{time-dependent vector field} on a manifold $M$ is a mapping $X: M\times\real \to \tbundle{M}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $M \times \{t\}$ is a vector field on $M$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times M \to \tbundle{(\real \times M)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, it lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
+{A \emph{time-dependent vector field} on a manifold $N$ is a mapping $X: N\times\real \to \tbundle{N}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $N \times \{t\}$ is a vector field on $N$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times N \to \tbundle{(\real \times N)} \quad (t, m) \mapsto ((t, 1), (m, X(t, m))),$$ that is to say, the suspension lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1. \cite{Abraham1978}}
 The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian (using the isomorphism given by $\omega$), but `frozen' at each instant of $t$. Even more bluntly speaking, one simply ignores the $t$-coordinate during the derivation, only to acknowledge the dependence at the very end. This leads to the following vector field, `suspended' on the $\real\times Q$ space:
 $$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
 The suspension is important to make the final coordinate transformation from $\rho$ to $p$ work properly. Indeed, effecting the transformation $(q, \Pcan, t) \mapsto (q, \ec^{-\gamma t}\Pcan, t)$, one obtains
 $$ \tilde{X}_{\Hck} = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
-It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the special role of the time coordinate, which is merely a parameter in the Hamiltonian function; for it does not partake in the dynamics of the system. Finally, there is the special role of the factor $\ec^{\gamma t}$ through which the time-dependence makes its appearance both in the Lagrangian and the Hamiltonian.
+It is worthwile to ponder on some apparent peculiarities in the Caldirola-Kanai method, for they will be explained elegantly by the contact-Hamiltonian formalism. Firstly, the role of the two different momenta is not very clear from the get-go, apart from being a consequence of the way the Caldirola-Kanai Lagrangian is formulated. This has also been the reason for considerable confusion in the academic community (see \citet{Schuch1997}). Furthermore, there is the special role of the time coordinate, which is merely a parameter in the Hamiltonian function; for it does not partake in the dynamics of the system. Finally, there is the time dependence, which does indeed produce the correct equation of motion but seems to be out of place, for an explicit time-dependence is preferably reserved for \emph{exogenous} effects. The dissipation is inherently part of the system (not an `input'), which is why we would like to see it treated on the same footing as the mass and the spring.
 
 %\section{Symplectification and Liouville structures}
-%We start with an $n$-dimensional \emph{base manifold} $Q$. In the context mechanical systems, this manifold is the configuration manifold of the system, \emph{extended} with an additional, `special` position coordinate coordinate that will be interpreted later. Let us assume that $Q$ has coordinates $\vec{q} = \qty(q_0, q, \ldots, q_n)$. For the damped harmonic oscillator, this manifold is two-dimensional, for it contains just the special coordinate and the position of the mass. Without loss of generalization, we will denote the special position coordinate by $q_0$.
+%We start with an $n$-dimensional \emph{base manifold} $Q$. In the context mechanical systems, this manifold is the configuration manifold of the system, \emph{extended} with an additional, `special` position coordinate coordinate that will be interpreted later. Let us assume that $Q$ has coordinates $\vec{q} = \qty(W, q, \ldots, q_n)$. For the damped harmonic oscillator, this manifold is two-dimensional, for it contains just the special coordinate and the position of the mass. Without loss of generalization, we will denote the special position coordinate by $W$.
 %
 %Now, introduce the \emph{manifold of contact elements} $\cbundle{Q}$, to the base manifold $Q$. This is the manifold of all points in $Q$, with the space of all possible tangent hyperplanes at every point. This manifold has dimension $2n-1$.
 %
 %The manifold of contact elements to $Q$ can be identified with the projectivization of the cotangent bundle $\ctbundle{Q}$, denoted by $\pctbundle{Q}$. This manifold is of dimension $2n-1$. 
 
-\subsection{From time-dependent to contact Hamiltonian systems}
-In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include dissipation in the Hamiltonian formalism. First of all, to a contact manifold, which is odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}, denoted by $q_0$.  However, performing calculations in contact geometry directly is cumbersome and uninsightful: to quote Vladimir Arnol'd once more, `one is advised to calculate symplectically but to think rather in contact geometry terms'. Hence, we make use of the \emph{symplectization} of the contact structure, which gives rise to a so-called \emph{Liouville structure}, and `pretend' that we are dealing with the symplectic case. This symplectization will add yet another dimension to the system. \cite{VanderSchaft2021a,Arnold1989a}
+%\subsection{From time-dependent to contact Hamiltonian systems}
 
-\subsubsection{Symplectization \& Liouville structures}
-The contact manifold of our system is three-dimensional, with coordinates $p, q$ and $q_0$ -- the latter is the gauge variable for the dissipation in the system. It can be viewed as the manifold of contact elements associated with the extended configuration manifold $M$ for which $q$ and $q_0$ are coordinates, denoted by $\pctbundle{M}$. The contact form on $\pctbundle{M}$ is given by 
+\subsection{Symplectization and Liouville structures}
+\label{ssec:symplectization}
+%In the subsequent discussion the original Hamiltonian will be progressively lifted to higher-dimensional spaces in order to include dissipation in the Hamiltonian formalism. First of all, to a contact manifold, which is odd-dimensional: as mentioned, we need an additional degree of freedom --- which has no momentum conjugate to it --- to keep track of the dissipation in the system. This degree of freedom is sometimes referred to as a \emph{gauge variable}, denoted by $W$.  
+In \cref{sec:thermodynamics}, a contact Hamiltonian system is constructed for the damped harmonic oscillator based on the principles of thermodynamics. However, performing calculations in contact geometry directly is rather cumbersome and uninsightful: to quote Vladimir Arnol'd, `one is advised to calculate symplectically but to think rather in contact geometry terms'. \cite{VanderSchaft2021a,Arnold1989a} This is why we will raise the dimension of the three-dimensional contact manifold $M$ by one more to arrive at an even-dimensional manifold, which has a canonical symplectic (and Liouville) structure.
+
+The contact 1-form $\alpha$ considered in \cref{sec:thermodynamics} is not expressed in Darboux coordinates. Although it does make sense to use it that way from a physical standpoint (for it directly represents the work done by the damper), using Darboux coordinates simplifies calculations and allows us to use standard coordinate expressions. Because contact structures are only unique up to multiplication by a constant, define
+$$ \alpha_\gamma \coloneq \frac{\alpha}{\gamma}, $$
+and the substitution
+$$ W \coloneq \frac{U}{\gamma}.$$
+Hence, the new contact 1-form is
 \begin{equation}
-    \alpha = \dd{q}_0 - p\dd{q},
+    \alpha_\gamma = \dd{W} - p\dd{q}, 
     \label{eq:dho_contact_form}
 \end{equation}
-which accentuates the special role of the $q_0$ in the system dynamics. Contact forms are, by their very nature, ambiguous: they represent a distribution of hyperplanes, which coincides with the kernel of the contact form. Multiplication with a nonzero factor yields a different contact form with the same kernel, that is to say, they represent the same contact structure. This is the reason behind the `projective' nature of contact mechanics\footnote{As explained in \cref{app:contact_geometry}, the manifold of contact elements is bundle-isomorphic to the projectivization of the cotangent bundle.}. Hence, one may just as well multiply the 1-form with a nonzero factor $\lambda$:
-$$ \lambda\qty(\dd{q}_0 - p\dd{q}) \quad \lambda \in \real_0. $$
+which means that $q, p, W$ are Darboux coordinates. The latter coordinate is, just a like $U$ in the previous chapter, a special coordinate to keep track of the dissipated energy. 
+
+For the construction of the symplectization, we need a space that is slightly different from the manifold $M$ of \cref{sec:thermodynamics}. Whereas $M$, is 
+
+$Q_\text{e} = Q \times \real \cong \real^2$ for which $q$ and $W$ are coordinates. This is a bundle with the extended configuration space $Q_\text{e}$ as a base space, and its fibers consist of all the \emph{contact elements} (i.e. 1-dimensional linear subspaces, or lines through the origin) of the tangent space at a given point. The fibers therefore have a projective structure; 
+
+Hence, denoted by $\pctbundle{Q_e}$. The contact form on $\pctbundle{Q_e}$ is given by 
+
+which accentuates the special role of the $W$ in the system dynamics. Contact forms are, by their very nature, ambiguous: they represent a distribution of hyperplanes, which coincides with the kernel of the contact form. Multiplication with a nonzero factor yields a different contact form with the same kernel, that is to say, they represent the same contact structure. This is the reason behind the `projective' nature of contact mechanics\footnote{As explained in \cref{app:contact_geometry}, the manifold of contact elements is bundle-isomorphic to the projectivization of the cotangent bundle.}. Hence, one may just as well multiply the 1-form with a nonzero factor $\lambda$:
+$$ \lambda\qty(\dd{W} - p\dd{q}) \quad \lambda \in \real_0. $$
 The factor $\lambda$ can be considered to be an extra degree of freedom (leaving the contact structure unaffected), which provides a `lift' from the odd-dimensional manifold to an even-dimensional one, which is called the symplectification of the contact manifold. \cite{Arnold1989}
 
 To restate the above in canonical coordinates, choose\footnote
@@ -95,15 +109,15 @@ To restate the above in canonical coordinates, choose\footnote
 \end{equation}
 such that
 \begin{equation} 
-    \theta = \rho_0\dd{q}_0 + \rho\dd{q}, 
+    \theta = \rho_0\dd{W} + \rho\dd{q}, 
     \label{eq:dho_liouville_form}
 \end{equation}
 which is the Liouville form on $\ctbundle{M}$. \cite[p. 308]{Libermann1987}  The Liouville form defines a symplectic structure given by\footnote
 {The nondegeneracy condition on the contact structure guarantees that this structure is indeed symplectic.}
-$$\omega = -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.$$ 
+$$\omega = -\dd{\theta} = \wedgep{\dd{W}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.$$ 
 
 \paragraph{Principal bundles}
-Let us now formalize the Liouville structure in the language of principal bundles. The projectivized cotangent bundle $\pctbundle{M}$ has as its fiber the space of lines passing through the origin. These lines are also the orbits of the multiplicative group $\mgroup$ acting through dilations on the fiber of a bundle with two-dimensional fibers: the cotangent bundle of $M$ without zero section, denoted by $\ctzbundle{M}$. Using the canonical coordinates defined previously, coordinates for $\ctzbundle{M}$ are $(q_0, q, \rho_0, \rho)$, where $\rho$ and $\rho_0$ cannot vanish at the same time (the zero section).\footnote
+Let us now formalize the Liouville structure in the language of principal bundles. The projectivized cotangent bundle $\pctbundle{M}$ has as its fiber the space of lines passing through the origin. These lines are also the orbits of the multiplicative group $\mgroup$ acting through dilations on the fiber of a bundle with two-dimensional fibers: the cotangent bundle of $M$ without zero section, denoted by $\ctzbundle{M}$. Using the canonical coordinates defined previously, coordinates for $\ctzbundle{M}$ are $(W, q, \rho_0, \rho)$, where $\rho$ and $\rho_0$ cannot vanish at the same time (the zero section).\footnote
 {An instructive example of principal bundles in system theory is the set of all controllable and observable LTI systems, specified by the matrices $A$, $B$, $C$ and $D$. This is the total space. The base space is the space of all transfer functions of the appropriate dimensions. The correspondence of matrix systems with transfer functions is not injective: the matrix systems are only `unique' up to a similarity transform, which is a $\glgroup{n}{\real}$-action on the manifold of matrix systems. Hence, we have a principal bundle with (i) as total space the observable and controllable systems, (ii) as base space of the transfer functions (of appropriate order) and (iii) a $\glgroup{n}{\real}$-action in the form of a similarity transform. \cite{Hermann1984}}
 \begin{figure}[ht!]
     \centering
@@ -113,7 +127,7 @@ Let us now formalize the Liouville structure in the language of principal bundle
 \end{figure}
 
 Define the \mgroup-\emph{action} $\raction{}$ on $\ctzbundle{M}$ as:
-$$ \raction: \ctzbundle{M}\times\mgroup \to \ctzbundle{M} : \quad (q_0, q, \rho_0, \rho) \blacktriangleleft \lambda = (q_0, q, \lambda \rho_0, \lambda \rho ) \qquad \lambda \in \mgroup,$$
+$$ \raction: \ctzbundle{M}\times\mgroup \to \ctzbundle{M} : \quad (W, q, \rho_0, \rho) \blacktriangleleft \lambda = (W, q, \lambda \rho_0, \lambda \rho ) \qquad \lambda \in \mgroup,$$
 which are referred to as dilations of the fiber.
 
 As illustrated in \cref{fig:principal_bundle}, the \emph{orbit space} of $\ctzbundle{M}$ with respect to the group action $\raction{}$ is the space of all points in $\ctzbundle{M}$ with all points on the same line through the origin (in the fiber) identified. This space is precisely equal to the projectivization of the cotangent bundle $\pctbundle{M}$. Hence, consider the \emph{principal} $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\sigma}{\pctbundle{M}}$
@@ -123,17 +137,17 @@ As illustrated in \cref{fig:principal_bundle}, the \emph{orbit space} of $\ctzbu
     \end{tikzcd}
 \end{center}
 The removal of the zero section is required for the group action to be free. The principal bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$ admits a \emph{fibered symplectic Liouville structure}, given by the Liouville form \cite{Libermann1987}
-$$ \theta = \rho_0\dd{q_0} + \rho\dd{q}, $$
+$$ \theta = \rho_0\dd{W} + \rho\dd{q}, $$
 and the associated two-form $\omega = -\dd{\theta}$. The distinctive feature of these forms that makes this a Liouville structure is that they both commute with the group action $\raction{}$: \cite{Libermann1987}
 $$ (\raction{\lambda})^* \theta = \lambda \theta \qquad \lambda \in \real_*,$$
 which makes them homogeneous forms of degree 1.
 
 The projection map $\sigma$ of the principal bundle is locally defined as 
 \begin{equation}
-    \sigma : \ctzbundle{M} \to \pctbundle{M}: (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0), 
+    \sigma : \ctzbundle{M} \to \pctbundle{M}: (W, q, \rho_0, \rho) \mapsto (W, q, -\rho/\rho_0), 
     \label{eq:principal_projection}
 \end{equation}
-with $p \equiv -\rho/\rho_0$ a coordinate for the projectivized fiber. This coordinate does not cover the entire fiber: the points for which $\rho_0 = 0$ is missing (in \cref{fig:principal_bundle}, this point is the only point on the circle that cannot be projected on the $p$-axis). However, we will make the deliberate assumption that in our application, $\rho_0$ is never equal to zero.
+with $p \coloneq -\rho/\rho_0$ a coordinate for the projectivized fiber. This coordinate does not cover the entire fiber: the points for which $\rho_0 = 0$ is missing (in \cref{fig:principal_bundle}, this point is the only point on the circle that cannot be projected on the $p$-axis). However, we will make the deliberate assumption that in our application, $\rho_0$ is never equal to zero.
 %The manifold $\ctzbundle{M}$ is called the symplectization of the contact manifold. For now, we have not assigned any specific meaning to the coordinates given above, but they will turn out to match with the notation used in \cref{eq:lag_CK,eq:ham_CK}, etc.
 
 Finally, the \emph{Liouville vector field} $Z$ associated with the Liouville structure is the vector field that represents the dilation of the fiber in the symplectization. It is defined as
@@ -145,39 +159,41 @@ Vector field (components) colinear with the Liouville vector fields are called \
 
 [Liouville automorphisms, commute with the Liouville vector field -> very important in the chapter about split-quaternions]
 
-To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $q_0$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(q_0, q)$ and `momenta' $(\rho_0, \rho)$.
+To summarize, we lifted the original system with symplectic structure $\wedgep{\dd{q}}{\dd{p}}$ to a contact manifold through the addition of a gauge variable $W$. We then symplectified the contact manifold to a four-dimensional system, with `positions' $(W, q)$ and `momenta' $(\rho_0, \rho)$.
 
-\subsubsection{Homogeneous Hamiltonian systems} The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{ssec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
+\subsection{Homogeneous Hamiltonian systems} 
+\label{ssec:homogeneous_systems}
+The theoretical construction of the past section serves an important purpose, because it is the symplectified space which is the proper setting for the Caldirola-Kanai Hamiltonian discussed in \cref{ssec:caldirola}. Along with the symplectification of the contact structure described in the past section, we can do the same with a contact Hamiltonian system.
 
 There is a one-to-one correspondence between contact Hamiltonians on $\pctbundle{M}$ and a special class of Hamiltonians on the symplectified space $\ctzbundle{M}$. These are the Hamiltonians which are \emph{homogeneous} in the cotangent variables with degree 1:\footnote
 {This is a consequence of the Euler theorem for homogeneous functions. If $\mathscr{H} = \mathscr{H}(\vec{q}, \vec{\rho})$ is homogeneous of degree $r$ in $\vec{\rho}$, then
     $$ \sum_{i = 1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = r \mathscr{H}. $$
  Therefore, for homogeneity of degree 1, we have: 
- $$ \lied{Z}{\mathscr{H}} = Z(\mathscr{H}) = \sum_{i=1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H} \quad \text{with}\quad Z \equiv \sum \rho_i \pdv{}{\rho_i}. $$
+ $$ \lied{Z}{\mathscr{H}} = Z(\mathscr{H}) = \sum_{i=1}^n \rho_i \pdv{\mathscr{H}}{\rho_i} = \mathscr{H} \quad \text{with}\quad Z \coloneq \sum \rho_i \pdv{}{\rho_i}. $$
  The correspondence between the 
 }
 \begin{equation}
-    \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\,\mathscr{H}(q_0, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{\mathscr{H}} = \mathscr{H},
+    \mathscr{H}(W, q, \lambda \rho_0, \lambda \rho) = \lambda\,\mathscr{H}(W, q, \rho_0, \rho) \quad \text{or} \quad \lied{Z}{\mathscr{H}} = \mathscr{H},
 \end{equation}
 with $\lambda \in \real_0,\: H \in \functions{\ctzbundle{M}}$ and $Z$ defined according to \cref{eq:liouville_vf}. Given that $H$ is indeed homogeneous of degree 1, this correspondence is in canonical coordinates:
 \begin{equation}
-    \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,H\qty(q_0, q, -\frac{\rho}{\rho_0})
+    \mathscr{H}(W, q, \rho_0, \rho) = -\rho_0\,H\qty(W, q, -\frac{\rho}{\rho_0})
     \label{eq:H_correspondence}
 \end{equation}
 where $\mathscr{H} \in \functions{\ctzbundle{M}}$, $H \in \functions{\pctbundle{M}}$ and $p = -\rho / \rho_0$ is a coordinate for the projectivized fiber. Likewise, there is also a direct correspondence between the vector fields generated by these Hamiltonians, and therefore the system dynamics. This is the reason why we go through the trouble of symplectification in the first place, it offers significant computational advantages. It is possible to derive the contact equations directly (as \citet{Bravetti2017} does), but it does not offer the same amount of insight as its symplectified counterpart. \cite{VanderSchaft2021a,Arnold1989}
 
 Now, recall the Caldirola-Kanai Hamiltonian in \cref{eq:ham_CK}. Instead of assuming a direct time-dependence, we will think of the time-dependence as the gauge momentum, i.e. $\rho_0 \:``=" -\ec^{\gamma t}$. However, we will now consider $\rho_0$ to be a coordinate in its own right, instead of directly using the expression above --- the equality sign must therefore not be taken too literally. The Caldirola-Kanai Hamiltonian is then written as (cf. \cref{eq:ham_CK}):
 $$ -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2]. $$
-The motivation to make this particular choice is twofold: first, observe that $\mathscr{H}$ is homogeneous in the cotangent variables $\rho_0, \rho$, and second, that their fraction yields the \emph{real} momentum: $ p = -\rho/\rho_0 $. However, we must acknowledge a potential dependence on $q_0$, since we want to convert the explicitly time-dependent Hamiltonian into a contact Hamiltonian. We therefore add the arbitrary function $f = f(q_0)$, whose value is to be determined later, and also multiply by $\rho_0$ to maintain homogeneity. The homogeneous Hamiltonian $\mathscr{H}$ is then:
+The motivation to make this particular choice is twofold: first, observe that $\mathscr{H}$ is homogeneous in the cotangent variables $\rho_0, \rho$, and second, that their fraction yields the \emph{real} momentum: $ p = -\rho/\rho_0 $. However, we must acknowledge a potential dependence on $W$, since we want to convert the explicitly time-dependent Hamiltonian into a contact Hamiltonian. We therefore add the arbitrary function $f = f(W)$, whose value is to be determined later, and also multiply by $\rho_0$ to maintain homogeneity. The homogeneous Hamiltonian $\mathscr{H}$ is then:
 \begin{equation}
-    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + f(q_0)]. 
+    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(W, q, \rho_0, \rho) = -\rho_0 \qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + f(W)]. 
     \label{eq:homo_hck}
 \end{equation}
  Using the correspondence given by \cref{eq:H_correspondence}, the homogeneous Hamiltonian may be `projected' to the contact Hamiltonian $H$:
 \begin{equation}
-    H: \pctbundle{M} \to \real: \quad H(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + f(q_0).
+    H: \pctbundle{M} \to \real: \quad H(W, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + f(W).
 \end{equation}
-Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $q_0$.
+Numerically, this contact Hamiltonian is the same as the Hamiltonian for an undamped mass-spring system but it is defined on the contact manifold that also takes into account the gauge variable $W$.
 
 \paragraph{Equations of motion} Now to derive the equations of motion. As mentioned, this is easiest in the symplectified space because Hamilton's equations can be readily applied (the reader can consult \cref{app:contact_geometry} for the direct derivation). Because we are using canonical coordinates, the Hamiltonian vector field
 \begin{equation}
@@ -187,9 +203,9 @@ Numerically, this contact Hamiltonian is the same as the Hamiltonian for an unda
 corresponds to Hamilton's equations in the familiar form:
 \begin{equation}
     \dv{\rho}{t} = -\pdv{\mathscr{H}}{q},\quad
-        \dv{\rho_0}{t} = -\pdv{\mathscr{H}}{q_0},\quad
+        \dv{\rho_0}{t} = -\pdv{\mathscr{H}}{W},\quad
         \dv{q}{t} = \pdv{\mathscr{H}}{\rho},\quad
-        \dv{q_0}{t} = \pdv{\mathscr{H}}{\rho_0}.
+        \dv{W}{t} = \pdv{\mathscr{H}}{\rho_0}.
 \end{equation}
 Observe that this motivates why one has to take the partial with respect to the `other' momentum in the Caldirola-Kanai momentum: we are dealing with a specific instance of a more general class of homogeneous coordinates of the cotangent variables. Of course, the variable of interest is the actual momentum $p$, not the scaled version $\rho$. The time-derivative of $p$ can be written in terms of $\rho$ and $\rho_0$, completely analogous to \cref{eq:momentum_relation}:
 \begin{equation}
@@ -200,7 +216,7 @@ Given \cref{eq:homo_hck}, the partial derivatives of $\mathscr{H}$ and $H$ are r
 \begin{equation}
     \begin{split}
         \pdv{\mathscr{H}}{q} &= -\rho_0 \pdv{H}{q}, \\
-        \pdv{\mathscr{H}}{q_0} &= -\rho_0 \pdv{H}{q_0}, \\
+        \pdv{\mathscr{H}}{W} &= -\rho_0 \pdv{H}{W}, \\
         \pdv{\mathscr{H}}{\rho} &= -\rho_0 \pdv{H}{p}\pdv{p}{\rho} = \pdv{H}{p}, \\
         \pdv{\mathscr{H}}{\rho_0} &= -H - \rho_0 \pdv{H}{p}\pdv{p}{\rho_0} = -H - \pdv{H}{p}\frac{\rho}{\rho_0} = \pdv{H}{p}p - H.\\
     \end{split}
@@ -210,8 +226,8 @@ Hence, the \emph{contact} equations of motion can be found by combining of \cref
 \begin{equation}
     \begin{split}
         \dv{q}{t} &= \pdv{H}{p} \\
-        \dv{p}{t} &= \frac{1}{\rho_0}\pdv{\mathscr{H}}{q} + \frac{p}{\rho_0}\pdv{\mathscr{H}}{q_0} = - \pdv{H}{q} - p\pdv{H}{q_0} \\
-        \dv{q_0}{t} &= \pdv{H}{p}p - H.
+        \dv{p}{t} &= \frac{1}{\rho_0}\pdv{\mathscr{H}}{q} + \frac{p}{\rho_0}\pdv{\mathscr{H}}{W} = - \pdv{H}{q} - p\pdv{H}{W} \\
+        \dv{W}{t} &= \pdv{H}{p}p - H.
     \end{split}
     \label{eq:contact_eom}
 \end{equation}
@@ -223,29 +239,29 @@ Some observations are important to note:
 \end{itemize}
 
 We are now ready to determine the nature of the as of yet unknown function $f$ to obtain the correct equations of motion. By comparing \cref{eq:homo_momenta} and \cref{eq:contact_eom}, the following relation must hold:
-$$ \frac{1}{\rho_0}\dv{\rho_0}{t} = \pdv{H}{q_0} = \dv{f}{q_0}. $$
-Furthermore, since we initial `substituted' $\ec^{\gamma t}$ in favor of $\rho_0$, the left hand side of the equation should be equal to $\gamma$ for it to be consistent with the Caldirola-Kanai Hamiltonian. Hence, we know that $\dv{f}{q_0} = \gamma$, or $f(q_0) = \gamma q_0$ up to a constant, which we choose to be zero. Although this may seem like an odd construction, the only thing we did is made the contact equation of motions equivalent with the time-dependent equations of motion. Now, the fact that $\rho_0 = \ec^{\gamma t}$, ceases to be an a priori assumption, and is derivable through Hamilton's equations:
-$$ \dv{\rho_0}{t} = -\pdv{\mathscr{H}}{q_0} = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C$$
+$$ \frac{1}{\rho_0}\dv{\rho_0}{t} = \pdv{H}{W} = \dv{f}{W}. $$
+Furthermore, since we initial `substituted' $\ec^{\gamma t}$ in favor of $\rho_0$, the left hand side of the equation should be equal to $\gamma$ for it to be consistent with the Caldirola-Kanai Hamiltonian. Hence, we know that $\dv{f}{W} = \gamma$, or $f(W) = \gamma W$ up to a constant, which we choose to be zero. Although this may seem like an odd construction, the only thing we did is made the contact equation of motions equivalent with the time-dependent equations of motion. Now, the fact that $\rho_0 = \ec^{\gamma t}$, ceases to be an a priori assumption, and is derivable through Hamilton's equations:
+$$ \dv{\rho_0}{t} = -\pdv{\mathscr{H}}{W} = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C$$
 
 As such, we have for the contact Hamiltonian:
 \begin{equation}
-    H: \pctbundle{M} \to \real: \quad H(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + \gamma q_0,
+    H: \pctbundle{M} \to \real: \quad H(W, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + \gamma W,
     \label{eq:H_dho}
 \end{equation}
 and this is precisely Bravetti's result. For the homogenous Hamiltonian on the symplectified space, we have:
 \begin{equation}
-    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
+    \mathscr{H}: \ctzbundle{M} \to \real: \quad \mathscr{H}(W, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma W]. 
     \label{eq:H_dho_homo}
 \end{equation}
 %It is easily verified that the contact Hamilton equations $\cref{eq:contact_eom}$ yield the correct equations of motion for the damped harmonic oscillator:
 %$$ \dv{q}{t} = p/m \qquad \dv{p}{t} = -kq -\gamma p.$$
-%On the other hand, the equation of motion for $q_0$ requires some additional considerations; this is the subject of the next section.
+%On the other hand, the equation of motion for $W$ requires some additional considerations; this is the subject of the next section.
 
 The Hamiltonian vector field $X_\mathscr{H} \in \vfields{\ctzbundle{M}}$ is then, using \cref{eq:H_dho_homo} and \cref{eq:ham_vf}:
-$$ X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.$$ 
+$$ X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma W]\pdv{}{W}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.$$ 
 
 The contact Hamiltonian vector field $X_H \in \vfields{\pctbundle{M}}$ is obtained either by using the contact Hamilton equations given by \cref{eq:contact_eom}, or by using the pushforward of the projection map $\sigma$:
-$$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2 - \gamma q_0)\pdv{}{q_0}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
+$$ X_H = \sigma_*\,X_\mathscr{H} = \frac{p}{m}\pdv{}{q}\: + \: \qty(\frac{p^2}{2m} - \frac{1}{2}kq^2 - \gamma W)\pdv{}{W}\: - \: (kq + \gamma p)\pdv{}{p}\: $$
 This is essentially the equivalent of the time-dependent transformation performed in \cref{ssec:caldirola}. Clearly, these yield the correct equations of motion for the damped harmonic oscillator.
 
 \paragraph{Mechanical energy} One of the computational advantages of the symplectified space is the fact that `regular' Poisson brackets can be used in contrast to their slightly unwieldy contact counterparts.\footnote
@@ -254,7 +270,7 @@ This is essentially the equivalent of the time-dependent transformation performe
  where $X_f$ and $X_g$ are the Hamiltonian vector fields of $f$ and $g$. \cite{Libermann1987}
 } 
 The mechanical energy, denoted by $E$, is equal to 
-$$ E: \pctbundle{M} \to \real: \quad E(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
+$$ E: \pctbundle{M} \to \real: \quad E(W, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2,$$
 With some abuse of notation, we will denote both functions on the contact space and their lifted version to the symplectified space by the same symbol. That is to say, the function $E$ both refers to $E \in \functions{\pctbundle{M}}$ and $(E \circ \sigma) \in \functions{\ctzbundle}$.
 
 The change of mechanical energy in the system is then readily determined using the Poisson brackets:
@@ -276,26 +292,26 @@ which is precisely the dissipative power in the damping element.
     Integration around curve to show that $\xi$ in our case is not exact. Hard, because over two charts.
 
     Also show that the region of interest is not simply connected in order to use de Rham in the first place.
-    $ \real^4 / \{(q_0, q, 0, 0)\} $ not simply connected
+    $ \real^4 / \{(W, q, 0, 0)\} $ not simply connected
 \end{mathbox}
 
-\subsubsection{Physical interpretation of the gauge variables}
+%\subsubsection{Physical interpretation of the gauge variables}
 Another advantage of using the purely symplectic formalism on the lifted space is the fact that the homogeneous Hamiltonian is invariant under the flow it generates, since the explicit time-dependence has been removed:
 $$ \dv{\mathscr{H}}{t} = \poisson{\mathscr{H}}{\mathscr{H}} = \lied{X_{\mathscr{H}}}{\mathscr{H}} = 0. $$
 We may therefore associate the homogeneous Hamiltonian with a constant. By inspection of \cref{eq:H_correspondence}, 
-$$ \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\underbrace{\qty(C\rho_0^{-1})}_{H} \qquad C \in \real.$$
+$$ \mathscr{H}(W, q, \rho_0, \rho) = -\rho_0\,\underbrace{\qty(C\rho_0^{-1})}_{H} \qquad C \in \real.$$
 Recall that we made the assumption earlier that $\rho_0$ is a function \emph{without zeros}. 
 
 The constant $C$ is a degree of freedom in the system that we are free to choose, for the equations of motion will be consistent with any chosen value. This called a \emph{gauge} of the system, and its choice will influence the value of the gauge variable directly. The contact Hamiltonian is not a constant of motion however (at least, for dissipative systems). With some abuse of notation
-$$ \dv{H}{t} = C\,\dv{\rho_0}{t}  = -C\,\pdv{\mathscr{H}}{q_0}.$$
-Until now, there were no assumptions regarding the value of the damping constant $\gamma$: indeed, the `normal' equations of motion are readily derived when $\gamma$ is set to zero. We will now add the assumption that there is at least some dissipation present in the system ($\gamma \neq 0$) to assign further intrepretation to the gauge variable. The evolution of $q_0$ is directly related to the evolution of $H$ by \cref{eq:H_dho}
+$$ \dv{H}{t} = C\,\dv{\rho_0}{t}  = -C\,\pdv{\mathscr{H}}{W}.$$
+Until now, there were no assumptions regarding the value of the damping constant $\gamma$: indeed, the `normal' equations of motion are readily derived when $\gamma$ is set to zero. We will now add the assumption that there is at least some dissipation present in the system ($\gamma \neq 0$) to assign further intrepretation to the gauge variable. The evolution of $W$ is directly related to the evolution of $H$ by \cref{eq:H_dho}
 $$ 
-    q_0 = \frac{1}{\gamma} \bigg(\rho_0 C - \underbrace{\frac{p^2}{2m} - \frac{1}{2}kq^2}_{E}\bigg)
+    W = \frac{1}{\gamma} \bigg(\rho_0 C - \underbrace{\frac{p^2}{2m} - \frac{1}{2}kq^2}_{E}\bigg)
 $$
 Because we are free to choose the value of $C$, let us now make a choice of particular interest; namely $C = 0$. In that case, both $\mathscr{H}$ and $H$ vanish \emph{weakly};\footnote
 {The weak equality, as opposed to the strong equality, is not maintained under variations. Hence, although the numerical value of the function is zero, its partial derivatives do not necessarily vanish. The reader is referred to \citet{Dirac1950} for a more elaborate discussion.}
-this choice rids us from the additional freedom in $C$ that would also show up in the equation of motion for $q_0$. Instead, $q_0 = - E/\gamma$; which can be interpreted as the heat dissipated by the system (one can add a suitable initial condition for $q_0(0) = E(0)$ to make this also numerically correct). This `heat' function will be called $Q$; we therefore have
-$$ q_0 = Q/\gamma. $$
+this choice rids us from the additional freedom in $C$ that would also show up in the equation of motion for $W$. Instead, $W = - E/\gamma$; which can be interpreted as the heat dissipated by the system (one can add a suitable initial condition for $W(0) = E(0)$ to make this also numerically correct). This `heat' function will be called $Q$; we therefore have
+$$ W = Q/\gamma. $$
 The vanishing of the Hamiltonians reflects the energy balance that is maintained throughout the evolution of the system:
 \begin{equation*}
     \begin{split}
@@ -305,7 +321,7 @@ The vanishing of the Hamiltonians reflects the energy balance that is maintained
 \end{equation*}
 The fact that $H$ vanishes makes it a constant of motion on par with the symplectified Hamiltonian $\mathscr{H}$. This careful choice of for the gauge variable removes a lot of the ambiguity that is naturally present in contact systems; this rather subtle point is a bit overlooked by past research. \cite{Bravetti2017} 
 Furthermore, the evolution of the dissipated heat is
-$$ \dv{Q}{t} = \gamma \dv{q_0}{t} = \gamma \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0] = \gamma\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2, $$
+$$ \dv{Q}{t} = \gamma \dv{W}{t} = \gamma \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma W] = \gamma\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2, $$
 which is the expected result.
 
 This very particular choice for the gauge variable may seem a little arbitrary. However, \emph{in general}, the time-rate of change

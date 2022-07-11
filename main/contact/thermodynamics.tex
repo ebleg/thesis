@@ -49,7 +49,7 @@ should pull back to zero on the allowable states. This is known as Gibbs' fundam
 $$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
 As such, the condition that $\alpha = 0$ defines an two-dimensional submanifold of the larger five-dimensional space determined by the conditions
 \begin{equation}
-    T = \pdv{U}{S} \qquad P = -\pdv{U}{V}. 
+    T = \pdv{U}{S}, \qquad P = -\pdv{U}{V}. 
 \end{equation}
 The form $\alpha_\text{G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
 $$ \wedgep{\alpha_G}{(\dd{\alpha_G})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
@@ -74,7 +74,7 @@ which is a top (or volume) form on the thermodynamic phase space.\footnote
 %<symbol: Q> <expl: Configuration space> <tags: letter, math>
 Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds are at most two-dimensional; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
 
-\subsection{Contact geometry in classical mechanics}
+\subsection{Contact geometry in mechanics with dissipation}
 \label{ssec:thermo_dho}
 
 %\paragraph{Extensive and intensive variables} In contrast to thermodynamics, there does not seem to be an unequivocal distinction between extensive and intensive variables for mechanical systems. Although it is not strictly a problem from a mathematical standpoint, the internal energy is usually stated to be a function of the extensive state properties. To incorporate kinetic energy, the internal energy function should be a function of either momentum or velocity: the former is used necessarily used in the Hamiltonian formalism. However, it is not so clear whether momentum is intensive rather than extensive. For example, \citet{Franksen1969} argues that momentum should be considered as extensive, for mass is related to the `size' of the system. 
@@ -142,13 +142,13 @@ A contact Hamiltonian system is a triple $(M, \alpha, H)$, where $M$ is a manifo
 \begin{equation}
     \Psi_\alpha: \: \vsfields{c}{M} \to \functions{M}: \: X_H \mapsto H. 
 \end{equation}
-The precise nature of $\Phi$ is discussed in detail in \cref{sec:contact_ham_systems}. The `forward mapping' is defined as
+The precise nature of $\Psi_\alpha$ is discussed in detail in \cref{sec:contact_ham_systems}. The `forward mapping' is defined as
 $$ \Psi_\alpha(X_H) \coloneq \intpr{X_H}{\alpha}. $$
-To go the other way is not so simple, since $ \Phi_\alpha^{-1}$ must map the general class of smooth functions to a special subclass of inifinitesimal exact contactomorphims $\vsfields{c}{M}$. For $X_H$ to be an infinitesimal exact contactomorphism means that it must satisfy the following condition:
+To go the other way is not so simple, since $ \Psi_\alpha^{-1}$ must map the general class of smooth functions to a special subclass of inifinitesimal exact contactomorphims $\vsfields{c}{M}$. For $X_H$ to be an infinitesimal exact contactomorphism means that it must satisfy the following condition:
 $$ \lied{X_H}{\alpha} = s \alpha, $$
 with $s$ some function (zeros allowed) on $M$.
 
-The trick to find $\Phi_\alpha^{-1}(X_H)$ is to separate the Hamiltonian vector field into a \emph{horizontal} vector field $X^\text{hor}_H$  and a vertical vector field $X^\text{ver}_H$ according to the following splitting of the tangent bundle to $M$ \cite{Libermann1987}
+The trick to find $\Psi_\alpha^{-1}(X_H)$ is to separate the Hamiltonian vector field into a \emph{horizontal} vector field $X^\text{hor}_H$  and a vertical vector field $X^\text{ver}_H$ according to the following splitting of the tangent bundle to $M$ \cite{Libermann1987}
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha},$$
 where the vertical field is in the kernel of $ \dd{\alpha}$, the horizontal vector field in the kernel of $\alpha$, and $\oplus$ denotes the Whitney sum. The Hamiltonian vector field is then 
 $$ X_H = X_H^\text{ver} + X_H^\text{hor}, $$
@@ -156,7 +156,7 @@ with $X_H^\text{ver} \in \ker \dd{\alpha}$ and $X_H^\text{hor} \in \ker \alpha$.
 %<symbol: \oplus> <expl: Whitney sum; direct sum> <tags: misc, math>
 %<symbol: \times> <expl: Cartesian product; cross product (depending on context)> <tags: misc, math>
 
-The vertical part of the vector field is easy to find based on the definition of $\Phi$, and is equal to
+The vertical part of the vector field is easy to find based on the definition of $\Psi_\alpha$, and is equal to
 \begin{equation}
     X_H^\text{ver} = - H R_\alpha, 
     \label{eq:vertical_vf}
@@ -190,10 +190,10 @@ $$
 The left hand side of the above expression and the symplectic case given by \cref{eq:symplectic_ideal} look very much alike. The interior product of $X_H$ and $\omega$ can decidedly not produce a closed form (which the left two terms on the right hand side are), because then $X_H$ would be a symplectic vector field. Hence, the rightmost term represents the `deficit' from a purely symplectic vector field: the work form multiplied by $\pdv{H}{U}$. The other part of the right hand side should then be analogous to the purely symplectic case (multiplied by $\gamma$); that is to say, it is equal to $\dd{E}$. This means that 
 $$ \dd{H}  = \gamma \dd{E} + \pdv{H}{U}\dd{U}. $$
 Furthermore, choose $ \displaystyle \pdv{H}{U} \coloneq \gamma $, such that
-$$ \dd{H} = \gamma (\dd{E} + \dd{U}). $$
+$$ \dd{H} = \gamma\,(\dd{E} + \dd{U}). $$
 As a result, the contact Hamiltonian is equal to
 \begin{equation}
-    H = \gamma (E + U) = \gamma \qty(\frac{p^2}{2m} + \frac{1}{2}kq^2 + U), 
+    H = \gamma (E + U) = \gamma\,\qty(\frac{p^2}{2m} + \frac{1}{2}kq^2 + U), 
 \end{equation}
 at least up to the addition of a closed form (i.e. a first integral or total differential). The Hamiltonian is therefore equal to the total energy of the system multiplied by the damping coefficient. The horizontal component of the Hamiltonian vector field is then
 $$ 
@@ -206,7 +206,7 @@ The assumption that the contact Hamiltonian should be equal to zero is rather st
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/dho_trajectories}
-    \caption{Simulation of $X_H$ for $b = \SI{0.3}{\kilogram \per \second}$, $ m = \SI{1}{\kilogram}$ and  $k = \SI{10}{\kilogram \per \second \squared}$. The left plot shows the physical trajectory ($H = 0$) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for $U$ (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, $U$ clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
+    \caption{Integral curves of $X_H$ for $b = \SI{0.3}{\kilogram \per \second}$, $ m = \SI{1}{\kilogram}$ and  $k = \SI{10}{\kilogram \per \second \squared}$. The left plot shows the physical trajectory ($H = 0$) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for $U$ (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, $U$ clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
     \label{fig:dho_trajectories}
 \end{figure}
 
@@ -215,12 +215,12 @@ $$ \lied{X^{\text{hor}}_H}{H} = 0 \quad \Rightarrow \quad \dv{H}{t} = \lied{X^{\
 Hence, if the Hamiltonian does not vanish, it changes exponentially over time (for its change is proportional to its own value). If $\gamma > 0$, the Hamiltonian decays exponentially from its initial value:
 $$ H(t) = H_0\,\ec^{-\gamma t}.$$
 As a result, any nonphysical trajectories will approach a Legendre submanifold as time proceeds; the associated vector fields also become ever more tangent to the Legendre submanifold. Based on the expression for $H$, an expression for $U$ may also be derived:
-$$ U(t) = \frac{1}{\gamma}\qty( H_0\,\ec^{-\gamma t} - E ). $$
+$$ U(t) = \frac{1}{\gamma}\,\qty( H_0\,\ec^{-\gamma t} - E ). $$
 Hence, if $H = 0$, the internal energy is equal to the negative of the mechanical energy in the system. These findings are illustrated by \cref{fig:dho_trajectories}: the left plot shows perturbations of the `ideal' physical trajectory. The right plot shows the trajectories for an initial value of $U = 0$ (also with perturbations); as a result of the above equation, $U$ `wobbles' around its zero point; but it is clearly not a physical trajectory.
 
-As an additional argument, recall that the contact form $\alpha$ is not unique: multiplication with any nonzero function gives rise to the same contact \emph{structure}. We can consider this to be a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Phi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
+As an additional argument, recall that the contact form $\alpha$ is not unique: multiplication with any nonzero function gives rise to the same contact \emph{structure}. We can consider this to be a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
 \begin{equation}
-    \Phi^{-1}_{\tilde{\alpha}}(H) = \Phi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
+    \Psi^{-1}_{\tilde{\alpha}}(H) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
     \label{eq:contact_ham_scaling}
 \end{equation}
 The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $H = 0$.
