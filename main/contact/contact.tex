@@ -12,69 +12,34 @@
 
 \section{Introduction}
 \label{sec:contact_intro}
-\subsection{Historical perspective} 
-The traditional symplectic structure of Hamiltonian systems does not intrinsically support energy dissipation. Some efforts have been made to make this possible; the celebrated report by \citet{Dekker1981} provides an excellent overview of the advances in this field. Roughly speaking, four approaches exist:
+%\subsection{Historical perspective} 
+The traditional theory of Hamiltonian mechanics based on symplectic manifolds does not include energy dissipation (without explicit time dependence). Some efforts have been made to extend the formalism to dissipative systems; the celebrated report by \citet{Dekker1981} provides an excellent overview of the advances in this field. Roughly speaking, four approaches exist:
 \begin{itemize}
-    \item The \emph{Bateman approach}, doubles the number of degrees of freedom in the system to create a `mirror system' that runs in the opposite time direction. \cite{Bateman1931}. In the overall system the irreversible effects cancel out due to the two time directions, which is why it behaves in a symplectic fashion.
+    \item The \emph{Bateman approach}, doubles the number of degrees of freedom in the system to create a `mirror system' that runs in the opposite time direction. \cite{Bateman1931}. In the overall system the irreversible effects cancel out due to the two time directions, which is why it admits a symplectic structure.
     \item The family of \emph{complex dissipative Hamiltonians} proposed in various forms by \citet{Bopp1974}, \citet{Dekker1975}, \citet{Dedene1980}, \citet{Rajeev2007}, and more recently, \citet{Hutters2020} in the research group of the author. Originally, this method was developed to facilitate the quantization of dissipative mechanics for applications in quantum mechanics. The relation of the work in this thesis with the complex dissipative Hamiltonians is given in \cref{ssec:complex_ham}.
     \item Some purely mathematical constructs have been devised as well, e.g. by \citet{Havas1957} solving the so-called Helmholtz conditions. These \emph{mathematical Hamiltonians} do not offer insights from a physical standpoint (i.e. the Hamiltonian representing the energy in the system); and they rely on singularities of the Hamiltonian function to get around the inevitable limitations imposed by de Rham's theorem (this point is discussed in greater detail later in \cref{sec:liouville}).
     \item Finally, the time-dependent Hamiltonian (and Lagrangian) functions include the dissipative action through an explicit time-dependence that takes care of the `energy shrinkage' of the system. Although reinvented by several authors, this approach is commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, which it is why it is usually referred to as the Caldirola-Kanai Hamiltonian \cite{Schuch1997,Tokieda2021}.
 \end{itemize}
-In addition, for practical (engineering) applications with dissipation the \emph{Rayleigh damping function} is often used in the Lagrangian setting \cite{Goldstein2011}. However, this damping function does not conform to the mathematical structure of classical mechanics, in contrast to the methods mentioned above. Hence, we consider this a purely ad hoc \emph{ad hoc} method, and we we will not be concerned with it in this thesis.
+In addition, for practical (engineering) applications with dissipation the \emph{Rayleigh damping function} is often used in the Lagrangian setting \cite{Goldstein2011}. Although this damping function produces the correct equations of motion for linear damping, it does not conform to the deeper symplectic structure underlying Hamiltonian (and also Lagrangian) mechanics. Hence, we consider this an \emph{ad hoc} method, and we we will not be concerned with it in this thesis.
 
-\subsection{Contact Hamiltonian systems} 
-In this chapter, a different approach from the described methods is taken: instead of trying to force the dissipation into the symplectic framework, we acknowledge that symplectic manifolds are \emph{not} the natural setting for dissipative mechanics. We turn towards a different, but closely related, type of geometry called \emph{contact geometry}. Contact geometry is often called the odd-dimensional counterpart of symplectic geometry, and for good reason. Indeed, one can see a contact manifold as a symplectic manifold, with one extra dimension which can be identified through the contact structure as `special'. Furthermore, the symplectic part of the contact structure does the usual job of `pairing' the other coordinate directions. In the language of mechanics, these pairings are the generalized positions and their conjugate momenta. As demonstrated by \citet{Arnold1989}, the notion of Hamiltonian systems on symplectic manifolds can be extended to contact Hamiltonian systems on contact manifolds. It is this \emph{contact Hamiltonian formalism} that will be used to describe the mechanics of dissipative mechanical systems. A concise summary of contact geometry and contact Hamiltonian systems is given in \cref{app:contact_geometry}.
+%\subsection{Contact Hamiltonian systems} 
+In this chapter, a contrasting approach from the described methods is taken: instead of trying to fit the dissipation into the symplectic framework, we propose that \emph{contact geometry}, rather than symplectic geometry, is the natural setting for problems that include dissipation. Contact geometry is often called the odd-dimensional counterpart of symplectic geometry, and for good reason: one can see a contact manifold as a symplectic manifold, with one extra dimension which can be identified through the contact structure as `special'. Along the same line, the symplectic Hamiltonian formalism can be extended to contact manifolds as well, resulting in \emph{contact Hamiltonian systems}. For the reader unfamiliar with this subject, a concise introduction to contact geometry and contact Hamiltonian systems is given in \cref{app:contact_geometry}. For a more extensive overview we refer to \citet{Geiges2008} and \citet{Libermann1987}.
 
-There are generally two ways to study contact manifolds: one is directly through the contact structure, another is to use the so-called symplectization. The symplectization of a contact manifold adds another dimension to the contact manifold and assigns it a symplectic structure (instead of a contact structure) in a canonical fashion. Due to the canonical nature of this conversion, the symplectified manifold can serve as a fine representative of the underlying contact manifold \cite{Arnold1989}.
-This chapter follows each of these two methods to arive at the same result:
-\begin{itemize}
-    \item In \cref{sec:thermodynamics}, the basic principles from thermodynamics (and the associated contact structure) are used to provide a constructive argument for the correct contact Hamiltonian system for the damped harmonic oscillator. The corresponding Hamiltonian has already been shown by \citet{Bravetti2017} to generate the correct equations of motion, but his argument is neither constructive, nor does it provide the correct interpretation of the mathematical structure.
-    \item In \cref{sec:liouville} the symplectification of the contact Hamiltonian system is used to show that the time-dependent Caldirola-Kanai Hamiltonian is actually a time-explicit version of the symplectified contact Hamiltonian system derived in \cref{sec:thermodynamics}.
-\end{itemize}
-Both viewpoints have their advantages: the contact structure corresponds directly to the physical states of the system, but the mathematics of contact Hamiltonian systems has little of the mathematical elegance and simplicity that a purely symplectic system offers. Also from a computational viewpoint, the symplectification is a lot more approachable, since we can use traditional tools such as Poisson brackets to perform calculations.
+This chapter is organized according to two typical ways to study contact manifolds (and the associated Hamiltonian systems). Firstly, in \cref{sec:thermodynamics}, we combine the theory of contact Hamiltonian systems and the principles of thermodynamics to derive the Hamiltonian function and contact structure for the damped harmonic oscillator. The contact Hamiltonian system is necessarily is defined on an odd-dimensional manifold: on top of the classical position-momentum pair, we need an extra coordinate to keep track of the dissipation in the system. 
 
-[Lagrangian formalism]
+Secondly, in \cref{sec:liouville}, we take a different route: rather than using the contact structure directly, we follow a procedure called \emph{symplectization} to cast the contact Hamiltonian system on a symplectic manifold with an additional \emph{Liouville structure}. This procedure goes at the expense of yet another dimension added to the manifold, for symplectic manifolds are necessarily even-dimensional. 
+In addition, this method shows how the form of the Caldirola-Kanai Hamiltonian is a direct consequence of the resulting symplectified Hamiltonian system.
 
-[Generalizations]
+Thirdly, \cref{sec:lagrangian} treats the transition from contact Hamiltonian systems to contact Lagrangian systems. Finally, \cref{sec:generalization} shows how the theory can be extended to slightly more complicated mechanical systems, including those with exogeneous inputs
 
-Position coordinates are denoted by $q$ (with optional subscript), while $p$ refers to the associated (generalized) momentum. We denote symplectic 2-forms by $\omega$, Liouville 1-forms by $\theta$ and contact forms by $\alpha$.
+%Furthermore, the symplectic part of the contact structure does the usual job of `pairing' the other coordinate directions. In the language of mechanics, these pairings are the generalized positions and their conjugate momenta. As demonstrated by \citet{Arnold1989}, the notion of Hamiltonian systems on symplectic manifolds can be extended to contact Hamiltonian systems on contact manifolds. It is this \emph{contact Hamiltonian formalism} that will be used to describe the mechanics of dissipative mechanical systems. 
+%There are generally two ways to study contact manifolds: one is directly through the contact structure, another is to use the so-called symplectization. The symplectization of a contact manifold adds another dimension to the contact manifold and assigns it a symplectic structure (instead of a contact structure) in a canonical fashion. Due to the canonical nature of this conversion, the symplectified manifold can serve as a fine representative of the underlying contact manifold \cite{Arnold1989}.
+%This chapter follows each of these two methods to arive at the same result:
+%In \cref{sec:thermodynamics}, the basic principles from thermodynamics (and the associated contact structure) are used to provide a constructive argument for the correct contact Hamiltonian system for the damped harmonic oscillator. The corresponding Hamiltonian has already been shown by \citet{Bravetti2017} to generate the correct equations of motion, but his argument is neither constructive, nor does it provide the correct interpretation of the mathematical structure.
+%In \cref{sec:liouville} the symplectification of the contact Hamiltonian system is used to show that the time-dependent Caldirola-Kanai Hamiltonian is actually a time-explicit version of the symplectified contact Hamiltonian system derived in \cref{sec:thermodynamics}.
 
-\subsection{The damped harmonic oscillator} 
-This chapter is primarily concerned with the prototypical dissipative mechanical system: the linearly damped harmonic oscillator depicted in \cref{fig:dho}, with the governing second-order differential equation being
-\begin{equation}  
-    m\dv[2]{q}{t} + b\dv{q}{t} + kq = 0,
-    \label{eq:dho_eom}
-\end{equation}
-where $m$ is the mass of the object, $b$ the damping coefficient, and $k$ the spring constant. However, we prefer to express the dynamics in terms of some other parameters which are derived from these quantities; they are defined in \cref{tab:dho_params}.
+%Both viewpoints have their advantages: the contact structure corresponds directly to the physical states of the system, but the mathematics of contact Hamiltonian systems has little of the mathematical elegance and simplicity that a purely symplectic system offers. Also from a computational viewpoint, the symplectification is a lot more approachable, since we can use traditional tools such as Poisson brackets to perform calculations.
 
-The choice of the damped harmonic oscillator as examplary system is rather perspicuous, since it is arguably the `easiest' dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics \cite{Dekker1981,Hutters2020}.
-
-%<symbol: \theta> <expl: Liouville 1-form> <tags: greek, math>
-%<symbol: \omega> <expl: Symplectic 2-form> <tags: greek, math>
-
-%However, the method described in this section can be generalized directly to a general (possibly time-dependent) potential function $V = V(q, t)$. To make calculations and notation easier, some special parameters are frequently used throughout this chapter, they are summarized in \cref{tab:dho_params}.
-\begin{figure}[ht!]
-    \centering
-    \input{media/tikz/damper_oscillator}
-    \caption{Schematic of the mass-spring-damper system.}
-    \label{fig:dho}
-\end{figure}
-
-\begin{table}[ht!]
-    \caption{Parameter conventions of the damped harmonic oscillator. To avoid confusion with the symplectic form $\omega$, angular frequencies are denoted by $\Omega$ instead of the conventional lower case Greek letter.}
-    \label{tab:dho_params}
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
-        \midrule
-        Damping coefficient & $\gamma$ & $b/m$ & \si{\per \second }\\[0.4cm]
-        Undamped frequency & $\Omega_o$ & $\sqrt{k/m}$ & \si{\per \second }\\[0.4cm]
-        Damped frequency & $\Omega_d$ & $\sqrt{\Omega_0^2 - \qty(\frac{\gamma}{2})^2}$ & \si{\per \second }\\[0.4cm]  
-        Damping ratio & $\zeta$ & $\frac{b}{2\sqrt{mk}}$ & -- \\[0.2cm]
-        \bottomrule
-    \end{tabular}
-\end{table}
 %<symbol: \gamma> <expl: Damping coefficient> <tags: greek, mech>
 
 %% THERMODYNAMIC REASONING
