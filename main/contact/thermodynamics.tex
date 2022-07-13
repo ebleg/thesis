@@ -1,21 +1,10 @@
 \section{Contact structure based on thermodynamic principles}
 \label{sec:thermodynamics}
-It has already been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
+It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
-Regarding mechanical systems, the applicability of the contact Hamiltonian formalism for dissipation has been described already by \citet{Bravetti2017}, in particular for the damped harmonic oscillator. The argument in this and the following section leads to similar results, but we propose a modification of the equations of motion. This modification allows us to assign a direct physical interpretation of the contact variables, which makes the method suitable for practical problems.
+Regarding mechanical systems, the applicability of the contact Hamiltonian formalism for dissipation has been proposed by \citet{Bravetti2017}, in particular for the damped harmonic oscillator. The argument in this and the following section leads to similar results, but we suggest a modification of the equations of motion. This modification allows us to assign a direct physical interpretation of the contact variables, which makes the method suitable for practical problems.
 
-Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. Formally, this is stated as
-\begin{equation}
-    \dd{U} = \eta - \beta,
-    \label{eq:thermo_first_law}
-\end{equation}
-where $U$ is the internal energy of the system, $\eta$ the heat added to the system, and $\beta$ the work done by the system on its environment \cite{Bamberg1988,Frankel2012}. Both $\eta$ and $\beta$ are 1-forms that are not exact. This is why, for the purposes of this thesis, we cannot denote them by $\dd{Q}$ and  $\dd{W}$, for this would falsely indicate that these forms are exact. Likewise, there is no need for using the `inexact' surrogate notation \dj\xspace or $\delta$, since the notion of inexactness is built into the theory of exterior calculus. 
-
-\Cref{eq:thermo_first_law} essentially states that the difference of the heat and work 1-form is \emph{closed}. Locally, this difference can then be written as the gradient of a function, called the \emph{internal energy} $U$ of the system. As a result, the form 
-$$ \alpha = \dd{U} - \eta + \beta $$
-should pull back to zero over the `allowable' trajectories of the systems.
-
-Classical thermodynamics is usually geared toward systems containing expanding gases or chemical mixtures, and not purely mechanical systems. The content of the next section is not strictly required to understand the rest of the chapter but it is meant to elucidate the significance of contact geometry for a classical thermodynamical system. Afterward, in \cref{ssec:thermo_dho}, we will make the jump towards mechanical systems in the form of the damped harmonic oscillator.
+The next section explains exactly how contact geometry plays in the theory of classical thermodynamics. We will then extend this theory to applications for dissipative mechanical systems in \cref{ssec:contact_dissipative}.
 
 \subsection{Contact geometry in classical thermodynamics} 
 %<symbol: P> <expl: Pressure> <tags: letter, thermo>
@@ -23,12 +12,25 @@ Classical thermodynamics is usually geared toward systems containing expanding g
 %<symbol: T> <expl: Temperature> <tags: letter, thermo>
 %<symbol: R_\text{g}> <expl: Universal gas constant> <tags: letter, thermo>
 %<symbol: n_\text{s}> <expl: Amount of substance> <tags: letter, thermo>
-The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. We also know that, for an ideal gas, the following relation must hold:
+Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
+
+To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{Furthermore, by using differential forms, the inexactness of the heat and work differentials need not be emphasized using additional notation such as $\delta$ or \dj.}:
+\begin{equation}
+    \dd{U} = \eta - \beta.
+    \label{eq:thermo_first_law}
+\end{equation}
+This equation can be restated as the fact that the 1-form
+$$ \alpha = \dd{U} - \eta + \beta $$
+should pull back to zero over the physical trajectories of the systems.
+
+The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. For an ideal gas, the following equation of state must hold:
 \begin{equation}
     P \, V = n_\text{s} \, R_\text{g} \, T,
     \label{eq:ideal_gas_pv}
 \end{equation}
-with $n$ is the amount of substance (measured in \si{\mole}), and $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  Hence, for constant $n_\text{s}$ the actual state of the system is dictated only by two state properties, for the ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
+with $n_\text{s}$ is the amount of substance (measured in \si{\mole}), and $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  
+
+\Cref{eq:ideal_gas_pv} implies that for constant $n_\text{s}$, the actual state of the system is dictated only by two state properties. The ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
 
 If we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas_pv} will not be sufficient, because it does not contain \emph{all} the thermodynamic information of the system. We need a thermodynamic potential, in this case, \emph{internal energy}, to keep track of the full state. For the internal energy, there is another equation of state \cite{Callen1985}
 \begin{equation}
@@ -36,6 +38,7 @@ If we are allowed to add heat to the gas in the piston, or we use its expansion 
     \label{eq:ideal_gas_U}
 \end{equation}
 where $c$ is a constant depending on the type of gas (for monatomic gases, $c = \tfrac{3}{2}$).
+
 A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
 
 The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
@@ -78,9 +81,7 @@ which is a top (or volume) form on the thermodynamic phase space.\footnote
 %<symbol: M> <expl: Phase space; general manifold> <tags: letter, math>
 %<symbol: Q> <expl: Configuration space> <tags: letter, math>
 
-By definition, given that the internal energy is a function of the extensive state variables, we have
-$$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
-This knowledge, combined with \cref{eq:ideal_gas_pv,eq:ideal_gas_U}, allows us to integrate the Gibbs relation. We can use these equations to express $T$ and $P$ in terms of the extensive variables like so:
+The fact that $U$ is a function of the extensive variables only, combined with \cref{eq:ideal_gas_pv,eq:ideal_gas_U}, allows us to integrate the Gibbs relation. We can use these equations to express $T$ and $P$ in terms of the extensive variables like so:
 $$ T = \frac{U}{cn_\text{s}R_\text{g}} \qquad P = \frac{U}{cV}. $$
 The Gibbs form can then be integrated as follows:
 \begin{equation*}
@@ -92,14 +93,19 @@ The Gibbs form can then be integrated as follows:
 \end{equation*}
 where $C_0$ is an integration constant.
 
+By definition of the exterior derivative, we have
+$$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
 From the above expression, we can observe that the Gibbs relation and the equations of state specify a \emph{two-dimensional submanifold} of the larger five-dimensional space determined by the conditions
 \begin{equation}
     T = \pdv{U}{S}, \qquad P = -\pdv{U}{V}. 
 \end{equation}
+
 Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds of an ($2n+1$)-dimensional contact manifold have at most dimension $n$; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. In this case, the dimension of the contact manifold if five, which is why Legendre submanifolds are two-dimensional.
+
 Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
 
 \subsection{Contact geometry in dissipative mechanics}
+\label{ssec:contact_dissipative}
 In this and following sections, the damped harmonic oscillator system shown in \cref{fig:dho} serves an illustration for the application of the contact Hamiltonian formalism to dissipative systems. The choice of the damped harmonic oscillator as exemplary system is rather perspicuous since it is arguably the simplest dissipative system that also exhibits second-order dynamics and is linear in all terms. Furthermore, as discussed below, it serves as the test case of choice in the overwhelming majority of research into dissipative Lagrangian and Hamiltonian mechanics \cite{Dekker1981,Hutters2020}. The governing second-order differential equation of the damped harmonic oscillator is
 \begin{equation}  
     m\dv[2]{q}{t} + b\dv{q}{t} + kq = 0,
@@ -280,7 +286,7 @@ As a result, any nonphysical trajectories will approach a Legendre submanifold a
 $$ U(t) = \frac{1}{\gamma}\,\qty( H_0\,\ec^{-\gamma t} - E ). $$
 Hence, if $H = 0$, the internal energy is equal to the negative of the mechanical energy in the system. These findings are illustrated by \cref{fig:dho_trajectories}: the left plot shows perturbations of the `ideal' physical trajectory. The right plot shows the trajectories for an initial value of $U = 0$ (also with perturbations); as a result of the above equation, $U$ `wobbles' around its zero point; but it is clearly not a physical trajectory.
 
-As an additional argument, recall that the contact form $\alpha$ is not unique: multiplication with any nonzero function gives rise to the same contact \emph{structure}. We can consider this to be a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
+As an additional argument, recall that the contact form $\alpha$ is not unique: multiplication with any nonzero function gives rise to the same contact \emph{structure}. We can consider this to be a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{\alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
 \begin{equation}
     \Psi^{-1}_{\tilde{\alpha}}(H) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
     \label{eq:contact_ham_scaling}
