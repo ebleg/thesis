@@ -162,7 +162,8 @@
 \newcommand{\poisson}[2]{\ensuremath{\qty{#1,\,#2}}\xspace}
 
 % Jacobi bracket
-\newcommand{\jacobi}[2]{\ensuremath{\left\llbracket #1,\,#2\right\rrbracket}}
+%\newcommand{\jacobi}[2]{\ensuremath{\left\llbracket #1,\,#2\right\rrbracket}}
+\newcommand{\jacobi}[2]{\ensuremath{\{\mkern-4mu \vert #1,\,#2 \vert \mkern-4mu\}}}
 
 % Lie bracket
 \newcommand{\liebr}[2]{\ensuremath{\qty[#1,\,#2]}\xspace}
@@ -252,7 +253,7 @@
 \theoremstyle{plain}
 \newtheorem*{question}{Question}
 
-\theoremstyle{remark}
+\theoremstyle{plain}
 \newtheorem*{remark}{Remark}
 
 \DeclareSIUnit\money{\$}
