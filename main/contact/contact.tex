@@ -1,2 +1,121 @@
 \section{Contact mechanical systems}
 \label{sec:contact}
+
+\subsection{Contact manifolds}
+In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A contact manifold $(M, \xi)$ is a smooth manifold $M$ of dimension $2n + 1$ equipped with a maximally non-integrable hyperplane distribution $\xi$. That is to say, at every point $x \in M$ the contact structure specifies a $2n$-dimensional linear subspace (i.e. a hyperplane) of $\tbundle{M}$. Locally\footnote
+{
+    Contact structures which are globally defined by a 1-form are called \emph{exact} or \emph{strictly} contact structures. This is the case when the quotient line bundle $ \tbundle{M}/\xi$ is orientable. 
+}
+, the hyperplane distribution is specified as the kernel of a 1-form on $M$, which must be nondegenerate:\footnote{Equations of the form $ \alpha = 0$, where $\alpha$ is a 1-form, determine so-called \emph{Pfaffian equations} \cite{Libermann1987}.} \cite{Geiges2008, Arnold1989, Cannas2001}
+$$ \xi\vert_x = \ker{\alpha}\vert_x. $$
+
+Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the same condition applies to both systems: for $\xi$ to be nonintegrable, the associated contact form $\alpha$ must satisfy the Frobenius condition 
+$$ \wedgep{\alpha}{\dd{\alpha}} \neq 0, $$
+or equivalently, that $\wedgep{\alpha}{(\dd{\alpha})^n}$ is a volume form on $M$. 
+
+Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that $\dd{\alpha}$ implies that $\dd{\alpha}\vert_{\xi}$ is a symplectic form. There also an extenison of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
+$$ \dd{q}_0 - \sum_i^n p_i \dd{q}_i, $$ 
+the coordinates $(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)$ are then called \emph{Darboux coordinates}.
+
+For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
+
+One of most prominent applications of contact geometry in physics is the theory of thermodynamics. We will use the principles from thermodynamics to construct a suitable contact Hamiltonian system for dissipative systems in \cref{ssec:contact_dissipation}. First, however, the role of contact geometry in thermodynamics is explained in \cref{ssec:contact_thermodynamics}.
+
+\subsection{Contact geometry in thermodynamics}
+\label{ssec:contact_thermodynamics}
+It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
+
+Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
+
+To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{Furthermore, by using differential forms, the inexactness of the heat and work differentials need not be emphasized using additional notation such as $\delta$ or \dj.}:
+\begin{equation}
+    \dd{U} = \eta - \beta.
+    \label{eq:thermo_first_law}
+\end{equation}
+This equation can be restated as the fact that the 1-form
+$$ \alpha = \dd{U} - \eta + \beta $$
+should pull back to zero over the physical trajectories of the systems.
+
+The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. For an ideal gas, the following equation of state must hold:
+\begin{equation}
+    P \, V = n_\text{s} \, R_\text{g} \, T,
+    \label{eq:ideal_gas_pv}
+\end{equation}
+with $n_\text{s}$ is the amount of substance (measured in \si{\mole}), and $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  
+
+\Cref{eq:ideal_gas_pv} implies that for constant $n_\text{s}$, the actual state of the system is dictated only by two state properties. The ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
+
+If we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas_pv} will not be sufficient, because it does not contain \emph{all} the thermodynamic information of the system. We need a thermodynamic potential, in this case, \emph{internal energy}, to keep track of the full state. For the internal energy, there is another equation of state \cite{Callen1985}
+\begin{equation}
+    U = c\, n_\text{s}\, R_\text{g}\, T,
+    \label{eq:ideal_gas_U}
+\end{equation}
+where $c$ is a constant depending on the type of gas (for monatomic gases, $c = \tfrac{3}{2}$).
+
+A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
+%The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
+
+Using the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints given by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
+$$ \dd{U} = \eta - \beta, $$
+%<symbol: U> <expl: Internal energy> <tags: letter, thermo>
+%<symbol: E> <expl: (Mechanical) energy> <tags: letter, thermo>
+%<symbol: \eta> <expl: Heat 1-form> <tags: greek, thermo>
+%<symbol: \beta> <expl: Work 1-form> <tags: greek, thermo>
+%<symbol: S> <expl: Entropy> <tags: letter, thermo>
+%<symbol: p> <expl: Momentum> <tags: letter, physics>
+%<symbol: q> <expl: Position> <tags: letter, physics>
+where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $\eta = T\dd{S}$. As such, the First Law states that the form
+\begin{equation} 
+    \alpha_\text{G} \coloneq \dd{U} - T\dd{S} + P\dd{V}
+    \label{eq:gibbs_relation}
+\end{equation}
+should pull back to zero on the allowable states. This is known as Gibbs' fundamental relation. 
+
+The form $\alpha_\text{G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
+$$ \wedgep{\alpha_G}{(\dd{\alpha_G})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
+which is a top (or volume) form on the thermodynamic phase space.\footnote
+{
+    Because 
+    \begin{equation*} 
+        \begin{split}
+            (\dd{\alpha_\text{G}})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2, \\
+                            &= \wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} + \wedgep{\wedgep{\dd{P}}{\dd{V}}}{\wedgep{\dd{S}}{\dd{T}}}, \\
+                            &= 2\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, \\
+        \end{split}
+    \end{equation*}
+    since the permutation $ (S, T, P, V) \mapsto (P, V, S, T) $ is even.
+}
+%<symbol: \wedgep{}{}> <expl: Wedge (or exterior) product> <tags: misc, math>
+%<symbol: \intpr{}{}> <expl: Interior product> <tags: misc, math>
+%<symbol: \dd{}> <expl: Exterior derivative> <tags: misc, math>
+%<symbol: \lied{X}{}> <expl: Lie derivative with respect to the vector field $X$> <tags: misc, math>
+
+%<symbol: M> <expl: Phase space; general manifold> <tags: letter, math>
+%<symbol: Q> <expl: Configuration space> <tags: letter, math>
+
+The fact that $U$ is a function of the extensive variables only, combined with \cref{eq:ideal_gas_pv,eq:ideal_gas_U}, allows us to integrate the Gibbs relation. We can use these equations to express $T$ and $P$ in terms of the extensive variables like so:
+$$ T = \frac{U}{cn_\text{s}R_\text{g}} \qquad P = \frac{U}{cV}. $$
+The Gibbs form can then be integrated as follows:
+\begin{equation*}
+    \begin{split}
+        \frac{\dd{U}}{U} &= \frac{\dd{S}}{cn_\text{s}R_\text{g}} - \frac{\dd{V}}{c V},\\
+        \log{U}  &= \frac{S}{ cn_\text{s}R_\text{g}} - \log{c V} + C_0, \\
+        U  &= \log{C_0} \; \ec^{\tfrac{S}{ cn_\text{s}R_\text{g}}} \; V^{\tfrac{-1}{c}},\\
+    \end{split}
+\end{equation*}
+where $C_0$ is an integration constant.
+
+By definition of the exterior derivative, we have
+$$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
+From the above expression, we can observe that the Gibbs relation and the equations of state specify a \emph{two-dimensional submanifold} of the larger five-dimensional space determined by the conditions
+\begin{equation}
+    T = \pdv{U}{S}, \qquad P = -\pdv{U}{V}. 
+\end{equation}
+
+Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds of an ($2n+1$)-dimensional contact manifold have at most dimension $n$; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. In this case, the dimension of the contact manifold if five, which is why Legendre submanifolds are two-dimensional.
+
+Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
+
+\subsection{Contact Hamiltonian systems for dissipative mechanics}
+\label{ssec:contact_dissipation}
+
