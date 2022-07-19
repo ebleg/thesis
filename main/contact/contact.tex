@@ -1,6 +1,11 @@
 \section{Contact mechanical systems}
 \label{sec:contact}
 
+[Part of the intro]
+In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time-dependence indicate a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance input are (potentially stochastic) external inputs that cannot be controlled but influence the system is some specified manner. 
+
+What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore and exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include the dissipation as an intrinsic component of the overall system.
+
 \subsection{Contact manifolds}
 In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A contact manifold $(M, \xi)$ is a smooth manifold $M$ of dimension $2n + 1$ equipped with a maximally non-integrable hyperplane distribution $\xi$. That is to say, at every point $x \in M$ the contact structure specifies a $2n$-dimensional linear subspace (i.e. a hyperplane) of $\tbundle{M}$. Locally\footnote
 {
@@ -8,36 +13,88 @@ In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A co
 }
 , the hyperplane distribution is specified as the kernel of a 1-form on $M$, which must be nondegenerate:\footnote{Equations of the form $ \alpha = 0$, where $\alpha$ is a 1-form, determine so-called \emph{Pfaffian equations} \cite{Libermann1987}.} \cite{Geiges2008, Arnold1989, Cannas2001}
 $$ \xi\vert_x = \ker{\alpha}\vert_x. $$
-It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying $\alpha$ by any nonzero function yields a different 1-form with the same kernel. This is to say that they are different contact forms, but they give rise to the same contact structure. This ambiguity is very important, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}
+It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying $\alpha$ by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is very important, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
 
-Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the same condition applies to both systems: for $\xi$ to be nonintegrable, the associated contact form $\alpha$ must satisfy the Frobenius condition 
+Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the condition for nonholomicity applies here as well: for $\xi$ to be nonintegrable, the associated contact form $\alpha$ must satisfy the Frobenius condition 
 $$ \wedgep{\alpha}{\dd{\alpha}} \neq 0, $$
 or equivalently, that $\wedgep{\alpha}{(\dd{\alpha})^n}$ is a volume form on $M$. 
 
 Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that $\dd{\alpha}$ implies that $\dd{\alpha}\vert_{\xi}$ is a symplectic form. There also an extenison of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
-$$ \dd{q}_0 - \sum_i^n p_i \dd{q}_i, $$ 
+\begin{equation}
+    \dd{q}_0 - \sum_i^n p_i \dd{q}_i, 
+    \label{eq:contact_darboux}
+\end{equation} 
 the coordinates $(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)$ are then called \emph{Darboux coordinates}.
 
 For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
 
-\subsubsection{Contact Hamiltonian systems}
-Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold $M$, a contact form $\alpha$ on that manifold, and a Hamiltonian function on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifolds. As such, the contact structure generates `Hamilton's equations', but in this case for contact manifolds.
+\subsection{Contact Hamiltonian systems}
+Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold $M$, a contact form $\alpha$ on that manifold, and a Hamiltonian function on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact verison of Hamilton's equations.
 
-The mapping $\Psi_\alpha$ that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form $\alpha$ is defined as follows:
-$$ \Psi_\alpha: \vfields{X}{c}{M} \to \functions{M}: \quad X_H \mapsto H = \intpr{X_H}{\coloneq} , $$
-where $\vfields{X}{c}{M}$ is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure given by $\alpha$, and are subject to the following condition:
-$$ \lied{X_H}{\alpha} = s \alpha, $$
-where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact that the same contact structure is specified by any nonzero multiple of a given contact form.
+The mapping $\Psi_\alpha$ that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form $\alpha$, is defined as follows:
+\begin{equation}
+    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_H \mapsto H = \intpr{X_H}{\alpha}, 
+    \label{eq:psi_definition}
+\end{equation}
+where $\vsfields{c}{X}{M}$ is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure specified by $\alpha$, and are subject to the following condition:
+\begin{equation}
+    \lied{X_H}{\alpha} = s \alpha, 
+    \label{eq:contact_vf_condition}
+\end{equation}
+where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact any nonzero multiple of a given contact form specifies the same contact structure.
 
-One of most prominent applications of contact geometry in physics is the theory of thermodynamics. We will use the principles from thermodynamics to construct a suitable contact Hamiltonian system for dissipative systems in \cref{ssec:contact_dissipation}. First, however, the role of contact geometry in thermodynamics is explained in \cref{ssec:contact_thermodynamics}.
+To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to decompose the vector field $X_H$ according to the following splitting of the tangent bundle of $M$:
+$$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha}, $$
+where $\oplus$ denotes the Whitney sum. Vector fields that are in the kernel of $\alpha$ are called \emph{horizontal}. Conversely, vector fields that are in the kernel of $\dd{\alpha}$ are \emph{vertical}. We therefore have 
+$$ X_H = X_H^\text{hor} + X_H^\text{ver} \qquad \intpr{X_H^\text{hor}}{\alpha} = 0,\:\: \intpr{X_H^\text{ver}}{\dd{\alpha}} = 0. $$
 
-\subsection{Contact geometry in thermodynamics}
-\label{ssec:contact_thermodynamics}
+The vertical component of $X_H$ is easily obtained from the definition of $\Psi_\alpha$:
+\begin{equation}
+    X_H^\text{ver} = H R_\alpha,
+    \label{eq:vertical_vf}
+\end{equation}
+where $R_\alpha$ is the \emph{Reeb vector field}\footnote{
+    The Reeb vector field is defined by two conditions: \cite{Libermann1987}
+        $$ \intpr{R_\alpha}{\alpha} = 1 \qquad \intpr{R_\alpha}{\dd{\alpha}} = 0.$$
+    In the Darboux coordinates as given in \cref{eq:contact_darboux}, the Reeb vector field has the form
+        $$ R_\alpha = \pdv{}{q_0}. $$} 
+associated to the contact form $\alpha$.
+
+Finding the horizontal component is more involved; a detailed account of the required technicalities is given in \cref{app:contact_geometry}. In short, we again need a mapping similar to the one defined in \cref{eq:symplectic_isomorphism}, but now defined in terms of $\dd{\alpha}$ instead:
+$$ \toDual{\dd{\alpha}}(X) \coloneq \intpr{X}{\dd{\alpha}}. $$
+However, this is not an isomorphism between $\tbundle{M}$ and $\ctbundle{M}$, for it will annihilate any vertical component $X$. However, it \emph{is} an isomorphism from the horizontal vector fields to their image under $\toDual{\dd{\alpha}}$; which is a specific class of 1-forms that are called \emph{semi-basic} forms\footnote
+{
+    Semi-basic forms are forms that vanish when contracted with a vertical vector field \cite{Libermann1987}. 
+}. 
+Likewise, the inverse mapping $\fromDual{\dd{\alpha}}$ takes a semi-basic form as an argument and produces a vertical vector field. 
+
+The horizontal component of the Hamiltonian vector field is equal to this mapping applied to $\dd{H}$, projected to the space of semi-basic forms:
+\begin{equation}
+    X_H^\text{hor} = \fromDual{\dd{\alpha}}\qty(\dd{H} - (\intpr{R_\alpha}{\dd{H}})\alpha).
+    \label{eq:horizontal_vf}
+\end{equation}
+
+Hence, the Hamiltonian vector field is equal to
+\begin{equation}
+    X_H = \Psi^{-1}_\alpha(H) = H R_\alpha + \fromDual{\dd{\alpha}}\qty(\dd{H} - (\intpr{R_\alpha}{\dd{H}})\alpha).
+    \label{eq:contact_hamiltonian_vf}
+\end{equation}
+
+To apply the contact Hamiltonian formalism to dissipative mechanical systems, we first require a manifold with a suitable contact structure. This contact structure is derived from the principles of thermodynamics in the next section. Subsequently, the contact Hamiltonian system and the equations of motion are set up in \cref{ssec:contact_dissipation}.
+
+%One of most prominent applications of contact geometry in physics is the theory of thermodynamics. We will use the principles from thermodynamics to construct a suitable contact Hamiltonian system for dissipative systems in \cref{ssec:contact_dissipation}. First, however, the role of contact geometry in thermodynamics is explained in \cref{ssec:contact_thermodynamics}. 
+
+\subsection{Contact geometry in dissipative mechanics}
+\label{ssec:contact_dissipation}
+As mentioned the contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics\dots
+
+\subsubsection{Contact geometry in classical thermodynamics}
+\label{sssec:contact_thermodynamics}
 It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
 Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
 
-To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{Furthermore, by using differential forms, the inexactness of the heat and work differentials need not be emphasized using additional notation such as $\delta$ or \dj.}:
+To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{By using differential forms, the inexactness of the heat and work differentials need not be explicitly emphasized using additional notation such as $\delta$ or \dj.}:
 \begin{equation}
     \dd{U} = \eta - \beta.
     \label{eq:thermo_first_law}
@@ -46,7 +103,7 @@ This equation can be restated as the fact that the 1-form
 $$ \alpha = \dd{U} - \eta + \beta $$
 should pull back to zero over the physical trajectories of the systems.
 
-The thermodynamic state of a system is given by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. For an ideal gas, the following equation of state must hold:
+The thermodynamic state of a system is specified by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. For an ideal gas, the following equation of state must hold:
 \begin{equation}
     P \, V = n_\text{s} \, R_\text{g} \, T,
     \label{eq:ideal_gas_pv}
@@ -64,7 +121,7 @@ where $c$ is a constant depending on the type of gas (for monatomic gases, $c = 
 A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, because the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
 %The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
 
-Based on the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints given by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
+Based on the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints imposed by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
 $$ \dd{U} = \eta - \beta, $$
 %<symbol: U> <expl: Internal energy> <tags: letter, thermo>
 %<symbol: E> <expl: (Mechanical) energy> <tags: letter, thermo>
@@ -80,7 +137,7 @@ where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Therm
 \end{equation}
 should pull back to zero on the allowable states. This is known as Gibbs' fundamental relation. 
 
-The form $\alpha_\text{\tiny G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
+The form $\alpha_\text{\tiny G}$ as a result of Gibbs' relation is a contact form on the thermodynamic phase space, since
 $$ \wedgep{\alpha_\text{\tiny G}}{(\dd{\alpha_\text{\tiny G}})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
 which is a top (or volume) form on the thermodynamic phase space.\footnote
 {
@@ -125,15 +182,8 @@ Submanifolds of the thermodynamic phase space on which $\alpha_\text{\tiny G}$ p
 
 Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
 
-\subsection{Contact geometry in dissipative mechanics}
-\label{ssec:contact_dissipation}
-In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time-dependence indicate a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance input are (potentially stochastic) external inputs that cannot be controlled but influence the system is some specified manner. 
-
-What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore and exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include the dissipation as an intrinsic component of the overall system.
-
-\subsubsection{The damped harmonic oscillator}
+\subsubsection{Contact geometry of the damped harmonic oscillator}
 The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. The damping force of the damper is proportional to the relative velocity of its connection points. That is, $F_\text{d} = b \dot{q} = \gamma p $, where $\gamma \coloneq b/m$ is the damping coefficient.
-
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/damper_oscillator}
@@ -141,7 +191,7 @@ The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bon
     \label{fig:dho}
 \end{figure}
 
-\subsubsection{Thermodynamics of the damped oscillator}
+
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
