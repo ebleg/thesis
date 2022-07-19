@@ -126,7 +126,7 @@ where $n_\text{s}$ is the amount of substance, $R_\text{g} = \SI{8.314}{\joule \
 
 In addition, the internal energy is, by definition, a function of the extensive state properties: in this case, the entropy and the volume. We can therefore integrate the Gibbs form by rearranging the equations of state to express $T$ and $P$ in terms of $S$ and $V$ as well. Integrating \cref{eq:gibbs_form} yields
 $$
-    U = \log{C_0} \: \ec^{\tfrac{S}{ cn_\text{s}R_\text{g}}} \: V^{\tfrac{-1}{c}},
+    U = \log(C_0) \: \ec^{\tfrac{S}{cn_\text{s}R_\text{g}}} \: V^{\tfrac{-1}{c}},
 $$
 where $C_0$ is an integration constant. Since $ U = U(S, V)$, we have that
 $$ \dd{U} = \pdv{U}{S}\dd{S} + \pdv{U}{V}\dd{V}. $$
@@ -134,13 +134,85 @@ Hence, we can fully specify a Legendre submanifold by the integrated equation an
 $$ T = \pdv{U}{S} \qquad P = -\pdv{U}{V}. $$
 
 \subsubsection{Contact geometry of the damped harmonic oscillator}
-The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. The damping force of the damper is proportional to the relative velocity of its connection points. That is, $F_\text{d} = b \dot{q} = \gamma p $, where $\gamma \coloneq b/m$ is the damping coefficient.
+The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. We assume here that this system is completely isolated: there is no exchange of energy nor matter with the environment.  
+%The damping force of the damper is proportional to the relative velocity of its connection points. That is, $F_\text{d} = b \dot{q} = \gamma p $, where $\gamma \coloneq b/m$ is the damping coefficient.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/damper_oscillator}
-    \caption{Blabla}
+    \caption{The left figure shows a schematic of the mechanical damped harmonic oscillator wisth mass $m$, spring constant $k$ and damping constant $b$. The bond graph representation is shown on the right. In addition to the I- and R-element in \cref{fig:ho}, there is now an R-element as well.}
     \label{fig:dho}
 \end{figure}
+
+\paragraph{Energy storage} We distinguish two types of energy that can be stored in the damped oscillator system: microscopic and macroscopic energy.
+
+Microscopic energy consists of the kinetic energy of particles that does not result in an overall observable motion of the system. This energy is called internal energy $U$ and manifests itself as temperature. 
+
+Internal energy is stored in a `heat bath'. This is to be interpreted loosely: it can be the damper fluid, but also the surrounding air (although a heteregeneous medium will not allow for an unambiguous notion of temperature). We will not be concerned with all these possibilities and consider a single heat bath with a single temperature: generalizations to more complex thermodynamic systems are immediate. 
+
+In contrast, macroscopic energy \emph{is} observable, either due to an observable motion of the system (kinetic energy) or the energy resulting from external force potentials (potential energy). Their sum is called \emph{mechanical energy} $E$: in the damped harmonic oscillator, it is the sum of the kinetic energy stored in the mass (I-element) and the potential energy stored in the spring (C-element).
+
+Since the system is isolated, the First Law states that 
+\begin{equation}
+    \dd{(E + U)} = 0. 
+    \label{eq:dho_first_law}
+\end{equation}
+
+Let us now decompose the system into two subsystems, one containing the mass and the spring and one the heat bath, as illustrated in \cref{fig:oscillator_thermo}. 
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/damper_oscillator_thermo}
+    \caption{System boundaries of the damper-oscillator system. The mechanical subsystem stores mechanical energy $E$ in the form of kinetic and potential energy, while the heat bath stores internal energy in the form of heat. They interface through the action of the damper.}
+    \label{fig:oscillator_thermo}
+\end{figure}
+
+Through the dissipative action of the damper, energy flows from the mechanical subsystem to the heat bath. We can apply the First Law to the subsystems separately, too: the first subsystem performs work on the damper, which manifests itself as the heat added to the heat bath. We therefore have
+\begin{equation}
+    \begin{split}
+        \dd{E}  = -\beta, \\[0.2cm]
+        \dd{U} = \eta, \\
+    \end{split}
+    \label{eq:dho_energy_balance}
+\end{equation}
+where $\beta$ is the (differential) work done \emph{by} the mechanical subsystem on the damper and $\eta$ is the (differential) heat added \emph{to} the second subsystem as a result of this. 
+
+As a consequence of \cref{eq:dho_first_law}, we have that $ \beta = \eta $; i.e. all the work done by the damper enters the fluid as heat. For a linearly damped system, the work form is by definition equal to 
+\begin{equation}
+    \beta \coloneq \gamma p \dd{q},
+    \label{eq:dho_work_form}
+\end{equation}
+with $\gamma \coloneq b/m$ being the damping coefficient of the damped oscillator. 
+
+\paragraph{Contact structure} We now define the phase space of the system to be equal to $M = \real \times \ctbundle{Q}$, where $Q$ is the configuration space considered in \cref{sec:symplectic}. For the damped harmonic oscillator, $Q = \real$. With coordinates for $M$ being $U, q$ and $p$, we can define a \emph{contact form} on this space by combining \cref{eq:dho_energy_balance} and \cref{eq:dho_work_form}: 
+\begin{equation}
+    \alpha = \dd{U} - \gamma p \dd{q}.
+    \label{eq:dho_contact_form}
+\end{equation}
+This contact form specifies precisely how energy is dissipated in the system and enters the `reservoir' that is the heat bath, characterized by its internal energy $U$.
+
+Observe from \cref{eq:dho_contact_form} that $\dd{\alpha} = \gamma \wedgep{\dd{q}}{\dd{p}}$, i.e. a multiple of the symplectic form used in \cref{sec:symplectic}. As such, the contact form contains \emph{both} information about the rate of dissipation present in the system, and about the pairing of the conjugate variables $p$ and $q$. We get the latter `for free' in this particular instance, since the pairing in this simple three-dimensional is rather trivial.
+
+It is important to note that, in the general case, a 1-form that describes the dissipation in the system is \emph{under no obligation} to be of this very specific form (that is, one that pairs the conjugate variables). As such, we can not expect this situation to occur in general: this is subject of \cref{sec:jacobi}.
+
+\subsubsection{The contact Hamiltonian system for the damped harmonic oscillator}
+With the contact structure defined, we can now establish the contact Hamiltonian system for the damped harmonic oscillator using \cref{eq:vertical_vf,eq:horizontal_vf,eq:contact_hamiltonian_vf}.
+
+Recall that the Hamiltonian vector field is split into a horizontal and vertical componet being part of the kernel of $\alpha$ and $\dd{alpha}$ respectively.
+
+\paragraph{Vertical component} The Reeb vector field $R_\alpha$ associated with the contact form given in \cref{eq:dho_contact_form} is 
+$$ R_\alpha = \pdv{}{U}. $$
+As such, the vertical component of the Hamiltonian vector field is, in accordance with \cref{eq:vertical_vf}:
+$$ X_H^\text{ver} = H\pdv{}{U}. $$
+However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
+
+\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{H}$ (an arbitrary exact form) to a \emph{semi-basic} form in the following fashion
+$$ \dd{H} - (\intpr{R_\alpha}{\dd{H}}\alpha). $$
+In the purely symplectic case with no dissipation, we would have 
+
+The Hamiltonian is a function on the contact manifold $M$, i.e. $H = H(U, q, p)$. As such, the above form is, in coordinates
+$$ \qty(\pdv{H}{q} - \gamma p)\dd{q} + \pdv{H}{p}\dd{p} $$
+
+
+
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
