@@ -8,6 +8,7 @@ In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A co
 }
 , the hyperplane distribution is specified as the kernel of a 1-form on $M$, which must be nondegenerate:\footnote{Equations of the form $ \alpha = 0$, where $\alpha$ is a 1-form, determine so-called \emph{Pfaffian equations} \cite{Libermann1987}.} \cite{Geiges2008, Arnold1989, Cannas2001}
 $$ \xi\vert_x = \ker{\alpha}\vert_x. $$
+It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying $\alpha$ by any nonzero function yields a different 1-form with the same kernel. This is to say that they are different contact forms, but they give rise to the same contact structure. This ambiguity is very important, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}
 
 Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the same condition applies to both systems: for $\xi$ to be nonintegrable, the associated contact form $\alpha$ must satisfy the Frobenius condition 
 $$ \wedgep{\alpha}{\dd{\alpha}} \neq 0, $$
@@ -18,6 +19,15 @@ $$ \dd{q}_0 - \sum_i^n p_i \dd{q}_i, $$
 the coordinates $(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)$ are then called \emph{Darboux coordinates}.
 
 For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
+
+\subsubsection{Contact Hamiltonian systems}
+Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold $M$, a contact form $\alpha$ on that manifold, and a Hamiltonian function on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifolds. As such, the contact structure generates `Hamilton's equations', but in this case for contact manifolds.
+
+The mapping $\Psi_\alpha$ that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form $\alpha$ is defined as follows:
+$$ \Psi_\alpha: \vfields{X}{c}{M} \to \functions{M}: \quad X_H \mapsto H = \intpr{X_H}{\coloneq} , $$
+where $\vfields{X}{c}{M}$ is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure given by $\alpha$, and are subject to the following condition:
+$$ \lied{X_H}{\alpha} = s \alpha, $$
+where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact that the same contact structure is specified by any nonzero multiple of a given contact form.
 
 One of most prominent applications of contact geometry in physics is the theory of thermodynamics. We will use the principles from thermodynamics to construct a suitable contact Hamiltonian system for dissipative systems in \cref{ssec:contact_dissipation}. First, however, the role of contact geometry in thermodynamics is explained in \cref{ssec:contact_thermodynamics}.
 
@@ -42,8 +52,7 @@ The thermodynamic state of a system is given by a collection of thermodynamic st
     \label{eq:ideal_gas_pv}
 \end{equation}
 with $n_\text{s}$ is the amount of substance (measured in \si{\mole}), and $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  
-
-\Cref{eq:ideal_gas_pv} implies that for constant $n_\text{s}$, the actual state of the system is dictated only by two state properties. The ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
+%\Cref{eq:ideal_gas_pv} implies that for constant $n_\text{s}$, the actual state of the system is dictated only by two state properties. The ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
 
 If we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas_pv} will not be sufficient, because it does not contain \emph{all} the thermodynamic information of the system. We need a thermodynamic potential, in this case, \emph{internal energy}, to keep track of the full state. For the internal energy, there is another equation of state \cite{Callen1985}
 \begin{equation}
@@ -52,10 +61,10 @@ If we are allowed to add heat to the gas in the piston, or we use its expansion 
 \end{equation}
 where $c$ is a constant depending on the type of gas (for monatomic gases, $c = \tfrac{3}{2}$).
 
-A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, for the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
+A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, because the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
 %The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
 
-Using the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints given by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
+Based on the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints given by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
 $$ \dd{U} = \eta - \beta, $$
 %<symbol: U> <expl: Internal energy> <tags: letter, thermo>
 %<symbol: E> <expl: (Mechanical) energy> <tags: letter, thermo>
@@ -66,19 +75,19 @@ $$ \dd{U} = \eta - \beta, $$
 %<symbol: q> <expl: Position> <tags: letter, physics>
 where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $\eta = T\dd{S}$. As such, the First Law states that the form
 \begin{equation} 
-    \alpha_\text{G} \coloneq \dd{U} - T\dd{S} + P\dd{V}
+    \alpha_\text{\tiny G} \coloneq \dd{U} - T\dd{S} + P\dd{V}
     \label{eq:gibbs_relation}
 \end{equation}
 should pull back to zero on the allowable states. This is known as Gibbs' fundamental relation. 
 
-The form $\alpha_\text{G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
-$$ \wedgep{\alpha_G}{(\dd{\alpha_G})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
+The form $\alpha_\text{\tiny G}$ given by Gibbs' relation is a contact form on the thermodynamic phase space, since
+$$ \wedgep{\alpha_\text{\tiny G}}{(\dd{\alpha_\text{\tiny G}})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
 which is a top (or volume) form on the thermodynamic phase space.\footnote
 {
     Because 
     \begin{equation*} 
         \begin{split}
-            (\dd{\alpha_\text{G}})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2, \\
+            (\dd{\alpha_\text{\tiny G}})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2, \\
                             &= \wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} + \wedgep{\wedgep{\dd{P}}{\dd{V}}}{\wedgep{\dd{S}}{\dd{T}}}, \\
                             &= 2\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, \\
         \end{split}
@@ -112,10 +121,31 @@ From the above expression, we can observe that the Gibbs relation and the equati
     T = \pdv{U}{S}, \qquad P = -\pdv{U}{V}. 
 \end{equation}
 
-Submanifolds of the thermodynamic phase space on which $\alpha_\text{G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{G}$. Due to the nondegeneracy of the contact form, integral submanifolds of an ($2n+1$)-dimensional contact manifold have at most dimension $n$; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. In this case, the dimension of the contact manifold if five, which is why Legendre submanifolds are two-dimensional.
+Submanifolds of the thermodynamic phase space on which $\alpha_\text{\tiny G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{\tiny G}$. Due to the nondegeneracy of the contact form, integral submanifolds of an ($2n+1$)-dimensional contact manifold have at most dimension $n$; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. In this case, the dimension of the contact manifold if five, which is why Legendre submanifolds are two-dimensional.
 
 Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
 
-\subsection{Contact Hamiltonian systems for dissipative mechanics}
+\subsection{Contact geometry in dissipative mechanics}
 \label{ssec:contact_dissipation}
+In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time-dependence indicate a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance input are (potentially stochastic) external inputs that cannot be controlled but influence the system is some specified manner. 
+
+What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore and exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include the dissipation as an intrinsic component of the overall system.
+
+\subsubsection{The damped harmonic oscillator}
+The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. The damping force of the damper is proportional to the relative velocity of its connection points. That is, $F_\text{d} = b \dot{q} = \gamma p $, where $\gamma \coloneq b/m$ is the damping coefficient.
+
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/damper_oscillator}
+    \caption{Blabla}
+    \label{fig:dho}
+\end{figure}
+
+\subsubsection{Thermodynamics of the damped oscillator}
+
+\subsection{Symplectification of contact Hamiltonian systems}
+\label{ssec:symplectification}
+
+
+
 
