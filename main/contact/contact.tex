@@ -86,101 +86,52 @@ To apply the contact Hamiltonian formalism to dissipative mechanical systems, we
 
 \subsection{Contact geometry in dissipative mechanics}
 \label{ssec:contact_dissipation}
-As mentioned the contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics\dots
+As mentioned the contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics.
 
 \subsubsection{Contact geometry in classical thermodynamics}
-\label{sssec:contact_thermodynamics}
 It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
 Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
 
-To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{By using differential forms, the inexactness of the heat and work differentials need not be explicitly emphasized using additional notation such as $\delta$ or \dj.}:
+\paragraph{First Law of thermodynamics} To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{By using differential forms, the inexactness of the heat and work differentials need not be explicitly emphasized using additional notation such as $\delta$ or \dj.}:
 \begin{equation}
     \dd{U} = \eta - \beta.
     \label{eq:thermo_first_law}
 \end{equation}
-This equation can be restated as the fact that the 1-form
-$$ \alpha = \dd{U} - \eta + \beta $$
+This equation can be equivalently expressed as the fact that the 1-form
+\begin{equation}
+    \alpha = \dd{U} - \eta + \beta
+    \label{eq:first_law_contact}
+\end{equation}
 should pull back to zero over the physical trajectories of the systems.
 
-The thermodynamic state of a system is specified by a collection of thermodynamic state variables (or `properties'). For example, for an ideal gas in a piston, we may consider its volume $V$, temperature $T$ and pressure $P$. For an ideal gas, the following equation of state must hold:
+\paragraph{The Gibbs form} For the purposes of illustration, we now apply this concept to what is arguably the most simple thermodynamic system: the ideal gas in a piston. 
+
+The ideal gas is characterized by five thermodynamic properties: the temperature $T$, entropy $S$, volume $V$, pressure $P$ and the internal energy $U$. We call the five-dimensional space containing all the possible states the \emph{thermodynamic phase space}.
+
+For the ideal gas, we have that the work done by the system is equal to the pressure multiplied with the change in volume, i.e. $\beta = P\dd{V}$. Furthermore, heat added to the system is given by the temperature multiplied by the change of energy: $\eta = T\dd{S}$ \cite{Arnold1989b,Wightman1979,Bamberg1988}. Therefore, \cref{eq:first_law_contact} becomes
 \begin{equation}
-    P \, V = n_\text{s} \, R_\text{g} \, T,
-    \label{eq:ideal_gas_pv}
+    \alpha_\text{\tiny G} \coloneq \dd{U} - T\dd{S} + P\dd{V},
+    \label{eq:gibbs_form}
 \end{equation}
-with $n_\text{s}$ is the amount of substance (measured in \si{\mole}), and $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant.  
-%\Cref{eq:ideal_gas_pv} implies that for constant $n_\text{s}$, the actual state of the system is dictated only by two state properties. The ideal gas law allows us to find the other if two out of three are given. The states of the system that are thermodynamically meaningful therefore live on a \emph{two-dimensional submanifold} of $\real^3$. Any selection of two state properties may serve as coordinates for this submanifold. However, due to this ambiguity, it is usually more convenient to consider the larger three-dimensional manifold together with the constraint as opposed to `spending' it \cite{Balian2001, Giancoli2014}.
+which is called the \emph{Gibbs form} (hence the subscript). It is clear that the Gibbs form defines a contact structure on the thermodynamic phase space (these are Darboux coordinates). Along the physically allowable trajectories, the Gibbs form must pull back to zero.
 
-If we are allowed to add heat to the gas in the piston, or we use its expansion to perform work on the environment, \cref{eq:ideal_gas_pv} will not be sufficient, because it does not contain \emph{all} the thermodynamic information of the system. We need a thermodynamic potential, in this case, \emph{internal energy}, to keep track of the full state. For the internal energy, there is another equation of state \cite{Callen1985}
+\paragraph{Legendre submanifolds} In contact geometry, submanifolds on which the contact form vanishes everywhere are called \emph{Legendre submanifolds}. As such, these submanifolds are vital in thermodynamics, because they contain the allowable states (\citet{Balian2001} call them thermodynamic manifolds). Due to the nonintegrability condition on the contact structure, Legendre submanifolds have at most dimension $n$, if the overall contact manifold is of dimension $2n + 1$.
+
+For the ideal gas, the Legendre submanifolds are two-dimensional. They can be computed explicitly by integrating the Gibbs form. To do so, we need two additional \emph{equations of state}, 
 \begin{equation}
-    U = c\, n_\text{s}\, R_\text{g}\, T,
-    \label{eq:ideal_gas_U}
+    U = c\, n_\text{s}\, R_\text{g}\, T \qquad P \, V = n_\text{s} \, R_\text{g} \, T,
 \end{equation}
-where $c$ is a constant depending on the type of gas (for monatomic gases, $c = \tfrac{3}{2}$).
+where $n_\text{s}$ is the amount of substance, $R_\text{g} = \SI{8.314}{\joule \per \mole \per \kelvin}$ is the ideal gas constant and $c$ is another constant dependent on the molecular nature of the gas\footnote{For a monatomic gas, $c = \tfrac{3}{2}$.}. 
 
-A \emph{fundamental thermodynamic relation}, expresses a thermodynamic potential, such as the internal energy $U$, in terms of the extensive variables in the system. For the ideal gas, the fundamental relation is of the form $U = U(S, V)$, because the entropy $S$ and the volume $V$ are the extensive state properties of the system. 
-%The choice of the internal energy as the thermodynamic potential is certainly not unique; we may also invert the relation in favor of the entropy or use other potentials obtained through a Legendre transform, such as the Gibbs free energy, Helmholtz free energy, enthalpy etc. In particular, we refer to the specification of a system in terms of internal energy as the \emph{energy representation}, and to a specification in terms of entropy as the \emph{entropy representation} \cite{VanderSchaft2021a}.
-
-Based on the fundamental thermodynamic relation, we now use a five-dimensional space to describe the complete thermodynamic state of the system. Coordinates for this space are the internal energy and entropy in addition to the pressure, volume, and temperature considered earlier. This space is referred to as the \emph{thermodynamic phase space}. Again, we are not to choose these variables completely independent from each other, since they are subject to constraints imposed by \cref{eq:ideal_gas_U} and \cref{eq:ideal_gas_pv}. In addition, the First Law of thermodynamics states that
-$$ \dd{U} = \eta - \beta, $$
-%<symbol: U> <expl: Internal energy> <tags: letter, thermo>
-%<symbol: E> <expl: (Mechanical) energy> <tags: letter, thermo>
-%<symbol: \eta> <expl: Heat 1-form> <tags: greek, thermo>
-%<symbol: \beta> <expl: Work 1-form> <tags: greek, thermo>
-%<symbol: S> <expl: Entropy> <tags: letter, thermo>
-%<symbol: p> <expl: Momentum> <tags: letter, physics>
-%<symbol: q> <expl: Position> <tags: letter, physics>
-where we have that $ \beta = P\dd{V} $ and, according to the Second Law of Thermodynamics, $\eta = T\dd{S}$. As such, the First Law states that the form
-\begin{equation} 
-    \alpha_\text{\tiny G} \coloneq \dd{U} - T\dd{S} + P\dd{V}
-    \label{eq:gibbs_relation}
-\end{equation}
-should pull back to zero on the allowable states. This is known as Gibbs' fundamental relation. 
-
-The form $\alpha_\text{\tiny G}$ as a result of Gibbs' relation is a contact form on the thermodynamic phase space, since
-$$ \wedgep{\alpha_\text{\tiny G}}{(\dd{\alpha_\text{\tiny G}})^2} = 2\,\dd{U}\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, $$
-which is a top (or volume) form on the thermodynamic phase space.\footnote
-{
-    Because 
-    \begin{equation*} 
-        \begin{split}
-            (\dd{\alpha_\text{\tiny G}})^2 &= (\wedgep{\dd{S}}{\dd{T}} + \wedgep{\dd{P}}{\dd{V}})^2, \\
-                            &= \wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}} + \wedgep{\wedgep{\dd{P}}{\dd{V}}}{\wedgep{\dd{S}}{\dd{T}}}, \\
-                            &= 2\wedgep{\wedgep{\dd{S}}{\dd{T}}}{\wedgep{\dd{P}}{\dd{V}}}, \\
-        \end{split}
-    \end{equation*}
-    since the permutation $ (S, T, P, V) \mapsto (P, V, S, T) $ is even.
-}
-%<symbol: \wedgep{}{}> <expl: Wedge (or exterior) product> <tags: misc, math>
-%<symbol: \intpr{}{}> <expl: Interior product> <tags: misc, math>
-%<symbol: \dd{}> <expl: Exterior derivative> <tags: misc, math>
-%<symbol: \lied{X}{}> <expl: Lie derivative with respect to the vector field $X$> <tags: misc, math>
-
-%<symbol: M> <expl: Phase space; general manifold> <tags: letter, math>
-%<symbol: Q> <expl: Configuration space> <tags: letter, math>
-
-The fact that $U$ is a function of the extensive variables only, combined with \cref{eq:ideal_gas_pv,eq:ideal_gas_U}, allows us to integrate the Gibbs relation. We can use these equations to express $T$ and $P$ in terms of the extensive variables like so:
-$$ T = \frac{U}{cn_\text{s}R_\text{g}} \qquad P = \frac{U}{cV}. $$
-The Gibbs form can then be integrated as follows:
-\begin{equation*}
-    \begin{split}
-        \frac{\dd{U}}{U} &= \frac{\dd{S}}{cn_\text{s}R_\text{g}} - \frac{\dd{V}}{c V},\\
-        \log{U}  &= \frac{S}{ cn_\text{s}R_\text{g}} - \log{c V} + C_0, \\
-        U  &= \log{C_0} \; \ec^{\tfrac{S}{ cn_\text{s}R_\text{g}}} \; V^{\tfrac{-1}{c}},\\
-    \end{split}
-\end{equation*}
-where $C_0$ is an integration constant.
-
-By definition of the exterior derivative, we have
-$$ \dd{U} \coloneq \pdv{U}{V}\dd{V} + \pdv{U}{S}\dd{S}.$$
-From the above expression, we can observe that the Gibbs relation and the equations of state specify a \emph{two-dimensional submanifold} of the larger five-dimensional space determined by the conditions
-\begin{equation}
-    T = \pdv{U}{S}, \qquad P = -\pdv{U}{V}. 
-\end{equation}
-
-Submanifolds of the thermodynamic phase space on which $\alpha_\text{\tiny G}$ pulls back to zero are called integral submanifolds of $\alpha_\text{\tiny G}$. Due to the nondegeneracy of the contact form, integral submanifolds of an ($2n+1$)-dimensional contact manifold have at most dimension $n$; the \emph{maximal} integral submanifolds are called \emph{Legendre submanifolds}. In this case, the dimension of the contact manifold if five, which is why Legendre submanifolds are two-dimensional.
-
-Clearly, Legendre submanifolds play a pivotal role in this framework because they define the thermodynamically allowable states (\citet{Balian2001} call them \emph{thermodynamic manifolds}). Trajectories in the thermodynamic phase space are only physically meaningful if they lie in Legendre submanifolds.
+In addition, the internal energy is, by definition, a function of the extensive state properties: in this case, the entropy and the volume. We can therefore integrate the Gibbs form by rearranging the equations of state to express $T$ and $P$ in terms of $S$ and $V$ as well. Integrating \cref{eq:gibbs_form} yields
+$$
+    U = \log{C_0} \: \ec^{\tfrac{S}{ cn_\text{s}R_\text{g}}} \: V^{\tfrac{-1}{c}},
+$$
+where $C_0$ is an integration constant. Since $ U = U(S, V)$, we have that
+$$ \dd{U} = \pdv{U}{S}\dd{S} + \pdv{U}{V}\dd{V}. $$
+Hence, we can fully specify a Legendre submanifold by the integrated equation and following conditions
+$$ T = \pdv{U}{S} \qquad P = -\pdv{U}{V}. $$
 
 \subsubsection{Contact geometry of the damped harmonic oscillator}
 The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. The damping force of the damper is proportional to the relative velocity of its connection points. That is, $F_\text{d} = b \dot{q} = \gamma p $, where $\gamma \coloneq b/m$ is the damping coefficient.
@@ -191,10 +142,9 @@ The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bon
     \label{fig:dho}
 \end{figure}
 
-
-
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
+
 
 
 
