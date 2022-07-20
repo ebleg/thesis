@@ -310,41 +310,6 @@ The vertical component \emph{is} directly dependent on the numerical value of th
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
-In this section, we use a procedure called \emph{symplectification} to cast the contact manifold of the previous section on a symplectic manifold in a canonical fashion. The advantage of this method is that the calculations for the dynamics are considerably simplified, since we can use the theory outlined in \cref{sec:symplectic}. To quote Vladimir Arnold'd, who originally came up with concept of symplectification, `one is advised to calculate symplectically but to think rather in contact geometry terms’ \cite{VanderSchaft2021a,Arnold1989a}.
-
-In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator, using an explicit time-dependence: the Caldirola-Kanai Hamiltonian.
-
-\subsubsection{Symplectization of contact manifolds}
-To make the process of symplectization mathematically precise, we first need to move to a slightly different space than the manifold $M$ used in the previous section. $M$ is the product manifold of the cotangent bundle of $Q$ (the space of the position $q$) with the real line to accomodate $U$. In contrast, we now start with the \emph{extended configuration manifold} $Q_e \cong \real^2$, equipped with an extra position coordinate $q_0$. That is,
-$$ (q_0, q) \in Q_e. $$
-
-Consider now the \emph{manifold of contact elements} associated with $Q_e$. This is a fiber bundle with base $Q_e$, and the fibers at each point are the space of lines (through the origin) in the tangent space to $Q_e$ at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
-
-The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line $\mathbb{P}\real$. The fibers are therefore compact. It can be shown that the manifold of contact elements associated to $Q_e$ (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by $\pctbundle{Q_e}$ \cite{Cannas2001,Arnold1989,Libermann1987}.
-
-\begin{figure}
-    \centering
-    \input{media/tikz/contact_element_2}
-    \caption{Blabla}
-    \label{fig:manifold_contact_elements}
-\end{figure}
-
-The manifold $\pctbundle{Q_e}$ is three-dimensional. Consider a following chart for $\pctbundle{Q_e}$ with following coordinates:
-$$ (q_0, q, p)$$
-where $p$ represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point $p = \infty$ (in this specifi chart). 
-
-Because $p$ is meant to represent momentum just like in the previous section, and infinite momentum lies outside our realm of interest, this space can be thought of as roughly equivalent (for practical purposes) to $M$. That is to say, by disregarding the point $p = \infty$, we end up with a manifold that is diffeomorphic to $M$.
-
-The manifold of contact elements $\pctbundle{Q_e}$ is equipped with a natural contact structure \cite{Arnold1989}, represented by
-\begin{equation}
-    \tilde{\alpha} = \dd{q}_0 - p\dd{q}.
-\end{equation}
-Observe the similarity with the contact form $\alpha$ defined in \cref{eq:dho_contact_form}: 
-$$\tilde{\alpha} = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. $$
-Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma \neq 0$).
-
-\subsubsection{Homogeneous Hamiltonian systems and Liouville geometry}
-
 
 
 
