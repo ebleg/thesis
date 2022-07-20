@@ -33,7 +33,7 @@ Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} n
 
 The mapping $\Psi_\alpha$ that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form $\alpha$, is defined as follows:
 \begin{equation}
-    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_H \mapsto H = \intpr{X_H}{\alpha}, 
+    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_H \mapsto H = -\intpr{X_H}{\alpha}, 
     \label{eq:psi_definition}
 \end{equation}
 where $\vsfields{c}{X}{M}$ is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure specified by $\alpha$, and are subject to the following condition:
@@ -50,7 +50,7 @@ $$ X_H = X_H^\text{hor} + X_H^\text{ver} \qquad \intpr{X_H^\text{hor}}{\alpha} =
 
 The vertical component of $X_H$ is easily obtained from the definition of $\Psi_\alpha$:
 \begin{equation}
-    X_H^\text{ver} = H R_\alpha,
+    X_H^\text{ver} = -H R_\alpha,
     \label{eq:vertical_vf}
 \end{equation}
 where $R_\alpha$ is the \emph{Reeb vector field}\footnote{
@@ -149,7 +149,7 @@ Microscopic energy consists of the kinetic energy of particles that does not res
 
 Internal energy is stored in a `heat bath'. This is to be interpreted loosely: it can be the damper fluid, but also the surrounding air (although a heteregeneous medium will not allow for an unambiguous notion of temperature). We will not be concerned with all these possibilities and consider a single heat bath with a single temperature: generalizations to more complex thermodynamic systems are immediate. 
 
-In contrast, macroscopic energy \emph{is} observable, either due to an observable motion of the system (kinetic energy) or the energy resulting from external force potentials (potential energy). Their sum is called \emph{mechanical energy} $E$: in the damped harmonic oscillator, it is the sum of the kinetic energy stored in the mass (I-element) and the potential energy stored in the spring (C-element).
+In contrast, macroscopic energy \emph{is} observable, either due to an observable motion of the system (kinetic energy) or the energy resulting from external force potentials (potential energy). Their sum is called the mechanical energy $E$: in the damped harmonic oscillator, it is the sum of the kinetic energy stored in the mass (I-element) and the potential energy stored in the spring (C-element).
 
 Since the system is isolated, the First Law states that 
 \begin{equation}
@@ -201,18 +201,55 @@ Recall that the Hamiltonian vector field is split into a horizontal and vertical
 \paragraph{Vertical component} The Reeb vector field $R_\alpha$ associated with the contact form given in \cref{eq:dho_contact_form} is 
 $$ R_\alpha = \pdv{}{U}. $$
 As such, the vertical component of the Hamiltonian vector field is, in accordance with \cref{eq:vertical_vf}:
-$$ X_H^\text{ver} = H\pdv{}{U}. $$
+\begin{equation}
+    X_H^\text{ver} = -H\pdv{}{U}.
+    \label{eq:dho_vertical}
+\end{equation}
 However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
 
-\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{H}$ (an arbitrary exact form) to a \emph{semi-basic} form in the following fashion
-$$ \dd{H} - (\intpr{R_\alpha}{\dd{H}}\alpha). $$
-In the purely symplectic case with no dissipation, we would have 
+\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{H}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
+$$ X_H^\text{hor} = \fromDual{\dd{\alpha}}(\dd{H} - \qty(\intpr{R_\alpha}{\dd{H}}\alpha)). $$
+The Hamiltonian is a function on the contact manifold $M$, i.e. $H = H(U, q, p)$. As such, the projected form is, in coordinates
+\begin{equation}
+    \pdv{H}{q}\dd{q} + \pdv{H}{p}\dd{p} + \pdv{H}{U} \gamma p \dd{q}.
+    \label{eq:contact_semi-basic}
+\end{equation}
+The projection thus removes any term in $\dd{U}$ (which makes it semi-basic).
 
-The Hamiltonian is a function on the contact manifold $M$, i.e. $H = H(U, q, p)$. As such, the above form is, in coordinates
-$$ \qty(\pdv{H}{q} - \gamma p)\dd{q} + \pdv{H}{p}\dd{p} $$
+Recall that $\dd{\alpha} = \gamma \omega $. Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by $\omega$ (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor $\gamma$) that we have to project $\dd{H}$ by means of the term $\qty(\intpr{R_\alpha}{\dd{H}}\alpha)$.
 
+In the conservative case, we have that $H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2$. It is therefore reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of $E$ (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
+Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work form of the damper, i.e. the amount of energy escaping from $E$. We can therefore conjecture that the first two terms in \cref{eq:contact_semi-basic} amount to $\dd{E}$.
 
+However, there is one complication: $\dd{\alpha}$ contains the factor $\gamma$. To cancel this factor out, we include $\gamma$ in the Hamiltonian as well. That is
+$$ 
+    \pdv{H}{q}\dd{q} + \pdv{H}{p}\dd{p} = \gamma \qty(\pdv{E}{q}\dd{q} + \pdv{E}{p}\dd{p}) $$
+and 
+$$ \pdv{H}{U} = \gamma. $$
+As a result, the gradient of the Hamiltonian is equal to 
+$$ \dd{H} = \gamma (\dd{E} + \dd{U}), $$
+and we obtain the correct Hamiltonian up to a closed form
+\begin{equation} 
+    H = \gamma (E + U) = \gamma\qty( \frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
+    \label{eq:dho_hamiltonian}
+\end{equation} 
+
+Now to derive the horizontal component of the vector field. The forward mapping $\toDual{\dd{\alpha}}$ acts on the basis vectors as follows:
+$$ \toDual{\dd{\alpha}}\qty(\pdv{}{q}) = \intpr{\pdv{}{q}}{\dd{\alpha}} = \gamma \dd{p} \qquad \toDual{\dd{\alpha}}\qty(\pdv{}{p}) = \intpr{\pdv{}{p}}{\dd{\alpha}} = -\gamma \dd{q} $$
+Clearly, the image of this mapping for any vector field is a semi-basic form. The inverse mapping must, to qualify as an isomorphism, map a semi-basic form back to a horizontal vector field (i.e. one that is in the kernel of $\alpha$). Hence, we have that
+$$ 
+    \fromDual{\dd{\alpha}}\qty(\dd{q}) = -\frac{1}{\gamma} \pdv{}{p} \qquad 
+    \fromDual{\dd{\alpha}}\qty(\dd{p}) = \frac{1}{\gamma}\pdv{}{q} +  p \dd{U}. 
+$$
+The term in $\dd{U}$ ensures that the vector field is horizontal. Using this mapping, and expression for the Hamiltonian in \cref{eq:dho_hamiltonian}, we obtain the horizontal component of the Hamiltonian vector field:
+\begin{equation} 
+    X_H^\text{hor} = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \gamma \frac{p^2}{m} \pdv{}{U}.
+    \label{eq:dho_horizontal}
+\end{equation}
+
+\paragraph{Equations of motion} Combining \cref{eq:dho_vertical} and \cref{eq:dho_horizontal}, the Hamiltonian vector field is
+$$ X_H = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \qty(\gamma \frac{p^2}{m} - H\pdv{}{U})\pdv{}{U}.$$
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}

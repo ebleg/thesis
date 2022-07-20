@@ -61,7 +61,10 @@ In the notation used here, the difference between the manifolds $Q$ and $M$ is c
     \end{tikzcd}
 \end{center}
 This isomorphism specified by $\omega$ allows us to find the corresponding Hamiltonian vector field $X_H$ to a Hamiltonian function, given by:
-$$ X_H = \fromDual{\omega}(\dd{H}). $$
+\begin{equation} 
+    X_H = \fromDual{\omega}(\dd{H}). 
+    \label{eq:symplectic_hamiltonian_vf}
+\end{equation}
 In (Darboux) coordinates, the action of $ \fromDual{\omega}$ on the basis 1-forms is  
 $$ \dd{p}_i \mapsto \pdv{}{q_i} \qquad \dd{q}_i \mapsto -\pdv{}{p_i}. $$ 
 The minus sign arises as a consequence of the anticommutativity of the wedge product in appearing in $\omega$.
@@ -93,7 +96,7 @@ Poisson brackets are anticommutative, bilinear and satisfy the Jacbobi identity.
 $$ 
     \poisson{f}{gh} = \poisson{f}{g}h + \poisson{f}{h}g. 
 $$
-The Poisson structure makes symplectic manifolds a particular class of Poisson manifolds. In \cref{sec:contact,sec:jacobi} the notion of Poisson manifolds is generalized to \emph{Jacobi manifolds} to cover more general mechanical systems. In contrast to the Poisson structure, the Jacobi structure does not have the Leibniz property \cite{Arnold1989,Libermann1987}.
+The Poisson brackets defined in terms of the symplectic structure make symplectic manifolds into Poisson manifolds. In \cref{sec:contact,sec:jacobi} the notion of Poisson manifolds is generalized to \emph{Jacobi manifolds} to cover more general mechanical systems. In contrast to the Poisson structure, the Jacobi structure does not have the Leibniz property \cite{Arnold1989,Libermann1987}.
 
 The usefulness of Poisson brackets is due to the fact that they provide a convenient way to calculate the time-rate of change of an observable $f$: 
 $$
