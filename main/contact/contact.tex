@@ -299,9 +299,9 @@ If $H = 0$, the internal energy is equal to the negative of the mechanical energ
 
 Finally, recall that the contact form $\alpha$ is not uniquely determined with respect to the associated contact structure. It can be multiplied with any nonzero function and still represent the same contact structure.
 
-We can regard this ambiguity as a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \tilde{\alpha} = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
+We can regard this ambiguity as a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \alpha_e = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
 \begin{equation}
-    \Psi^{-1}_{\tilde{\alpha}}(H) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
+    \Psi^{-1}_{\alpha_e}(H) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
     \label{eq:contact_ham_scaling}
 \end{equation}
 The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $H = 0$.
@@ -314,13 +314,13 @@ In this section, we use a procedure called \emph{symplectification} to cast the 
 
 In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator, using an explicit time-dependence: the Caldirola-Kanai Hamiltonian.
 
-\subsubsection{Symplectization of contact manifolds}
+\subsubsection{Symplectification of contact manifolds}
 To make the process of symplectization mathematically precise, we first need to move to a slightly different space than the manifold $M$ used in the previous section. $M$ is the product manifold of the cotangent bundle of $Q$ (the space of the position $q$) with the real line to accomodate $U$. In contrast, we now start with the \emph{extended configuration manifold} $Q_e \cong \real^2$, equipped with an extra position coordinate $q_0$. That is,
 $$ (q_0, q) \in Q_e. $$
 
-Consider now the \emph{manifold of contact elements} associated with $Q_e$. This is a fiber bundle with base $Q_e$, and the fibers at each point are the space of lines (through the origin) in the tangent space to $Q_e$ at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
+\paragraph{The manifold of contact elements} Consider now the \emph{manifold of contact elements} of $Q_e$. This is a fiber bundle with base $Q_e$, and the fibers at each point are the space of lines (through the origin) in the tangent space to $Q_e$ at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
 
-The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line $\mathbb{P}\real$. The fibers are therefore compact. It can be shown that the manifold of contact elements associated to $Q_e$ (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by $\pctbundle{Q_e}$ \cite{Cannas2001,Arnold1989,Libermann1987}.
+The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line $\mathbb{P}\real$. The fibers are therefore compact. It can be shown that the manifold of contact elements of $Q_e$ (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by $\pctbundle{Q_e}$ \cite{Cannas2001,Arnold1989,Libermann1987}.
 
 \begin{figure}
     \centering
@@ -337,16 +337,44 @@ Because $p$ is meant to represent momentum just like in the previous section, an
 
 The manifold of contact elements $\pctbundle{Q_e}$ is equipped with a natural contact structure \cite{Arnold1989}, represented by
 \begin{equation}
-    \tilde{\alpha} = \dd{q}_0 - p\dd{q}.
+    \alpha_e = \dd{q}_0 - p\dd{q}.
 \end{equation}
 Observe the similarity with the contact form $\alpha$ defined in \cref{eq:dho_contact_form}: 
-$$\tilde{\alpha} = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. $$
-Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma \neq 0$).
+$$\alpha_e = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. $$
+Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma$ is nonzero).
+
+\paragraph{Symplectification} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
+
+The symplectification procedure exploits the natural ambiguity that contact forms have, and that has been pointed out already. Multiplying the contact form $\alpha_e$ with any nonzero real number\footnote
+{
+    $\real^\times$ denotes both the real multiplicative group and the underlying set, being the real line excluding zero. 
+} $\lambda \in \real^\times$
+\begin{equation}
+    \lambda (\dd{q_0} - p \dd{q}). 
+    \label{eq:lambda_alpha}
+\end{equation}
+The above expression gives a representation of \emph{all} the contact forms that give rise to the same contact structure as $\alpha_e$. Hence, if $\lambda$ is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates $(q_0, q, p, \lambda)$; this is the space of all contact forms on the contact manifold. 
+
+We now effect the following coordinate transform:
+$$ \rho \coloneq -\lambda p \qquad \rho_0 \coloneq \lambda. \ $$ 
+Hence, \cref{eq:lambda_alpha} becomes 
+\begin{equation}
+    \rho_0\dd{q_0} + \rho \dd{q} \equalscolon \theta_e
+    \label{eq:liouville_form_extended}
+\end{equation}
+which is the Liouville form on the cotangent bundle $\ctbundle{Q_e}$ in Darboux coordinates, denoted by $\theta_e$. From this form, we obtain the canonical symplectic structure on 
+$\ctbundle{Q_e}$ as follows
+\begin{equation}
+    \omega_e \coloneq -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.
+    \label{eq:symplectic_form_extended}
+\end{equation}
+
+The coordinate $\lambda$, and therefore $\rho_0$ and $\rho$, are not canonical coordinates, for they depend on the particular choice of the contact form to begin with. Indeed, in this particular choice of $\alpha_e$ one point was left out ($p = \infty$), which effectively rules all the points for which $\rho_0 = 0$. However, only the case for which both $\rho$ and $\rho_0$ vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart. This space is the cotangent bundle of $Q_e$ without its zero section, denoted by $ \ctzbundle{Q_e} $.
+
+The former discussion relies heavily on the choice of coordinate chart. Therefore, we wish to make it more mathematically precise using the language of principal bundles.
+
+\subsubsection{Liouville geometry and principal bundles}
 
 \subsubsection{Homogeneous Hamiltonian systems and Liouville geometry}
-
-
-
-
 
 
