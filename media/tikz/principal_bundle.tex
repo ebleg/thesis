@@ -1,9 +1,13 @@
 \begin{tikzpicture}
-    \draw[->] (0, 0) -- (2, 0) node[anchor=west] {$q_0$};
-    \draw[->] (0, 0) -- (0, 2) node[anchor=south] {$q$};
+
+    \node[fill=black, circle, inner sep=1pt, outer sep = 10pt] (x) at (0, 0) {};
+    \node[label=south:$x$] at (x) {};
     
-    \node (m) at (2.3, 2) {};
+    \node[yshift=-2cm,xshift=-2cm] (O) at (x) {};
+    \draw[->] (O.center) -- ++(0, 3cm) node[anchor=south] {$q$};
+    \draw[->] (O.center) -- ++(3cm, 0) node[anchor=west] {$q_0$};
     
+    \node[xshift=-1cm, yshift=4cm] (m) at (x) {};
     \filldraw[draw=black, fill=accent1!20] (m) ++(-1.5, -1.5) -- ++(0, 3) -- ++(3, 0) -- ++(0,-3) -- cycle;
     \draw[->] (m) ++(-1.5, 0) -- ++(3, 0) node[anchor=south east] {$\rho_0$};
     \draw[->] (m) ++(0, -1.5) -- ++(0, 3) node[anchor=north west] {$\rho$};
@@ -19,24 +23,31 @@
         \foreach \i in {0,30,...,180}{
             \draw[dashed] (m) ++({-4*cos(\i)}, {-4*sin(\i)}) -- ++({8*cos(\i)}, {8*sin(\i)});
         }
+        
+        \draw[thick] (m) ++({-4*cos(150)}, {-4*sin(150)}) -- ++({8*cos(150)}, {8*sin(150)});
+        
     \end{scope}
+    
     
     \node[circle,draw=black,fill=white,inner sep=1.3pt] at (m) {};
     
-    \draw[->] (6.5, 0) -- (8.5, 0) node[anchor=west] {$q_0$};
-    \draw[->] (6.5, 0) -- (6.5, 2) node[anchor=south] {$q$};
-    
-    \node[fill=none] (m2) at (8.8, 2) {};
+    \node[fill=none, xshift=5cm] (m2) at (m) {};
     
     \draw (m2) circle (1);
-    \draw[->] (m2) ++(1, 1.3) -- ++(0, -2.6) node[anchor=north] {$p$} ;
-    \draw (m2.center) ++(-0.866, 0.5) -- (9.8, 1.423) node[circle,fill=black, inner sep = 1pt] {};
-    \draw (m2.center) -- ++(1, 0) node[pos=0.5,anchor=south] {\tiny{1}};
+    \draw[<-] (m2) ++(1, -1.3) -- ++(0, 2.6) node[anchor=north, pos=0] {$p$} ;
+    \draw[thick] (m2.center) ++(-0.866, 0.5) -- ++(1.866, -1.077) node[circle,fill=black, inner sep = 1pt] {};
+    \draw (m2.center) -- ++(1, 0) node[anchor=south, pos=0.5] {\tiny $1$};
     %\draw[->] (m) ++(-1.5, 0) -- ++(3, 0) node[anchor=west] {$\rho_0$};
     %\draw[->] (m) ++(0, -1.5) -- ++(0, 3) node[anchor=south] {$\rho$};
     
-    \draw[->] (4.3, 2) -- (5.7, 2) node[pos=0.5,anchor=south] {$\sigma$};
-     
-    \node at (2, -0.5) {$\ctzbundle{M}$};
-    \node at (8.5, -0.5) {$\pctbundle{M}$};
+    \draw[->] (m) ++(2cm, 0) -- ++(1.5cm, 0) node[pos=0.5, anchor=south] { $\sigma$};
+    
+    \node[yshift=-2cm, outer sep=5pt] (label1) at (m) {$\ctzspace{x}{Q_e}$};
+    \node[yshift=-2cm, outer sep=5pt] (label2) at (m2) {$\pctspace{x}{Q_e}$};
+    
+    \draw[->] (label1) -- (x);
+    \draw[->] (label2) -- (x);
+    
+    \node[xshift=1.5cm, yshift=-0.5cm] at (O) {$Q_e$};
+
 \end{tikzpicture}

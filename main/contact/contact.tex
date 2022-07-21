@@ -369,12 +369,77 @@ $\ctbundle{Q_e}$ as follows
     \label{eq:symplectic_form_extended}
 \end{equation}
 
-The coordinate $\lambda$, and therefore $\rho_0$ and $\rho$, are not canonical coordinates, for they depend on the particular choice of the contact form to begin with. Indeed, in this particular choice of $\alpha_e$ one point was left out ($p = \infty$), which effectively rules all the points for which $\rho_0 = 0$. However, only the case for which both $\rho$ and $\rho_0$ vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart. This space is the cotangent bundle of $Q_e$ without its zero section, denoted by $ \ctzbundle{Q_e} $.
+The coordinate $\lambda$, and therefore $\rho_0$ and $\rho$, are not canonical coordinates, for they depend on the particular choice of the contact form to begin with. Indeed, in this particular choice of $\alpha_e$ one point in the fiber is left out ($p = \infty$), which effectively rules all the points for which $\rho_0 = 0$. 
 
-The former discussion relies heavily on the choice of coordinate chart. Therefore, we wish to make it more mathematically precise using the language of principal bundles.
+In reality, only the points for which \emph{both} $\rho$ and $\rho_0$ vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart (this will be made clear later). The resulting space is the cotangent bundle of $Q_e$ without its zero section, denoted by $ \ctzbundle{Q_e}$ \cite{VanderSchaft2021a,Libermann1987}.
+
+As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectiztion procedure more mathematically precise using the language of principal bundles.
 
 \subsubsection{Liouville geometry and principal bundles}
+A \emph{principal bundle} is a smooth bundle $\bundle{P}{\sigma}{B}$ if $P$ is equipped with a \emph{free} right $G$-action $\raction{}$, where $G$ is a Lie group. Furthermore, let  
+\begin{center}
+    \begin{tikzcd} 
+        P \arrow[d, "\sigma" ]\\
+        B
+    \end{tikzcd}
+    $\quad \cong_\text{\tiny bundle} \quad $
+    \begin{tikzcd} 
+        P \arrow[d, "\sigma'" ]\\
+        P/G
+    \end{tikzcd}
+\end{center}
+where $\sigma'$ is the quotient map that sends each point in $P$ to the corresponding point in the orbit space $P/G$. In other words, if we define the equivalence relation between two points $x_1, x_2 \in P$ as
+$$ x_1 \sim x_2 \quad \Leftrightarrow \quad \exists g \in G:\: x_2 = x_1 \raction{g},$$
+then 
+$$ \sigma':\: P \to P/G:\quad x \mapsto [x]_\sim, $$
+with $[x]_\sim$ being the equivalence class with respect to $\sim$ and $P/G = P/\sim$.\footnote{This is the definition used in the lectures of F. P. Schuller, see \cite{Schuller2014}.}
+
+In our context of symplectization, the Lie group in question is the real multiplicative group $\real^\times$. The group acts on the cotangent bundle of $Q_e$ without zero section\footnote
+{
+    The zero section must be removed from the cotangent bundle, because otherwise the group action defined above is not free (the origin of any cotangent space is stabilized by the entire group). If the group action is free, the orbits are diffeomorphic to the group itself. if this is not the case, not all the orbits are diffeomorphic to each other, and the `bundle of orbits' would not be a fiber bundle. In this case, the origin (being the orbit of the origin) is of course not diffeomorphic to the other orbits (lines with a point removed).
+}
+(i.e. \ctzbundle{Q_e}) through \emph{dilation of its fibers}. In the coordinates defined above, we define the group action $\raction{\real^\times}$ as:
+$$ \raction: \ctzbundle{Q_e}\times\mgroup \to \ctzbundle{Q_e} : \quad (q_0, q, \rho_0, \rho) \blacktriangleleft \lambda = (q_0, q, \lambda \rho_0, \lambda \rho ) \qquad \lambda \in \mgroup.$$
+
+The orbit space of $\ctzbundle{Q_e}$ with respect to $\raction{\real^\times}$ is precisely equal to the projectivization of the cotangent bundle $\pctbundle{Q_e}$. As a result, we have the principal $\mgroup$-bundle structure given by the following diagram:
+\begin{center}
+    \begin{tikzcd}
+        \ctzbundle{M} \\ \ctzbundle{M} \arrow[u, "\raction{\mgroup}"] \arrow[d, "\sigma"] \\ \pctbundle{M}.
+    \end{tikzcd}
+\end{center}
+
+A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both $\ctzbundle{Q_e}$ and $\pctbundle{Q_e}$ are also bundles over the extended configuration space $Q_e$. At a specific point of $Q_e$, say $x$, we have two fibres. The fiber $\ctzspace{x}{Q_e}$ is the cotangent space to $x$ without the origin. The group action $\rangle{\mgroup}$ manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as $\mgroup$ itself, since the action is free). 
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/principal_bundle}
+    \caption{Illustration of the principal $\mgroup$-bundle $\bundle{\ctzbundle{M}}{\pi}{\pctbundle{M}}$. $x$ is a point in the extended configuration space $Q_e$, where we attach fibers $\ctzspace{x}{Q_e}$ and $\pctspace{x}{Q_e}$. The orbits of the group action $\raction{\mgroup}$ on $\ctzbundle{Q_e}$ are identified by $\sigma$ and mapped to the orbit space $\pctbundle{M}$. }
+    \label{fig:principal_bundle}
+\end{figure}
+
+The space of all orbits is a circle with antipodal points identified, which also has the topology of a circle: this is the space $\mathbb{P}\real$, and it is the fiber $\pctbundle{x}{Q_e}$ of $\pctbundle{Q_e}$ at the point $x$. The projection map that takes a point in $\pctbundle{x}{Q_e}$ to its associated orbit in the orbit space is $\sigma$. 
+
+In \cref{fig:principal_bundle}, the coordinate chart used for $\pctbundle{Q_e}$ is indicated as well: $p = -\rho/\rho_0$, which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south pole of the circle on the right.
+
+From the perspective of $\pctbundle{Q_e}$, $\rho_0$ and $\rho$ can also be seen as \emph{homogeneous coordinates} for this space.
+
+\paragraph{Principal bundles in system theory}
+To illustrate the concept of principal bundles and their relevance, we give an instructive example of principal bundles in control theory. For more information, the reader is referred to \citet{Hermann1984}. 
+
+LTI systems can be represented both as a collection of state-space matrices, or in the frequency domain using a transfer matrix. The state-space representaiton is commonly given in the form of four matrices: $A, B, C, D$. For a system with $n$ states, $m$ inputs and $o$ outputs, we have:
+$$ A \in \real^{n \times n} \quad B \in \real^{n \times m} \quad C \in \real^{o \times n} \quad D \in \real^{o \times m}. $$
+Hence, the manifold of LTI systems given these three dimension is equal to \cite{Verhaegen2007} $$\real^{\ell}, \quad \ell = n^2 + nm + on + om.$$  
+This is the total space of the principal bundle.
+
+A state space representation of a transfer matrix is not unique: any similarity transform of the state space yields different state space matrices that correspond to the same transfer matrix. Hence, the \emph{structure group} is here $\glgroup{n}{\real}$, which contain all the similarity transforms. The group action $\raction{\glgroup{n}{\real}} $ is as follows:
+$$  (A, B, C, D) \raction{T} = (T A T^{-1}, TB, CT^{-1}, D). $$
+
+The orbit space $\real^\ell/\glgroup{n}{\real}$ can be identified with the space of transfer matrices. The projection map that takes the state space represention to a transfer matrix is given by
+$$ \sigma(A, B, C, D) = C(s I - A )^{-1} B + D, $$
+which is invariant with respect to group action.
+
+The topology of the orbit space, and therefore of the space of transfer matrices, is highly nontrivial. This makes the process of system identification very challenging, for there are usually no easy coordinate charts of this space \cite{Verhaegen2007,Hermann1984}.
 
 \subsubsection{Homogeneous Hamiltonian systems and Liouville geometry}
+
 
 
