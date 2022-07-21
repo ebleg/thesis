@@ -290,7 +290,10 @@ Recall from \cref{eq:psi_definition} that, by definition, $K = -\intpr{X_K}{\alp
 As an additional argument, we can show that
 $$ \lied{X^{\text{hor}}_K}{K} = 0 \quad \Rightarrow \quad \dv{K}{t} = \lied{X^{\text{ver}}_K}{K} = -K\pdv{K}{U}. $$
 Hence, if the Hamiltonian does not vanish, it changes exponentially over time (for its change is proportional to its own value). If $\gamma > 0$, the Hamiltonian decays exponentially from its initial value:
-$$ K(t) = K_0\,\ec^{-\gamma t}.$$
+\begin{equation} 
+    K(t) = K_0\,\ec^{-\gamma t}.
+    \label{eq:contact_ham_growth}
+\end{equation}
 As a result, any nonphysical trajectories will approach a Legendre submanifold as time proceeds; the associated vector fields also become ever more tangent to the Legendre submanifold. 
 
 Based on the expression for $K$, an expression for $U$ may also be derived:
@@ -299,9 +302,9 @@ If $K = 0$, the internal energy is equal to the negative of the mechanical energ
 
 Finally, recall that the contact form $\alpha$ is not uniquely determined with respect to the associated contact structure. It can be multiplied with any nonzero function and still represent the same contact structure.
 
-We can regard this ambiguity as a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \alpha_e = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
+We can regard this ambiguity as a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \alpha' = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
 \begin{equation}
-    \Psi^{-1}_{\alpha_e}(K) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,K).
+    \Psi^{-1}_{\alpha'}(K) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,K).
     \label{eq:contact_ham_scaling}
 \end{equation}
 The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $K = 0$.
@@ -325,7 +328,7 @@ The fibers of this bundle are projective spaces; more specifically, they are dif
 \begin{figure}
     \centering
     \input{media/tikz/contact_element_2}
-    \caption{Blabla}
+    \caption{A contact element on the manifold $Q_e$ is a line through the origin in the tangent space. The manifold of contact elements of $Q_e$ is the space of all contact elements at every tangent space to $Q_e$.}
     \label{fig:manifold_contact_elements}
 \end{figure}
 
@@ -344,6 +347,28 @@ $$
     \alpha_e = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. 
 $$
 Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma$ is nonzero).
+
+\paragraph{Contact Hamiltonian system} The contact Hamiltonian system $(M, \alpha, K)$ damped harmonic oscillator can be defined on the manifold of contact elements as well, with the silent understanding that $M$ and $\pctbundle{Q_e}$ are slightly different from a topological perspective. Since the new contact form is scaled by $\tfrac{1}{\gamma}$, we can use relation \cref{eq:contact_ham_scaling} to find the new Hamiltonian $K_e$:
+$$ K_e = \frac{1}{\gamma} K. $$
+Furthermore, because $U = \gamma q_0$, the contact Hamiltonian in the new coordinates is
+\begin{equation}
+    K_e(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + \gamma q_0.
+    \label{eq:dho_contact_hamiltonian_e}
+\end{equation}
+Numerically, $K_e$ is equal to the total energy in system (the scaling factor is removed). Observe also that the units of the Hamiltonian have been changed from power to energy.
+
+The corresponding Hamiltonian vector field is then
+\begin{equation}
+    X_{K_e} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \qty[\frac{p^2}{m} - K_e(q_0, q, p)]\pdv{}{q_0}. 
+    \label{eq:ham_vf_e}
+\end{equation}
+If we enforce that $K = 0$ (as motivated in the previous section), then $K_e$ vanishes as well and the vector field becomes 
+\begin{equation}
+    X_{K_e}\vert_{K_e = 0} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \frac{p^2}{m}\pdv{}{q_0}.
+    \label{eq:ham_vf_e_liouville}
+\end{equation}
+
+This contact Hamiltonian system can be lifted to the symplectification of the contact manifold $\pctbundle{Q_e}$.
 
 \paragraph{Symplectification} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
 
@@ -444,7 +469,7 @@ which is invariant with respect to group action.
 
 The topology of the orbit space, and therefore of the space of transfer matrices, is highly nontrivial. This makes the process of system identification very challenging, for there are usually no easy coordinate charts of this space \cite{Verhaegen2007,Hermann1984}.
 
-\subsubsection{Homogeneous Hamiltonian systems and Liouville geometry}
+\subsubsection{Homogeneous Hamiltonian systems}
 In this section, we will lift the contact Hamiltonian system defined in \cref{ssec:contact_dissipation} to the symplectified manifold, resulting in a symplectic Hamiltonian system with an \emph{Liouville structure} additional structure.
 
 \paragraph{Liouville structures} The symplectified space $\ctzbundle{Q_e}$ has a symplectic structure because the cotangent bundle (with zero section removed) is canonically equipped with one. Moreover, the group action that makes it into a principal bundle provides an additional structure: a \emph{symplectic Liouville structure}, which requires that the symplectic 2-form is \emph{homogeneous of degree 1} with respect to the group action $\raction{\mgroup}$. That is,
@@ -466,10 +491,91 @@ $$ \fromDual{\omega_e}(\dd{\mathscr{H}}) = X_\mathscr{H}. $$
 
 This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consisting of a manifold with fibered symplectic Liouville structure and a homogeneous Hamiltonian function $\mathscr{H}$.
 
-\paragraph{Damped harmonic oscillator} The contact Hamiltonian system for the damped harmonic oscillator can now be lifted to a homogeneous Hamiltonian system on the symplectified space. This lift is defined as \cite{VanderSchaft2021a,Libermann1987}
- $$ K_e(q_0, q, p) = \mathscr{H}(q_0, q, -1, \rho), $$
- or in other words
- $$ K_e(q_0, q, -\frac{\rho}{\rho_0}) = \mathscr{H}(q_0, q, \rho_0, \rho). $$
+\paragraph{Equations of motion} The contact Hamiltonian system for the damped harmonic oscillator, as defined by \cref{eq:dho_contact_hamiltonian_e}, can now be lifted to a homogeneous Hamiltonian system on the symplectified space. The relation between the contact Hamiltonian and the corresponding homogeneous Hamiltonian is defined as \cite{VanderSchaft2021a,Libermann1987,Arnold1989}
+$$ K_e(q_0, q, p) = \mathscr{H}(q_0, q, -1, \rho), $$
+or equivalently
+\begin{equation}
+    K_e\qty(q_0, q, -\frac{\rho}{\rho_0}) = \mathscr{H}(q_0, q, \rho_0, \rho). 
+    \label{eq:H_contact_homo}
+\end{equation}
+
+Based on \cref{eq:dho_contact_hamiltonian_e}, we obtain the following expression for the homogeneous Hamiltonian:
+\begin{equation}
+    \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
+    \label{eq:H_dho_homo}
+\end{equation}
+
+The Hamiltonian vector field is easily obtained, for we can use the mapping $\fromDual{\omega_e}$. As already mentioned this is a major advantage of performing calculations in the symplectified space. We have
+$$ X_\mathscr{H} = \fromDual{\omega_e}(\dd{\mathscr{H}}),$$ 
+with
+$$ \dd{\mathscr{H}} = \pdv{\mathscr{H}}{q_0}\dd{q_0} 
+                      + \pdv{\mathscr{H}}{q}\dd{q}
+                      + \pdv{\mathscr{H}}{\rho_0}\dd{\rho_0}
+                      + \pdv{\mathscr{H}}{\rho}\dd{\rho}.
+$$
+
+It is instructive to first specify the partial derivatives of $\mathscr{H}$ in terms of $K_e$, so as to compare the generic equations of motion obtained from $\mathscr{H}$ to those obtained from $K_e$ (cf. \cref{eq:ham_vf_e}). Using \cref{eq:H_contact_homo}, the partial derivatives can be expressed in terms of the contact Hamiltonian $K_e$:
+\begin{equation}
+    \begin{split}
+        \pdv{\mathscr{H}}{q} &= -\rho_0 \pdv{K_e}{q}, \\
+        \pdv{\mathscr{H}}{q_0} &= -\rho_0 \pdv{K_e}{q_0}, \\
+        \pdv{\mathscr{H}}{\rho} &= -\rho_0 \pdv{K_e}{p}\pdv{p}{\rho} = \pdv{K_e}{p}, \\
+        \pdv{\mathscr{H}}{\rho_0} &= -H - \rho_0 \pdv{K_e}{p}\pdv{p}{\rho_0} = -K_e - \pdv{H}{p}\frac{\rho}{\rho_0} = \pdv{H}{p}p - K_e.\\
+    \end{split}
+    %\label{eq:partial_relation}
+\end{equation}
+The homogeneous Hamiltonian vector field is then
+\begin{equation}
+    X_\mathscr{H} = \qty(\pdv{K_e}{p}p - K_e)\pdv{}{q_0}
+                    + \pdv{K_e}{p}\pdv{}{q}
+                    + \rho_0\pdv{K_e}{q_0}\pdv{}{\rho_0}
+                    + \rho_0\pdv{K_e}{q}\pdv{}{\rho}.
+    \label{eq:hom_ham_vf}
+\end{equation}
+%\begin{equation}
+%    \begin{split}
+%        &\dot{q}_0      = \pdv{H}{p}p - H, \\
+%        &\dot{q}        = \pdv{H}{p}, \\
+%        &\dot{\rho}_0   = \rho_0\pdv{H}{q_0}, \\
+%        &\dot{\rho}     = \rho_0 \pdv{H}{q}.
+%    \end{split}
+%\end{equation}
+The equations of motion $q_0$ and $q$ remain identical to those obtained earlier; this is to be expected since otherwise the dynamics would not correspond. 
+
+For $\rho_0$, we have
+$$ \dot{\rho}_0 = \rho_0 \pdv{K_e}{q_0} = \rho_0 \pdv{K_e}{q_0}  = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C, $$ 
+where $C$ is an integration constant which we can choose to be 0, so $\rho_0(t) = \ec^{\gamma t}$. a
+
+In addition, $\dot{\rho} = \rho_0 kq = \ec^{\gamma t} kq$. Since $p = -\rho/\rho_0$, the dynamics of $p$ can be obtained from  $\dot{\rho}_0$ and $\dot{\rho}$ using the product rule:
+$$ \dot{p} = -\frac{\dot{\rho}}{\rho_0} + \frac{\rho}{\rho_0}\frac{\dot{\rho}_0}{\rho_0} = -kq - \gamma p, $$
+which is equivalent to the expression obtained in \cref{ssec:contact_dissipation}.
+
+Observe that these equations of motion are invariant under the earlier defined group action $\raction{\mgroup}$, which means that the vector field indeed preserves the Liouville structure. The other condition is that it preserves $\omega_e$, but this is satisfied rather trivially as a result of the mapping $\fromDual{\omega_e}$.
+%The Hamiltonian vector field then becomes
+%\begin{equation}
+%    X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.
+%    \label{eq:homo_vf}
+%\end{equation}
+
+\paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that for the equations of motion to represent a physical trajectory, the contact Hamiltonian should numerically be equal to zero. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
+
+As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if $\alpha_e$ pulls back to zero on the trajectories in the contact manifold, so should $\theta_e$ on the lifted trajectories, for they only differ by multiplication with $\rho_0$. These are called \emph{Liouville submanifolds}, and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form $\omega_e$ vanishes when restricted to them. This is also the case when $\theta_e$ vanishes, but the converse is not necessarily true.}
+
+Using \cref{eq:hom_ham_vf}, we find that 
+$$ \intpr{X_\mathscr{H}}{\theta_e} = -K_e, $$
+which means that the contact Hamiltonian (i.e. the total energy in the system)
+must be equal to zero for the lifted trajectories to lie in a Liouville submanifold.
+
+For yet another perspective regarding this point, we can make use of the symplectic nature of the homogeneous Hamiltonian. Indeed, no matter what the value of $K_e$, the homogeneous Hamiltonian $\mathscr{H}$ \emph{must} be constant over time, because it does explicitly depend on it. Since the dynamics are symplectic, we can simply use Poisson brackets support this fact:
+$$ \dot{\mathscr{H}} = \poisson{\mathscr{H}}{\mathscr{H}} + \pdv{\mathscr{H}}{t} = 0.$$
+
+Hence, we can set the Hamiltonian equal to a constant, say $\mathscr{H}(t) = \mathscr{H}_0$. But, we also know from $\mathscr{H} = \rho_0 K_e = \ec^{\gamma t} K_e$. Hence, it is now very easy to see that $K_e$ eithe  decays exponentially (if $\gamma > 0$), for it then cancels exactly the exponential growth of $\rho_0$, or it equal to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which amounts to the particular choice that $\mathscr{H}_0 = 0$.
+
+If we assume that the dynamics take place on a Liouville submanifold, the Hamiltonian vector field becomes
+$$ X_\mathscr{H}\vert_{\mathscr{H}_0 = 0} =  -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}. $$
+If this vector field is be projected to $\pctbundle{Q_e}$ using the pushforward of the projection map $\sigma$, we obtain \cref{eq:ham_vf_e_liouville}.\footnote{This is the `differential geometric' way of deriving the equation for $\dot{p}$ as we did above.}
+
+\subsubsection{Relation with the Caldirola-Kanai Hamiltonian}
 
 
 %Define the \emph{Liouville vector field} as the infinitesimal action of the group action:
