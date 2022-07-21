@@ -29,28 +29,28 @@ the coordinates $(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)$ are then called \emp
 For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
 
 \subsection{Contact Hamiltonian systems}
-Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold $M$, a contact form $\alpha$ on that manifold, and a Hamiltonian function on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact verison of Hamilton's equations.
+Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold $M$, a contact form $\alpha$ on that manifold, and a Hamiltonian function $K$ on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact verison of Hamilton's equations.
 
 The mapping $\Psi_\alpha$ that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form $\alpha$, is defined as follows:
 \begin{equation}
-    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_H \mapsto H = -\intpr{X_H}{\alpha}, 
+    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_K \mapsto K = -\intpr{X_K}{\alpha}, 
     \label{eq:psi_definition}
 \end{equation}
 where $\vsfields{c}{X}{M}$ is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure specified by $\alpha$, and are subject to the following condition:
 \begin{equation}
-    \lied{X_H}{\alpha} = s \alpha, 
+    \lied{X_K}{\alpha} = s \alpha, 
     \label{eq:contact_vf_condition}
 \end{equation}
-where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact any nonzero multiple of a given contact form specifies the same contact structure.
+where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
 
-To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to decompose the vector field $X_H$ according to the following splitting of the tangent bundle of $M$:
+To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to decompose the vector field $X_K$ according to the following splitting of the tangent bundle of $M$:
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha}, $$
 where $\oplus$ denotes the Whitney sum. Vector fields that are in the kernel of $\alpha$ are called \emph{horizontal}. Conversely, vector fields that are in the kernel of $\dd{\alpha}$ are \emph{vertical}. We therefore have 
-$$ X_H = X_H^\text{hor} + X_H^\text{ver} \qquad \intpr{X_H^\text{hor}}{\alpha} = 0,\:\: \intpr{X_H^\text{ver}}{\dd{\alpha}} = 0. $$
+$$ X_K = X_K^\text{hor} + X_K^\text{ver} \qquad \intpr{X_K^\text{hor}}{\alpha} = 0,\:\: \intpr{X_K^\text{ver}}{\dd{\alpha}} = 0. $$
 
-The vertical component of $X_H$ is easily obtained from the definition of $\Psi_\alpha$:
+The vertical component of $X_K$ is easily obtained from the definition of $\Psi_\alpha$:
 \begin{equation}
-    X_H^\text{ver} = -H R_\alpha,
+    X_K^\text{ver} = -K R_\alpha,
     \label{eq:vertical_vf}
 \end{equation}
 where $R_\alpha$ is the \emph{Reeb vector field}\footnote{
@@ -68,15 +68,15 @@ However, this is not an isomorphism between $\tbundle{M}$ and $\ctbundle{M}$, fo
 }. 
 Likewise, the inverse mapping $\fromDual{\dd{\alpha}}$ takes a semi-basic form as an argument and produces a vertical vector field. 
 
-The horizontal component of the Hamiltonian vector field is equal to this mapping applied to $\dd{H}$, projected to the space of semi-basic forms:
+The horizontal component of the Hamiltonian vector field is equal to this mapping applied to $\dd{K}$, projected to the space of semi-basic forms:
 \begin{equation}
-    X_H^\text{hor} = \fromDual{\dd{\alpha}}\qty(\dd{H} - (\intpr{R_\alpha}{\dd{H}})\alpha).
+    X_K^\text{hor} = \fromDual{\dd{\alpha}}\qty(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\alpha).
     \label{eq:horizontal_vf}
 \end{equation}
 
 Hence, the Hamiltonian vector field is equal to
 \begin{equation}
-    X_H = \Psi^{-1}_\alpha(H) = H R_\alpha + \fromDual{\dd{\alpha}}\qty(\dd{H} - (\intpr{R_\alpha}{\dd{H}})\alpha).
+    X_K = \Psi^{-1}_\alpha(K) = K R_\alpha + \fromDual{\dd{\alpha}}\qty(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\alpha).
     \label{eq:contact_hamiltonian_vf}
 \end{equation}
 
@@ -202,21 +202,21 @@ Recall that the Hamiltonian vector field is split into a horizontal and vertical
 $$ R_\alpha = \pdv{}{U}. $$
 As such, the vertical component of the Hamiltonian vector field is, in accordance with \cref{eq:vertical_vf}:
 \begin{equation}
-    X_H^\text{ver} = -H\pdv{}{U}.
+    X_K^\text{ver} = -K\pdv{}{U}.
     \label{eq:dho_vertical}
 \end{equation}
 However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
 
-\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{H}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
-$$ X_H^\text{hor} = \fromDual{\dd{\alpha}}(\dd{H} - \qty(\intpr{R_\alpha}{\dd{H}}\alpha)). $$
-The Hamiltonian is a function on the contact manifold $M$, i.e. $H = H(U, q, p)$. As such, the projected form is, in coordinates
+\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{K}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
+$$ X_K^\text{hor} = \fromDual{\dd{\alpha}}(\dd{K} - \qty(\intpr{R_\alpha}{\dd{K}}\alpha)). $$
+The Hamiltonian is a function on the contact manifold $M$, i.e. $K = K(U, q, p)$. As such, the projected form is, in coordinates
 \begin{equation}
-    \pdv{H}{q}\dd{q} + \pdv{H}{p}\dd{p} + \pdv{H}{U} \gamma p \dd{q}.
+    \pdv{K}{q}\dd{q} + \pdv{K}{p}\dd{p} + \pdv{K}{U} \gamma p \dd{q}.
     \label{eq:contact_semi-basic}
 \end{equation}
 The projection thus removes any term in $\dd{U}$ (which makes it semi-basic).
 
-Recall that $\dd{\alpha} = \gamma \omega $. Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by $\omega$ (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor $\gamma$) that we have to project $\dd{H}$ by means of the term $\qty(\intpr{R_\alpha}{\dd{H}}\alpha)$.
+Recall that $\dd{\alpha} = \gamma \omega $. Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by $\omega$ (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor $\gamma$) that we have to project $\dd{K}$ by means of the term $\qty(\intpr{R_\alpha}{\dd{K}}\alpha)$.
 
 In the conservative case, we have that $H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2$. It is therefore reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of $E$ (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
@@ -224,14 +224,14 @@ Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work f
 
 However, there is one complication: $\dd{\alpha}$ contains the factor $\gamma$. To cancel this factor out, we include $\gamma$ in the Hamiltonian as well. That is
 $$ 
-    \pdv{H}{q}\dd{q} + \pdv{H}{p}\dd{p} = \gamma \qty(\pdv{E}{q}\dd{q} + \pdv{E}{p}\dd{p}) $$
+    \pdv{K}{q}\dd{q} + \pdv{K}{p}\dd{p} = \gamma \qty(\pdv{E}{q}\dd{q} + \pdv{E}{p}\dd{p}) $$
 and 
-$$ \pdv{H}{U} = \gamma. $$
+$$ \pdv{K}{U} = \gamma. $$
 As a result, the gradient of the Hamiltonian is equal to 
-$$ \dd{H} = \gamma (\dd{E} + \dd{U}), $$
+$$ \dd{K} = \gamma (\dd{E} + \dd{U}), $$
 and we obtain the correct Hamiltonian up to a closed form
 \begin{equation} 
-    H = \gamma (E + U) = \gamma\qty( \frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
+    K = \gamma (E + U) = \gamma\qty( \frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
     \label{eq:dho_hamiltonian}
 \end{equation} 
 Hence, the Hamiltonian function is equal to the total amount of energy in the system, both mechanical and internal, multiplied by the damping coefficient.
@@ -245,23 +245,23 @@ $$
 $$
 The term in $\dd{U}$ ensures that the vector field is horizontal. Using this mapping, and expression for the Hamiltonian in \cref{eq:dho_hamiltonian}, we obtain the horizontal component of the Hamiltonian vector field:
 \begin{equation} 
-    X_H^\text{hor} = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \gamma \frac{p^2}{m} \pdv{}{U}.
+    X_K^\text{hor} = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \gamma \frac{p^2}{m} \pdv{}{U}.
     \label{eq:dho_horizontal}
 \end{equation}
 
 \paragraph{Equations of motion} Combining \cref{eq:dho_vertical} and \cref{eq:dho_horizontal}, the Hamiltonian vector field is
-$$ X_H = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \qty(\gamma \frac{p^2}{m} - H\pdv{}{U})\pdv{}{U}.$$
+$$ X_K = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \qty(\gamma \frac{p^2}{m} - K\pdv{}{U})\pdv{}{U}.$$
 The corresponding equations of motion are 
 \begin{equation}
     \begin{split}
         \dot{q} &= \frac{p}{m} \\
         \dot{p} &= -kq -\gamma p \\
-        \dot{U} &= \gamma \frac{p^2}{m} - H(q, p, U) = \gamma p\dot{q} - H(q, p, U). \\
+        \dot{U} &= \gamma \frac{p^2}{m} - K(q, p, U) = \gamma p\dot{q} - K(q, p, U). \\
     \end{split}
 \end{equation}
-The correct dynamics are certainly obtained for $p$ and $q$. However, from a physical standpoint, we expect $\dot{U}$ to be the rate of energy (i.e. the power) dissipated by the damper $\gamma p \dot{q}$. However, the additional term $-H(q, p, U)$ (a result of the vertical component of the vector field) contributes to the rate of change of $U$ as well.
+The correct dynamics are certainly obtained for $p$ and $q$. However, from a physical standpoint, we expect $\dot{U}$ to be the rate of energy (i.e. the power) dissipated by the damper $\gamma p \dot{q}$. However, the additional term $-K(q, p, U)$ (a result of the vertical component of the vector field) contributes to the rate of change of $U$ as well.
 
-If we we wish to impose that $U$ indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is the case only if the Hamiltonian is numerically equal to zero, i.e. $H = 0$. This equation is a so-called \emph{weak equality}, as opposed to a \emph{strong} or \emph{identical} equality. In the former case, the Hamiltonian is numerically equal to zero, but its partial derivatives do not vanish. That is to say, there is a specific submanifold of $M$ on which $H$ vanishes, but we are allowed to make variations that are not necessarily tangent to this submanifold (see \citet{Dirac1950} for further details). On this submanifold, the equations of motion read
+If we we wish to impose that $U$ indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is the case only if the Hamiltonian is numerically equal to zero, i.e. $K = 0$. This equation is a so-called \emph{weak equality}, as opposed to a \emph{strong} or \emph{identical} equality. In the former case, the Hamiltonian is numerically equal to zero, but its partial derivatives do not vanish. That is to say, there is a specific submanifold of $M$ on which $K$ vanishes, but we are allowed to make variations that are not necessarily tangent to this submanifold (see \citet{Dirac1950} for further details). On this submanifold, the equations of motion read
 \begin{equation}
     \begin{split}
         \dot{q} &= \frac{p}{m} \\
@@ -281,30 +281,30 @@ Leaving the vertical vector field in leads to extra `parasitic' dynamics that ar
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/dho_trajectories}
-    \caption{Integral curves of $X_H$ for $b = \SI{0.3}{\kilogram \per \second}$, $ m = \SI{1}{\kilogram}$ and  $k = \SI{10}{\kilogram \per \second \squared}$. The left plot shows the physical trajectory ($H = 0$) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for $U$ (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, $U$ clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
+    \caption{Integral curves of $X_K$ for $b = \SI{0.3}{\kilogram \per \second}$, $ m = \SI{1}{\kilogram}$ and  $k = \SI{10}{\kilogram \per \second \squared}$. The left plot shows the physical trajectory ($K = 0$) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for $U$ (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, $U$ clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
     \label{fig:dho_trajectories}
 \end{figure}
 
-Recall from \cref{eq:psi_definition} that, by definition, $H = -\intpr{X_H}{\alpha}$. In the previous section we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, $H$ measures in essence how `non-Legendrian' an integral manifold of $X_H$ is. We have stipulated earlier that Legendre submanifolds contain the physically meaningful trajectories. That is, the dynamics must take place on a Legendre submanifold to be physical, which is why $H = 0$.
+Recall from \cref{eq:psi_definition} that, by definition, $K = -\intpr{X_K}{\alpha}$. In the previous section we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, $K$ measures in essence how `non-Legendrian' an integral manifold of $X_K$ is. We have stipulated earlier that Legendre submanifolds contain the physically meaningful trajectories. That is, the dynamics must take place on a Legendre submanifold to be physical, which is why $K = 0$.
 
 As an additional argument, we can show that
-$$ \lied{X^{\text{hor}}_H}{H} = 0 \quad \Rightarrow \quad \dv{H}{t} = \lied{X^{\text{ver}}_H}{H} = -H\pdv{H}{U}. $$
+$$ \lied{X^{\text{hor}}_K}{K} = 0 \quad \Rightarrow \quad \dv{K}{t} = \lied{X^{\text{ver}}_K}{K} = -K\pdv{K}{U}. $$
 Hence, if the Hamiltonian does not vanish, it changes exponentially over time (for its change is proportional to its own value). If $\gamma > 0$, the Hamiltonian decays exponentially from its initial value:
-$$ H(t) = H_0\,\ec^{-\gamma t}.$$
+$$ K(t) = K_0\,\ec^{-\gamma t}.$$
 As a result, any nonphysical trajectories will approach a Legendre submanifold as time proceeds; the associated vector fields also become ever more tangent to the Legendre submanifold. 
 
-Based on the expression for $H$, an expression for $U$ may also be derived:
-$$ U(t) = \frac{1}{\gamma}\,\qty( H_0\,\ec^{-\gamma t} - E ). $$
-If $H = 0$, the internal energy is equal to the negative of the mechanical energy in the system. These findings are illustrated by \cref{fig:dho_trajectories}: the left plot shows perturbations of the `ideal' physical trajectory. The right plot shows the trajectories for an initial value of $U = 0$ (also with perturbations); as a result of the above equation, $U$ `wobbles' around its zero point; but it is clearly not a physical trajectory.
+Based on the expression for $K$, an expression for $U$ may also be derived:
+$$ U(t) = \frac{1}{\gamma}\,\qty( K_0\,\ec^{-\gamma t} - E ). $$
+If $K = 0$, the internal energy is equal to the negative of the mechanical energy in the system. These findings are illustrated by \cref{fig:dho_trajectories}: the left plot shows perturbations of the `ideal' physical trajectory. The right plot shows the trajectories for an initial value of $U = 0$ (also with perturbations); as a result of the above equation, $U$ `wobbles' around its zero point; but it is clearly not a physical trajectory.
 
 Finally, recall that the contact form $\alpha$ is not uniquely determined with respect to the associated contact structure. It can be multiplied with any nonzero function and still represent the same contact structure.
 
 We can regard this ambiguity as a gauge transformation of the system (cf. \citet{Balian2001}). However, the Hamiltonian is not intrinsically invariant under these transformations; if $ \alpha_e = f \alpha $ ($f$ being a function without zeros), then the mapping $\Psi_\alpha'$ and the corresponding Hamiltonians are also different: \cite[p. 321]{Libermann1987} 
 \begin{equation}
-    \Psi^{-1}_{\alpha_e}(H) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,H).
+    \Psi^{-1}_{\alpha_e}(K) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,K).
     \label{eq:contact_ham_scaling}
 \end{equation}
-The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $H = 0$.
+The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set $K = 0$.
 
 [intro to symplectification]
 
@@ -331,7 +331,7 @@ The fibers of this bundle are projective spaces; more specifically, they are dif
 
 The manifold $\pctbundle{Q_e}$ is three-dimensional. Consider a following chart for $\pctbundle{Q_e}$ with following coordinates:
 $$ (q_0, q, p)$$
-where $p$ represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point $p = \infty$ (in this specifi chart). 
+where $p$ represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point $p = \infty$ (in this specific chart). 
 
 Because $p$ is meant to represent momentum just like in the previous section, and infinite momentum lies outside our realm of interest, this space can be thought of as roughly equivalent (for practical purposes) to $M$. That is to say, by disregarding the point $p = \infty$, we end up with a manifold that is diffeomorphic to $M$.
 
@@ -340,7 +340,9 @@ The manifold of contact elements $\pctbundle{Q_e}$ is equipped with a natural co
     \alpha_e = \dd{q}_0 - p\dd{q}.
 \end{equation}
 Observe the similarity with the contact form $\alpha$ defined in \cref{eq:dho_contact_form}: 
-$$\alpha_e = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. $$
+$$
+    \alpha_e = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}. 
+$$
 Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma$ is nonzero).
 
 \paragraph{Symplectification} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
@@ -408,6 +410,9 @@ The orbit space of $\ctzbundle{Q_e}$ with respect to $\raction{\real^\times}$ is
     \end{tikzcd}
 \end{center}
 
+The symplectification $\ctzbundle{Q_e}$ is therefore a principal $\mgroup$-bundle, with as base manifold the contact manifold $\pctbundle{Q_e}$. The projection map $\sigma$ is equal to
+$$ \sigma: \ctzbundle{Q_e} \to \pctbundle{Q_e}: \quad (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0).$$
+
 A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both $\ctzbundle{Q_e}$ and $\pctbundle{Q_e}$ are also bundles over the extended configuration space $Q_e$. At a specific point of $Q_e$, say $x$, we have two fibres. The fiber $\ctzspace{x}{Q_e}$ is the cotangent space to $x$ without the origin. The group action $\rangle{\mgroup}$ manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as $\mgroup$ itself, since the action is free). 
 \begin{figure}[ht!]
     \centering
@@ -416,7 +421,7 @@ A geometric perspective of this construction is given in \cref{fig:principal_bun
     \label{fig:principal_bundle}
 \end{figure}
 
-The space of all orbits is a circle with antipodal points identified, which also has the topology of a circle: this is the space $\mathbb{P}\real$, and it is the fiber $\pctbundle{x}{Q_e}$ of $\pctbundle{Q_e}$ at the point $x$. The projection map that takes a point in $\pctbundle{x}{Q_e}$ to its associated orbit in the orbit space is $\sigma$. 
+The space of all orbits is a circle with antipodal points identified, which also has the topology of a circle: this is the space $\mathbb{P}\real$, and it is the fiber $\pctspace{x}{Q_e}$ of $\pctbundle{Q_e}$ at the point $x$. The projection map that takes a point in $\pctbundle{x}{Q_e}$ to its associated orbit in the orbit space is $\sigma$. 
 
 In \cref{fig:principal_bundle}, the coordinate chart used for $\pctbundle{Q_e}$ is indicated as well: $p = -\rho/\rho_0$, which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south pole of the circle on the right.
 
@@ -425,12 +430,12 @@ From the perspective of $\pctbundle{Q_e}$, $\rho_0$ and $\rho$ can also be seen 
 \paragraph{Principal bundles in system theory}
 To illustrate the concept of principal bundles and their relevance, we give an instructive example of principal bundles in control theory. For more information, the reader is referred to \citet{Hermann1984}. 
 
-LTI systems can be represented both as a collection of state-space matrices, or in the frequency domain using a transfer matrix. The state-space representaiton is commonly given in the form of four matrices: $A, B, C, D$. For a system with $n$ states, $m$ inputs and $o$ outputs, we have:
+LTI systems can be represented both as a collection of state-space matrices, or in the frequency domain using a transfer matrix. The state-space representation is typically given in the specified by a collection four matrices: $A, B, C, D$. For an LTI system with $n$ states, $m$ inputs and $o$ outputs, we have:
 $$ A \in \real^{n \times n} \quad B \in \real^{n \times m} \quad C \in \real^{o \times n} \quad D \in \real^{o \times m}. $$
-Hence, the manifold of LTI systems given these three dimension is equal to \cite{Verhaegen2007} $$\real^{\ell}, \quad \ell = n^2 + nm + on + om.$$  
+Hence, the `manifold of LTI systems' given these dimensions is diffeomorphic to \cite{Verhaegen2007} $$\real^{\ell}, \quad \ell = n^2 + nm + on + om.$$  
 This is the total space of the principal bundle.
 
-A state space representation of a transfer matrix is not unique: any similarity transform of the state space yields different state space matrices that correspond to the same transfer matrix. Hence, the \emph{structure group} is here $\glgroup{n}{\real}$, which contain all the similarity transforms. The group action $\raction{\glgroup{n}{\real}} $ is as follows:
+A state space representation of a transfer matrix is not unique: any similarity transform of the state space yields different state space matrices that correspond to the same transfer matrix. Hence, the \emph{structure group} is in this case the general linear group of of dmension $n$, $\glgroup{n}{\real}$, which contains all the similarity transforms. The group action $\raction{\glgroup{n}{\real}} $ is defined as follows:
 $$  (A, B, C, D) \raction{T} = (T A T^{-1}, TB, CT^{-1}, D). $$
 
 The orbit space $\real^\ell/\glgroup{n}{\real}$ can be identified with the space of transfer matrices. The projection map that takes the state space represention to a transfer matrix is given by
@@ -440,6 +445,49 @@ which is invariant with respect to group action.
 The topology of the orbit space, and therefore of the space of transfer matrices, is highly nontrivial. This makes the process of system identification very challenging, for there are usually no easy coordinate charts of this space \cite{Verhaegen2007,Hermann1984}.
 
 \subsubsection{Homogeneous Hamiltonian systems and Liouville geometry}
+In this section, we will lift the contact Hamiltonian system defined in \cref{ssec:contact_dissipation} to the symplectified manifold, resulting in a symplectic Hamiltonian system with an \emph{Liouville structure} additional structure.
+
+\paragraph{Liouville structures} The symplectified space $\ctzbundle{Q_e}$ has a symplectic structure because the cotangent bundle (with zero section removed) is canonically equipped with one. Moreover, the group action that makes it into a principal bundle provides an additional structure: a \emph{symplectic Liouville structure}, which requires that the symplectic 2-form is \emph{homogeneous of degree 1} with respect to the group action $\raction{\mgroup}$. That is,
+$$ (\raction{\lambda})^* \omega_e = \lambda\,\omega_e, \qquad \lambda \in \mgroup, $$
+which is indeed the case for $\omega_e$ as defined in \cref{eq:symplectic_form_extended} \cite{Libermann1987}. Because the group action $\raction{\mgroup}$ is free, the symplectic Liouville structure is said to be \emph{fibered} \cite{Libermann1987}.
+
+It can be shown that there is again an mapping between the smooth functions on the manifold with Liouville structure and vector fields that preserve this structure\footnote
+{For a vector field $X$ to preserve the Liouville structure means (i) that it preserves $\omega_e$, i.e. $\lied{X}{\omega_e} = 0$, and (ii) that it is invariant under the group action: $ (\raction{\lambda})_* X = X$ ($\lambda \in \mgroup)$. }, along the same line as for the symplectic manifolds in \cref{sec:symplectic} and the contact manifolds earlier in this section.
+
+The smooth functions in this case are not completely arbitrary, since they must also comply with the Liouville structure. More precisely, they must be \emph{homogeneous} of degree 1 with respect to the group action $\raction{\mgroup}$. For a function $\mathscr{H}$ on $\ctzbundle{Q_e}$ to be homogeneous means it must satisfy the following condition
+$$ (\raction \lambda )^* \mathscr{H} = \lambda \mathscr{H}. $$
+In the coordinates defined above, this is equivalent to:
+$$ \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\mathscr{H}(q_0, q, \rho_0, \rho) \qquad \lambda \in \mgroup,$$
+which is to say that $\mathscr{H}$ \emph{commutes} with the group action.
+
+Thus, we have an isomorphism between the vector fields preserving the Liouville structure and the homogeneous functions on the manifold. 
+This manifold is symplectic, so isomorphism is defined in terms of the symplectic form $\omega_e$ like so (and in identical fashion to \cref{eq:symplectic_isomorphism}),
+$$ \fromDual{\omega_e}(\dd{\mathscr{H}}) = X_\mathscr{H}. $$
+
+This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consisting of a manifold with fibered symplectic Liouville structure and a homogeneous Hamiltonian function $\mathscr{H}$.
+
+\paragraph{Damped harmonic oscillator} The contact Hamiltonian system for the damped harmonic oscillator can now be lifted to a homogeneous Hamiltonian system on the symplectified space. This lift is defined as \cite{VanderSchaft2021a,Libermann1987}
+ $$ K_e(q_0, q, p) = \mathscr{H}(q_0, q, -1, \rho), $$
+ or in other words
+ $$ K_e(q_0, q, -\frac{\rho}{\rho_0}) = \mathscr{H}(q_0, q, \rho_0, \rho). $$
+
+
+%Define the \emph{Liouville vector field} as the infinitesimal action of the group action:
+%$$ Z \coloneq \dv{}{\lambda} \left . (x \raction{\lambda})\right \vert_{\lambda = 1}, \quad x \in \ctzbundle{Q_e},$$
+%or in coordinates
+%\begin{equation}
+%    Z = \rho_0\pdv{}{q_0} + \rho\pdv{}{q}.
+%\end{equation}
+%
+%A function $\mathscr{H} \in \functions{\ctzbundle{Q_e}}$ is called homogeneous of degree 1 if
+%$$ \lied{Z}{\mathscr{H}} = \mathscr{H}. $$
+%Again, in coordinates, this means that we have
+%$$ \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\mathscr{H}(q_0, q, \rho_0, \rho) \qquad \lambda \in \mgroup,$$
+%which is to say that it commutes with the group action $\raction{\mgroup}$.
+%
+%Hence
+
+
 
 
 
