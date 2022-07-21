@@ -544,10 +544,13 @@ The equations of motion $q_0$ and $q$ remain identical to those obtained earlier
 
 For $\rho_0$, we have
 $$ \dot{\rho}_0 = \rho_0 \pdv{K_e}{q_0} = \rho_0 \pdv{K_e}{q_0}  = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C, $$ 
-where $C$ is an integration constant which we can choose to be 0, so $\rho_0(t) = \ec^{\gamma t}$. a
+where $C$ is an integration constant which we can choose to be 0, so $\rho_0(t) = \ec^{\gamma t}$.
 
 In addition, $\dot{\rho} = \rho_0 kq = \ec^{\gamma t} kq$. Since $p = -\rho/\rho_0$, the dynamics of $p$ can be obtained from  $\dot{\rho}_0$ and $\dot{\rho}$ using the product rule:
-$$ \dot{p} = -\frac{\dot{\rho}}{\rho_0} + \frac{\rho}{\rho_0}\frac{\dot{\rho}_0}{\rho_0} = -kq - \gamma p, $$
+\begin{equation} 
+    \dot{p} = -\frac{\dot{\rho}}{\rho_0} + \frac{\rho}{\rho_0}\frac{\dot{\rho}_0}{\rho_0} = -kq - \gamma p,
+    \label{eq:pdot}
+\end{equation}
 which is equivalent to the expression obtained in \cref{ssec:contact_dissipation}.
 
 Observe that these equations of motion are invariant under the earlier defined group action $\raction{\mgroup}$, which means that the vector field indeed preserves the Liouville structure. The other condition is that it preserves $\omega_e$, but this is satisfied rather trivially as a result of the mapping $\fromDual{\omega_e}$.
@@ -557,7 +560,7 @@ Observe that these equations of motion are invariant under the earlier defined g
 %    \label{eq:homo_vf}
 %\end{equation}
 
-\paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that for the equations of motion to represent a physical trajectory, the contact Hamiltonian should numerically be equal to zero. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
+\paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that the contact Hamiltonian should numerically be equal to zero for the equations of motion to represent a physical trajectory. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
 
 As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if $\alpha_e$ pulls back to zero on the trajectories in the contact manifold, so should $\theta_e$ on the lifted trajectories, for they only differ by multiplication with $\rho_0$. These are called \emph{Liouville submanifolds}, and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form $\omega_e$ vanishes when restricted to them. This is also the case when $\theta_e$ vanishes, but the converse is not necessarily true.}
 
@@ -576,24 +579,50 @@ $$ X_\mathscr{H}\vert_{\mathscr{H}_0 = 0} =  -\frac{1}{m}\frac{\rho}{\rho_0}\pdv
 If this vector field is be projected to $\pctbundle{Q_e}$ using the pushforward of the projection map $\sigma$, we obtain \cref{eq:ham_vf_e_liouville}.\footnote{This is the `differential geometric' way of deriving the equation for $\dot{p}$ as we did above.}
 
 \subsubsection{Relation with the Caldirola-Kanai Hamiltonian}
+In this section, we show that the homogeneous Hamiltonian is equivalent to a well-known existing model for the damped harmonic oscillator, the Caldirola-Kanai Hamiltonian (and Lagrangian).
 
+The Caldirola-Kanai Hamiltonian, commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, is a method to describe the linearly damped harmonic oscillator using a Lagrangian or Hamiltonian function that explicitly depend on time. It was originally motivated for the purposes of quantum mechanics.
 
-%Define the \emph{Liouville vector field} as the infinitesimal action of the group action:
-%$$ Z \coloneq \dv{}{\lambda} \left . (x \raction{\lambda})\right \vert_{\lambda = 1}, \quad x \in \ctzbundle{Q_e},$$
-%or in coordinates
-%\begin{equation}
-%    Z = \rho_0\pdv{}{q_0} + \rho\pdv{}{q}.
-%\end{equation}
-%
-%A function $\mathscr{H} \in \functions{\ctzbundle{Q_e}}$ is called homogeneous of degree 1 if
-%$$ \lied{Z}{\mathscr{H}} = \mathscr{H}. $$
-%Again, in coordinates, this means that we have
-%$$ \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\mathscr{H}(q_0, q, \rho_0, \rho) \qquad \lambda \in \mgroup,$$
-%which is to say that it commutes with the group action $\raction{\mgroup}$.
-%
-%Hence
+We depart from the Lagrangian function for it depends directly on physical coordinates $q$ and $\dot{q}$, as opposed to the Hamiltonian. The Caldirola-Kanai Lagrangian is
+\begin{equation}
+    \Lck(q, \dot{q}, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2).
+    \label{eq:lag_CK}
+\end{equation}
+The correct equations of motion are readily derived through the Euler-Lagrange equations:
+\begin{equation}
+    \begin{split}
+        \dv{}{t}\qty(\pdv{\Lck}{\dot{q}}) - \pdv{\Lck}{q} &= 0, \\
+        \dv{}{t}\qty(\ec^{\gamma t } m \dot{q}) + \ec^{\gamma t} kq &= 0, \\
+        \ec^{\gamma t } \qty(m\ddot{q} + m\gamma\dot{q} + kq)  &= 0, \\
+        m\ddot{q} + m\gamma\dot{q} + kq &= 0. \\
+    \end{split}
+\end{equation}
 
+The Caldirola-Kanai Hamiltonian is obtained from the Lagrangian by means of a Legendre transform. The Legendre transfrom is effected with respect to the \emph{canonical momentum}
+$$ \rho = \pdv{\Lck}{\dot{q}} = \ec^{\gamma t} m \dot{q}, $$
+which is manifestly different from the kinematic momentum $p = m\dot{q} = \rho \ec^{-\gamma t}$.
 
+The Hamiltonian is then equal to
+$$ \Hck = \rho\dot{q} - \Lck =  \frac{\Pcan^2}{2m}\ec^{-\gamma t} + \frac{1}{2}kq^2\ec^{\gamma t}. $$
+Because the Hamiltonian is explicitly time-dependent, the associated Hamiltonian vector field will be time-dependent as well\footnote
+{A \emph{time-dependent vector field} on a manifold $N$ is a mapping $X: N\times\real \to \tbundle{N}$ such that for each $t \in \real$, the restriction $X_t$ of $X$ to $N \times \{t\}$ is a vector field on $N$. \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping $$ \tilde{X}: \real \times N \to \tbundle{(\real \times N)} \quad (t, n) \mapsto ((t, 1), (n, X(t, n))),$$ that is to say, the suspension lifts the vector field to the extended space that also includes $t$ and assigns the time coordinate with a trivial velocity of 1 \cite{Abraham1978}.}.
 
+The construction of the vector field associated with a time-dependent Hamiltonian follows the same construction rules as a normal Hamiltonian using the isomorphism given by $\fromDual{\omega}$, but `frozen' at each instant of $t$. The Hamiltonian vector field on $\ctbundle{Q}$ is
+$$ X_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q}.$$
 
+The suspension of this vector field on $\ctbundle{Q}\times \real$ is
+$$ \tilde{X}_{\Hck} = -\ec^{\gamma t}kq\pdv{}{\Pcan} + \ec^{-\gamma t}\frac{\Pcan}{m}\pdv{}{q} + \pdv{}{t}.$$
+The suspension is important because it allows us to perform the time-dependent transformation from the canonical momentum $\rho$ to the kinematic momentum $p$:
+$\phi: (q, \Pcan, t) \mapsto (q, \ec^{\gamma t}p, t).$
+The transformed vector field in terms of the physical coordinates $p, q, t$ is
+$$ \phi_*(\tilde{X}_{\Hck}) = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.$$
+The extra term in $p$ arises as a consequence of the fact that the mapping from $\rho$ to $p$ depends also on $t$. 
 
+The similarity between the derivation of the equations of motion --- in particular, the crucial role of the product rule --- and the one given by \cref{eq:pdot} is striking. Indeed, if we substitute into the Caldirola-Kanai Hamiltonian $-\rho_0 = \ec^{\gamma t}$, we obtain
+$$ \Hck = -\frac{\rho^2}{2m\rho_0} - \rho_0 \frac{1}{2}kq^2 = -\rho_0 \qty (\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2), $$
+which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in $q_0$. The depence on $q_0$ is not required, since it is replaced by an explicit dependence on time that would otherwise generate the exponential factor $\ec^{\gamma t}$. 
+
+Many interpretations have already been given for the particular form of $\Hck$; for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as  directly equivalent to the homogeneous Hamiltonian system, where the dynamics of the additional coordinates $\rho_0$ and $q_0$ are replaced by their explicit solution in time. Additionally, the role of the `mysterious' canonical momentum $\rho$ is explained as being a coordinate of the symplectified space, or homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
+
+\subsection{The harmonic oscillator with serial damping}
+blabla
