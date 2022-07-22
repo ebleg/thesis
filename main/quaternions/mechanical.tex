@@ -1,11 +1,11 @@
 \section{Application to mechanical systems}
 We will now proceed by using a mechanical `prototype' example for our mechanical system: the harmonic oscillator with \emph{two} dampers: one in series and one in parallel. The two dampers are interesting because they completely fill the state transition matrix: as such, this system can represent all the possible cases discussed in the previous section. Furthermore, the two dampers have a very distinctive interpretation within the field of economic engineering.
-\begin{figure}[ht!]
-    \centering
-    \input{media/tikz/double_damped_oscillator}
-    \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
-    \label{fig:double_damped_osc}
-\end{figure}
+%\begin{figure}[ht!]
+%    \centering
+%    \input{media/tikz/double_damped_oscillator}
+%    \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
+%    \label{fig:double_damped_osc}
+%\end{figure}
 
 \subsection{Equations of motion}
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}. The equations of motion can be readily derived:
@@ -15,7 +15,7 @@ The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc
         kq &= b_s(\dot{q}_1 - \dot{q}) \\
     \end{split}
 \end{equation}
-Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection $q$ and the position of the mass $q_1$. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. The equations of motion than have the matrix form:
+Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection $q$ and the position of the mass $q_1$. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. The equations of motion then have the matrix form:
 \begin{equation*}
     \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p),
 \end{equation*}
@@ -26,21 +26,21 @@ or, using the parameters defined in \cref{tab:ddho_params}:
 \end{equation}
 The nontrivial relation between momentum and the $\dot{q}$ also precludes us from casting this system directly to the Lagrangian formalism, because the vector field is not second-order. A second-order vector field implies that the `velocities' really are the time derivatives of the `positions', (cf. \cref{app:symplectic_geometry} for a more formal discussion).
 
-\begin{table}[ht!]
-    \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
-    \label{tab:ddho_params}
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
-        \midrule
-            Serial damping coefficient & $\gamma_s$ & $k/b_s$ & \si{\per \second} \\
-            Parallel damping coefficient & $\gamma_p$ & $b_p/m$ & \si{\per \second} \\
-            Natural frequency & $\Omega_n$ & $\sqrt{k/m}$ & \si{\per \second} \\
-            Damped frequency & $\Omega_d$ &  & \si{\per \second} \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+%\begin{table}[ht!]
+%    \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
+%    \label{tab:ddho_params}
+%    \centering
+%    \begin{tabular}{llll}
+%        \toprule
+%        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
+%        \midrule
+%            Serial damping coefficient & $\gamma_s$ & $k/b_s$ & \si{\per \second} \\
+%            Parallel damping coefficient & $\gamma_p$ & $b_p/m$ & \si{\per \second} \\
+%            Natural frequency & $\Omega_n$ & $\sqrt{k/m}$ & \si{\per \second} \\
+%            Damped frequency & $\Omega_d$ &  & \si{\per \second} \\
+%        \bottomrule
+%    \end{tabular}
+%\end{table}
 
 The split-quaternion associated with the $A$-matrix of the doubly damped system can easily be found using the mapping defined by \cref{eq:inv_quat_isom}. We must, however, be careful when dealing with physical systems, because the entries of the $A$-matrix are not dimensionless. In a vector space, we associate the units with the basis vectors, not with the components. For example, in a two-dimensional vector space spanned by a axis for apples and and an axis for pears, and we wish to represent that someone possesses three apples and four pairs, the \emph{components} of that vector are $(3, 4)$, and the \emph{unit vectors} are $(1 \text{ apple}, 1\text{ pear})$. Along the same line, we must define the units in the $A$-matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and $m_0, t_0$. The basis elements are then mapped in terms of these reference quantities:
 $$ 
