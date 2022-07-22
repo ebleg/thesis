@@ -1,0 +1,75 @@
+\begin{tikzpicture}[every node/.style={outer sep=0pt,thick}]
+    \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+    \tikzstyle{damper}=[thick,decoration={markings,  
+      mark connection node=dmp,
+      mark=at position 0.5 with 
+      {
+        \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+        \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+        \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+      }
+    }, decorate]
+    
+    \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+    
+    \node (M1) [draw,minimum width=1cm, minimum height=1.5cm] {$m_1$};
+    
+    \node (ground) [ground,anchor=north,yshift=-0.25cm,minimum width=2cm] at (M1.south) {};
+    \draw (ground.north east) -- (ground.north west);
+    \draw [thick] (M1.south west) ++ (0.2cm,-0.125cm) circle (0.125cm)  (M1.south east) ++ (-0.2cm,-0.125cm) circle (0.125cm);
+    
+    \node (wall) [ground, rotate=-90, minimum width=2cm,yshift=-3cm] {};
+    \draw (wall.north east) -- (wall.north west);
+    
+    \draw [spring] (wall.160) -- ($(M1.north west)!(wall.160)!(M1.south west)$) node[pos=0.5,anchor=south, outer sep=4pt] {$k_1$};
+    \draw [damper] (wall.20) -- ($(M1.north west)!(wall.20)!(M1.south west)$) node[pos=0.5,anchor=north, outer sep=10pt] {$b_1$};
+    
+    
+    \node (M2) [xshift=3cm, draw,minimum width=1cm, minimum height=1.5cm] {$m_2$};
+    \node (ground2) [ground,anchor=north,yshift=-0.25cm,minimum width=2cm] at (M2.south) {};
+    \draw (ground2.north east) -- (ground2.north west);
+    \draw [thick] (M2.south west) ++ (0.2cm,-0.125cm) circle (0.125cm)  (M2.south east) ++ (-0.2cm,-0.125cm) circle (0.125cm);
+    
+    \node (rightwall) [ground, rotate=-90, minimum width=2cm,yshift=6cm] {};
+    \draw (rightwall.south east) -- (rightwall.south west);
+    
+    \draw [spring] (rightwall) -- ($(M2.south east)!(rightwall)!(M2.south east)$) node[pos=0.5,anchor=south, outer sep=4pt] {$k_3$};
+    
+    \draw [spring] (M1.40) -- ($(M2.north west)!(M1.40)!(M2.south west)$) node[pos=0.5,anchor=south, outer sep=4pt] {$k_2$};
+    \draw [damper] (M1.320) -- ($(M2.north west)!(M1.320)!(M2.south west)$) node[pos=0.5,anchor=north, outer sep=10pt] {$b_2$};
+    
+    \draw[|->] (M1) ++(0, 1.3cm) -- ++(1cm, 0) node[pos=0.5, anchor=south] {$q_1$}; 
+    \draw[|->] (M2) ++(0, 1.3cm) -- ++(1cm, 0) node[pos=0.5, anchor=south] {$q_2$}; 
+
+
+    \node[bgelement, xshift=1.5cm, yshift=-4.3cm] (J2) {0};
+    \node[bgelement, xshift=2cm] (J3) at (J2) {1};
+    \node[bgelement, xshift=-2cm] (J1) at (J2) {1};
+
+    \node[bgelement, xshift=-1.5cm, label=west:$m_1$] (I1) at (J1) {I};
+    \node[bgelement, yshift=-1.5cm, label=south:$b_2$] (R1) at (J1) {R};
+    \node[bgelement, yshift=1.5cm, label=north:$k_1$]  (C1) at (J1) {C};
+
+    \node[bgelement, yshift=-1.5cm, label=south:$b_2$] (R2) at (J2) {R};
+    \node[bgelement, yshift=1.5cm, label=north:$k_2$]  (C2) at (J2) {C};
+
+    \node[bgelement, yshift=-1.5cm, label=south:$m_2$] (I2) at (J3) {I};
+    \node[bgelement, yshift=1.5cm, label=north:$k_3$]  (C3) at (J3) {C};
+
+    %\node[bgelement, label=north:$k$] (C) at (4.5, 0.5) {C};
+    %\node[bgelement, label=east:$m$]  (I) at (6, -1) {I};
+    %\node[bgelement, label=west:$b$]  (R) at (3, -1) {R};
+
+    %% test
+    \draw[bonds] 
+        (J1) edge[e_out] (I1)
+        (J1) edge[f_out] (C1)
+        (J1) edge[f_out] (R1)
+        (J2) edge[f_out] (C2)
+        (J2) edge[e_out] (R2)
+        (J3) edge[f_out] (C3)
+        (J3) edge[e_out] (I2)
+        (J2) edge[e_out] (J3)
+        (J2) edge[e_out] (J1);
+    
+\end{tikzpicture}
