@@ -41,17 +41,17 @@
     \draw[|->] (M1) ++(0, 1.3cm) -- ++(1cm, 0) node[pos=0.5, anchor=south] {$q_1$}; 
     \draw[|->] (M2) ++(0, 1.3cm) -- ++(1cm, 0) node[pos=0.5, anchor=south] {$q_2$}; 
 
-
     \node[bgelement, xshift=1.5cm, yshift=-4.3cm] (J2) {0};
     \node[bgelement, xshift=2cm] (J3) at (J2) {1};
     \node[bgelement, xshift=-2cm] (J1) at (J2) {1};
+    \node[bgelement, yshift=-3cm] (J4) at (J2) {1};
 
     \node[bgelement, xshift=-1.5cm, label=west:$m_1$] (I1) at (J1) {I};
     \node[bgelement, yshift=-1.5cm, label=south:$b_2$] (R1) at (J1) {R};
     \node[bgelement, yshift=1.5cm, label=north:$k_1$]  (C1) at (J1) {C};
 
-    \node[bgelement, yshift=-1.5cm, label=south:$b_2$] (R2) at (J2) {R};
-    \node[bgelement, yshift=1.5cm, label=north:$k_2$]  (C2) at (J2) {C};
+    \node[bgelement, xshift=-1.5cm, label=west:$b_2$] (R2) at (J4) {R};
+    \node[bgelement, xshift=1.5cm, label=east:$k_2$]  (C2) at (J4) {C};
 
     \node[bgelement, yshift=-1.5cm, label=south:$m_2$] (I2) at (J3) {I};
     \node[bgelement, yshift=1.5cm, label=north:$k_3$]  (C3) at (J3) {C};
@@ -65,11 +65,15 @@
         (J1) edge[e_out] (I1)
         (J1) edge[f_out] (C1)
         (J1) edge[f_out] (R1)
-        (J2) edge[f_out] (C2)
-        (J2) edge[e_out] (R2)
+
+        (J4) edge[f_out] (C2)
+        (J4) edge[f_out] (R2)
+
         (J3) edge[f_out] (C3)
         (J3) edge[e_out] (I2)
+
         (J2) edge[e_out] (J3)
-        (J2) edge[e_out] (J1);
+        (J1) edge[f_out] (J2)
+        (J2) edge[f_out] (J4);
     
 \end{tikzpicture}

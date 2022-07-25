@@ -196,7 +196,7 @@ It is important to note that, in the general case, a 1-form that describes the d
 \subsubsection{The contact Hamiltonian system for the damped harmonic oscillator}
 With the contact structure defined, we can now establish the contact Hamiltonian system for the damped harmonic oscillator using \cref{eq:vertical_vf,eq:horizontal_vf,eq:contact_hamiltonian_vf}.
 
-Recall that the Hamiltonian vector field is split into a horizontal and vertical component, which belong respectively to the kernel of $\alpha$ and $\dd{alpha}$.
+Recall that the Hamiltonian vector field is split into a horizontal and vertical component, which belong respectively to the kernel of $\alpha$ and $\dd{\alpha}$.
 
 \paragraph{Vertical component} The Reeb vector field $R_\alpha$ associated with the contact form given in \cref{eq:dho_contact_form} is 
 $$ R_\alpha = \pdv{}{U}. $$
@@ -208,7 +208,7 @@ As such, the vertical component of the Hamiltonian vector field is, in accordanc
 However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
 
 \paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{K}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
-$$ X_K^\text{hor} = \fromDual{\dd{\alpha}}(\dd{K} - \qty(\intpr{R_\alpha}{\dd{K}}\alpha)). $$
+$$ X_K^\text{hor} = \fromDual{\dd{\alpha}}(\dd{K} - \qty(\intpr{R_\alpha}{\dd{K}})\alpha). $$
 The Hamiltonian is a function on the contact manifold $M$, i.e. $K = K(U, q, p)$. In coordinates, the projected form is
 \begin{equation}
     \pdv{K}{q}\dd{q} + \pdv{K}{p}\dd{p} + \pdv{K}{U} \gamma p \dd{q}.
@@ -220,7 +220,7 @@ Recall that $\dd{\alpha} = \gamma \omega $. Therefore, we can compare the above 
 
 In the conservative case, we have that $H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2$. It is therefore reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of $E$ (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
-Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work form of the damper, i.e. the amount of energy escaping from $E$. We can therefore conjecture that the first two terms in \cref{eq:contact_semi-basic} amount to $\dd{E}$.
+Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work form of the damper, i.e. the amount of energy escaping from $E$. We can thus conjecture that the first two terms in \cref{eq:contact_semi-basic} amount to $\dd{E}$.
 
 However, there is one complication: $\dd{\alpha}$ contains the factor $\gamma$. To cancel this factor out, we include $\gamma$ in the Hamiltonian as well. That is
 $$ 
@@ -629,7 +629,7 @@ In this section, we extend the method outlined in \cref{ssec:contact_dissipation
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/double_damped_oscillator}
-    \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel.}
+    \caption{Schematic of the harmonic oscillator with two dampers: one in series and one in parallel. The corresponding bond graph representation is shown on the right.}
     \label{fig:double_damped_osc}
 \end{figure}
 
@@ -686,7 +686,10 @@ For the serial damper, we have the opposite situation. Here, the effort is varie
 $$ \beta_s = \underbrace{\gamma_s q}_\text{\textsc{flow}} \; \underbrace{-\dd{p}.}_\text{\textsc{effort}}$$
 
 Combining these work forms, we find the contact form for the system with two dampers:
-$$ \alpha = \dd{U} - \gamma_p p\dd{q} + \gamma_s q \dd{p}. $$
+\begin{equation}
+    \alpha = \dd{U} - \gamma_p p\dd{q} + \gamma_s q \dd{p}.
+    \label{eq:serial_dho_contact_form}
+\end{equation}
 The exterior derivative of the contact form $\alpha$ is then equal to
 $$ \dd{\alpha} = (\gamma_s + \gamma_p) \wedgep{\dd{q}}{\dd{p}}, $$
 and the Reeb vector field is simply

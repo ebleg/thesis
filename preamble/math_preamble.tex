@@ -165,7 +165,8 @@
 
 % Jacobi bracket
 %\newcommand{\jacobi}[2]{\ensuremath{\left\llbracket #1,\,#2\right\rrbracket}}
-\newcommand{\jacobi}[2]{\ensuremath{\{\mkern-4mu \vert #1,\,#2 \vert \mkern-4mu\}}}
+\newcommand{\jacobi}[2]{\ensuremath{\{#1,\,#2\}}}
+\newcommand{\schouten}[2]{\ensuremath{\llbracket#1,\,#2\rrbracket}}
 
 % Lie bracket
 \newcommand{\liebr}[2]{\ensuremath{\qty[#1,\,#2]}\xspace}
@@ -194,6 +195,7 @@
 \newcommand{\corresponds}{\ensuremath{\quad \leftrightsquigarrow \quad}}
 \newcommand{\conj}[1]{\ensuremath{#1^*}}
 \DeclareMathOperator{\adjugate}{adj}
+\DeclareMathOperator{\support}{supp}
 
 
 % Quaternion
