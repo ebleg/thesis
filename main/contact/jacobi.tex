@@ -65,12 +65,37 @@ called the \emph{Jacobi bracket}. This mapping needs to satisfy three properties
 \end{enumerate}
 Manifolds equipped with a Jacobi structure are called \emph{Jacobi manifolds}.
 
-It can be shown that any Jacobi structure can be uniquely defined in terms of a bivector field\footnote{A \emph{bivector} is the contravariant counterpart of a 2-form: it is a skew-symmetric tensor with valence (2, 0).} $\Lambda$ and a vector field $R$. The corresponding Jacobi bracket is then given by: \cite{Libermann1987,marle1991}
+It can be shown that any Jacobi structure can be uniquely defined in terms of a bivector field\footnote{A \emph{bivector} is the contravariant counterpart of a 2-form: it is a skew-symmetric tensor with valence (2, 0) \cite{einstein1944}.} $\Lambda$ and a vector field $R$. The corresponding Jacobi bracket is then given by: \cite{Libermann1987,marle1991}
 $$ \jacobi{f}{g} = \Lambda(\dd{f}, \dd{g}) + f (\intpr{R}{\dd{g}}) - g (\intpr{R}{\dd{f}}). $$
 
 Not just any choice of bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, $\lambda$ and $R$ must satisfy two conditions:
-$$ \schouten{\Lambda}{\Lambda} = 2 \wedgep{R}{\Lambda} \qquad \schouten{R}{\Lambda} = 0. $$
-A Jacobi manifold is therefore a triple $(M, \Gamma, R)$ \cite{Libermann1987}.
+$$ \schouten{\Lambda}{\Lambda} = 2 \wedgep{R}{\Lambda} \qquad \schouten{R}{\Lambda} = 0, $$
+where $\schouten{\,}{}$ is the \emph{Schouten bracket}\footnote
+{
+    The Schouten bracket of an $r$-vector field $A$ and an $s$-vector field $B$ on a manifold is a $(r + s - 1)$-vector field $\schouten{A}{B}$, defined by its action on a closed $(r + s -1)$-form $\beta$ as follows:
+    $$ \schouten{A}{B}(\beta) = (-1)^{rs + s}\intpr{A}{\dd{(\intpr{B}{\beta})}} + (-1)^r \intpr{B}{\dd{(\intpr{A}{\beta})}}. $$
+
+}. A Jacobi manifold is therefore a triple $(M, \Lambda, R)$ \cite{Libermann1987}.
+
+\paragraph{Symplectic manifolds are Jacobi}
+For a symplectic manifold $(M, \omega)$ with dimension $2n$, the vector field $R$ is simply zero and the bivector $\Lambda$ field is defined by:
+$$ \Lambda(\eta, \chi) = \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\chi)) \qquad \eta, \chi \in \nforms{1}{M}, $$
+with $\fromDual{\omega}$ defined as in \cref{eq:symplectic_isomorphism}. If $\omega$ is expressed in Darboux coordinates, i.e.
+$$ \omega = \sum^n_{i = 1} \wedgep{\dd{q_i}}{\dd{p_i}},$$
+then the associated bivector is \cite{chinea1998}
+$$ \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}. $$
+
+The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field $R$ vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
+
+\paragraph{Contact manifolds are Jacobi}
+A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} $(M, \alpha)$ with dimension $2n + 1$ is also a Jacobi manifold. The vector field $R = R_\alpha$ is the Reeb vector field and the bivector $\Lambda$ is equal to
+$$ \Lambda(\eta, \chi) = \dd{\alpha}\qty(\fromDual{\dd{\alpha}}(\eta), \fromDual{\dd{\alpha}}(\chi)) \qquad \eta, \chi \in \nforms{1}{M}, $$
+with $\fromDual{\dd{\alpha}}$ defined 
+
+If $\alpha$ is expressed in Darboux coordinates:
+$$ \alpha = \dd{q}_0 - \sum^n{i = 1} p_i\dd{q_i}, $$
+then $\Gamma$ is
+$$ \Gamma =  $$
 
 
 
