@@ -132,9 +132,11 @@ $$ \wedgep{\alpha}{(\omega)^n} \neq 0$$
 everywhere on $M$; that is to say, it is a volume form on $M$ \cite{ciaglia2018}. If $M$, $\omega$ and $\alpha$ are defined as given above, this condition is clearly satisfied:
 $$ \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q_i}}{\dd{p_i}})}. $$
 
+The following construction is analogous to the one for contact Hamiltonian systems, with $\omega$ substituted for $\dd{\alpha}$.
+
 The \emph{Reeb vector field} $R$ on the manifold $M$ is uniquely defined by the conditions
 $$ \intpr{R}{\alpha} = 0 \qquad \intpr{R}{\omega} = 0. $$
-This vector field is unique, because the kernel of $\omega$ is always 1-dimensional, and $\alpha$ has at least a component in the zero direction of $\omega$. If this were not the case, the condition given above would not be satisfied. In the given coordinates, the Reeb vector field is equal to
+This vector field is unique, because the kernel of $\omega$ is always one-dimensional, and $\alpha$ has at least a component in the zero direction of $\omega$. If this were not the case, the condition given above would not be satisfied. In the given coordinates, the Reeb vector field is equal to
 $$ R = \pdv{}{U}. $$
 
 Because $ \wedgep{\alpha}{(\omega)^n} \neq 0$, we have at every point $x \in M$:
@@ -145,4 +147,20 @@ $$ \tspace{x}{M} = \ker{\alpha} \vert_x \oplus \ker{\omega}\vert_x. $$
 Similar to the case for contact manifolds, define \emph{horizontal vector fields} as those in the kernel of $\alpha$, while \emph{vertical vector fields} are in the kernel of $\omega$. Any vector field $ X \in \vfields{M}$ can be decomposed uniquely into a horizontal component $X^\text{hor}$ and vertical component $X^\text{ver}$ like so
 $$ X = \underbrace{\qty(\intpr{X}{\alpha})R}_{X^\text{ver}}\: + \: \underbrace{X - (\intpr{X}{\alpha})R}_{X^\text{hor}}. $$
 
+An analogous decomposition can be made in the cotangent bundle. A \emph{semi-basic form} (the only component we are interested in) is a 1-form $\zeta$ that satisfies the condition
+$$ \intpr{R}{\zeta} = 0. $$
+Likewise, any form can be decomposed as follows \cite{Libermann1987}
+\begin{equation}
+    \zeta = \qty(\intpr{R}{\zeta})\alpha + \underbrace{\zeta - (\intpr{R}{\zeta})\alpha}_\text{semi-basic}, 
+    \label{eq:form_decomposition}
+\end{equation}
+where the right term is semi-basic.
+
+Because the kernel of $\omega$ and $\alpha$ do not coincide, $\omega$ defines an isomorphism between the horizontal vector fields and the semi-basic forms.Let
+$$ \toDual{\omega}: \tbundle{M}\vert_{\ker \alpha} \to \ctbundle{M}\vert_\text{sb}: \quad X \mapsto \intpr{X}{\omega},$$
+where `sb' refers to the cotangent bundle restricted to the semi-basic forms. This mapping is one-to-one; the inverse mapping $\fromDual{\omega}$ relates any semi-basic form to a horizontal vector field.
+
+The bivector $\Lambda$ is then defined as
+$$ \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\xi)), $$
+where $\eta$ and $\xi$ are semi-basic. However, we wish to apply the associated mapping $\fromDual{\omega}$ to general 1-forms ($\dd{H}$ is generally not semi-basic). Therefore, we first canonically project it to the semi-basic forms. 
 
