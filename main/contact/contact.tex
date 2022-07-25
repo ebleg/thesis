@@ -61,7 +61,10 @@ where $R_\alpha$ is the \emph{Reeb vector field}\footnote{
 associated to the contact form $\alpha$.
 
 Finding the horizontal component is more involved; a detailed account of the required technicalities is given in \cref{app:contact_geometry}. In short, we again need a mapping similar to the one defined in \cref{eq:symplectic_isomorphism}, but now defined in terms of $\dd{\alpha}$ instead:
-$$ \toDual{\dd{\alpha}}(X) \coloneq \intpr{X}{\dd{\alpha}}. $$
+\begin{equation}
+    \toDual{\dd{\alpha}}(X) \coloneq \intpr{X}{\dd{\alpha}}.
+    \label{eq:contact_isomorphism}
+\end{equation}
 However, this is not an isomorphism between $\tbundle{M}$ and $\ctbundle{M}$, for it will annihilate any vertical component $X$. However, it \emph{is} an isomorphism from the horizontal vector fields to their image under $\toDual{\dd{\alpha}}$; which is a specific class of 1-forms that are called \emph{semi-basic} forms\footnote
 {
     Semi-basic forms are forms that vanish when contracted with a vertical vector field \cite{Libermann1987}. 
