@@ -1,0 +1,47 @@
+\tdplotsetmaincoords{80}{110}
+\begin{tikzpicture}[tdplot_main_coords]
+    
+    \tdplotsetrotatedcoords{0}{0}{-30}
+    \coordinate (Shift) at (0,8.5,0.5);
+    \tdplotsetrotatedcoordsorigin{(Shift)}
+    
+    % Left plot
+    \draw[->] (-1.5,0,0) -- (4.2,0,0) node[anchor=north east]{$\dd{q}$};
+    \draw[->] (0,-1.5,0) -- (0,4,0) node[anchor=north west]{$\dd{p}$};
+    \draw[->] (0,0,-1.5) -- (0,0,4) node[anchor=south]{$\dd{q_0}$};
+    
+    \draw[very thick, accent2] (0.56, 0, -1) -- (0, 0, 0); 
+    \fill[fill=accent1, fill opacity = 0.5] (-1, -1, 0) -- (-1, 3.7, 0)  -- (3.7, 3.7, 0)  -- (3.7, -1, 0) -- cycle;
+    \draw[very thick, accent2] (0, 0, 0) -- (-1.96, 0, 3.5); 
+    
+    \draw[{Circle[open,length=2pt]}-] (2, 3, 0) -- ++(0, 0, 1) node[draw, thin, anchor=south] {\footnotesize{semi-basic}}; 
+    
+    \draw[{Circle[open,length=2pt]}-] (-1.04, 0, 2) -- ++(0, 1, 0) node[draw, thin, anchor=west] {\footnotesize{contact form}}; 
+
+    \node at (0, -2, 3) {$\ctspace{x}{M}$};
+    
+    % Right plot
+    \draw[tdplot_rotated_coords] (-1.5,0,0) --
+    (0,0,0);
+    
+    \draw[tdplot_rotated_coords,->] (0,-1.5,0) --
+    (0,4.3,0) node[anchor=west]{$\pdv{}{p}$};
+    
+    \draw[tdplot_rotated_coords,->] (0,0,-1.5) --
+    (0,0,4) node[anchor=south]{$\pdv{}{q_0}$};
+    
+    \draw[very thick, accent1, tdplot_rotated_coords] (0, 0, 0) -- (0, 0, 3.7); 
+    \fill[fill=accent2, fill opacity = 0.5, tdplot_rotated_coords] (-1, -1.3, -0.56) -- (-1, 3.7, -0.56)  -- (3.7, 3.7, 2.1)  -- (3.7, -1.3, 2.1) -- cycle;
+    \draw[very thick, accent1, tdplot_rotated_coords] (0, 0, -1) -- (0, 0, 0); 
+    
+    \draw[tdplot_rotated_coords, ->] (0,0,0) --
+    (3,0,0) node[anchor=east]{$\pdv{}{q}$};
+    
+    \node at (0, 6.5, 3.5) {$\tspace{x}{M}$};
+
+    \draw[tdplot_rotated_coords, {Circle[open,length=2pt]}-] (1, 0, 0.56) -- ++(1.2, -1, 0) node[draw, thin, anchor=east] {\footnotesize{horizontal}}; 
+    
+    \draw[tdplot_rotated_coords, {Circle[open,length=2pt]}-] (0, -0.05, 2) -- ++(0, 1, 0) node[draw, thin, anchor=west] {\footnotesize{vertical}}; 
+
+    
+\end{tikzpicture}

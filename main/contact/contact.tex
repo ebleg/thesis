@@ -43,10 +43,47 @@ where $\vsfields{c}{X}{M}$ is the collection of infinitesimal strict contactomor
 \end{equation}
 where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
 
-To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to decompose the vector field $X_K$ according to the following splitting of the tangent bundle of $M$:
-$$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha}, $$
-where $\oplus$ denotes the Whitney sum. Vector fields that are in the kernel of $\alpha$ are called \emph{horizontal}. Conversely, vector fields that are in the kernel of $\dd{\alpha}$ are \emph{vertical}. We therefore have 
-$$ X_K = X_K^\text{hor} + X_K^\text{ver} \qquad \intpr{X_K^\text{hor}}{\alpha} = 0,\:\: \intpr{X_K^\text{ver}}{\dd{\alpha}} = 0. $$
+\paragraph{Horizontal and vertical vector fields} To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a spliting of the (co)tangent bundle, decomposing the vector field into two components. 
+
+The nonintegrability condition on the contact structure ensures that $\wedgep{\alpha}{\dd{\alpha}} \neq 0$. As such, at every point, we have at any $x\in M$:
+$$ \ker{\alpha}\vert_x \cap \ker{\dd{\alpha}}\vert_x = \qty{\mathbf{0}}, $$
+i.e. they can only coincide at the origin. Consequently, we can define the following splitting of the tangent bundle:
+$$ \tbundle{M} = \ker{\alpha}\oplus\ker{\dd{\alpha}}, $$
+where $\oplus$ denotes the Whitney sum\footnote{The Whitney sum applies to vector bundles, roughly speaking, a `fibered' version of the direct sum for vector spaces. The Whitney sum of two vector bundles (over the same base space) is a vector bundle over that base space, with every fiber being the direct sum of the fibers of the original vector bundles.}. Vector fields that are in the kernel of $\alpha$ are called \emph{horizontal}; they form a subbundle of rank $2n$, which coincides with the hyperplane distribution specified by the contact structure. In constrast, \emph{vertical} vector fields are in the kernel of $\dd{\alpha}$, which is a subbundle of rank 1 \cite{Libermann1987}.
+
+The \emph{Reeb vector field} $R_\alpha$ associated with $\alpha$ is a `unit' vertical vector field, defined by the conditions\footnote{The Reeb vector field is not uniquely associated with a contact structure, and depends on the particular choice of contact form.}
+    $$ \intpr{R_\alpha}{\alpha} = 1 \qquad \intpr{R_\alpha}{\dd{\alpha}} = 0.$$
+In the Darboux coordinates as given in \cref{eq:contact_darboux}, the Reeb vector field is
+    $$ R_\alpha = \pdv{}{q_0}. $$ 
+Because the space of vertical vector fields is of rank 1, every vertical vector field is colinear with the Reeb vector field.
+
+An arbitrary vector field $X \in \vfields{M}$ can be canonically decomposed into a horizontal and a vertical component as follows:
+\begin{equation}
+    X = \underbrace{(\intpr{X}{\alpha})R_\alpha}_\text{vertical} + \underbrace{X - (\intpr{X}{\alpha})R_\alpha}_\text{horizontal}.
+    \label{eq:vfield_splitting}
+\end{equation}
+
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/contact_spaces}
+    \caption{Splitting of the tangent and cotangent bundle using the structure provided by the contact form, with $\text{dim} M = 3$. The left figure shows the cotangent space to $M$ at some point $x$, where the blue plane contains the semi-basic forms. The other subbundle is of rank 1 and consists of all the scalar multiples of the contact form $\alpha$. On the right, the tangent space to $M$ at $x$ is depicted, with the red plane containing the horizontal vector fields. The blue line is spanned by the vertical vector fields.}
+    \label{fig:contact_spaces}
+\end{figure}
+
+\paragraph{Semi-basic forms} Similar to the splitting the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
+
+Any 1-form $\zeta \in \bsection{\tbundle{M}}$ can be canonically decomposed into a semi-basic component and a multiple of $\alpha$ as follows:
+\begin{equation}
+    \zeta = \underbrace{(\intpr{R_\alpha}{\zeta})\alpha}_\text{contact struct.} + \underbrace{\zeta - (\intpr{R_\alpha}{\zeta})\alpha}_\text{semi-basic}. 
+    \label{eq:form_splitting}
+\end{equation}
+In Darboux coordinates, semi-basic forms are forms that have no component in $\dd{q_0}$.
+
+The decompositions of $\ctbundle{M}$ and $\tbundle{M}$ for the three-dimensional case are shown in \cref{fig:contact_spaces}. They also play an important role in \cref{sec:jacobi}.
+
+\paragraph{Hamiltonian isomorphism}
+To find the Hamiltian vector field $X_K$ associated to a Hamiltonian $K$, we decompose $X_K$ into a horizontal and a vertical component:
+$$ X_K = X_K^\text{hor} + X_K^\text{ver}. $$
 
 The vertical component of $X_K$ is easily obtained from the definition of $\Psi_\alpha$:
 \begin{equation}
@@ -65,13 +102,9 @@ Finding the horizontal component is more involved; a detailed account of the req
     \toDual{\dd{\alpha}}(X) \coloneq \intpr{X}{\dd{\alpha}}.
     \label{eq:contact_isomorphism}
 \end{equation}
-However, this is not an isomorphism between $\tbundle{M}$ and $\ctbundle{M}$, for it will annihilate any vertical component $X$. However, it \emph{is} an isomorphism from the horizontal vector fields to their image under $\toDual{\dd{\alpha}}$; which is a specific class of 1-forms that are called \emph{semi-basic} forms\footnote
-{
-    Semi-basic forms are forms that vanish when contracted with a vertical vector field \cite{Libermann1987}. 
-}. 
-Likewise, the inverse mapping $\fromDual{\dd{\alpha}}$ takes a semi-basic form as an argument and produces a vertical vector field. 
+However, this is not an isomorphism between $\tbundle{M}$ and $\ctbundle{M}$, for it will annihilate any vertical component $X$. However, it \emph{is} an isomorphism from the horizontal vector fields to the semi-basic forms (respectively the red and blue planes in \cref{fig:contact_spaces}). Likewise, the inverse mapping $\fromDual{\dd{\alpha}}$ takes a semi-basic form as an argument and produces a vertical vector field. 
 
-The horizontal component of the Hamiltonian vector field is equal to this mapping applied to $\dd{K}$, projected to the space of semi-basic forms:
+The horizontal component of the Hamiltonian vector field is equal to this mapping applied to $\dd{K}$, canonically projected to the space of semi-basic forms (cf. \cref{eq:form_splitting}):
 \begin{equation}
     X_K^\text{hor} = \fromDual{\dd{\alpha}}\qty(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\alpha).
     \label{eq:horizontal_vf}
@@ -94,9 +127,9 @@ As mentioned the contact structure will be derived based on thermodynamic reason
 \subsubsection{Contact geometry in classical thermodynamics}
 It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
-Contact geometry arises in thermodynamics as a consequence of the First Law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
+Contact geometry arises in thermodynamics as a consequence of the first law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
 
-\paragraph{First Law of thermodynamics} To state the First Law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the First Law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{By using differential forms, the inexactness of the heat and work differentials need not be explicitly emphasized using additional notation such as $\delta$ or \dj.}:
+\paragraph{The first law of thermodynamics} To state the first law in the language of exterior forms, define the 1-forms $\eta$ and $\beta$ as the differential amounts of heat and work (in respective order) added to the system. $\eta$ and $\beta$ are 1-forms that are generally \emph{not} closed \cite{Bamberg1988,Frankel2012}. However, the first law states that the difference between them \emph{is} a closed form. Locally, this closed form  can be written as the gradient of a function called the \emph{internal energy} $U$. Hence, we state the first law as\footnote{By using differential forms, the inexactness of the heat and work differentials need not be explicitly emphasized using additional notation such as $\delta$ or \dj.}:
 \begin{equation}
     \dd{U} = \eta - \beta.
     \label{eq:thermo_first_law}
@@ -154,7 +187,7 @@ Internal energy is stored in a `heat bath'. This is to be interpreted loosely: i
 
 In contrast, macroscopic energy \emph{is} observable, either due to an observable motion of the system (kinetic energy) or the energy resulting from external force potentials (potential energy). Their sum is called the mechanical energy $E$: in the damped harmonic oscillator, it is the sum of the kinetic energy stored in the mass (I-element) and the potential energy stored in the spring (C-element).
 
-Since the system is isolated, the First Law states that 
+Since the system is isolated, the first law states that 
 \begin{equation}
     \dd{(E + U)} = 0. 
     \label{eq:dho_first_law}
@@ -168,7 +201,7 @@ Let us now decompose the system into two subsystems, one containing the mass and
     \label{fig:oscillator_thermo}
 \end{figure}
 
-Through the dissipative action of the damper, energy flows from the mechanical subsystem to the heat bath. We can apply the First Law to the subsystems separately, too: the first subsystem performs work on the damper, which manifests itself as the heat added to the heat bath. We therefore have
+Through the dissipative action of the damper, energy flows from the mechanical subsystem to the heat bath. We can apply the first law to the subsystems separately, too: the first subsystem performs work on the damper, which manifests itself as the heat added to the heat bath. We therefore have
 \begin{equation}
     \begin{split}
         \dd{E}  = -\beta, \\[0.2cm]
@@ -239,13 +272,15 @@ and we obtain the correct Hamiltonian up to a closed form
 \end{equation} 
 Hence, the Hamiltonian function is equal to the total amount of energy in the system, both mechanical and internal, multiplied by the damping coefficient.
 
-Now to derive the horizontal component of the vector field. The forward mapping $\toDual{\dd{\alpha}}$ acts on the basis vectors as follows:
-$$ \toDual{\dd{\alpha}}\qty(\pdv{}{q}) = \intpr{\pdv{}{q}}{\dd{\alpha}} = \gamma \dd{p} \qquad \toDual{\dd{\alpha}}\qty(\pdv{}{p}) = \intpr{\pdv{}{p}}{\dd{\alpha}} = -\gamma \dd{q} $$
+Now to derive the horizontal component of the vector field. The interior product of $\omega$ with the basis vectors yields:
+\begin{equation}
+    \intpr{\pdv{}{q}}{\dd{\alpha}} = \gamma \dd{p} \qquad \intpr{\pdv{}{p}}{\dd{\alpha}} = -\gamma \dd{q}
+\end{equation}
 Clearly, the image of this mapping for any vector field is a semi-basic form. The inverse mapping must, to qualify as an isomorphism, map a semi-basic form back to a horizontal vector field (i.e. one that is in the kernel of $\alpha$). Hence, we have that
-$$ 
+\begin{equation} 
     \fromDual{\dd{\alpha}}\qty(\dd{q}) = -\frac{1}{\gamma} \pdv{}{p} \qquad 
     \fromDual{\dd{\alpha}}\qty(\dd{p}) = \frac{1}{\gamma}\pdv{}{q} +  p \pdv{}{U}. 
-$$
+\end{equation}
 The term in $\dd{U}$ ensures that the vector field is horizontal. Using this mapping, and expression for the Hamiltonian in \cref{eq:dho_hamiltonian}, we obtain the horizontal component of the Hamiltonian vector field:
 \begin{equation} 
     X_K^\text{hor} = \frac{p}{m}\pdv{}{q} - (\gamma p + kq)\pdv{}{p} + \gamma \frac{p^2}{m} \pdv{}{U}.
