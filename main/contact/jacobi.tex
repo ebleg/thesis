@@ -78,6 +78,18 @@ where $\schouten{\,}{}$ is the \emph{Schouten bracket}\footnote
 
 }. A Jacobi manifold is therefore a triple $(M, \Lambda, R)$ \cite{Libermann1987}.
 
+A Jacobi structure induces a mapping from the functions on the manifold to the vector fields on the manifold (sometimes called the \emph{Hamiltonian correspondence}) \cite{ciaglia2018,mahmood2012} defined as follows:
+\begin{equation} 
+    \Psi: \functions{M} \to \vfields{M}: \quad X_f = \fromDual{\Lambda}(\dd{f}) + f R,
+    \label{eq:jacobi_ham_correspondence}
+\end{equation}
+where $f$ is the Hamiltonian function, $X_f$ the associated Hamiltonian vector fields. The sharp mapping $\fromDual{\Lambda}$ is defined as:
+$$ \fromDual{\Lambda}: \ctbundle{M} \to \tbundle{M}: \quad \fromDual{\Lambda}(\eta) = \intpr{\Lambda}{\eta}, $$
+or equivalently
+$$ \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\xi}. $$
+
+We will now see that both symplectic and contact manifolds are particular instances of a Jacobi structure, as well as the Hamiltonian systems defined on them.
+
 \paragraph{Symplectic manifolds are Jacobi}
 For a symplectic manifold $(M, \omega)$ with dimension $2n$, the vector field $R$ is simply zero and the bivector $\Lambda$ field is defined by:
 $$ \Lambda(\eta, \chi) = \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\chi)) \qquad \eta, \chi \in \nforms{1}{M}, $$
@@ -85,27 +97,36 @@ with $\fromDual{\omega}$ defined as in \cref{eq:symplectic_isomorphism}.
 
 If $\omega$ is expressed in Darboux coordinates, i.e.
 $$ \omega = \sum^n_{i = 1} \wedgep{\dd{q_i}}{\dd{p_i}},$$
-then the associated bivector is \cite{chinea1998}
-$$ \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}.$$
+then the associated bivector can be found to be \cref{eq:jacobi_ham_correspondence}:
+$$ \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}. $$
 
 The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field $R$ vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
 
 \paragraph{Contact manifolds are Jacobi}
-A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} $(M, \alpha)$ with dimension $2n + 1$ is also a Jacobi manifold. The vector field $R = R_\alpha$ is the Reeb vector field and the bivector $\Lambda$ is equal to
+A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} $(M, \alpha)$ with dimension $2n + 1$ is also a Jacobi manifold. The vector field $R = R_\alpha$ is the Reeb vector field. 
+and the bivector $\Lambda$ is equal to
 $$ \Lambda(\eta, \chi) = \dd{\alpha}\qty(\fromDual{\dd{\alpha}}(\eta), \fromDual{\dd{\alpha}}(\chi)), $$
 where $\fromDual{\dd{\alpha}}$ is defined as in \cref{eq:contact_isomorphism} and $\eta,\chi$ are semi-basic 1-forms on $M$.
 
 If $\alpha$ is expressed in Darboux coordinates:
 $$ \alpha = \dd{q}_0 - \sum^n_{i = 1} p_i\dd{q_i}, $$
 then
-$$ R = \pdv{}{q_0},$$
-and
-$$ \Lambda = \sum_{i = 1}^n \qty( \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}\:+\: p_i \wedgep{\pdv{}{q_0}}{\pdv{}{p_i}}). $$
-
-\paragraph{Hamiltonian systems on Jacobi manifolds} In both cases, the Jacobi structure induces an isomorphism between the functions on the manifold and the symplectic or strictly contact vector fields on that manifold. In general, this isomorphism is stated as:
-$$ \Psi: X_f = \fromDual{\Lambda}(\dd{f}) + f R, $$
-where $f$ is the `Hamiltonian' function and $X_f$ the corresponding Hamiltonian vector field. The mapping $\fromDual{\Lambda}$ is defined as
-$$ \fromDual{\Lambda}: \ctbundle{M} \to \tbundle{M}: \quad \qty[\fromDual{\Lambda}(\alpha)](\beta) = \Lambda(\alpha, \beta). $$
+$$ R = \pdv{}{q_0}.$$
+The expression for the bivector can be found as follows (by comparison with \cref{eq:jacobi_ham_correspondence}):
+\begin{equation}
+    \begin{split}
+        \fromDual{\Lambda}(\zeta) &= \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha) \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{(\zeta - (\intpr{R}{\zeta})\alpha)} \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
+                                     - \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{((\intpr{R}{\zeta})\alpha)} \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
+                                     - \sum_{i=1}^n p_i \pdv{}{p_i}(\intpr{R}{\zeta}) (\intpr{R}{\zeta})\\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
+                                     - \intpr{\qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{p_i}}{\pdv{}{q_0}})}{\zeta}. \\
+    \end{split}
+\end{equation}
+From this expression, we gather that 
+$$ \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) + \qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{q_0}}{\pdv{}{p_i}}).$$
 
 We will now apply the Jacobi structure to general mechanical systems.
 
@@ -125,42 +146,62 @@ The geometric structure of a mechanical system has four components:
         with $E = E(q_1, \ldots, q_n, p_1, \ldots, p_n)$ the mechanical energy of the system.
 \end{itemize}
 
-In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in $U$ does not play a role, and the system may be completely described on $\ctbundle{Q}$ with its symplectic structure. For the simple dissipative mechanical systems in \cref{sec:contact}, the form $\alpha$ would both encode the pairing structure \emph{and} the dissipation form, since $\dd{\alpha}$ would be of the form $\dd{U} - \gamma \theta$.  We now separate both functionalities (i.e. pairing and dissipation) to distinct, for which the symplectic and contact systems are particular cases.
+In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in $U$ does not play a role, and the system may be completely described on $\ctbundle{Q}$ with its symplectic structure. 
 
-To make this work from a mathematical perspective, we assume that $\omega$ and $\alpha$ satisfy the condition:
-$$ \wedgep{\alpha}{(\omega)^n} \neq 0$$
+For the simple dissipative mechanical systems in \cref{sec:contact}, the form $\alpha$ would both encode the pairing structure \emph{and} the dissipation form, since $\dd{\alpha}$ would be of the form $\dd{U} - \gamma \theta$.  We now separate both functionalities (i.e. pairing and dissipation) to distinct components, for which the symplectic and contact systems are particular cases.
+
+The Jacobi structure for general mechanical systems is constructed in an analogous manner to the one for contact manifolds, apart from the fact that we now have a separate 2-form $\omega$, instead of using $\dd{\alpha}$. We can already expect that this will work given the right conditions, for the derivations in \cref{sec:contact} did not use the fact that $\dd{\alpha}$ is indeed the exterior derivative of $\alpha$. 
+
+However, not just any $\omega$ and $\alpha$ will make this work. Recall that the maximum nonintegrability of $\alpha$ is equivalent to $\wedgep{\alpha}{\dd{\alpha}}$ being a volume form on the contact manifold. Along the same line, we require the following condition on $\omega$ and $\alpha$:
+\begin{equation}
+    \wedgep{\alpha}{(\omega)^n} \neq 0
+    \label{eq:jacobi_condition}
+\end{equation}
 everywhere on $M$; that is to say, it is a volume form on $M$ \cite{ciaglia2018}. If $M$, $\omega$ and $\alpha$ are defined as given above, this condition is clearly satisfied:
 $$ \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q_i}}{\dd{p_i}})}. $$
 
-The following construction is analogous to the one for contact Hamiltonian systems, with $\omega$ substituted for $\dd{\alpha}$.
-
-The \emph{Reeb vector field} $R$ on the manifold $M$ is uniquely defined by the conditions
-$$ \intpr{R}{\alpha} = 0 \qquad \intpr{R}{\omega} = 0. $$
-This vector field is unique, because the kernel of $\omega$ is always one-dimensional, and $\alpha$ has at least a component in the zero direction of $\omega$. If this were not the case, the condition given above would not be satisfied. In the given coordinates, the Reeb vector field is equal to
+If \cref{eq:jacobi_condition} is satisfied we can --- similarly to the discussion in \cref{ssec:contact_ham_systems} --- define the splitting of the tangent bundle as follows:
+$$ \ctbundle{M} = \ker{\alpha}\oplus\ker{\omega}. $$
+Vector fields in the kernel of $\alpha$ are called \emph{horizontal}, while vector fields in the kernel of $\omega$ are \emph{vertical}. Define the \emph{Reeb vector field} $R$ (for this Jacobi structure) as the unique vector field that satisfies the following conditions:
+$$ \intpr{R}{\alpha} = 1 \qquad \intpr{R}{\omega} = 0. $$
+In Darboux coordinates, we have
 $$ R = \pdv{}{U}. $$
+The vector field of the Jacobi structure is equal to the Reeb vector field.
 
-Because $ \wedgep{\alpha}{(\omega)^n} \neq 0$, we have at every point $x \in M$:
-$$ \ker{\alpha}\vert_x \cap \ker{\omega}\vert_x = \{\mathbf{0}\}, $$
-and therefore \cite{dazord1991}
-$$ \tspace{x}{M} = \ker{\alpha} \vert_x \oplus \ker{\omega}\vert_x. $$
+In addition, define \emph{semi-basic forms} as the forms that annihilate the vertical vector fields; in Darboux coordinates, they are forms that have no component in $\dd{U}$.
 
-Similar to the case for contact manifolds, define \emph{horizontal vector fields} as those in the kernel of $\alpha$, while \emph{vertical vector fields} are in the kernel of $\omega$. Any vector field $ X \in \vfields{M}$ can be decomposed uniquely into a horizontal component $X^\text{hor}$ and vertical component $X^\text{ver}$ like so
-$$ X = \underbrace{\qty(\intpr{X}{\alpha})R}_{X^\text{ver}}\: + \: \underbrace{X - (\intpr{X}{\alpha})R}_{X^\text{hor}}. $$
+The decompositions of vector fields into horizontal and vertical components, and of forms into semi-basic components and multiples of $\alpha$ are analogous to \cref{eq:vfield_splitting,eq:form_splitting} respectively.
 
-An analogous decomposition can be made in the cotangent bundle. A \emph{semi-basic form} (the only component we are interested in) is a 1-form $\zeta$ that satisfies the condition
-$$ \intpr{R}{\zeta} = 0. $$
-Likewise, any form can be decomposed as follows \cite{Libermann1987}
+The construction of $\Lambda$ is analogous to the case of contact manifolds: the sharp mapping first isolates the semi-basic component of the argument, after it is mapped to a horizontal vector field through $\fromDual{\omega}$:
+$$ \fromDual{\Lambda}(\zeta) = \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha). $$
+Using the coordinates defined above, we find:
+$$ \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q_0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\beta}]}.$$
+
+The dynamics of the general mechanical system are then equal to 
+$$ X_H = \fromDual{\Lambda}(\dd{H}), $$
+assuming again that $H$ is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear.
+
+For computational convenience, this mapping can also be represented by a matrix: 
 \begin{equation}
-    \zeta = \qty(\intpr{R}{\zeta})\alpha + \underbrace{\zeta - (\intpr{R}{\zeta})\alpha}_\text{semi-basic}, 
-    \label{eq:form_decomposition}
+    \begin{split}
+        (X_H) &= \qty[\mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) 
+                - \mqty(0 \\ 0 \\ 1) \wedge \mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) \mqty(\vec{\beta}_{q} \\ \vec{\beta}_{p}\\0)](\nabla H) \\
+              &= \qty[\mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) 
+                 - \mqty(0 & 0 & \vec{\beta}_p \\ 0 & 0 & \vec{\beta}_q \\ -\vec{\beta}_p &  -\vec{\beta}_q & 0 )](\nabla H) \\
+              &= \mqty( 0 & I_n & -\vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ \vec{\beta}_p & \vec{\beta}_q & 0)(\nabla H),
+    \end{split}
 \end{equation}
-where the right term is semi-basic.
+where $\vec{\beta}_q$ and $\vec{\beta}_p$ represent the $q$- and $p$-components of the form $\beta$, and $\nabla H$ is the gradient of $H$.
 
-Because the kernel of $\omega$ and $\alpha$ do not coincide, $\omega$ defines an isomorphism between the horizontal vector fields and the semi-basic forms.Let
-$$ \toDual{\omega}: \tbundle{M}\vert_{\ker \alpha} \to \ctbundle{M}\vert_\text{sb}: \quad X \mapsto \intpr{X}{\omega},$$
-where `sb' refers to the cotangent bundle restricted to the semi-basic forms. This mapping is one-to-one; the inverse mapping $\fromDual{\omega}$ relates any semi-basic form to a horizontal vector field.
+\paragraph{Application to 2-DOF mechanical system}
+We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
+\begin{itemize}
+    \item The manifold $M = \real^5 = \real \times \ctbundle{Q}$, for which we choose coordinates $(U, q_1, q_2, p_1, p_2)$.
+    \item The 2-form $\omega$ is the canonical symplectic structure on $\ctbundle{Q}$:
+        $$ \omega = \wedgep{\dd{q_1}}{\dd{p_1}} + \wedgep{\dd{q_2}}{\dd{p_2}}. $$
+    \item The dissipation form is given by \cref{eq:mdof_form}.
+    \item The Hamiltonian is equal to the sum of kinetic, potential and internal energy in the system:
+        $$ H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.$$
+\end{itemize}
 
-The bivector $\Lambda$ is then defined as
-$$ \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\xi)), $$
-where $\eta$ and $\xi$ are semi-basic. However, we wish to apply the associated mapping $\fromDual{\omega}$ to general 1-forms ($\dd{H}$ is generally not semi-basic). Therefore, we first canonically project it to the semi-basic forms. 
-
+[...]
