@@ -33,7 +33,7 @@ Hence, the contact 1-form that specifies the dissipation is
     \label{eq:mdof_form}
 \end{equation}
 
-From this expression, we can observe a crucial difference with the contact forms of the single degree of freedom systems (cf. \cref{eq:dho_contact_form,eq:serial_dho_contact_form}). This is because $\alpha$ is in this case \emph{not} of the form
+From this expression, we can observe a crucial difference with the contact forms of the single degree of freedom systems (cf. \cref{eq:dho_contact_form,eq:serial_dho_contact_form}). In contrast to the single-degree of freedom case given in the previous section, $\alpha$ is here \emph{not} of the form
 $$ \dd{U} - \gamma \theta, $$
 where $\theta$ is the Liouville form on the cotangent bundle of the configuration manifold $\ctbundle{Q}$. This has important ramifications, for the Liouville form (and its exterior derivative) facilitates the `pairing' between the position and momentum coordinates. In case of a single degree of freedom system, the pairing is trivial because there is only one momentum and one position coordinate. For more complicated systems this is no longer the case, as illustrated \cref{eq:mdof_form}.
 
@@ -46,7 +46,7 @@ $$
 $$
 which indicates indeed that there is also a `mixing' of $p_1$ and $q_2$ and $p_2$ and $q_1$ in the resulting 2-form. As a result, the mapping $ \fromDual{\dd{\alpha}} $ will not produce the mapping that we would expect in the purely symplectic case.
 
-From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are distinct, and both required for the geometric description of the mechanical system. In the previous section, we were rather `lucky' to find that, \emph{that particular case}, the dissipation form $\alpha$ also included the pairing structure. 
+From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form $\alpha$ also included the pairing structure. This severely limits the applicability of a contact Hamiltonian systems to dissipative mechanical systems.
 
 The multi-degree of freedom systems for which $ \alpha $ is of the form $\dd{U} - \gamma \theta$ are those that do exhibit not damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
 
@@ -86,7 +86,7 @@ A Jacobi structure induces a mapping from the functions on the manifold to the v
 where $f$ is the Hamiltonian function, $X_f$ the associated Hamiltonian vector fields. The sharp mapping $\fromDual{\Lambda}$ is defined as:
 $$ \fromDual{\Lambda}: \ctbundle{M} \to \tbundle{M}: \quad \fromDual{\Lambda}(\eta) = \intpr{\Lambda}{\eta}, $$
 or equivalently
-$$ \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\xi}. $$
+$$ \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\chi}. $$
 
 We will now see that both symplectic and contact manifolds are particular instances of a Jacobi structure, as well as the Hamiltonian systems defined on them.
 
@@ -152,7 +152,7 @@ For the simple dissipative mechanical systems in \cref{sec:contact}, the form $\
 
 The Jacobi structure for general mechanical systems is constructed in an analogous manner to the one for contact manifolds, apart from the fact that we now have a separate 2-form $\omega$, instead of using $\dd{\alpha}$. We can already expect that this will work given the right conditions, for the derivations in \cref{sec:contact} did not use the fact that $\dd{\alpha}$ is indeed the exterior derivative of $\alpha$. 
 
-However, not just any $\omega$ and $\alpha$ will make this work. Recall that the maximum nonintegrability of $\alpha$ is equivalent to $\wedgep{\alpha}{\dd{\alpha}}$ being a volume form on the contact manifold. Along the same line, we require the following condition on $\omega$ and $\alpha$:
+However, not just any $\omega$ and $\alpha$ will make this work. Recall that the maximum nonintegrability of $\alpha$ is equivalent to $\wedgep{\alpha}{(\dd{\alpha})^n}$ being a volume form on the contact manifold. Along the same line, we require the following condition on $\omega$ and $\alpha$:
 \begin{equation}
     \wedgep{\alpha}{(\omega)^n} \neq 0
     \label{eq:jacobi_condition}
@@ -175,11 +175,17 @@ The decompositions of vector fields into horizontal and vertical components, and
 The construction of $\Lambda$ is analogous to the case of contact manifolds: the sharp mapping first isolates the semi-basic component of the argument, after it is mapped to a horizontal vector field through $\fromDual{\omega}$:
 $$ \fromDual{\Lambda}(\zeta) = \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha). $$
 Using the coordinates defined above, we find:
-$$ \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q_0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\beta}]}.$$
+\begin{equation}
+    \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q_0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\beta}]}.
+    \label{eq:general_bivector}
+\end{equation}
 
 The dynamics of the general mechanical system are then equal to 
-$$ X_H = \fromDual{\Lambda}(\dd{H}), $$
-assuming again that $H$ is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear.
+\begin{equation} 
+    X_H = \fromDual{\Lambda}(\dd{H}), 
+    \label{eq:general_isomorphism}
+\end{equation}
+assuming again that $H$ is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear. 
 
 For computational convenience, this mapping can also be represented by a matrix: 
 \begin{equation}
@@ -190,8 +196,9 @@ For computational convenience, this mapping can also be represented by a matrix:
                  - \mqty(0 & 0 & \vec{\beta}_p \\ 0 & 0 & \vec{\beta}_q \\ -\vec{\beta}_p &  -\vec{\beta}_q & 0 )](\nabla H) \\
               &= \mqty( 0 & I_n & -\vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ \vec{\beta}_p & \vec{\beta}_q & 0)(\nabla H),
     \end{split}
+    \label{eq:matrix_jacobi_mapping}
 \end{equation}
-where $\vec{\beta}_q$ and $\vec{\beta}_p$ represent the $q$- and $p$-components of the form $\beta$, and $\nabla H$ is the gradient of $H$.
+where $\vec{\beta}_q$ and $\vec{\beta}_p$ represent the $q$- and $p$-components of the form $\beta$, and 
 
 \paragraph{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
@@ -199,9 +206,32 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
     \item The manifold $M = \real^5 = \real \times \ctbundle{Q}$, for which we choose coordinates $(U, q_1, q_2, p_1, p_2)$.
     \item The 2-form $\omega$ is the canonical symplectic structure on $\ctbundle{Q}$:
         $$ \omega = \wedgep{\dd{q_1}}{\dd{p_1}} + \wedgep{\dd{q_2}}{\dd{p_2}}. $$
-    \item The dissipation form is given by \cref{eq:mdof_form}.
+    \item The dissipation form is given by \cref{eq:mdof_form}:
+        $$ \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
+                          + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.$$
     \item The Hamiltonian is equal to the sum of kinetic, potential and internal energy in the system:
         $$ H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.$$
 \end{itemize}
 
-[...]
+ The expression for $\beta$ is given by \cref{eq:mdof_form} as a part of the dissipation form $\alpha$. The exterior derivative of $H$ is 
+     $$ \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q_1 + k_2(q_1 - q_2)]\dd{q_1} + \qty[k_3q_2 + k_2(q_2 - q_1)]\dd{q_2} + \dd{U}.$$
+ Using either \cref{eq:general_bivector,eq:general_isomorphism} or \cref{eq:matrix_jacobi_mapping}, we obtain the correct equations of motion for the system:
+ \begin{equation}
+     \begin{split}
+         &\dot{q}_1 = \frac{p_1}{m_1}, \\
+         &\dot{q}_2 = \frac{p_2}{m_2}, \\
+         &\dot{p}_1 = -\frac{b_1}{m_1}p_1 - \frac{b_2}{m_1}p_1 + \frac{b_2}{m_2}p_2 - k_1 q_1 - k_2 q_1 + k_2 q_2, \\
+         &\dot{p}_2 =  - \frac{b_2}{m_2}p_2 + \frac{b_2}{m_1}p_1 - k_3 q_2 - k_2 q_2 + k_2 q_1, \\
+         &\dot{U} = b_1\frac{p_1^2}{m_1^2} + b_2\frac{p_2^2}{m_1^2} +  b_2\frac{p_2^2}{m_2^2} - 2b_2 \frac{p_1 p_2}{m_1 m_2}. \\
+     \end{split}
+     \label{eq:mdof_eom_complete}
+ \end{equation}
+The reason why the equation for $U$ is always correct is because we force the vector field to be annihilate the dissipation form $\alpha$; as such, any work done by the dampers must constitute to the change in $U$. Because the Hamiltonian is equal to zero, there are no other contributions to $\dot{U}$. 
+
+Observe from \cref{eq:mdof_eom_complete} that the rate of change of $U$ can be written in terms of the \emph{Rayleigh dissipation matrix}:
+$$ \dot{U} = \mqty(\sfrac{p_1}{m_1} & \sfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\sfrac{p_1}{m_1} \\ \sfrac{p_2}{m_2}).$$
+It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on $\beta$, apart from the fact that it does not depends on $U$. Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
+
+\subsection{Nonautonomous systems}
+
+

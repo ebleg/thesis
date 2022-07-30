@@ -582,7 +582,7 @@ The homogeneous Hamiltonian vector field is then
 The equations of motion $q_0$ and $q$ remain identical to those obtained earlier; this is to be expected since otherwise the dynamics would not correspond. 
 
 For $\rho_0$, we have
-$$ \dot{\rho}_0 = \rho_0 \pdv{K_e}{q_0} = \rho_0 \pdv{K_e}{q_0}  = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = \ec^{\gamma t} + C, $$ 
+$$ \dot{\rho}_0 = \rho_0 \pdv{K_e}{q_0} = \rho_0 \pdv{K_e}{q_0}  = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = C\ec^{\gamma t}, $$ 
 where $C$ is an integration constant which we can choose to be 0, so $\rho_0(t) = \ec^{\gamma t}$.
 
 In addition, $\dot{\rho} = \rho_0 kq = \ec^{\gamma t} kq$. Since $p = -\rho/\rho_0$, the dynamics of $p$ can be obtained from  $\dot{\rho}_0$ and $\dot{\rho}$ using the product rule:
@@ -718,11 +718,11 @@ Bonds carry two signals: an effort and a flow. Both can be assigned a `direction
 If a causality convention is chosen, all the I- and C-elements in the bond graph should conform to this convention\footnote{Not doing so leads to a differential algebraic system (DAE).}. This is \emph{not} the case for R-elements; they are \emph{indifferent to causality}. The reason for this is that there is no integral/derivative present in the mathematical description of their dynamic behavior: they relate an effort and flow, which are both time derivatives. So, depending on the system architecture, a particular R-element may receive an effort and return a flow, or vice versa \cite{Borutzky2010}.
 
 This can be observed from \cref{fig:double_damped_osc}: the serial damper (on the 0-junction) receives an effort and returns a flow, while the parallel damper receives a flow and returns an effort (1-junction). This distinction is reflected in the work form associated to the damper. For the parallel damper, we have
-$$ \beta_p = \underbrace{\gamma_p p}_\text{\textsc{effort}} \; \underbrace{\dd{q}.}_\text{\textsc{flow}} $$
+$$ \beta_p = \underbrace{\gamma_p p}_\text{\textsc{effort}} \times \underbrace{\dd{q}.}_\text{\textsc{flow}} $$
 The variable that is `varied' externally is the flow, hence $\dd{q}$ 
 
 For the serial damper, we have the opposite situation. Here, the effort is varied externally, which is equal to $-\dd{p}$. The flow is equal to $\dot{q}_1 - \dot{q} = kq/b_s = \gamma_s q$ (using \cref{eq:serial_eom_raw}). Hence, we have
-$$ \beta_s = \underbrace{\gamma_s q}_\text{\textsc{flow}} \; \underbrace{-\dd{p}.}_\text{\textsc{effort}}$$
+$$ \beta_s = \underbrace{\gamma_s q}_\text{\textsc{flow}} \times \underbrace{-\dd{p}.}_\text{\textsc{effort}}$$
 
 Combining these work forms, we find the contact form for the system with two dampers:
 \begin{equation}
