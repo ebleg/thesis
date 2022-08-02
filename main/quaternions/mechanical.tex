@@ -95,7 +95,7 @@ As mentioned in \cref{sec:system_classification}, the sign of the vector norm de
 $$ (A - \lambda I)\vec{v} = \qty[(A + s I) - ((s + \lambda) I) \gamma I)]\vec{v}, $$
 i.e. adding any scalar multiple of the identity to the matrix adds this scalar to the value of all the eigenvalues, and leaves the eigenvectors unaltered.
 
-The following diagram provides a summary of the structure of the split-quaternion representation, and how the different components manifest themselves in the behavior of the system. 
+The following diagram provides a summary of the structure of the split-quaternion representation, and how the different components manifest themselves in the behavior of the system. The assumptions is made that we are dealing either with a spacelike or timelike vector, and that therefore the normalized vector part is well-defined.
 \begin{center}
     \begin{tikzpicture}
         \node (root) {$a$};
@@ -126,7 +126,7 @@ Since the regime of the mechanical system is determined by its vector norm, we c
 \begin{figure}[ht!]
     \centering
     \includegraphics[]{media/other/lorentz_space.png}
-    \caption{The disconnected `unit sphere' in the Lorentzian 3-space. The blue surface is the one-sheet hyperboloid, containing all the spacelike unit vectors representing overdamped mechanical systems. The gray sheet is the light cone, that contains all the lightlike `null' vectors with zero norm, representing critically damped systems. Finally, the red surface is the two-sheet hyperboloid, which is the space of all timelike unit vectors, representing underdamped (or undamped) systems.}
+    \caption{The disconnected `unit sphere' in the Lorentzian 3-space. The blue surface is the one-sheet hyperboloid, containing all the spacelike unit vectors representing overdamped mechanical systems. The gray sheet is the light cone, that contains all the lightlike `null' vectors with zero norm, representing critically damped systems. Finally, the red surfaces constitute the two-sheet hyperboloid, which is the space of all timelike unit vectors, representing underdamped (or undamped) systems.}
     \label{fig:hyperboloids}
 \end{figure}
 
@@ -151,15 +151,53 @@ The shape of the ellipse is completely determined by a measure of its eccentrici
     \label{fig:underdamped}
 \end{figure}
 
-Every point on the two-sheet hyperboloid represents a specific elliptical trajectory with a certain rotation angle and eccentricity. Any point on the two-sheet unit hyperboloid is most conveniently expressed in \emph{pseudospherical coordinates}: a rotation angle $\theta$ and a hyperbolic angle $\tau$ \cite{Balazs1986}. In special relativity, the hyperbolic angle is typically called a \emph{boost}. For an arbitrary timelike unit vector part of a split-quaternion 
-$$ \uvec{a} = a_1\quati + a_2\quatj + a_3\quatk, $$
+Every point on the two-sheet hyperboloid represents a specific elliptical trajectory with a certain rotation angle and eccentricity. Any point on the two-sheet unit hyperboloid is most conveniently expressed in \emph{pseudospherical coordinates}: a rotation angle $\sigma$ and a hyperbolic angle $\tau$ \cite{Balazs1986}. In special relativity, the hyperbolic angle is typically called a \emph{boost}. For an arbitrary timelike unit vector part of a split-quaternion 
+$$ \uvec{a} = \frac{a_1}{\norm{\vec{a}}}\quati + \frac{a_2}{\norm{\vec{a}}}\quatj + \frac{a_3}{\norm{\vec{a}}}\quatk, $$
 these angles are defined by the following relations:
-$$ a_1 = \cosh(\tau) \qquad a_2 = \sinh(\tau) \cos(\theta) \qquad a_3 = \sinh(\tau) \sin(\theta). $$
+$$ a_1 = \norm{\vec{a}}\cosh(\tau) \qquad a_2 = \norm{\vec{a}}\sinh(\tau) \cos(\sigma) \qquad a_3 = \norm{\vec{a}}\sinh(\tau) \sin(\sigma). $$
 It is easily verified that the components indeed satisfy the relation
 $$ \mathscr{N}(\uvec{a}) = a_1^2 - a_2^2 - a_3^2 = 1. $$
+Furthermore, we have the following relations:
+\begin{equation} 
+    \begin{array}{cc}
+        \displaystyle \cosh(\tau) = \frac{a_1}{\norm{\vec{a}}}, \quad & \quad 
+        \displaystyle \sinh(\tau) = \frac{\sqrt{a_2^2 + a_3^2}}{\norm{\vec{a}}}, \\[0.5cm]
+        \displaystyle \cos(\sigma) = \frac{a_2}{\sqrt{a_2^2 + a_3^2}}, \qquad & \quad
+        \displaystyle \sin(\sigma) = \frac{a_3}{\sqrt{a_2^2 + a_3^2}}. 
+    \end{array}
+    \label{eq:hyperb_coordinate_relations}
+\end{equation}
 
-As shown in \cref{fig:basis_vf}, the vector field $X_\quati$ is rotationally symmetric. In contrast, $X_\quatj$ and $X_\quatk$ are not, they exhibit special directions in the form of the asymptotes of the corresponding hyperbolic trajectories. As such, we may expect the relative proportion of the $\quatj$ and $\quatk$-component to determine the rotation angle of the ellipse.  
+We will now try to relate the location of the normalized vector part on the two-sheet hyperboloid to the geometric features of the elliptic solution trajectories. To do so, we can use the solution trajectories of the basis vector fields, and build the solution for the system based on the vector components. For the $X_\quati$, the solution curves have the implicit form 
+$$ \tfrac{1}{2}(q^2 + p^2) = C, $$
+i.e. they are concentric circles of some radius. Secondly, for $X_\quatj$, we have the implicit form
+$$ \tfrac{1}{2}(p^2 - q^2) = C.  $$
+Thirdly, for $X_\quatk$, the solution trajectories are of the form
+$$ pq = C. $$
 
+From the above expression we can find the shape of the actual solution trajectory by weighing each of these curves with the respective components of the normalized vector part:
+$$ \frac{a_1}{2\norm{\vec{a}}}\qty(q^2 + p^2)  + \frac{a_2}{2\norm{\vec{a}}}\qty(p^2 - q^2) + \frac{a_1}{\norm{\vec{a}}}pq = C. $$
+Because we are not interested in the specific radius of the ellipse, we may multiply this expression by any nonzero factor. We have the following expression 
+\begin{equation}
+    \underbrace{(a_1 - a_2)}_{R} q^2 + \underbrace{2 a_3}_{S} pq + \underbrace{(a_1 + a_2)}_{T} p^2 = 2\norm{a}C,
+    \label{eq:ellipse_equation}
+\end{equation}
+which is the implicit equation for an ellipse in case $S^2 - 4RT < 0$ \cite{Rapp1991}. Substitution shows that this condition is equivalent to $\vec{a}$ being timelike.
+
+\paragraph{Eccentricity} The eccentricity of the ellipse given by \cref{eq:ellipse_equation} is equal to \cite{Rapp1991}
+\begin{equation}
+    \begin{split}
+        e &= \sqrt{\frac{2\sqrt{(R - T)^2 + S^2}}{(R + T) + \sqrt{(R - T)^2 + S^2}}} \\
+          &= \sqrt{\frac{2\sqrt{q_2^2 + q_3^2}}{q_1 + \sqrt{q_2^2 + q_3^2}}}. \\
+    \end{split}
+    \label{eq:eccentricity}
+\end{equation}
+Using the relations stated in \cref{eq:hyperb_coordinate_relations}, this expression can be written in terms of the pseudospherical coordinates:
+$$ e = \sqrt{\frac{2\sinh{\tau}}{\cosh{\tau} + \sinh{\tau}}}. $$
+
+\paragraph{Tilt} Tilt blabla
+
+\paragraph{Alternative models of the two-sheet hyperboloid}
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/hyperboloid_projection}
