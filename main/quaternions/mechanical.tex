@@ -225,13 +225,27 @@ The positive sheet of the hyperboloid model embedded in the Lorentzian 3-space i
 
 In contrast to the Euclidean plane and the sphere (which exhibits spherical geometry), the hyperbolic plane cannot be isometrically embedded in three-dimensional space; this is formalized in Hilbert's theorem on differential geometry \cite{Thurston1997}. This is why mathematicians must resort to so-called \emph{models} of the hyperbolic plane. Many are in existence, for example the hyperboloid model, the Poincaré disk, the Cayley-Klein disk, and the Poincaré half-plane. The former three will be of our interest in this treatment. For more information concerning hyperbolic geometry, the reader is referred to \citet{Needham1997,Needham2021} and \citet{Thurston1997}.
 
-The \emph{hyperboloid model} consists simply of the positive sheet of the two-sheet hyperboloid, embedded in the Lorentzian 3-space. In this space, this sheet of the hyperboloid has a constant negative Gaussian curvature equal to -1 \cite{Balazs1986}. Because of this constant negative curvature, the positive sheet of the two-sheet hyperboloid can serve as a model for the hyperbolic plane (it is a model because it is not embedded in Euclidean space). 
+The \emph{hyperboloid model} consists simply of the positive sheet of the two-sheet hyperboloid, embedded in the Lorentzian 3-space. In this space, this sheet of the hyperboloid has a constant negative Gaussian curvature equal to -1 \cite{Balazs1986}. Because of this constant negative curvature, the positive sheet of the two-sheet hyperboloid can serve as a model for the hyperbolic plane (it is a model because it is not embedded in Euclidean space). On the hyperboloid, geodesics are any line that arises by intersecting the hyperboloid with a plane through the origin.
 
-Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperboloid surface to a disk with unit radius in a prescribed fashion.
+Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperboloid surface to a disk with unit radius in a prescribed fashion. In the $\quati$-$\quatj$-plane, these projections are illustrated in \cref{fig:hyperboloid_projection}.
 
-\paragraph{The Cayley-Klein disk} 
+\begin{figure}[ht!]
+    \centering
+    \input{media/tikz/hyperboloid_projection}
+    \caption{Illustration of the projection on the Poincaré disk and the Cayley-Klein disk.}
+    \label{fig:hyperboloid_projection}
+\end{figure}
 
-\paragraph{Poincaré disk} The \emph{Poincaré disk} is the image of the positive hyperboloid sheet under stereographic projection with respect to the point $-\quati$, i.e. the point in Lorentzian 3-space with coordinates $(-1, 0, 0)$. This is illustrated in \cref{fig:poincare_disk} and \cref{fig:hyperboloid_projection}. If polar coordinates are used in the Poincaré disk, then the Euclidean rotation remains identitical, and the radial coordinate is equal to
+\paragraph{The Cayley-Klein disk} The Cayley-Klein is the result of \emph{gnomonic projection} of the positive hyperboloid sheet. The idea of gnomonic projection is that geodesics on the hyperboloid map to straight lines in the disk; on the downside, this projection method is not conformal (it does not preserve angles). If polar coordinates are used in the Cayley-Klein disk, the rotation angle $\sigma$ remains the same, and from \cref{fig:hyperboloid_projection} it can readily be deduced that the radius 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=1]{media/other/cayley_disk-eps-converted-to}
+    \caption{The Cayley-Klein disk and the hyperboloid model are related through gnomonic projection. A geodesic of on the hyperboloid model is shown as well, its projected image in the Cayley-Klein disk (also a geodesic) is a straight line. Illustration adapted from \citet{Balazs1986}.}
+    \label{fig:cayley_disk}
+\end{figure}
+
+\paragraph{Poincaré disk} The \emph{Poincaré disk} is the image of the positive hyperboloid sheet under \emph{stereographic projection} with respect to the point $-\quati$, i.e. the point in Lorentzian 3-space with coordinates $(-1, 0, 0)$. This is illustrated in \cref{fig:poincare_disk} and \cref{fig:hyperboloid_projection}. If polar coordinates are used in the Poincaré disk, then the Euclidean rotation remains identitical, and the radial coordinate is equal to
 \begin{equation} 
     r_\text{pc} = \tanh(\frac{\tau}{2}) = \frac{\sinh(\tau)}{1 + \cosh(\tau)}. 
 \end{equation}
@@ -244,12 +258,6 @@ Because stereographic projection projects each point on the positive hyperboloid
     \label{fig:poincare_disk}
 \end{figure}
 
-\begin{figure}[ht!]
-    \centering
-    \input{media/tikz/hyperboloid_projection}
-    \caption{Illustration of the projection on the Poincaré disk and the Cayley-Klein disk.}
-    \label{fig:hyperboloid_projection}
-\end{figure}
 
 \subsubsection{Critically damped systems}
 
