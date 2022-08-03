@@ -197,6 +197,7 @@ Since we have that $R - T = -2a_2$, $R + T = 2a_1$ and $S = 2a_3$, the eccentric
 Finally, using the relations stated in \cref{eq:hyperb_coordinate_relations}, this expression can be written in terms of the pseudospherical coordinates:
 \begin{equation}
     e = \sqrt{\frac{2\sinh(\tau)}{\cosh(\tau) + \sinh(\tau)}}. 
+    \label{eq:e_pseudosphere_coords}
 \end{equation}
 % Hence, we can observe that the eccentricity of the hyperbolic system trajectory is completely determined by the hyperbolic angle $\tau$, and not influenced by $\sigma$ at all.
 
@@ -225,7 +226,7 @@ The positive sheet of the hyperboloid model embedded in the Lorentzian 3-space i
 
 In contrast to the Euclidean plane and the sphere (which exhibits spherical geometry), the hyperbolic plane cannot be isometrically embedded in three-dimensional space; this is formalized in Hilbert's theorem on differential geometry \cite{Thurston1997}. This is why mathematicians must resort to so-called \emph{models} of the hyperbolic plane. Many are in existence, for example the hyperboloid model, the Poincaré disk, the Cayley-Klein disk, and the Poincaré half-plane. The former three will be of our interest in this treatment. For more information concerning hyperbolic geometry, the reader is referred to \citet{Needham1997,Needham2021} and \citet{Thurston1997}.
 
-The \emph{hyperboloid model} consists simply of the positive sheet of the two-sheet hyperboloid, embedded in the Lorentzian 3-space. In this space, this sheet of the hyperboloid has a constant negative Gaussian curvature equal to -1 \cite{Balazs1986}. Because of this constant negative curvature, the positive sheet of the two-sheet hyperboloid can serve as a model for the hyperbolic plane (it is a model because it is not embedded in Euclidean space). On the hyperboloid, geodesics are any line that arises by intersecting the hyperboloid with a plane through the origin.
+\paragraph{Hyperboloid model} The \emph{hyperboloid model} consists simply of the positive sheet of the two-sheet hyperboloid, embedded in the Lorentzian 3-space. In this space, this sheet of the hyperboloid has a constant negative Gaussian curvature equal to -1 \cite{Balazs1986}. Because of this constant negative curvature, the positive sheet of the two-sheet hyperboloid can serve as a model for the hyperbolic plane (it is a model because it is not embedded in Euclidean space). On the hyperboloid, geodesics are any line that arises by intersecting the hyperboloid with a plane through the origin.
 
 Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperboloid surface to a disk with unit radius in a prescribed fashion. In the $\quati$-$\quatj$-plane, these projections are illustrated in \cref{fig:hyperboloid_projection}.
 
@@ -236,8 +237,7 @@ Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperb
     \label{fig:hyperboloid_projection}
 \end{figure}
 
-\paragraph{The Cayley-Klein disk} The Cayley-Klein is the result of \emph{gnomonic projection} of the positive hyperboloid sheet. The idea of gnomonic projection is that geodesics on the hyperboloid map to straight lines in the disk; on the downside, this projection method is not conformal (it does not preserve angles). If polar coordinates are used in the Cayley-Klein disk, the rotation angle $\sigma$ remains the same, and from \cref{fig:hyperboloid_projection} it can readily be deduced that the radius 
-
+\paragraph{The Cayley-Klein disk} The Cayley-Klein is the result of \emph{gnomonic projection} of the positive hyperboloid sheet. The idea of gnomonic projection is that geodesics on the hyperboloid map to straight lines in the disk; on the downside, this projection method is not conformal (it does not preserve angles). As shown in \cref{fig:hyperboloid_projection} and \cref{fig:cayley_disk}, the projection of a point on the hyperboloid is the intersection of the line segment of that point with the origin and the disk with unit radius, centered at the point $\quati$ (i.e. the point in Lorentzian 3-space with coordinates $(1, 0, 0)$). 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1]{media/other/cayley_disk-eps-converted-to}
@@ -245,12 +245,21 @@ Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperb
     \label{fig:cayley_disk}
 \end{figure}
 
-\paragraph{Poincaré disk} The \emph{Poincaré disk} is the image of the positive hyperboloid sheet under \emph{stereographic projection} with respect to the point $-\quati$, i.e. the point in Lorentzian 3-space with coordinates $(-1, 0, 0)$. This is illustrated in \cref{fig:poincare_disk} and \cref{fig:hyperboloid_projection}. If polar coordinates are used in the Poincaré disk, then the Euclidean rotation remains identitical, and the radial coordinate is equal to
-\begin{equation} 
-    r_\text{pc} = \tanh(\frac{\tau}{2}) = \frac{\sinh(\tau)}{1 + \cosh(\tau)}. 
+If polar coordinates are used to specify a point in the Cayley-Klein disk, the rotation angle $\sigma$ remains identical to the corresponding pseudospherical coordinate, and from \cref{fig:hyperboloid_projection} it can readily be deduced that the radial coordinate $r_\text{k} \in \interval[open right]{0}{1}$ is simply equal to
+\begin{equation}
+    r_\text{k} = \tanh(\tau).
 \end{equation}
-Because stereographic projection projects each point on the positive hyperboloid uniquely onto the Poincaré disk, every point on the disk corresponds to two possible elliptic trajectories: one with clockwise and one with counterclockwise rotation.
+We can now use \cref{eq:e_pseudosphere_coords} to relate the radial coordinate to the eccentricity of the elliptic trajectory (of course, the significance of the angular coordinate remains identical):
+\begin{equation}
+    e = \sqrt{\frac{2\sinh(\tau)}{\cosh(\tau) + \sinh(\tau)}} = \sqrt{\frac{2r_\text{k}}{1 + r_\text{k}}}. 
+\end{equation}
+This expression shows that the radius in the Cayley-Klein disk is equal to the \emph{square of the third eccentricity} $e''$, also denoted by `$m$` in literature (we will not do so here, for it is already reserved for mass). In terms of the major and minor axes ($r_+$ and $r_-$ respectively), this we have: \cite{Rapp1991}
+\begin{equation}
+    r_\text{p} = \frac{r_+^2 - r_-^2}{r_+^2 + r_-^2} = \qty(e'')^2.
+    \label{eq:eccentricity_cayley}
+\end{equation}
 
+\paragraph{Poincaré disk} The \emph{Poincaré disk} is the image of the positive hyperboloid sheet under \emph{stereographic projection} with respect to the point $-\quati$, i.e. the point in Lorentzian 3-space with coordinates $(-1, 0, 0)$. That is to say, the projection of a point on the hyperboloid on the Poincaré disk is equal to the intersection of the line segment connecting that point with $-\quati$ and the unit disk centered at the origin. This is illustrated in \cref{fig:poincare_disk} and \cref{fig:hyperboloid_projection}. 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1]{media/other/poincare_disk-eps-converted-to}
@@ -258,13 +267,22 @@ Because stereographic projection projects each point on the positive hyperboloid
     \label{fig:poincare_disk}
 \end{figure}
 
+If polar coordinates are used in the Poincaré disk, then the Euclidean rotation remains identitical, and the radial coordinate is equal to
+\begin{equation} 
+    r_\text{pc} = \tanh(\frac{\tau}{2}) = \frac{\sinh(\tau)}{1 + \cosh(\tau)}. 
+\end{equation}
+Because stereographic projection projects each point on the positive hyperboloid uniquely onto the Poincaré disk, every point on the disk corresponds to two possible elliptic trajectories: one with clockwise and one with counterclockwise rotation.
 
-\subsubsection{Critically damped systems}
+As stated by \cref{eq:eccentricity_cayley}, the Cayley-Klein radius is equal to the square of the third eccentricity. Along the same line, the radius in the Poincaré disk may be related to a specific measure of elliptic eccentricity as well. Using the double angle formula for $ \tanh $, we have that
+$$ r_\text{k} = = \frac{2r_\text{pc}}{1 + r_\text{pc}^2}. $$
+Hence, we gather that the Poincaré radius is equal to the \emph{third flattening}, commonly denoted by $n$ or $f''$. In terms of the major and minor axes of the elliptic trajectory, the Poincaré radius is equal to
+$$ r_\text{pc} = \frac{r_+ - r_-}{r_+ + r_-} = f''.$$
 
-\subsubsection{Overdamped systems damped systems}
+\paragraph{Eigenvectors of A} As mentioned, the normalized vector part $a$ encodes the same information as the eigenvectors of the associated matrix $A$. For an underdamped system, both the eigenvectors and the eigenvalues of the matrix are complex. These complex eigenvectors are not directly interpretable; they can be multiplied by any complex number to obtain another eigenvector of the system. In one particular instance (i.e. a specific length in $\complex^2$), the real and imaginary part of the eigenvectors align with the major and minor axes of the elliptic trajectory, but this requires additional computation to find the correct multiplication factor for the eigenvectors \cite{Edwards2018}. 
 
-\FloatBarrier
-\section{Notes}
+Conversely, as demonstrated in the above discussion, the normalized split-quaternions are naturally parameterized in way that corresponds directly to the shape parameters of the solution trajectories.
+
+\subsection{The Lorentzian cross-product}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.
 
 Motivation: $\vec{u}$ seems to be `aligned' with major direction of the elliptic trajectory in the Lorentz-orthogonal subspace, generated by the action of its cross-product. Show this formally by making use of the eigenvectors.
@@ -313,6 +331,9 @@ Using the Lagrange formula, the above expression becomes
     The latter is the scalar multiple of the vector $\vec{e}_2 + \vec{e}_3$ by $-\ii$ - hence, this is indeed an eigenvector of the corresponding matrix.
 \end{proof}
 Because $\vec{e}_2$ and $\vec{e}_3$ are also orthogonal in the normal sense, they are aligned with the major axes of the elliptic trajectories generated by the cross product. Hence, they can be used to find a basis of the invariant subspace which makes the trajectories identical to those in the phase plane.
+
+
+\subsection{Overdamped and critically damped systems}
 
 \subsection{Relation with complex Hamiltonians}
 \label{ssec:complex_ham}
