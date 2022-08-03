@@ -41,7 +41,7 @@ The structure of the dihedral group can be visualized by its \emph{cycle graph} 
 
 \paragraph{Split-quaternion norm} Complex numbers have a real and imaginary part. Likewise, (split)-quaternions have a similar notion: a \emph{scalar} (or real) and \emph{vector} (or imaginary) components. For an arbitrary split-quaternion $a \in \spquaternions$, \cite{Jafari2014}
 $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
-the real part is $\scapart{h} = a_0$ and the vector part is $ \vecpart{a} = \quatvec{a_1}{a_2}{a_3}$. For convenience, the vector part will be referred to in traditional bold vector notation:
+the real part is $\scapart{a} = a_0$ and the vector part is $ \vecpart{a} = \quatvec{a_1}{a_2}{a_3}$. For convenience, the vector part will be referred to in traditional bold vector notation:
 $$ \vec{a} \equiv \vecpart{a} \equiv \quatvec{a_1}{a_2}{a_3}. $$
 
 Furthermore, for every split-quaternion there is a unique \emph{conjugate}
@@ -91,6 +91,33 @@ Observe that $ \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}(\vec{a}) < 0$; that is
     \end{tabular}
 \end{table}
 %As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). 
+
+In the remainder of this chapter, the split-quaternion properties that are defined above are used profusely. \Cref{tab:spquat_properties} provides an overview of these properties and their definition. 
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[ht]
+    \centering
+    \caption{Overview of the split-quaternion properties that are often used in this chapter.}
+    \label{tab:spquat_properties}
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Terminology} & \textbf{Notation} & \textbf{Value / definition} \\
+        \midrule
+        Split-quaternion & $a$ & $a_0 + a_1\quati + a_2\quatj + a_3\quatk$ \\
+        Conjugate split-quaternion & $\conj{a}$ & $a_0 - a_1\quati - a_2\quatj - a_3\quatk$\\
+        \midrule
+        Squared norm & $\mathscr{N}(a)$ & $a\conj{a} = a_0^2 + a_1^2 - a_2^2 - a_3^2$ \\
+        Norm & $\norm{a}$ & $\sqrt{\abs{\mathscr{N}(a)}}$ \\
+        \midrule
+        Scalar part & $\scapart{a}$ & $a_0$ \\
+        Vector part & $\vecpart{a} = \vec{a}$ & $a_1\quati + a_2\quatj + a_3\quatk$ \\
+        \midrule
+        Squared vector norm & $\mathscr{N}(\vec{a})$ & $ \vec{a}\conj{\vec{a}} = a_1^2 - a_2^2 - a_3^2 $ \\
+        Vector norm & $\norm{\vec{a}}$ & $\sqrt{\abs{\mathscr{N}(\vec{a})}}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
  
 \subsection{Relation with two-dimensional matrix algebra}
 \label{ssec:quat_isomorphism}
@@ -133,6 +160,10 @@ Likewise, the inverse mapping on an arbitrary matrix yields
 \paragraph{Matrix \& split-quaternion properties} 
 One of the powerful features of the mapping $\phi$ is that it maps natural properties of the split-quaternion to natural properties of the associated matrix. Hence, given that $A = \phi(a)$ with $a \in \spquaternions$ and $A \in \real^{2\times2}$, we have the following correspondence: 
 \begin{itemize}
+    \item The \emph{sum of matrices} is equivalent to the \emph{sum of split-quaternion}. If $A = \phi(a)$ and $B = \phi(b)$, then
+        $$ a + b = \phi^(A + B). $$
+    \item The \emph{matrix multiplication} is equivalent to \emph{split-quaternion multiplication}. If $A = \phi(a)$ and $B = \phi(b)$, then
+        $$ ab = \phi^(AB). $$
     \item The \emph{conjugate} of the split-quaternion maps to the \emph{adjugate} of the matrix:\footnote
         {The adjugate of a matrix is the transpose of its cofactor matrix. \cite{Verhaegen2007}}
         $$ \phi(\conj{a}) = \adjugate(A). $$
@@ -171,6 +202,54 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
         \end{equation}
         Hence, the `real' (scalar) and the magnitude of the `imaginary' (vector) parts of the quaternion coincide with the real and imaginary part of the eigenvalues of the matrix.
 \end{itemize}
+
+%\renewcommand{\arraystretch}{1.4}
+%\begin{table}
+%    \centering
+%    \caption{Overview of the correspondence between the algebra of split-quaternions and the algebra of $2\times2$ matrices. In the bottom table, we assume that $A = \phi(a)$.}
+%    \label{tab:basis_elements}
+%    \begin{tabular}{lcccc}
+%        \toprule
+%            & & & & \\[-0.3cm]
+%            \textbf{Split-quaternion basis} &
+%            $1$ &      
+%            $\quati$ & 
+%            $\quatj$ & 
+%            $\quatk$ \\[0.2cm] 
+%            %\midrule
+%            & & & & \\[-0.3cm]
+%            \textbf{Matrix basis} &
+%            $\mqty(1 & 0 \\ 0 & 1)$ &
+%            $\mqty(0 & 1 \\ -1 & 0)$&
+%            $\mqty(0 & 1 \\ 1 & 0)$ &
+%            $\mqty(1 & 0 \\ 0 & -1)$ \\[0.45cm]
+%        \bottomrule
+%    \end{tabular}
+%    \vspace{1cm}
+%\end{table}
+    
+\renewcommand{\arraystretch}{1.3}
+\begin{table}
+    \centering
+    \caption{Overview of the correspondence between the algebra of split-quaternions and the algebra of $2\times2$ matrices, given that $A = \phi(a)$ and $B = \phi(b)$. In the top section we compare matrices to split-quaternions, i.e. which means that they are related by the isomorphism $\phi$. The bottom section compares scalar properties: these are numerically equal.}
+    \label{tab:spquat_matrices}
+    \begin{tabular}{lc|cr}
+    \toprule
+        \multicolumn{2}{c}{\textbf{Matrix}} & \multicolumn{2}{c}{\textbf{Split-quaternion}} \\
+    \midrule
+        Sum      & $ A + B $      & $ a + b$ & Sum \\
+        Matrix product  & $ AB $  & $ ab$ & Split-quaternion product \\
+        Inverse  & $A^{-1}$       & $a^{-1}$ & Inverse \\
+        Adjugate & $\adjugate(A)$ & $\conj{a}$ & Conjugate \\
+        \midrule
+        Determinant & $\det(A)$ & $\mathscr{N}(a)$ & Squared norm \\
+        Trace       & $\trace(A)$ & $\scapart{a} = a_0$ & Real / scalar part \\
+        Eigenvalues \hspace{1.5cm} & $\lambda_{A} $ & $ a_0 + \vec{a}\ii $ & Scalar part \& vector norm \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+%\renewcommand{\arraystretch}{1}
 
 \paragraph{Lie groups and algebras} 
 The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) also consitute the Lie algebra $\glalg{2}{\real}$ of the two-dimensional general linear group $\glgroup{2}{\real}$. Furthermore, the traceless matrices, or equivalently, the split-quaternions with zero real part form the subalgebra $\slalg{2}{\real}$ of the special linear group $\slgroup{2}{\real}$. These are the volume-preserving automorphisms on $\real^2$. Because in $\real^2$, volume and area coincide, the special linear group and the symplectic group $\spgroup{1}$ are equivalent. For higher dimensions, this is not the case: area preservation is generally a stronger condition than volume preservation. The Lie algebra elements of the symplectic group are called Hamiltonian matrices; therefore, split-quaternions without real part are referred to as \emph{Hamiltonian}.
@@ -231,19 +310,44 @@ The classification of two-dimensional linear dynamical systems is important, for
 \subsubsection*{Timelike split-quaternion norm}
     \begin{itemize}
         \item[\circled{4}] \emph{Spacelike vector norm}: this case gives rise to eigenvalues that are purely real; the fixed point is called a \emph{node}. Depending on the sign of the scalar part, the fixed point can be an unstable node or \emph{source} ($a_0 > 0$) or a stable node or \emph{sink} ($a_0 < 0$). An example of such a system is the overdamped harmonic oscillator.
-        \item[\circled{5}] \emph{Lightlike vector norm}: the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator. 
-
-        We can also relate the vector norm to the Jordan form of the associated matrix. Recall that the Jordan form is `special' if a matrix is not completely diagonalizable: in the case of two identical eigenvalues, their geometric multiplicity is equal to one instead of two. In terms of the corresponding matrix, the vector norm is equal to: 
-            $$ \mathscr{N}(\vec{a}) = \det(A - \frac{\trace(A)}{2}) $$
-        when two eigenvalues are identical, $\trace(A) = 2\lambda$, the above expression vanishes and the split-quaternion has a lightlike vector. If the matrix is nevertheless diagonalizable, it must be a scalar multiple of the identity. The corresponding split-quaternion is then purely real --- it has no vector part (of course, the vector is then lightlike in a trivial sense). The associate fixed point is then a \emph{proper node}. Conversely, if the vector norm is zero but the vector part not, the matrix is not diagonalizable, and the fixed point is an \emph{improper node}.
-        \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Likewise, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
+        \item[\circled{5}] \emph{Lightlike vector norm}: In this case, the two eigenvalues are equal to each other. This can be seen from the expression of the vector norm in terms of the matrix properties: 
+            $$ \mathscr{N}(\vec{a}) = \mathscr{N}(a - a_0) = \det(A - \frac{\trace(A)}{2}I). $$
+        When the two eigenvalues are identical, $\trace(A) = 2\lambda$, the above expression necessarily vanishes and the split-quaternion therefore has a lightlike vector part. There are then two subcategories to be distinguished, depending on whether the matrix is diagonalizable or not:
+        \begin{itemize}
+            \item If the matrix is diagonalizable, it \emph{must} be a scalar multiple of the identity \cite{Edwards2018}. This is because the rank of the matrix $ A - \lambda I$ must be equal to 0 for the eigenspace to be two-dimensional. The corresponding split-quaternion is then \emph{purely real}; i.e. $a = \lambda$. Because it has no vector part, the vector is then lightlike in the most trivial fashion. The associate fixed point is then a \emph{star}, which can either be stable or unstable depending on the sign of the real part (this particular case is not shown in \cref{fig:poincare_diagram}). 
+            \item Conversely, if the vector norm is zero but the vector part not, the matrix is not diagonalizable for the reason mentioned above: the null space of $ A - \lambda I$ is one-dimensional, and can therefore not be spanned by two independent eigenvectors. The fixed point is an \emph{improper node}, which is again stable or unstable depending on the sign of the real part.
+            %the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case ($a_0 > 0$) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator. 
+        \end{itemize}
+        An example of this type of system is the critically damped harmonic oscillator.
+        \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of $A$ are complex. If $a_0 = 0$, the eigenvalues are imaginary and the fixed point is a \emph{center}. Again, for $a_0 > 0$ it is an \emph{unstable spiral node} and for $a_0 < 0$ a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
     \end{itemize}
 
 It is clear from the present discussion that the split-quaternions offer a very natural representation of linear dynamical sytems, and their natural properties translate directly to the classificaion of the qualitative behavior of these systems. 
 
+\begin{table}[ht]
+    \centering
+    \caption{Overview of the classification of fixed points based on the regime of the associated split-quaternion and its vector part.}
+    \label{tab:system_classification}
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{\#} & $\mathscr{N}(a)$ & $\mathscr{N}(\vec{a})$ & \textbf{Fixed point} \\
+        \midrule
+            \circled{1} & \emph{spacelike} & \emph{spacelike} & Saddle\\ 
+            \midrule
+            \circled{2} & \emph{lightlike} & \emph{spacelike} & Line \\ 
+            \circled{3} & \emph{lightlike} & \emph{lightlike} & Uniform motion \\ 
+            \midrule
+            \circled{4} & \emph{timelike} &  \emph{spacelike}  & Source / sink \\ 
+            \circled{5} & \emph{timelike} &  \emph{lightlike}  & Degenerate node \\ 
+            \circled{6} & \emph{timelike} &  \emph{timelike}   & Spiral node / center \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 \subsection{The exponential function of split-quaternions}
 Just like the concept of the exponential function was originally generalized for square matrices, we can do the same for split-quaternions in an analogous manner. As such, the \emph{split-quaternion exponential function} is defined as
-$$ \exp(a) \equiv \sum_{k=0}^\infty \frac{1}{k!} a^k \qquad a \in \spquaternions.  $$
+$$ \exp(a) \equiv \sum_{k=0}^\infty \frac{a^k}{k!} \qquad a \in \spquaternions.  $$
 Because this definition is identical to the one for matrices, we may, as a result of the isomorphism defined in \cref{ssec:quat_isomorphism}, also expect the exact same result; i.e.
 $$ \exp(a) = \phi^{-1}(\exp(\phi(a))) $$
 where the second exponential function refers to the matrix exponential instead.
@@ -298,7 +402,7 @@ sheds some additional light on the behavior of the eigenvalues of the associated
 Let us now return to the exponential function. We can manipulate the definition of $\exp(a)$ as follows:
 \begin{equation*}
     \begin{split}
-        \exp(a) &= \ec^{a_0}\;\qty(\sum_{k=0}^\infty \frac{1}{k!} \vec{a}^k) \\
+        \exp(a) &= \ec^{a_0}\;\qty(\sum_{k=0}^\infty \frac{\vec{a}^k}{k!} ) \\
                 &= \ec^{a_0}\;\qty[\sum_{k=0}^\infty \frac{\qty(\vec{a}^2)^k}{(2k)!}  + \sum_{k=0}^\infty \frac{\vec{a}\qty(\vec{a}^2)^k}{(2k+1)!}]. \\
     \end{split}
 \end{equation*}

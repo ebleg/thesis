@@ -1,42 +1,19 @@
 \section{Application to mechanical systems}
 \label{sec:mechanical}
-We will now proceed by using a mechanical `prototype' example for our mechanical system: the harmonic oscillator with \emph{two} dampers: one in series and one in parallel, as discussed in \cref{ssec:serial_damping}. We consider a system with two dampers because the corresponding state transition matrix is completely `filled': as such, this system can represent all the possible two-dimensional systems discussed in the previous section. %Furthermore, the two dampers have a very distinctive interpretation within the field of economic engineering.
+We will now proceed by using a mechanical `prototype' example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as already discussed in \cref{ssec:serial_damping}. The reason for this is twofold: first, it helps to establish the connction between this chapter and \cref{chap:geometric_structures}, and secondly, it allows us to gain a physical intuition behind the split-quaternion representation. 
+
+In particular, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper `fills' the one entry that would otherwise remain zero in the state transition matrix in case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
 
 \subsection{Equations of motion}
-The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}. 
-%The equations of motion can be readily derived:
-%\begin{equation}
-%    \begin{split}
-%        m\ddot{q}_1 &= -kq - b_p \dot{q}_1 \\
-%        kq &= b_s(\dot{q}_1 - \dot{q}) \\
-%    \end{split}
-%\end{equation}
-%Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection $q$ and the position of the mass $q_1$. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is 2. In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass. Hence, let $p = m\dot{q}_1$ --- but $\dot{q} \neq p/m$ in general. 
-The equations of motion of the harmonic oscillator with parallel and serial damping are given in \cref{eq:serial_eom_raw}. In matrix form, we have:
+The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, and its equations of motion are given by \cref{eq:serial_eom_raw}. In matrix form, the equations of motion are:
 \begin{equation*}
-    \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p),
+    \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p).
 \end{equation*}
-or, using the parameters defined in \cref{tab:ddho_params}:
+Alternatively, using the $\gamma_p = b_p/m$, $\gamma_s = k/b_s$, and $\Omega_n = \sqrt{k/m}$, we have the following:
 \begin{equation}
     \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & \frac{1}{m} \\ -m\Omega_n^2 & - \gamma_p)}_A \mqty(q \\ p).
     \label{eq:ddho_eom}
 \end{equation}
-%The nontrivial relation between momentum and the $\dot{q}$ also precludes us from casting this system directly to the Lagrangian formalism, because the vector field is not second-order. A second-order vector field implies that the `velocities' really are the time derivatives of the `positions', (cf. \cref{app:symplectic_geometry} for a more formal discussion).
-%\begin{table}[ht!]
-%    \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
-%    \label{tab:ddho_params}
-%    \centering
-%    \begin{tabular}{llll}
-%        \toprule
-%        \textbf{Name} & \textbf{Symbol} & \textbf{Value} & \textbf{Units} \\
-%        \midrule
-%            Serial damping coefficient & $\gamma_s$ & $k/b_s$ & \si{\per \second} \\
-%            Parallel damping coefficient & $\gamma_p$ & $b_p/m$ & \si{\per \second} \\
-%            Natural frequency & $\Omega_n$ & $\sqrt{k/m}$ & \si{\per \second} \\
-%            Damped frequency & $\Omega_d$ &  & \si{\per \second} \\
-%        \bottomrule
-%    \end{tabular}
-%\end{table}
 
 The split-quaternion associated with the $A$-matrix of the doubly damped system can easily be found using the mapping defined by \cref{eq:inv_quat_isom}. We must, however, be careful when dealing with physical systems, because the entries of the $A$-matrix are not dimensionless. In a vector space, we associate the units with the basis vectors, not with the components. For example, in a two-dimensional vector space spanned by a axis for apples and and an axis for pears, and we wish to represent that someone possesses three apples and four pairs, the \emph{components} of that vector are $(3, 4)$, and the \emph{unit vectors} are $(1 \text{ apple}, 1\text{ pear})$. Along the same line, we must define the units in the $A$-matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and $m_0, t_0$. The basis elements are then mapped in terms of these reference quantities:
 $$ 
@@ -50,6 +27,7 @@ where, in case we would use SI units, $m_0 = \SI{1}{\kilogram}$ and $t_0 = \SI{1
     a\:=\: -\frac{1}{2}\qty(t_0\gamma_s + t_0\gamma_p)\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quati\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quatj\:+\:\frac{1}{2}\qty(t_0\gamma_p - t_0\gamma_s)\quatk. 
     \label{eq:ddho_quat_units}
 \end{equation}
+
 Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaterions back to the realm of the matrices. 
 
 The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that $\gamma_s$ and $\gamma_p$ have the same units, whereas $\tfrac{1}{m}$ and $\Omega_n^2$ do not. So, in which sense can the $\quati$ and $\quatj$-components be of any signficance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
@@ -60,7 +38,7 @@ A geometric explanation is that the eigenvectors of the identity matrix and the 
 $$ p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q, $$
 such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This would essentially resolve this `unit problem', because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
 
-In contrast to common practice in physics, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group $(\real^*)^2$ that contains the changes of units. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(N)$) produces a split-quaternion with zero $\quatj$-component. 
+In contrast the common practice of rescaling the units, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group $(\real^*)^2$. Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix $N$ to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of $n^{-1} a n$ (where $n = \phi^{-1}(N)$) produces a split-quaternion with zero $\quatj$-component. 
 
 As a final argument, we can say that the `rescaling of the axes', while common in physics and mathematically allowed, is of little use for engineers, since they tend to stick to SI units in the first place. The `scale of the axes' is therefore a physical reality. This is why we choose not to discard the $\quatj$-component through a rescaling.
 
@@ -69,18 +47,43 @@ To conclude, it is not so much the case that unit transformations are not allowe
     a\:=\: -\tfrac{1}{2}\qty(\gamma_s + \gamma_p)\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} + m\Omega_n^2)\quati\:+\:\tfrac{1}{2}\qty(\tfrac{1}{m} - m\Omega_n^2)\quatj\:+\:\tfrac{1}{2}\qty(\gamma_p - \gamma_s)\quatk. 
     \label{eq:ddho_quat}
 \end{equation}
-This requires the implicit understanding that all the components are dimensionless, and that we are not just adding apples and pears. 
+Leaving out the reference quantities requires the silent understanding that all the components are dimensionless, and that we are not just adding apples and pears. 
 
-\subsection{Geometry of the solution trajectories}
+In the next section, we investigate the influence that of each of the split-quaternion components has on the physical behavior of the mechanical system.
+
+\subsection{The physical significance of the split-quaternion representation}
 As mentioned previously, the qualitative regime of the dynamical system can be deduced from the sign of its split-quaternion and vector norm. In the particular case of the harmonic oscillator with two dampers, we assume that the damping coefficients $\gamma_s, \gamma_p$ are either positive or zero and that mass $m$ and the spring constant $k$ are both strictly positive. The norm of the split-quaternion given in \cref{eq:ddho_quat} is
 $$ \mathscr{N}(a) = m \Omega_n^2 + \gamma_p \gamma_s.$$
-From this expression we find that, given the assumptions, the norm of $a$ is always positive, and that we are therefore always dealing with a timelike split-quaternion.
+From this expression we find that, given the assumptions, the norm of $a$ is always positive, and that we are therefore always dealing with a timelike split-quaternion. 
 
-\paragraph{Real part} The real part of $a$ directly coincides with the real part of the eigenvalues of the matrix $A$ (cf. \cref{eq:quat_eigvals}). As can be observed from \cref{eq:system_solution}, the real part $a_0$ appears in the system solution as part of the argument of the exponential that envelopes the inner part of the solution, but not influencing it in any other fashion. This is a consequence of the fact that the vector fields proportional to $X_1$ commute with all the other vector fields. In the context of the mechanical system, this means that one can first apply all the rotations to the system, and then all the damping to end up with the same solution. This is not the case for the other basis vector fields. As a result, it makes sense to look at the real part and the vector part separately, for they act `in parallel' on the system.
+\subsubsection{Real part of the split-quaternion} 
+The real part of the split-quaternion representation of the harmonic oscillator with two dampers is (cf. \cref{eq:ddho_quat}),
+$$ a_0 = -\tfrac{1}{2}(\gamma_s + \gamma_p). $$
+This real part therefore to the combined effect represents the combined effect of both the dampers.
 
-In the context of the mechanical system, the real part $a_0 = \gamma_s + \gamma_p$ represents the combined effect of the two dampers or \emph{net dissipation}. Recall that the other three basis vector fields $X_\quati$, $X_\quatj$ and $X_\quatk$ are Hamiltonian and therefore conserve the energy in the system. As such, removing this effect from the system is the same as removing the overall effect of dissipation, which results the conservative version of the original system. This is not to say that there is no influence of the dampers whatsoever: the $\quatk$-component measures the imbalance between the two dampers, which results in a phase shift in the system.
+%The real part of the split-quaternion representation of a matrix $A$ coincides with the real part of the eigenvalues $A$. 
+As can be observed from \cref{eq:system_solution}, the real part $a_0$ appears in the system solution as part of the argument of the exponential that envelopes the inner part of the solution, but it does not influence it in any other fashion. This is a consequence of the fact that the vector fields proportional to $X_1$ commute with all the other vector fields, as discussed in \cref{ssec:vf_algebra}. 
 
-\paragraph{Vector norm} The vector part of $a$ is three-dimensional. It lives in a three-dimensional vector space with a Lorentzian norm (denoted by $\real^{1, 2}$), in the form of the vector norm. For the mechanical system, the vector norm is equal to 
+In the context of the mechanical system, this `commuting of vector fields' means that the overall transformation of the state-space that is generated by the vector field can be seen as the composition of two separate transformations. The first is a purely exponential contraction of the phase space (assuming $\gamma_s, \gamma_p > 0$), which is the overall effect of the dampers. Secondly, we have the remaining transformation that is generated by the combined effect of the vector part $\vec{a}$. The latter cannot be decomposed into separate $\quati$, $\quatj$ and $\quatk$ \emph{transformations}, because the vector fields that generate them do not commute.
+
+Because the transformations generated by the vector part of $a$ are conservative (in contrast to the exponential contraction), this decomposition of the transformations is the amounts to separating the dissipative and conservative effects in present in the mechanical system. That is to say, we decompose the system solution into two parts:
+$$ \exp(a t) = \underbrace{\exp(a_0 t)}_{\text{\tiny dissipative}} \: \underbrace{\exp(\vec{a} t)}_{\text{\tiny conservative}}. $$
+
+From the above expression, it can be seen that the dissipative component of the solution is rather simple: it is simply a contraction by $\ec^{a_0t } = \ec^{-(\gamma_s + \gamma_p)t}$. This is why we will now focus exclusively on the nature of the second transformation, being the conservative part. From the split-quaternion point of view, this means that we assume that the real part vanishes, and only take the vector part into account.
+
+\subsubsection{Vector part of the split-quaternion} 
+The vector part of $a$ has three components:
+\begin{itemize}
+    \item \quati what does it
+    \item \quatj what does it
+    \item \quatk what does it
+\end{itemize}
+
+\paragraph{Vector norm}
+[Now go on with vector norm]
+discuss regime and damping ratio
+
+For the mechanical system, the vector norm is equal to 
 $$ \mathscr{N}(\vec{a}) = m\Omega^2 - \tfrac{1}{4}\gamma_s - \tfrac{1}{4}\gamma_p + \tfrac{1}{2}\gamma_s \gamma_p. $$
 The vector norm is equal the square of the `imaginary part' of the eigenvalues of $A$. In the context of the damped harmonic oscillator, this imaginary part is often referred to as the \emph{damped frequency} $\Omega_d$. 
 
@@ -91,7 +94,10 @@ As mentioned in \cref{sec:system_classification}, the sign of the vector norm de
     \item if $\mathscr{N}(\vec{a}) < 0$ (spacelike vector), the system is overdamped.
 \end{itemize}
 
-\paragraph{Normalized vector} We now wish to dissect the structure of the two-dimensional system even further by removing influence the vector norm as well, looking at the \emph{normalized} vector part. Since this removes precisely the information contained in the eigenvalues of the system, we expect to end up with the split-quaternion equivalent of the \emph{eigenvectors} of the associated matrix $A$. The real part of the split-quaternion, or the trace of the matrix, does not influence the eigenvectors of the matrix either. This can be observed from the following expression
+\paragraph{The Lorentzian 3-space}
+
+\paragraph{The normalized vector norm}
+We now wish to dissect the structure of the two-dimensional system even further by removing influence the vector norm as well, looking at the \emph{normalized} vector part. Since this removes precisely the information contained in the eigenvalues of the system, we expect to end up with the split-quaternion equivalent of the \emph{eigenvectors} of the associated matrix $A$. The real part of the split-quaternion, or the trace of the matrix, does not influence the eigenvectors of the matrix either. This can be observed from the following expression
 $$ (A - \lambda I)\vec{v} = \qty[(A + s I) - ((s + \lambda) I) \gamma I)]\vec{v}, $$
 i.e. adding any scalar multiple of the identity to the matrix adds this scalar to the value of all the eigenvalues, and leaves the eigenvectors unaltered.
 
@@ -331,7 +337,6 @@ Using the Lagrange formula, the above expression becomes
     The latter is the scalar multiple of the vector $\vec{e}_2 + \vec{e}_3$ by $-\ii$ - hence, this is indeed an eigenvector of the corresponding matrix.
 \end{proof}
 Because $\vec{e}_2$ and $\vec{e}_3$ are also orthogonal in the normal sense, they are aligned with the major axes of the elliptic trajectories generated by the cross product. Hence, they can be used to find a basis of the invariant subspace which makes the trajectories identical to those in the phase plane.
-
 
 \subsection{Overdamped and critically damped systems}
 
