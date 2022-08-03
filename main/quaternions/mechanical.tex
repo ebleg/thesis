@@ -140,7 +140,7 @@ $$ \Omega_d = \norm{\vec{a}} = \sqrt{m\Omega^2 - \tfrac{1}{4}\gamma_s - \tfrac{1
 We will now investigate the relation between the normalized vector part and the shape of the solution trajectories in each of the three cases (underdamped, critically damped and overdamped) in more detail.
 
 \subsubsection{Underdamped systems}
-For underdamped systems, the trajectories are spiral-shaped. Removing the real part is the same as removing the `contraction' in the spiral: as a result, the conservative version of this trajectory is an elliptic trajectory. This ellipse is subject to the same stretch and tilt of the original spiral, as illustrated by \cref{fig:underdamped}. 
+For underdamped systems, the trajectories are spiral-shaped. Removing the real part from the split-quaternion is the same as removing the `contraction' in the spiral: as a result, the conservative version of this trajectory is an elliptic trajectory. This ellipse is subject to the same stretch and tilt of the original spiral, as illustrated by \cref{fig:underdamped}. 
 
 The shape of the ellipse is completely determined by a measure of its eccentricity and a rotation angle (i.e. the angle between its major axis and the horizontal axis). The radius of the trajectory depends on the amount of energy present in the system and is therefore not a shape factor that is specific to the system.
 
@@ -151,7 +151,7 @@ The shape of the ellipse is completely determined by a measure of its eccentrici
     \label{fig:underdamped}
 \end{figure}
 
-Every point on the two-sheet hyperboloid represents a specific elliptical trajectory with a certain rotation angle and eccentricity. Any point on the two-sheet unit hyperboloid is most conveniently expressed in \emph{pseudospherical coordinates}: a rotation angle $\sigma$ and a hyperbolic angle $\tau$ \cite{Balazs1986}. In special relativity, the hyperbolic angle is typically called a \emph{boost}. For an arbitrary timelike unit vector part of a split-quaternion 
+Every point on the two-sheet hyperboloid represents a specific elliptical trajectory with a certain rotation angle and eccentricity. Any point on the two-sheet unit hyperboloid is most conveniently expressed in \emph{pseudospherical coordinates}: a Euclidean rotation angle $\sigma$ around the $\quati$-axis and a hyperbolic angle $\tau$ \cite{Balazs1986}. In special relativity, the hyperbolic angle is typically called a \emph{boost}. For an arbitrary timelike unit vector part of a split-quaternion 
 $$ \uvec{a} = \frac{a_1}{\norm{\vec{a}}}\quati + \frac{a_2}{\norm{\vec{a}}}\quatj + \frac{a_3}{\norm{\vec{a}}}\quatk, $$
 these angles are defined by the following relations:
 $$ a_1 = \norm{\vec{a}}\cosh(\tau) \qquad a_2 = \norm{\vec{a}}\sinh(\tau) \cos(\sigma) \qquad a_3 = \norm{\vec{a}}\sinh(\tau) \sin(\sigma). $$
@@ -184,20 +184,53 @@ Because we are not interested in the specific radius of the ellipse, we may mult
 \end{equation}
 which is the implicit equation for an ellipse in case $S^2 - 4RT < 0$ \cite{Rapp1991}. Substitution shows that this condition is equivalent to $\vec{a}$ being timelike.
 
-\paragraph{Eccentricity} The eccentricity of the ellipse given by \cref{eq:ellipse_equation} is equal to \cite{Rapp1991}
+\paragraph{Eccentricity} The eccentricity of the ellipse described by \cref{eq:ellipse_equation} in terms of the parameters $R, S, T$ can be shown to be \cite{Rapp1991}
 \begin{equation}
-    \begin{split}
-        e &= \sqrt{\frac{2\sqrt{(R - T)^2 + S^2}}{(R + T) + \sqrt{(R - T)^2 + S^2}}} \\
-          &= \sqrt{\frac{2\sqrt{q_2^2 + q_3^2}}{q_1 + \sqrt{q_2^2 + q_3^2}}}. \\
-    \end{split}
+    e = \sqrt{\frac{2\sqrt{(R - T)^2 + S^2}}{(R + T) + \sqrt{(R - T)^2 + S^2}}}.
     \label{eq:eccentricity}
 \end{equation}
-Using the relations stated in \cref{eq:hyperb_coordinate_relations}, this expression can be written in terms of the pseudospherical coordinates:
-$$ e = \sqrt{\frac{2\sinh{\tau}}{\cosh{\tau} + \sinh{\tau}}}. $$
+Since we have that $R - T = -2a_2$, $R + T = 2a_1$ and $S = 2a_3$, the eccentricity may be expressed as a function of the components of the split-quaternion as well:
+\begin{equation}
+    e = \sqrt{\frac{2\sqrt{a_2^2 + a_3^2}}{q_1 + \sqrt{a_2^2 + a_3^2}}}.
+\end{equation}
+Finally, using the relations stated in \cref{eq:hyperb_coordinate_relations}, this expression can be written in terms of the pseudospherical coordinates:
+\begin{equation}
+    e = \sqrt{\frac{2\sinh(\tau)}{\cosh(\tau) + \sinh(\tau)}}. 
+\end{equation}
+% Hence, we can observe that the eccentricity of the hyperbolic system trajectory is completely determined by the hyperbolic angle $\tau$, and not influenced by $\sigma$ at all.
 
-\paragraph{Tilt} Tilt blabla
+\paragraph{Tilt angle} The tilt angle $\theta$ of the ellipse is defined as the angle between the positive horizontal ($q$)-axis and the major axis of the ellipse. Just like the eccentricity, we start from the general expression in terms of the parameters $R, T, S$:
+\begin{equation}
+    \tan(\theta) = \frac{T - R - \sqrt{(R - T)^2 + S^2}}{S}.
+\end{equation}
+Again, substituting the split-quaternion components, we have
+\begin{equation}
+    \tan(\theta) = \frac{a_2 - \sqrt{a_2^2 + a_3^2}}{a_3}.
+    \label{eq:tilt_angle}
+\end{equation}
+Rather unsurprisingly, the $\quati$-component does not play a role in the tilt angle of the trajectory: from \cref{fig:basis_vf}, we can see that the associated vector field $X_\quati$ is indeed rotationally symmetric, in contrast to $X_\quatj$ or $X_\quatk$.
+
+Again, \cref{eq:tilt_angle} may be expressed in terms of the pseudospherical coordinates (cf. \cref{eq:hyperb_coordinate_relations}):
+$$ \tan(\theta) = \frac{\cos(\sigma) - 1}{\sin(\sigma)} = -\tan(\frac{\sigma}{2}).$$
+Hence, we obtain that the angle 
+$$\theta = -\frac{\sigma}{2}$$.
+
+\paragraph{Orientation} Since the two-sheet hyperboloid consists of two disconnected surfaces, this begs the question what the significance is of either of those surfaces. The hyperboloids are directed along the $\quati$-axis. Therefore, sign of the $\quati$-component of $\vec{a}$ determines on which hyperboloid the vector is located. Physically, the sign of the $\quati$-component determines whether the `rotational' vector field has a clockwise or counterclockwise rotation. By default, $X_\quati$ is an infinitesimal clockwise rotation (cf. \cref{fig:basis_vf}): as a result, if $a_0$ is positive the rotation is clockwise and vice versa.
+
+The obtained relations show that the pseudospherical coordinates $\sigma, \tau$ are directly related to the tilt angle and the eccentricity respectively of the elliptic trajectories. We will now investigate the role of these coordinates in two common projections of the two-sheet hyperboloid, being the \emph{Poincaré model} and the \emph{Cayley-Klein} model.
 
 \paragraph{Alternative models of the two-sheet hyperboloid}
+The positive sheet of the hyperboloid model embedded in the Lorentzian 3-space is commonly used as a model for the hyperbolic plane. The hyperbolic plane is a plane that has a constant negative Gaussian curvature everywhere. The hyperbolic plane exhibits what is called \emph{hyperbolic geometry}, which is the geometry associated with negative curvature, as opposed to \emph{Euclidean geometry} (no curvature) and \emph{spherical geometry} (positive curvature). 
+
+In contrast to the Euclidean plane and the sphere (which exhibits spherical geometry), the hyperbolic plane cannot be isometrically embedded in three-dimensional space; this is formalized in Hilbert's theorem on differential geometry \cite{Thurston1997}. This is why mathematicians must resort to so-called \emph{models} of the hyperbolic plane. Many are in existence, for example the hyperboloid model, the Poincaré disk, the Cayley-Klein disk, and the Poincaré half-plane. The former three will be of our interest in this treatment. For more information concerning hyperbolic geometry, the reader is referred to \citet{Needham1997,Needham2021} and \citet{Thurston1997}.
+
+The \emph{hyperboloid model} consists simply of the positive sheet of the two-sheet hyperboloid, embedded in the Lorentzian 3-space. In this space, this sheet of the hyperboloid has a constant negative Gaussian curvature equal to -1 \cite{Balazs1986}. Because of this constant negative curvature, the positive sheet of the two-sheet hyperboloid can serve as a model for the hyperbolic plane (it is a model because it is not embedded in Euclidean space). 
+
+Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperboloid surface to a disk with unit radius in a prescribed fashion.
+
+The \emph{Poincaré disk} is the result of 
+
+
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/hyperboloid_projection}
