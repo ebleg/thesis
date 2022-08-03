@@ -229,7 +229,7 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
 The reason why the equation for $U$ is always correct is because we force the vector field to be annihilate the dissipation form $\alpha$; as such, any work done by the dampers must constitute to the change in $U$. Because the Hamiltonian is equal to zero, there are no other contributions to $\dot{U}$. 
 
 Observe from \cref{eq:mdof_eom_complete} that the rate of change of $U$ can be written in terms of the \emph{Rayleigh dissipation matrix}:
-$$ \dot{U} = \mqty(\sfrac{p_1}{m_1} & \sfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\sfrac{p_1}{m_1} \\ \sfrac{p_2}{m_2}).$$
+$$ \dot{U} = \mqty(\tfrac{p_1}{m_1} & \tfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\tfrac{p_1}{m_1} \\ \tfrac{p_2}{m_2}).$$
 It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on $\beta$, apart from the fact that it does not depends on $U$. Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
 
 \subsection{Nonautonomous systems}
