@@ -78,28 +78,37 @@ The vector part of $a$ has three components. Based on the associated basis vecto
     \item The \quatj-component of the split-quaternion is a hyperbolic (saddle) vector field, its solution trajectories are hyperbolae whose asymptotes are the diagonals of the phase plane. For the mechanical system, this component is equal to $\tfrac{1}{2}\qty(\tfrac{1}{m} - m\Omega_n^2)$: it measures the imbalance between the two terms that constitute the rotation. As a result, the combination of the $\quati$ and $\quatj$-components is an ellipse that is stretched or squeezed along its primary axes, but \emph{not} rotated. The undamped harmonic oscillator is of this type.
     \item Finally, the \quatk-component is also a hyperbolic (saddle) vector field whose asymptotes are the horizontal and vertical axis. For the mechanical system, the $\quatk$-component is equal to the \emph{imbalance between the two dampers}, i.e. $\frac{1}{2}\qty(\gamma_p - \gamma_s)$. It also gives rise to a stretch and squeeze of the trajectory, but now along the diagonals of the phase plane. Therefore, it results in a \emph{phase shift} or `wobble' in the trajectory.
 \end{itemize}
+The influence of the vector components on the shape of the solution trajectories is visualized in \cref{fig:vector_components}.
 
 \begin{figure}[ht]
     \centering
     \input{media/tikz/vector_components}
-    \caption{Blabla}
+    \caption{Comparison between the influence of the $\quatj$-component (left) and $\quatk$-component on the integral curves of $X_\quati$. The $\quatj$ component stretches the elliptic trajectory along the horizontal axis and squeezes it by the same amount in the vertical direction, while the $\quatk$ component does the same but along axes that are rotated by 45 degrees. As shown by the figures, this is a consequence of the constructive or destructive interference of those vector fields in these particular directions.}
     \label{fig:vector_components}
 \end{figure}
 
 \paragraph{Vector norm}
-[Now go on with vector norm]
-discuss regime and damping ratio
-
-For the mechanical system, the vector norm is equal to 
+As mentioned before, the vector norm of a split-quaternion is equal to the imaginary part of the eigenvalues of the associated matrix. For the harmonic oscillator with two dampers the squared vector norm is equal to 
 $$ \mathscr{N}(\vec{a}) = m\Omega^2 - \tfrac{1}{4}\gamma_s - \tfrac{1}{4}\gamma_p + \tfrac{1}{2}\gamma_s \gamma_p. $$
-The vector norm is equal the square of the `imaginary part' of the eigenvalues of $A$. In the context of the damped harmonic oscillator, this imaginary part is often referred to as the \emph{damped frequency} $\Omega_d$. 
-
-As mentioned in \cref{sec:system_classification}, the sign of the vector norm determines the regime of the mechanical system:
+Provided that the full system exhibits dissipation, i.e. ($\gamma_s + \gamma_p > 0$), the sign of the squared vector norm determines the regime of the mechanical system:
 \begin{itemize}
     \item if $\mathscr{N}(\vec{a}) > 0$ (timelike vector), the system is underdamped (or undamped); 
     \item if $\mathscr{N}(\vec{a}) = 0$ (lightlike vector), the system is critically damped; 
     \item if $\mathscr{N}(\vec{a}) < 0$ (spacelike vector), the system is overdamped.
 \end{itemize}
+This can also be explained in terms of the \emph{damping ratio} $\zeta$ of the system. Recall that the eigenvalues of the matrix associated to the split quaternion are given by
+\begin{equation}
+    \lambda_A = a_0 \pm \norm{\vec{a}}\ii.
+\end{equation}
+The \emph{damping ratio} is defined as
+\begin{equation}
+    \zeta \coloneq \frac{\Re(\lambda_A)}{\abs{\lambda_A}} = \frac{a_0}{\sqrt{a_0^2 + \mathscr{N}(\vec{a})}}.
+\end{equation}
+Hence, if $\mathscr{N}(\vec{a})$ vanishes (provided that the system is indeed damped, so $a_0 \neq 0$), then $\zeta = 1$ and the system is critically damped. Likewise, if $\mathscr{N}(\vec{a}) > 0$, $\zeta < 1$, then the system is underdamped and vice versa.
+
+More generally, one can see that the vector norm measures whether either the `circular' $\quati$-component is dominant, or otherwise the combination of $\quatj$ and $\quatk$. In the former case, the solution trajectory is elliptic, while in the latter case it is hyperbolic ()
+
+We now wish to quantify precisely how the vector components of the split-quaternion representation influence the solution trajectories (with damping removed) by investigating the \emph{eigenvectors} of $A$. We can do this in the split-quaternion representation by removing all the `eigenvalue' information from $a$, by disregarding the real part and looking at the \emph{normalized vector part}, i.e. removing the influence of both the real and imaginary part of the eigenvalues. What remains is the information contained in the eigenvectors of $A$.
 
 \paragraph{The Lorentzian 3-space}
 
