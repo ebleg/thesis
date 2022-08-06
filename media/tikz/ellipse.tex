@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \draw[rotate=30, thick, fill=accent1!40] (0,0) ellipse (3 and 2); 
+    \draw[rotate=30, dotted] (-3, 0) -- (3, 0) node[pos=0.127, circle, fill=black, inner sep= 1pt, label=south:{$F_1$}] (F1) {}
+                             node[pos=0.87, circle, fill=black, inner sep= 1pt, label=south:{$F_2$}] (F2) {}; 
+    \draw[rotate=30, dotted] (0, -2) -- (0, 2); 
+    %\draw[rotate=30, ->] (0, 0) -- (3, 0) node[anchor=south, pos=0.5] {$r_+$}; 
+    %\draw[rotate=30, ->] (0, 0) -- (0, 2) node[anchor=west, pos=0.5] {$r_-$}; 
+    \draw[rotate=30, |<->|, xshift=3.2cm] (0, 0) -- (0, 2) node[anchor=west, pos=0.5] {$r^-$}; 
+    \draw[rotate=30, |<->|, yshift=2.2cm] (0, 0) -- (3, 0) node[anchor=south, pos=0.5] {$r^+$}; 
+    
+    \draw[rotate=30, |<->|] (0, 0.5cm) -- (-2.236cm, 0.5cm) node[anchor=south, pos=0.5] {$e r^+$}; 
+
+    \draw (0, 0) -- (1, 0);
+    \draw[->] (0.8, 0) arc (0:30:0.8) node[pos=0.5, anchor=west] {$\theta$};
+\end{tikzpicture}

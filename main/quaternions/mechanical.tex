@@ -108,63 +108,74 @@ Hence, if $\mathscr{N}(\vec{a})$ vanishes (provided that the system is indeed da
 
 More generally, one can see that the vector norm measures whether either the `circular' $\quati$-component is dominant, or otherwise the combination of $\quatj$ and $\quatk$. In the former case, the solution trajectory is elliptic, while in the latter case it is hyperbolic ()
 
-We now wish to quantify precisely how the vector components of the split-quaternion representation influence the solution trajectories (with damping removed) by investigating the \emph{eigenvectors} of $A$. We can do this in the split-quaternion representation by removing all the `eigenvalue' information from $a$, by disregarding the real part and looking at the \emph{normalized vector part}, i.e. removing the influence of both the real and imaginary part of the eigenvalues. What remains is the information contained in the eigenvectors of $A$.
-
-\paragraph{The Lorentzian 3-space}
-
-\paragraph{The normalized vector norm}
-We now wish to dissect the structure of the two-dimensional system even further by removing influence the vector norm as well, looking at the \emph{normalized} vector part. Since this removes precisely the information contained in the eigenvalues of the system, we expect to end up with the split-quaternion equivalent of the \emph{eigenvectors} of the associated matrix $A$. The real part of the split-quaternion, or the trace of the matrix, does not influence the eigenvectors of the matrix either. This can be observed from the following expression
+We now wish to quantify precisely how the vector components of the split-quaternion representation influence the solution trajectories (with damping removed) by investigating the \emph{eigenvectors} of $A$. We can do this in the split-quaternion representation by removing all the `eigenvalue' information from $a$, by disregarding the real part and looking at the \emph{normalized vector part}, i.e. removing the influence of both the real\footnote
+{
+The real part of the split-quaternion, or the trace of the matrix, does not influence the eigenvectors of the matrix. This can be observed from the following expression
 $$ (A - \lambda I)\vec{v} = \qty[(A + s I) - ((s + \lambda) I) \gamma I)]\vec{v}, $$
 i.e. adding any scalar multiple of the identity to the matrix adds this scalar to the value of all the eigenvalues, and leaves the eigenvectors unaltered.
+}
+and imaginary part of the eigenvalues. What remains is the information contained in the eigenvectors of $A$.
 
-The following diagram provides a summary of the structure of the split-quaternion representation, and how the different components manifest themselves in the behavior of the system. The assumptions is made that we are dealing either with a spacelike or timelike vector, and that therefore the normalized vector part is well-defined.
-\begin{center}
-    \begin{tikzpicture}
-        \node (root) {$a$};
-        \node[xshift=1cm] at (root) {$=$};
-        \node[xshift=2cm] at (root) [pin={[below,align=left,draw,yshift=2cm] 
-                                          {\scriptsize \begin{tabular}{l} \textbf{Real/scalar part} \\ `Real' part of eigenvalue \\ Net dissipation \\ Exponential contraction / dilation \end{tabular}}}] {$a_0$};
-        \node[xshift=3cm] at (root) {$+$};
-        \node[xshift=4cm] at (root) [pin={[above,align=left,draw,yshift=-3cm] 
-                                          {\scriptsize \begin{tabular}{l} \textbf{Vector norm} \\ `Imaginary/hyperbolic' part of eigenvalue \\ Damped frequency \end{tabular}}}]{$\norm{\vec{a}}$};
-        \node[xshift=4.5cm] at (root) [pin={[right,align=left,draw, xshift=1cm] 
-                                          90:{\scriptsize \begin{tabular}{l} \textbf{Normalized vector} \\ Shape of the trajectories \end{tabular}}}]{$\uvec{a}$};
-    \end{tikzpicture}
-\end{center}
+\paragraph{The normalized vector in Lorentzian 3-space} The vector part of a split-quaternion live in a three-dimensional vector space with basis $(\quati, \quatj, \quatk)$. This vector space is equipped with the \emph{Lorentzian inner product}: given two vectors $\vec{a} = a_1\quati + a_2\quatj + a_3\quatk$ and $\vec{b}= b_1\quati + b_2\quatk + b_3\quatk$, their Lorentzian inner product is
+$$ \lorinner{\vec{a}}{\vec{b}} \coloneq a_1b_1 - a_2b_2 - a3b_3. $$
 
-\paragraph{Normalized vector in the Lorentzian space} Since two degrees of freedom have been removed from what was originally a four-dimensional, the normalized vector part lives in a two-dimensional space. Embedded in the Lorentz space, the normalized vector parts are lie in a collection of disconnected surfaces, depending on their regime:
+Because this inner product has a signature $(+,-,-)$, the Lorentzian 3-space is denoted by $\real^{1, 2}$. The squared vector norm of the vector part of a split-quaternion is then equal to the Lorentzian inner product of that vector with itself:
+$$ \mathscr{N}(\vec{a}) = \lorinner{\vec{a}}{\vec{a}} = a_1^2 - a_2^2 - a_3^2. $$
+
+As discussed in \cref{ssec:exponential}, the squared vector/Lorentzian norm is indefinite, and we can distinguish three possible normalizations:
 \begin{itemize}
-    \item if $\vec{a}$ is timelike, the unit vectors live on the \emph{two-sheet unit hyperboloid}:
-        $$ \qty{\vec{a} \in \real^3 \mid a_1^2 - a_2^2 - a_3^2 = 1};$$
-    \item if $\vec{a}$ is lightlike, the vectors live on the \emph{light cone} (normalizing these vector is not possible):
+    \item \emph{timelike} vectors have a positive squared norm, and their normalized length is 1;
+    \item \emph{lightlike} vectors have a squared norm of zero, they cannot be normalized;
+    \item \emph{spacelike} vectors have a negative squared norm, their normalized length is -1.
+\end{itemize}
+We can identify three subspaces based on these cases, in which the vectors have norm 1, 0 and -1 respectively: 
+\begin{itemize}
+    \item If $\vec{a}$ is timelike, the unit vectors live on the \emph{two-sheet unit hyperboloid}:
+        $$ \qty{\vec{a} \in \real^3 \mid a_1^2 - a_2^2 - a_3^2 = 1},$$
+        which consists of two separate sheets (referred to as the positive and negative sheet, depending on the sign of the $\quati$-component).
+    \item If $\vec{a}$ is lightlike, the vectors live on the \emph{light cone} (normalizing these vector is not possible):
         $$ \qty{\vec{a} \in \real^3 \mid a_1^2 - a_2^2 - a_3^2 = 0}; $$
-    \item if $\vec{a}$ is spacelike, the vectors live on the \emph{one-sheet unit hyperboloid}:
+    \item If $\vec{a}$ is spacelike, the vectors live on the \emph{one-sheet unit hyperboloid}:
         $$ \qty{\vec{a} \in \real^3 \mid a_1^2 - a_2^2 - a_3^2 = -1}. $$
 \end{itemize}
-These three surfaces (two-sheet hyperboloid, one-sheet hyperboloid and the light cone) are shown in \cref{fig:hyperboloids}. 
-
-Since the regime of the mechanical system is determined by its vector norm, we can locate underdamped systems on the two-sheet hyperboloid, overdamped systems on the one-sheet hyperboloid and critically damped systems on the light cone. These surfaces are aligned along the $\quati$-axis.
+These three subspaces are visualized in \cref{fig:hyperboloids}. Because the vector norm determines with the regime of a damped mechanical system, we can state that the two-sheet hyperboloid contains all the normalized underdamped systems, the light cone contains all the critically damped systems and the one-sheet hyperboloid contains all the normalized overdamped systems.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[]{media/other/lorentz_space.png}
-    \caption{The disconnected `unit sphere' in the Lorentzian 3-space. The blue surface is the one-sheet hyperboloid, containing all the spacelike unit vectors representing overdamped mechanical systems. The gray sheet is the light cone, that contains all the lightlike `null' vectors with zero norm, representing critically damped systems. Finally, the red surfaces constitute the two-sheet hyperboloid, which is the space of all timelike unit vectors, representing underdamped (or undamped) systems.}
+    \includegraphics[]{media/other/hyperboloid.pdf}
+    \caption{The disconnected `unit sphere' in the Lorentzian 3-space. The red surface is the one-sheet hyperboloid, containing all the spacelike unit vectors. The gray sheet is the light cone, that contains all the lightlike `null' vectors with zero norm. Finally, the two blue surfaces constitute the two-sheet hyperboloid.}
     \label{fig:hyperboloids}
 \end{figure}
 
-The eigenvalues represent a (composite) frequency of the system: they tell how fast the states evolve along the solution trajectories. The shape of the trajectories (given a certain regime) is encoded in the eigenvectors of the system. Hence, a certain point on each of the three surfaces shown in \cref{fig:hyperboloids} coincide with a trajectory shape, once the overall effect of damping is removed (real part), and disregarding the time parametrization along that trajectory (vector norm).
-
 For the harmonic oscillator with two dampers, the unit vector is equal to:
-$$ \uvec{a} \:= \:\qty(\frac{\tfrac{1}{m} + m\Omega_n^2}{2\Omega_d})\quati \: + \:\qty(\frac{\tfrac{1}{m} - m\Omega_n^2}{2\Omega_d})\quatj \:+ \:\qty(\frac{\gamma_p - \gamma_s}{2\Omega_d})\quatk,$$
-with $\Omega_d$ being the damped frequency of the oscillator
-$$ \Omega_d = \norm{\vec{a}} = \sqrt{m\Omega^2 - \tfrac{1}{4}\gamma_s - \tfrac{1}{4}\gamma_p + \tfrac{1}{2}\gamma_s \gamma_p} $$
+\begin{equation}
+    \uvec{a} \:= \:\qty(\frac{\tfrac{1}{m} + m\Omega_n^2}{2\Omega_d})\quati \: + \:\qty(\frac{\tfrac{1}{m} - m\Omega_n^2}{2\Omega_d})\quatj \:+ \:\qty(\frac{\gamma_p - \gamma_s}{2\Omega_d})\quatk,
+    \label{eq:ddho_vector}
+\end{equation}
+with $\Omega_d$ being the \emph{damped frequency} of the oscillator, equal to the vector norm:
+\begin{equation}
+    \Omega_d = \norm{\vec{a}} = \sqrt{m\Omega^2 - \tfrac{1}{4}\gamma_s - \tfrac{1}{4}\gamma_p + \tfrac{1}{2}\gamma_s \gamma_p}.
+\end{equation}
 
 We will now investigate the relation between the normalized vector part and the shape of the solution trajectories in each of the three cases (underdamped, critically damped and overdamped) in more detail.
 
+%The following diagram provides a summary of the structure of the split-quaternion representation, and how the different components manifest themselves in the behavior of the system. The assumptions is made that we are dealing either with a spacelike or timelike vector, and that therefore the normalized vector part is well-defined.
+%\begin{center}
+%    \begin{tikzpicture}
+%        \node (root) {$a$};
+%        \node[xshift=1cm] at (root) {$=$};
+%        \node[xshift=2cm] at (root) [pin={[below,align=left,draw,yshift=2cm] 
+%                                          {\scriptsize \begin{tabular}{l} \textbf{Real/scalar part} \\ `Real' part of eigenvalue \\ Net dissipation \\ Exponential contraction / dilation \end{tabular}}}] {$a_0$};
+%        \node[xshift=3cm] at (root) {$+$};
+%        \node[xshift=4cm] at (root) [pin={[above,align=left,draw,yshift=-3cm] 
+%                                          {\scriptsize \begin{tabular}{l} \textbf{Vector norm} \\ `Imaginary/hyperbolic' part of eigenvalue \\ Damped frequency \end{tabular}}}]{$\norm{\vec{a}}$};
+%        \node[xshift=4.5cm] at (root) [pin={[right,align=left,draw, xshift=1cm] 
+%                                          90:{\scriptsize \begin{tabular}{l} \textbf{Normalized vector} \\ Shape of the trajectories \end{tabular}}}]{$\uvec{a}$};
+%    \end{tikzpicture}
+%\end{center}
+
 \subsection{Underdamped systems}
 For underdamped systems, the trajectories are spiral-shaped. Removing the real part from the split-quaternion is the same as removing the `contraction' in the spiral: as a result, the conservative version of this trajectory is an elliptic trajectory. This ellipse is subject to the same stretch and tilt of the original spiral, as illustrated by \cref{fig:underdamped}. 
-
-The shape of the ellipse is completely determined by a measure of its eccentricity and a rotation angle (i.e. the angle between its major axis and the horizontal axis). The radius of the trajectory depends on the amount of energy present in the system and is therefore not a shape factor that is specific to the system.
 
 \begin{figure}[ht!]
     \centering
@@ -173,10 +184,40 @@ The shape of the ellipse is completely determined by a measure of its eccentrici
     \label{fig:underdamped}
 \end{figure}
 
-\subsubsection{Shape of the elliptic trajectory}
-Every point on the two-sheet hyperboloid represents a specific elliptical trajectory with a certain rotation angle and eccentricity. Any point on the two-sheet unit hyperboloid is most conveniently expressed in \emph{pseudospherical coordinates}: a Euclidean rotation angle $\sigma$ around the $\quati$-axis and a hyperbolic angle $\tau$ \cite{Balazs1986}. In special relativity, the hyperbolic angle is typically called a \emph{boost}. For an arbitrary timelike unit vector part of a split-quaternion 
-$$ \uvec{a} = \frac{a_1}{\norm{\vec{a}}}\quati + \frac{a_2}{\norm{\vec{a}}}\quatj + \frac{a_3}{\norm{\vec{a}}}\quatk, $$
-these angles are defined by the following relations:
+The purpose of this section is to relate the normalized vector part of the mechanical system given by \cref{eq:ddho_vector} to the shape of the associated elliptic trajectory. The geometry of the ellipse is governed by its aspect ratio and its tilt angle, as shown in \cref{fig:ellipse}. For the aspect ratio many measures exist, of which the \emph{eccentricity} $e$ is the best known. The other measures are listed in \cref{tab:ellipse}; especially the third flattening and third eccentricity play an important role in the remainder of the discussion.
+
+\begin{figure}[ht]
+    \centering
+    \input{media/tikz/ellipse}
+    \caption{Geometry of the ellipse. Its shape is characterized by two lengths: the semi-major axis $r_+$ and the semi-minor axis $r_-$. The various measures of the aspect ratio of the ellipse given in \cref{tab:ellipse} express the relative size of $r_+$ with respect to $r_-$ in various ways. The (first) eccentricity $e$ parameter locates the focal points $F_1, F_2$ as a proportion of the semi-major axis. The angle $\theta$ by which the semi-major axis is rotated with respect to the horizontal is called the \emph{tilt}.}
+    \label{fig:ellipse}
+\end{figure}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{table}[ht]
+    \centering
+    \caption{Commonly used parameters to measure the eccentricity/flattening of an ellipse in terms of its semi-major axis $r_+$ and semi-minor axis $r_-$ \cite{Rapp1991}.}
+    \label{tab:ellipse}
+    \begin{tabular}{lll}
+    \toprule
+        \textbf{Parameter} & \textbf{Notation} & \textbf{Formula} \\
+    \midrule
+        Semi-major axis & $r^+$ & --- \\ 
+        Semi-minor axis & $r^-$ & --- \\
+    \midrule
+        (First) eccentricity & $e$ & $\frac{r_+^2 - r_-^2}{r_+^2}$ \\
+        Second eccentricity & $e'$ & $\frac{r_+^2 - r_-^2}{r_-^2}$ \\
+        Third eccentricity & $e''$ & $\frac{r_+^2 - r_-^2}{r_+^2 + r_-^2}$ \\
+    \midrule
+        (First) flattening & $f$ & $\frac{r_+ - r_-}{r_+}$ \\
+        Second flattening & $f'$ & $\frac{r_+ - r_-}{r_-}$ \\
+        Third flattening & $f''$ & $\frac{r_+ - r_-}{r_+ + r_-}$ \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+owing relations:
 $$ a_1 = \norm{\vec{a}}\cosh(\tau) \qquad a_2 = \norm{\vec{a}}\sinh(\tau) \cos(\sigma) \qquad a_3 = \norm{\vec{a}}\sinh(\tau) \sin(\sigma). $$
 It is easily verified that the components indeed satisfy the relation
 $$ \mathscr{N}(\uvec{a}) = a_1^2 - a_2^2 - a_3^2 = 1. $$
@@ -304,7 +345,7 @@ $$ r_\text{pc} = \frac{r_+ - r_-}{r_+ + r_-} = f''.$$
 
 Conversely, as demonstrated in the above discussion, the normalized split-quaternions are naturally parameterized in way that corresponds directly to the shape parameters of the solution trajectories.
 
-\subsection{The Lorentzian cross-product}
+\subsubsection{The Lorentzian cross-product}
 ! orthogonal refers to `regular' orthogonal, Lorentz-orthogonal makes the distinction.
 
 Motivation: $\vec{u}$ seems to be `aligned' with major direction of the elliptic trajectory in the Lorentz-orthogonal subspace, generated by the action of its cross-product. Show this formally by making use of the eigenvectors.
