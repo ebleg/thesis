@@ -6,36 +6,46 @@ The discipline of `economic engineering' is a very new one. The theoretical foun
 \section{Symplectic manifolds in economic engineering}
 The basic elements of an economy are a collection of goods. These can be physical goods (e.g. bushels of wheat) but also more abstract goods such as capital in the financial analogy \cite{Kruimer2021}. The \emph{economic configuration space} $Q$ is analogous to the configuration space of mechanics, and consists of all the possible combinations of goods in the economy. This may simply be a `flat' space, i.e. a vector space of all the goods, but can also be subject to certain (holonomic) constraints. Hence, in economic engineering, the goods are analogous to the \emph{(generalized) positions} in classical mechanics \cite{Mendel2019}. 
 
-The natural coordinates for this space are the number of each of the goods in the space, denoted by $\vec{q} = (q^1, q^2, \ldots)$. We say that each of these coordinates is measured in units of `quantity', denoted by `$\qty[\si{\quantity}]$'. In many cases, the economic configuration manifold is simply a vector space containing all the goods, subject to a total constraint on the total \emph{endowment} for each of the goods (i.e. the total number of goods available). In the two-dimensional case, this is also referred to as the \emph{Edgeworth box}.
+The natural coordinates for this space are the number of each of the goods in the space, denoted by $\vec{q} = (q^1, q^2, \ldots, q^n)$. We say that each of these coordinates is measured in units of `quantity', denoted by `$\qty[\si{\quantity}]$'. In many cases, the economic configuration manifold is simply a vector space containing all the goods, subject to a total constraint on the total \emph{endowment} for each of the goods (i.e. the total number of goods available). In the two-dimensional case, this is also referred to as the \emph{Edgeworth box}.
 
-The tangent space $\tspace{x}{Q}$ to a point $x$ in $Q$ is the vector space of differential changes in goods, also called the \emph{flow} of goods. A vector in the tangent space is denoted by $\vec{\dot{q}} = (\dot{q}^1, \dot{q}^2, \ldots)$. It is very important to make the distinction between a flow of goods and an absolute amount of goods: from a mathematical perspective, the former is a vector in the tangent space, and the latter is a point in the economic configuration manifold. This distinction is often not given much attention in economics, but it is fundamental in economic engineering.
+The tangent space $\tspace{x}{Q}$ to a point $x$ in $Q$ is the vector space of differential changes in goods, also called the \emph{flow} of goods. A vector in the tangent space is denoted by $\vec{\dot{q}} = (\dot{q}^1, \dot{q}^2, \ldots, \dot{q}^n)$. It is very important to make the distinction between a flow of goods and an absolute amount of goods: from a mathematical perspective, the former is a vector in the tangent space, and the latter is a point in the economic configuration manifold. This distinction is often not given much attention in economics, but it is fundamental in economic engineering.
 
-The \emph{dual space} of $\tspace{x}{Q}$ is the cotangent space $\ctspace{x}{Q}$ containing all the linear functions on vectors in the tangent space to produce a number. This is the natural setting of the \emph{prices} in the economy: as a function, they assign a \emph{value to a change in goods}. These prices are measured in units of currency per quantity, i.e. $\qty[\si{\money \per \quantity}]$. A covector in the cotangent space is be denoted by $\vec{p} = (p_1, p_2, \ldots)$. The action of a price covector on a vector measuring change in goods is: (using the index summation convention)
+The \emph{dual space} of $\tspace{x}{Q}$ is the cotangent space $\ctspace{x}{Q}$ containing all the linear functions on vectors in the tangent space to produce a number. This is the natural setting of the \emph{prices} in the economy: as a function, they assign a \emph{value to a change in goods}. These prices are measured in units of currency per quantity, i.e. $\qty[\si{\money \per \quantity}]$. A covector in the cotangent space is be denoted by $\vec{p} = (p_1, p_2, \ldots, p_n)$. The action of a price covector on a vector measuring change in goods is: (using the index summation convention)
 \begin{equation}
     \vec{p}(\vec{\dot{q}}) = p_i \dot{q}^i,
 \end{equation}
-i.e. it computes the total value of associated to this change in goods.
+i.e. it produces the total value associated to this change in goods.
 
 The \emph{cotangent bundle} $\ctbundle{Q}$ associated to the economic configuration manifold is the space of prices and quantities: we call it the \emph{economic phase space}. Just like in mechanics, a point in this space determines the state of the economic system: it gives the level of all the goods and their price point.
 
 The cotangent bundle of any manifold has a 1-form canonically defined on it: the Liouville form (also called tautological 1-form or canonical 1-form), defined as
 \begin{equation} 
-    \theta \coloneq p_i \dd{q}^i.
+    \theta \coloneq  p_i \dd{q}^i.
 \end{equation}
 Even more so than in mechanics, this Liouville 1-form has a very intuitive interpretation in economic engineering: it relates the goods and their prices. When integrated over a curve in $\ctbundle{Q}$, it measures the total accumulation of value along that curve.
 
 The (negative of) the exterior derivative of the Liouville form is a \emph{symplectic 2-form} $\omega$:
 \begin{equation}
-    \omega \coloneq \wedgep{\dd{q}^i}{\dd{p}_i}.
+    \omega \coloneq -\dd{\theta} = \wedgep{\dd{q}^i}{\dd{p}_i}.
 \end{equation}
-When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of money. The symplectic 2-form, relates every price to the associated quantity and thereby represents the fundamental structure of the economic phase space.  
+When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency $[\si{\money}]$. The symplectic 2-form relates every price to the associated quantity and thereby represents the fundamental structure of the economic phase space.  
 
-The link between symplectic geometry and economics has been noted by some other (mathematical) researchers outside the field of economic engineering as well, most notably \citet{Russell2011} and \citet{Swierstra2014}.
+The link between symplectic geometry and economics has been recognized by (more mathematically inclined) researchers outside the field of economic engineering as well, most notably \citet{Russell2011} and \citet{Swierstra2014}.
 
-\section{Hamiltonian mechanics}
+The role of symplectic geometry in economics begs the question whether the concepts of Hamiltonian mechanics can be applied to economic dynamical systems as well. In the field of economic engineering, we argue that this is indeed the case. To explain how this works, we start from Lagrangian mechanics, which --- arguably --- have a slightly more intuitive interpretation, after which we make the transition to Hamiltonian mechanics.
 
-%<symbol: p> <expl: Price> <tags: letter,econ>
-%<symbol: q> <expl: Quantity; amount of goods> <tags: letter,econ>
-%<symbol: \dot{q}> <expl: Quantity demanded; quantity supplied; flow of goods> <tags: letter,econ>
+\section{Lagrangian mechanics in Economic Engineering}
+The \emph{Lagrangian} is a function on the tangent bundle of the configuration manifold:
+$$ L : \tbundle{Q} \to \real. $$
+Lagrangian mechanics is based on \emph{Hamilton's principle} which states that the physical motion $\gamma: \interval{t_0}{t_1} \to \tbundle{M}$ is the one for which the action functional
+\begin{equation}
+    \mathscr{A}[\gamma] = \int_{t_0}^{t_1} (L\circ\gamma)\dd{t},
+\end{equation}
+is stationary\footnote{Although often referred to as the `Principle of \emph{minimum} action', this is inaccurate: Hamilton's principle only asserts that the first variation of the functional vanishes, which does not necessarily imply a minimum.} A necessary and sufficient condition for a curve to satisfy Hamilton's equations is given by the set of $n$ \emph{Euler-Lagrange equations}:
+\begin{equation}
+    \dv{}{t}\qty(\pdv{L}{\dot{q}^i}) - \pdv{L}{q^i} = 0.
+\end{equation}
+
+In economic engineering, Hamilton's principal is interpreted as an economic agent minimizing her \emph{disutility}, in practice often taken to be the \emph{cost}. The interpretation of the Lagrangian function is then the \emph{running cost} or \emph{running disutility}.
 
 
