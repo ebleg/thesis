@@ -76,6 +76,8 @@ class Nomenclature(object):
                 else:
                     sortkey = ""
 
+                #print(symbol, tags)
+                #print(set(("geometry",)).intersection(set(tags)))
                 self.symbols.append(Symbol(symbol, explanation, tags, sortkey))
 
     def create_nomenclature_section(self, template_name, filename, title, filter_fcn, level=1):
