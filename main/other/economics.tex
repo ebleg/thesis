@@ -34,7 +34,7 @@ The link between symplectic geometry and economics has been recognized by (more 
 
 The role of symplectic geometry in economics begs the question whether the concepts of Hamiltonian mechanics can be applied to economic dynamical systems as well. In the field of economic engineering, we argue that this is indeed the case. To explain how this works, we start from Lagrangian mechanics, which arguably have a slightly more intuitive interpretation, after which we make the transition to Hamiltonian mechanics.
 
-\section{Lagrangian mechanics in economic engineering}
+\section{Lagrangian mechanics and economic engineering}
 The \emph{Lagrangian} is a function on the tangent bundle of the configuration manifold:
 $$ L : \tbundle{Q} \to \real. $$
 Lagrangian mechanics is based on \emph{Hamilton's principle} which states that the physical motion $\gamma: \interval{t_0}{t_1} \to \tbundle{M}$ is the one for which the action functional
@@ -85,12 +85,19 @@ We will now give a brief description of the differential geometric infrastructur
 The geometry of Lagrangian mechanics is based on the geometry of the so-called \emph{double tangent bundle} $\tbundle{\tbundle{Q}}$. This is because we consider the amount of goods $q^i$ and the flow of goods $\dot{q}^i$ to be separate coordinates, but of course the flow of goods $\dot{q}^i$ should \emph{also} be the time rate of change of the associated amount of goods\footnote{In this context, the `dot' simply distinguishes the coordinates, but does not intrinsically imply that one is the time derivative of the other.}. This extra constraint pairing the $q^i$'s with their associated $\dot{q}^i$ is embedded in the canonical structure of the double tangent bundle. Said otherwise, the significance of this structure is equivalent to Newton's law being second-order.
 
 The pairing of flows and amounts of goods is specified by the \emph{vertical isomorphism}, which is a tensor of valence $(1,1)$ on $\tbundle{Q}$: \cite{Carinena1990}
-$$ S = \pdv{}{\dot{q}^i}\otimes \dd{q^i}. $$
+\begin{equation}
+    S = \pdv{}{\dot{q}^i}\otimes \dd{q^i}.
+\end{equation}
 Using the vertical isomorphism, the \emph{Lagrange 1-form} is defined as
 \begin{equation}
     \theta_L \coloneq \dd{L}\circ S = \pdv{L}{\dot{q}^i}\dd{q^i}.
 \end{equation}
-The Lagrange 1-form plays an equivalent role to the Liouville form in the previous section. Recall that $\pdv{L}{\dot{q}^i}$ are equal to the prices, so $\theta_L$ computes the `valuation' of a flow of goods based on the price levels dictated by the Lagrangian. 
+The Lagrange 1-form plays an equivalent role to the Liouville form in the previous section. Recall that $\pdv{L}{\dot{q}^i}$ are equal to the prices, so $\theta_L$ computes the `valuation' of a flow of goods based on the price levels dictated by the Lagrangian. We propose here that this 2-form can be seen as an alternative statement to the \emph{Slutsky matrix} in microeconomics, which relates the total elasticity to two factors: \cite{varianhalr1992}
+\begin{enumerate}[label=(\roman*), noitemsep]
+    \item the elasticity due to \emph{substitution} (i.e. the local elasticities), represented by the first term of the above equation, 
+    \item the \emph{wealth effects}: these are the changes in the elasticities due to the changing state of the economic system (i.e. the accumulation of goods).
+\end{enumerate}
+We will, however, not go into the implications of this (potential) relation, and reserve them as a recommendation for future research in the theory of economic engineering.
 
 Similarly, the negative of the exterior derivative of $\theta_L$ yields the \emph{Lagrange 2-form} $\omega_L$:
 \begin{equation}
@@ -101,9 +108,15 @@ This 2-form has a compelling economic interpretation: the first term contains th
 The Lagrange 2-form is a \emph{symplectic form} \emph{if} the matrix of price elasticities is regular: in economics this means that there are no `zero price directions'; i.e. there every change in the amounts of goods is associated with some change in value. Usually, an even stronger condition is assumed on $L$, namely that it is \emph{convex} in the flows of products, which is sometimes known as the \emph{Legendre condition}. In economics, this means that the prices are in the same direction as the goods\footnote{This makes intuitive sense, although there are exceptions; for example, the negative yield on some government bonds in recent years.}. If this is indeed the case, the \emph{Legendre transform} can be used to pass from the Lagrangian representation to the Hamiltonian representation and back, this is the subject of the next section. 
 
 \section{Hamiltonian mechanics in economic engineering}
-\paragraph{Legendre transform}
+\paragraph{Legendre transform} 
+When the economic Lagrangian function is convex in the $\dot{\vec{q}}$ we can use the \emph{Legendre transform} to pass to the Hamiltonian formalism. In the previous section it was noted that the Lagrangian is a \emph{cost function}. The dual representation of the cost function (through the Legendre transform) is the \emph{profit function} \cite{blume2020,varianhalr1992}. Hence, we can infer that the Hamiltonian function in mechanics is analogous to the profit function in economics. 
+
+The Legendre transformation is defined as
 
 \paragraph{Hamilton's equations}
+Shepard's lemma
+
+Hotelling's lemma
 
 \section{The role of dissipation}
 
