@@ -92,18 +92,29 @@ Using the vertical isomorphism, the \emph{Lagrange 1-form} is defined as
 \begin{equation}
     \theta_L \coloneq \dd{L}\circ S = \pdv{L}{\dot{q}^i}\dd{q^i}.
 \end{equation}
-The Lagrange 1-form plays an equivalent role to the Liouville form in the previous section. Recall that $\pdv{L}{\dot{q}^i}$ are equal to the prices, so $\theta_L$ computes the `valuation' of a flow of goods based on the price levels dictated by the Lagrangian. We propose here that this 2-form can be seen as an alternative statement to the \emph{Slutsky matrix} in microeconomics, which relates the total elasticity to two factors: \cite{varianhalr1992}
-\begin{enumerate}[label=(\roman*), noitemsep]
-    \item the elasticity due to \emph{substitution} (i.e. the local elasticities), represented by the first term of the above equation, 
-    \item the \emph{wealth effects}: these are the changes in the elasticities due to the changing state of the economic system (i.e. the accumulation of goods).
-\end{enumerate}
-We will, however, not go into the implications of this (potential) relation, and reserve them as a recommendation for future research in the theory of economic engineering.
+The Lagrange 1-form plays an equivalent role to the Liouville form in the previous section. Recall that $\pdv{L}{\dot{q}^i}$ are equal to the prices, so $\theta_L$ computes the `valuation' of a flow of goods based on the price levels dictated by the Lagrangian. 
 
 Similarly, the negative of the exterior derivative of $\theta_L$ yields the \emph{Lagrange 2-form} $\omega_L$:
 \begin{equation}
     \omega_L \coloneq -\dd{\theta_L} = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^j}}{\dd{v^i}} + \pdv[2]{L}{q^i}{v^j}\wedgep{\dd{q^j}}{\dd{q^i}}.
 \end{equation}
 This 2-form has a compelling economic interpretation: the first term contains the \emph{price elasticities} associated to each of the goods in the economy. The second term contains the dependency of the price elasticities on the amounts of goods.
+We propose here that this 2-form can be seen as an alternative statement to the \emph{Slutsky matrix} in microeconomics, which relates the total elasticity to two factors: \cite{varianhalr1992}
+\begin{enumerate}[label=(\roman*), noitemsep]
+    \item the elasticity due to \emph{substitution} (i.e. the local elasticities), represented by the first term of the above equation, 
+    \item the \emph{wealth effects}: these are the changes in the elasticities due to the changing state of the economic system (i.e. the accumulation of goods).
+\end{enumerate}
+We will, however, not go into the implications of this (potential) relation, and reserve them as a recommendation for future research in the theory of economic engineering.
+
+The Lagrange 2-form can be used to state the Euler-Lagrange equations in a geometric language. Define the \emph{energy function} $E$ as\footnote{The coordinate-free definition involves the Liouville vector field, and is given in \cref{app:symplectic_geometry}.}
+\begin{equation}
+    E \coloneq \pdv{L}{\dot{q}^i}\dot{q}^i - L.
+\end{equation}
+The dynamics of the mechanical system are then given by the \emph{Lagrangian vector field} $X_L$, which is defined 
+\begin{equation}
+    \intpr{X_L}{\omega_L} = \dd{E}, 
+\end{equation}
+or alternatively $X_L = \fromDual{\omega_L}(\dd{E})$.
 
 The Lagrange 2-form is a \emph{symplectic form} \emph{if} the matrix of price elasticities is regular: in economics this means that there are no `zero price directions'; i.e. there every change in the amounts of goods is associated with some change in value. Usually, an even stronger condition is assumed on $L$, namely that it is \emph{convex} in the flows of products, which is sometimes known as the \emph{Legendre condition}. In economics, this means that the prices are in the same direction as the goods\footnote{This makes intuitive sense, although there are exceptions; for example, the negative yield on some government bonds in recent years.}. If this is indeed the case, the \emph{Legendre transform} can be used to pass from the Lagrangian representation to the Hamiltonian representation and back, this is the subject of the next section. 
 
@@ -111,8 +122,14 @@ The Lagrange 2-form is a \emph{symplectic form} \emph{if} the matrix of price el
 \paragraph{Legendre transform} 
 When the economic Lagrangian function is convex in the $\dot{\vec{q}}$ we can use the \emph{Legendre transform} to pass to the Hamiltonian formalism. In the previous section it was noted that the Lagrangian is a \emph{cost function}. The dual representation of the cost function (through the Legendre transform) is the \emph{profit function} \cite{blume2020,varianhalr1992}. Hence, we can infer that the Hamiltonian function in mechanics is analogous to the profit function in economics. 
 
-The Legendre transformation is defined as
-
+The Hamiltonian function can be defined in terms of the Lagrangian as \cite{Abraham1978}
+\begin{equation}
+    H = E \circ (\mathscr{F}L)^{-1},
+\end{equation}
+where $E$ is the previously defined energy function and $\mathscr{F}L$ is the \emph{fiber derivative} of $L$:
+\begin{equation}
+    \mathscr{F}L: \tbundle{Q} \to \ctbundle{Q}: \quad w_q \mapsto \pdv{}
+\end{equation}
 \paragraph{Hamilton's equations}
 Shepard's lemma
 
