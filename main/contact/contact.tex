@@ -722,7 +722,7 @@ This can be observed from \cref{fig:double_damped_osc}: the serial damper (on th
 $$ \beta_p = \underbrace{\gamma_p p}_\text{\textsc{effort}} \times \underbrace{\dd{q}.}_\text{\textsc{flow}} $$
 The variable that is `varied' externally is the flow, hence $\dd{q}$ 
 
-For the serial damper, we have the opposite situation. Here, the effort is varied externally, which is equal to $-\dd{p}$. The flow is equal to $\dot{q}_1 - \dot{q} = kq/b_s = \gamma_s q$ (using \cref{eq:serial_eom_raw}). Hence, we have
+For the serial damper, we have the opposite situation. Here, the effort is varied externally, which is equal to $-\dd{p}$. The minus sign is a consequence of the power direction in the bond connecting the 1-junction and 0-junction\footnote{Intuitively, it is clear from \cref{fig:double_damped_osc} that the force acting \emph{on} the damper is proportional to the \emph{decrease} in momentum. Also, in \cref{eq:serial_eom_pq} we can observe that the damping force is negatively proportional to $\dot{q}_1$, which is itself positively proportional to the momentum of the mass.}. The flow is equal to $\dot{q}_1 - \dot{q} = kq/b_s = \gamma_s q$ (using \cref{eq:serial_eom_raw}). Hence, we have
 $$ \beta_s = \underbrace{\gamma_s q}_\text{\textsc{flow}} \times \underbrace{-\dd{p}.}_\text{\textsc{effort}}$$
 
 Combining these work forms, we find the contact form for the system with two dampers:
