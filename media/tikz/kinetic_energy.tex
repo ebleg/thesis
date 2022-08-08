@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+    \draw[thick,->] (-1,0) -- (5,0) node[anchor=west] {$\dot{q}\:\qty[\si{\quantity \per \year}]$};
+    \draw[thick,->] (0,-1) -- (0,5) node[anchor=south] {$p\:\qty[\si{\money \per \quantity}]$};
+    \draw[ultra thick,tudCyan, name path = S] (0,0) -- (5,5) node[anchor=west]{};
+
+    \draw[thick, dashed, name path = dv] (4.5,0) -- (4.5,4.5); 
+    \draw[thick, dashed, name path = dp] (0,4.5) -- (4.5,4.5); 
+    \tikzfillbetween[of = S and dp]{accent1, opacity=0.4};
+    \tikzfillbetween[of = S and dv]{accent1, opacity=0.2};
+
+    \draw[dashed] (0,3) node[anchor=east]{$\dd{p}$} -- (3,3); 
+    \draw[dashed] (0,3.3) -- (3.3,3.3) ;
+
+    \draw[dashed] (3,0) node[anchor=north]{$\dd{v}$} -- (3,3); 
+    \draw[dashed] (3.3,0) -- (3.3,3.3) ; 
+
+    \node at (2,0.5) (Tv) {$T^*(\dot{q})$};
+    \node at (1,2) (Tp) {$T(p)$};
+
+
+\end{tikzpicture}

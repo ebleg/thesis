@@ -1,4 +1,4 @@
-\chapter{Symplectic Geometry and Hamiltonian Mechanics in Economic Engineering}
+\chapter{A Geometric Perspective of Economic Engineering}
 \label{chap:symplectic_economics}
 
 The discipline of `economic engineering' is a very new one. The theoretical foundations have been developed over the past years at the Delft Center of Systems and Control primarily by prof. em. Mendel, combined with the contributions of several theses that have been recently written about the subject. The purpose of economic engineering is to use tools from various engineering disciplines and physics to improve the predictive power of (macro)economic models.
@@ -46,6 +46,40 @@ is stationary\footnote{Although often referred to as the `Principle of \emph{min
     \dv{}{t}\qty(\pdv{L}{\dot{q}^i}) - \pdv{L}{q^i} = 0.
 \end{equation}
 
-In economic engineering, Hamilton's principal is interpreted as an economic agent minimizing her \emph{disutility}, in practice often taken to be the \emph{cost}. The interpretation of the Lagrangian function is then the \emph{running cost} or \emph{running disutility}.
+In economic engineering, Hamilton's principal is interpreted as an economic agent minimizing her \emph{disutility}, in practice often taken to be the \emph{cost}. The interpretation of the Lagrangian function is then the \emph{running cost} or \emph{running disutility}. This Lagrangian therefore has units of currency per time, e.g. $\qty[\si{\money \per \year}]$.
 
+As mentioned, the Lagrangian is a function of the flow of goods $\dot{\vec{q}}$ and the stock levels $q_i$. The partial derivative of the Lagrangian with respect to the flow of goods --- is equal to the \emph{price vector}:
+\begin{equation}
+    p_i \coloneq \pdv{L}{\dot{q}^i}. 
+\end{equation}
+This means that prices and flows of goods are \emph{conjugate variables}. 
+
+\paragraph{Kinetic energy} When the Lagrangian depends quadratically on the flow of goods (analogous to kinetic energy), the price and the flow of goods are linearly related: this is the typical picture of a supply and demand curve. We have:
+$$ p_i = m_{ij} \dot{q}^j, $$
+where the $m_{ij}$ are referred to as \emph{price elasticities}. In the simplest of cases, the $m_{ij}$ form a diagonal matrix and every good simply has its own price. When cross terms appear however, they refer as the marginal elasticity of one good relative to another. These cross-terms encodes the effect \emph{substitution} of one good with respect to another. 
+
+In mechanics, the part of the Lagrangian that depends on $\dot{\vec{q}}$ is called the \emph{kinetic co-energy}\footnote{We make the distinction between the kinetic energy $T$ and co-energy $T^*$: they dual are representations related through the Legendre transform. Because work is the integral of force over distance, kinetic energy is naturally represented in terms of \emph{momentum}, rather than velocity, for which we need to take the Legendre transform \cite{Jeltsema2009}.} $T^*$:
+\begin{equation}
+    T^* = \frac{1}{2}m_{ij}\dot{q}^i \dot{q}^j.
+\end{equation} 
+The kinetic co-energy is equivalent to the \emph{cost} associated with a flow of goods: the factor of one half is there to subtract the market surplus from the total expenditure (which is simply equal to $\vec{p}(\dot{\vec{q}})$).
+
+\begin{figure}
+    \centering
+    \input{media/tikz/kinetic_energy}
+    \caption{Kinetic energy and co-energy in terms of the relation between momentum and velocity. Figure courtesy of B. \citet{Krabbenborg2021}.}
+    \label{fig:kinetic_energy}
+\end{figure}
+
+Traditionally, microeconomics makes the distinction between \emph{firm theory} and \emph{consumer theory}. In economic engineering, we dispense with this explicit distinction, for we argue that they are fundamentally based on the same mathematical principles. However, it is important to keep in mind that the situation for firms and consumers is typically `mirrored': the cost of one represents the surplus of the other, and vice versa. Also, a flow of goods that a consumer buys from a firm has an opposite direction depending on the perspective of the firm or the consumer: this is the reason why a demand curve typically slopes downwards and the supply curve upwards, because their associated surplus is `flipped'. In the grand scheme of things, both perspectives are two sides of the same coin. The `minimization principle' can therefore just as well be considered to be a `maximization principle' if the signs flip due to a change in perspective.
+
+If the matrix of elasticities (analogous to the mass matrix in economics) is positive definite, it serves as a \emph{Riemannian metric} on the economic configuration manifold. Level lines of the Lagrangian function in function of $\dot{\vec{q}}$ are \emph{indifference curves}: they represent constant level of (dis)utility for different combinations of flows of goods. Furthermore, in more complicated situations, the price elasticities are allowed to vary with the stock levels, i.e. $ m = m(q_1, q_2, \ldots, q_n)$, which would (under appropriate conditions) imply that the  configuration manifold is \emph{curved} in the Riemannian sense.
+
+\paragraph{Potential energy} In mechanics, the part of the Lagrangian that does not depend on $\dot{\vec{q}}$
+
+\section{Hamiltonian mechanics in Economic Engineering}
+
+%<symbol: p> <expl: Price> <tags: letter,econ>
+%<symbol: q> <expl: Quantity; amount of goods> <tags: letter,econ>
+%<symbol: \dot{q}> <expl: Quantity demanded; quantity supplied; flow of goods> <tags: letter,econ>
 
