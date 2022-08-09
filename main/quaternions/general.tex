@@ -1,5 +1,5 @@
-\section{Split-quaternion algebra}
-\subsection{Basic properties}
+\section{The algebra of split-quaternions}
+\subsection{Basic properties of split-quaternions}
 \label{ssec:quat_basics}
 Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which will be denoted by 1, \quati, \quatj and \quatk.\footnote
 {Even though they behave similarly, the imaginary unit $\ii$ is not to be confused with the split-quaternion basis element \quati, because they belong to different number systems.}
@@ -23,7 +23,7 @@ The algebra of split-quaternions is associative but not commutative --- formally
 
 The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all the nonreal basis elements square to $-1$, which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of $(+, +, +, +)$, for the split-quaternions we have $(+, +, -, -)$. The difference `metric' signature makes the algebra of split-quaternions different from its conventional quaternion counterpart.
 
-\paragraph{Dihedral group} The basis elements of the split-quaternions $\qty{1, \quati, \quatj, \quatk}$ form a finite group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation and two reflections, as illustrated in \cref{fig:square_symmetry}. \cite{Dummit2004}
+\subsubsection{The dihedral group} The basis elements of the split-quaternions $\qty{1, \quati, \quatj, \quatk}$ form a finite group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation and two reflections, as illustrated in \cref{fig:square_symmetry}. \cite{Dummit2004}
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/square_symmetry}
@@ -39,7 +39,7 @@ The structure of the dihedral group can be visualized by its \emph{cycle graph} 
     \label{fig:cycle_graph}
 \end{figure}
 
-\paragraph{Split-quaternion norm} Complex numbers have a real and imaginary part. Likewise, (split)-quaternions have a similar notion: a \emph{scalar} (or real) and \emph{vector} (or imaginary) components. For an arbitrary split-quaternion $a \in \spquaternions$, \cite{Jafari2014}
+\subsubsection{The split-quaternion norm} Likewise, (split)-quaternions have a similar notion: a \emph{scalar} (or real) and \emph{vector} (or imaginary) components. For an arbitrary split-quaternion $a \in \spquaternions$, \cite{Jafari2014}
 $$ a = \quat{a_0}{a_1}{a_2}{a_3} $$
 the real part is $\scapart{a} = a_0$ and the vector part is $ \vecpart{a} = \quatvec{a_1}{a_2}{a_3}$. For convenience, the vector part will be referred to in traditional bold vector notation:
 $$ \vec{a} \equiv \vecpart{a} \equiv \quatvec{a_1}{a_2}{a_3}. $$
@@ -63,7 +63,7 @@ Split-quaternions can be categorized into three regimes based on their norm bein
 The \emph{split-quaternion norm} is then defined as
 $$ \norm{a} \equiv \sqrt{\abs{\mathscr{N}(a)}}. $$
 
-\paragraph{Vector norm}
+\subsubsection{The vector norm}
 Apart from the split-quaternion norm, we may also define a (square) norm that only considers the \emph{vector part} of the split-quaternion. This squared norm is defined in accordance with the overall squared split-quaternion norm given by \cref{eq:quat_norm}:
 $$ \mathscr{N}(\vec{a}) = a_1^2 - a^2_2 - a^2_3. $$
 The notation used here is not abusive: $\vec{a}$ simply refers to the split-quaternion with the same vector part as $a$ but with zero scalar part. We can therefore use the same function with no ambiguity. Likewise, the vector norm is $ \norm{\vec{a}} = \sqrt{\abs{\mathscr{N}(\vec{a})}} $. 
@@ -123,7 +123,7 @@ In the remainder of this chapter, the split-quaternion properties that are defin
 \label{ssec:quat_isomorphism}
 The utility of split-quaternions (for our purpose) originates from the fact that the algebra of split-quaternions is isomorphic to the algebra of real two-dimensional matrices. This underlies this entire chapter, for it allows us to find an alternative for the traditional matrix description of linear dynamical systems. 
 
-\paragraph{Algebra isomorphisms} Formally, an algebra is a vector space combined with a vector space $V$ over a field \field, combined with an addition operation, scalar multiplication, and an \field-bilinear product operation $V\times V \to V$. \cite{Schuller2014}
+\subsubsection{Algebra isomorphisms} Formally, an algebra is a vector space combined with a vector space $V$ over a field \field, combined with an addition operation, scalar multiplication, and an \field-bilinear product operation $V\times V \to V$. \cite{Schuller2014}
 \begin{itemize}
     \item The split-quaternion algebra is an algebra over the field real numbers ($\field = \real$), where the multiplication is governed by the split-quaternion multiplication rules (see \cref{tab:quat_table}).
     \item The set of $2\times2$-matrices also constitutes an \real-vector space; matrix multiplication makes it into an algebra.
@@ -157,7 +157,7 @@ Likewise, the inverse mapping on an arbitrary matrix yields
     \label{eq:inv_quat_isom}
 \end{equation}
 
-\paragraph{Matrix \& split-quaternion properties} 
+\subsubsection{Relation between matrix and split-quaternion properties} 
 One of the powerful features of the mapping $\phi$ is that it maps natural properties of the split-quaternion to natural properties of the associated matrix. Hence, given that $A = \phi(a)$ with $a \in \spquaternions$ and $A \in \real^{2\times2}$, we have the following correspondence: 
 \begin{itemize}
     \item The \emph{sum of matrices} is equivalent to the \emph{sum of split-quaternion}. If $A = \phi(a)$ and $B = \phi(b)$, then
@@ -256,16 +256,16 @@ One of the powerful features of the mapping $\phi$ is that it maps natural prope
 \renewcommand{\arraystretch}{1}
 %\renewcommand{\arraystretch}{1}
 
-\paragraph{Lie groups and algebras} 
+\paragraph{Split-quaternions as a Lie algebra} 
 The algebra of $2\times2$-matrices (or equivalently, of the split-quaternions) also consitute the Lie algebra $\glalg{2}{\real}$ of the two-dimensional general linear group $\glgroup{2}{\real}$. Furthermore, the traceless matrices, or equivalently, the split-quaternions with zero real part form the subalgebra $\slalg{2}{\real}$ of the special linear group $\slgroup{2}{\real}$. These are the volume-preserving automorphisms on $\real^2$. Because in $\real^2$, volume and area coincide, the special linear group and the symplectic group $\spgroup{1}$ are equivalent. For higher dimensions, this is not the case: area preservation is generally a stronger condition than volume preservation. The Lie algebra elements of the symplectic group are called Hamiltonian matrices; therefore, split-quaternions without real part are referred to as \emph{Hamiltonian}.
 
-\section{Split-quaternion representation of dynamical systems}
+\section{Dynamical systems as split-quaternions}
 \label{sec:system_classification}
 \subsection{The algebra of vector fields}
 \label{ssec:vf_algebra}
 The isomorphism between the split-quaternions and the algebra of two-dimensional square matrices exposed in the preceding section can be used to develop an alternative representation of linear dynamical systems. Indeed, an autonomous dynamical system is defined by a \emph{vector field} on the state space. If this vector field is a linear mapping from the state space into the tangent space, it can be represented by a matrix. 
 
-\paragraph{Basis vector fields} The vector fields corresponding to two-dimensional linear dynamical systems form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements $1,\,\quati,\,\quatj,\,\quatk$ corresponds to a specific `basis' vector field, denoted by $X_1$, $X_{\quati}$, $X_{\quatj}$ and $X_{\quatk}$ respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
+\subsubsection{Basis vector fields} The vector fields corresponding to two-dimensional linear dynamical systems form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements $1,\,\quati,\,\quatj,\,\quatk$ corresponds to a specific `basis' vector field, denoted by $X_1$, $X_{\quati}$, $X_{\quatj}$ and $X_{\quatk}$ respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
 
 The vector field element $X_1$, corresponding to the identity element is an infinitesimal dilation, while $X_{\quati}$ represents an infinitesimal clockwise rotation, and $X_{\quatj}$ and $X_{\quatj}$ are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two differents sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
 \begin{figure}[ht!]

@@ -72,7 +72,8 @@ given that the $\eta_0$ is the `special' coordinate wich is chosen to be 1.
 \subsection{Contact Hamiltonian vector fields}
 \label{ssec:contact_ham_vfields}
 Just like in the symplectic case, the contact Hamiltonian formalism defines an automorphism between a function on the contact manifold $K \in \functions{M}$, and an associated `Hamiltonian' vector field $X_K \in \vfields{M}$. While the isomorphism is rather straightforward for symplectic manifolds, the contact counterpart is not so perspicuous: this is the prime reason behind the computational advantage of symplectification, as opposed to performing the calculations directly on the contact manifold.
-\paragraph{Coordinate-free derivation} Given a contact manifold $(M, \xi)$ with contact form $\alpha$ (i.e. $\xi \in \ker \alpha$), the tangent bundle $M$ can be decomposed into two subbundles: \cite{Libermann1987,Cannas2001}
+
+\subsubsection{Coordinate-free derivation} Given a contact manifold $(M, \xi)$ with contact form $\alpha$ (i.e. $\xi \in \ker \alpha$), the tangent bundle $M$ can be decomposed into two subbundles: \cite{Libermann1987,Cannas2001}
 $$ \tbundle{M} = \ker \alpha \oplus \ker \dd{\alpha}, $$
 where $\oplus$ denotes the Whitney sum. The first subbundle is referred to as the \emph{horizontal} bundle, the second as the \emph{vertical}
  bundle. The vertical subbundle is of rank 1 and its fiber is spanned by the Reeb vector field (cf. \cref{eq:reeb_vf}). As mentioned to in \cref{sec:contact_structures}, \emph{any} vector field $X \in \vfields{M}$ may be decomposed accordingly. This decomposition is unique and given by
@@ -122,7 +123,7 @@ As such, the Hamiltonian vector field associated to the contact Hamiltonian $K$ 
     \label{eq:contact_ham_vf_cofree}
 \end{equation}
 
-\paragraph{Coordinate expression} Given the contact manifold $(M, \xi)$ with contact form
+\subsubsection{Coordinate expression} Given the contact manifold $(M, \xi)$ with contact form
 $$ \dd{q_0} - \sum_{i = 1}^n p_i\dd{q_i}, $$
 and define the contact Hamiltonian $K = K(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)$. 
 The vertical component of the Hamiltonian vector field is straightforward (cf. \cref{eq:reeb_vf}): 

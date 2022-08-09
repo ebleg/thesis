@@ -44,7 +44,8 @@ where $\vsfields{c}{X}{M}$ is the collection of infinitesimal strict contactomor
 \end{equation}
 where $s$ is an arbitrary smooth function on $M$. This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
 
-\paragraph{Horizontal and vertical vector fields} To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a spliting of the (co)tangent bundle, decomposing the vector field into two components. 
+\subsubsection{Horizontal and vertical vector fields} 
+To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping $\Psi^{-1}_\alpha$. This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a spliting of the (co)tangent bundle, decomposing the vector field into two components. 
 
 The nonintegrability condition on the contact structure ensures that $\wedgep{\alpha}{\dd{\alpha}} \neq 0$. As such, at every point, we have at any $x\in M$:
 $$ \ker{\alpha}\vert_x \cap \ker{\dd{\alpha}}\vert_x = \qty{\mathbf{0}}, $$
@@ -71,7 +72,8 @@ An arbitrary vector field $X \in \vfields{M}$ can be canonically decomposed into
     \label{fig:contact_spaces}
 \end{figure}
 
-\paragraph{Semi-basic forms} Similar to the splitting the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
+\subsubsection{Semi-basic forms} 
+Similar to the splitting the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
 
 Any 1-form $\zeta \in \bsection{\tbundle{M}}$ can be canonically decomposed into a semi-basic component and a multiple of $\alpha$ as follows:
 \begin{equation}
@@ -82,7 +84,7 @@ In Darboux coordinates, semi-basic forms are forms that have no component in $\d
 
 The decompositions of $\ctbundle{M}$ and $\tbundle{M}$ for the three-dimensional case are shown in \cref{fig:contact_spaces}. They also play an important role in \cref{sec:jacobi}.
 
-\paragraph{Hamiltonian isomorphism}
+\subsubsection{The Hamiltonian isomorphism for contact manifolds}
 To find the Hamiltian vector field $X_K$ associated to a Hamiltonian $K$, we decompose $X_K$ into a horizontal and a vertical component:
 $$ X_K = X_K^\text{hor} + X_K^\text{ver}. $$
 
@@ -142,7 +144,7 @@ This equation can be equivalently expressed as the fact that the 1-form
 \end{equation}
 should pull back to zero over the physical trajectories of the systems.
 
-\paragraph{The Gibbs form} For the purposes of illustration, we now apply this concept to what is arguably the most simple thermodynamic system: the ideal gas in a piston. 
+\paragraph{The Gibbs 1-form} For the purposes of illustration, we now apply this concept to what is arguably the most simple thermodynamic system: the ideal gas in a piston. 
 
 The ideal gas is characterized by five thermodynamic properties: the temperature $T$, entropy $S$, volume $V$, pressure $P$ and the internal energy $U$. We call the five-dimensional space containing all the possible states the \emph{thermodynamic phase space}.
 
@@ -180,7 +182,7 @@ The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bon
     \label{fig:dho}
 \end{figure}
 
-\paragraph{Energy storage} We distinguish two types of energy that can be stored in the damped oscillator system: microscopic and macroscopic energy.
+\paragraph{Energy balance of the damped oscillator} We distinguish two types of energy that can be stored in the damped oscillator system: microscopic and macroscopic energy.
 
 Microscopic energy consists of the kinetic energy of particles that does not result in an overall observable motion of the system. This energy is called internal energy $U$ and manifests itself as temperature. 
 
@@ -219,7 +221,7 @@ As a consequence of \cref{eq:dho_first_law}, we have that $ \beta = \eta $; i.e.
 \end{equation}
 with $\gamma \coloneq b/m$ being the damping coefficient of the damped oscillator. 
 
-\paragraph{Contact structure} We now define the phase space of the system to be equal to $M = \real \times \ctbundle{Q}$, where $Q$ is the configuration space considered in \cref{sec:symplectic}. For the damped harmonic oscillator, $Q = \real$. With coordinates for $M$ being $U, q$ and $p$, we can define a \emph{contact form} on this space by combining \cref{eq:dho_energy_balance} and \cref{eq:dho_work_form}: 
+\paragraph{Contact structure for the damped oscillator} We now define the phase space of the system to be equal to $M = \real \times \ctbundle{Q}$, where $Q$ is the configuration space considered in \cref{sec:symplectic}. For the damped harmonic oscillator, $Q = \real$. With coordinates for $M$ being $U, q$ and $p$, we can define a \emph{contact form} on this space by combining \cref{eq:dho_energy_balance} and \cref{eq:dho_work_form}: 
 \begin{equation}
     \alpha = \dd{U} - \gamma p \dd{q}.
     \label{eq:dho_contact_form}
@@ -230,12 +232,12 @@ Observe from \cref{eq:dho_contact_form} that $\dd{\alpha} = \gamma \wedgep{\dd{q
 
 It is important to note that, in the general case, a 1-form that describes the dissipation in the system is \emph{under no obligation} to be of this very specific form (that is, one that pairs the conjugate variables). As such, we can not expect this situation to occur in general: this is subject of \cref{sec:jacobi}.
 
-\subsubsection{The contact Hamiltonian system for the damped harmonic oscillator}
+\subsubsection{Contact Hamiltonian system for the damped harmonic oscillator}
 With the contact structure defined, we can now establish the contact Hamiltonian system for the damped harmonic oscillator using \cref{eq:vertical_vf,eq:horizontal_vf,eq:contact_hamiltonian_vf}.
 
 Recall that the Hamiltonian vector field is split into a horizontal and vertical component, which belong respectively to the kernel of $\alpha$ and $\dd{\alpha}$.
 
-\paragraph{Vertical component} The Reeb vector field $R_\alpha$ associated with the contact form given in \cref{eq:dho_contact_form} is 
+\paragraph{Vertical component of the Hamiltonian vector field} The Reeb vector field $R_\alpha$ associated with the contact form given in \cref{eq:dho_contact_form} is 
 $$ R_\alpha = \pdv{}{U}. $$
 As such, the vertical component of the Hamiltonian vector field is, in accordance with \cref{eq:vertical_vf}:
 \begin{equation}
@@ -244,7 +246,7 @@ As such, the vertical component of the Hamiltonian vector field is, in accordanc
 \end{equation}
 However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
 
-\paragraph{Horizontal component} The horizontal part is obtained by projecting $\dd{K}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
+\paragraph{Horizontal component of the Hamiltonian vector field} The horizontal part is obtained by projecting $\dd{K}$ (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism $\fromDual{\dd{\alpha}}$ like so:
 $$ X_K^\text{hor} = \fromDual{\dd{\alpha}}(\dd{K} - \qty(\intpr{R_\alpha}{\dd{K}})\alpha). $$
 The Hamiltonian is a function on the contact manifold $M$, i.e. $K = K(U, q, p)$. In coordinates, the projected form is
 \begin{equation}
@@ -387,7 +389,7 @@ $$
 $$
 Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that $\gamma$ is nonzero).
 
-\paragraph{Contact Hamiltonian system} The contact Hamiltonian system $(M, \alpha, K)$ damped harmonic oscillator can be defined on the manifold of contact elements as well, with the silent understanding that $M$ and $\pctbundle{Q_e}$ are slightly different from a topological perspective. Since the new contact form is scaled by $\tfrac{1}{\gamma}$, we can use relation \cref{eq:contact_ham_scaling} to find the new Hamiltonian $K_e$:
+\paragraph{Contact Hamiltonian system in Darboux coordinates} The contact Hamiltonian system $(M, \alpha, K)$ damped harmonic oscillator can be defined on the manifold of contact elements as well, with the silent understanding that $M$ and $\pctbundle{Q_e}$ are slightly different from a topological perspective. Since the new contact form is scaled by $\tfrac{1}{\gamma}$, we can use relation \cref{eq:contact_ham_scaling} to find the new Hamiltonian $K_e$:
 $$ K_e = \frac{1}{\gamma} K. $$
 Furthermore, because $U = \gamma q_0$, the contact Hamiltonian in the new coordinates is
 \begin{equation}
@@ -409,7 +411,7 @@ If we enforce that $K = 0$ (as motivated in the previous section), then $K_e$ va
 
 This contact Hamiltonian system can be lifted to the symplectification of the contact manifold $\pctbundle{Q_e}$.
 
-\paragraph{Symplectification} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
+\paragraph{Symplectification of a contact Hamiltonian system} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
 
 The symplectification procedure exploits the natural ambiguity that contact forms have, and that has been pointed out already. Multiplying the contact form $\alpha_e$ with any nonzero real number\footnote
 {
@@ -441,8 +443,8 @@ In reality, only the points for which \emph{both} $\rho$ and $\rho_0$ vanish sho
 
 As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectiztion procedure more mathematically precise using the language of principal bundles.
 
-\subsubsection{Liouville geometry and principal bundles}
-A \emph{principal bundle} is a smooth bundle $\bundle{P}{\sigma}{B}$ if $P$ is equipped with a \emph{free} right $G$-action $\raction{}$, where $G$ is a Lie group. Furthermore, let  
+\subsubsection{Liouville geometry and principal G-bundles}
+A \emph{principal} $G$\emph{-bundle} is a smooth bundle $\bundle{P}{\sigma}{B}$ if $P$ is equipped with a \emph{free} right $G$-action $\raction{}$, where $G$ is a Lie group. Furthermore, let  
 \begin{center}
     \begin{tikzcd} 
         P \arrow[d, "\sigma" ]\\
@@ -460,7 +462,7 @@ then
 $$ \sigma':\: P \to P/G:\quad x \mapsto [x]_\sim, $$
 with $[x]_\sim$ being the equivalence class with respect to $\sim$ and $P/G = P/\sim$.\footnote{This is the definition used in the lectures of F. P. Schuller, see \cite{Schuller2014}.}
 
-In our context of symplectization, the Lie group in question is the real multiplicative group $\real^\times$. The group acts on the cotangent bundle of $Q_e$ without zero section\footnote
+\paragraph{Principal \texorpdfstring{$\real^\times$}{R}-bundles} In our context of symplectization, the Lie group in question is the real multiplicative group $\real^\times$. The group acts on the cotangent bundle of $Q_e$ without zero section\footnote
 {
     The zero section must be removed from the cotangent bundle, because otherwise the group action defined above is not free (the origin of any cotangent space is stabilized by the entire group). If the group action is free, the orbits are diffeomorphic to the group itself. if this is not the case, not all the orbits are diffeomorphic to each other, and the `bundle of orbits' would not be a fiber bundle. In this case, the origin (being the orbit of the origin) is of course not diffeomorphic to the other orbits (lines with a point removed).
 }
@@ -530,7 +532,7 @@ $$ \fromDual{\omega_e}(\dd{\mathscr{H}}) = X_\mathscr{H}. $$
 
 This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consisting of a manifold with fibered symplectic Liouville structure and a homogeneous Hamiltonian function $\mathscr{H}$.
 
-\paragraph{Equations of motion} The contact Hamiltonian system for the damped harmonic oscillator, as defined by \cref{eq:dho_contact_hamiltonian_e}, can now be lifted to a homogeneous Hamiltonian system on the symplectified space. The relation between the contact Hamiltonian and the corresponding homogeneous Hamiltonian is defined as \cite{VanderSchaft2021a,Libermann1987,Arnold1989}
+\paragraph{Equations of motion for the symplectified system} The contact Hamiltonian system for the damped harmonic oscillator, as defined by \cref{eq:dho_contact_hamiltonian_e}, can now be lifted to a homogeneous Hamiltonian system on the symplectified space. The relation between the contact Hamiltonian and the corresponding homogeneous Hamiltonian is defined as \cite{VanderSchaft2021a,Libermann1987,Arnold1989}
 $$ K_e(q_0, q, p) = \mathscr{H}(q_0, q, -1, \rho), $$
 or equivalently
 \begin{equation}
@@ -673,6 +675,7 @@ In this section, we extend the method outlined in \cref{ssec:contact_dissipation
     \label{fig:double_damped_osc}
 \end{figure}
 
+\subsubsection{System dynamics}
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, together with the corresponding bond graph representation. Comparing this to \cref{fig:dho}, there is another 0-junction present in the system that compares flows (velocities) rather than efforts (forces). The equations of motion can be readily derived:
 \begin{equation}
     \begin{split}
@@ -712,7 +715,8 @@ Using the damping coefficients defined in \cref{tab:ddho_params}, the equations 
     \end{tabular}
 \end{table}
 
-\paragraph{Contact Hamiltonian system} In order to establish the contact structure for the harmonic oscillator with two dampers, we must find the expression for the work done by the system on the dampers. We will do so using the structure of the bond graph shwon in \cref{fig:double_damped_osc}. 
+\subsubsection{Contact Hamiltonian system} 
+In order to establish the contact structure for the harmonic oscillator with two dampers, we must find the expression for the work done by the system on the dampers. We will do so using the structure of the bond graph shwon in \cref{fig:double_damped_osc}. 
 
 Bonds carry two signals: an effort and a flow. Both can be assigned a `direction'; they are always opposite. The direction indicates whether either the effort or flow should be regarded as the `input' of the model. For example, \emph{traditionally} (though this is a matter of convention), an I-element takes efforts as an input, and returns a flow. That is to say, one applies a force to a mass, with a change in velocity as a result. Conversely, when a spring is stretched along a certain distance to return a force proportional to it; it takes a flow and returns an effort \cite{Borutzky2010}. In a bond graph, this is indicated by a causality stroke, which is placed at the side of the bond that determines the flow.
 
@@ -751,10 +755,14 @@ $$
 The extra terms in $\pdv{}{U}$ appear again to ensure that the vector field be horizontal.
 
 Using the same reasoning applied in \cref{ssec:contact_dissipation}, we can observe that the contact Hamiltonian must be proportional to the sum of the mechanical and internal energy of the system. In addition, we wish to cancel the factor $(\gamma_s + \gamma_p)$ present in the mapping $\fromDual{\dd{\alpha}}$ by multiplying the contact Hamiltonian with the same factor. Hence we, have
-$$ K = (\gamma_s + \gamma_p)\qty(\frac{p^2}{2m} + \frac{1}{2}kq^2 + U). $$
+$$ 
+    K = (\gamma_s + \gamma_p)\qty(\frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
+$$
 
 Assuming again that $K = 0$, the contact Hamiltonian vector field is then:
-$$ X_K = X_K^\text{hor} = \qty(\frac{p}{m} - \gamma_s q)\pdv{}{q} + \qty(-kq -\gamma_p p)\pdv{}{p} + \qty(\gamma_p\frac{p^2}{m} + \gamma_s kq^2 )\pdv{}{U}, $$
+$$ 
+    X_K = X_K^\text{hor} = \qty(\frac{p}{m} - \gamma_s q)\pdv{}{q} + \qty(-kq -\gamma_p p)\pdv{}{p} + \qty(\gamma_p\frac{p^2}{m} + \gamma_s kq^2 )\pdv{}{U}, 
+$$
 since the cross terms in $\pdv{}{U}$ cancel out. Next to the familiar dissipated power for the parallel damper, we also have the dissipated power of the serial damper
 $$ \gamma_s kq^2 = \underbrace{\gamma_s q}_\text{\textsc{flow}} \: \times \underbrace{kq}_\text{\textsc{effort}}, $$ 
 in the dynamics of $U$. Hence, this vector field yields the correct dynamics for $p$ and $q$ as given by \cref{eq:serial_eom_pq}, in addition to the internal energy $U$.

@@ -4,7 +4,7 @@ We will now proceed by using a mechanical `prototype' example instead of the gen
 
 In particular, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper `fills' the one entry that would otherwise remain zero in the state transition matrix in case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
 
-\subsection{Equations of motion}
+\subsection{System dynamics}
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, and its equations of motion are given by \cref{eq:serial_eom_raw}. In matrix form, the equations of motion are:
 \begin{equation*}
     \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p).
@@ -51,7 +51,7 @@ Leaving out the reference quantities requires the silent understanding that all 
 
 In the next section, we investigate the influence that of each of the split-quaternion components has on the physical behavior of the mechanical system.
 
-\subsection{The physical significance of the split-quaternion representation}
+\subsection{Physical interpretation of the split-quaternion representation}
 As mentioned previously, the qualitative regime of the dynamical system can be deduced from the sign of its split-quaternion and vector norm. In the particular case of the harmonic oscillator with two dampers, we assume that the damping coefficients $\gamma_s, \gamma_p$ are either positive or zero and that mass $m$ and the spring constant $k$ are both strictly positive. The norm of the split-quaternion given in \cref{eq:ddho_quat} is
 $$ \mathscr{N}(a) = m \Omega_n^2 + \gamma_p \gamma_s.$$
 From this expression we find that, given the assumptions, the norm of $a$ is always positive, and that we are therefore always dealing with a timelike split-quaternion. 
@@ -174,7 +174,7 @@ We will now investigate the relation between the normalized vector part and the 
 %    \end{tikzpicture}
 %\end{center}
 
-\subsection{Underdamped systems}
+\subsection{Geometric analysis of underdamped systems}
 For underdamped systems, the trajectories are spiral-shaped. Removing the real part from the split-quaternion is the same as removing the `contraction' in the spiral: as a result, the conservative version of this trajectory is an elliptic trajectory. This ellipse is subject to the same stretch and tilt of the original spiral, as illustrated by \cref{fig:underdamped}. 
 
 \begin{figure}[ht!]
@@ -252,7 +252,7 @@ Because we are not interested in the specific radius of the ellipse, we may mult
 \end{equation}
 which is the implicit equation for an ellipse in case $S^2 - 4RT < 0$ \cite{Rapp1991}. Substitution shows that this condition is equivalent to $\vec{a}$ being timelike. 
 
-\paragraph{Eccentricity} The eccentricity of the ellipse described by \cref{eq:ellipse_equation} in terms of the parameters $R, S, T$ can be shown to be \cite{Rapp1991}
+\subsubsection{Eccentricity} The eccentricity of the ellipse described by \cref{eq:ellipse_equation} in terms of the parameters $R, S, T$ can be shown to be \cite{Rapp1991}
 \begin{equation}
     e = \sqrt{\frac{2\sqrt{(R - T)^2 + S^2}}{(R + T) + \sqrt{(R - T)^2 + S^2}}}.
     \label{eq:eccentricity}
@@ -268,7 +268,7 @@ Finally, using the relations stated in \cref{eq:hyperb_coordinate_relations}, th
 \end{equation}
 % Hence, we can observe that the eccentricity of the hyperbolic system trajectory is completely determined by the hyperbolic angle $\tau$, and not influenced by $\sigma$ at all.
 
-\paragraph{Tilt angle} The tilt angle $\theta$ of the ellipse is defined as the angle between the positive horizontal ($q$)-axis and the major axis of the ellipse. Just like the eccentricity, we start from the general expression in terms of the parameters $R, T, S$:
+\subsubsection{Tilt angle} The tilt angle $\theta$ of the ellipse is defined as the angle between the positive horizontal ($q$)-axis and the major axis of the ellipse. Just like the eccentricity, we start from the general expression in terms of the parameters $R, T, S$:
 \begin{equation}
     \tan(\theta) = \frac{T - R - \sqrt{(R - T)^2 + S^2}}{S}.
 \end{equation}
@@ -284,7 +284,7 @@ $$ \tan(\theta) = \frac{\cos(\sigma) - 1}{\sin(\sigma)} = -\tan(\frac{\sigma}{2}
 Hence, we obtain that the angle 
 $$\theta = -\frac{\sigma}{2}.$$
 
-\paragraph{Orientation} Since the two-sheet hyperboloid consists of two disconnected surfaces, this begs the question what the significance is of either of those surfaces. The hyperboloids are directed along the $\quati$-axis. Therefore, sign of the $\quati$-component of $\vec{a}$ determines on which hyperboloid the vector is located. Physically, the sign of the $\quati$-component determines whether the `rotational' vector field has a clockwise or counterclockwise rotation. By default, $X_\quati$ is an infinitesimal clockwise rotation (cf. \cref{fig:basis_vf}): as a result, if $a_0$ is positive the rotation is clockwise and vice versa.
+\subsubsection{Orientation} Since the two-sheet hyperboloid consists of two disconnected surfaces, this begs the question what the significance is of either of those surfaces. The hyperboloids are directed along the $\quati$-axis. Therefore, sign of the $\quati$-component of $\vec{a}$ determines on which hyperboloid the vector is located. Physically, the sign of the $\quati$-component determines whether the `rotational' vector field has a clockwise or counterclockwise rotation. By default, $X_\quati$ is an infinitesimal clockwise rotation (cf. \cref{fig:basis_vf}): as a result, if $a_0$ is positive the rotation is clockwise and vice versa.
 
 The obtained relations show that the pseudospherical coordinates $\sigma, \tau$ are directly related to respectively the tilt angle and the eccentricity of the elliptic trajectories. We will now investigate the role of these coordinates in two common projections of the two-sheet hyperboloid, being the \emph{Poincaré model} and the \emph{Cayley-Klein} model.
 
@@ -345,7 +345,8 @@ $$ r_\text{k} = \frac{2r_\text{pc}}{1 + r_\text{pc}^2}. $$
 Hence, we gather that the Poincaré radius is equal to the \emph{third flattening}, commonly denoted by $n$ or $f''$. In terms of the major and minor axes of the elliptic trajectory, the Poincaré radius is equal to
 $$ r_\text{pc} = \frac{r_+ - r_-}{r_+ + r_-} = f''.$$
 
-\paragraph{Eigenvectors of A} As mentioned, the normalized vector part $a$ encodes the same information as the eigenvectors of the associated matrix $A$. For an underdamped system, both the eigenvectors and the eigenvalues of the matrix are complex. These complex eigenvectors are not directly interpretable; they can be multiplied by any complex number to obtain another eigenvector of the system. In one particular instance (i.e. a specific length in $\complex^2$), the real and imaginary part of the eigenvectors align with the major and minor axes ($r^+, r^-$) of the elliptic trajectory, but this requires additional computation to find the correct multiplication factor for the eigenvectors \cite{Edwards2018}. 
+\subsubsection{Relation with eigenvectors} 
+As mentioned, the normalized vector part $a$ encodes the same information as the eigenvectors of the associated matrix $A$. For an underdamped system, both the eigenvectors and the eigenvalues of the matrix are complex. These complex eigenvectors are not directly interpretable; they can be multiplied by any complex number to obtain another eigenvector of the system. In one particular instance (i.e. a specific length in $\complex^2$), the real and imaginary part of the eigenvectors align with the major and minor axes ($r^+, r^-$) of the elliptic trajectory, but this requires additional computation to find the correct multiplication factor for the eigenvectors \cite{Edwards2018}. 
 
 Conversely, as demonstrated in the above discussion, the normalized split-quaternions are naturally parameterized in way that corresponds directly to the shape parameters of the solution trajectories. As vectors in the phase plane, the semi-major and semi-minor axes can be expressed in terms of $\sigma$ and $\tau$ as follows (where the semi-major axis has length 1):
 \begin{equation}
