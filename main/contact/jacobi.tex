@@ -19,10 +19,14 @@ To illustrate the need for a Jacobi structure, we use the mechanical MDOF system
     \end{split}
 \end{equation}
 
-To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done the first damper ($b_1$) is
-$$ \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q_1}. $$
-The second damper ($b_2$) is placed between the two masses; the flow is relative. The effort is proportional to this flow; i.e.
-$$ \beta_2 = b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q_2 - q_1)}. $$
+To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done the first damper (\(b_1\)) is
+\begin{equation}
+     \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q_1}.
+\end{equation}
+The second damper (\(b_2\)) is placed between the two masses; the flow is relative. The effort is proportional to this flow; i.e.
+\begin{equation}
+     \beta_2 = b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q_2 - q_1)}.
+\end{equation}
 Hence, the contact 1-form that specifies the dissipation is
 \begin{equation}
     \begin{split}
@@ -33,85 +37,117 @@ Hence, the contact 1-form that specifies the dissipation is
     \label{eq:mdof_form}
 \end{equation}
 
-From this expression, we can observe a crucial difference with the contact forms of the single degree of freedom systems (cf. \cref{eq:dho_contact_form,eq:serial_dho_contact_form}). In contrast to the single-degree of freedom case given in the previous section, $\alpha$ is here \emph{not} of the form
-$$ \dd{U} - \gamma \theta, $$
-where $\theta$ is the Liouville form on the cotangent bundle of the configuration manifold $\ctbundle{Q}$. This has important ramifications, for the Liouville form (and its exterior derivative) facilitates the `pairing' between the position and momentum coordinates. In case of a single degree of freedom system, the pairing is trivial because there is only one momentum and one position coordinate. For more complicated systems this is no longer the case, as illustrated \cref{eq:mdof_form}.
+From this expression, we can observe a crucial difference with the contact forms of the single degree of freedom systems (cf. \cref{eq:dho_contact_form,eq:serial_dho_contact_form}). In contrast to the single-degree of freedom case given in the previous section, \(\alpha\) is here \emph{not} of the form
+\begin{equation}
+     \dd{U} - \gamma \theta,
+\end{equation}
+where \(\theta\) is the Liouville form on the cotangent bundle of the configuration manifold \(\ctbundle{Q}\). This has important ramifications, for the Liouville form (and its exterior derivative) facilitates the `pairing' between the position and momentum coordinates. In case of a single degree of freedom system, the pairing is trivial because there is only one momentum and one position coordinate. For more complicated systems this is no longer the case, as illustrated \cref{eq:mdof_form}.
 
-The exterior derivative of $\alpha$ is
-$$
-    \dd{\alpha} = \qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) \wedgep{\dd{q_1}}{\dd{p_1}}
+The exterior derivative of \(\alpha\) is
+\begin{equation}
+     \dd{\alpha} = \qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) \wedgep{\dd{q_1}}{\dd{p_1}}
                   -\qty(\frac{b_2}{m_2})\wedgep{\dd{q_1}}{\dd{p_2}}
                   + \qty(\frac{b_2}{m_2})\wedgep{\dd{q_2}}{\dd{p_2}}
                   - \qty(\frac{b_2}{m_1})\wedgep{\dd{q_2}}{\dd{p_1}},
-$$
-which indicates indeed that there is also a `mixing' of $p_1$ and $q_2$ and $p_2$ and $q_1$ in the resulting 2-form. As a result, the mapping $ \fromDual{\dd{\alpha}} $ will not produce the mapping that we would expect in the purely symplectic case.
+\end{equation}
+which indicates indeed that there is also a `mixing' of \(p_1\) and \(q_2\) and \(p_2\) and \(q_1\) in the resulting 2-form. As a result, the mapping \( \fromDual{\dd{\alpha}} \) will not produce the mapping that we would expect in the purely symplectic case.
 
-From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form $\alpha$ also included the pairing structure. This severely limits the applicability of a contact Hamiltonian systems to dissipative mechanical systems.
+From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form \(\alpha\) also included the pairing structure. This severely limits the applicability of a contact Hamiltonian systems to dissipative mechanical systems.
 
-The multi-degree of freedom systems for which $ \alpha $ is of the form $\dd{U} - \gamma \theta$ are those that do exhibit not damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
+The multi-degree of freedom systems for which \( \alpha \) is of the form \(\dd{U} - \gamma \theta\) are those that do exhibit not damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
 
 \subsection{Jacobi structures}
-A \emph{Jacobi structure} on a manifold $M$ is a bilinear mapping on the functions on $M$ \cite{marle1991}
-$$ \jacobi{\,}{}: \functions{M}\times\functions{M} \to \functions{M}: \quad (f, g) \mapsto \jacobi{f}{g} $$
+A \emph{Jacobi structure} on a manifold \(M\) is a bilinear mapping on the functions on \(M\) \cite{marle1991}
+\begin{equation}
+     \jacobi{\,}{}: \functions{M}\times\functions{M} \to \functions{M}: \quad (f, g) \mapsto \jacobi{f}{g}
+\end{equation}
 called the \emph{Jacobi bracket}. This mapping needs to satisfy three properties:
 \begin{enumerate}[label=(\roman*), noitemsep]
     \item it must be \emph{skew-symmetric}
-        $$ \jacobi{f}{g} = -\jacobi{g}{f}, $$
+        \begin{equation}
+     \jacobi{f}{g} = -\jacobi{g}{f},
+\end{equation}
     \item it satisfies the \emph{Jacobi identity}
-        $$ \jacobi{f}{\jacobi{g}{h}} + \jacobi{h}{\jacobi{f}{g}} + \jacobi{g}{\jacobi{h}{f}}, $$
+        \begin{equation}
+     \jacobi{f}{\jacobi{g}{h}} + \jacobi{h}{\jacobi{f}{g}} + \jacobi{g}{\jacobi{h}{f}},
+\end{equation}
     \item it is \emph{local}
-        $$ \support{\jacobi{f}{g}} \subset \support{f} \cap \support{g}, $$
-        where $\support$ denotes the support of a function.
+        \begin{equation}
+     \support{\jacobi{f}{g}} \subset \support{f} \cap \support{g},
+\end{equation}
+        where \(\support\) denotes the support of a function.
 \end{enumerate}
 Manifolds equipped with a Jacobi structure are called \emph{Jacobi manifolds}.
 
-It can be shown that any Jacobi structure can be uniquely defined in terms of a bivector field\footnote{A \emph{bivector} is the contravariant counterpart of a 2-form: it is a skew-symmetric tensor with valence (2, 0) \cite{einstein1944}.} $\Lambda$ and a vector field $R$. The corresponding Jacobi bracket is then given by: \cite{Libermann1987,marle1991}
-$$ \jacobi{f}{g} = \Lambda(\dd{f}, \dd{g}) + f (\intpr{R}{\dd{g}}) - g (\intpr{R}{\dd{f}}). $$
+It can be shown that any Jacobi structure can be uniquely defined in terms of a bivector field\footnote{A \emph{bivector} is the contravariant counterpart of a 2-form: it is a skew-symmetric tensor with valence (2, 0) \cite{einstein1944}.} \(\Lambda\) and a vector field \(R\). The corresponding Jacobi bracket is then given by: \cite{Libermann1987,marle1991}
+\begin{equation}
+     \jacobi{f}{g} = \Lambda(\dd{f}, \dd{g}) + f (\intpr{R}{\dd{g}}) - g (\intpr{R}{\dd{f}}).
+\end{equation}
 
-Not just any choice of bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, $\lambda$ and $R$ must satisfy two conditions:
-$$ \schouten{\Lambda}{\Lambda} = 2 \wedgep{R}{\Lambda} \qquad \schouten{R}{\Lambda} = 0, $$
-where $\schouten{\,}{}$ is the \emph{Schouten bracket}\footnote
+Not just any choice of bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, \(\lambda\) and \(R\) must satisfy two conditions:
+\begin{equation}
+     \schouten{\Lambda}{\Lambda} = 2 \wedgep{R}{\Lambda} \qquad \schouten{R}{\Lambda} = 0,
+\end{equation}
+where \(\schouten{\,}{}\) is the \emph{Schouten bracket}\footnote
 {
-    The Schouten bracket of an $r$-vector field $A$ and an $s$-vector field $B$ on a manifold is a $(r + s - 1)$-vector field $\schouten{A}{B}$, defined by its action on a closed $(r + s -1)$-form $\beta$ as follows:
-    $$ \schouten{A}{B}(\beta) = (-1)^{rs + s}\intpr{A}{\dd{(\intpr{B}{\beta})}} + (-1)^r \intpr{B}{\dd{(\intpr{A}{\beta})}}. $$
-    For $r = s = 1$, the Schouten bracket simply reverts to the ordinary Lie bracket \cite{dazord1991}.
+    The Schouten bracket of an \(r\)-vector field \(A\) and an \(s\)-vector field \(B\) on a manifold is a \((r + s - 1)\)-vector field \(\schouten{A}{B}\), defined by its action on a closed \((r + s -1)\)-form \(\beta\) as follows:
+    \begin{equation}
+     \schouten{A}{B}(\beta) = (-1)^{rs + s}\intpr{A}{\dd{(\intpr{B}{\beta})}} + (-1)^r \intpr{B}{\dd{(\intpr{A}{\beta})}}.
+\end{equation}
+    For \(r = s = 1\), the Schouten bracket simply reverts to the ordinary Lie bracket \cite{dazord1991}.
 
-}. A Jacobi manifold is therefore a triple $(M, \Lambda, R)$ \cite{Libermann1987}.
+}. A Jacobi manifold is therefore a triple \((M, \Lambda, R)\) \cite{Libermann1987}.
 
 A Jacobi structure induces a mapping from the functions on the manifold to the vector fields on the manifold (sometimes called the \emph{Hamiltonian correspondence}) \cite{ciaglia2018,mahmood2012} defined as follows:
 \begin{equation} 
     \Psi: \functions{M} \to \vfields{M}: \quad X_f = \fromDual{\Lambda}(\dd{f}) + f R,
     \label{eq:jacobi_ham_correspondence}
 \end{equation}
-where $f$ is the Hamiltonian function, $X_f$ the associated Hamiltonian vector fields. The sharp mapping $\fromDual{\Lambda}$ is defined as:
-$$ \fromDual{\Lambda}: \ctbundle{M} \to \tbundle{M}: \quad \fromDual{\Lambda}(\eta) = \intpr{\Lambda}{\eta}, $$
+where \(f\) is the Hamiltonian function, \(X_f\) the associated Hamiltonian vector fields. The sharp mapping \(\fromDual{\Lambda}\) is defined as:
+\begin{equation}
+     \fromDual{\Lambda}: \ctbundle{M} \to \tbundle{M}: \quad \fromDual{\Lambda}(\eta) = \intpr{\Lambda}{\eta},
+\end{equation}
 or equivalently
-$$ \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\chi}. $$
+\begin{equation}
+     \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\chi}.
+\end{equation}
 
 We will now see that both symplectic and contact manifolds are particular instances of a Jacobi structure, as well as the Hamiltonian systems defined on them.
 
 \subsubsection{Symplectic manifolds are Jacobi}
-For a symplectic manifold $(M, \omega)$ with dimension $2n$, the vector field $R$ is simply zero and the bivector $\Lambda$ field is defined by:
-$$ \Lambda(\eta, \chi) = \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\chi)) \qquad \eta, \chi \in \nforms{1}{M}, $$
-with $\fromDual{\omega}$ defined as in \cref{eq:symplectic_isomorphism}. 
+For a symplectic manifold \((M, \omega)\) with dimension \(2n\), the vector field \(R\) is simply zero and the bivector \(\Lambda\) field is defined by:
+\begin{equation}
+     \Lambda(\eta, \chi) = \omega\qty(\fromDual{\omega}(\eta), \fromDual{\omega}(\chi)) \qquad \eta, \chi \in \nforms{1}{M},
+\end{equation}
+with \(\fromDual{\omega}\) defined as in \cref{eq:symplectic_isomorphism}. 
 
-If $\omega$ is expressed in Darboux coordinates, i.e.
-$$ \omega = \sum^n_{i = 1} \wedgep{\dd{q_i}}{\dd{p_i}},$$
+If \(\omega\) is expressed in Darboux coordinates, i.e.
+\begin{equation}
+     \omega = \sum^n_{i = 1} \wedgep{\dd{q_i}}{\dd{p_i}},
+\end{equation}
 then the associated bivector can be found to be \cref{eq:jacobi_ham_correspondence}:
-$$ \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}. $$
+\begin{equation}
+     \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}.
+\end{equation}
 
-The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field $R$ vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
+The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field \(R\) vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
 
 \subsubsection{Contact manifolds are Jacobi}
-A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} $(M, \alpha)$ with dimension $2n + 1$ is also a Jacobi manifold. The vector field $R = R_\alpha$ is the Reeb vector field. 
-and the bivector $\Lambda$ is equal to
-$$ \Lambda(\eta, \chi) = \dd{\alpha}\qty(\fromDual{\dd{\alpha}}(\eta), \fromDual{\dd{\alpha}}(\chi)), $$
-where $\fromDual{\dd{\alpha}}$ is defined as in \cref{eq:contact_isomorphism} and $\eta,\chi$ are semi-basic 1-forms on $M$.
+A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} \((M, \alpha)\) with dimension \(2n + 1\) is also a Jacobi manifold. The vector field \(R = R_\alpha\) is the Reeb vector field. 
+and the bivector \(\Lambda\) is equal to
+\begin{equation}
+     \Lambda(\eta, \chi) = \dd{\alpha}\qty(\fromDual{\dd{\alpha}}(\eta), \fromDual{\dd{\alpha}}(\chi)),
+\end{equation}
+where \(\fromDual{\dd{\alpha}}\) is defined as in \cref{eq:contact_isomorphism} and \(\eta,\chi\) are semi-basic 1-forms on \(M\).
 
-If $\alpha$ is expressed in Darboux coordinates:
-$$ \alpha = \dd{q}_0 - \sum^n_{i = 1} p_i\dd{q_i}, $$
+If \(\alpha\) is expressed in Darboux coordinates:
+\begin{equation}
+     \alpha = \dd{q}_0 - \sum^n_{i = 1} p_i\dd{q_i},
+\end{equation}
 then
-$$ R = \pdv{}{q_0}.$$
+\begin{equation}
+     R = \pdv{}{q_0}.
+\end{equation}
 The expression for the bivector can be found as follows (by comparison with \cref{eq:jacobi_ham_correspondence}):
 \begin{equation}
     \begin{split}
@@ -126,54 +162,72 @@ The expression for the bivector can be found as follows (by comparison with \cre
     \end{split}
 \end{equation}
 From this expression, we gather that 
-$$ \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) + \qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{q_0}}{\pdv{}{p_i}}).$$
+\begin{equation}
+     \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) + \qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{q_0}}{\pdv{}{p_i}}).
+\end{equation}
 
 We will now apply the Jacobi structure to general mechanical systems.
 
 \subsection{Jacobi structure of mechanical systems}
 The geometric structure of a mechanical system has four components:
 \begin{itemize}
-    \item An odd-dimensional manifold $M = \ctbundle{Q}\times \real$, where $Q$ is the configuration manifold. It is extended by one dimension to incorporate the dissipated (internal) energy $U$ and therefore always odd-dimensional. In the following, we assume the `Darboux' coordinates $(q_1, \ldots, q_n, p_1, \ldots, p_n, U)$.
-    This manifold has a bundle structure $\bundle{M}{\pi}{\ctbundle{Q}}$, where $\pi$ is the projection map that `forgets' the $U$-coordinate.
-    \item A closed 2-form with constant rank $2n$, defined as the negative of the exterior derivative of the Liouville form on $\ctbundle{Q}$:
-        $$ \omega = -\dd{\theta} = \sum^n_{i=1} \wedgep{\dd{q_i}}{\dd{p_i}}, $$
-        i.e. $\omega$ is the canonical symplectic 2-form on $\ctbundle{Q}$.
-    \item A \emph{dissipation form} $\alpha$ that encodes the work done by the system on its environment:
-        $$ \alpha = \dd{U} - \beta, $$
-        where $\beta = \pi^*\beta_{\ctbundle{Q}}$ is a pullback of a form on $\ctbundle{Q}$, i.e. it does not depend on $U$. When there is no dissipation, $\beta = 0$.
-    \item A \emph{Hamiltonian function} $H \in \functions{M}$, equal to the sum of the mechanical energy of the system and the internal energy:
-        $$ H = E + U, $$
-        with $E = E(q_1, \ldots, q_n, p_1, \ldots, p_n)$ the mechanical energy of the system.
+    \item An odd-dimensional manifold \(M = \ctbundle{Q}\times \real\), where \(Q\) is the configuration manifold. It is extended by one dimension to incorporate the dissipated (internal) energy \(U\) and therefore always odd-dimensional. In the following, we assume the `Darboux' coordinates \((q_1, \ldots, q_n, p_1, \ldots, p_n, U)\).
+    This manifold has a bundle structure \(\bundle{M}{\pi}{\ctbundle{Q}}\), where \(\pi\) is the projection map that `forgets' the \(U\)-coordinate.
+    \item A closed 2-form with constant rank \(2n\), defined as the negative of the exterior derivative of the Liouville form on \(\ctbundle{Q}\):
+        \begin{equation}
+     \omega = -\dd{\theta} = \sum^n_{i=1} \wedgep{\dd{q_i}}{\dd{p_i}},
+\end{equation}
+        i.e. \(\omega\) is the canonical symplectic 2-form on \(\ctbundle{Q}\).
+    \item A \emph{dissipation form} \(\alpha\) that encodes the work done by the system on its environment:
+        \begin{equation}
+     \alpha = \dd{U} - \beta,
+\end{equation}
+        where \(\beta = \pi^*\beta_{\ctbundle{Q}}\) is a pullback of a form on \(\ctbundle{Q}\), i.e. it does not depend on \(U\). When there is no dissipation, \(\beta = 0\).
+    \item A \emph{Hamiltonian function} \(H \in \functions{M}\), equal to the sum of the mechanical energy of the system and the internal energy:
+        \begin{equation}
+     H = E + U,
+\end{equation}
+        with \(E = E(q_1, \ldots, q_n, p_1, \ldots, p_n)\) the mechanical energy of the system.
 \end{itemize}
 
-In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in $U$ does not play a role, and the system may be completely described on $\ctbundle{Q}$ with its symplectic structure. 
+In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in \(U\) does not play a role, and the system may be completely described on \(\ctbundle{Q}\) with its symplectic structure. 
 
-For the simple dissipative mechanical systems in \cref{sec:contact}, the form $\alpha$ would both encode the pairing structure \emph{and} the dissipation form, since $\dd{\alpha}$ would be of the form $\dd{U} - \gamma \theta$.  We now separate both functionalities (i.e. pairing and dissipation) to distinct components, for which the symplectic and contact systems are particular cases.
+For the simple dissipative mechanical systems in \cref{sec:contact}, the form \(\alpha\) would both encode the pairing structure \emph{and} the dissipation form, since \(\dd{\alpha}\) would be of the form \(\dd{U} - \gamma \theta\).  We now separate both functionalities (i.e. pairing and dissipation) to distinct components, for which the symplectic and contact systems are particular cases.
 
-The Jacobi structure for general mechanical systems is constructed in an analogous manner to the one for contact manifolds, apart from the fact that we now have a separate 2-form $\omega$, instead of using $\dd{\alpha}$. We can already expect that this will work given the right conditions, for the derivations in \cref{sec:contact} did not use the fact that $\dd{\alpha}$ is indeed the exterior derivative of $\alpha$. 
+The Jacobi structure for general mechanical systems is constructed in an analogous manner to the one for contact manifolds, apart from the fact that we now have a separate 2-form \(\omega\), instead of using \(\dd{\alpha}\). We can already expect that this will work given the right conditions, for the derivations in \cref{sec:contact} did not use the fact that \(\dd{\alpha}\) is indeed the exterior derivative of \(\alpha\). 
 
-However, not just any $\omega$ and $\alpha$ will make this work. Recall that the maximum nonintegrability of $\alpha$ is equivalent to $\wedgep{\alpha}{(\dd{\alpha})^n}$ being a volume form on the contact manifold. Along the same line, we require the following condition on $\omega$ and $\alpha$:
+However, not just any \(\omega\) and \(\alpha\) will make this work. Recall that the maximum nonintegrability of \(\alpha\) is equivalent to \(\wedgep{\alpha}{(\dd{\alpha})^n}\) being a volume form on the contact manifold. Along the same line, we require the following condition on \(\omega\) and \(\alpha\):
 \begin{equation}
     \wedgep{\alpha}{(\omega)^n} \neq 0
     \label{eq:jacobi_condition}
 \end{equation}
-everywhere on $M$; that is to say, it is a volume form on $M$ \cite{ciaglia2018}. If $M$, $\omega$ and $\alpha$ are defined as given above, this condition is clearly satisfied:
-$$ \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q_i}}{\dd{p_i}})}. $$
+everywhere on \(M\); that is to say, it is a volume form on \(M\) \cite{ciaglia2018}. If \(M\), \(\omega\) and \(\alpha\) are defined as given above, this condition is clearly satisfied:
+\begin{equation}
+     \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q_i}}{\dd{p_i}})}.
+\end{equation}
 
 If \cref{eq:jacobi_condition} is satisfied we can --- similarly to the discussion in \cref{ssec:contact_ham_systems} --- define the splitting of the tangent bundle as follows:
-$$ \ctbundle{M} = \ker{\alpha}\oplus\ker{\omega}. $$
-Vector fields in the kernel of $\alpha$ are called \emph{horizontal}, while vector fields in the kernel of $\omega$ are \emph{vertical}. Define the \emph{Reeb vector field} $R$ (for this Jacobi structure) as the unique vector field that satisfies the following conditions:
-$$ \intpr{R}{\alpha} = 1 \qquad \intpr{R}{\omega} = 0. $$
+\begin{equation}
+     \ctbundle{M} = \ker{\alpha}\oplus\ker{\omega}.
+\end{equation}
+Vector fields in the kernel of \(\alpha\) are called \emph{horizontal}, while vector fields in the kernel of \(\omega\) are \emph{vertical}. Define the \emph{Reeb vector field} \(R\) (for this Jacobi structure) as the unique vector field that satisfies the following conditions:
+\begin{equation}
+     \intpr{R}{\alpha} = 1 \qquad \intpr{R}{\omega} = 0.
+\end{equation}
 In Darboux coordinates, we have
-$$ R = \pdv{}{U}. $$
+\begin{equation}
+     R = \pdv{}{U}.
+\end{equation}
 The vector field of the Jacobi structure is equal to the Reeb vector field.
 
-In addition, define \emph{semi-basic forms} as the forms that annihilate the vertical vector fields; in Darboux coordinates, they are forms that have no component in $\dd{U}$.
+In addition, define \emph{semi-basic forms} as the forms that annihilate the vertical vector fields; in Darboux coordinates, they are forms that have no component in \(\dd{U}\).
 
-The decompositions of vector fields into horizontal and vertical components, and of forms into semi-basic components and multiples of $\alpha$ are analogous to \cref{eq:vfield_splitting,eq:form_splitting} respectively.
+The decompositions of vector fields into horizontal and vertical components, and of forms into semi-basic components and multiples of \(\alpha\) are analogous to \cref{eq:vfield_splitting,eq:form_splitting} respectively.
 
-The construction of $\Lambda$ is analogous to the case of contact manifolds: the sharp mapping first isolates the semi-basic component of the argument, after it is mapped to a horizontal vector field through $\fromDual{\omega}$:
-$$ \fromDual{\Lambda}(\zeta) = \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha). $$
+The construction of \(\Lambda\) is analogous to the case of contact manifolds: the sharp mapping first isolates the semi-basic component of the argument, after it is mapped to a horizontal vector field through \(\fromDual{\omega}\):
+\begin{equation}
+     \fromDual{\Lambda}(\zeta) = \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha).
+\end{equation}
 Using the coordinates defined above, we find:
 \begin{equation}
     \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q_0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\beta}]}.
@@ -185,7 +239,7 @@ The dynamics of the general mechanical system are then equal to
     X_H = \fromDual{\Lambda}(\dd{H}), 
     \label{eq:general_isomorphism}
 \end{equation}
-assuming again that $H$ is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear. 
+assuming again that \(H\) is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear. 
 
 For computational convenience, this mapping can also be represented by a matrix: 
 \begin{equation}
@@ -199,23 +253,31 @@ For computational convenience, this mapping can also be represented by a matrix:
     \end{split}
     \label{eq:matrix_jacobi_mapping}
 \end{equation}
-where $\vec{\beta}_q$ and $\vec{\beta}_p$ represent the $q$- and $p$-components of the form $\beta$, and $\nabla H$ is the gradient of $H$. The minus sign in front of the $\vec{\beta}_p$-components is usually cancelled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
+where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla H\) is the gradient of \(H\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually cancelled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
 
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
 \begin{itemize}
-    \item The manifold $M = \real^5 = \real \times \ctbundle{Q}$, for which we choose coordinates $(U, q_1, q_2, p_1, p_2)$.
-    \item The 2-form $\omega$ is the canonical symplectic structure on $\ctbundle{Q}$:
-        $$ \omega = \wedgep{\dd{q_1}}{\dd{p_1}} + \wedgep{\dd{q_2}}{\dd{p_2}}. $$
+    \item The manifold \(M = \real^5 = \real \times \ctbundle{Q}\), for which we choose coordinates \((U, q_1, q_2, p_1, p_2)\).
+    \item The 2-form \(\omega\) is the canonical symplectic structure on \(\ctbundle{Q}\):
+        \begin{equation}
+     \omega = \wedgep{\dd{q_1}}{\dd{p_1}} + \wedgep{\dd{q_2}}{\dd{p_2}}.
+\end{equation}
     \item The dissipation form is given by \cref{eq:mdof_form}:
-        $$ \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
-                          + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.$$
+        \begin{equation}
+     \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
+                          + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.
+\end{equation}
     \item The Hamiltonian is equal to the sum of kinetic, potential and internal energy in the system:
-        $$ H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.$$
+        \begin{equation}
+     H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.
+\end{equation}
 \end{itemize}
 
- The expression for $\beta$ is given by \cref{eq:mdof_form} as a part of the dissipation form $\alpha$. The exterior derivative of $H$ is 
-     $$ \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q_1 + k_2(q_1 - q_2)]\dd{q_1} + \qty[k_3q_2 + k_2(q_2 - q_1)]\dd{q_2} + \dd{U}.$$
+ The expression for \(\beta\) is given by \cref{eq:mdof_form} as a part of the dissipation form \(\alpha\). The exterior derivative of \(H\) is 
+     \begin{equation}
+     \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q_1 + k_2(q_1 - q_2)]\dd{q_1} + \qty[k_3q_2 + k_2(q_2 - q_1)]\dd{q_2} + \dd{U}.
+\end{equation}
  Using either \cref{eq:general_bivector,eq:general_isomorphism} or \cref{eq:matrix_jacobi_mapping}, we obtain the correct equations of motion for the system:
  \begin{equation}
      \begin{split}
@@ -227,16 +289,18 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
      \end{split}
      \label{eq:mdof_eom_complete}
  \end{equation}
-The reason why the equation for $U$ is always correct is because we force the vector field to be annihilate the dissipation form $\alpha$; as such, any work done by the dampers must constitute to the change in $U$. Because the Hamiltonian is equal to zero, there are no other contributions to $\dot{U}$. 
+The reason why the equation for \(U\) is always correct is because we force the vector field to be annihilate the dissipation form \(\alpha\); as such, any work done by the dampers must constitute to the change in \(U\). Because the Hamiltonian is equal to zero, there are no other contributions to \(\dot{U}\). 
 
-Observe from \cref{eq:mdof_eom_complete} that the rate of change of $U$ can be written in terms of the \emph{Rayleigh dissipation matrix}:
-$$ \dot{U} = \mqty(\tfrac{p_1}{m_1} & \tfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\tfrac{p_1}{m_1} \\ \tfrac{p_2}{m_2}).$$
-It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on $\beta$, apart from the fact that it does not depends on $U$. Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
+Observe from \cref{eq:mdof_eom_complete} that the rate of change of \(U\) can be written in terms of the \emph{Rayleigh dissipation matrix}:
+\begin{equation}
+     \dot{U} = \mqty(\tfrac{p_1}{m_1} & \tfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\tfrac{p_1}{m_1} \\ \tfrac{p_2}{m_2}).
+\end{equation}
+It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on \(\beta\), apart from the fact that it does not depends on \(U\). Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
 
 \subsubsection{Nonautonomous systems}
 For the purposes of control, the above formalism may also be extended with external inputs; i.e. flow sources, effort sources, or sources that contribute to the internal energy. In the port-Hamiltonian formalism proposed by \citet{VanDerSchaft2006}, the external sources are simply added to their respective Hamiltonian functions. It is then possible to interconnect several mechanical systems by means of power-preserving connections.
 
-When subject to external inputs, the vector field $X$ governing the dynamics of the mechanical system is the superposition of the time-dependent `input vector field` $X_u$ and the Hamiltonian vector field generated by the Jacobi-structure:
+When subject to external inputs, the vector field \(X\) governing the dynamics of the mechanical system is the superposition of the time-dependent `input vector field` \(X_u\) and the Hamiltonian vector field generated by the Jacobi-structure:
 \begin{equation}
     X = X_u + X_H.
 \end{equation}
@@ -246,7 +310,7 @@ In matrix form, the equations of motion given by \cref{eq:matrix_jacobi_mapping}
     \mqty(\dot{\vec{q}} \\ \dot{\vec{p}} \\ \dot{U}) = \mqty( 0 & I_n & \vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ -\vec{\beta}_p & \vec{\beta}_q & 0)(\nabla H)
     + \mqty(\vec{u}_\vec{q} \\\vec{u}_\vec{p} \\ u_\vec{U}),
 \end{equation}
-where $\vec{u}_\vec{q}$, $\vec{u}_\vec{q}$ and $u_\vec{U}$ represent the flow sources, effort sources and source of internal energy (i.e. a heat source).
+where \(\vec{u}_\vec{q}\), \(\vec{u}_\vec{q}\) and \(u_\vec{U}\) represent the flow sources, effort sources and source of internal energy (i.e. a heat source).
 
 %\textbf{Add to recommendations} \\
 %As a final remark, we note that although we have assumed the thermodynamic part of the system to be a heat bath (as discussed in \cref{sec:contact}). The heat bath is arguably the simplest thermodynamic system, in which one can put any arbitrary amount of heat without a rise in temperature or any other `feedback' back to the system. On the other hand, if the heat dissipated by the damper is dissipated into a piston which acts on the mass, there \emph{is} feedback
