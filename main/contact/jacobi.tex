@@ -1,11 +1,11 @@
 \section{Jacobi structures for general systems}
 \label{sec:jacobi}
-In this section we take the ideas outlined in \cref{sec:contact,sec:symplectic} one step further to more general mechanical systems. In particular, we will focus on multi-degree of freedom (MDOF) systems, and systems with exogeneous inputs (external forces). As it turns out, a contact structure is not sufficient to describe such systems. Instead, we use a generalization of contact and symplectic structures called a \emph{Jacobi structure}.
+In this section, we take the ideas outlined in \cref{sec:contact,sec:symplectic} one step further to more general mechanical systems. In particular, we will focus on multi-degree of freedom (MDOF) systems, and systems with exogenous inputs (external forces). As it turns out, a contact structure is not sufficient to describe such systems. Instead, we use a generalization of contact and symplectic structures called a \emph{Jacobi structure}.
 
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/mdof_oscillator}
-    \caption{Multi-degree of freedom mechanical system with two masses, two dampers and three springs. The corresponding bond graph representation is shown below.}
+    \caption{Multi-degree of freedom mechanical system with two masses, two dampers, and three springs. The corresponding bond graph representation is shown below.}
     \label{fig:mdof_oscillator}
 \end{figure}
 
@@ -19,7 +19,7 @@ To illustrate the need for a Jacobi structure, we use the mechanical MDOF system
     \end{split}
 \end{equation}
 
-To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done the first damper (\(b_1\)) is
+To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done on the first damper (\(b_1\)) is
 \begin{equation}
      \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q_1}.
 \end{equation}
@@ -41,7 +41,7 @@ From this expression, we can observe a crucial difference with the contact forms
 \begin{equation}
      \dd{U} - \gamma \theta,
 \end{equation}
-where \(\theta\) is the Liouville form on the cotangent bundle of the configuration manifold \(\ctbundle{Q}\). This has important ramifications, for the Liouville form (and its exterior derivative) facilitates the `pairing' between the position and momentum coordinates. In case of a single degree of freedom system, the pairing is trivial because there is only one momentum and one position coordinate. For more complicated systems this is no longer the case, as illustrated \cref{eq:mdof_form}.
+where \(\theta\) is the Liouville form on the cotangent bundle of the configuration manifold \(\ctbundle{Q}\). This has important ramifications, for the Liouville form (and its exterior derivative) facilitates the `pairing' between the position and momentum coordinates. In the case of a single degree of freedom system, the pairing is trivial because there is only one momentum and one position coordinate. For more complicated systems this is no longer the case, as illustrated \cref{eq:mdof_form}.
 
 The exterior derivative of \(\alpha\) is
 \begin{equation}
@@ -52,12 +52,12 @@ The exterior derivative of \(\alpha\) is
 \end{equation}
 which indicates indeed that there is also a `mixing' of \(p_1\) and \(q_2\) and \(p_2\) and \(q_1\) in the resulting 2-form. As a result, the mapping \( \fromDual{\dd{\alpha}} \) will not produce the mapping that we would expect in the purely symplectic case.
 
-From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form \(\alpha\) also included the pairing structure. This severely limits the applicability of a contact Hamiltonian systems to dissipative mechanical systems.
+From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both are required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form \(\alpha\) also included the pairing structure. This severely limits the applicability of contact Hamiltonian systems to dissipative mechanical systems.
 
-The multi-degree of freedom systems for which \( \alpha \) is of the form \(\dd{U} - \gamma \theta\) are those that do exhibit not damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
+The multi-degree of freedom systems for which \( \alpha \) is of the form \(\dd{U} - \gamma \theta\) are those that do exhibit no damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
 
 \subsection{Jacobi structures}
-A \emph{Jacobi structure} on a manifold \(M\) is a bilinear mapping on the functions on \(M\) \cite{marle1991}
+A \emph{Jacobi structure} on a manifold \(M\) is a bilinear mapping of the functions on \(M\) \cite{marle1991}
 \begin{equation}
      \jacobi{\,}{}: \functions{M}\times\functions{M} \to \functions{M}: \quad (f, g) \mapsto \jacobi{f}{g}
 \end{equation}
@@ -253,7 +253,7 @@ For computational convenience, this mapping can also be represented by a matrix:
     \end{split}
     \label{eq:matrix_jacobi_mapping}
 \end{equation}
-where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla H\) is the gradient of \(H\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually cancelled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
+where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla H\) is the gradient of \(H\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually canceled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
 
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
@@ -268,7 +268,7 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
      \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
                           + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.
 \end{equation}
-    \item The Hamiltonian is equal to the sum of kinetic, potential and internal energy in the system:
+    \item The Hamiltonian is equal to the sum of kinetic, potential, and internal energy in the system:
         \begin{equation}
      H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.
 \end{equation}
@@ -289,13 +289,13 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
      \end{split}
      \label{eq:mdof_eom_complete}
  \end{equation}
-The reason why the equation for \(U\) is always correct is because we force the vector field to be annihilate the dissipation form \(\alpha\); as such, any work done by the dampers must constitute to the change in \(U\). Because the Hamiltonian is equal to zero, there are no other contributions to \(\dot{U}\). 
+The reason why the equation for \(U\) is always correct is that we force the vector field to annihilate the dissipation form \(\alpha\); as such, any work done by the dampers must constitute the change in \(U\). Because the Hamiltonian is equal to zero, there are no other contributions to \(\dot{U}\). 
 
 Observe from \cref{eq:mdof_eom_complete} that the rate of change of \(U\) can be written in terms of the \emph{Rayleigh dissipation matrix}:
 \begin{equation}
      \dot{U} = \mqty(\tfrac{p_1}{m_1} & \tfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\tfrac{p_1}{m_1} \\ \tfrac{p_2}{m_2}).
 \end{equation}
-It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on \(\beta\), apart from the fact that it does not depends on \(U\). Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
+It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on \(\beta\), apart from the fact that it does not depend on \(U\). Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
 
 \subsubsection{Nonautonomous systems}
 For the purposes of control, the above formalism may also be extended with external inputs; i.e. flow sources, effort sources, or sources that contribute to the internal energy. In the port-Hamiltonian formalism proposed by \citet{VanDerSchaft2006}, the external sources are simply added to their respective Hamiltonian functions. It is then possible to interconnect several mechanical systems by means of power-preserving connections.

@@ -2,9 +2,9 @@
 \label{sec:contact}
 
 [Part of the intro]
-In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time-dependence indicate a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance input are (potentially stochastic) external inputs that cannot be controlled but influence the system is some specified manner. 
+In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time dependence indicates a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance inputs are (potentially stochastic) external inputs that cannot be controlled but influence the system in some specified manner. 
 
-What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore and exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include the dissipation as an intrinsic component of the overall system.
+What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore an exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include dissipation as an intrinsic component of the overall system.
 
 \subsection{Contact manifolds}
 In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A contact manifold \((M, \xi)\) is a smooth manifold \(M\) of dimension \(2n + 1\) equipped with a maximally non-integrable hyperplane distribution \(\xi\). That is to say, at every point \(x \in M\) the contact structure specifies a \(2n\)-dimensional linear subspace (i.e. a hyperplane) of \(\tbundle{M}\). Locally\footnote
@@ -15,7 +15,7 @@ In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A co
 \begin{equation}
      \xi\vert_x = \ker{\alpha}\vert_x.
 \end{equation}
-It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying \(\alpha\) by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is very important, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
+It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying \(\alpha\) by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is very important and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
 
 Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the condition for nonholomicity applies here as well: for \(\xi\) to be nonintegrable, the associated contact form \(\alpha\) must satisfy the Frobenius condition 
 \begin{equation}
@@ -23,7 +23,7 @@ Nonintegrability of the hyperplane distribution means that we cannot find codime
 \end{equation}
 or equivalently, that \(\wedgep{\alpha}{(\dd{\alpha})^n}\) is a volume form on \(M\). 
 
-Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that \(\dd{\alpha}\) implies that \(\dd{\alpha}\vert_{\xi}\) is a symplectic form. There also an extenison of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
+Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that \(\dd{\alpha}\) implies that \(\dd{\alpha}\vert_{\xi}\) is a symplectic form. There also an extension of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
 \begin{equation}
     \dd{q}_0 - \sum_i^n p_i \dd{q}_i, 
     \label{eq:contact_darboux}
@@ -34,7 +34,7 @@ For a slightly more comprehensive introduction to contact geometry, the reader i
 
 \subsection{Contact Hamiltonian systems}
 \label{ssec:contact_ham_systems}
-Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold \(M\), a contact form \(\alpha\) on that manifold, and a Hamiltonian function \(K\) on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact verison of Hamilton's equations.
+Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold \(M\), a contact form \(\alpha\) on that manifold, and a Hamiltonian function \(K\) on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact version of Hamilton's equations.
 
 The mapping \(\Psi_\alpha\) that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form \(\alpha\), is defined as follows:
 \begin{equation}
@@ -49,7 +49,7 @@ where \(\vsfields{c}{X}{M}\) is the collection of infinitesimal strict contactom
 where \(s\) is an arbitrary smooth function on \(M\). This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
 
 \subsubsection{Horizontal and vertical vector fields} 
-To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping \(\Psi^{-1}_\alpha\). This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a spliting of the (co)tangent bundle, decomposing the vector field into two components. 
+To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping \(\Psi^{-1}_\alpha\). This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a splitting of the (co)tangent bundle, decomposing the vector field into two components. 
 
 The nonintegrability condition on the contact structure ensures that \(\wedgep{\alpha}{\dd{\alpha}} \neq 0\). As such, at every point, we have at any \(x\in M\):
 \begin{equation}
@@ -59,9 +59,9 @@ i.e. they can only coincide at the origin. Consequently, we can define the follo
 \begin{equation}
      \tbundle{M} = \ker{\alpha}\oplus\ker{\dd{\alpha}},
 \end{equation}
-where \(\oplus\) denotes the Whitney sum\footnote{The Whitney sum applies to vector bundles, roughly speaking, a `fibered' version of the direct sum for vector spaces. The Whitney sum of two vector bundles (over the same base space) is a vector bundle over that base space, with every fiber being the direct sum of the fibers of the original vector bundles.}. Vector fields that are in the kernel of \(\alpha\) are called \emph{horizontal}; they form a subbundle of rank \(2n\), which coincides with the hyperplane distribution specified by the contact structure. In constrast, \emph{vertical} vector fields are in the kernel of \(\dd{\alpha}\), which is a subbundle of rank 1 \cite{Libermann1987}.
+where \(\oplus\) denotes the Whitney sum\footnote{The Whitney sum applies to vector bundles, roughly speaking, a `fibered' version of the direct sum for vector spaces. The Whitney sum of two vector bundles (over the same base space) is a vector bundle over that base space, with every fiber being the direct sum of the fibers of the original vector bundles.}. Vector fields that are in the kernel of \(\alpha\) are called \emph{horizontal}; they form a subbundle of rank \(2n\), which coincides with the hyperplane distribution specified by the contact structure. In contrast, \emph{vertical} vector fields are in the kernel of \(\dd{\alpha}\), which is a subbundle of rank 1 \cite{Libermann1987}.
 
-The \emph{Reeb vector field} \(R_\alpha\) associated with \(\alpha\) is a `unit' vertical vector field, defined by the conditions\footnote{The Reeb vector field is not uniquely associated with a contact structure, and depends on the particular choice of contact form.}
+The \emph{Reeb vector field} \(R_\alpha\) associated with \(\alpha\) is a `unit' vertical vector field, defined by the conditions\footnote{The Reeb vector field is not uniquely associated with a contact structure and depends on the particular choice of contact form.}
     \begin{equation}
      \intpr{R_\alpha}{\alpha} = 1 \qquad \intpr{R_\alpha}{\dd{\alpha}} = 0.
 \end{equation}
@@ -85,7 +85,7 @@ An arbitrary vector field \(X \in \vfields{M}\) can be canonically decomposed in
 \end{figure}
 
 \subsubsection{Semi-basic forms} 
-Similar to the splitting the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
+Similar to the splitting of the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
 
 Any 1-form \(\zeta \in \bsection{\tbundle{M}}\) can be canonically decomposed into a semi-basic component and a multiple of \(\alpha\) as follows:
 \begin{equation}
@@ -97,7 +97,7 @@ In Darboux coordinates, semi-basic forms are forms that have no component in \(\
 The decompositions of \(\ctbundle{M}\) and \(\tbundle{M}\) for the three-dimensional case are shown in \cref{fig:contact_spaces}. They also play an important role in \cref{sec:jacobi}.
 
 \subsubsection{The Hamiltonian isomorphism for contact manifolds}
-To find the Hamiltian vector field \(X_K\) associated to a Hamiltonian \(K\), we decompose \(X_K\) into a horizontal and a vertical component:
+To find the Hamiltonian vector field \(X_K\) associated with a Hamiltonian \(K\), we decompose \(X_K\) into a horizontal and a vertical component:
 \begin{equation}
      X_K = X_K^\text{hor} + X_K^\text{ver}.
 \end{equation}
@@ -147,7 +147,7 @@ To apply the contact Hamiltonian formalism to dissipative mechanical systems, we
 As mentioned the contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics.
 
 \subsubsection{Contact geometry in classical thermodynamics}
-It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure came to invention \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
+It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure was invented \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
 
 Contact geometry arises in thermodynamics as a consequence of the first law, which asserts that the change in internal energy of the system is equal to the difference between the heat added \emph{to} the system and the work performed \emph{by} the system. 
 
@@ -165,9 +165,9 @@ should pull back to zero over the physical trajectories of the systems.
 
 \paragraph{The Gibbs 1-form} For the purposes of illustration, we now apply this concept to what is arguably the most simple thermodynamic system: the ideal gas in a piston. 
 
-The ideal gas is characterized by five thermodynamic properties: the temperature \(T\), entropy \(S\), volume \(V\), pressure \(P\) and the internal energy \(U\). We call the five-dimensional space containing all the possible states the \emph{thermodynamic phase space}.
+The ideal gas is characterized by five thermodynamic properties: the temperature \(T\), entropy \(S\), volume \(V\), pressure \(P\), and the internal energy \(U\). We call the five-dimensional space containing all the possible states the \emph{thermodynamic phase space}.
 
-For the ideal gas, we have that the work done by the system is equal to the pressure multiplied with the change in volume, i.e. \(\beta = P\dd{V}\). Furthermore, heat added to the system is given by the temperature multiplied by the change of energy: \(\eta = T\dd{S}\) \cite{Arnold1989b,Wightman1979,Bamberg1988}. Therefore, \cref{eq:first_law_contact} becomes
+For the ideal gas, we have that the work done by the system is equal to the pressure multiplied by the change in volume, i.e. \(\beta = P\dd{V}\). Furthermore, heat added to the system is given by the temperature multiplied by the change of energy: \(\eta = T\dd{S}\) \cite{Arnold1989b,Wightman1979,Bamberg1988}. Therefore, \cref{eq:first_law_contact} becomes
 \begin{equation}
     \alpha_\text{\tiny G} \coloneq \dd{U} - T\dd{S} + P\dd{V},
     \label{eq:gibbs_form}
@@ -190,26 +190,26 @@ where \(C_0\) is an integration constant. Since \( U = U(S, V)\), we have that
 \begin{equation}
      \dd{U} = \pdv{U}{S}\dd{S} + \pdv{U}{V}\dd{V}.
 \end{equation}
-Hence, we can fully specify a Legendre submanifold by the integrated equation and following conditions
+Hence, we can fully specify a Legendre submanifold by the integrated equation and the following conditions
 \begin{equation}
      T = \pdv{U}{S} \qquad P = -\pdv{U}{V}.
 \end{equation}
 
 \subsubsection{Contact geometry of the damped harmonic oscillator}
-The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. We assume here that this system is completely isolated: there is no exchange of energy nor matter with the environment.  
+The damped harmonic oscillator is shown in \cref{fig:dho}, together with its bond graph representation. We assume here that this system is completely isolated: there is no exchange of energy or matter with the environment.  
 %The damping force of the damper is proportional to the relative velocity of its connection points. That is, \(F_\text{d} = b \dot{q} = \gamma p \), where \(\gamma \coloneq b/m\) is the damping coefficient.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/damper_oscillator}
-    \caption{The left figure shows a schematic of the mechanical damped harmonic oscillator wisth mass \(m\), spring constant \(k\) and damping constant \(b\). The bond graph representation is shown on the right. In addition to the I- and R-element in \cref{fig:ho}, there is now an R-element as well.}
+    \caption{The left figure shows a schematic of the mechanical damped harmonic oscillator with mass \(m\), spring constant \(k\), and damping constant \(b\). The bond graph representation is shown on the right. In addition to the I- and R-element in \cref{fig:ho}, there is now an R-element as well.}
     \label{fig:dho}
 \end{figure}
 
 \paragraph{Energy balance of the damped oscillator} We distinguish two types of energy that can be stored in the damped oscillator system: microscopic and macroscopic energy.
 
-Microscopic energy consists of the kinetic energy of particles that does not result in an overall observable motion of the system. This energy is called internal energy \(U\) and manifests itself as temperature. 
+Microscopic energy consists of the kinetic energy of particles that do not result in an overall observable motion of the system. This energy is called internal energy \(U\) and manifests itself as temperature. 
 
-Internal energy is stored in a `heat bath'. This is to be interpreted loosely: it can be the damper fluid, but also the surrounding air (although a heteregeneous medium will not allow for an unambiguous notion of temperature). We will not be concerned with all these possibilities and consider a single heat bath with a single temperature: generalizations to more complex thermodynamic systems are immediate. 
+Internal energy is stored in a `heat bath'. This is to be interpreted loosely: it can be the damper fluid, but also the surrounding air (although a heterogeneous medium will not allow for an unambiguous notion of temperature). We will not be concerned with all these possibilities and consider a single heat bath with a single temperature: generalizations to more complex thermodynamic systems are immediate. 
 
 In contrast, macroscopic energy \emph{is} observable, either due to an observable motion of the system (kinetic energy) or the energy resulting from external force potentials (potential energy). Their sum is called the mechanical energy \(E\): in the damped harmonic oscillator, it is the sum of the kinetic energy stored in the mass (I-element) and the potential energy stored in the spring (C-element).
 
@@ -223,7 +223,7 @@ Let us now decompose the system into two subsystems, one containing the mass and
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/damper_oscillator_thermo}
-    \caption{System boundaries of the damper-oscillator system. The mechanical subsystem stores mechanical energy \(E\) in the form of kinetic and potential energy, while the heat bath stores internal energy in the form of heat. They interface through the action of the damper.}
+    \caption{System boundaries of the damper-oscillator system. The mechanical subsystem stores mechanical energy \(E\) in the form of kinetic and potential energy, while the heat bath stores internal energy in the form of heat. The damper forms an interface between them.}
     \label{fig:oscillator_thermo}
 \end{figure}
 
@@ -253,7 +253,7 @@ This contact form specifies precisely how energy is dissipated in the system and
 
 Observe from \cref{eq:dho_contact_form} that \(\dd{\alpha} = \gamma \wedgep{\dd{q}}{\dd{p}}\), i.e. a multiple of the symplectic form used in \cref{sec:symplectic}. As such, the contact form contains \emph{both} information about the rate of dissipation present in the system, and about the pairing of the conjugate variables \(p\) and \(q\). We get the latter `for free' in this particular instance, since the pairing in this simple three-dimensional is rather trivial.
 
-It is important to note that, in the general case, a 1-form that describes the dissipation in the system is \emph{under no obligation} to be of this very specific form (that is, one that pairs the conjugate variables). As such, we can not expect this situation to occur in general: this is subject of \cref{sec:jacobi}.
+It is important to note that, in the general case, a 1-form that describes the dissipation in the system is \emph{under no obligation} to be of this very specific form (that is, one that pairs the conjugate variables). As such, we can not expect this situation to occur in general: this is the subject of \cref{sec:jacobi}.
 
 \subsubsection{Contact Hamiltonian system for the damped harmonic oscillator}
 With the contact structure defined, we can now establish the contact Hamiltonian system for the damped harmonic oscillator using \cref{eq:vertical_vf,eq:horizontal_vf,eq:contact_hamiltonian_vf}.
@@ -269,7 +269,7 @@ As such, the vertical component of the Hamiltonian vector field is, in accordanc
     X_K^\text{ver} = -K\pdv{}{U}.
     \label{eq:dho_vertical}
 \end{equation}
-However, we can only guess as to what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
+However, we can only guess what the Hamiltonian function might be. Indeed, its definition is rather circular, since the vertical part of the vector field is \emph{defined} in terms of the vertical part and vice versa.
 
 \paragraph{Horizontal component of the Hamiltonian vector field} The horizontal part is obtained by projecting \(\dd{K}\) (an arbitrary exact form) to a \emph{semi-basic} form, and mapping it to a vector field using the isomorphism \(\fromDual{\dd{\alpha}}\) like so:
 \begin{equation}
@@ -284,7 +284,7 @@ The projection thus removes any term in \(\dd{U}\) (which makes it semi-basic).
 
 Recall that \(\dd{\alpha} = \gamma \omega \). Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by \(\omega\) (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor \(\gamma\)) that we have to project \(\dd{K}\) by means of the term \(\qty(\intpr{R_\alpha}{\dd{K}}\alpha)\).
 
-In the conservative case, we have that \(H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2\). It is therefore reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of \(E\) (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
+In the conservative case, we have that \(H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2\). It is, therefore, reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of \(E\) (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
 Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work form of the damper, i.e. the amount of energy escaping from \(E\). We can thus conjecture that the first two terms in \cref{eq:contact_semi-basic} amount to \(\dd{E}\).
 
@@ -336,7 +336,7 @@ The corresponding equations of motion are
 \end{equation}
 The correct dynamics are certainly obtained for \(p\) and \(q\). However, from a physical standpoint, we expect \(\dot{U}\) to be the rate of energy (i.e. the power) dissipated by the damper, i.e. equal to \(\gamma p \dot{q}\). However, the additional term \(-K(q, p, U)\) (a result of the vertical component of the vector field) contributes to the rate of change of \(U\) as well, `spoiling' the physical dynamics.
 
-If we we wish to impose that \(U\) indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is the case only if the Hamiltonian is numerically equal to zero, i.e. \(K = 0\). This equation is a so-called \emph{weak equality}, as opposed to a \emph{strong} or \emph{identical} equality. In the former case, the Hamiltonian is numerically equal to zero, but its partial derivatives do not vanish. That is to say, there is a specific submanifold of \(M\) on which \(K\) vanishes, but we are allowed to make variations that are not necessarily tangent to this submanifold (see \citet{Dirac1950} for further details). On this submanifold, the equations of motion read
+If we wish to impose that \(U\) indeed be the internal energy of the heat bath, the \emph{vertical vector field must vanish}. This is the case only if the Hamiltonian is numerically equal to zero, i.e. \(K = 0\). This equation is a so-called \emph{weak equality}, as opposed to a \emph{strong} or \emph{identical} equality. In the former case, the Hamiltonian is numerically equal to zero, but its partial derivatives do not vanish. That is to say, there is a specific submanifold of \(M\) on which \(K\) vanishes, but we are allowed to make variations that are not necessarily tangent to this submanifold (see \citet{Dirac1950} for further details). On this submanifold, the equations of motion read
 \begin{equation}
     \begin{split}
         \dot{q} &= \frac{p}{m} \\
@@ -351,16 +351,16 @@ From a thermodynamic standpoint, energy is only determined up to an additive con
 It is here that our result differs from the existing literature on this subject. The applicability of contact Hamiltonian systems has already been recognized from a mathematical standpoint by \citet{Bravetti2017}, resulting in the equations of motion including the vertical vector field. However, when the variables are given a physical interpretation (in particular, the `extra dimension' represented by \(U\)) as we do here, the vanishing of the Hamiltonian is crucial.
 Leaving the vertical vector field in leads to extra `parasitic' dynamics that are unphysical and delude us from the intended meaning of the variable \(U\).
 
-\paragraph{Why the Hamiltonian must vanish} The assumption that the contact Hamiltonian should be equal to zero is rather striking, and the preceding arguments do not provide a sound mathematical basis for it. Indeed, we could (and should) be quite leery of cancelling terms using zero factors, for it often leads to unanticipated consequences or even downright contradictions. This is why we provide some more mathematically oriented arguments to show that this is indeed allowed.
+\paragraph{Why the Hamiltonian must vanish} The assumption that the contact Hamiltonian should be equal to zero is rather striking, and the preceding arguments do not provide a sound mathematical basis for it. Indeed, we could (and should) be quite leery of canceling terms using zero factors, for it often leads to unanticipated consequences or even downright contradictions. This is why we provide some more mathematically oriented arguments to show that this is indeed allowed.
 
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/dho_trajectories}
-    \caption{Integral curves of \(X_K\) for \(b = \SI{0.3}{\kilogram \per \second}\), \( m = \SI{1}{\kilogram}\) and  \(k = \SI{10}{\kilogram \per \second \squared}\). The left plot shows the physical trajectory (\(K = 0\)) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical, but show the case where we would choose a zero initial value for \(U\) (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, \(U\) clearly does \emph{not} represent the internal energy of the heat bath, or any other physical variable.}
+    \caption{Integral curves of \(X_K\) for \(b = \SI{0.3}{\kilogram \per \second}\), \( m = \SI{1}{\kilogram}\) and  \(k = \SI{10}{\kilogram \per \second \squared}\). The left plot shows the physical trajectory (\(K = 0\)) in black, together with some neighboring non-physical trajectories that approach the black trajectory with increasing time. The trajectories on the right are all unphysical but show the case where we would choose a zero initial value for \(U\) (also with some perturbations). The `wobble' is caused by the exponentially decaying value of the Hamiltonian being counterbalanced with the nonuniform decrease of the mechanical energy in the system. In this case, \(U\) clearly does \emph{not} represent the internal energy of the heat bath or any other physical variable.}
     \label{fig:dho_trajectories}
 \end{figure}
 
-Recall from \cref{eq:psi_definition} that, by definition, \(K = -\intpr{X_K}{\alpha}\). In the previous section we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, \(K\) measures in essence how `non-Legendrian' an integral manifold of \(X_K\) is. We have stipulated earlier that Legendre submanifolds contain the physically meaningful trajectories. That is, the dynamics must take place on a Legendre submanifold to be physical, which is why \(K = 0\).
+Recall from \cref{eq:psi_definition} that, by definition, \(K = -\intpr{X_K}{\alpha}\). In the previous section, we defined Legendre submanifolds as manifolds on which the contact form pulls back to zero: in other words, tangent vectors to a Legendre manifold produce zero when contracted with the contact form. So, \(K\) measures in essence how `non-Legendrian' an integral manifold of \(X_K\) is. We have stipulated earlier that Legendre submanifolds contain physically meaningful trajectories. That is, the dynamics must take place on a Legendre submanifold to be physical, which is why \(K = 0\).
 
 As an additional argument, we can show that
 \begin{equation}
@@ -386,18 +386,18 @@ We can regard this ambiguity as a gauge transformation of the system (cf. \citet
     \Psi^{-1}_{\alpha'}(K) = \Psi^{-1}_{\alpha}\qty(\frac{1}{f}\,K).
     \label{eq:contact_ham_scaling}
 \end{equation}
-The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical siginifance) is to set \(K = 0\).
+The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical significance) is to set \(K = 0\).
 
 [intro to symplectification]
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
-In this section, we use a procedure called \emph{symplectification} to cast the contact manifold of the previous section on a symplectic manifold in a canonical fashion. The advantage of this method is that the calculations for the dynamics are considerably simplified, since we can use the theory outlined in \cref{sec:symplectic}. To quote Vladimir Arnold'd, who originally came up with concept of symplectification, `one is advised to calculate symplectically but to think rather in contact geometry terms’ \cite{VanderSchaft2021a,Arnold1989a}.
+In this section, we use a procedure called \emph{symplectification} to cast the contact manifold of the previous section on a symplectic manifold in a canonical fashion. The advantage of this method is that the calculations for the dynamics are considerably simplified since we can use the theory outlined in \cref{sec:symplectic}. To quote Vladimir Arnol'd, who originally came up with the concept of symplectification, `one is advised to calculate symplectically but to think rather in contact geometry terms’ \cite{VanderSchaft2021a,Arnold1989a}.
 
 In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator, using an explicit time-dependence: the Caldirola-Kanai Hamiltonian.
 
 \subsubsection{Symplectification of contact manifolds}
-To make the process of symplectization mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accomodate \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_0\). That is,
+To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_0\). That is,
 \begin{equation}
      (q_0, q) \in Q_e.
 \end{equation}
@@ -465,7 +465,7 @@ The symplectification procedure exploits the natural ambiguity that contact form
     \lambda (\dd{q_0} - p \dd{q}). 
     \label{eq:lambda_alpha}
 \end{equation}
-The above expression gives a representation of \emph{all} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_0, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
+The above expression gives a representation of \emph{al} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_0, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
 
 We now effect the following coordinate transform:
 \begin{equation}
@@ -483,11 +483,11 @@ which is the Liouville form on the cotangent bundle \(\ctbundle{Q_e}\) in Darbou
     \label{eq:symplectic_form_extended}
 \end{equation}
 
-The coordinate \(\lambda\), and therefore \(\rho_0\) and \(\rho\), are not canonical coordinates, for they depend on the particular choice of the contact form to begin with. Indeed, in this particular choice of \(\alpha_e\) one point in the fiber is left out (\(p = \infty\)), which effectively rules all the points for which \(\rho_0 = 0\). 
+The coordinate \(\lambda\), and therefore \(\rho_0\) and \(\rho\), are not canonical coordinates, for they depend on the particular choice of the contact form, to begin with. Indeed, in this particular choice of \(\alpha_e\) one point in the fiber is left out (\(p = \infty\)), which effectively rules all the points for which \(\rho_0 = 0\). 
 
 In reality, only the points for which \emph{both} \(\rho\) and \(\rho_0\) vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart (this will be made clear later). The resulting space is the cotangent bundle of \(Q_e\) without its zero section, denoted by \( \ctzbundle{Q_e}\) \cite{VanderSchaft2021a,Libermann1987}.
 
-As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectiztion procedure more mathematically precise using the language of principal bundles.
+As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectification procedure more mathematically precise using the language of principal bundles.
 
 \subsubsection{Liouville geometry and principal G-bundles}
 A \emph{principal} \(G\)\emph{-bundle} is a smooth bundle \(\bundle{P}{\sigma}{B}\) if \(P\) is equipped with a \emph{free} right \(G\)-action \(\raction{}\), where \(G\) is a Lie group. Furthermore, let  
@@ -512,9 +512,9 @@ then
 \end{equation}
 with \([x]_\sim\) being the equivalence class with respect to \(\sim\) and \(P/G = P/\sim\).\footnote{This is the definition used in the lectures of F. P. Schuller, see \cite{Schuller2014}.}
 
-\paragraph{Principal \texorpdfstring{\(\real^\times\)}{R}-bundles} In our context of symplectization, the Lie group in question is the real multiplicative group \(\real^\times\). The group acts on the cotangent bundle of \(Q_e\) without zero section\footnote
+\paragraph{Principal \texorpdfstring{\(\real^\times\)}{R}-bundles} In our context of symplectification, the Lie group in question is the real multiplicative group \(\real^\times\). The group acts on the cotangent bundle of \(Q_e\) without zero section\footnote
 {
-    The zero section must be removed from the cotangent bundle, because otherwise the group action defined above is not free (the origin of any cotangent space is stabilized by the entire group). If the group action is free, the orbits are diffeomorphic to the group itself. if this is not the case, not all the orbits are diffeomorphic to each other, and the `bundle of orbits' would not be a fiber bundle. In this case, the origin (being the orbit of the origin) is of course not diffeomorphic to the other orbits (lines with a point removed).
+    The zero section must be removed from the cotangent bundle because otherwise, the group action defined above is not free (the origin of any cotangent space is stabilized by the entire group). If the group action is free, the orbits are diffeomorphic to the group itself. if this is not the case, not all the orbits are diffeomorphic to each other, and the `bundle of orbits' would not be a fiber bundle. In this case, the origin (being the orbit of the origin) is of course not diffeomorphic to the other orbits (lines with a point removed).
 }
 (i.e. \ctzbundle{Q_e}) through \emph{dilation of its fibers}. In the coordinates defined above, we define the group action \(\raction{\real^\times}\) as:
 \begin{equation}
@@ -533,7 +533,7 @@ The symplectification \(\ctzbundle{Q_e}\) is therefore a principal \(\mgroup\)-b
      \sigma: \ctzbundle{Q_e} \to \pctbundle{Q_e}: \quad (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0).
 \end{equation}
 
-A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both \(\ctzbundle{Q_e}\) and \(\pctbundle{Q_e}\) are also bundles over the extended configuration space \(Q_e\). At a specific point of \(Q_e\), say \(x\), we have two fibres. The fiber \(\ctzspace{x}{Q_e}\) is the cotangent space to \(x\) without the origin. The group action \(\rangle{\mgroup}\) manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as \(\mgroup\) itself, since the action is free). 
+A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both \(\ctzbundle{Q_e}\) and \(\pctbundle{Q_e}\) are also bundles over the extended configuration space \(Q_e\). At a specific point of \(Q_e\), say \(x\), we have two fibers. The fiber \(\ctzspace{x}{Q_e}\) is the cotangent space to \(x\) without the origin. The group action \(\rangle{\mgroup}\) manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as \(\mgroup\) itself, since the action is free). 
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/principal_bundle}
@@ -543,14 +543,14 @@ A geometric perspective of this construction is given in \cref{fig:principal_bun
 
 The space of all orbits is a circle with antipodal points identified, which also has the topology of a circle: this is the space \(\mathbb{P}\real\), and it is the fiber \(\pctspace{x}{Q_e}\) of \(\pctbundle{Q_e}\) at the point \(x\). The projection map that takes a point in \(\pctbundle{x}{Q_e}\) to its associated orbit in the orbit space is \(\sigma\). 
 
-In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_0\), which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south pole of the circle on the right.
+In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_0\), which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south poles of the circle on the right.
 
 From the perspective of \(\pctbundle{Q_e}\), \(\rho_0\) and \(\rho\) can also be seen as \emph{homogeneous coordinates} for this space.
 
 \paragraph{Principal bundles in system theory}
 To illustrate the concept of principal bundles and their relevance, we give an instructive example of principal bundles in control theory. For more information, the reader is referred to \citet{Hermann1984}. 
 
-LTI systems can be represented both as a collection of state-space matrices, or in the frequency domain using a transfer matrix. The state-space representation is typically given in the specified by a collection four matrices: \(A, B, C, D\). For an LTI system with \(n\) states, \(m\) inputs and \(o\) outputs, we have:
+LTI systems can be represented both as a collection of state-space matrices or in the frequency domain using a transfer matrix. The state-space representation is typically given in the specified by a collection of four matrices: \(A, B, C, D\). For an LTI system with \(n\) states, \(m\) inputs and \(o\) outputs, we have:
 \begin{equation}
      A \in \real^{n \times n} \quad B \in \real^{n \times m} \quad C \in \real^{o \times n} \quad D \in \real^{o \times m}.
 \end{equation}
@@ -559,12 +559,12 @@ Hence, the `manifold of LTI systems' given these dimensions is diffeomorphic to 
 \end{equation}  
 This is the total space of the principal bundle.
 
-A state space representation of a transfer matrix is not unique: any similarity transform of the state space yields different state space matrices that correspond to the same transfer matrix. Hence, the \emph{structure group} is in this case the general linear group of of dmension \(n\), \(\glgroup{n}{\real}\), which contains all the similarity transforms. The group action \(\raction{\glgroup{n}{\real}} \) is defined as follows:
+A state space representation of a transfer matrix is not unique: any similarity transform of the state space yields different state space matrices that correspond to the same transfer matrix. Hence, the \emph{structure group} is in this case the general linear group of dimension \(n\), \(\glgroup{n}{\real}\), which contains all the similarity transforms. The group action \(\raction{\glgroup{n}{\real}} \) is defined as follows:
 \begin{equation}
      (A, B, C, D) \raction{T} = (T A T^{-1}, TB, CT^{-1}, D).
 \end{equation}
 
-The orbit space \(\real^\ell/\glgroup{n}{\real}\) can be identified with the space of transfer matrices. The projection map that takes the state space represention to a transfer matrix is given by
+The orbit space \(\real^\ell/\glgroup{n}{\real}\) can be identified with the space of transfer matrices. The projection map that takes the state space representation to a transfer matrix is given by
 \begin{equation}
      \sigma(A, B, C, D) = C(s I - A )^{-1} B + D,
 \end{equation}
@@ -581,10 +581,10 @@ In this section, we will lift the contact Hamiltonian system defined in \cref{ss
 \end{equation}
 which is indeed the case for \(\omega_e\) as defined in \cref{eq:symplectic_form_extended} \cite{Libermann1987}. Because the group action \(\raction{\mgroup}\) is free, the symplectic Liouville structure is said to be \emph{fibered} \cite{Libermann1987}.
 
-It can be shown that there is again an mapping between the smooth functions on the manifold with Liouville structure and vector fields that preserve this structure\footnote
+It can be shown that there is again a mapping between the smooth functions on the manifold with Liouville structure and vector fields that preserve this structure\footnote
 {For a vector field \(X\) to preserve the Liouville structure means (i) that it preserves \(\omega_e\), i.e. \(\lied{X}{\omega_e} = 0\), and (ii) that it is invariant under the group action: \( (\raction{\lambda})_* X = X\) (\(\lambda \in \mgroup)\). }, along the same line as for the symplectic manifolds in \cref{sec:symplectic} and the contact manifolds earlier in this section.
 
-The smooth functions in this case are not completely arbitrary, since they must also comply with the Liouville structure. More precisely, they must be \emph{homogeneous} of degree 1 with respect to the group action \(\raction{\mgroup}\). For a function \(\mathscr{H}\) on \(\ctzbundle{Q_e}\) to be homogeneous means it must satisfy the following condition
+The smooth functions, in this case, are not completely arbitrary, since they must also comply with the Liouville structure. More precisely, they must be \emph{homogeneous} of degree 1 with respect to the group action \(\raction{\mgroup}\). For a function \(\mathscr{H}\) on \(\ctzbundle{Q_e}\) to be homogeneous means it must satisfy the following condition
 \begin{equation}
      (\raction \lambda )^* \mathscr{H} = \lambda \mathscr{H}.
 \end{equation}
@@ -595,7 +595,7 @@ In the coordinates defined above, this is equivalent to:
 which is to say that \(\mathscr{H}\) \emph{commutes} with the group action.
 
 Thus, we have an isomorphism between the vector fields preserving the Liouville structure and the homogeneous functions on the manifold. 
-This manifold is symplectic, so isomorphism is defined in terms of the symplectic form \(\omega_e\) like so (and in identical fashion to \cref{eq:symplectic_isomorphism}),
+This manifold is symplectic, so isomorphism is defined in terms of the symplectic form \(\omega_e\) like so (and in an identical fashion to \cref{eq:symplectic_isomorphism}),
 \begin{equation}
      \fromDual{\omega_e}(\dd{\mathscr{H}}) = X_\mathscr{H}.
 \end{equation}
@@ -656,7 +656,7 @@ The homogeneous Hamiltonian vector field is then
 %        &\dot{\rho}     = \rho_0 \pdv{H}{q}.
 %    \end{split}
 %\end{equation}
-The equations of motion \(q_0\) and \(q\) remain identical to those obtained earlier; this is to be expected since otherwise the dynamics would not correspond. 
+The equations of motion \(q_0\) and \(q\) remain identical to those obtained earlier; this is to be expected since otherwise, the dynamics would not correspond. 
 
 For \(\rho_0\), we have
 \begin{equation}
@@ -680,7 +680,7 @@ Observe that these equations of motion are invariant under the earlier defined g
 
 \paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that the contact Hamiltonian should numerically be equal to zero for the equations of motion to represent a physical trajectory. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
 
-As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if \(\alpha_e\) pulls back to zero on the trajectories in the contact manifold, so should \(\theta_e\) on the lifted trajectories, for they only differ by multiplication with \(\rho_0\). These are called \emph{Liouville submanifolds}, and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form \(\omega_e\) vanishes when restricted to them. This is also the case when \(\theta_e\) vanishes, but the converse is not necessarily true.}
+As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if \(\alpha_e\) pulls back to zero on the trajectories in the contact manifold, so should \(\theta_e\) on the lifted trajectories, for they only differ by multiplication with \(\rho_0\). These are called \emph{Liouville submanifolds} and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form \(\omega_e\) vanishes when restricted to them. This is also the case when \(\theta_e\) vanishes, but the converse is not necessarily true.}
 
 Using \cref{eq:hom_ham_vf}, we find that 
 \begin{equation}
@@ -689,12 +689,12 @@ Using \cref{eq:hom_ham_vf}, we find that
 which means that the contact Hamiltonian (i.e. the total energy in the system)
 must be equal to zero for the lifted trajectories to lie in a Liouville submanifold.
 
-For yet another perspective regarding this point, we can make use of the symplectic nature of the homogeneous Hamiltonian. Indeed, no matter what the value of \(K_e\), the homogeneous Hamiltonian \(\mathscr{H}\) \emph{must} be constant over time, because it does explicitly depend on it. Since the dynamics are symplectic, we can simply use Poisson brackets support this fact:
+For yet another perspective regarding this point, we can make use of the symplectic nature of the homogeneous Hamiltonian. Indeed, no matter what the value of \(K_e\), the homogeneous Hamiltonian \(\mathscr{H}\) \emph{must} be constant over time because it does explicitly depend on it. Since the dynamics are symplectic, we can simply use Poisson brackets to support this fact:
 \begin{equation}
      \dot{\mathscr{H}} = \poisson{\mathscr{H}}{\mathscr{H}} + \pdv{\mathscr{H}}{t} = 0.
 \end{equation}
 
-Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_0 K_e = \ec^{\gamma t} K_e\). Hence, it is now very easy to see that \(K_e\) eithe  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_0\), or it equal to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which amounts to the particular choice that \(\mathscr{H}_0 = 0\).
+Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_0 K_e = \ec^{\gamma t} K_e\). Hence, it is now very easy to see that \(K_e\) either  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_0\), or it equals to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which amounts to the particular choice that \(\mathscr{H}_0 = 0\).
 
 If we assume that the dynamics take place on a Liouville submanifold, the Hamiltonian vector field becomes
 \begin{equation}
@@ -705,7 +705,7 @@ If this vector field is be projected to \(\pctbundle{Q_e}\) using the pushforwar
 \subsubsection{Relation with the Caldirola-Kanai Hamiltonian}
 In this section, we show that the homogeneous Hamiltonian is equivalent to a well-known existing model for the damped harmonic oscillator, the Caldirola-Kanai Hamiltonian (and Lagrangian).
 
-The Caldirola-Kanai Hamiltonian, commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, is a method to describe the linearly damped harmonic oscillator using a Lagrangian or Hamiltonian function that explicitly depend on time. It was originally motivated for the purposes of quantum mechanics.
+The Caldirola-Kanai Hamiltonian, commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, is a method to describe the linearly damped harmonic oscillator using a Lagrangian or Hamiltonian function that explicitly depends on time. It was originally motivated for the purposes of quantum mechanics.
 
 We depart from the Lagrangian function for it depends directly on physical coordinates \(q\) and \(\dot{q}\), as opposed to the Hamiltonian. The Caldirola-Kanai Lagrangian is
 \begin{equation}
@@ -722,7 +722,7 @@ The correct equations of motion are readily derived through the Euler-Lagrange e
     \end{split}
 \end{equation}
 
-The Caldirola-Kanai Hamiltonian is obtained from the Lagrangian by means of a Legendre transform. The Legendre transfrom is effected with respect to the \emph{canonical momentum}
+The Caldirola-Kanai Hamiltonian is obtained from the Lagrangian by means of a Legendre transform. The Legendre transform is effected with respect to the \emph{canonical momentum}
 \begin{equation}
      \rho = \pdv{\Lck}{\dot{q}} = \ec^{\gamma t} m \dot{q},
 \end{equation}
@@ -733,7 +733,7 @@ The Hamiltonian is then equal to
      \Hck = \rho\dot{q} - \Lck =  \frac{\Pcan^2}{2m}\ec^{-\gamma t} + \frac{1}{2}kq^2\ec^{\gamma t}.
 \end{equation}
 Because the Hamiltonian is explicitly time-dependent, the associated Hamiltonian vector field will be time-dependent as well\footnote
-{A \emph{time-dependent vector field} on a manifold \(N\) is a mapping \(X: N\times\real \to \tbundle{N}\) such that for each \(t \in \real\), the restriction \(X_t\) of \(X\) to \(N \times \{t\}\) is a vector field on \(N\). \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is a mapping \begin{equation}
+{A \emph{time-dependent vector field} on a manifold \(N\) is a mapping \(X: N\times\real \to \tbundle{N}\) such that for each \(t \in \real\), the restriction \(X_t\) of \(X\) to \(N \times \{t\}\) is a vector field on \(N\). \cite{Libermann1987} An additional construction of importance, called the \emph{suspension} of the vector field, is the mapping \begin{equation}
      \tilde{X}: \real \times N \to \tbundle{(\real \times N)} \quad (t, n) \mapsto ((t, 1), (n, X(t, n))),
 \end{equation} that is to say, the suspension lifts the vector field to the extended space that also includes \(t\) and assigns the time coordinate with a trivial velocity of 1 \cite{Abraham1978}.}.
 
@@ -758,7 +758,7 @@ The similarity between the derivation of the equations of motion --- in particul
 \begin{equation}
      \Hck = -\frac{\rho^2}{2m\rho_0} - \rho_0 \frac{1}{2}kq^2 = -\rho_0 \qty (\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2),
 \end{equation}
-which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in \(q_0\). The depence on \(q_0\) is not required, since it is replaced by an explicit dependence on time that would otherwise generate the exponential factor \(\ec^{\gamma t}\). 
+which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in \(q_0\). The dependence on \(q_0\) is not required, since it is replaced by an explicit dependence on time that would otherwise generate the exponential factor \(\ec^{\gamma t}\). 
 
 Many interpretations have already been given for the particular form of \(\Hck\); for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as  directly equivalent to the homogeneous Hamiltonian system, where the dynamics of the additional coordinates \(\rho_0\) and \(q_0\) are replaced by their explicit solution in time. Additionally, the role of the `mysterious' canonical momentum \(\rho\) is explained as being a coordinate of the symplectified space, or homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
 
@@ -784,9 +784,9 @@ The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc
 Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection \(q\) and the position of the mass \(q_1\). The subscript `1' refers to the fact that \(q_1\) is the position measured at the 1-junction in the bond graph shown in \cref{fig:dho}. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is two. 
 
 In accordance with the economic analogy, we will say that position is stored in the spring, but momentum is stored in a mass.
-Hence, we let \(p = m\dot{q}_1\) --- but \(\dot{q} \neq p/m\) in general. That is to say, the spring is naturally associated with a position coordinate, while the mass has a momentum, though its position does not partake in the dynamics directly.
+Hence, we let \(p = m\dot{q}_1\) --- but \(\dot{q} \neq p/m\) in general. That is to say, the spring is naturally associated with a position coordinate, while the mass has momentum, though its position does not partake in the dynamics directly.
 
-Using the damping coefficients defined in \cref{tab:ddho_params}, the equations om motion become:
+Using the damping coefficients defined in \cref{tab:ddho_params}, the equations of motion become:
 \begin{equation}
     \begin{split}
         \dot{q} &= -\gamma_s q + p/m  \\
@@ -797,7 +797,7 @@ Using the damping coefficients defined in \cref{tab:ddho_params}, the equations 
 
 %In addition to \(q_1\) being the position measured at the 1-juncton, we can also measure the momentum at the 0-junction, this momentum is \(p_0 \coloneq m\dot{q}\). Again, the subscript `0` refers to the fact that is momentum is based on the 0-junction, along the same line as the position coordinate \(q_1\). Hence, we have four coordinates, two of which  (\(p\) and \(q\)), are natural because they are measured at the component of the where they are effectively stored. In addition there are \(p_0\) and \(q_1\), which are somewhat artificial definitions.
 \begin{table}[ht!]
-    \caption{Substition parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
+    \caption{Substitution parameters for the harmonic oscillator with serial and parallel damping, shown in \cref{fig:double_damped_osc}.}
     \label{tab:ddho_params}
     \centering
     \begin{tabular}{llll}
@@ -813,13 +813,13 @@ Using the damping coefficients defined in \cref{tab:ddho_params}, the equations 
 \end{table}
 
 \subsubsection{Contact Hamiltonian system} 
-In order to establish the contact structure for the harmonic oscillator with two dampers, we must find the expression for the work done by the system on the dampers. We will do so using the structure of the bond graph shwon in \cref{fig:double_damped_osc}. 
+In order to establish the contact structure for the harmonic oscillator with two dampers, we must find the expression for the work done by the system on the dampers. We will do so using the structure of the bond graph shown in \cref{fig:double_damped_osc}. 
 
 Bonds carry two signals: an effort and a flow. Both can be assigned a `direction'; they are always opposite. The direction indicates whether either the effort or flow should be regarded as the `input' of the model. For example, \emph{traditionally} (though this is a matter of convention), an I-element takes efforts as an input, and returns a flow. That is to say, one applies a force to a mass, with a change in velocity as a result. Conversely, when a spring is stretched along a certain distance to return a force proportional to it; it takes a flow and returns an effort \cite{Borutzky2010}. In a bond graph, this is indicated by a causality stroke, which is placed at the side of the bond that determines the flow.
 
 If a causality convention is chosen, all the I- and C-elements in the bond graph should conform to this convention\footnote{Not doing so leads to a differential algebraic system (DAE).}. This is \emph{not} the case for R-elements; they are \emph{indifferent to causality}. The reason for this is that there is no integral/derivative present in the mathematical description of their dynamic behavior: they relate an effort and flow, which are both time derivatives. So, depending on the system architecture, a particular R-element may receive an effort and return a flow, or vice versa \cite{Borutzky2010}.
 
-This can be observed from \cref{fig:double_damped_osc}: the serial damper (on the 0-junction) receives an effort and returns a flow, while the parallel damper receives a flow and returns an effort (1-junction). This distinction is reflected in the work form associated to the damper. For the parallel damper, we have
+This can be observed from \cref{fig:double_damped_osc}: the serial damper (on the 0-junction) receives an effort and returns a flow, while the parallel damper receives a flow and returns an effort (1-junction). This distinction is reflected in the work form associated with the damper. For the parallel damper, we have
 \begin{equation}
      \beta_p = \underbrace{\gamma_p p}_\text{\textsc{effort}} \times \underbrace{\dd{q}.}_\text{\textsc{flow}}
 \end{equation}
@@ -857,7 +857,7 @@ The mapping \(\fromDual{\dd{\alpha}}\) acts on the basis 1-forms as follows:
      \fromDual{\dd{\alpha}}(\dd{p}) = \frac{1}{\gamma_s + \gamma_p}\qty(\pdv{}{q} + \gamma_p p\pdv{}{U}) \qquad
     \fromDual{\dd{\alpha}}(\dd{q}) = \frac{1}{\gamma_s + \gamma_p}\qty(-\pdv{}{p} + \gamma_s q\pdv{}{U}).
 \end{equation}
-The extra terms in \(\pdv{}{U}\) appear again to ensure that the vector field be horizontal.
+The extra terms in \(\pdv{}{U}\) appear again to ensure that the vector field is horizontal.
 
 Using the same reasoning applied in \cref{ssec:contact_dissipation}, we can observe that the contact Hamiltonian must be proportional to the sum of the mechanical and internal energy of the system. In addition, we wish to cancel the factor \((\gamma_s + \gamma_p)\) present in the mapping \(\fromDual{\dd{\alpha}}\) by multiplying the contact Hamiltonian with the same factor. Hence we, have
 \begin{equation}
