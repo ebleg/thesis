@@ -1,6 +1,6 @@
 \section{Application to mechanical systems}
 \label{sec:mechanical}
-We will now proceed by using a mechanical `prototype' example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as already discussed in \cref{ssec:serial_damping}. The reason for this is twofold: first, it helps to establish the connction between this chapter and \cref{chap:geometric_structures}, and secondly, it allows us to gain a physical intuition behind the split-quaternion representation. 
+We will now proceed by using a mechanical `prototype' example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as already discussed in \cref{ssec:serial_damping}. The reason for this is twofold: first, it helps to establish the connection between this chapter and \cref{chap:geometric_structures}, and secondly, it allows us to gain a physical intuition behind the split-quaternion representation. 
 
 In particular, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper `fills' the one entry that would otherwise remain zero in the state transition matrix in case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
 
@@ -28,9 +28,9 @@ where, in case we would use SI units, \(m_0 = \SI{1}{\kilogram}\) and \(t_0 = \S
     \label{eq:ddho_quat_units}
 \end{equation}
 
-Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaterions back to the realm of the matrices. 
+Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaternions back to the realm of the matrices. 
 
-The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any signficance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
+The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any significance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
 \begin{equation}
      N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*,
 \end{equation}
