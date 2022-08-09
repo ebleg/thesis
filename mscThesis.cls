@@ -947,6 +947,8 @@
 \RequirePackage{ifthen}                                 % if-then commands (used in maketitle)
 \RequirePackage{eso-pic}                                % picture in back/forground (used in cover)
 \RequirePackage{relsize}                                % \textlarger, \textsmaller etc
+% Emiel
+\RequirePackage{setspace}                               % to change interline spacing for cover page
 %%
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1256,11 +1258,14 @@
             % Title text (white)
             \put(0.05,0.40){%
                 \begin{minipage}[t]{0.9\textwidth}%
-                    \Huge{\fontfamily{pbk}\selectfont%
-                    \setlength{\baselineskip}{1.3\baselineskip}%
-                    \color{white}\msctitle}%
+                    \begin{spacing}{2.3}
+                        \flushleft{\Huge{\fontfamily{pbk}\selectfont%
+                        %\setlength{\baselineskip}{1.3\baselineskip}%
+                        %\renewcommand{\baselinestretch}{2}
+                        \color{white}\msctitle}}%
+                    \end{spacing}
                     
-                    \vspace{2mm}%
+                    %\vspace{2mm}%
                     \Large{\fontfamily{pbk}\selectfont%
                     \setlength{\baselineskip}{1.3\baselineskip}%
                     \color{white}\mscsubtitle}%
