@@ -40,11 +40,14 @@ The \emph{Lagrangian} is a function on the tangent bundle of the configuration m
 \begin{equation}
      L : \tbundle{Q} \to \real.
 \end{equation}
-Lagrangian mechanics is based on \emph{Hamilton's principle} which states that the physical motion \(\gamma: \interval{t_0}{t_1} \to \tbundle{M}\) is the one for which the action functional
+Lagrangian mechanics is based on \emph{Hamilton's principle} which states that the physical motion \(\gamma: \interval{t_0}{t_1} \to \tbundle{M}\) is the one for which the \emph{action functional} is stationary\footnote{Although often referred to as the `Principle of \emph{minimum} action', this is inaccurate: Hamilton's principle only asserts that the first variation of the functional vanishes, which does not necessarily imply a minimum.}.
+%\begin{eqbox}{Action functional}
+%    The action functional of a curve $\gamma$ is defined as:
 \begin{equation}
-    \mathscr{A}[\gamma] = \int_{t_0}^{t_1} (L\circ\gamma)\dd{t},
+    \mathscr{A}[\gamma] \coloneq \int_{t_0}^{t_1} (L\circ\gamma)\dd{t}.
 \end{equation}
-is stationary\footnote{Although often referred to as the `Principle of \emph{minimum} action', this is inaccurate: Hamilton's principle only asserts that the first variation of the functional vanishes, which does not necessarily imply a minimum.}. A necessary and sufficient condition for a curve to satisfy Hamilton's equations is given by the set of \(n\) \emph{Euler-Lagrange equations}:
+%\end{eqbox}
+ A necessary and sufficient condition for a curve to satisfy Hamilton's principle is given by the set of \(n\) \emph{Euler-Lagrange equations}:
 \begin{equation}
     \dv{}{t}\qty(\pdv{L}{\dot{q}^i}) - \pdv{L}{q^i} = 0.
 \end{equation}

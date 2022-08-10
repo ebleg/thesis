@@ -61,6 +61,11 @@
     title=\textsf{#1}, breakable,parbox=false]}%
     {\endtcolorbox}
 
+\newenvironment{eqbox}[1]{%
+    \tcolorbox[title=\textsf{#1}, before={\vspace{4mm}}, after={\vspace{2mm}}, 
+    colback=accent1!20!,colframe=accent1, breakable,parbox=false]}%
+    {\endtcolorbox}
+
 \newenvironment{thmblock}[1]{%
     \tcolorbox[colback=accent3!20!,colframe=accent3,%
     title=\textsf{#1}, breakable,parbox=false]}%
@@ -68,6 +73,11 @@
 
 \newenvironment{mathbox}[1]{%
     \tcolorbox[colback=accent1!20!,colframe=accent1,%
+    title=\textsf{#1}, breakable, parbox=false]}%
+    {\endtcolorbox}
+
+\newenvironment{defbox}[1]{%
+    \tcolorbox[colback=accent2!20!,colframe=accent2,%
     title=\textsf{#1}, breakable, parbox=false]}%
     {\endtcolorbox}
 
