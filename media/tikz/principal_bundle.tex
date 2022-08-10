@@ -5,11 +5,11 @@
     
     \node[yshift=-2cm,xshift=-2cm] (O) at (x) {};
     \draw[->] (O.center) -- ++(0, 3cm) node[anchor=south] {$q$};
-    \draw[->] (O.center) -- ++(3cm, 0) node[anchor=west] {$q_0$};
+    \draw[->] (O.center) -- ++(3cm, 0) node[anchor=west] {$q_e$};
     
     \node[xshift=-1cm, yshift=4cm] (m) at (x) {};
     \filldraw[draw=black, fill=accent1!20] (m) ++(-1.5, -1.5) -- ++(0, 3) -- ++(3, 0) -- ++(0,-3) -- cycle;
-    \draw[->] (m) ++(-1.5, 0) -- ++(3, 0) node[anchor=south east] {$\rho_0$};
+    \draw[->] (m) ++(-1.5, 0) -- ++(3, 0) node[anchor=south east] {$\rho_e$};
     \draw[->] (m) ++(0, -1.5) -- ++(0, 3) node[anchor=north west] {$\rho$};
         
     \begin{scope}

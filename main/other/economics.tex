@@ -12,7 +12,7 @@ The tangent space \(\tspace{x}{Q}\) to a point \(x\) in \(Q\) is the vector spac
 
 The \emph{dual space} of \(\tspace{x}{Q}\) is the cotangent space \(\ctspace{x}{Q}\) containing all the linear functions on vectors in the tangent space to produce a number. This is the natural setting of the \emph{prices} in the economy: as a function, they assign a \emph{value to a change in goods}. These prices are measured in units of currency per quantity, i.e. \(\qty[\si{\money \per \quantity}]\). A covector in the cotangent space is be denoted by \(\vec{p} = (p_1, p_2, \ldots, p_n)\). The action of a price covector on a vector measuring the change in goods is: (using the index summation convention)
 \begin{equation}
-    \vec{p}(\vec{\dot{q}}) = p_i \dot{q}^i,
+    \vec{p}(\vec{\dot{q}}) = p_i\,\dot{q}^i,
 \end{equation}
 i.e. it produces the total value associated with this change in goods.
 
@@ -133,7 +133,7 @@ When the economic Lagrangian function is convex in product flow variables, \(\do
 \end{equation}
 where \(E\) is the previously defined energy function and \(\mathscr{F}L\) is the \emph{fiber derivative} of \(L\): \cite{Marsden1998}
 \begin{equation}
-    \mathscr{F}L: \tbundle{Q} \to \ctbundle{Q}: [\mathscr{F}L(\vec{v})](\vec{w}) = \left .\dv{}{s}\right|_{s = 0} L(\vec{v} + s\vec{w}),
+    \mathscr{F}L: \tbundle{Q} \to \ctbundle{Q}: \quad [\mathscr{F}L(\vec{v})](\vec{w}) = \left .\dv{}{s}\right|_{s = 0} L(\vec{v} + s\vec{w}),
 \end{equation}
 where \(\vec{v}, \vec{w} \in \tspace{q}{Q}\). The fiber derivative maps a flow of goods to the associated price vector. As a result, the Hamiltonian function is simply equal to the energy function \(E\) but expressed in terms of the price coordinates \(p_i\) rather than \(\dot{q}^i\). The fiber derivative is a local diffeomorphism only if the Lagrangian is regular.
 
@@ -142,13 +142,13 @@ Since the energy function and the Hamiltonian are numerically equal, the economi
 \subsection{Hamilton's equations} 
 In their traditional form, Hamilton's equations are:
 \begin{equation}
-    \dot{q}^i = \pdv{H}{p_i} \qquad \dot{p}_i = -\pdv{H}{q^i}.
+    \dot{q}^i = \pdv{H}{p_i} \qquad \qquad \dot{p}_i = -\pdv{H}{q^i}.
 \end{equation}
-It is easy to see that these equations of motion are equivalent to the Euler-Lagrange equations, given that \(p_i = \pdv{L}{\dot{q^i}}\). We will go a lot more into detail on the (geometric) nature of Hamilton's equations in \cref{chap:geometric_structures}; the discussion here is limited to their interpretation in economic engineering.
+It is easy to see that these equations of motion are equivalent to the Euler-Lagrange equations, given that \(p_i = \pdv{L}{\dot{q}^i}\). We will go a lot more into detail on the (geometric) nature of Hamilton's equations in \cref{chap:geometric_structures}; the discussion here is limited to their interpretation in economic engineering.
 
 The first Hamilton equation is equivalent to \emph{Hotelling's lemma}, which states that the demand for a particular good is that the supply (i.e. \(\dot{q}^i\)) of a good \(i\) is equal to the derivative of the profit function with respect to the price \(p_i\). It is usually emphasized that this is only the case when the price is the \emph{optimal} price for profit, but this is built into the definition of \(p_i\), since \(p_i = \pdv{L}{\dot{q}^i}\) is exactly the value for \(p_i\) that maximizes the profit function
 \begin{equation}
-     p_i\dot{q}^i - L,
+     p_i\,\dot{q}^i - L,
 \end{equation}
 \emph{if} \(L\) is convex in \(\dot{q}^i\).
 

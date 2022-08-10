@@ -25,10 +25,10 @@ or equivalently, that \(\wedgep{\alpha}{(\dd{\alpha})^n}\) is a volume form on \
 
 Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that \(\dd{\alpha}\) implies that \(\dd{\alpha}\vert_{\xi}\) is a symplectic form. There also an extension of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
 \begin{equation}
-    \dd{q}_0 - \sum_i^n p_i \dd{q}_i, 
+    \dd{q^0} - \sum_i^n p_i \dd{q^i}, 
     \label{eq:contact_darboux}
 \end{equation} 
-the coordinates \((q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)\) are then called \emph{Darboux coordinates}.
+the coordinates \(\qty(q^0, q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) are then called \emph{Darboux coordinates}.
 
 For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
 
@@ -67,7 +67,7 @@ The \emph{Reeb vector field} \(R_\alpha\) associated with \(\alpha\) is a `unit'
 \end{equation}
 In the Darboux coordinates as given in \cref{eq:contact_darboux}, the Reeb vector field is
     \begin{equation}
-     R_\alpha = \pdv{}{q_0}.
+     R_\alpha = \pdv{}{q^0}.
 \end{equation} 
 Because the space of vertical vector fields is of rank 1, every vertical vector field is colinear with the Reeb vector field.
 
@@ -87,12 +87,12 @@ An arbitrary vector field \(X \in \vfields{M}\) can be canonically decomposed in
 \subsubsection{Semi-basic forms} 
 Similar to the splitting of the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
 
-Any 1-form \(\zeta \in \bsection{\tbundle{M}}\) can be canonically decomposed into a semi-basic component and a multiple of \(\alpha\) as follows:
+Any 1-form \(\zeta \in \bsection{\ctbundle{M}}\) can be canonically decomposed into a semi-basic component and a multiple of \(\alpha\) as follows:
 \begin{equation}
     \zeta = \underbrace{(\intpr{R_\alpha}{\zeta})\alpha}_\text{contact struct.} + \underbrace{\zeta - (\intpr{R_\alpha}{\zeta})\alpha}_\text{semi-basic}. 
     \label{eq:form_splitting}
 \end{equation}
-In Darboux coordinates, semi-basic forms are forms that have no component in \(\dd{q_0}\).
+In Darboux coordinates, semi-basic forms are forms that have no component in \(\dd{q^0}\).
 
 The decompositions of \(\ctbundle{M}\) and \(\tbundle{M}\) for the three-dimensional case are shown in \cref{fig:contact_spaces}. They also play an important role in \cref{sec:jacobi}.
 
@@ -114,7 +114,7 @@ where \(R_\alpha\) is the \emph{Reeb vector field}\footnote{
     \end{equation}
     In the Darboux coordinates as given in \cref{eq:contact_darboux}, the Reeb vector field has the form
     \begin{equation}
-     R_\alpha = \pdv{}{q_0}.
+     R_\alpha = \pdv{}{q^0}.
     \end{equation}
 } 
 associated to the contact form \(\alpha\).
@@ -397,9 +397,9 @@ In this section, we use a procedure called \emph{symplectification} to cast the 
 In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator, using an explicit time-dependence: the Caldirola-Kanai Hamiltonian.
 
 \subsubsection{Symplectification of contact manifolds}
-To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_0\). That is,
+To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_e\)\footnote{In this case, the `0' is a label for the extra position coordinate $q_e$ --- we wish not to refer to the other position as $q^1$ because there is only one real position of the mass. Because the other coordinates are not numbered, we do not make the notational distinction between contravariant and covariant components, and use a subscript to label the extra coordinates.}. That is,
 \begin{equation}
-     (q_0, q) \in Q_e.
+     (q_e, q) \in Q_e.
 \end{equation}
 
 \paragraph{The manifold of contact elements} Consider now the \emph{manifold of contact elements} of \(Q_e\). This is a fiber bundle with base \(Q_e\), and the fibers at each point are the space of lines (through the origin) in the tangent space to \(Q_e\) at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
@@ -413,9 +413,9 @@ The fibers of this bundle are projective spaces; more specifically, they are dif
     \label{fig:manifold_contact_elements}
 \end{figure}
 
-The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider a following chart for \(\pctbundle{Q_e}\) with following coordinates:
+The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider the following chart for \(\pctbundle{Q_e}\) with coordinates:
 \begin{equation}
-     (q_0, q, p)
+     (q_e, q, p)
 \end{equation}
 where \(p\) represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point \(p = \infty\) (in this specific chart). 
 
@@ -427,7 +427,7 @@ The manifold of contact elements \(\pctbundle{Q_e}\) is equipped with a natural 
 \end{equation}
 Observe the similarity with the contact form \(\alpha\) defined in \cref{eq:dho_contact_form}: 
 \begin{equation}
-     \alpha_e = \frac{1}{\gamma}\alpha, \qquad q_0 = \frac{U}{\gamma}.
+     \alpha_e = \frac{1}{\gamma}\alpha, \qquad q_e = \frac{U}{\gamma}.
 \end{equation}
 Because the contact forms differ simply by multiplication, they represent the same contact structure (provided that \(\gamma\) is nonzero).
 
@@ -435,21 +435,21 @@ Because the contact forms differ simply by multiplication, they represent the sa
 \begin{equation}
      K_e = \frac{1}{\gamma} K.
 \end{equation}
-Furthermore, because \(U = \gamma q_0\), the contact Hamiltonian in the new coordinates is
+Furthermore, because \(U = \gamma q_e\), the contact Hamiltonian in the new coordinates is
 \begin{equation}
-    K_e(q_0, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + \gamma q_0.
+    K_e(q_e, q, p) = \frac{p^2}{2m} + \frac{1}{2}kq^2 + \gamma q_e.
     \label{eq:dho_contact_hamiltonian_e}
 \end{equation}
 Numerically, \(K_e\) is equal to the total energy in system (the scaling factor is removed). Observe also that the units of the Hamiltonian have been changed from power to energy.
 
 The corresponding Hamiltonian vector field is then
 \begin{equation}
-    X_{K_e} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \qty[\frac{p^2}{m} - K_e(q_0, q, p)]\pdv{}{q_0}. 
+    X_{K_e} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \qty[\frac{p^2}{m} - K_e(q_e, q, p)]\pdv{}{q_e}. 
     \label{eq:ham_vf_e}
 \end{equation}
 If we enforce that \(K = 0\) (as motivated in the previous section), then \(K_e\) vanishes as well and the vector field becomes 
 \begin{equation}
-    X_{K_e}\vert_{K_e = 0} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \frac{p^2}{m}\pdv{}{q_0}.
+    X_{K_e}\vert_{K_e = 0} = \frac{p}{m}\pdv{}{q} + (\gamma p - kq) \pdv{}{p} + \frac{p^2}{m}\pdv{}{q_e}.
     \label{eq:ham_vf_e_liouville}
 \end{equation}
 
@@ -462,30 +462,30 @@ The symplectification procedure exploits the natural ambiguity that contact form
     \(\real^\times\) denotes both the real multiplicative group and the underlying set, being the real line excluding zero. 
 } \(\lambda \in \real^\times\)
 \begin{equation}
-    \lambda (\dd{q_0} - p \dd{q}). 
+    \lambda (\dd{q_e} - p \dd{q}). 
     \label{eq:lambda_alpha}
 \end{equation}
-The above expression gives a representation of \emph{al} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_0, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
+The above expression gives a representation of \emph{al} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
 
 We now effect the following coordinate transform:
 \begin{equation}
-     \rho \coloneq -\lambda p \qquad \rho_0 \coloneq \lambda. \
+     \rho \coloneq -\lambda p \qquad \rho_e \coloneq \lambda. \
 \end{equation} 
 Hence, \cref{eq:lambda_alpha} becomes 
 \begin{equation}
-    \rho_0\dd{q_0} + \rho \dd{q} \equalscolon \theta_e
+    \rho_e\dd{q_e} + \rho \dd{q} \equalscolon \theta_e
     \label{eq:liouville_form_extended}
 \end{equation}
 which is the Liouville form on the cotangent bundle \(\ctbundle{Q_e}\) in Darboux coordinates, denoted by \(\theta_e\). From this form, we obtain the canonical symplectic structure on 
 \(\ctbundle{Q_e}\) as follows
 \begin{equation}
-    \omega_e \coloneq -\dd{\theta} = \wedgep{\dd{q_0}}{\dd{\rho_0}} + \wedgep{\dd{q}}{\dd{\rho}}.
+    \omega_e \coloneq -\dd{\theta} = \wedgep{\dd{q_e}}{\dd{\rho_e}} + \wedgep{\dd{q}}{\dd{\rho}}.
     \label{eq:symplectic_form_extended}
 \end{equation}
 
-The coordinate \(\lambda\), and therefore \(\rho_0\) and \(\rho\), are not canonical coordinates, for they depend on the particular choice of the contact form, to begin with. Indeed, in this particular choice of \(\alpha_e\) one point in the fiber is left out (\(p = \infty\)), which effectively rules all the points for which \(\rho_0 = 0\). 
+The coordinate \(\lambda\), and therefore \(\rho_e\) and \(\rho\), are not canonical coordinates, for they depend on the particular choice of the contact form, to begin with. Indeed, in this particular choice of \(\alpha_e\) one point in the fiber is left out (\(p = \infty\)), which effectively rules all the points for which \(\rho_e = 0\). 
 
-In reality, only the points for which \emph{both} \(\rho\) and \(\rho_0\) vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart (this will be made clear later). The resulting space is the cotangent bundle of \(Q_e\) without its zero section, denoted by \( \ctzbundle{Q_e}\) \cite{VanderSchaft2021a,Libermann1987}.
+In reality, only the points for which \emph{both} \(\rho\) and \(\rho_e\) vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart (this will be made clear later). The resulting space is the cotangent bundle of \(Q_e\) without its zero section, denoted by \( \ctzbundle{Q_e}\) \cite{VanderSchaft2021a,Libermann1987}.
 
 As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectification procedure more mathematically precise using the language of principal bundles.
 
@@ -518,7 +518,7 @@ with \([x]_\sim\) being the equivalence class with respect to \(\sim\) and \(P/G
 }
 (i.e. \ctzbundle{Q_e}) through \emph{dilation of its fibers}. In the coordinates defined above, we define the group action \(\raction{\real^\times}\) as:
 \begin{equation}
-     \raction: \ctzbundle{Q_e}\times\mgroup \to \ctzbundle{Q_e} : \quad (q_0, q, \rho_0, \rho) \blacktriangleleft \lambda = (q_0, q, \lambda \rho_0, \lambda \rho ) \qquad \lambda \in \mgroup.
+     \raction: \ctzbundle{Q_e}\times\mgroup \to \ctzbundle{Q_e} : \quad (q_e, q, \rho_e, \rho) \blacktriangleleft \lambda = (q_e, q, \lambda \rho_e, \lambda \rho ) \qquad \lambda \in \mgroup.
 \end{equation}
 
 The orbit space of \(\ctzbundle{Q_e}\) with respect to \(\raction{\real^\times}\) is precisely equal to the projectivization of the cotangent bundle \(\pctbundle{Q_e}\). As a result, we have the principal \(\mgroup\)-bundle structure given by the following diagram:
@@ -530,7 +530,7 @@ The orbit space of \(\ctzbundle{Q_e}\) with respect to \(\raction{\real^\times}\
 
 The symplectification \(\ctzbundle{Q_e}\) is therefore a principal \(\mgroup\)-bundle, with as base manifold the contact manifold \(\pctbundle{Q_e}\). The projection map \(\sigma\) is equal to
 \begin{equation}
-     \sigma: \ctzbundle{Q_e} \to \pctbundle{Q_e}: \quad (q_0, q, \rho_0, \rho) \mapsto (q_0, q, -\rho/\rho_0).
+     \sigma: \ctzbundle{Q_e} \to \pctbundle{Q_e}: \quad (q_e, q, \rho_e, \rho) \mapsto (q_e, q, -\rho/\rho_e).
 \end{equation}
 
 A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both \(\ctzbundle{Q_e}\) and \(\pctbundle{Q_e}\) are also bundles over the extended configuration space \(Q_e\). At a specific point of \(Q_e\), say \(x\), we have two fibers. The fiber \(\ctzspace{x}{Q_e}\) is the cotangent space to \(x\) without the origin. The group action \(\rangle{\mgroup}\) manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as \(\mgroup\) itself, since the action is free). 
@@ -543,9 +543,9 @@ A geometric perspective of this construction is given in \cref{fig:principal_bun
 
 The space of all orbits is a circle with antipodal points identified, which also has the topology of a circle: this is the space \(\mathbb{P}\real\), and it is the fiber \(\pctspace{x}{Q_e}\) of \(\pctbundle{Q_e}\) at the point \(x\). The projection map that takes a point in \(\pctbundle{x}{Q_e}\) to its associated orbit in the orbit space is \(\sigma\). 
 
-In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_0\), which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south poles of the circle on the right.
+In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_e\), which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south poles of the circle on the right.
 
-From the perspective of \(\pctbundle{Q_e}\), \(\rho_0\) and \(\rho\) can also be seen as \emph{homogeneous coordinates} for this space.
+From the perspective of \(\pctbundle{Q_e}\), \(\rho_e\) and \(\rho\) can also be seen as \emph{homogeneous coordinates} for this space.
 
 \paragraph{Principal bundles in system theory}
 To illustrate the concept of principal bundles and their relevance, we give an instructive example of principal bundles in control theory. For more information, the reader is referred to \citet{Hermann1984}. 
@@ -590,7 +590,7 @@ The smooth functions, in this case, are not completely arbitrary, since they mus
 \end{equation}
 In the coordinates defined above, this is equivalent to:
 \begin{equation}
-     \mathscr{H}(q_0, q, \lambda \rho_0, \lambda \rho) = \lambda\mathscr{H}(q_0, q, \rho_0, \rho) \qquad \lambda \in \mgroup,
+     \mathscr{H}(q_e, q, \lambda \rho_e, \lambda \rho) = \lambda\mathscr{H}(q_e, q, \rho_e, \rho) \qquad \lambda \in \mgroup,
 \end{equation}
 which is to say that \(\mathscr{H}\) \emph{commutes} with the group action.
 
@@ -604,17 +604,17 @@ This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consist
 
 \paragraph{Equations of motion for the symplectified system} The contact Hamiltonian system for the damped harmonic oscillator, as defined by \cref{eq:dho_contact_hamiltonian_e}, can now be lifted to a homogeneous Hamiltonian system on the symplectified space. The relation between the contact Hamiltonian and the corresponding homogeneous Hamiltonian is defined as \cite{VanderSchaft2021a,Libermann1987,Arnold1989}
 \begin{equation}
-     K_e(q_0, q, p) = \mathscr{H}(q_0, q, -1, \rho),
+     K_e(q_e, q, p) = \mathscr{H}(q_e, q, -1, \rho),
 \end{equation}
 or equivalently
 \begin{equation}
-    K_e\qty(q_0, q, -\frac{\rho}{\rho_0}) = \mathscr{H}(q_0, q, \rho_0, \rho). 
+    K_e\qty(q_e, q, -\frac{\rho}{\rho_e}) = \mathscr{H}(q_e, q, \rho_e, \rho). 
     \label{eq:H_contact_homo}
 \end{equation}
 
 Based on \cref{eq:dho_contact_hamiltonian_e}, we obtain the following expression for the homogeneous Hamiltonian:
 \begin{equation}
-    \mathscr{H}(q_0, q, \rho_0, \rho) = -\rho_0\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2 + \gamma q_0]. 
+    \mathscr{H}(q_e, q, \rho_e, \rho) = -\rho_e\,\qty[\frac{1}{2m}\qty(-\frac{\rho}{\rho_e})^2 + \frac{1}{2}kq^2 + \gamma q_e]. 
     \label{eq:H_dho_homo}
 \end{equation}
 
@@ -624,49 +624,49 @@ The Hamiltonian vector field is easily obtained, for we can use the mapping \(\f
 \end{equation} 
 with
 \begin{equation}
-     \dd{\mathscr{H}} = \pdv{\mathscr{H}}{q_0}\dd{q_0} 
+     \dd{\mathscr{H}} = \pdv{\mathscr{H}}{q_e}\dd{q_e} 
                       + \pdv{\mathscr{H}}{q}\dd{q}
-                      + \pdv{\mathscr{H}}{\rho_0}\dd{\rho_0}
+                      + \pdv{\mathscr{H}}{\rho_e}\dd{\rho_e}
                       + \pdv{\mathscr{H}}{\rho}\dd{\rho}.
 \end{equation}
 
 It is instructive to first specify the partial derivatives of \(\mathscr{H}\) in terms of \(K_e\), so as to compare the generic equations of motion obtained from \(\mathscr{H}\) to those obtained from \(K_e\) (cf. \cref{eq:ham_vf_e}). Using \cref{eq:H_contact_homo}, the partial derivatives can be expressed in terms of the contact Hamiltonian \(K_e\):
 \begin{equation}
     \begin{split}
-        \pdv{\mathscr{H}}{q} &= -\rho_0 \pdv{K_e}{q}, \\
-        \pdv{\mathscr{H}}{q_0} &= -\rho_0 \pdv{K_e}{q_0}, \\
-        \pdv{\mathscr{H}}{\rho} &= -\rho_0 \pdv{K_e}{p}\pdv{p}{\rho} = \pdv{K_e}{p}, \\
-        \pdv{\mathscr{H}}{\rho_0} &= -H - \rho_0 \pdv{K_e}{p}\pdv{p}{\rho_0} = -K_e - \pdv{H}{p}\frac{\rho}{\rho_0} = \pdv{H}{p}p - K_e.\\
+        \pdv{\mathscr{H}}{q} &= -\rho_e \pdv{K_e}{q}, \\
+        \pdv{\mathscr{H}}{q_e} &= -\rho_e \pdv{K_e}{q_e}, \\
+        \pdv{\mathscr{H}}{\rho} &= -\rho_e \pdv{K_e}{p}\pdv{p}{\rho} = \pdv{K_e}{p}, \\
+        \pdv{\mathscr{H}}{\rho_e} &= -H - \rho_e \pdv{K_e}{p}\pdv{p}{\rho_e} = -K_e - \pdv{H}{p}\frac{\rho}{\rho_e} = \pdv{H}{p}p - K_e.\\
     \end{split}
     %\label{eq:partial_relation}
 \end{equation}
 The homogeneous Hamiltonian vector field is then
 \begin{equation}
-    X_\mathscr{H} = \qty(\pdv{K_e}{p}p - K_e)\pdv{}{q_0}
+    X_\mathscr{H} = \qty(\pdv{K_e}{p}p - K_e)\pdv{}{q_e}
                     + \pdv{K_e}{p}\pdv{}{q}
-                    + \rho_0\pdv{K_e}{q_0}\pdv{}{\rho_0}
-                    + \rho_0\pdv{K_e}{q}\pdv{}{\rho}.
+                    + \rho_e\pdv{K_e}{q_e}\pdv{}{\rho_e}
+                    + \rho_e\pdv{K_e}{q}\pdv{}{\rho}.
     \label{eq:hom_ham_vf}
 \end{equation}
 %\begin{equation}
 %    \begin{split}
 %        &\dot{q}_0      = \pdv{H}{p}p - H, \\
 %        &\dot{q}        = \pdv{H}{p}, \\
-%        &\dot{\rho}_0   = \rho_0\pdv{H}{q_0}, \\
-%        &\dot{\rho}     = \rho_0 \pdv{H}{q}.
+%        &\dot{\rho}_0   = \rho_e\pdv{H}{q_e}, \\
+%        &\dot{\rho}     = \rho_e \pdv{H}{q}.
 %    \end{split}
 %\end{equation}
-The equations of motion \(q_0\) and \(q\) remain identical to those obtained earlier; this is to be expected since otherwise, the dynamics would not correspond. 
+The equations of motion \(q_e\) and \(q\) remain identical to those obtained earlier; this is to be expected since otherwise, the dynamics would not correspond. 
 
-For \(\rho_0\), we have
+For \(\rho_e\), we have
 \begin{equation}
-     \dot{\rho}_0 = \rho_0 \pdv{K_e}{q_0} = \rho_0 \pdv{K_e}{q_0}  = \gamma\rho_0 \quad \Rightarrow \quad \rho_0 = C\ec^{\gamma t},
+     \dot{\rho}_0 = \rho_e \pdv{K_e}{q_e} = \rho_e \pdv{K_e}{q_e}  = \gamma\rho_e \quad \Rightarrow \quad \rho_e = C\ec^{\gamma t},
 \end{equation} 
-where \(C\) is an integration constant which we can choose to be 0, so \(\rho_0(t) = \ec^{\gamma t}\).
+where \(C\) is an integration constant which we can choose to be 0, so \(\rho_e(t) = \ec^{\gamma t}\).
 
-In addition, \(\dot{\rho} = \rho_0 kq = \ec^{\gamma t} kq\). Since \(p = -\rho/\rho_0\), the dynamics of \(p\) can be obtained from  \(\dot{\rho}_0\) and \(\dot{\rho}\) using the product rule:
+In addition, \(\dot{\rho} = \rho_e kq = \ec^{\gamma t} kq\). Since \(p = -\rho/\rho_e\), the dynamics of \(p\) can be obtained from  \(\dot{\rho}_0\) and \(\dot{\rho}\) using the product rule:
 \begin{equation} 
-    \dot{p} = -\frac{\dot{\rho}}{\rho_0} + \frac{\rho}{\rho_0}\frac{\dot{\rho}_0}{\rho_0} = -kq - \gamma p,
+    \dot{p} = -\frac{\dot{\rho}}{\rho_e} + \frac{\rho}{\rho_e}\frac{\dot{\rho}_0}{\rho_e} = -kq - \gamma p,
     \label{eq:pdot}
 \end{equation}
 which is equivalent to the expression obtained in \cref{ssec:contact_dissipation}.
@@ -674,13 +674,13 @@ which is equivalent to the expression obtained in \cref{ssec:contact_dissipation
 Observe that these equations of motion are invariant under the earlier defined group action \(\raction{\mgroup}\), which means that the vector field indeed preserves the Liouville structure. The other condition is that it preserves \(\omega_e\), but this is satisfied rather trivially as a result of the mapping \(\fromDual{\omega_e}\).
 %The Hamiltonian vector field then becomes
 %\begin{equation}
-%    X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 - \frac{1}{2}kq^2 - \gamma q_0]\pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.
+%    X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_e}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_e})^2 - \frac{1}{2}kq^2 - \gamma q_e]\pdv{}{q_e}\: + \: \rho_e kq \pdv{}{\rho}\: + \: \gamma \rho_e \pdv{}{\rho_e}.
 %    \label{eq:homo_vf}
 %\end{equation}
 
 \paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that the contact Hamiltonian should numerically be equal to zero for the equations of motion to represent a physical trajectory. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
 
-As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if \(\alpha_e\) pulls back to zero on the trajectories in the contact manifold, so should \(\theta_e\) on the lifted trajectories, for they only differ by multiplication with \(\rho_0\). These are called \emph{Liouville submanifolds} and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form \(\omega_e\) vanishes when restricted to them. This is also the case when \(\theta_e\) vanishes, but the converse is not necessarily true.}
+As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if \(\alpha_e\) pulls back to zero on the trajectories in the contact manifold, so should \(\theta_e\) on the lifted trajectories, for they only differ by multiplication with \(\rho_e\). These are called \emph{Liouville submanifolds} and are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form \(\omega_e\) vanishes when restricted to them. This is also the case when \(\theta_e\) vanishes, but the converse is not necessarily true.}
 
 Using \cref{eq:hom_ham_vf}, we find that 
 \begin{equation}
@@ -694,11 +694,11 @@ For yet another perspective regarding this point, we can make use of the symplec
      \dot{\mathscr{H}} = \poisson{\mathscr{H}}{\mathscr{H}} + \pdv{\mathscr{H}}{t} = 0.
 \end{equation}
 
-Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_0 K_e = \ec^{\gamma t} K_e\). Hence, it is now very easy to see that \(K_e\) either  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_0\), or it equals to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which amounts to the particular choice that \(\mathscr{H}_0 = 0\).
+Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_e K_e = \ec^{\gamma t} K_e\). Hence, it is now very easy to see that \(K_e\) either  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_e\), or it equals to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which amounts to the particular choice that \(\mathscr{H}_0 = 0\).
 
 If we assume that the dynamics take place on a Liouville submanifold, the Hamiltonian vector field becomes
 \begin{equation}
-     X_\mathscr{H}\vert_{\mathscr{H}_0 = 0} =  -\frac{1}{m}\frac{\rho}{\rho_0}\pdv{}{q}\: + \: \pdv{}{q_0}\: + \: \rho_0 kq \pdv{}{\rho}\: + \: \gamma \rho_0 \pdv{}{\rho_0}.
+     X_\mathscr{H}\vert_{\mathscr{H}_0 = 0} =  -\frac{1}{m}\frac{\rho}{\rho_e}\pdv{}{q}\: + \: \pdv{}{q_e}\: + \: \rho_e kq \pdv{}{\rho}\: + \: \gamma \rho_e \pdv{}{\rho_e}.
 \end{equation}
 If this vector field is be projected to \(\pctbundle{Q_e}\) using the pushforward of the projection map \(\sigma\), we obtain \cref{eq:ham_vf_e_liouville}.\footnote{This is the `differential geometric' way of deriving the equation for \(\dot{p}\) as we did above.}
 
@@ -754,13 +754,13 @@ The transformed vector field in terms of the physical coordinates \(p, q, t\) is
 \end{equation}
 The extra term in \(p\) arises as a consequence of the fact that the mapping from \(\rho\) to \(p\) depends also on \(t\). 
 
-The similarity between the derivation of the equations of motion --- in particular, the crucial role of the product rule --- and the one given by \cref{eq:pdot} is striking. Indeed, if we substitute into the Caldirola-Kanai Hamiltonian \(-\rho_0 = \ec^{\gamma t}\), we obtain
+The similarity between the derivation of the equations of motion --- in particular, the crucial role of the product rule --- and the one given by \cref{eq:pdot} is striking. Indeed, if we substitute into the Caldirola-Kanai Hamiltonian \(-\rho_e = \ec^{\gamma t}\), we obtain
 \begin{equation}
-     \Hck = -\frac{\rho^2}{2m\rho_0} - \rho_0 \frac{1}{2}kq^2 = -\rho_0 \qty (\frac{1}{2m}\qty(\frac{\rho}{\rho_0})^2 + \frac{1}{2}kq^2),
+     \Hck = -\frac{\rho^2}{2m\rho_e} - \rho_e \frac{1}{2}kq^2 = -\rho_e \qty (\frac{1}{2m}\qty(\frac{\rho}{\rho_e})^2 + \frac{1}{2}kq^2),
 \end{equation}
-which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in \(q_0\). The dependence on \(q_0\) is not required, since it is replaced by an explicit dependence on time that would otherwise generate the exponential factor \(\ec^{\gamma t}\). 
+which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in \(q_e\). The dependence on \(q_e\) is not required, since it is replaced by an explicit dependence on time that would otherwise generate the exponential factor \(\ec^{\gamma t}\). 
 
-Many interpretations have already been given for the particular form of \(\Hck\); for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as  directly equivalent to the homogeneous Hamiltonian system, where the dynamics of the additional coordinates \(\rho_0\) and \(q_0\) are replaced by their explicit solution in time. Additionally, the role of the `mysterious' canonical momentum \(\rho\) is explained as being a coordinate of the symplectified space, or homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
+Many interpretations have already been given for the particular form of \(\Hck\); for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as  directly equivalent to the homogeneous Hamiltonian system, where the dynamics of the additional coordinates \(\rho_e\) and \(q_e\) are replaced by their explicit solution in time. Additionally, the role of the `mysterious' canonical momentum \(\rho\) is explained as being a coordinate of the symplectified space, or homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
 
 \subsection{The harmonic oscillator with serial damping}
 \label{ssec:serial_damping}

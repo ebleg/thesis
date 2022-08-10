@@ -1,10 +1,11 @@
 \begin{tikzpicture}
-    \draw[->] (0, 0) -- (0, 4) node[anchor=south] {$x_1$};
-    \draw[->] (0, 0) -- (4, 0) node[anchor=west] {$x_0$};
-    \node[circle, draw=black, fill=black, inner sep = 1pt, label=left:$q$] (q) at (1.5, 1.5) {};
+    \draw[->] (0, 0) -- (0, 4) node[anchor=south] {$q^1$};
+    \draw[->] (0, 0) -- (4, 0) node[anchor=west] {$q^0$};
+    \node[circle, draw=black, fill=black, inner sep = 1pt, label=above left:$q$] (q) at (1.5, 1.5) {};
     
+    \draw[dashed] (0, 1.5) -| (1.5, 0);
     \draw[thick] (q) ++(-0.375, -0.5) --  ++(1.5,2);
-    \draw (q) -- node[anchor=north] {1} ++(1, 0) -- node[anchor = west] {$\eta_1$} ++(0, 1.333);
+    \draw (q) -- node[anchor=north] {1} ++(1, 0) -- node[anchor = west] {$p_1$} ++(0, 1.333);
     
     %\draw[dotted] (q) -- (1.5, 0);
     %\draw[dotted] (q) -- (0, 1.5);

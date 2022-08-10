@@ -1,8 +1,9 @@
 \begin{tikzpicture}
-    \draw[->] (0, 0) -- (0, 4) node[anchor=south] {$q_0$};
+    \draw[->] (0, 0) -- (0, 4) node[anchor=south] {$q_e$};
     \draw[->] (0, 0) -- (4, 0) node[anchor=west] {$q$};
-    \node[circle, draw=black, fill=black, inner sep = 1pt, label=left:$x$] (q) at (1.5, 1.5) {};
+    \node[circle, draw=black, fill=black, inner sep = 1pt, label=above left:$x$] (q) at (1.5, 1.5) {};
     
+    \draw[dashed] (0, 1.5) -| (1.5, 0);
     \draw[thick] (q) ++(-0.375, -0.5) --  ++(1.5,2);
     \draw (q) -- node[anchor=north] {1} ++(1, 0) -- node[anchor = west] {$p$} ++(0, 1.333);
     

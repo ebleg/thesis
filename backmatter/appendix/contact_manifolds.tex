@@ -19,15 +19,15 @@ This \(\alpha\) is called the (local) \emph{contact form}, and it acts like a `n
 where integrable distributions would have this expression vanish everywhere. Roughly equivalent statements are that (i) one cannot find foliations of \(M\) such that \(\xi\) is everywhere tangent to it, or (ii) that \(\dd{\alpha}\vert_\xi\) is a \emph{symplectic form}. In this treatment, all contact forms are assumed to be global, which is the case if the quotient \(TM/\xi\) is a trivial line bundle, i.e. the orientation is preserved across the entire manifold \cite{Geiges2008}.
 %<symbol: \alpha> <expl: General contact 1-form> <tags: greek, contact, geometry>
 
-The \emph{Darboux theorem} for contact manifolds states that it is always possible to find coordinates \(z, x_i, y_i\) such that locally, the contact form is equal to 
+The \emph{Darboux theorem} for contact manifolds states that it is always possible to find coordinates \(\qty(q^0, q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) such that locally, the contact form is equal to 
 \begin{equation}
-     \dd{z} - \sum y_i\dd{x_i},
+     \dd{q^0} - \sum_{i=1}^n p_i\dd{q^i},
 \end{equation}
 which is also called the standard or natural contact structure. The standard contact structure on \(\real^3\) is illustrated in \cref{fig:standard_contact}.
 \begin{figure}
     \centering
     \input{media/tikz/standard_contact}
-    \caption{The standard contact structure on \(\real^3\), given by the contact form \(\dd{z} - y\dd{x}\); the hyperplanes tilt more in the increasing \(y\)-direction.}
+    \caption{The standard contact structure on \(\real^3\), given by the contact form \(\dd{q^0} - p_1\dd{q^1}\); the hyperplanes tilt more in the increasing \(y\)-direction.}
     \label{fig:standard_contact}
 \end{figure}
 Finally, it is clear that the contact form singles out a `special direction' in the tangent space at every point of the manifold. This direction is given by the unique \emph{Reeb vector field},
@@ -52,7 +52,7 @@ This manifold \(\cbundle{Q}\) has dimension \(2n - 1\). It is clear that \(C\) h
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/contact_element}
-    \caption{A point in the manifold of contact elements on \(Q = \real^2\). A coordinate system for \(\cbundle{Q}\) consists of \((x_0, x_1)\) to indicate a point on \(Q\), and projective coordinates \([\eta_0:\eta_1]\), which denote the contact element at that point. Without loss of generalization, one can choose \(\eta_0 = 1\), and the remaining coordinate \(\eta_1\) covers all but one points in the projective space. A potential confusion rests in this two-dimensional example, since both the `hyperplane` and the equivalence class of 1-forms are both lines in the tangent and cotangent space respectively. This is not the case for higher-dimensions, for which \(n - 1 \neq 1\).}
+    \caption{A point in the manifold of contact elements on \(Q = \real^2\). A coordinate system for \(\cbundle{Q}\) consists of \(q = \qty(q^0, q^1)\) to indicate a point on \(Q\), and projective coordinates \([p_0:p_1]\), which denote the contact element at that point. Without loss of generalization, one can choose \(p_0 = 1\), and the remaining coordinate \(p_1\) covers all but one points in the projective space. A potential confusion rests in this two-dimensional example, since both the `hyperplane` and the equivalence class of 1-forms are both lines in the tangent and cotangent space respectively. This is not the case for higher-dimensions, for which \(n - 1 \neq 1\).}
     \label{fig:contact_element}
 \end{figure}
 
@@ -60,16 +60,16 @@ There is a convenient way to characterize this manifold of contact elements, for
 \begin{equation}
      \vec{\eta},\vec{\chi}\in \ctspace{q}{Q} \setminus \{\mathbf{0}\}:\quad (q, \vec{\eta}) \sim (q, \vec{\chi}) \Leftrightarrow \vec{\eta} = \lambda \vec{\chi},\quad \lambda \in \real_0, \text{ for all } q \in Q.
 \end{equation}
-This equivalence relations identifies all the covectors in the cotangent space that are a nonzero multiple of each other. It is precisely this identification that takes care of the ambiguity in \cref{eq:contact_form}, in that any nonzero multiple of a 1-form has the same kernel, and therefore gives rise to the same contact structure. \(\pctbundle{Q}\) is then the quotient set of \(\ctbundle{Q}\) (without zero section) with respect to the equivalence relation \(\sim\). Visually, the projectivization of an \(n\)-dimensional vector space is the space of all \emph{lines} through the origin in that vector space, which has dimension \(n - 1\). It can be shown that this space is bundle-isomorphic to the manifold \(\cbundle{Q}\). \cite{Cannas2001} 
+This equivalence relations identifies all the covectors in the cotangent space that are a nonzero multiple of each other. It is precisely this identification that takes care of the ambiguity in \cref{eq:contact_form}, in that any nonzero multiple of a 1-form has the same kernel, and therefore gives rise to the same contact structure. \(\pctbundle{Q}\) is then the quotient set of \(\ctbundle{Q}\) (without zero section) with respect to the equivalence relation \(\sim\). Visually, the projectivization of an \(n\)-dimensional vector space is the space of all \emph{lines} through the origin in that vector space, which has dimension \(n - 1\). It can be shown that this space is bundle-isomorphic to the manifold \(\cbundle{Q}\) \cite{Cannas2001}.
 
-As shown in \cref{fig:contact_element}, coordinates of the equivalence class of 1-forms are `projective coordinates', \([\eta_0\;:\;\eta_1:\ldots :\eta_{n-1}]\), where \(\eta_i\) are coordinates for \(\ctspace{q}{Q}\). The projective coordinates acknowledge the invariance under multiplication by a nonzero number. If one assumes \(\eta_0\) to be nonzero, the tuple \((1, \eta_1, \ldots, \eta_n)\) provides coordinates that cover most of \(\pctbundle{Q}\). 
+As shown in \cref{fig:contact_element}, coordinates of the equivalence class of 1-forms are `projective coordinates', \([p_0\;:\;p_1:\ldots :p_{n-1}]\), where \(p_i\) are coordinates for \(\ctspace{q}{Q}\). The projective coordinates acknowledge the invariance under multiplication by a nonzero number. The tuple \((1, p_1, \ldots, p_n)\) provides coordinates that cover most of \(\pctbundle{Q}\), i.e. all points where \(p_0\) is nonzero.
 
-Now, it remains to be explained why the `manifold of contact elements` is itself a contact manifold. Indeed, there is a canonical field of hyperplanes \emph{on} \(\cbundle{Q}\), which lifts the hyperplane tangent to \(Q\) to a hyperplane tangent to \(\cbundle{Q}\) (this is akin to the `tautological' trick played in the symplectic structure of the cotangent bundle). The contact structure distinguishes the curves in \(\cbundle{Q}\) that are lifted versions from curves in \(Q\). This is illustrated in \cref{fig:contact_lift}. \cite{Burke1985}
+Now, it remains to be explained why the `manifold of contact elements` is itself a contact manifold. Indeed, there is a canonical field of hyperplanes \emph{on} \(\cbundle{Q}\), which lifts the hyperplane tangent to \(Q\) to a hyperplane tangent to \(\cbundle{Q}\) (this is akin to the `tautological' trick played in the symplectic structure of the cotangent bundle). The contact structure distinguishes the curves in \(\cbundle{Q}\) that are lifted versions from curves in \(Q\). This is illustrated in \cref{fig:contact_lift} \cite{Burke1985}.
 Said otherwise, a tangent vector on \(\cbundle{Q}\) lies in the hyperplane defined by the contact structure if its projection down on \(Q\) lies in the hyperplane on \(Q\) defined by the given point on the \(\cbundle{Q}\). This contact structure is associated with the 1-form:
 \begin{equation}
-     \alpha = \dd{x}_0 + \sum_{i = 1}^{n-1} \eta_i\dd{x}_i,
+     \alpha = \dd{q}^0 + \sum_{i = 1}^{n-1} p_i\dd{q}^i,
 \end{equation}
-given that the \(\eta_0\) is the `special' coordinate wich is chosen to be 1.
+given that the \(p_0\) is the `special' coordinate wich is chosen to be 1.
 
 \begin{figure}[h!]
     \centering
@@ -149,40 +149,40 @@ As such, the Hamiltonian vector field associated to the contact Hamiltonian \(K\
 
 \subsubsection{Coordinate expression} Given the contact manifold \((M, \xi)\) with contact form
 \begin{equation}
-     \dd{q_0} - \sum_{i = 1}^n p_i\dd{q_i},
+     \dd{q^0} - \sum_{i = 1}^n p_i\dd{q^i},
 \end{equation}
-and define the contact Hamiltonian \(K = K(q_0, q_1, \ldots, q_n, p_1, \ldots, p_n)\). 
+and define the contact Hamiltonian \(K = K(q^0, q^1, \ldots, q^n,\, p_1, \ldots, p_n)\). 
 The vertical component of the Hamiltonian vector field is straightforward (cf. \cref{eq:reeb_vf}): 
 \begin{equation}
-     X_K^\text{ver} = -K\pdv{}{q_0}.
+     X_K^\text{ver} = -K\pdv{}{q^0}.
 \end{equation}
 For the horizontal component, first evaluate the right hand side of \cref{eq:basic_form} in coordinates:
 \begin{equation}
-     \intpr{X_K^\text{hor}}{\dd{\alpha}} =  \sum_{i = 1}^n \qty(\pdv{K}{q_i} + p_i \pdv{K}{q_0})\dd{q_i} + \pdv{K}{p_i}\dd{p_i}.
+     \intpr{X_K^\text{hor}}{\dd{\alpha}} =  \sum_{i = 1}^n \qty(\pdv{K}{q^i} + p_i \pdv{K}{q^0})\dd{q^i} + \pdv{K}{p_i}\dd{p^i}.
 \end{equation}
 In terms of the basis vectors, the mapping \(\toDual{\alpha}\) is
 \begin{equation}
-     \pdv{}{q_i} \mapsto \dd{p_i} \qquad \pdv{}{p_i} \mapsto -\dd{q_i} \qquad \pdv{}{q_0} \mapsto 0 \qquad i = 1, \ldots, n.
+     \pdv{}{q^i} \mapsto \dd{p_i} \qquad \pdv{}{p_i} \mapsto -\dd{q^i} \qquad \pdv{}{q^0} \mapsto 0 \qquad i = 1, \ldots, n.
 \end{equation}
-The inverse transformation is slightly ambiguous at first sight, since any \(\pdv{}{q_0}\) cannot be recovered directly from the `forward' mapping. However, we know that \(\fromDual{\alpha}\) must produce a horizontal vector field. Therefore, first perform the inverse mapping in the \(q_i, p_i\)-components to obtain
+The inverse transformation is slightly ambiguous at first sight, since any \(\pdv{}{q^0}\) cannot be recovered directly from the `forward' mapping. However, we know that \(\fromDual{\alpha}\) must produce a horizontal vector field. Therefore, first perform the inverse mapping in the \(q^i, p_i\)-components to obtain
 \begin{equation}
-     - \sum_{i = 1}^n \qty(\pdv{K}{q_i} + p_i \pdv{K}{q_0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q_i}.
+     - \sum_{i = 1}^n \qty(\pdv{K}{q^i} + p_i \pdv{K}{q^0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q^i}.
 \end{equation}
 Contracting this expression with \(\alpha\) produces \(\displaystyle - \sum_{i=1}^n p_i\pdv{K}{p_i} \). Hence, we can use this knowledge to find the actual horizontal component:
 \begin{equation}
-     X_K^\text{hor} = \sum_{i=1}^n p\pdv{K}{p_i} \pdv{}{q_0}- \sum_{i = 1}^n \qty(\pdv{K}{q_i} + p_i \pdv{K}{q_0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q_i}.
+     X_K^\text{hor} = \sum_{i=1}^n p\pdv{K}{p_i} \pdv{}{q^0}- \sum_{i = 1}^n \qty(\pdv{K}{q^i} + p_i \pdv{K}{q^0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q^i}.
 \end{equation}
 As such, the coordinate expression of \cref{eq:contact_ham_vf_cofree} is 
 \begin{equation}
-    X_K = \qty(\sum_{i=1}^n p\pdv{K}{p_i} - K) \pdv{}{q_0}- \sum_{i = 1}^n \qty(\pdv{K}{q_i} + p_i \pdv{K}{q_0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q_i}
+    X_K = \qty(\sum_{i=1}^n p_i\pdv{K}{p_i} - K) \pdv{}{q^0}- \sum_{i = 1}^n \qty(\pdv{K}{q^i} + p_i \pdv{K}{q^0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q^i}
 \end{equation}
 Furthermore, we have
 \begin{equation}
-     \lied{X_K} \alpha = - \pdv{K}{q_0} \alpha,
+     \lied{X_K} \alpha = - \pdv{K}{q^0} \alpha,
 \end{equation} 
 and 
 \begin{equation}
-     \lied{X_K} K = - K\pdv{K}{q_0}.
+     \lied{X_K} K = - K\pdv{K}{q^0}.
 \end{equation} 
 
 \subsection{Jacobi brackets}
@@ -207,7 +207,7 @@ From these expressions, it is also clear that the Jacobi bracket is antisymmetri
 
 Using the same coordinates as in \cref{ssec:contact_ham_vfields}, the Jacobi bracket is equal to:
 \begin{equation}
-     \jacobi{f}{g} = \qty(\sum_{i=1}^n p_i \pdv{g}{p_i} - g)\pdv{f}{q_0} - \qty(\sum_{i=1}^n p_i \pdv{f}{p_i} - f)\pdv{g}{q_0} 
-    + \sum_{i=1}^n\qty(\pdv{f}{q_i}\pdv{g}{p_i} - \pdv{g}{q_i}\pdv{f}{p_i}).
+     \jacobi{f}{g} = \qty(\sum_{i=1}^n p_i \pdv{g}{p_i} - g)\pdv{f}{q^0} - \qty(\sum_{i=1}^n p_i \pdv{f}{p_i} - f)\pdv{g}{q^0} 
+    + \sum_{i=1}^n\qty(\pdv{f}{q^i}\pdv{g}{p_i} - \pdv{g}{q^i}\pdv{f}{p_i}).
 \end{equation}
 

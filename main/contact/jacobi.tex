@@ -12,27 +12,27 @@ In this section, we take the ideas outlined in \cref{sec:contact,sec:symplectic}
 To illustrate the need for a Jacobi structure, we use the mechanical MDOF system shown in \cref{fig:mdof_oscillator}. The corresponding equations of motion are
 \begin{equation}
     \begin{split}
-        &\dot{q}_1 = \frac{p_1}{m_1}, \\
-        &\dot{q}_2 = \frac{p_2}{m_2}, \\
-        &\dot{p}_1 = -\frac{b_1}{m_1}p_1 - \frac{b_2}{m_1}p_1 + \frac{b_2}{m_2}p_2 - k_1 q_1 - k_2 q_1 + k_2 q_2, \\
-        &\dot{p}_2 =  - \frac{b_2}{m_2}p_2 + \frac{b_2}{m_1}p_1 - k_3 q_2 - k_2 q_2 + k_2 q_1. \\
+        &\dot{q}^1 = \frac{p_1}{m_1}, \\
+        &\dot{q}^2 = \frac{p_2}{m_2}, \\
+        &\dot{p}_1 = -\frac{b_1}{m_1}p_1 - \frac{b_2}{m_1}p_1 + \frac{b_2}{m_2}p_2 - k_1 q^1 - k_2 q^1 + k_2 q^2, \\
+        &\dot{p}_2 =  - \frac{b_2}{m_2}p_2 + \frac{b_2}{m_1}p_1 - k_3 q^2 - k_2 q^2 + k_2 q^1. \\
     \end{split}
 \end{equation}
 
 To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done on the first damper (\(b_1\)) is
 \begin{equation}
-     \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q_1}.
+     \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q^1}.
 \end{equation}
 The second damper (\(b_2\)) is placed between the two masses; the flow is relative. The effort is proportional to this flow; i.e.
 \begin{equation}
-     \beta_2 = b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q_2 - q_1)}.
+     \beta_2 = b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q^2 - q^1)}.
 \end{equation}
 Hence, the contact 1-form that specifies the dissipation is
 \begin{equation}
     \begin{split}
-        \alpha  &= \dd{U} - \qty(\frac{b_1}{m_1})p_1\dd{q_1} - b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q_2 - q_1)} \\
-                &= \dd{U} - \qty[\qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
-                          - \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.
+        \alpha  &= \dd{U} - \qty(\frac{b_1}{m_1})p_1\dd{q^1} - b_2\qty(\frac{p_2}{m_2} - \frac{p_1}{m_1})\dd{\qty(q^2 - q^1)} \\
+                &= \dd{U} - \qty[\qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q^1}
+                          - \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q^2}.
     \end{split}
     \label{eq:mdof_form}
 \end{equation}
@@ -45,10 +45,10 @@ where \(\theta\) is the Liouville form on the cotangent bundle of the configurat
 
 The exterior derivative of \(\alpha\) is
 \begin{equation}
-     \dd{\alpha} = \qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) \wedgep{\dd{q_1}}{\dd{p_1}}
-                  -\qty(\frac{b_2}{m_2})\wedgep{\dd{q_1}}{\dd{p_2}}
-                  + \qty(\frac{b_2}{m_2})\wedgep{\dd{q_2}}{\dd{p_2}}
-                  - \qty(\frac{b_2}{m_1})\wedgep{\dd{q_2}}{\dd{p_1}},
+     \dd{\alpha} = \qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) \wedgep{\dd{q^1}}{\dd{p_1}}
+                  -\qty(\frac{b_2}{m_2})\wedgep{\dd{q^1}}{\dd{p_2}}
+                  + \qty(\frac{b_2}{m_2})\wedgep{\dd{q^2}}{\dd{p_2}}
+                  - \qty(\frac{b_2}{m_1})\wedgep{\dd{q^2}}{\dd{p_1}},
 \end{equation}
 which indicates indeed that there is also a `mixing' of \(p_1\) and \(q_2\) and \(p_2\) and \(q_1\) in the resulting 2-form. As a result, the mapping \( \fromDual{\dd{\alpha}} \) will not produce the mapping that we would expect in the purely symplectic case.
 
@@ -123,11 +123,11 @@ with \(\fromDual{\omega}\) defined as in \cref{eq:symplectic_isomorphism}.
 
 If \(\omega\) is expressed in Darboux coordinates, i.e.
 \begin{equation}
-     \omega = \sum^n_{i = 1} \wedgep{\dd{q_i}}{\dd{p_i}},
+     \omega = \sum^n_{i = 1} \wedgep{\dd{q^i}}{\dd{p_i}},
 \end{equation}
 then the associated bivector can be found to be \cref{eq:jacobi_ham_correspondence}:
 \begin{equation}
-     \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}.
+     \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}.
 \end{equation}
 
 The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field \(R\) vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
@@ -142,28 +142,29 @@ where \(\fromDual{\dd{\alpha}}\) is defined as in \cref{eq:contact_isomorphism} 
 
 If \(\alpha\) is expressed in Darboux coordinates:
 \begin{equation}
-     \alpha = \dd{q}_0 - \sum^n_{i = 1} p_i\dd{q_i},
+     \alpha = \dd{q}^0 - \sum^n_{i = 1} p_i\dd{q^i},
 \end{equation}
 then
 \begin{equation}
-     R = \pdv{}{q_0}.
+     R = \pdv{}{q^0}.
 \end{equation}
-The expression for the bivector can be found as follows (by comparison with \cref{eq:jacobi_ham_correspondence}):
+The expression for the bivector can be found as follows through the action of \(
+\fromDual{\Lambda}\) on a general 1-form \(\zeta \in \bsection{\ctbundle{M}}\) (by comparison with \cref{eq:jacobi_ham_correspondence}):
 \begin{equation}
     \begin{split}
         \fromDual{\Lambda}(\zeta) &= \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha) \\
-        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{(\zeta - (\intpr{R}{\zeta})\alpha)} \\
-        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
-                                     - \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{((\intpr{R}{\zeta})\alpha)} \\
-        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{(\zeta - (\intpr{R}{\zeta})\alpha)} \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\zeta} 
+                                     - \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{((\intpr{R}{\zeta})\alpha)} \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\zeta} 
                                      - \sum_{i=1}^n p_i \pdv{}{p_i}(\intpr{R}{\zeta}) (\intpr{R}{\zeta})\\
-        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\zeta} 
-                                     - \intpr{\qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{p_i}}{\pdv{}{q_0}})}{\zeta}. \\
+        \fromDual{\Lambda}(\zeta) &= \intpr{\sum_{i=1}^n\qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\zeta} 
+                                     - \intpr{\qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{p_i}}{\pdv{}{q^0}})}{\zeta}. \\
     \end{split}
 \end{equation}
 From this expression, we gather that 
 \begin{equation}
-     \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) + \qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{q_0}}{\pdv{}{p_i}}).
+     \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}) + \qty(\sum_{i=1}^n p_i \wedgep{\pdv{}{q^0}}{\pdv{}{p_i}}).
 \end{equation}
 
 We will now apply the Jacobi structure to general mechanical systems.
@@ -171,11 +172,11 @@ We will now apply the Jacobi structure to general mechanical systems.
 \subsection{Jacobi structure of mechanical systems}
 The geometric structure of a mechanical system has four components:
 \begin{itemize}
-    \item An odd-dimensional manifold \(M = \ctbundle{Q}\times \real\), where \(Q\) is the configuration manifold. It is extended by one dimension to incorporate the dissipated (internal) energy \(U\) and therefore always odd-dimensional. In the following, we assume the `Darboux' coordinates \((q_1, \ldots, q_n, p_1, \ldots, p_n, U)\).
+    \item An odd-dimensional manifold \(M = \ctbundle{Q}\times \real\), where \(Q\) is the configuration manifold. It is extended by one dimension to incorporate the dissipated (internal) energy \(U\) and therefore always odd-dimensional. In the following, we assume the `Darboux' coordinates \(\qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n, U)\).
     This manifold has a bundle structure \(\bundle{M}{\pi}{\ctbundle{Q}}\), where \(\pi\) is the projection map that `forgets' the \(U\)-coordinate.
     \item A closed 2-form with constant rank \(2n\), defined as the negative of the exterior derivative of the Liouville form on \(\ctbundle{Q}\):
         \begin{equation}
-     \omega = -\dd{\theta} = \sum^n_{i=1} \wedgep{\dd{q_i}}{\dd{p_i}},
+     \omega = -\dd{\theta} = \sum^n_{i=1} \wedgep{\dd{q^i}}{\dd{p_i}},
 \end{equation}
         i.e. \(\omega\) is the canonical symplectic 2-form on \(\ctbundle{Q}\).
     \item A \emph{dissipation form} \(\alpha\) that encodes the work done by the system on its environment:
@@ -187,7 +188,7 @@ The geometric structure of a mechanical system has four components:
         \begin{equation}
      H = E + U,
 \end{equation}
-        with \(E = E(q_1, \ldots, q_n, p_1, \ldots, p_n)\) the mechanical energy of the system.
+        with \(E = E\qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) the mechanical energy of the system.
 \end{itemize}
 
 In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in \(U\) does not play a role, and the system may be completely described on \(\ctbundle{Q}\) with its symplectic structure. 
@@ -203,7 +204,7 @@ However, not just any \(\omega\) and \(\alpha\) will make this work. Recall that
 \end{equation}
 everywhere on \(M\); that is to say, it is a volume form on \(M\) \cite{ciaglia2018}. If \(M\), \(\omega\) and \(\alpha\) are defined as given above, this condition is clearly satisfied:
 \begin{equation}
-     \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q_i}}{\dd{p_i}})}.
+     \wedgep{\alpha}{(\omega)^n} = n!\:\wedgep{\dd{U}}{\qty(\bigwedge_{i=1}^{n}\wedgep{\dd{q^i}}{\dd{p_i}})}.
 \end{equation}
 
 If \cref{eq:jacobi_condition} is satisfied we can --- similarly to the discussion in \cref{ssec:contact_ham_systems} --- define the splitting of the tangent bundle as follows:
@@ -230,7 +231,7 @@ The construction of \(\Lambda\) is analogous to the case of contact manifolds: t
 \end{equation}
 Using the coordinates defined above, we find:
 \begin{equation}
-    \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q_0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q_i}}{\pdv{}{p_i}})}{\beta}]}.
+    \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q^0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\beta}]}.
     \label{eq:general_bivector}
 \end{equation}
 
@@ -258,33 +259,33 @@ where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-com
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
 \begin{itemize}
-    \item The manifold \(M = \real^5 = \real \times \ctbundle{Q}\), for which we choose coordinates \((U, q_1, q_2, p_1, p_2)\).
+    \item The manifold \(M = \real^5 = \real \times \ctbundle{Q}\), for which we choose coordinates \(\qty(U, q^1, q^2, p_1, p_2)\).
     \item The 2-form \(\omega\) is the canonical symplectic structure on \(\ctbundle{Q}\):
         \begin{equation}
-     \omega = \wedgep{\dd{q_1}}{\dd{p_1}} + \wedgep{\dd{q_2}}{\dd{p_2}}.
+     \omega = \wedgep{\dd{q^1}}{\dd{p_1}} + \wedgep{\dd{q^2}}{\dd{p_2}}.
 \end{equation}
     \item The dissipation form is given by \cref{eq:mdof_form}:
         \begin{equation}
-     \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q_1}
-                          + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q_2}.
+     \beta =  \qty[\qty(\frac{b_1}{m_1} + \frac{b_2}{m_1}) p_1 - \qty(\frac{b_2}{m_2})p_2]\dd{q^1}
+                          + \qty[\qty(\frac{b_2}{m_2})p_2 - \qty(\frac{b_2}{m_1})p_1]\dd{q^2}.
 \end{equation}
     \item The Hamiltonian is equal to the sum of kinetic, potential, and internal energy in the system:
         \begin{equation}
-     H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1q_1^2 + \frac{1}{2}k_3q_2^2 + \frac{1}{2}k_2(q_2 - q_1)^2 + U.
+     H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1\qty(q^1)^2 + \frac{1}{2}k_3\qty(q^2)^2 + \frac{1}{2}k_2\qty(q^2 - q^1)^2 + U.
 \end{equation}
 \end{itemize}
 
  The expression for \(\beta\) is given by \cref{eq:mdof_form} as a part of the dissipation form \(\alpha\). The exterior derivative of \(H\) is 
      \begin{equation}
-     \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q_1 + k_2(q_1 - q_2)]\dd{q_1} + \qty[k_3q_2 + k_2(q_2 - q_1)]\dd{q_2} + \dd{U}.
+     \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q^1 + k_2\qty(q^1 - q^2)]\dd{q^1} + \qty[k_3q^2 + k_2\qty(q^2 - q^1)]\dd{q^2} + \dd{U}.
 \end{equation}
  Using either \cref{eq:general_bivector,eq:general_isomorphism} or \cref{eq:matrix_jacobi_mapping}, we obtain the correct equations of motion for the system:
  \begin{equation}
      \begin{split}
-         &\dot{q}_1 = \frac{p_1}{m_1}, \\
-         &\dot{q}_2 = \frac{p_2}{m_2}, \\
-         &\dot{p}_1 = -\frac{b_1}{m_1}p_1 - \frac{b_2}{m_1}p_1 + \frac{b_2}{m_2}p_2 - k_1 q_1 - k_2 q_1 + k_2 q_2, \\
-         &\dot{p}_2 =  - \frac{b_2}{m_2}p_2 + \frac{b_2}{m_1}p_1 - k_3 q_2 - k_2 q_2 + k_2 q_1, \\
+         &\dot{q}^1 = \frac{p_1}{m_1}, \\
+         &\dot{q}^2 = \frac{p_2}{m_2}, \\
+         &\dot{p}_1 = -\frac{b_1}{m_1}p_1 - \frac{b_2}{m_1}p_1 + \frac{b_2}{m_2}p_2 - k_1 q^1 - k_2 q^1 + k_2 q^2, \\
+         &\dot{p}_2 =  - \frac{b_2}{m_2}p_2 + \frac{b_2}{m_1}p_1 - k_3 q^2 - k_2 q^2 + k_2 q^1, \\
          &\dot{U} = b_1\frac{p_1^2}{m_1^2} + b_2\frac{p_2^2}{m_1^2} +  b_2\frac{p_2^2}{m_2^2} - 2b_2 \frac{p_1 p_2}{m_1 m_2}. \\
      \end{split}
      \label{eq:mdof_eom_complete}
