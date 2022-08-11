@@ -15,22 +15,27 @@ The split-quaternion representation of linear dynamical systems proves to be ver
 Finally, the normalized vector part of the split-quaternion representation unambiguously determines the shape of the solution trajectories. We have focused on the case of an underdamped mechanical system with parallel and serial damping, and showed that the normalized vector in pseudospherical coordinates directly specified the phase rotation and eccentricity of the solution trajectory. When projected to either the Poincaré disk or Cayley-Klein disk, the radial coordinate in these disks corresponds directly to known measures of eccentricity.
 
 \section*{Recommendations}
+
+\subsection*{Economic engineering}
 In this thesis, we have assigned the geometric infrastructure that underlies Lagrangian mechanics with a compelling economic interpretation; being that the Lagrange 2-form is analogous to the Slutsky matrix in microeconomics. However, we have not elaborated on this result, and recommend that further research in the field of economic engineering puts this hypothesis to the test and investigates its potential consequences.
 
-We have shown that any contact symplectic manifold can be lifted canonically to a symplectic manifold through a procedure called \emph{symplectization}. We have applied this to the contact Hamiltonian system of the damped harmonic oscillator and demonstrated its correspondence with the Caldirola-Kanai method. However, we have not symplectified the contact Hamiltonian system for the oscillator with serial and parallel damper; this can be an interesting subject for future research. According to our views, it should also be possible to derive a Caldirola-Kanai-type Hamiltonian via this method for damper with two oscillators.
+\subsection*{Geometric structures for dissipative mechanics}
+We have shown that any contact symplectic manifold can be lifted canonically to a symplectic manifold through a procedure called \emph{symplectization}. We have applied this to the contact Hamiltonian system of the damped harmonic oscillator and demonstrated its correspondence with the Caldirola-Kanai method. However, we have not symplectified the contact Hamiltonian system for the oscillator with serial and parallel damper; this can be an interesting subject for future research. According to our views, it should also be possible to derive a Caldirola-Kanai-type Hamiltonian via this method for the damper with two oscillators.
 
-Along the same line, it has been shown that any Jacobi structure can be lifted to a manifold with a homogeneous Poisson structure (symplectification is a particular case of this). Hence, it might be possible extend the practice of symplectification to the Jacobi structure for general mechanical systems. 
+Along the same line, it has been shown that any Jacobi structure can be lifted to a manifold with a homogeneous Poisson structure, this is called \emph{Poissonization} (symplectification is a particular case of this) \cite{marle1991}. Hence, it might be possible extend the practice of symplectification to the Jacobi structure for general mechanical systems. 
+
+On a more general note regarding the proposed Jacobi structure, we have not formally proven that the proposed structure always meets the required conditions to be a Jacobi manifold. Also, since there have been extensions for e.g. the Noether theorem and symplectic reduction to contact manifolds, there may be equivalent theorems for Jacobi manifolds as well. As such, more research is required to investigate the mathematical properties of this specific type of Jacobi structure in greater detail.
+
+From the perspective of control theory, the `Jacobi systems' as they have been described in this thesis can be used in the framework of port-Hamiltonian systems (see \citet{VanDerSchaft2006}) and the associated control formalism to facilitate energy-based control for general mechanical systems.
+
+Finally, we would be interested to see whether a Hamilton-Jacobi-type equation can be developed for Jacobi manifolds as well (at least, for this particular class of Jacobi structures).
+
+\subsection*{Split-quaternion representation of dynamical systems}
+Concerning the split-quaternions, we have limited ourselves to using the split-quaternions to analyze the dynamical system in a more convenient fashion. We have not, howevered, ventured in to the field of control using the split-quaternion representation. Although from a purely mathematical perspective, the split-quaternions cannot do more than their matrix counterparts, their properties might make some practices in control easier. For example, algorithms for pole placement are typically fairly numerically unreliable, which might be improved using split-quaternions instead. In essence, the split-quaternions form an alternative `coordinate chart' for the space of dynamical systems that may be better suited for numerical applications. For the same reason, using the split-quaternion representation may prove to be advantageous in the practice of system identification.
+
+Arguably the most prominent limitation of the split-quaternions is that they are not immediately applicable to dynamical systems of greater dimension. However, it may be possible to consider larger (even-dimensional) systems as interconnections of several atomic split-quaternion systems (representing a single pole pair). In any case, control applications often focus on the \emph{dominant} pole pair, which can of course easily represented 
 
 \begin{itemize}
-    \item Further investigation of the mathematical properties of the newly defined Jacobi structure.
-    \item Look into applications for port-Hamiltonian systems
-    \item Interface mechanical and thermodynamic systems
-    \item Hamilton-Jacobi theory
-\end{itemize}
-
-Split-quaternion representation
-\begin{itemize}
-    \item Applications for control
     \item Role of geodesics on the hyperboloid model in the representation of mechanical systems
     \item Hamiltonian representation using the split-quaternions
     \item Extension to higher dimensions

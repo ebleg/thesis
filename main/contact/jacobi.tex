@@ -90,9 +90,9 @@ Not just any choice of bivector field and vector field give rise to a Jacobi str
 \end{equation}
 where \(\schouten{\,}{}\) is the \emph{Schouten bracket}\footnote
 {
-    The Schouten bracket of an \(r\)-vector field \(A\) and an \(s\)-vector field \(B\) on a manifold is a \((r + s - 1)\)-vector field \(\schouten{A}{B}\), defined by its action on a closed \((r + s -1)\)-form \(\beta\) as follows:
+    The Schouten bracket of an \(r\)-vector field \(A\) and an \(s\)-vector field \(B\) on a manifold is a \((r + s - 1)\)-vector field \(\schouten{A}{B}\), defined by its action on a closed \((r + s -1)\)-form \(\zeta\) as follows:
     \begin{equation}
-     \schouten{A}{B}(\beta) = (-1)^{rs + s}\intpr{A}{\dd{(\intpr{B}{\beta})}} + (-1)^r \intpr{B}{\dd{(\intpr{A}{\beta})}}.
+     \schouten{A}{B}(\zeta) = (-1)^{rs + s}\intpr{A}{\dd{(\intpr{B}{\zeta})}} + (-1)^r \intpr{B}{\dd{(\intpr{A}{\zeta})}}.
 \end{equation}
     For \(r = s = 1\), the Schouten bracket simply reverts to the ordinary Lie bracket \cite{dazord1991}.
 
@@ -231,7 +231,7 @@ The construction of \(\Lambda\) is analogous to the case of contact manifolds: t
 \end{equation}
 Using the coordinates defined above, we find:
 \begin{equation}
-    \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{q^0}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\beta}]}.
+    \Lambda = \sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}) - \wedgep{\pdv{}{U}}{\qty[\intpr{\sum_{i=1}^n \qty(\wedgep{\pdv{}{q^i}}{\pdv{}{p_i}})}{\beta}]}.
     \label{eq:general_bivector}
 \end{equation}
 
