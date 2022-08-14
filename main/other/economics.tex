@@ -1,32 +1,32 @@
 \chapter{A Geometric Perspective of Economic Engineering}
 \label{chap:symplectic_economics}
 
-The discipline of economic engineering is a very new one. The theoretical foundations have been developed over the past few years at the Delft Center of Systems and Control, primarily by prof. em. Mendel combined with the contributions of several theses that have been recently written about the subject \cite{Hutters2020,Kruimer2021,VanArdenne2020,Manders2019}. The purpose of economic engineering is to use tools from various engineering disciplines and physics to improve the predictive power of (macro)economic models.
+The discipline of economic engineering is a very new one. The theoretical foundations have been developed over the past few years at the Delft Center of Systems and Control, primarily by prof. em. Mendel,  in combination with the contributions of several theses that have been recently written about the subject \cite{Hutters2020,Kruimer2021,VanArdenne2020,Manders2019}. Economic engineering aims to use tools from various engineering disciplines and physics to improve the predictive power of (macro)economic models.
 
-In economic engineering, \emph{domain-neutral} modeling techniques such as bond graph modeling are used to construct models for economic systems. This is done based on analogies between economics and mechanical and/or electrical engineering. This results in dynamic gray-box models that rely on past data only for the identification of their parameters, but not for the dynamics of the model itself. This is what sets economic engineering apart from other disciplines that produce economic models, such as econometrics.
+In economic engineering, \emph{domain-neutral} modeling techniques such as bond graph modeling are used to construct models for economic systems. This is done based on analogies between economics and mechanical and/or electrical engineering. This results in dynamic gray-box models that rely on past data only for the identification of their parameters but not for the dynamics of the model itself. These gray box models are what sets economic engineering apart from other disciplines that produce economic models, such as econometrics.
 
-In this chapter, we focus on the theoretical foundations of economic engineering; in particular its relation with symplectic manifolds and Hamiltonian and Lagrangian mechanics. The theoretical contributions in \Cref{chap:geometric_structures} are formulated exclusively in terms of concepts from classical mechanics, but the analogies provided in this chapter allow to extend the results in \cref{chap:geometric_structures} to the economic domain as well.
+In this chapter, we focus on the theoretical foundations of economic engineering, particularly its relation to symplectic manifolds and Hamiltonian and Lagrangian mechanics. The theoretical contributions in \Cref{chap:geometric_structures} are formulated exclusively in terms of concepts from classical mechanics, but the analogies provided in this chapter allow to extend the results in \cref{chap:geometric_structures} to the economic domain as well.
 
-The structure of this chapter is as follows. First, in \cref{sec:symplectic_ee}, we explain the relevance of symplectic manifolds in economic engineering. Second, we first provide economic engineering analogies for Lagrangian mechanics in \cref{sec:lagrangian_ee}. Although \cref{chap:geometric_structures} is written from the Hamiltonian perspective, the Lagrangian formalism provides a more intuitive introduction to the economic engineering analogies. Finally, in \cref{sec:hamiltonian_ee} we explain the role of Hamiltonian mechanics in economic engineering, and motivate why dissipative elements are an essential part of economic systems that must properly be dealt with.
+The structure of this chapter is as follows. First, in \cref{sec:symplectic_ee}, we explain the relevance of symplectic manifolds in economic engineering. Second, we first provide economic engineering analogies for Lagrangian mechanics in \cref{sec:lagrangian_ee}. Although \cref{chap:geometric_structures} is written from the Hamiltonian perspective, the Lagrangian formalism provides a more intuitive introduction to the economic engineering analogies. Finally, in \cref{sec:hamiltonian_ee} we explain the role of Hamiltonian mechanics in economic engineering and motivate why dissipative elements are an essential part of economic systems that must properly be dealt with.
 
 \section{Symplectic manifolds in economic engineering}
 \label{sec:symplectic_ee}
-The basic elements of an economy are a collection of goods. These can be physical goods (e.g. bushels of wheat) but also more abstract goods such as capital in the financial analogy \cite{Kruimer2021}. The \emph{economic configuration space} \(Q\) is analogous to the configuration space of mechanics and consists of all the possible combinations of goods in the economy. 
+A collection of goods forms the basis of any economic system. These goods can be physical (e.g., bushels of wheat) but also more abstract notions such as capital in the financial analogy \cite{Kruimer2021}. The \emph{economic configuration space} \(Q\) is analogous to the configuration space of mechanics and consists of all the possible combinations of goods in the economy. 
 Hence, in economic engineering, the goods are analogous to the \emph{(generalized) positions} in classical mechanics. 
 
 The natural coordinates for this space are the number of each of the goods in the economic system, denoted by \(q = (q^1, q^2, \ldots, q^n)\), also called \emph{stock levels}. We say that each of these coordinates is measured in units of \emph{quantity}, denoted by `\(\qty[\si{\quantity}]\)'. 
 
-In many cases, the economic configuration manifold is simply a vector space containing all the goods, subject to a total constraint on the total \emph{endowment} for each of the goods (i.e. the total number of goods available). In the two-dimensional case, this is also referred to as an \emph{Edgeworth box}. However, we will not assume in general that $Q$ is a vector space, for it may be constructed from holonomic constraints imposed on a larger space.
+In many cases, the economic configuration manifold is simply a vector space containing all the goods, subject to a total constraint on the total \emph{endowment} for each of the goods (i.e., the total number of goods available). This is also referred to as an \emph{Edgeworth box} in the two-dimensional case. However, we will not assume in general that $Q$ is a vector space, for it may be constructed from holonomic constraints imposed on a larger space.
 
-The tangent space \(\tspace{x}{Q}\) to a point \(x\) in \(Q\) is the vector space of differential changes in goods, also called the \emph{flow of goods}. A vector in the tangent space is denoted by \(\vec{\dot{q}} = (\dot{q}^1, \dot{q}^2, \ldots, \dot{q}^n)\). It is very important to make the distinction between a flow of goods and an absolute amount of goods: from a mathematical perspective, the former is a vector in the tangent space, and the latter is a point in the economic configuration manifold. This distinction is often not given much attention in economics, but it is fundamental in economic engineering.
+The tangent space \(\tspace{x}{Q}\) to a point \(x\) in \(Q\) is the vector space of differential changes in goods, also called the \emph{flow of goods}. A vector in the tangent space is denoted by \(\vec{\dot{q}} = (\dot{q}^1, \dot{q}^2, \ldots, \dot{q}^n)\). It is important to distinguish between a flow of goods and an absolute amount of goods. From a mathematical perspective, the former is a vector in the tangent space, and the latter is a point in the economic configuration manifold. This distinction is often not given much attention in economics but is fundamental in economic engineering.
 
 The \emph{dual space} of \(\tspace{x}{Q}\) is the cotangent space \(\ctspace{x}{Q}\) containing all the linear functions that map vectors in the tangent space to a real number. This is the natural setting of the \emph{prices} in the economy: as a function, they assign a \emph{value to a change in goods}. These prices are measured in units of currency per quantity, i.e. \(\qty[\si{\money \per \quantity}]\). A covector in the cotangent space is denoted by \(\vec{p} = (p_1, p_2, \ldots, p_n)\). The action of a price covector on a vector measuring the change in goods is (observing the summation convention):
 \begin{equation}
     \vec{p}(\vec{\dot{q}}) = p_i\,\dot{q}^i,
 \end{equation}
-i.e. it produces the total value associated with this change in goods.
+i.e., it produces the total value associated with this change in goods.
 
-The \emph{cotangent bundle} \(\ctbundle{Q}\) of the economic configuration manifold is the space of prices and quantities: we call it the \emph{economic phase space}. Just like in mechanics, a point in this space determines the state of the economic system: points in this space specify the amount of each of the goods in the system and their associated price.
+The \emph{cotangent bundle} \(\ctbundle{Q}\) of the economic configuration manifold is the space of prices and quantities: we call it the \emph{economic phase space}. Like in mechanics, a point in this space determines the state of the economic system: points in this space specify the amount of each of the goods in the system and their associated price.
 
 The economic phase space has a natural structure that pairs each price coordinate to the associated stock level coordinate. From a mathematical perspective, this is equivalent to the fact that the cotangent bundle of any manifold has a 1-form canonically defined on it: the Liouville form (also called tautological 1-form or canonical 1-form), defined as
 \begin{equation} 
@@ -38,11 +38,11 @@ The (negative of) the exterior derivative of the Liouville form is a \emph{sympl
 \begin{equation}
     \omega \coloneq -\dd{\theta} = \wedgep{\dd{q}^i}{\dd{p}_i}.
 \end{equation}
-When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency \([\si{\money}]\). This quantity is analogous to \emph{action} in classical mechanics. The symplectic 2-form relates every price to the associated quantity and thereby encodes the fundamental structure of the economic phase space.  
+When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency \([\si{\money}]\). This quantity is analogous to \emph{action} in classical mechanics. The symplectic 2-form relates every price to the associated stock level and thereby encodes the fundamental structure of the economic phase space.  
 
 The link between symplectic geometry and economics has been recognized by (more mathematically inclined) researchers outside the field of economic engineering as well, most notably \citet{Russell2011} and \citet{Swierstra2014}.
 
-The role of symplectic geometry in economics begs the question of whether the concepts of Hamiltonian mechanics can be applied to economic dynamical systems as well. In the field of economic engineering, we argue that this is indeed the case. To explain how this works, we start from Lagrangian mechanics after which we make the transition to Hamiltonian mechanics.
+The role of symplectic geometry in economics begs the question of whether the concepts of Hamiltonian mechanics can also be applied to economic dynamical systems. In the field of economic engineering, we argue that this is indeed the case. To explain how this works, we start from Lagrangian mechanics, after which we transition to Hamiltonian mechanics.
 
 \section{Lagrangian mechanics in economic engineering}
 \label{sec:lagrangian_ee}
@@ -65,7 +65,7 @@ A necessary and sufficient condition for a curve to satisfy Hamilton's principle
     \dv{}{t}\qty(\pdv{L}{\dot{q}^i}) - \pdv{L}{q^i} = 0.
 \end{equation}
 
-In economic engineering, Hamilton's principle is interpreted as an economic agent minimizing hir or her \emph{disutility}, in practice often taken to be the \emph{cost}. The interpretation of the Lagrangian function is then the \emph{running cost} or \emph{running disutility}. This Lagrangian therefore has units of currency per time, e.g. \(\qty[\si{\money \per \year}]\).
+In economic engineering, Hamilton's principle is interpreted as an economic agent minimizing hir or her \emph{disutility}, in practice often considered to be the \emph{cost}. The interpretation of the Lagrangian function is then the \emph{running cost} or \emph{running disutility}. This Lagrangian therefore has units of currency per time, e.g. \(\qty[\si{\money \per \year}]\).
 
 As mentioned, the Lagrangian is a function of the flow of goods \(\dot{\vec{q}}\) and the stock levels \(q\). The partial derivative of the Lagrangian with respect to the flow of goods is equal to the \emph{price vector}:
 \begin{equation}
@@ -73,22 +73,22 @@ As mentioned, the Lagrangian is a function of the flow of goods \(\dot{\vec{q}}\
 \end{equation}
 This means that prices and flows of goods are \emph{conjugate variables}. Intuitively, the prices are the marginal increase in cost with respect to a marginal change in the flow (say, demand) of goods.
 
-\subsection{Kinetic energy} When the Lagrangian depends quadratically on the flow of goods (analogous to kinetic energy), the price and the flow of goods are linearly related by an \emph{elasticity}: this is is the typical picture of a supply and demand curve. We have:
+\subsection{Kinetic energy} When the Lagrangian depends quadratically on the flow of goods (analogous to kinetic energy), the price and the flow of goods are linearly related by an \emph{elasticity}: this is the typical picture of a supply and demand curve. We have:
 \begin{equation}
      p_i = m_{ij} \dot{q}^j,
 \end{equation}
-where the \(m_{ij}\) are referred to as \emph{price elasticities}. In the simplest of cases, the \(m_{ij}\) form a diagonal matrix and every good simply has its price. However, any cross-terms appearing in the elasticity matrix represent the marginal elasticity of one good relative to another. These cross terms encode the effect of \emph{substitution} of one good for another. The matrix of price elasticities is analogous to the (inverse) mass matrix in classical mechanics.
+where the \(m_{ij}\) are referred to as \emph{price elasticities}. In the simplest of cases, the \(m_{ij}\) form a diagonal matrix, and every good has its price. However, any cross-terms appearing in the elasticity matrix represent the marginal elasticity of one good relative to another. These cross terms encode the effect of \emph{substitution} of one good for another. The matrix of price elasticities is analogous to the (inverse) mass matrix in classical mechanics.
 
 In mechanics, the part of the Lagrangian that depends on \(\dot{\vec{q}}\) is called the \emph{kinetic co-energy}\footnote{We make the distinction between the kinetic energy \(T\) and co-energy \(T^*\): they are dual representations related through the Legendre transform. Because work is the integral of force over distance, kinetic energy is naturally represented in terms of \emph{momentum}, rather than velocity, for which we need to apply the Legendre transform first \cite{Jeltsema2009}. The difference between the kinetic energy and kinetic co-energy is illustrated by \cref{fig:kinetic_energy}.} \(T^*\):
 \begin{equation}
     T^* = \frac{1}{2}m_{ij}\dot{q}^i \dot{q}^j.
 \end{equation} 
-The kinetic co-energy is equivalent to the \emph{cost} associated with a flow of goods: the factor of one-half is there to subtract the market surplus from the total expenditure (which is simply equal to \(\vec{p}(\dot{\vec{q}})\)).
+The kinetic co-energy is equivalent to the \emph{cost} associated with a flow of goods: the factor of one-half is there to subtract the market surplus from the total expenditure (which is equal to \(\vec{p}(\dot{\vec{q}})\)).
 
 \begin{figure}
     \centering
     \input{media/tikz/kinetic_energy}
-    \caption{Kinetic energy and co-energy in terms of the relation between momentum and velocity. Figure courtesy of B. \citet{Krabbenborg2021}.}
+    \caption{The difference between kinetic energy and co-energy. Kinetic energy is a function of momentum, and kinetic co-energy is a function of velocity. The two are numerically equivalent for this particular relation between momentum and velocity. Figure courtesy of B. \citet{Krabbenborg2021}.}
     \label{fig:kinetic_energy}
 \end{figure}
 
@@ -125,16 +125,16 @@ Similarly, the negative of the exterior derivative of \(\theta_L\) yields the \e
 This 2-form has a compelling economic interpretation: the first term contains the \emph{price elasticities} associated with each of the goods in the economy. The second term contains the dependency of the price elasticities on the amounts of goods.
 We propose here that this 2-form can be seen as an alternative statement to the \emph{Slutsky matrix} in microeconomics, which relates the total elasticity to two factors: \cite{varianhalr1992}
 \begin{enumerate}[label=(\roman*), noitemsep]
-    \item the elasticity due to \emph{substitution} (i.e. the local elasticities), represented by the first term of the above equation, 
-    \item the \emph{wealth effects}: these are the changes in the elasticities due to the changing state of the economic system (i.e. the accumulation of goods).
+    \item the elasticity due to \emph{substitution} (i.e., the local elasticities), represented by the first term of the above equation, 
+    \item the \emph{wealth effects}: these are the changes in the elasticities due to the changing state of the economic system (i.e., the accumulation of goods).
 \end{enumerate}
-We will, however, not go into the implications of this (potential) relation, and reserve them as a recommendation for future research in the theory of economic engineering.
+We will, however, not go into the implications of this (potential) relation and reserve them as a recommendation for future research in the theory of economic engineering.
 
 The Lagrange 2-form can be used to state the Euler-Lagrange equations in a geometric language. Define the \emph{energy function} \(E\) as\footnote{There is also a coordinate-free definition involving the Liouville vector field, which is given in \cref{app:symplectic_geometry}.}
 \begin{equation}
     E \coloneq \pdv{L}{\dot{q}^i}\dot{q}^i - L.
 \end{equation}
-From the perspective of the firm, the energy function is analogous to \emph{profit}, since it is equal to the Lagrangian (being the cost function) subtracted from the total revenue of the firm \(\pdv{L}{\dot{q}^i}\dot{q}^i\).
+From the perspective of the firm, the energy function is analogous to \emph{profit} since it is equal to the Lagrangian (being the cost function) subtracted from the total revenue of the firm \(\pdv{L}{\dot{q}^i}\dot{q}^i\).
     
 The dynamics of the mechanical system are then given by the \emph{Lagrangian vector field} \(X_L\), which is defined 
 \begin{equation}
@@ -144,7 +144,7 @@ or alternatively denoted as \(X_L = \fromDual{\omega_L}(\dd{E})\)\footnote{This 
 
 The Lagrange 2-form is a \emph{symplectic form} \emph{if} the matrix of price elasticities is regular: in economics, this means that there are no `zero price directions'; i.e. there every change in the amounts of goods is associated with some change in value. Usually, an even stronger condition is assumed on \(L\), namely that it is \emph{convex} in the flows of products, which is sometimes known as the \emph{Legendre condition}. In economics, this means that the prices are in the same direction as the goods\footnote{This makes intuitive sense, although there are exceptions; for example, the negative yield on some government bonds in recent years.}. If this is indeed the case, the \emph{Legendre transform} can be used to pass from the Lagrangian representation to the Hamiltonian representation and back, this is the subject of the next section. 
 
-Finally, we want to emphasize an important subtlety in the Lagrangian formalism. Since the price vectors live in the cotangent space, the notion of price is \emph{not} canonically defined in Lagrangian mechanics: a Lagrangian function is needed to obtain it from a flow of goods. In contrast, the Hamiltonian formalism discussed in the next section, is defined in terms directly in terms of prices. This gives the Hamiltonian mechanics an advantage, since prices are \emph{arguably} a more fundamental notion in economics than the associated flow of goods (although there are probably good arguments for the contrary).
+Finally, we want to emphasize an important subtlety in the Lagrangian formalism. Since the price vectors live in the cotangent space, the notion of price is \emph{not} canonically defined in Lagrangian mechanics:  Lagrangian function is needed to obtain it from a flow of goods. In contrast, the Hamiltonian formalism discussed in the next section, is defined in terms directly in terms of prices. This gives the Hamiltonian mechanics an advantage, since prices are \emph{arguably} a more fundamental notion in economics than the associated flow of goods (although there are probably good arguments for the contrary).
 
 \section{Hamiltonian mechanics in economic engineering}
 In this section, we first use the Legendre transform to pass from the perspective of Lagrangian mechanics (i.e. $\tbundle{Q}$) to Hamiltonian mechanics (defined on $\ctbundle{Q}$). We then discuss the economic interpretations of Hamilton's equations and the significance of dissipation in economic systems.
