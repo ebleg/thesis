@@ -166,7 +166,7 @@ Since the energy function and the Hamiltonian are numerically equal, the economi
 \begin{figure}[ht]
     \centering
     \input{media/tikz/legendre_transform}
-    \caption{Caption}
+    \caption{Geometric illustration of the Legendre transform of a function. The Legendre transform of the function $L = L(q, \dot{q})$ is a function of $p$ and $q$, defined as the difference $p\dot{q} - L_q$, where this difference must be maximal with respect to $\dot{q}$. If $L$ is a convex function in $\dot{q}$, this is achieved where the partial derivative $\pdv*{L}{\dot{q}}$ evaluated at $\dot{q}$ is equal to $p$, which is equivalent to being locally parallel to $p\dot{q}$. Because the Legendre transform is supposed to be a function of $p$, one can consider $p$ as `given'. $L_q$ denotes $L$ as a function of $\dot{q}$, for some given $q$.} 
     \label{fig:my_label}
 \end{figure}
 
@@ -196,7 +196,7 @@ Conventionally, the symplectic 2-form is equal to $\wedgep{\dd{q}^i}{\dd{p}_i}$,
 \end{equation}
 It is easy to see that these equations of motion are equivalent to the Euler-Lagrange equations, given that \(p_i = \pdv{L}{\dot{q}^i}\). We will go a lot more into detail on the (geometric) nature of Hamilton's equations in \cref{chap:geometric_structures}; the discussion here is limited to their interpretation in economic engineering.
 
-The first Hamilton equation is equivalent to \emph{Hotelling's lemma}, which states that the demand for a particular good is that the supply (i.e. \(\dot{q}^i\)) of a good \(i\) is equal to the derivative of the profit function with respect to the price \(p_i\). It is usually emphasized that this is only the case when the price is the \emph{optimal} price for profit, but this is built into the definition of \(p_i\). As given by \cref{eq:legendre_trans_alternative}, the price value \(p_i = \pdv{L}{\dot{q}^i}\) is exactly the one for which the profit function
+The first Hamilton equation is equivalent to \emph{Hotelling's lemma}, which states that the demand for a particular good is that the supply (i.e. \(\dot{q}^i\)) of a good \(i\) is equal to the derivative of the profit function with respect to the price \(p_i\). It is usually emphasized that this is only the case when the price is the \emph{optimal} price for profit, but this is built into the definition of \(p_i\). As given by \cref{eq:legendre_trans_alternative}, the price value \(p_i = \pdv*{L}{\dot{q}^i}\) is exactly the one for which the profit function
 \begin{equation}
      p_i\,\dot{q}^i - L,
 \end{equation}
