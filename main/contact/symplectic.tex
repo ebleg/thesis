@@ -1,28 +1,24 @@
 \section{Symplectic mechanical systems}
 \label{sec:symplectic}
 
-\subsection{Symplectic manifolds}
-In the traditional sense, Hamiltonian mechanics take place on \emph{symplectic manifolds}. A symplectic manifold \((M, \omega)\) is a smooth manifold \(M\) equipped with a \emph{closed}, \emph{nondegenerate} 2-form \(\omega\). Because \(\omega\) must be nondegenerate, symplectic manifolds are necessarily even-dimensional. 
+First, symplectic manifolds are defined in \cref{ssec:symplectic_manifolds}, after which symplectic Hamiltonian systems are covered in \cref{ssec:symplectic_ham_systems}.
 
-The celebrated Darboux theorem asserts that locally, all symplectic manifolds of the same dimension (say \(2n\)) are all symplectomorphic to each other. As a result, we define the prototypical symplectic 2-form that serves as a representative for \emph{all} symplectic structures of that dimension as
+\subsection{Symplectic manifolds}
+\label{ssec:symplectic_manifolds}
+In their traditional sense, Hamiltonian systems are defined on \emph{symplectic manifolds}. A symplectic manifold \((M, \omega)\) is a smooth manifold \(M\) equipped with a \emph{closed}, \emph{nondegenerate} 2-form \(\omega\). Because \(\omega\) must be nondegenerate, symplectic manifolds are necessarily even-dimensional. 
+
+The celebrated Darboux theorem asserts that locally, all symplectic manifolds of the same dimension (say \(2n\)) are all symplectomorphic\footnote{Symplectomorphisms are diffeomorphisms that preserve the symplectic structure; they are the isomorphisms of symplectic manifolds.} to each other. As a result, we define the prototypical symplectic 2-form that serves as a representative for \emph{all} symplectic structures of that dimension as
 \begin{equation}
     \omega = \sum_{i = 1}^n \wedgep{\dd{q^i}}{\dd{p_i}},
     \label{eq:darboux_symplectic_form}
 \end{equation}
 where \(p_i\) and \(q^i\) are coordinates for the manifold \(M\). A coordinate chart in which the symplectic 2-form has the above form is called a \emph{Darboux chart}, and the associated coordinates \emph{Darboux coordinates} \cite{Cannas2001, Arnold1989}.
 
-In mechanics, the \emph{configuration manifold} \(Q\) is the manifold specified by all the possible generalized positions \(q^i\) (or configurations) of the mechanical system. The \emph{generalized momenta} associated with each of the generalized positions live in the collection of cotangent spaces to the configuration manifold. This is because from the Lagrangian viewpoint the generalized momenta are given by\footnote
-{
-    In coordinate-free language, the Liouville 1-form is defined pointwise through its action on a tangent vector \(\vec{\xi}\) to \(\ctbundle{Q}\) as follows
-    \begin{equation}
-     \theta(\vec{\xi}) = (x \circ \pi_*) (\vec{\xi}).
-\end{equation}
-    Here \(\pi_*\) is the pushforward of the bundle projection map \(\pi: \ctbundle{Q} \to Q: (\vec{q}, \vec{p}) \mapsto \vec{q}\). The point \(x \in \ctbundle{Q}\) is interpreted as a map on the tangent space to \(\pi(x)\) on the base manifold.
-}
+In mechanics, the \emph{configuration manifold} \(Q\) is the manifold specified by all the possible generalized positions \(q^i\) (or configurations) of the mechanical system. The \emph{generalized momenta} associated with each of the generalized positions live in the collection of cotangent spaces to the configuration manifold. The momenta are cotangent variables because, from the Lagrangian viewpoint, the generalized momenta are defined by
 \begin{equation}
      p_i = \pdv{L}{\dot{q}^i},
 \end{equation}
-which indicates that the vector of \(p_i\)'s is a cotangent (covariant) vector to \(Q\). Hence, the \emph{cotangent bundle} of the configuration manifold contains all the possible position and momentum pairs; it is colloquially called the \emph{phase space} \cite{Abraham1978,Arnold1989,Libermann1987}.
+which indicates that the vector of \(p_i\)'s is a cotangent (covariant) vector to \(Q\). Hence, the \emph{cotangent bundle} of the configuration manifold contains all the possible position and momentum pairs; it is colloquially referred to as the \emph{phase space} \cite{Abraham1978,Arnold1989,Libermann1987}.
 
 The structure that associates each position with its corresponding momentum is given by the \emph{Liouville 1-form}\footnote
 {
@@ -30,7 +26,14 @@ The structure that associates each position with its corresponding momentum is g
 }
 \(\theta\) on \(\ctbundle{Q}\). The Liouville form is defined at every point 
 \[ \qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n) \in \ctbundle{M} \] 
-as
+as\footnote
+{
+    In coordinate-free language, the Liouville 1-form is defined as follows. Given $q \in Q$, $\vec{p} \in \ctspace{q}{Q}$, we call $x = (q, \vec{p}) \in \ctbundle{Q}$. Let $\pi$ be the bundle projection map of $\bundle{\ctbundle{Q}}{\pi}{Q}$. For every $x$, The Liouville 1-form $\theta\vert_x$ is defined as
+    \begin{equation}
+        \theta\vert_x \coloneq \vec{p} \circ \qty(\pi^*\vert_x),
+    \end{equation}
+    where $\vec{p}$ is interpreted as a map on the tangent space to $q$.
+}
 \begin{equation}
     \theta = \sum_{i = 1} p_i\dd{q^i}.
 \end{equation}
@@ -38,7 +41,7 @@ Hence, the Liouville form tells us which momentum coordinate corresponds to a gi
 
 Every cotangent bundle is canonically endowed with a Liouville form. The exterior derivative of the Liouville form produces a \emph{symplectic} 2-form. By convention, we define this symplectic form as follows:\footnote
 {
-    In this text, the `\(q\)-first' sign convention used by \citet{Abraham1978} and \citet{Cannas2001} is observed and maintained in the following sections concerning contact and Jacobi manifolds.
+    In this text, the `\(q\)-first' sign convention used by \citet{Abraham1978} and \citet{Cannas2001} is observed and maintained in when we extend towards contact and Jacobi manifolds.
 }
 \begin{equation}
      \omega = -\dd{\theta} = \sum_{i = 1}^n \wedgep{\dd{q^i}}{\dd{p_i}}.
@@ -48,23 +51,25 @@ Hence, the space of generalized positions and momenta (i.e. the cotangent bundle
 In the context of bond graphs, the symplectic form represents the dual nature of a bond. That is to say, a bond represents an exchange of both an effort and a flow, and they are inherently tied to each other. The flow is a change in position or generalized velocity, and the effort is a change in momentum. The effort and flow associated with a bond are conjugate: the symplectic form provides precisely the structure that is visually present in a bond graph (e.g. \cref{fig:ho}).
 
 \subsection{Hamiltonian mechanics}
-The idea of Hamiltonian mechanics is that the equations of motion are generated by \emph{Hamilton's equations}
+\label{ssec:symplectic_ham_systems}
+In Hamiltonian mechanics, is the equations of motion are given by \emph{Hamilton's equations}
 \begin{equation}
      \dot{q}^i = \pdv{H}{p_i} \qquad\qquad \dot{p}_i = -\pdv{H}{q^i}
+     \label{eq:hamilton_equations}
 \end{equation}
-given the Hamiltonian function \(H\), which is equal to the mechanical energy in the system. Observe that the above equation assumes that the pairing between the positions and momenta is known a priori. 
+provided with the Hamiltonian function \(H\), which is equal to the mechanical energy in the system. Observe that the above equation assumes that the pairing between the positions and momenta is known a priori. 
 
-In the language of differential geometry, Hamilton's equations are specified by a symplectic structure on \(\ctbundle{Q}\) and an appropriate Hamiltonian function on that manifold: the pairing between the positions and momenta is therefore built in. A generic Hamiltonian system is a triple \( (M, \omega, H), \) where \( (M, \omega) \) is a symplectic manifold. In mechanics, we have that \( M = \ctbundle{Q} \).
+In the language of differential geometry, Hamilton's equations are specified by a symplectic structure on \(\ctbundle{Q}\) and an appropriate Hamiltonian function on that manifold: the pairing between the positions and momenta is therefore built in. A generic Hamiltonian system is a triple \( (M, \omega, H), \) where \( (M, \omega) \) is a symplectic manifold. In mechanics, we have that \( M = \ctbundle{Q} \). The symplectic structure allows one to formulate Hamilton's equations in a coordinate-free manner.
 
 \subsubsection{The Hamiltonian isomorphism for symplectic manifolds}
-To produce the equations of motion, the symplectic structure provides a mapping between the smooth functions on the manifold and the Hamiltonian vector fields on the manifold\footnote{These are a special class of vector fields on \(M\) that arise as a result of this mapping.}. First, define the mapping 
+To produce the equations of motion, the symplectic structure provides a mapping between the smooth functions on the manifold and the vector fields on the manifold.%\footnote{These are a special class of vector fields on \(M\) that arise as a result of this mapping.}. First, define the mapping 
 \begin{equation}
     \toDual{\omega}: \tbundle{M} \to \ctbundle{M}:\quad X \mapsto \intpr{X}{\omega}. 
     \label{eq:symplectic_isomorphism}
 \end{equation}
 Because \(\omega\) is nondegenerate by definition, the mapping \(\toDual{\omega}\) is an isomorphism. Thus, the inverse mapping is well-defined and is denoted by \(\fromDual{\omega}\) \cite{Libermann1987}.
 
-In the notation used here, the difference between the manifolds \(Q\) and \(M\) is crucial. In the context of mechanics, we have that the symplectic manifold \(M\) is the cotangent bundle of \(Q\). Hence, since the Hamiltonian is a function on \(M = \ctbundle{Q}\), \(\dd{H}\) and \(X_H\) are sections of \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) respectively. This is illustrated by the diagram below (the projection arrows from \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) indicate the bundle structure but are left unnamed).
+For the notation used here, the difference between the manifolds \(Q\) and \(M\) is crucial. In the context of mechanics, we have that the symplectic manifold \(M\) is the cotangent bundle of \(Q\). Hence, since the Hamiltonian is a function on \(M = \ctbundle{Q}\), \(\dd{H}\) and \(X_H\) are sections of \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) respectively. This is illustrated by the diagram below (the projection arrows from \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) indicate the bundle structure but are left unnamed).
 \begin{center}
     \begin{tikzcd}
         \ctbundle{\ctbundle{Q}} \arrow[rr, "\fromDual{\omega}", shift left=0.7ex] \arrow[dr] 
@@ -78,11 +83,11 @@ This isomorphism specified by \(\omega\) allows us to find the corresponding Ham
     X_H = \fromDual{\omega}(\dd{H}). 
     \label{eq:symplectic_hamiltonian_vf}
 \end{equation}
-In (Darboux) coordinates, the action of \( \fromDual{\omega}\) on the basis 1-forms is  
+In (Darboux) coordinates, the action of \( \fromDual{\omega}\) on the basis 1-forms is
 \begin{equation}
-     \dd{p}_i \mapsto \pdv{}{q^i} \qquad \dd{q}^i \mapsto -\pdv{}{p_i}.
+     \dd{p}_i \mapsto \pdv{}{q^i} \qquad\qquad \dd{q}^i \mapsto -\pdv{}{p_i}.
 \end{equation} 
-The minus sign arises as a consequence of the anticommutativity of the wedge product in appearing in \(\omega\).
+The minus sign arises as a consequence of the anticommutativity of the wedge product appearing in \(\omega\). From these expressions, we can observe that the traditional form of Hamilton's equations (cf. \cref{eq:hamilton_equations}) is recovered when Darboux coordinates are used.
 
 A classical example of this formalism is the harmonic oscillator (undamped) shown in \cref{fig:ho}. The Hamiltonian function is the sum of the potential and kinetic energy in the system
 \begin{equation}
@@ -94,7 +99,7 @@ where \(m\) is the mass and \(k\) is the spring constant. The Hamiltonian vector
 \end{equation}
 or stated as a system of differential equations
 \begin{equation}
-     \dot{q} = \frac{p}{m} \qquad \dot{p} = -kq.
+     \dot{q} = \frac{p}{m} \qquad \qquad \dot{p} = -kq.
 \end{equation}
 \begin{figure}[ht]
     \centering
