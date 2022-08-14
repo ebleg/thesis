@@ -299,7 +299,11 @@ The projection thus removes any term in \(\dd{U}\) (which makes it semi-basic).
 
 Recall that \(\dd{\alpha} = \gamma \omega \). Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by \(\omega\) (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor \(\gamma\)) that we have to project \(\dd{K}\) by means of the term \(\qty(\intpr{R_\alpha}{\dd{K}}\alpha)\).
 
-In the conservative case, we have that \(H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2\). It is, therefore, reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of \(E\) (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
+In the conservative case, we have that 
+\begin{equation}
+    H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2.
+\end{equation}
+It is, therefore, reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of \(E\) (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
 Clearly, the rightmost term in \cref{eq:contact_semi-basic} \emph{is} the work form of the damper, i.e. the amount of energy escaping from \(E\). We can thus conjecture that the first two terms in \cref{eq:contact_semi-basic} amount to \(\dd{E}\).
 
@@ -322,7 +326,7 @@ and we obtain the correct Hamiltonian up to a closed form
 \end{equation} 
 Hence, the Hamiltonian function is equal to the total amount of energy in the system, both mechanical and internal, multiplied by the damping coefficient.
 
-Now to derive the horizontal component of the vector field. The interior product of \(\omega\) with the basis vectors yields:
+Now to derive the horizontal component of the vector field. The interior product of \(\dd{\alpha}\) with the basis vectors yields:
 \begin{equation}
     \intpr{\pdv{}{q}}{\dd{\alpha}} = \gamma \dd{p} \qquad \intpr{\pdv{}{p}}{\dd{\alpha}} = -\gamma \dd{q}
 \end{equation}
@@ -361,7 +365,7 @@ If we wish to impose that \(U\) indeed be the internal energy of the heat bath, 
 \end{equation}
 which indeed represent the damped harmonic oscillator with \(U\) being the dissipated energy.
 
-From a thermodynamic standpoint, energy is only determined up to an additive constant, so this assertion would be admissible from a conceptual standpoint. Additionally, a value of 0 for the total energy is a common convention in literature, see for example \citet{Fermi1936}.
+From a thermodynamic standpoint, energy is only determined up to an additive constant, so this assertion would be admissible conceptually. Additionally, a value of 0 for the total energy is a common convention in literature, see for example \citet{Fermi1936}.
 
 It is here that our result differs from the existing literature on this subject. The applicability of contact Hamiltonian systems has already been recognized from a mathematical standpoint by \citet{Bravetti2017}, resulting in the equations of motion including the vertical vector field. However, when the variables are given a physical interpretation (in particular, the `extra dimension' represented by \(U\)) as we do here, the vanishing of the Hamiltonian is crucial.
 Leaving the vertical vector field in leads to extra `parasitic' dynamics that are unphysical and delude us from the intended meaning of the variable \(U\).
@@ -403,23 +407,25 @@ We can regard this ambiguity as a gauge transformation of the system (cf. \citet
 \end{equation}
 The vertical component \emph{is} directly dependent on the numerical value of the Hamiltonian. As a result, the \emph{only} way to maintain invariance under the gauge transformation (which we assert to be crucial for it to be of physical significance) is to set \(K = 0\).
 
-[intro to symplectification]
+In the following section, we exploit the intrinsic ambiguity the contact 1-form to \emph{symplecify} the contact Hamiltonian system.
 
 \subsection{Symplectification of contact Hamiltonian systems}
 \label{ssec:symplectification}
-In this section, we use a procedure called \emph{symplectification} to cast the contact manifold of the previous section on a symplectic manifold in a canonical fashion. The advantage of this method is that the calculations for the dynamics are considerably simplified since we can use the theory outlined in \cref{sec:symplectic}. To quote Vladimir Arnol'd, who originally came up with the concept of symplectification, `one is advised to calculate symplectically but to think rather in contact geometry terms’ \cite{VanderSchaft2021a,Arnold1989a}.
-
-In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator, using an explicit time-dependence: the Caldirola-Kanai Hamiltonian.
+In this section, we use a procedure called \emph{symplectification} to cast the contact manifold of the previous section on a symplectic manifold in a canonical fashion. The advantage of this method is that the calculations for the dynamics are considerably simplified since we can use the theory for symplectic Hamiltonian systems outlined in \cref{sec:symplectic}. To quote Vladimir Arnol'd, who originally came up with the concept of symplectification,  \cite{VanderSchaft2021a,Arnold1989a}
+\begin{quote}
+    ``One is advised to calculate symplectically but to think rather in contact geometry terms.''
+\end{quote}
+In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a popular existing model for the damped harmonic oscillator: the time-dependent Caldirola-Kanai Hamiltonian.
 
 \subsubsection{Symplectification of contact manifolds}
-To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_e\)\footnote{In this case, the `0' is a label for the extra position coordinate $q_e$ --- we wish not to refer to the other position as $q^1$ because there is only one real position of the mass. Because the other coordinates are not numbered, we do not make the notational distinction between contravariant and covariant components, and use a subscript to label the extra coordinates.}. That is,
+To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate for the internal energy \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_e\)\footnote{In this case, the `0' is a label for the extra position coordinate $q_e$ --- we wish not to refer to the other position as $q^1$ because there is only one real position of the mass. Because the other coordinates are not numbered, we do not make the notational distinction between contravariant and covariant components, and use a subscript to label the extra coordinates.}. That is,
 \begin{equation}
      (q_e, q) \in Q_e.
 \end{equation}
 
 \paragraph{The manifold of contact elements} Consider now the \emph{manifold of contact elements} of \(Q_e\). This is a fiber bundle with base \(Q_e\), and the fibers at each point are the space of lines (through the origin) in the tangent space to \(Q_e\) at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
 
-The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line \(\mathbb{P}\real\). The fibers are therefore compact. It can be shown that the manifold of contact elements of \(Q_e\) (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by \(\pctbundle{Q_e}\) \cite{Cannas2001,Arnold1989,Libermann1987}.
+The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line \(\mathbb{P}\real\). The fibers are therefore compact manifolds. It can be shown that the manifold of contact elements of \(Q_e\) (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by \(\pctbundle{Q_e}\) \cite{Cannas2001,Arnold1989,Libermann1987}.
 
 \begin{figure}
     \centering
@@ -428,10 +434,7 @@ The fibers of this bundle are projective spaces; more specifically, they are dif
     \label{fig:manifold_contact_elements}
 \end{figure}
 
-The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider the following chart for \(\pctbundle{Q_e}\) with coordinates:
-\begin{equation}
-     (q_e, q, p)
-\end{equation}
+The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider a chart for \(\pctbundle{Q_e}\) with coordinates \( (q_e, q, p) \),
 where \(p\) represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point \(p = \infty\) (in this specific chart). 
 
 Because \(p\) is meant to represent momentum just like in the previous section, and infinite momentum lies outside our realm of interest, this space can be thought of as roughly equivalent (for practical purposes) to \(M\). That is to say, by disregarding the point \(p = \infty\), we end up with a manifold that is diffeomorphic to \(M\).
@@ -472,7 +475,7 @@ This contact Hamiltonian system can be lifted to the symplectification of the co
 
 \paragraph{Symplectification of a contact Hamiltonian system} The procedure known as symplectification of a contact manifold turns a contact manifold in a symplectic manifold, thereby raising its dimension by one. The power of this method resides in the fact that this can be done in a canonical fashion: it is uniquely determined by the contact structure of the contact manifold \cite{Arnold1989}.
 
-The symplectification procedure exploits the natural ambiguity that contact forms have, and that has been pointed out already. Multiplying the contact form \(\alpha_e\) with any nonzero real number\footnote
+The symplectification procedure exploits the natural ambiguity that contact forms have, and that has been pointed out in \cref{ssec:contact_manifolds}. Multiplying the contact form \(\alpha_e\) with any nonzero real number\footnote
 {
     \(\real^\times\) denotes both the real multiplicative group and the underlying set, being the real line excluding zero. 
 } \(\lambda \in \real^\times\)
@@ -480,7 +483,7 @@ The symplectification procedure exploits the natural ambiguity that contact form
     \lambda (\dd{q_e} - p \dd{q}). 
     \label{eq:lambda_alpha}
 \end{equation}
-The above expression gives a representation of \emph{al} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
+The above expression gives a representation of \emph{all} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
 
 We now effect the following coordinate transform:
 \begin{equation}
@@ -505,7 +508,7 @@ In reality, only the points for which \emph{both} \(\rho\) and \(\rho_e\) vanish
 As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectification procedure more mathematically precise using the language of principal bundles.
 
 \subsubsection{Liouville geometry and principal G-bundles}
-A \emph{principal} \(G\)\emph{-bundle} is a smooth bundle \(\bundle{P}{\sigma}{B}\) if \(P\) is equipped with a \emph{free} right \(G\)-action \(\raction{}\), where \(G\) is a Lie group. Furthermore, let  
+A \emph{principal} \(G\)\emph{-bundle} is a smooth bundle \(\bundle{P}{\sigma}{B}\), where \(P\) is equipped with a \emph{free} right \(G\)-action \(\raction{}\), \(G\) being a Lie group \cite{Schuller2014}. Furthermore, let  
 \begin{center}
     \begin{tikzcd} 
         P \arrow[d, "\sigma" ]\\
@@ -548,7 +551,7 @@ The symplectification \(\ctzbundle{Q_e}\) is therefore a principal \(\mgroup\)-b
      \sigma: \ctzbundle{Q_e} \to \pctbundle{Q_e}: \quad (q_e, q, \rho_e, \rho) \mapsto (q_e, q, -\rho/\rho_e).
 \end{equation}
 
-A geometric perspective of this construction is given in \cref{fig:principal_bundle}. Both \(\ctzbundle{Q_e}\) and \(\pctbundle{Q_e}\) are also bundles over the extended configuration space \(Q_e\). At a specific point of \(Q_e\), say \(x\), we have two fibers. The fiber \(\ctzspace{x}{Q_e}\) is the cotangent space to \(x\) without the origin. The group action \(\rangle{\mgroup}\) manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as \(\mgroup\) itself, since the action is free). 
+A geometric picture of this construction is given in \cref{fig:principal_bundle}. Both \(\ctzbundle{Q_e}\) and \(\pctbundle{Q_e}\) are also bundles over the extended configuration space \(Q_e\). At a specific point of \(Q_e\), say \(x\), we have two fibers. The fiber \(\ctzspace{x}{Q_e}\) is the cotangent space to \(x\) without the origin. The group action \(\raction{\mgroup}\) manifests itself as dilations of the fiber: this is indicated by the arrows. The \emph{orbits} of this group are lines through the origin, with the origin removed (which is topologically the same space as \(\mgroup\) itself, since the action is free). 
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/principal_bundle}
