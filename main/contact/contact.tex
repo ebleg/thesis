@@ -1,12 +1,22 @@
 \section{Contact mechanical systems}
 \label{sec:contact}
 
-[Part of the intro]
-In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the damped harmonic oscillator. In contrast to the conservative system discussed in \cref{sec:symplectic} (cf. \cref{fig:ho}), a dissipative element is now present in the system. This precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. Time dependence indicates a nonautonomous system, and they are typically reserved for either external control inputs or disturbance inputs. The control inputs are meant to drive the system to a specific state. The disturbance inputs are (potentially stochastic) external inputs that cannot be controlled but influence the system in some specified manner. 
+In this section, the thermodynamic principles and their relation with contact geometry are used to establish a contact Hamiltonian system for the simple dissipative mechanical systems. This dissipation precludes the damped harmonic oscillator from being modeled by a symplectic Hamiltonian system that is not explicitly time-dependent. An explicit time dependence is typically reserved to model either external control inputs or disturbance inputs.% The control inputs are meant to drive the system to a specific state. The disturbance inputs are (potentially stochastic) external inputs that cannot be controlled but influence the system in some specified manner. 
 
-What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore an exogenous phenomenon, is not desirable. This is why, in this section, we aim to use contact geometry to include dissipation as an intrinsic component of the overall system.
+What both disturbances and control inputs have in common, is that they are inherently \emph{exogenous}: they are not part of the system itself. In contrast, the dissipative element in the form of the damper \emph{is} part of the system (endogenous). From both conceptual and practical standpoint, modeling dissipation as a time-dependence, and therefore an exogenous phenomenon, is not desirable. This is why we aim to use contact geometry to include dissipation as an intrinsic component of the overall system.
+
+First, in \cref{ssec:contact_manifolds} we give a very brief introduction to contact geometry. 
+
+Second, in \cref{ssec:contact_ham_systems} we extend the notion of Hamiltonian systems to contact manifolds, resulting in \emph{contact Hamiltonian systems}. Both \cref{ssec:contact_manifolds} and \cref{ssec:contact_ham_systems} contain no new contributions, they are there to present the theoretical infrastructure required for the remaining sections.
+
+Third, in \cref{ssec:contact_dissipation}, we develop a systematic procedure to construct a contact Hamiltonian system for the damped harmonic oscillator using principles.
+
+Fourth, we use a technique called \emph{symplectification} to lift the contact Hamiltonian system to a symplectic manifold with one more dimension to show its equivalence to the Caldirola-Kanai method.
+
+Finally, in \cref{ssec:serial_damping}, the procedure developed in \cref{ssec:contact_dissipation} applied on the harmonic oscillator with a parallel and serial damper.
 
 \subsection{Contact manifolds}
+\label{ssec:contact_manifolds}
 In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A contact manifold \((M, \xi)\) is a smooth manifold \(M\) of dimension \(2n + 1\) equipped with a maximally non-integrable hyperplane distribution \(\xi\). That is to say, at every point \(x \in M\) the contact structure specifies a \(2n\)-dimensional linear subspace (i.e. a hyperplane) of \(\tbundle{M}\). Locally\footnote
 {
     Contact structures which are globally defined by a 1-form are called \emph{exact} or \emph{strictly} contact structures. This is the case when the quotient line bundle \( \tbundle{M}/\xi\) is orientable. 
@@ -14,33 +24,35 @@ In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A co
 \begin{equation}
      \xi\vert_x = \ker{\alpha}\vert_x.
 \end{equation}
-It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying \(\alpha\) by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is very important and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
+It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying \(\alpha\) by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is essential, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
 
-Nonintegrability of the hyperplane distribution means that we cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the condition for nonholomicity applies here as well: for \(\xi\) to be nonintegrable, the associated contact form \(\alpha\) must satisfy the Frobenius condition 
+For the hyperplane distribution to be maximally nonintegrable, it means that one cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the condition for nonholomicity applies here as well: for \(\xi\) to be nonintegrable, the associated contact form \(\alpha\) must satisfy the Frobenius condition 
 \begin{equation}
      \wedgep{\alpha}{\dd{\alpha}} \neq 0,
 \end{equation}
 or equivalently, that \(\wedgep{\alpha}{(\dd{\alpha})^n}\) is a volume form on \(M\). 
 
-Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that \(\dd{\alpha}\) implies that \(\dd{\alpha}\vert_{\xi}\) is a symplectic form. There also an extension of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
+Contact geometry is closely related to symplectic geometry, for the nonintegrability condition implies that \(\dd{\alpha}\) implies that \(\dd{\alpha}\vert_{\xi}\) is a symplectic form. 
+
+There is also an extension of the Darboux theorem to contact manifold, which says that locally, every contact form can be written as
 \begin{equation}
     \dd{q^0} - \sum_i^n p_i \dd{q^i}, 
     \label{eq:contact_darboux}
 \end{equation} 
 the coordinates \(\qty(q^0, q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) are then called \emph{Darboux coordinates}.
 
-For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive literature are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
+For a slightly more comprehensive introduction to contact geometry, the reader is referred to \cref{app:contact_geometry}. More extensive resources are, among others, the works of \citet{Geiges2008}, \citet{Libermann1987}, \citet{Arnold1989,Arnold1989a} and \citet{Godbillon1969}.
 
 \subsection{Contact Hamiltonian systems}
 \label{ssec:contact_ham_systems}
-Similar to symplectic Hamiltonian systems, a \emph{contact Hamiltonian system} needs three ingredients: a smooth manifold \(M\), a contact form \(\alpha\) on that manifold, and a Hamiltonian function \(K\) on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact version of Hamilton's equations.
+Similar to symplectic Hamiltonian systems, \emph{contact Hamiltonian systems} need three ingredients: a smooth manifold \(M\), a contact form \(\alpha\) on that manifold, and a Hamiltonian function \(K\) on the manifold. The contact structure then provides a mapping between the smooth functions on the manifold and the contact Hamiltonian vector fields on the manifold. As such, the contact structure generates the contact version of Hamilton's equations.
 
 The mapping \(\Psi_\alpha\) that relates the smooth functions and contact Hamiltonian vector fields, given a contact 1-form \(\alpha\), is defined as follows:
 \begin{equation}
-    \Psi_\alpha: \vsfields{c}{X}{M} \to \functions{M}: \quad X_K \mapsto K = -\intpr{X_K}{\alpha}, 
+    \Psi_\alpha: \vsfields{c}{M} \to \functions{M}: \quad X_K \mapsto K = -\intpr{X_K}{\alpha}, 
     \label{eq:psi_definition}
 \end{equation}
-where \(\vsfields{c}{X}{M}\) is the collection of infinitesimal strict contactomorphisms. These are vector fields that preserve the strictly contact structure specified by \(\alpha\), and are subject to the following condition:
+where \(\vsfields{c}{M}\) is the collection of infinitesimal strict contactomorphisms\footnote{Contactomorphisms are diffeomorphisms that preserve the contact structure, they are the isomorphisms of contact manifolds. `Strict' refers to a subclass that is defined in terms of the contact \emph{form}, which need not be defined globally.}. These are vector fields that preserve the strictly contact structure specified by \(\alpha\), and are subject to the following condition:
 \begin{equation}
     \lied{X_K}{\alpha} = s \alpha, 
     \label{eq:contact_vf_condition}
@@ -48,9 +60,9 @@ where \(\vsfields{c}{X}{M}\) is the collection of infinitesimal strict contactom
 where \(s\) is an arbitrary smooth function on \(M\). This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
 
 \subsubsection{Horizontal and vertical vector fields} 
-To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping \(\Psi^{-1}_\alpha\). This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very \emph{specific} subclass of vector fields. The trick is to use a splitting of the (co)tangent bundle, decomposing the vector field into two components. 
+To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping \(\Psi^{-1}_\alpha\). This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very specific subclass of vector fields. The trick is to use a splitting of the (co)tangent bundle, decomposing the vector field into two components: horizontal and vertical. 
 
-The nonintegrability condition on the contact structure ensures that \(\wedgep{\alpha}{\dd{\alpha}} \neq 0\). As such, at every point, we have at any \(x\in M\):
+The nonintegrability condition imposed on the contact structure ensures that \(\wedgep{\alpha}{\dd{\alpha}} \neq 0\). As such, at every point, we have at any \(x\in M\):
 \begin{equation}
      \ker{\alpha}\vert_x \cap \ker{\dd{\alpha}}\vert_x = \qty{\mathbf{0}},
 \end{equation}
@@ -79,7 +91,7 @@ An arbitrary vector field \(X \in \vfields{M}\) can be canonically decomposed in
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/contact_spaces}
-    \caption{Splitting of the tangent and cotangent bundle using the structure provided by the contact form, with \(\text{dim} M = 3\). The left figure shows the cotangent space to \(M\) at some point \(x\), where the blue plane contains the semi-basic forms. The other subbundle is of rank 1 and consists of all the scalar multiples of the contact form \(\alpha\). On the right, the tangent space to \(M\) at \(x\) is depicted, with the red plane containing the horizontal vector fields. The blue line is spanned by the vertical vector fields.}
+    \caption{Splitting of the tangent and cotangent bundle using the structure provided by the contact form, with \(\text{dim}(M) = 3\). The left figure shows the cotangent space to \(M\) at some point \(x\), where the blue plane contains the semi-basic forms. The other subbundle is of rank 1 and consists of all the scalar multiples of the contact form \(\alpha\). On the right, the tangent space to \(M\) at \(x\) is depicted, with the red plane containing the horizontal vector fields. The blue line is spanned by the vertical vector fields.}
     \label{fig:contact_spaces}
 \end{figure}
 
@@ -93,7 +105,7 @@ Any 1-form \(\zeta \in \bsection{\ctbundle{M}}\) can be canonically decomposed i
 \end{equation}
 In Darboux coordinates, semi-basic forms are forms that have no component in \(\dd{q^0}\).
 
-The decompositions of \(\ctbundle{M}\) and \(\tbundle{M}\) for the three-dimensional case are shown in \cref{fig:contact_spaces}. They also play an important role in \cref{sec:jacobi}.
+The decompositions of \(\ctbundle{M}\) and \(\tbundle{M}\) for the three-dimensional case are shown in \cref{fig:contact_spaces}, they also play an important role in \cref{sec:jacobi}.
 
 \subsubsection{The Hamiltonian isomorphism for contact manifolds}
 To find the Hamiltonian vector field \(X_K\) associated with a Hamiltonian \(K\), we decompose \(X_K\) into a horizontal and a vertical component:
@@ -136,6 +148,10 @@ Hence, the Hamiltonian vector field is equal to
     X_K = \Psi^{-1}_\alpha(K) = K R_\alpha + \fromDual{\dd{\alpha}}\qty(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\alpha).
     \label{eq:contact_hamiltonian_vf}
 \end{equation}
+In Darboux coordinates, we have:
+\begin{equation}
+    X_K = \qty(\sum_{i=1}^n p_i\pdv{K}{p_i} - K) \pdv{}{q^0}- \sum_{i = 1}^n \qty(\pdv{K}{q^i} + p_i \pdv{K}{q^0})\pdv{}{p_i} + \sum_{i=1}^n \pdv{K}{p_i}\pdv{}{q^i}.
+\end{equation}
 
 To apply the contact Hamiltonian formalism to dissipative mechanical systems, we first require a manifold with a suitable contact structure. This contact structure is derived from the principles of thermodynamics in the next section. Subsequently, the contact Hamiltonian system and the equations of motion are set up in \cref{ssec:contact_dissipation}.
 
@@ -143,7 +159,7 @@ To apply the contact Hamiltonian formalism to dissipative mechanical systems, we
 
 \subsection{Contact geometry in dissipative mechanics}
 \label{ssec:contact_dissipation}
-As mentioned the contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics.
+The contact structure will be derived based on thermodynamic reasoning. Therefore, the next section first discusses the traditional role of contact geometry in thermodynamics, after it will be applied to dissipative mechanics.
 
 \subsubsection{Contact geometry in classical thermodynamics}
 It has been argued in the past by several authors that contact geometry is the natural framework for thermodynamics by i.a. \citet{Arnold1991,Arnold1989a,Arnold1989,Arnold1989b}, \citet{Bamberg1988}, \citet{Burke1985} and \citet{Hermann1973}, ultimately leading back to the seminal work of \citet{Gibbs1873}. It is commonly seen as a testament to the brilliance of Gibbs' work that he managed to recognize and describe the correct geometric framework well before the required mathematical infrastructure was invented \cite{Wightman1979}. In recent years, the contact Hamiltonian formalism has been succesfully applied to thermodynamic theory by e.g. \citet{Mrugala1991,Mrugala2000,Mrugala1984,Mrugala1985,Mrugala1993,Mrugala1996}, \citet{Balian2001}, \citet{VanderSchaft2021a,VanderSchaft2018}, \citet{Maschke2018}, \citet{Bravetti2015}, and \citet{Simoes2020}. 
