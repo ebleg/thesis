@@ -1,6 +1,6 @@
 \section{Jacobi structures for general systems}
 \label{sec:jacobi}
-In this section, we take the ideas outlined in \cref{sec:contact,sec:symplectic} one step further to more general mechanical systems. In particular, we will focus on multi-degree of freedom (MDOF) systems, and systems with exogenous inputs (external forces). As it turns out, a contact structure is not sufficient to describe such systems. Instead, we use a generalization of contact and symplectic structures called a \emph{Jacobi structure}.
+In this section, we take the ideas outlined in \cref{sec:contact,sec:symplectic} one step further to more general mechanical systems. In particular, we will focus on multi-degree of freedom (MDOF) systems. As it turns out, a contact structure is not sufficient to describe such systems. Instead, we use a generalization of contact and symplectic structures, being \emph{Jacobi structures}.
 
 \begin{figure}[ht!]
     \centering
@@ -19,7 +19,7 @@ To illustrate the need for a Jacobi structure, we use the mechanical MDOF system
     \end{split}
 \end{equation}
 
-To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system of on the dampers. The work done on the first damper (\(b_1\)) is
+To proceed with the method discussed in \cref{ssec:contact_dissipation}, we have to find the work form that specifies the work done by the system on the dampers. The work done on the first damper (\(b_1\)) is
 \begin{equation}
      \beta_1 = \qty(\frac{b_1}{m_1})p_1\dd{q^1}.
 \end{equation}
@@ -54,7 +54,7 @@ The exterior derivative of \(\alpha\) is
 \end{equation}
 which indicates indeed that there is also a `mixing' of \(p_1\) and \(q_2\) and \(p_2\) and \(q_1\) in the resulting 2-form. As a result, the mapping \( \fromDual{\dd{\alpha}} \) will not produce the mapping that we would expect in the purely symplectic case.
 
-From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both are required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find that, \emph{that particular case}, the dissipation form \(\alpha\) also included the pairing structure. This severely limits the applicability of contact Hamiltonian systems to dissipative mechanical systems.
+From a conceptual standpoint, this is not quite surprising: there is no inherent reason why the form that describes dissipation should somehow also include the `pairing' structure: they are fundamentally different, and both are required for the geometric description of the mechanical system. In the previous section, we were indeed rather `lucky' to find, in \emph{that particular case}, that the dissipation form \(\alpha\) also included the pairing structure. This severely limits the applicability of contact Hamiltonian systems to dissipative mechanical systems.
 
 The multi-degree of freedom systems for which \( \alpha \) is of the form \(\dd{U} - \gamma \theta\) are those that do exhibit no damping on the relative velocities of the masses, and for which all dampers have the same damping coefficient. This is a very restrictive requirement, and we wish to do better. To do so, we introduce a generalization of contact and symplectic structures called a \emph{Jacobi} structure in the next section, and subsequently apply it to the system shown in \cref{fig:mdof_oscillator}.
 
@@ -114,7 +114,7 @@ or equivalently
      \Lambda(\eta, \chi)  = \intpr{\fromDual{\Lambda}(\eta)}{\chi}.
 \end{equation}
 
-We will now see that both symplectic and contact manifolds are particular instances of a Jacobi structure, as well as the Hamiltonian systems defined on them.
+We will now see that both symplectic and contact manifolds are particular instances of Jacobi manifold, including the Hamiltonian systems defined on them.
 
 \subsubsection{Symplectic manifolds are Jacobi}
 For a symplectic manifold \((M, \omega)\) with dimension \(2n\), the vector field \(R\) is simply zero and the bivector \(\Lambda\) field is defined by:
@@ -132,7 +132,7 @@ then the associated bivector can be found to be \cref{eq:jacobi_ham_corresponden
      \Lambda = \sum^n_{i = 1} \wedgep{\pdv{}{q^i}}{\pdv{}{p_i}}.
 \end{equation}
 
-The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field \(R\) vanishes. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
+The associated Jacobi bracket reverts to the familiar Poisson bracket on the symplectic manifold. A Poisson structure is a particular instance of a Jacobi structure where the vector field \(R\) is equal to zero. This makes the Poisson/Jacobi bracket into a \emph{derivation} on the algebra of smooth functions (over the real numbers): consequently, Poisson brackets satisfy the Leibniz property in addition to the conditions for Jacobi brackets given above \cite{marle1991}.
 
 \subsubsection{Contact manifolds are Jacobi}
 A strictly contact manifold\footnote{For contact structures that are not globally determined by a single contact form, \citet{marle1991} introduced the concept of a \emph{Jacobi bundle}.} \((M, \alpha)\) with dimension \(2n + 1\) is also a Jacobi manifold. The vector field \(R = R_\alpha\) is the Reeb vector field. 
@@ -185,7 +185,7 @@ The geometric structure of a mechanical system has four components:
         \begin{equation}
      \alpha = \dd{U} - \beta,
 \end{equation}
-        where \(\beta = \pi^*\beta_{\ctbundle{Q}}\) is a pullback of a form on \(\ctbundle{Q}\), i.e. it does not depend on \(U\). When there is no dissipation, \(\beta = 0\).
+        where \(\beta = \pi^*\beta_{\ctbundle{Q}}\) is a pullback of a form on \(\ctbundle{Q}\), which means that it cannot depend on \(U\). When there is no dissipation, \(\beta = 0\).
     \item A \emph{Hamiltonian function} \(H \in \functions{M}\), equal to the sum of the mechanical energy of the system and the internal energy:
         \begin{equation}
      H = E + U,
@@ -221,15 +221,15 @@ In Darboux coordinates, we have
 \begin{equation}
      R = \pdv{}{U}.
 \end{equation}
-The vector field of the Jacobi structure is equal to the Reeb vector field.
+%The vector field of the Jacobi structure is equal to the Reeb vector field.
 
 In addition, define \emph{semi-basic forms} as the forms that annihilate the vertical vector fields; in Darboux coordinates, they are forms that have no component in \(\dd{U}\).
 
-The decompositions of vector fields into horizontal and vertical components, and of forms into semi-basic components and multiples of \(\alpha\) are analogous to \cref{eq:vfield_splitting,eq:form_splitting} respectively.
+The decompositions of vector fields into horizontal and vertical components, and of 1-forms into semi-basic components and multiples of \(\alpha\) are analogous to \cref{eq:vfield_splitting,eq:form_splitting} respectively.
 
 The construction of \(\Lambda\) is analogous to the case of contact manifolds: the sharp mapping first isolates the semi-basic component of the argument, after it is mapped to a horizontal vector field through \(\fromDual{\omega}\):
 \begin{equation}
-     \fromDual{\Lambda}(\zeta) = \fromDual{\dd{\alpha}}\qty(\zeta - (\intpr{R}{\zeta})\alpha).
+     \fromDual{\Lambda}(\zeta) = \fromDual{\omega}\qty(\zeta - (\intpr{R}{\zeta})\alpha).
 \end{equation}
 Using the coordinates defined above, we find:
 \begin{equation}
@@ -261,7 +261,7 @@ where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-com
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
 \begin{itemize}
-    \item The manifold \(M = \real^5 = \real \times \ctbundle{Q}\), for which we choose coordinates \(\qty(U, q^1, q^2, p_1, p_2)\).
+    \item The manifold \(M = \real^5 = \ctbundle{Q}\times \real\), for which we choose coordinates \(\qty(q^1, q^2, p_1, p_2, U)\).
     \item The 2-form \(\omega\) is the canonical symplectic structure on \(\ctbundle{Q}\):
         \begin{equation}
      \omega = \wedgep{\dd{q^1}}{\dd{p_1}} + \wedgep{\dd{q^2}}{\dd{p_2}}.
@@ -279,7 +279,7 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
 
  The expression for \(\beta\) is given by \cref{eq:mdof_form} as a part of the dissipation form \(\alpha\). The exterior derivative of \(H\) is 
      \begin{equation}
-     \dd{H} = \frac{p_1}{m_1}\dd{p_1} + \frac{p_2}{m_2}\dd{p_2} +  \qty[k_1q^1 + k_2\qty(q^1 - q^2)]\dd{q^1} + \qty[k_3q^2 + k_2\qty(q^2 - q^1)]\dd{q^2} + \dd{U}.
+     \dd{H} = \qty(\frac{p_1}{m_1})\dd{p_1} + \qty(\frac{p_2}{m_2})\dd{p_2} +  \qty[k_1q^1 + k_2\qty(q^1 - q^2)]\dd{q^1} + \qty[k_3q^2 + k_2\qty(q^2 - q^1)]\dd{q^2} + \dd{U}.
 \end{equation}
  Using either \cref{eq:general_bivector,eq:general_isomorphism} or \cref{eq:matrix_jacobi_mapping}, we obtain the correct equations of motion for the system:
  \begin{equation}
@@ -298,7 +298,7 @@ Observe from \cref{eq:mdof_eom_complete} that the rate of change of \(U\) can be
 \begin{equation}
      \dot{U} = \mqty(\tfrac{p_1}{m_1} & \tfrac{p_2}{m_2}) \mqty(b_1 + b_2 & -b_2 \\ -b_2 & b_2) \mqty(\tfrac{p_1}{m_1} \\ \tfrac{p_2}{m_2}).
 \end{equation}
-It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on \(\beta\), apart from the fact that it does not depend on \(U\). Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. Consequently, we may use this method just as well to include external forces for nonautonomous systems, which is the subject of the next section.
+It is important to point out though that our method does not rely on the fact that the damping force relies on the momenta/velocities in a linear fashion: we made no assumptions on \(\beta\), apart from the fact that it does not depend on \(U\). Hence, any type of force that performs work in the direction of the generalized coordinates can be incorporated in this fashion. This is in contrast with the Rayleigh method. 
 
 \subsubsection{Nonautonomous systems}
 For the purposes of control, the above formalism may also be extended with external inputs; i.e. flow sources, effort sources, or sources that contribute to the internal energy. In the port-Hamiltonian formalism proposed by \citet{VanDerSchaft2006}, the external sources are simply added to their respective Hamiltonian functions. It is then possible to interconnect several mechanical systems by means of power-preserving connections.
