@@ -45,10 +45,12 @@ where \(\theta\) is the Liouville form on the cotangent bundle of the configurat
 
 The exterior derivative of \(\alpha\) is
 \begin{equation}
-     \dd{\alpha} = \qty(\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})) \wedgep{\dd{q^1}}{\dd{p_1}}
-                  -\qty(\frac{b_2}{m_2})\wedgep{\dd{q^1}}{\dd{p_2}}
-                  + \qty(\frac{b_2}{m_2})\wedgep{\dd{q^2}}{\dd{p_2}}
-                  - \qty(\frac{b_2}{m_1})\wedgep{\dd{q^2}}{\dd{p_1}},
+    \begin{split}
+         \dd{\alpha} = &\qty[\frac{b_1}{m_1} + \qty(\frac{b_2}{m_1})] \wedgep{\dd{q^1}}{\dd{p_1}}
+                      -\qty(\frac{b_2}{m_2})\wedgep{\dd{q^1}}{\dd{p_2}}\\
+                      &+ \qty(\frac{b_2}{m_2})\wedgep{\dd{q^2}}{\dd{p_2}}
+                      - \qty(\frac{b_2}{m_1})\wedgep{\dd{q^2}}{\dd{p_1}},
+    \end{split}
 \end{equation}
 which indicates indeed that there is also a `mixing' of \(p_1\) and \(q_2\) and \(p_2\) and \(q_1\) in the resulting 2-form. As a result, the mapping \( \fromDual{\dd{\alpha}} \) will not produce the mapping that we would expect in the purely symplectic case.
 
@@ -69,7 +71,7 @@ called the \emph{Jacobi bracket}. This mapping needs to satisfy three properties
 \end{equation}
     \item it satisfies the \emph{Jacobi identity}
         \begin{equation}
-     \jacobi{f}{\jacobi{g}{h}} + \jacobi{h}{\jacobi{f}{g}} + \jacobi{g}{\jacobi{h}{f}},
+     \jacobi{f}{\jacobi{g}{h}} + \jacobi{h}{\jacobi{f}{g}} + \jacobi{g}{\jacobi{h}{f}} = 0,
 \end{equation}
     \item it is \emph{local}
         \begin{equation}
@@ -84,7 +86,7 @@ It can be shown that any Jacobi structure can be uniquely defined in terms of a 
      \jacobi{f}{g} = \Lambda(\dd{f}, \dd{g}) + f (\intpr{R}{\dd{g}}) - g (\intpr{R}{\dd{f}}).
 \end{equation}
 
-Not just any choice of bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, \(\lambda\) and \(R\) must satisfy two conditions:
+Not just any combination of a bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, \(\lambda\) and \(R\) must satisfy two conditions:
 \begin{equation}
      \schouten{\Lambda}{\Lambda} = 2 \wedgep{R}{\Lambda} \qquad \schouten{R}{\Lambda} = 0,
 \end{equation}

@@ -28,11 +28,11 @@ The structure that associates each position with its corresponding momentum is g
 \[ \qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n) \in \ctbundle{M} \] 
 as\footnote
 {
-    In coordinate-free language, the Liouville 1-form is defined as follows. Given $q \in Q$, $\vec{p} \in \ctspace{q}{Q}$, we call $x = (q, \vec{p}) \in \ctbundle{Q}$. Let $\pi$ be the bundle projection map of $\bundle{\ctbundle{Q}}{\pi}{Q}$. For every $x$, The Liouville 1-form $\theta\vert_x$ is defined as
+    In coordinate-free language, the Liouville 1-form is defined pointwise as follows. Given $q \in Q$, $\vec{p} \in \ctspace{q}{Q}$, we call $x = (q, \vec{p}) \in \ctbundle{Q}$. Let $\pi$ be the bundle projection map of $\bundle{\ctbundle{Q}}{\pi}{Q}$. For every $x$, The Liouville 1-form $\theta\vert_x$ is defined as
     \begin{equation}
         \theta\vert_x \coloneq \vec{p} \circ \qty(\pi^*\vert_x),
     \end{equation}
-    where $\vec{p}$ is interpreted as a map on the tangent space to $q$.
+    where $\vec{p}$ is interpreted as a map on the tangent space to $q$ \cite{Cannas2001}.
 }
 \begin{equation}
     \theta = \sum_{i = 1} p_i\dd{q^i}.
@@ -41,18 +41,18 @@ Hence, the Liouville form tells us which momentum coordinate corresponds to a gi
 
 Every cotangent bundle is canonically endowed with a Liouville form. The exterior derivative of the Liouville form produces a \emph{symplectic} 2-form. By convention, we define this symplectic form as follows:\footnote
 {
-    In this text, the `\(q\)-first' sign convention used by \citet{Abraham1978} and \citet{Cannas2001} is observed and maintained in when we extend towards contact and Jacobi manifolds.
+    In this text, the `\(q\)-first' sign convention used by \citet{Abraham1978} and \citet{Cannas2001} is observed and maintained when we extend towards contact and Jacobi manifolds.
 }
 \begin{equation}
      \omega = -\dd{\theta} = \sum_{i = 1}^n \wedgep{\dd{q^i}}{\dd{p_i}}.
 \end{equation}
-Hence, the space of generalized positions and momenta (i.e. the cotangent bundle the configuration manifold \(Q\)) is canonically symplectic. The symplectic structure pairs the corresponding position and momentum coordinates in a skew-symmetric fashion.
+Hence, the space of generalized positions and momenta (i.e. the cotangent bundle of the configuration manifold \(Q\)) is canonically symplectic. The symplectic structure pairs the corresponding position and momentum coordinates in a skew-symmetric fashion.
 
-In the context of bond graphs, the symplectic form represents the dual nature of a bond. That is to say, a bond represents an exchange of both an effort and a flow, and they are inherently tied to each other. The flow is a change in position or generalized velocity, and the effort is a change in momentum. The effort and flow associated with a bond are conjugate: the symplectic form provides precisely the structure that is visually present in a bond graph (e.g. \cref{fig:ho}).
+In the context of bond graphs, the symplectic form represents the dual nature of a bond. That is to say, a bond represents an exchange of both an effort and a flow, and they are inherently tied to each other. The flow is a change in position, and the effort is a change in momentum. The effort and flow associated with a bond are conjugate: the symplectic form provides precisely the structure that is visually present in a bond graph (e.g. \cref{fig:ho}).
 
 \subsection{Hamiltonian mechanics}
 \label{ssec:symplectic_ham_systems}
-In Hamiltonian mechanics, is the equations of motion are given by \emph{Hamilton's equations}
+In Hamiltonian mechanics, the equations of motion are given by \emph{Hamilton's equations}
 \begin{equation}
      \dot{q}^i = \pdv{H}{p_i} \qquad\qquad \dot{p}_i = -\pdv{H}{q^i}
      \label{eq:hamilton_equations}
@@ -78,12 +78,12 @@ For the notation used here, the difference between the manifolds \(Q\) and \(M\)
         & Q & 
     \end{tikzcd}
 \end{center}
-This isomorphism specified by \(\omega\) allows us to find the corresponding Hamiltonian vector field \(X_H\) to a Hamiltonian function, given by:
+This isomorphism specified by \(\omega\) allows us to find the corresponding Hamiltonian vector field \(X_H\) to a Hamiltonian function \(H\) as follows:
 \begin{equation} 
     X_H = \fromDual{\omega}(\dd{H}). 
     \label{eq:symplectic_hamiltonian_vf}
 \end{equation}
-In (Darboux) coordinates, the action of \( \fromDual{\omega}\) on the basis 1-forms is
+In Darboux coordinates, the action of \( \fromDual{\omega}\) on the basis 1-forms is
 \begin{equation}
      \dd{p}_i \mapsto \pdv{}{q^i} \qquad\qquad \dd{q}^i \mapsto -\pdv{}{p_i}.
 \end{equation} 
@@ -99,7 +99,7 @@ where \(m\) is the mass and \(k\) is the spring constant. The Hamiltonian vector
 \end{equation}
 or stated as a system of differential equations
 \begin{equation}
-     \dot{q} = \frac{p}{m} \qquad \qquad \dot{p} = -kq.
+     \dot{q} = \frac{p}{m}, \qquad \qquad \dot{p} = -kq.
 \end{equation}
 \begin{figure}[ht]
     \centering
@@ -123,16 +123,16 @@ Poisson brackets are anticommutative, bilinear, and satisfy the Jacobi identity.
 \begin{equation}
      \poisson{f}{gh} = \poisson{f}{g}h + \poisson{f}{h}g.
 \end{equation}
-The Poisson brackets defined in terms of the symplectic structure make symplectic manifolds into Poisson manifolds. In \cref{sec:contact,sec:jacobi} the notion of Poisson manifolds is generalized to \emph{Jacobi manifolds} to cover more general mechanical systems. In contrast to the Poisson structure, a Jacobi structure does \emph{not} satisfy the Leibniz property \cite{Arnold1989,Libermann1987}.
+The Poisson brackets defined in terms of the symplectic structure make symplectic manifolds to be also Poisson manifolds. In \cref{sec:contact,sec:jacobi} the notion of Poisson manifolds is generalized to \emph{Jacobi manifolds} to cover more general mechanical systems. In contrast to the Poisson structure, a Jacobi structure does \emph{not} satisfy the Leibniz property \cite{Arnold1989,Libermann1987}.
 
 The usefulness of Poisson brackets is due to the fact that they provide a convenient way to calculate the time rate of change of an observable \(f\): 
 \begin{equation}
      \dv{f}{t} = \poisson{f}{H} + \pdv{f}{t}.
 \end{equation}
 
-If the Hamiltonian does not depend on time, it is conserved under its own Hamiltonian vector field. This is easily seen from the anticommutativity of Poisson brackets (\(\poisson{H}{H} = 0\)). Therefore, Hamiltonian systems conserve energy; they do not allow for dissipative (friction) forces in a straightforward manner, unless included in the form of an explicit time dependence. This is a direct consequence of the symplectic structure: \emph{because} the \(X_H\) is generated by the symplectic 2-form, the Hamiltonian vector field conserves its own generating function. The fact that the system is conservative should therefore be seen as something that is built into the structure of the symplectic Hamiltonian system itself, and not as an emergent fact\footnote{This is especially clear from the explicit coordinate expressions of the dynamics. The mapping from \(H\) to \(X_H\) takes the partial derivatives, and switches them around between the associated \(q\)'s and \(p\)'s, while one of them picks up a minus sign. As such, it is very clear that \(\lied{X_H}{H} = X_H(H) = 0\), given that \(H\) is not explicitly time-dependent.}.
+If the Hamiltonian does not depend on time, it is conserved under its own Hamiltonian vector field. This is easily seen from the anticommutativity of Poisson brackets (\(\poisson{H}{H} = 0\)). Therefore, Hamiltonian systems conserve energy; they do not allow for dissipative (friction) forces in a straightforward manner, unless included in the form of an explicit time dependence. This is a direct consequence of the symplectic structure: \emph{because} \(X_H\) is generated by the symplectic 2-form, the Hamiltonian vector field conserves its own generating function. The fact that the system is conservative should therefore be seen as something that is built into the structure of the symplectic Hamiltonian system itself, and not as an emergent fact\footnote{This is especially clear from the explicit coordinate expressions of the dynamics. The mapping from \(H\) to \(X_H\) takes the partial derivatives, and switches them around between the associated \(q\)'s and \(p\)'s, while one of them picks up a minus sign. As such, it is very clear that \(\lied{X_H}{H} = X_H(H) = 0\), given that \(H\) is not explicitly time-dependent.}.
 
-To conclude, the overall structure that constitutes a conservative mechanical system is threefold: first, there is the configuration manifold and its cotangent bundle. Secondly, the symplectic structure on that manifold, and thirdly, we have the Hamiltonian function. In principle, the symplectic structure is a canonical consequence of the cotangent bundle structure, but we wish to emphasize that the system dynamics are also symplectic. That is to say, the Hamiltonian vector field is symplectic: it leaves \(\omega\) invariant. 
+To conclude, the overall structure that constitutes a conservative mechanical system is threefold: first, there is the configuration manifold and its cotangent bundle. Secondly, the symplectic structure on that manifold, and thirdly, we have the Hamiltonian function. In principle, the symplectic structure is a canonical consequence of the cotangent bundle structure, but we wish to emphasize that the system dynamics are also symplectic. That is to say, the Hamiltonian vector field is a symplectic vector field: it leaves \(\omega\) invariant. 
 
 The symplectic nature of the dynamics does not persist to the extension for systems with dissipation. This is in contrast to the fact that even for the most general systems, we still require the pairing of conjugate variables to be encoded into the geometric structure of the system. Hence, we expect the symplectic structure to remain important even in the upcoming generalizations.
 
