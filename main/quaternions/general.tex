@@ -1,10 +1,13 @@
 \section{The algebra of split-quaternions}
+In this section, we present the split-quaternion number system, its basic properties, and its relation with two-dimensional matrices.
+
+\label{sec:general_quat}
 \subsection{Basic properties of split-quaternions}
 \label{ssec:quat_basics}
 Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which will be denoted by 1, \quati, \quatj, and \quatk.\footnote
 {Even though they behave similarly, the imaginary unit \(\ii\) is not to be confused with the split-quaternion basis element \quati, because they belong to different number systems.}
 The algebra of split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative ring}. The multiplication table for the split-quaternion algebra is shown in \cref{tab:quat_table}. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
-{The `\(\mathbb{H}\)' is in honor of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis. \cite{Stillwell2008}}
+{The `\(\mathbb{H}\)' is in honor of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis \cite{Stillwell2008}.}
 \begin{table}[ht!]
     \centering
     \caption{Multiplication table for the split-quaternion algebra.}
@@ -23,7 +26,7 @@ The algebra of split-quaternions is associative but not commutative --- formally
 
 The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all the nonreal basis elements square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), for the split-quaternions we have \((+, +, -, -)\). The difference `metric' signature makes the algebra of split-quaternions different from its conventional quaternion counterpart.
 
-\subsubsection{The dihedral group} The basis elements of the split-quaternions \(\qty{1, \quati, \quatj, \quatk}\) form a finite group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation, and two reflections, as illustrated in \cref{fig:square_symmetry}. \cite{Dummit2004}
+\subsubsection{The dihedral group} The basis elements of the split-quaternions \(\qty{1, \quati, \quatj, \quatk}\) form a finite group under multiplication, namely the \emph{dihedral group} \digroup{4}, which represents all the symmetries of a square: the identity, a 90-degree rotation, and two reflections, as illustrated in \cref{fig:square_symmetry} \cite{Dummit2004}.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/square_symmetry}
@@ -31,7 +34,7 @@ The distinctive feature that sets split-quaternions apart from conventional quat
     \label{fig:square_symmetry}
 \end{figure}
 
-The structure of the dihedral group can be visualized by its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the shape of this cycle graph. One example is the split nature of the quaternions: the \quati-element generates an order-4 cycle, while \quatj and \quatk generate order-2 cycles (in contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements). \cite{Dummit2004}
+The structure of the dihedral group can be visualized by its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the shape of this cycle graph. One example is the split nature of the quaternions: the \quati-element generates an order-4 cycle, while \quatj and \quatk generate order-2 cycles (in contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements) \cite{Dummit2004}.
 \begin{figure}[h!]
     \centering
     \input{media/tikz/dihedral_group}
@@ -80,7 +83,7 @@ The notation used here is not abusive: \(\vec{a}\) simply refers to the split-qu
 
 The quadratic form of the squared vector norm is not positive-definite either; in the the same vein as before, we can therefore classify split-quaternions by the `sign' of their vector part again. We refer to (vectors in) these regimes as \emph{timelike (vectors)}, \emph{spacelike (vectors)} and \emph{lightlike (vectors)} in the same fashion. 
 
-In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent to the Lorentz norm applied to a vector in \(\real^3\); we will denote \(\real^3\) equipped with the Lorentz norm by \(\real^{1, 2}\), and call it the Lorentzian three-space. \cite{Jafari2014} 
+In contrast to the larger space of split-quaternions, the space of vectors \emph{does} have a traditional Lorentz (i.e. `special relativity') structure, but in three dimensions instead of four. This is because the signature of the squared vector norm only has one minus sign instead of two. The above expression is equivalent to the Lorentz norm applied to a vector in \(\real^3\); we will denote \(\real^3\) equipped with the Lorentz norm by \(\real^{1, 2}\), and call it the Lorentzian three-space \cite{Jafari2014}.
 
 Observe that \( \mathscr{N}(a) < 0 \Rightarrow \mathscr{N}(\vec{a}) < 0\); that is to say, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Along the same line, a lightlike split-quaternion can only have a lightlike or spacelike vector part. All possible regime combinations for split-quaternions and their vector parts are listed in \cref{tab:class_combinations}. This classification is important because, as discussed in \cref{sec:system_classification}, this classification is precisely equivalent to the qualitative classification of dynamical systems. It will play a central role throughout this chapter.
 
@@ -133,7 +136,7 @@ In the remainder of this chapter, the split-quaternion properties that are defin
 \label{ssec:quat_isomorphism}
 The utility of split-quaternions (for our purpose) originates from the fact that the algebra of split-quaternions is isomorphic to the algebra of real two-dimensional matrices. This underlies this entire chapter, for it allows us to find an alternative to the traditional matrix description of linear dynamical systems. 
 
-\subsubsection{Algebra isomorphisms} Formally, an algebra is a vector space combined with a vector space \(V\) over a field \field, combined with an addition operation, scalar multiplication, and an \field-bilinear product operation \(V\times V \to V\). \cite{Schuller2014}
+\subsubsection{Algebra isomorphisms} Formally, an algebra is a vector space combined with a vector space \(V\) over a field \field, combined with an addition operation, scalar multiplication, and an \field-bilinear product operation \(V\times V \to V\) \cite{Schuller2014}.
 \begin{itemize}
     \item The split-quaternion algebra is an algebra over the field real numbers (\(\field = \real\)), where the multiplication is governed by the split-quaternion multiplication rules (see \cref{tab:quat_table}).
     \item The set of \(2\times2\)-matrices also constitutes an \real-vector space; matrix multiplication makes it into an algebra.
@@ -181,7 +184,7 @@ One of the powerful features of the mapping \(\phi\) is that it maps the natural
              ab = \phi(AB).
         \end{equation}
     \item The \emph{conjugate} of the split-quaternion maps to the \emph{adjugate} of the matrix:\footnote
-        {The adjugate of a matrix is the transpose of its cofactor matrix. \cite{Verhaegen2007}}
+        {The adjugate of a matrix is the transpose of its cofactor matrix \cite{Verhaegen2007}.}
         \begin{equation}
              \phi(\conj{a}) = \adjugate(A).
         \end{equation}
@@ -287,13 +290,15 @@ The algebra of \(2\times2\)-matrices (or equivalently, of the split-quaternions)
 
 \section{Dynamical systems as split-quaternions}
 \label{sec:system_classification}
+In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by relating a basis vector field to each of the split-quaternion basis elements. Subsequently, in \cref{ssec:system_classification} we show how the relation between the eigenvalues of a matrix and the (vector) norm of the split-quaternion leads to an easy classification procedure. Finally, we use those same properties, to obtain the system solution (through the exponential) as well in \cref{ssec:system_solution}.
+
 \subsection{The algebra of vector fields}
 \label{ssec:vf_algebra}
 The isomorphism between the split-quaternions and the algebra of two-dimensional square matrices exposed in the preceding section can be used to develop an alternative representation of linear dynamical systems. Indeed, an autonomous dynamical system is defined by a \emph{vector field} on the state space. If this vector field is a linear mapping from the state space into the tangent space, it can be represented by a matrix. 
 
 \subsubsection{Basis vector fields} The vector fields corresponding to two-dimensional linear dynamical systems form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements \(1,\,\quati,\,\quatj,\,\quatk\) corresponds to a specific `basis' vector field, denoted by \(X_1\), \(X_{\quati}\), \(X_{\quatj}\) and \(X_{\quatk}\) respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
 
-The vector field element \(X_1\), corresponding to the identity element is an infinitesimal dilation, while \(X_{\quati}\) represents an infinitesimal clockwise rotation, and \(X_{\quatj}\) and \(X_{\quatj}\) are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two different sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
+The basis vector field \(X_1\), corresponding to the identity element is an infinitesimal dilation, while \(X_{\quati}\) represents an infinitesimal clockwise rotation, and \(X_{\quatj}\) and \(X_{\quatj}\) are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two different sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/basis_vectorfields}
@@ -320,6 +325,7 @@ Of course, these commutation relations are exactly the same for the correspondin
 \emph{all} the other vector fields. This has important ramifications: it means that one can consider the action associated with those vector fields as completely separate from the action of the other vector field components, for they do not influence each other in the process. This fact will be used in \cref{sec:mechanical}.
 
 \subsection{Classification of dynamical systems}
+\label{ssec:system_classification}
 The classification of two-dimensional linear dynamical systems is important, for they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix \(A\), or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}. Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, we propose that the split-quaternion representation offers a more convenient alternative, based on their squared (vector) norm, on par with the regimes defined in \cref{tab:class_combinations}.
 \begin{figure}[ht!]
     \centering
@@ -475,7 +481,7 @@ Once again, there are three possibilities, depending on the regime of \(\vec{a}\
             \end{split}
         \end{equation}
         This is roughly equivalent to the Euler identity for complex numbers, which is not at all surprising since we found before that \(\uvec{a}\) can be associated with the imaginary unit if \(\vec{a}\) is timelike.
-    \item Secondly, if \(\vec{a}\) is \emph{lightlike}, we can simply use the definition of the exponential in its original form: \footnote{We can also use the `split' expression, defining that \(0^0 \equiv 1\), a common convention in power series and algebra. Observe that the trigonometric functions associated with the dual numbers (i.e. the lightlike vectors) are then equal to the small-angle approximation for \(\sin\) and \(\cos\). \cite{Graham1994, Harkin2004}}
+    \item Secondly, if \(\vec{a}\) is \emph{lightlike}, we can simply use the definition of the exponential in its original form: \footnote{We can also use the `split' expression, defining that \(0^0 \equiv 1\), a common convention in power series and algebra. Observe that the trigonometric functions associated with the dual numbers (i.e. the lightlike vectors) are then equal to the small-angle approximation for \(\sin\) and \(\cos\) \cite{Graham1994, Harkin2004}.}
         \begin{equation}
             \begin{split}
                 \exp(a) &= \ec^{a_0}\,\sum^{\infty}_{k=0} \frac{\vec{a}^k}{k!}, \\
@@ -508,6 +514,6 @@ where the one-parameter group of transformations generated by \(\exp(A t)\) is r
         \phantom \quad \ec^{a_0 t}\qty(1 + \norm{\vec{a}}t ) & \vec{a} \text{ lightlike}, \\[1.5ex]
         \phantom \quad \ec^{a_0 t}\qty[\cosh(\norm{\vec{a}} t) + \uvec{a}\sinh(\norm{\vec{a}} t)] & \vec{a} \text{ spacelike}. \\[1.5ex]
     \end{cases}
-    \label{eq:system_solution}
+    \label{ssec:system_solution}
 \end{equation}
 Evaluating a matrix exponential by hand usually involves diagonalizing (strictly speaking, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix \(A\); especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector \(\uvec{a}\) are discussed in greater detail \cite{Moler2003}.
