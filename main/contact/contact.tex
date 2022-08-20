@@ -298,11 +298,9 @@ The Hamiltonian is a function on the contact manifold \(M\), i.e. \(K = K(U, q, 
 \end{equation}
 The projection thus removes any term in \(\dd{U}\) (which makes it semi-basic).
 
-Recall that \(\dd{\alpha} = \gamma \omega \). Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by \(\omega\) (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor \(\gamma\)) that we have to project \(\dd{K}\) by means of the term \(\qty(\intpr{R_\alpha}{\dd{K}}\alpha)\).
-
-In the conservative case, we have that 
+Recall that \(\dd{\alpha} = \gamma \omega \). Therefore, we can compare the above equation to the purely symplectic case without dissipation, where the isomorphism is provided by \(\omega\) (cf. \cref{eq:symplectic_hamiltonian_vf}). The difference here is (apart from the factor \(\gamma\)) that we have to project \(\dd{K}\) by means of the term \(\qty(\intpr{R_\alpha}{\dd{K}}\alpha)\). In the conservative case, the symplectic Hamiltonian $H$ is simply equal to the mechanical energy $E$:
 \begin{equation}
-    H = E = \frac{p^2}{2m} + \frac{1}{2}kq^2.
+    H(p, q) = E(p, q) = \frac{p^2}{2m} + \frac{1}{2}kq^2.
 \end{equation}
 It is, therefore, reasonable to expect that the form in \cref{eq:contact_semi-basic} contains the differential of \(E\) (representing the conservative side, or the I- and C-element) plus an extra term that enforces the dissipation (R-element). 
 
@@ -322,7 +320,7 @@ As a result, the gradient of the Hamiltonian is equal to
 \end{equation}
 and we obtain the correct Hamiltonian up to a closed form
 \begin{equation} 
-    K = \gamma (E + U) = \gamma\qty( \frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
+    K(p, q, U) = \gamma \qty[E(p, q) + U] = \gamma\qty( \frac{p^2}{2m} + \frac{1}{2}kq^2 + U). 
     \label{eq:dho_hamiltonian}
 \end{equation} 
 Hence, the Hamiltonian function is equal to the total amount of energy in the system, both mechanical and internal, multiplied by the damping coefficient.
@@ -442,7 +440,7 @@ Because \(p\) is meant to represent momentum just like in the previous section, 
 
 The manifold of contact elements \(\pctbundle{Q_e}\) is equipped with a natural contact structure \cite{Arnold1989}, represented by
 \begin{equation}
-    \alpha_e = \dd{q}_0 - p\dd{q}.
+    \alpha_e = \dd{q}_e - p\dd{q}.
 \end{equation}
 Observe the similarity with the contact form \(\alpha\) defined in \cref{eq:dho_contact_form}: 
 \begin{equation}
@@ -486,11 +484,11 @@ The symplectification procedure exploits the natural ambiguity that contact form
 \end{equation}
 The above expression gives a representation of \emph{all} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
 
-We now effect the following coordinate transform:
+We now adopt the coordinates $\rho$ and $\rho_e$, defined as follows
 \begin{equation}
      \rho \coloneq -\lambda p \qquad \rho_e \coloneq \lambda. \
 \end{equation} 
-Hence, \cref{eq:lambda_alpha} becomes 
+In these coordinates, \cref{eq:lambda_alpha} becomes 
 \begin{equation}
     \rho_e\dd{q_e} + \rho \dd{q} \equalscolon \theta_e.
     \label{eq:liouville_form_extended}
@@ -630,7 +628,7 @@ This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consist
 \end{equation}
 or equivalently
 \begin{equation}
-    K_e\qty(q_e, q, -\frac{\rho}{\rho_e}) = \mathscr{H}(q_e, q, \rho_e, \rho). 
+    \mathscr{H}(q_e, q, \rho_e, \rho) \coloneq \rho_e K_e\qty(q_e, q, -\frac{\rho}{\rho_e}).
     \label{eq:H_contact_homo}
 \end{equation}
 
@@ -684,9 +682,9 @@ For \(\rho_e\), we have
 \begin{equation}
      \dot{\rho}_0 = \rho_e \pdv{K_e}{q_e} = \rho_e \pdv{K_e}{q_e}  = \gamma\rho_e \quad \Rightarrow \quad \rho_e = C\ec^{\gamma t},
 \end{equation} 
-where \(C\) is an integration constant which we can choose to be 0, so \(\rho_e(t) = \ec^{\gamma t}\).
+where \(C\) is an integration constant which we can choose to be 1, so \(\rho_e(t) = \ec^{\gamma t}\).
 
-In addition, \(\dot{\rho} = \rho_e kq = \ec^{\gamma t} kq\). Since \(p = -\rho/\rho_e\), the dynamics of \(p\) can be obtained from  \(\dot{\rho}_0\) and \(\dot{\rho}\) using the product rule:
+In addition, \(\dot{\rho} = \rho_e kq = \ec^{\gamma t} kq\). Since \(p = -\rho/\rho_e\), the dynamics of \(p\) can be obtained from  \(\dot{\rho}_e\) and \(\dot{\rho}\) using the product rule:
 \begin{equation} 
     \dot{p} = -\frac{\dot{\rho}}{\rho_e} + \frac{\rho}{\rho_e}\frac{\dot{\rho}_0}{\rho_e} = -kq - \gamma p,
     \label{eq:pdot}
@@ -716,14 +714,14 @@ For yet another perspective regarding this point, we can make use of the symplec
      \dot{\mathscr{H}} = \poisson{\mathscr{H}}{\mathscr{H}} + \pdv{\mathscr{H}}{t} = 0.
 \end{equation}
 
-Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_e K_e = \ec^{\gamma t} K_e\). Hence, it is now very easy to see that \(K_e\) either  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_e\), or it equals to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which is equivalent to the particular choice of \(\mathscr{H}_0 = 0\).
+Hence, we can set the Hamiltonian equal to a constant, say \(\mathscr{H}(t) = \mathscr{H}_0\). But, we also know from \(\mathscr{H} = \rho_e K_e = \ec^{\gamma t} K_e\). It is now very easy to see that \(K_e\) either  decays exponentially (if \(\gamma > 0\)), for it then cancels exactly the exponential growth of \(\rho_e\), or it equals to zero. This is equivalent to \cref{eq:contact_ham_growth}. On Liouville submanifolds, both the homogeneous Hamiltonian and the contact Hamiltonian vanish, which is equivalent to the particular choice of \(\mathscr{H}_0 = 0\).
 
 If we assume that the dynamics take place on a Liouville submanifold, the Hamiltonian vector field becomes
 \begin{equation}
      X_\mathscr{H}\vert_{\mathscr{H}_0 = 0} =  -\frac{1}{m}\qty(\frac{\rho}{\rho_e})\pdv{}{q}\: + \: \frac{1}{m}\qty(\frac{\rho}{\rho_e})^2\pdv{}{q_e}\: + \: \rho_e kq \pdv{}{\rho}\: + \: \gamma \rho_e \pdv{}{\rho_e}.    
 \end{equation}
 If this vector field is be projected to \(\pctbundle{Q_e}\)  we obtain \cref{eq:ham_vf_e_liouville}%\footnote{This is the `differential geometric' way of deriving the equation for \(\dot{p}\) as we did above.} 
-using the pushforward of the projection map \(\sigma\).
+ using the pushforward of the projection map \(\sigma\).
 
 \subsubsection{Relation with the Caldirola-Kanai Hamiltonian}
 In this section, we show that the homogeneous Hamiltonian is equivalent to a well-known existing model for the damped harmonic oscillator, the Caldirola-Kanai Hamiltonian (and Lagrangian).
