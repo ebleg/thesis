@@ -348,48 +348,80 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
     \end{tabular}
 \end{table}
 \renewcommand{\arraystretch}{1}
-%\renewcommand{\arraystretch}{1}
-
-\paragraph{Split-quaternions as a Lie algebra} 
-The algebra of \(2\times 2\)-matrices, and therefore of split-quaternions, is a Lie algebra.
-
-%The algebra of \(2\times2\)-matrices (or equivalently, of the split-quaternions) also constitute the Lie algebra \(\glalg{2}{\real}\) of the two-dimensional general linear group \(\glgroup{2}{\real}\). Furthermore, the traceless matrices, or equivalently, the split-quaternions with zero real part form the subalgebra \(\slalg{2}{\real}\) of the special linear group \(\slgroup{2}{\real}\). These are the volume-preserving automorphisms on \(\real^2\). Because in \(\real^2\), volume and area coincide, the special linear group and the symplectic group \(\spgroup{1}\) are equivalents. For higher dimensions, this is not the case: area preservation is generally a stronger condition than volume preservation. The Lie algebra elements of the symplectic group are called Hamiltonian matrices; therefore, split-quaternions with no real part are referred to as \emph{Hamiltonian}.
 
 \section{Dynamical systems as split-quaternions}
 \label{sec:system_classification}
-In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by relating a basis vector field to each of the split-quaternion basis elements. Subsequently, in \cref{ssec:system_classification} we show how the relation between the eigenvalues of a matrix and the (vector) norm of the split-quaternion leads to an easy classification procedure. Finally, we use those same properties, to obtain the system solution (through the exponential) as well in \cref{ssec:system_solution}.
+In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by relating a basis vector field to each of the split-quaternion basis elements. Subsequently, in \cref{ssec:system_classification} we show how the relation between the eigenvalues of a matrix and the (vector) norm of the split-quaternion leads to an easy classification procedure. Finally, we use those same properties, to obtain the system solution (through the exponential) as well in \cref{ssec:exponential}.
 
 \subsection{The algebra of vector fields}
 \label{ssec:vf_algebra}
-The isomorphism between the split-quaternions and the algebra of two-dimensional square matrices exposed in the preceding section can be used to develop an alternative representation of linear dynamical systems. Indeed, an autonomous dynamical system is defined by a \emph{vector field} on the state space. If this vector field is a linear mapping from the state space into the tangent space, it can be represented by a matrix. 
+The split-quaternions form an associative, noncommutative unital algebra over the real numbers, which is isomorphic (as an algebra) to the algebra of $2\times 2$-matrices. Every associative algebra can be turned into a \emph{Lie algebra} by defining the \emph{Lie bracket} as the \emph{commutator} of the multiplication operator of the algebra\footnote{By definition, the multiplication operation is bilinear, and the commutator is alternating. The associative property is needed for the Jacobi identity to be satisfied, which is the third criterion for a Lie algebra \cite{bourbaki1975}.}. For the split-quaternion algebra, the Lie bracket is defined as
+\begin{equation}
+    \liebr{}{}:\, \spquaternions \times \spquaternions \to \spquaternions: \;\: [a, b] \coloneq ab - ba.
+\end{equation}
+In analogous fashion, we have the equivalent definition for the matrix algebra:
+\begin{equation}
+    \liebr{}{}:\, \real^{2\times 2} \times \real^{2\times 2} \to \real^{2\times 2}: \;\: [A, B] \coloneq AB - BA.
+\end{equation}
+Clearly, these Lie algebras are isomorphic. 
 
-\subsubsection{Basis vector fields} The vector fields corresponding to two-dimensional linear dynamical systems form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements \(1,\,\quati,\,\quatj,\,\quatk\) corresponds to a specific `basis' vector field, denoted by \(X_1\), \(X_{\quati}\), \(X_{\quatj}\) and \(X_{\quatk}\) respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
+The Lie algebra of real $2\times2$ matrices with the Lie bracket defined above is the standard representation of $\glalg{2}{\real}$. This is the Lie algebra that is associated with the two-dimensional \emph{general linear group} $\glgroup{2}{\real}$, i.e. the group of automorphisms of $\real^2$. Because of the isomorphism between the split-quaternion and matrix algebra, the split-quaternions can therefore be used to represent members of $\glalg{2}{\real}$, being infinitesimal transformations of $\real^2$, or \emph{vector fields}. For vector fields, the Lie bracket is equal to the \emph{Lie derivative} of one vector field with respect to another:
+\begin{equation}
+    \liebr{X}{Y} = \lied{X}{Y},
+\end{equation}
+which measures the change of one vector field along the direction of the other. 
 
-The basis vector field \(X_1\), corresponding to the identity element is an infinitesimal dilation, while \(X_{\quati}\) represents an infinitesimal clockwise rotation, and \(X_{\quatj}\) and \(X_{\quatj}\) are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two different sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
+In order to use the split-quaternions as vector field representations, it suffices to relate each of the split-quaternion basis elements to basis vector fields. General split-quaternions can then be mapped to a vector field by taking the appropriate linear combination of the split-quaternion components with the basis vector fields. These basis vector fields are easily found throught the matrix associated to the split-quaternion basis element:
+
+\begin{table}[ht!]
+    \centering
+    \caption{Blabla}
+    \label{tab:basis_vf}
+    \begin{tabular}{cccc}
+        \toprule
+         & \textbf{Matrix} & \textbf{Vector field} & \textbf{Hamiltonian} \\
+        \midrule
+        $1$ & $\mqty(1 & 0 \\ 0 & 1) $ & $\displaystyle x\pdv{}{x} + y\pdv{}{y} $ & --- \\[0.4cm]
+
+        $\quati$ & $\mqty(0 & 1 \\ -1 & 0) $ & $\displaystyle \pdv{}{x} - x\pdv{}{y} $ & $ x^2 + y^2 $ \\[0.4cm]
+
+        $\quatj$ & $\mqty(0 & 1 \\ 1 & 0) $ & $\displaystyle y\pdv{}{x} + x\pdv{}{y} $ & $ y^2 - x^2 $ \\[0.4cm]
+
+        $\quatk$ & $\mqty(1 & 0 \\ 0 & -1) $ & $\displaystyle x\pdv{}{x} + -y\pdv{}{y} $ & $ xy $\\[0.4cm]
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% The isomorphism between the split-quaternions and the algebra of two-dimensional square matrices exposed in the preceding section can be used to develop an alternative representation of linear dynamical systems. Indeed, an autonomous dynamical system is defined by a \emph{vector field} on the state space. If this vector field is a linear mapping from the state space into the tangent space, it can be represented by a matrix. 
+% 
+% \subsubsection{Basis vector fields} The vector fields corresponding to two-dimensional linear dynamical systems form a vector space on their own, spanned (for example) by the four basis elements shown in \cref{eq:basis_elements}. Each of the basis elements \(1,\,\quati,\,\quatj,\,\quatk\) corresponds to a specific `basis' vector field, denoted by \(X_1\), \(X_{\quati}\), \(X_{\quatj}\) and \(X_{\quatk}\) respectively. The basis vector fields are shown in \cref{fig:basis_vf}. 
+% 
+% The basis vector field \(X_1\), corresponding to the identity element is an infinitesimal dilation, while \(X_{\quati}\) represents an infinitesimal clockwise rotation, and \(X_{\quatj}\) and \(X_{\quatj}\) are infinitesimal `squeeze mappings', hyperbolic rotations or \emph{Lorentz transformations} along two different sets of principal axes. The binary operation of matrix multiplication translates to the composition of the vector fields.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/basis_vectorfields}
     \caption{Basis vector fields corresponding to the basis elements of the split-quaternions.}
     \label{fig:basis_vf}
 \end{figure}
-
-Apart from the multiplication operation for split-quaternions and matrices, we can also define the \emph{commutator} of a binary operation, which measures exactly by how much two elements fail to commute. For split-quaternions, matrices, and vector fields the commutator is defined as (in that order): 
-\begin{equation}
-    \begin{split}
-        \liebr{a}{b} &= ab - ba,\quad a, b \in \spquaternions, \\
-        \liebr{A}{B} &= AB - BA,\quad A, B \in \real^{2\times 2}, \\
-        \liebr{X}{Y} &= \lied{X}{Y},\quad X,Y\in \vfields{M},
-    \end{split}
-\end{equation}
-for some smooth manifold \(M\) of the appropriate dimension. For vector fields, the commutator is also referred to as the \emph{Lie bracket} (it therefore defines the \emph{Lie algebra} \(\slalg{2}{\real}\)). The commutation relations (or \emph{structure constants}) for the basis vector fields are \cite{Schuller2014}
-\begin{gather}
-    \liebr{X_1}{X_{\quati}} = \liebr{X_1}{X_{\quatj}} = \liebr{X_1}{X_{\quatk}} = 0, \\
-    \liebr{X_{\quati}}{X_{\quatj}} = 2X_{\quatk}, \qquad  
-    \liebr{X_{\quati}}{X_{\quatk}} = -2X_{\quatj}, \qquad
-    \liebr{X_{\quatj}}{X_{\quatk}} = -2X_{\quati}.
-\end{gather}
-Of course, these commutation relations are exactly the same for the corresponding split-quaternion or matrix basis elements. Scalar multiples of the identity element commute with every other element of the algebra; they are in the \emph{center} of the algebra. Importantly, the vector field \(X_1\) and all its multiples commute with 
-\emph{all} the other vector fields. This has important ramifications: it means that one can consider the action associated with those vector fields as completely separate from the action of the other vector field components, for they do not influence each other in the process. This fact will be used in \cref{sec:mechanical}.
+% 
+% Apart from the multiplication operation for split-quaternions and matrices, we can also define the \emph{commutator} of a binary operation, which measures exactly by how much two elements fail to commute. For split-quaternions, matrices, and vector fields the commutator is defined as (in that order): 
+% \begin{equation}
+%     \begin{split}
+%         \liebr{a}{b} &= ab - ba,\quad a, b \in \spquaternions, \\
+%         \liebr{A}{B} &= AB - BA,\quad A, B \in \real^{2\times 2}, \\
+%         \liebr{X}{Y} &= \lied{X}{Y},\quad X,Y\in \vfields{M},
+%     \end{split}
+% \end{equation}
+% for some smooth manifold \(M\) of the appropriate dimension. For vector fields, the commutator is also referred to as the \emph{Lie bracket} (it therefore defines the \emph{Lie algebra} \(\slalg{2}{\real}\)). The commutation relations (or \emph{structure constants}) for the basis vector fields are \cite{Schuller2014}
+% \begin{gather}
+%     \liebr{X_1}{X_{\quati}} = \liebr{X_1}{X_{\quatj}} = \liebr{X_1}{X_{\quatk}} = 0, \\
+%     \liebr{X_{\quati}}{X_{\quatj}} = 2X_{\quatk}, \qquad  
+%     \liebr{X_{\quati}}{X_{\quatk}} = -2X_{\quatj}, \qquad
+%     \liebr{X_{\quatj}}{X_{\quatk}} = -2X_{\quati}.
+% \end{gather}
+% Of course, these commutation relations are exactly the same for the corresponding split-quaternion or matrix basis elements. Scalar multiples of the identity element commute with every other element of the algebra; they are in the \emph{center} of the algebra. Importantly, the vector field \(X_1\) and all its multiples commute with 
+% \emph{all} the other vector fields. This has important ramifications: it means that one can consider the action associated with those vector fields as completely separate from the action of the other vector field components, for they do not influence each other in the process. This fact will be used in \cref{sec:mechanical}.
 
 \subsection{Classification of dynamical systems}
 \label{ssec:system_classification}
@@ -581,6 +613,6 @@ where the one-parameter group of transformations generated by \(\exp(A t)\) is r
         \phantom \quad \ec^{a_0 t}\qty(1 + \norm{\vec{a}}t ) & \vec{a} \text{ lightlike}, \\[1.5ex]
         \phantom \quad \ec^{a_0 t}\qty[\cosh(\norm{\vec{a}} t) + \uvec{a}\sinh(\norm{\vec{a}} t)] & \vec{a} \text{ spacelike}. \\[1.5ex]
     \end{cases}
-    \label{ssec:system_solution}
+    \label{eq:system_solution}
 \end{equation}
 Evaluating a matrix exponential by hand usually involves diagonalizing (strictly speaking, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix \(A\); especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector \(\uvec{a}\) are discussed in greater detail \cite{Moler2003}.
