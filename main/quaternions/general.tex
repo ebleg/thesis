@@ -24,7 +24,9 @@ The algebra of split-quaternions is associative but not commutative --- formally
     \end{tabular}
 \end{table}
 
-The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The difference `metric' signature makes the algebra of split-quaternions different from its conventional quaternion counterpart.
+The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The difference `metric' signature makes the split-quaternion number system different from its conventional quaternion counterpart.
+
+Importantly, the split-quaternion algebra can also be seen as an \emph{algebra}; i.e. a four-dimensional vector space over the real numbers combined with the split-quaternion product operation. More specifically, the split-quaternions form a \emph{unital noncommutative associative algebra}.
 
 \subsubsection{The dihedral group} 
 On their own, the basis elements of the split-quaternions \(\qty{1, \quati, \quatj, \quatk}\) form a \emph{finite group} under multiplication, namely the \emph{dihedral group} \digroup{4}. This group represents all the symmetries of a square: the identity, a 90-degree rotation, and two reflections, as illustrated in \cref{fig:square_symmetry} \cite{Dummit2004}.
@@ -47,6 +49,7 @@ The structure of the dihedral group can be visualized by means of its \emph{cycl
 Similar to conventional quaternions, we make a distinction between the \emph{scalar} or \emph{real part} and the \emph{vector part} of a split-quaternion. For an arbitrary split-quaternion \(a \in \spquaternions\), \cite{Jafari2014}
 \begin{equation}
      a = \quat{a_0}{a_1}{a_2}{a_3}
+     \label{eq:spquaternion}
 \end{equation}
 the real part is 
 \begin{equation}
@@ -54,14 +57,15 @@ the real part is
 \end{equation}
 and the vector part is 
 \begin{equation} 
-    \vecpart{a} \coloneq \quatvec{a_1}{a_2}{a_3} 
-\end{equation}
-For convenience, the vector part will be referred to as the symbol of the split-quaternion in boldface. Hence, we have $\vec{a} = \vecpart{a}$, and
-\begin{equation}
-     a = a_0 + \vec{a}.
+    \vecpart{a} \coloneq \quatvec{a_1}{a_2}{a_3}.
 \end{equation}
 
-In addition, every split-quaternion has a unique \emph{conjugate} split-quaternion defined as
+Because the vector part and real part are used so often in this chapter, we adopt a more convenient shorthand notation for them, instead of $\scapart{}$ and $\vecpart{}$. Given any split-quaternion, the real part is denoted by the same symbol with a subscript of 0, without having to explicitly define the split-quaternion components as we did in \cref{eq:spquaternion}. In addition, the vector part is denoted by the symbol of the split-quaternion, but set in \textbf{boldface}. For instance, for the split-quaternion $b$, we denote its real part by $b_0 \coloneq \scapart{b}$ and its vector part by $\vec{b} \coloneq \vecpart{b}$. An alternative expression for $b$ is then
+\begin{equation}
+     b = b_0 + \vec{b}.
+\end{equation}
+
+In addition, every split-quaternion has a unique \emph{conjugate} split-quaternion, which has the same real part but the opposite vector part:
 \begin{equation}
     \begin{split}
      \conj{a} &\coloneq \scapart{a} - \vecpart{a} \\
@@ -76,19 +80,19 @@ Using the conjugate, we can define the \emph{squared split-quaternion norm}:
     \label{eq:quat_norm}
 \end{equation}
 
-The split-quaternion norm is (in stark contrast to the norm defined for quaternions) \emph{indefinite}: it can be positive, negative or zero. Split-quaternions can therefore be categorized into three regimes based on the sign of their squared norm. In the tradition of special relativity, these regimes are named\footnote
-{Like the space of split-quaternions, spacetime is also four-dimensional. However, the signature of the Minkowski metric is different from the split-quaternion signature: it is either \((-, +, +, +)\) or equivalently \( (+, -, -, -)\) depending on the sign convention one chooses to observe. The terminology (i.e. spacelike, timelike, lightlike) applies nonetheless.} \cite{Misner1970,Landau1971}
+The split-quaternion norm is (in stark contrast to the norm defined for quaternions) \emph{indefinite}: it can be positive, negative or zero. Split-quaternions can therefore be categorized into three regimes based on the sign of their squared norm. In the tradition of special relativity, these regimes are named
 \begin{itemize}
     \item $a$ is \emph{timelike} if \( \mathscr{N}(a) > 0 \),
     \item $a$ is \emph{lightlike} if \( \mathscr{N}(a) = 0 \), 
     \item $a$ is \emph{spacelike} if \( \mathscr{N}(a) < 0 \).
 \end{itemize}
+Like the space of split-quaternions, Minkowski spacetime is also four-dimensional. However, the signature of the Minkowski metric is different from the split-quaternion signature: it is either \((-, +, +, +)\) or equivalently \( (+, -, -, -)\) depending on the sign convention one chooses to adhere to. The terminology (i.e. spacelike, timelike, lightlike) applies nonetheless. \cite{Misner1970,Landau1971}
 
 Based on the squared split-quaternion norm, the \emph{split-quaternion norm} is then defined as
 \begin{equation}
-     \norm{a} \coloneq \sqrt{\mathscr{N}(a)}.
+     \norm{}:\, \spquaternions \to \complex: \;\: \norm{a} \coloneq \sqrt{\mathscr{N}(a)} = \sqrt{a_0^2 + a_1^2 - a_2^2 - a_3^2}.
 \end{equation}
-Because of the indefiniteness of $\mathscr{N}$, $\norm{a}$ is imaginary if $a$ is spacelike.
+Because of the indefiniteness of $\mathscr{N}$, $\norm{a}$ is an imaginary number if $a$ is spacelike, for its squared norm is negative in that case.
 
 \subsubsection{Vector norm}
 Apart from the split-quaternion norm, we may also define a (squared) norm that only considers the \emph{vector part} of the split-quaternion. The \emph{squared vector norm} is defined in accordance with the total squared split-quaternion norm given by \cref{eq:quat_norm}:
@@ -96,33 +100,33 @@ Apart from the split-quaternion norm, we may also define a (squared) norm that o
      \mathscr{N}(\vec{a}) = a_1^2 - a^2_2 - a^2_3.
      \label{eq:vector_norm}
 \end{equation}
-This is not an abuse of notation: \(\vec{a}\) simply refers to the split-quaternion with the same vector part as \(a\) but with a zero scalar part. We can therefore use the same function with no ambiguity. The \emph{vector norm} is then 
+This is not an abuse of notation, for \(\vec{a}\) can be seen as a split-quaternion in its own right with the same vector part as \(a\) but with a zero scalar part. It is therefore a valid argument for the split-quaternion norm, and we can use the same function with no ambiguity. The \emph{vector norm} is then defined in accordance 
 \begin{equation}
-    \norm{\vec{a}} \coloneq \sqrt{\mathscr{N}(\vec{a})}. 
+    \norm{\vec{a}} = \sqrt{\mathscr{N}(\vec{a})} = \sqrt{a_1^2 - a_2^2 - a_3^2}. 
 \end{equation}
 
-In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and its squared vector norm plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the \emph{squared total norm}, and to \(\mathscr{N}(\vec{a})\) as the squared vector norm. Likewise, we refer to $\norm{a}$ as the \emph{total norm}, and to $\norm{\vec{a}}$ as the vector norm.
+In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and its squared vector norm plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the squared \emph{total} norm, and to \(\mathscr{N}(\vec{a})\) as the squared \emph{vector} norm. Likewise, we refer to $\norm{a}$ as the \emph{total} norm, and to $\norm{\vec{a}}$ as the \emph{vector} norm of that split-quaternion.
 
-The quadratic form given in \cref{eq:vector_norm} is not positive-definite either. As a result, we can also establish a classification based on the vector norm instead of the total norm:
+The quadratic form given in \cref{eq:vector_norm} is also not positive-definite. As a result, we can establish a classification based on the vector norm instead of the total norm as well:
 \begin{itemize}
     \item \vec{a} is \emph{timelike} / $a$ has a timelike vector if $\mathscr{N}(\vec{a}) > 0$,
     \item \vec{a} is \emph{lightlike} / $a$ has a lightlike vector if $\mathscr{N}(\vec{a}) = 0$,
     \item \vec{a} is \emph{spacelike} / $a$ has a spacelike vector if $\mathscr{N}(\vec{a}) < 0$.
 \end{itemize}
 
-The squared vector norm is not completely independent from the squared total norm: observe that 
+Because one can classify based on both the (squared) squared norm and the (squared) total norm, one may identify nine hypothetical cases, since each falls into one of three regimes. However, the squared vector norm is not completely independent from the squared total norm: observe that 
 \begin{equation}
-    \mathscr{N}(a) < 0\quad \Rightarrow \quad \mathscr{N}(\vec{a}) < 0.
+    \mathscr{N}(a) < 0\quad \Rightarrow \quad \mathscr{N}(\vec{a}) < 0,
 \end{equation} 
-As such, \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Likewise, a lightlike split-quaternion can only have a lightlike or spacelike vector part, i.e.
+which is to say that \emph{a spacelike split-quaternion always has a spacelike vector part}. The converse is not necessarily true. Furthermore, \emph{a lightlike split-quaternion must have a lightlike or spacelike vector part}, i.e.
 \begin{equation}
     \mathscr{N}(a) = 0 \quad \Rightarrow \quad \mathscr{N}(\vec{a}) \leq 0
 \end{equation}
-These two statements rule out three hypothetical combinations for the total norm and vector norm (spacelike - timelike, spacelike - lightlike and lightlike - timelike). Hence, six possible combinations remain; they are listed in \cref{tab:class_combinations}. 
+These two statements rule out three hypothetical combinations for the regimes of the total norm and the vector norm (spacelike - timelike, spacelike - lightlike and lightlike - timelike). Hence, six possible combinations remain; they are listed in \cref{tab:class_combinations}. 
 
 \begin{table}[ht]
     \centering
-    \caption{All the possible combinations of the regime of a split-quaternion and its vector part. Spacelike split-quaternions can only have a spacelike vector, while lightlike split-quaternions can only have lightlike or spacelike vector parts.}
+    \caption{All the possible combinations of the regime of the split-quaternion and the regime of its vector part. Spacelike split-quaternions can only have a spacelike vector, while lightlike split-quaternions can only have lightlike or spacelike vector parts. The numbering of these cases coincides with the classification of dynamical systems in \cref{ssec:system_classification}.}
     \label{tab:class_combinations}
     \begin{tabular}{c|cccc}
         \toprule
@@ -138,49 +142,51 @@ These two statements rule out three hypothetical combinations for the total norm
 \end{table}
 %As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). 
 
-The classification given by \cref{tab:class_combinations} is very important because it corresponds directly to the qualitative classification of dynamical systems. This is the subject of \cref{ssec:system_classification}.
+The classification given by \cref{tab:class_combinations} is very important because it corresponds directly to the qualitative classification of dynamical systems discussed in \cref{ssec:system_classification}.
 
-In the remainder of this chapter, the split-quaternion properties that are defined above are used profusely. Therefore, \cref{tab:spquat_properties} provides an overview of these properties and their definitions. 
+In the remainder of this chapter, the split-quaternion properties that are defined above are used profusely. For the convenience of the reader, an overview of these properties and their definitions is provided in \cref{tab:spquat_properties}. 
 
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.3}
 \begin{table}[ht!]
     \centering
     \caption{Overview of the split-quaternion properties that are often used in this chapter.}
     \label{tab:spquat_properties}
-    \begin{tabular}{lll}
+    \begin{tabular}{llll}
         \toprule
-        \textbf{Terminology} & \textbf{Notation} & \textbf{Value / definition} \\
+        \textbf{Terminology} & \textbf{Notation} & \textbf{Definition} & \textbf{Expression} \\
         \midrule
-        Split-quaternion & \(a\) & \(a_0 + a_1\quati + a_2\quatj + a_3\quatk\) \\
-        Conjugate split-quaternion & \(\conj{a}\) & \(a_0 - a_1\quati - a_2\quatj - a_3\quatk\)\\
+        Split-quaternion & \(a\) & &  \(a_0 + a_1\quati + a_2\quatj + a_3\quatk\) \\
+        Conjugate split-quaternion &  \(\conj{a}\) & $ a - \vecpart{a} $ & \(a_0 - a_1\quati - a_2\quatj - a_3\quatk\)\\
         \midrule
-        Squared (total) norm & \(\mathscr{N}(a)\) & \(a\conj{a} = a_0^2 + a_1^2 - a_2^2 - a_3^2\) \\
-        (Total) norm & \(\norm{a}\) & \(\sqrt{\mathscr{N}(a)}\) \\
+        Scalar part & \(\scapart{a} = a_0\) & & \(a_0\) \\
+        Vector part & \(\vecpart{a} = \vec{a}\) & & \(a_1\quati + a_2\quatj + a_3\quatk\) \\
         \midrule
-        Scalar part & \(\scapart{a}\) & \(a_0\) \\
-        Vector part & \(\vecpart{a} = \vec{a}\) & \(a_1\quati + a_2\quatj + a_3\quatk\) \\
+        Squared (total) norm & \(\mathscr{N}(a)\) & \(a\conj{a}\) &  
+        \(a_0^2 + a_1^2 - a_2^2 - a_3^2\) \\
+        (Total) norm & \(\norm{a}\) & \(\sqrt{\mathscr{N}(a)}\) & \(\sqrt{a_0^2 + a_1^2 - a_2^2 - a_3^2}\) \\
         \midrule
-        Squared vector norm & \(\mathscr{N}(\vec{a})\) & \( \vec{a}\conj{\vec{a}} = a_1^2 - a_2^2 - a_3^2 \) \\
-        Vector norm & \(\norm{\vec{a}}\) & \(\sqrt{\mathscr{N}(\vec{a})}\) \\
+        Squared vector norm & \(\mathscr{N}(\vec{a})\) & \( \vec{a}\conj{\vec{a}} \) & \( a_1^2 - a_2^2 - a_3^2 \) \\
+        Vector norm & \(\norm{\vec{a}}\) & \(\sqrt{\mathscr{N}(\vec{a})}\) & \(\sqrt{a_1^2 - a_2^2 - a_3^2}\) \\
         \bottomrule
     \end{tabular}
 \end{table}
 \renewcommand{\arraystretch}{1}
  
-\subsubsection{Lorentzian three-space}
-In contrast to the split-quaternion itself, the vector part of the split-quaternion does live in a space with a Lorentz structure. The \emph{Lorentzian $n$-space} is the real vector $\real^n$ space equipped with the \emph{Lorentzian inner product}. 
+\subsubsection{Lorentzian 3-space}
+In contrast to the overall split-quaternion, the vector part of the split-quaternion does live in a space with a Lorentz structure, having three dimensions instead of four. In general, the \emph{Lorentzian $n$-space} is defined as the real vector $\real^n$ space equipped with the \emph{Lorentzian inner product}. 
 \begin{equation}
-     \lorinner{\vec{a}}{\vec{b}} \coloneq a_1b_1 \, - \, a_2b_2 \, - \, \ldots \, - \, a_nb_n \qquad \vec{a}, \vec{b} \in \real^n.
+     \lorinner{\vec{a}}{\vec{b}} \coloneq a_1b_1 - a_2b_2 - \ldots - a_nb_n, \qquad \vec{a}, \vec{b} \in \real^n.
 \end{equation}
-Since the Lorentzian inner product has signature $(+, -, \ldots, -)$, the Lorentzian $n$-space is denoted by $\real^{1, n-1}$. For $n = 4$, the Lorentzian space is also called the \emph{Minkowski space}, which forms the setting of special relativity. 
+Since the Lorentzian inner product has signature $(+, -, \ldots, -)$, the Lorentzian $n$-space is denoted by $\real^{1, n-1}$. For $n = 4$, the Lorentzian space is equal to \emph{Minkowski spacetime}, which forms the mathematical setting of the theory of special relativity. 
 
-Based on the Lorentzian inner product, the \emph{Lorentz norm} can be defined as follows:
+Based on the Lorentzian inner product\footnote
+{
+    Because the Lorentzian inner product fails to be positive definite, it is not strictly an inner product, but rather a \emph{pseudo-inner product}. Likewise, the Lorentzian norm is called a \emph{pseudonorm}.
+}, the \emph{Lorentz norm} can be defined as follows:
 \begin{equation}
     \norm{\vec{a}} = \sqrt{\lorinner{\vec{a}}{\vec{a}}},
 \end{equation}
-which coincides with the vector norm for split-quaternions defined above on the Lorentzian 3-space $\real^{1,2}$.
-
-Because the Lorentzian inner product fails to be positive definite, it is not strictly an inner product, but rather a \emph{pseudo-inner product}. Likewise, the Lorentzian norm is called a \emph{pseudonorm}.
+For the Lorentzian 3-space $\real^{1, 2}$, the Lorentzian norm coincides with the vector norm for split-quaternions defined in \cref{eq:vector_norm}. Hence, if the vector part of a split-quaternion is regarded as a three-dimensional object in its own right (rather than a split-quaternion with zero real part), it is an element of $\real^{1, 2}$. For this space, we view the split-quaternion basis elements $\quati, \quatj, \quatk$ as \emph{unit basis vectors} to distinguish the vector components.
 
 Next to the Lorentzian inner product, we can also define a \emph{Lorentzian cross product}, which exists only for $\real^{1, 2}$. Given two vectors $\vec{a}, \vec{b}$, in $\real^{1, 2}$
 their Lorentzian cross-product is defined as: \cite{Jafari2014}
@@ -190,7 +196,7 @@ their Lorentzian cross-product is defined as: \cite{Jafari2014}
 \end{gather}
 where we have assumed $\quati, \quatj, \quatk$ as basis vectors.
 
-The split-quaternion product can be conveniently expressed in terms of the Lorentzian inner product and cross product. For two split-quaternions $a$ and $b$ with their respective vector parts $\vec{a}$ and $\vec{b}$, we have
+The split-quaternion product can be conveniently expressed in terms of the Lorentzian inner product and cross product. For two split-quaternions $a$ and $b$ with their respective vector parts $\vec{a}$ and $\vec{b}$, we have the following relation:
 \begin{equation}
     ab = a_0 b_0 - \lorinner{\vec{a}}{\vec{b}} + a_0 \vec{b} + b_0 \vec{a} + \lorcrossp{\vec{a}}{\vec{b}}.
 \end{equation}
@@ -260,11 +266,11 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
         \begin{equation}
              \frac{\trace(A)}{2} = \scapart{a} = a_0.
         \end{equation}
-    \item The \emph{determinant} of the matrix is equal to the \emph{squared norm} of the split-quaternion:
+    \item The \emph{determinant} of the matrix is equal to the \emph{squared total norm} of the split-quaternion:
         \begin{equation}
               \det(A) = \mathscr{N}(a).
         \end{equation}
-    \item The equivalence of the determinant and the split-quaternion norm suggests that the multiplicative inverse of a split-quaternion does not always exist: it must be nonzero. In that case, it is clear that
+    \item The equivalence of the determinant and the split-quaternion norm suggests that the \emph{multiplicative inverse} of a split-quaternion does not always exist: it must be nonzero. In that case, it is clear that
         \begin{equation}
              \phi\qty(a^{-1}) = A^{-1} \qquad \mathscr{N}(a) \neq 0.
         \end{equation}
@@ -283,19 +289,21 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
             \bottomrule
         \end{tabular}
         \end{table}
-    \item The eigenvalues of a \(2\times2\)-matrix can be expressed in terms of its trace and its determinant:
+    \item Importantly, the \emph{eigenvalues} of a $2\times2$-matrix $A$ can be expressed in terms of its trace and its determinant:
         \begin{equation}
              \lambda_A = \frac{\trace(A) \pm \sqrt{\trace^2(A) - 4\det(A)}}{2}.
         \end{equation}
-        The argument of the square root is equal to the \emph{negative of the squared vector norm} of \(a\). We therefore have:
+        The argument of the square root in the above expression is equal to the \emph{negative of the squared vector norm} of \(a\). We therefore have:
         \begin{equation}
             \lambda_A = \frac{2a_0 \pm \sqrt{4 a_0^2 - 4\mathscr{N}(a)}}{2} = 
                 a_0 \pm \ii\norm{\vec{a}},
             \label{eq:quat_eigvals}
         \end{equation}
         where $\norm{\vec{a}}$ is imaginary if $\vec{a}$ is spacelike. 
-        Hence, the real part and the squared norm of the vector parts of the split-  quaternion coincide with the real and imaginary parts of the eigenvalues of the matrix. When the vector either is spacelike or timelike, the $\ii$ cancels, and the overall eigenvalue is real.
+        Hence, the \emph{real part and the vector norm the split-quaternion coincide with the real and imaginary parts of the eigenvalues of the matrix}, where the latter is multiplied by the imaginary unit $\ii$. When the vector either is spacelike or timelike, the $\ii$ cancels, and the overall eigenvalue is real. This striking correspondence is the main reason for the benefits of the split-quaternion representation of dynamical systems, which is discussed in \cref{ssec:system_classification}.
 \end{itemize}
+
+An overview of the correspondence between matrix and split-quaternion properties is given in \cref{tab:spquat_matrices}.
 
 %<symbol: a> <expl: Split-quaternion> <tags: quaternions, letter>
 %<symbol: \vec{a}> <expl: Vector part of the split-quaternion \(a\)> <tags: quaternions, letter>
@@ -342,7 +350,7 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
         Adjugate & \(\adjugate(A)\) & \(\conj{a}\) & Conjugate \\
         \midrule
         Determinant & \(\det(A)\) & \(\mathscr{N}(a)\) & Squared norm \\
-        Trace       & \(\trace(A)\) & \(\scapart{a} = a_0\) & Real / scalar part \\
+        Trace       & \(\frac{\trace(A)}{2}\) & \(a_0\) & Real / scalar part \\
         Eigenvalues \hspace{1.5cm} & \(\lambda_{A} \) & \( a_0 + \vec{a}\ii \) & Scalar part \& vector norm \\
     \bottomrule
     \end{tabular}
