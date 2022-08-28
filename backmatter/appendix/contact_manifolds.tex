@@ -5,7 +5,7 @@ This appendix provides a short introduction to the basic concepts of contact geo
 %Contact manifolds are odd-dimensional manifolds with the addition of a contact structure. This contact structure can be considered to be like a symplectic structure (which is necessarily even-dimensional) with the addition of one `special' dimension. The relation between contact structures and symplectic structures is crucial for the extension of Lagrangian and Hamiltonian mechanics to contact manifolds.
 \section{Contact structures}
 \label{sec:contact_structures}
-A \emph{contact element} on a manifold \(M\) is a point \(m \in M\) combined with a tangent hyperplane \(\xi_m \subset \tspace{m}{M}\) (a subspace of the tangent space  with codimension 1). The word `contact' refers to the intuitive notion that if two submanifolds touch, they share a contact element: they are \emph{in contact}. Being in contact is a slightly weaker notion than tangency, for the magnitude of the `velocity' does not matter in the former case. \cite{Cannas2001} 
+A \emph{contact element} on a manifold \(M\) is a point \(m \in M\) combined with a tangent hyperplane \(\xi_m \subset \tspace{m}{M}\) (a subspace of the tangent space  with codimension 1). The word `contact' refers to the intuitive notion that if two submanifolds touch, they share a contact element: they are \emph{in contact}. Being in contact is a slightly weaker notion than tangency, for the magnitude of the `velocity' does not matter in the former case \cite{Cannas2001}.
 
 Contact elements to a two-dimensional manifold are simply lines through the origin in the tangent space. Contact elements to a three-dimensional manifold are planes through the origin, etc.
 
@@ -114,7 +114,7 @@ where \(\oplus\) denotes the Whitney sum. The first subbundle is referred to as 
     X = \underbrace{(\intpr{X}{\alpha})R_\alpha}_{X^\text{ver}} + \underbrace{\qty[X - (\intpr{X}{\alpha})R_\alpha]}_{X^\text{hor}}.
     \label{eq:contact_vf_decomp}
 \end{equation}
-Observe that indeed \(X^\text{ver} \in \ker \dd{\alpha}\) and \(X^\text{hor} \in \ker \alpha\). \cite{Cannas2001,DeLeon2020,Libermann1987}
+Observe that indeed \(X^\text{ver} \in \ker \dd{\alpha}\) and \(X^\text{hor} \in \ker \alpha\) \cite{Cannas2001,DeLeon2020,Libermann1987}.
 
 We now wish to find the relation between the contact Hamiltonian \(K \in \functions{M}\) and the associated Hamiltonian vector field \(X_K \in \vfields{M}\). This one-to-one relation is uniquely determined by two conditions. Firstly, we impose that\footnote{This is the sign convention observed by \citet{Bravetti2017} en \citet{VanderSchaft2021a}, as opposed to \citet{Libermann1987}.}
     \begin{equation}
@@ -156,7 +156,7 @@ We must therefore recover \(X^\text{hor}_K\) from the above expression. Define t
 \begin{equation}
      \toDual{\alpha}: \tbundle{M} \to \ctbundle{M}: X \mapsto  \intpr{X}{\dd{\alpha}},
 \end{equation}
-when restricted to the space of horizontal vector fields, this mapping is an isomorphism onto the `semi-basic' forms\footnote{Semi-basic forms are forms that vanish when contracted with a vertical vector field. \cite{Libermann1987}}. Define the inverse mapping of \(\toDual{\alpha}\) by \(\fromDual{\alpha}\), such that
+when restricted to the space of horizontal vector fields, this mapping is an isomorphism onto the `semi-basic' forms\footnote{Semi-basic forms are forms that vanish when contracted with a vertical vector field \cite{Libermann1987}.}. Define the inverse mapping of \(\toDual{\alpha}\) by \(\fromDual{\alpha}\), such that
 \begin{equation}
      X_K^\text{hor} = \fromDual{\alpha}\qty(\dd{K} - \qty(\intpr{R_\alpha}{\dd{K}})\,\alpha).
 \end{equation}
