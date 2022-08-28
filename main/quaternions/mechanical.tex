@@ -15,7 +15,7 @@ Alternatively, using the \(\gamma_p \coloneq b_p/m\), \(\gamma_s \coloneq k/b_s\
     \label{eq:ddho_eom}
 \end{equation}
 
-Although the above matrix can represent all possible linear two-dimensional systems \emph{in theory}, we will make some assumptions regarding the parameters in order to enforce that the system is an actual oscillator:
+Although the above matrix can represent all possible linear two-dimensional systems \emph{in theory}, we will make some assumptions regarding the parameters in order to enforce that the system is indeed an actual oscillator:
 \begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
     \item The damping coefficients are larger than or equal to zero: $\lambda_s \geq 0, \lambda_p \geq 0$;
     \item The mass is strictly positive: $m > 0$;
@@ -27,9 +27,9 @@ The split-quaternion associated with the state matrix of the doubly damped syste
 
 In a vector space, units are associated with the basis vectors, not with the vector components. For example, consider a two-dimensional vector space spanned by an axis for apples and and an axis for pears. If we wish to represent that someone possesses three apples and four pears, the \emph{components} of that vector are \((3, 4)\), and the \emph{unit vectors} are \((1 \text{ apple}, 1\text{ pear})\). 
 
-Along the same line, we must define the units in the state matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and \(m_0, t_0\). The basis elements are then mapped in terms of these reference quantities:
+Along the same line, we must define the units in the state matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, define the reference quantities and \(m_0, t_0\). The basis elements are then mapped in terms of these reference quantities:
 \begin{gather}
-     \phi\qty(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \qquad 
+    \phi\qty(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \qquad 
     \phi\qty(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  -\tfrac{m_0}{t_0^2} & 0), \\
     \phi\qty(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  \tfrac{m_0}{t_0^2} & 0), \qquad
     \phi\qty(\quatk) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & -\tfrac{1}{t_0}).
@@ -43,21 +43,24 @@ Using these reference quantities, the split-quaternion associated with the state
 \end{equation}
 Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, the split-quaternion represents the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should add them only when returning from the split-quaternions back to the realm of the matrices. 
 
-The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any significance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
+The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any significance? To answer this question, note that the rescaling of units is a linear transformation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
 \begin{equation}
      N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*,
 \end{equation}
-which form the group isomorphic to \((\real^*)^2\). This transformation of the vector space manifests itself on the \(A\)-matrix as: \( A' = N^{-1}A N\). It is easy to see that the basis matrices (or vector fields) for `1' and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not (that is, without making use of the reference quantities). 
+which form the group isomorphic to \((\real^*)^2\). This transformation of the vector space manifests itself on the \(A\)-matrix as 
+\begin{equation} 
+    A' = N^{-1}A N.
+\end{equation}
+It is easy to see that the basis matrices (or vector fields) for 1 and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not (that is, without making use of the reference quantities). 
 
-A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. It is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
+A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. For example, it is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
 \begin{equation}
      p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q,
 \end{equation}
-such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This would essentially resolve this unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
+such that the Hamiltonian reverts to the standard quadratic form $\tfrac{1}{2}\qty(q^2 + p^2)$. This is precisely the transformation that removes the \quatj-component of the split-quaternion. This would essentially resolve this unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
+However, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group \((\real^*)^2\). %Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix \(N\) to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of \(n^{-1} a n\) (where \(n = \phi^{-1}(N)\)) produces a split-quaternion with zero \(\quatj\)-component. 
 
-In contrast the common practice of rescaling the units, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group \((\real^*)^2\). Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix \(N\) to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of \(n^{-1} a n\) (where \(n = \phi^{-1}(N)\)) produces a split-quaternion with zero \(\quatj\)-component. 
-
-As a final argument, we can say that the `rescaling of the axes', while common in physics and mathematically allowed, is of little use for engineers, since they tend to stick to SI units in the first place. The `scale of the axes' is therefore a physical reality. This is why we choose not to discard the \(\quatj\)-component through a rescaling.
+As a final argument, we can say that the rescaling of the axes, while common in physics and mathematically allowed, is of little use for engineers, since they tend to stick to SI units in the first place. The scale of the axes is therefore a physical reality. This is why we choose not to discard the \(\quatj\)-component by rescaling.
 
 To conclude, it is not so much the case that unit transformations are not allowed in the split-quaternion space, but the question as to what the units of the \quatj-components are is moot. Unfortunately, the notation in \cref{eq:ddho_quat_units} is rather obfuscating. Hence, we take the freedom to choose \(m_0 = 1 (\si{\kilogram})\) and \(t_0 = 1 (\si{\second})\), and write the split-quaternion as follows:
 \begin{equation}
@@ -69,13 +72,15 @@ Leaving out the reference quantities requires the silent understanding that all 
 In the next section, we investigate the influence that of each of the split-quaternion components has on the physical behavior of the mechanical system.
 
 \subsection{Physical interpretation of the split-quaternion representation}
+
+\subsubsection{Squared total norm}
 As mentioned previously, the qualitative regime of the dynamical system can be deduced from the sign of its split-quaternion and vector norm.  The norm of the split-quaternion given in \cref{eq:ddho_quat} is
 \begin{equation}
      \mathscr{N}(a) = m \Omega_n^2 + \gamma_p \gamma_s.
 \end{equation}
 From this expression we find that, given the assumptions, the norm of \(a\) is always positive, and that we are therefore always dealing with a timelike split-quaternion. 
 
-\subsubsection{Real part of the split-quaternion} 
+\subsubsection{Real part} 
 The real part of the split-quaternion representation of the harmonic oscillator with two dampers is (cf. \cref{eq:ddho_quat}),
 \begin{equation}
      a_0 = -\tfrac{1}{2}(\gamma_s + \gamma_p).
@@ -94,7 +99,7 @@ Because the transformations generated by the vector part of \(a\) are conservati
 
 From the above expression, it can be seen that the dissipative component of the solution is rather simple: it is simply a contraction by \(\ec^{a_0t } = \ec^{-(\gamma_s + \gamma_p)t}\). This is why we will now focus exclusively on the nature of the second transformation, being the conservative part. From the split-quaternion point of view, this means that we assume that the real part vanishes, and only take the vector part into account.
 
-\subsubsection{Vector part of the split-quaternion} 
+\subsubsection{Vector part} 
 The vector part of \(a\) has three components. Based on the associated basis vector fields shown in \cref{fig:basis_vf} and \cref{eq:ddho_quat}, the following observations can be made
 \begin{itemize}
     \item The \quati-component of the split-quaternion gives rise to a rotational vector field that is rotationally symmetric, since the solution trajectories are concentric circles. A positive component gives rise to a clockwise rotation. For the mechanical system, this component is equal to \(\frac{1}{2}\qty(\tfrac{1}{m} + m\Omega_n^2)\); it induces the \emph{oscillatory} or \emph{periodic motion} of the harmonic oscillator.

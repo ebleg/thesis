@@ -23,7 +23,7 @@ axis background/.style={fill=white},
 xmajorgrids,
 ymajorgrids
 ]
-\addplot [color=black, forget plot]
+\addplot [color=black, forget plot, thick]
   table[row sep=crcr]{%
 0	50\\
 0.0303030303030303	49.9998163452709\\
@@ -159,7 +159,7 @@ zmajorgrids,
 zminorgrids,
 3d box = complete,
 ]
- \addplot3 [color=black, dashed]
+ \addplot3 [color=black, dashed, thick]
  table[row sep=crcr] {%
 0	50	0\\
 0.0303030303030303	49.9998163452709	0\\
@@ -353,7 +353,7 @@ x	y	z\\
 2.78808794383929	48.4460528215968	-1.18090909090909\\
 }--cycle;
 
-\addplot3 [color=black]
+\addplot3 [color=black, thick]
  table[row sep=crcr] {%
 0	50	-0\\
 0.0303030303030303	49.9998163452709	-0.0121212121212121\\

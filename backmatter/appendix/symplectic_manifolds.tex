@@ -3,7 +3,7 @@
 
 Just like the cotangent bundle, the tangent bundle admits a canonical structure, which is called the \emph{vertical endomorphism}. Its construction is slightly more convoluted than the canonical symplectic structure of the cotangent bundle, but nevertheless essential for a proper geometric interpretation of Lagrangian mechanics. 
 
-\section{The double tangent bundle} The \emph{double tangent bundle} is the tangent bundle to \(\tbundle{Q}\), denoted by \(\tbundle{\tbundle{Q}}\). This space has not one but two canonical vector bundle structures, defined by projection maps from \(\tbundle{\tbundle{Q}} \to \tbundle{Q}\). First, there is the trivial projection \(\pi_{\tbundle{Q}}\) thats `forgets' about the tangent elements to \(\tbundle{Q}\). Secondly, there is \( (\pi_{Q})_* \) the pushforward (tangent map) of the projection map \(\pi_Q: \tbundle{Q} \to Q\). \cite{Abraham1978}
+\section{The double tangent bundle} The \emph{double tangent bundle} is the tangent bundle to \(\tbundle{Q}\), denoted by \(\tbundle{\tbundle{Q}}\). This space has not one, but two canonical vector bundle structures, defined by different projection maps from \(\tbundle{\tbundle{Q}}\) to \(\tbundle{Q}\). First, there is the trivial projection \(\pi_{\tbundle{Q}}\) thats forgets about the tangent elements to \(\tbundle{Q}\). Secondly, there is \( (\pi_{Q})_* \) the pushforward (tangent map) of the projection map \(\pi_Q: \tbundle{Q} \to Q\). \cite{Abraham1978}
 \begin{center}
    \begin{tikzcd} 
                     & \tbundle{(\tbundle{Q})} \arrow[rd, "\pi_{\tbundle{Q}}"] \arrow[ld, swap, "(\pi_Q)_*"] & \\
@@ -11,10 +11,12 @@ Just like the cotangent bundle, the tangent bundle admits a canonical structure,
                     & Q        &  
    \end{tikzcd}
 \end{center}
-Vectors on the tangent bundle \(\tbundle{Q}\) (they live in \(\tbundle{(\tbundle{Q})}\)) are called vertical if they vanish under the action of \( (\pi_Q)_* \). These vectors point entirely in the `direction' of the fiber: in the Lagrangian formalism, they reflect a pure change in velocity, and no change in the generalized position. The \emph{vertical lift} \(\Psi\) maps a vector on \(Q\) to a vertical vector on \(\tbundle{Q}\). \cite{Carinena1990}
+Vectors on the tangent bundle \(\tbundle{Q}\) (they live in \(\tbundle{(\tbundle{Q})}\)) are called vertical if they are part of the kernel of \( (\pi_Q)_* \). These vectors point entirely in the direction of the fiber: in the Lagrangian formalism, they reflect a pure change in velocity, and no change in the generalized position. 
+
+The \emph{vertical lift} \(\Psi\) maps a vector on \(Q\) to a vertical vector on \(\tbundle{Q}\). \cite{Carinena1990}
 \begin{equation}
     \begin{split}
-        \Psi_{\vec{v}}: \tspace{q}{Q} \to & \tspace{\vec{v}}{\tspace{q}{Q}}: \\ 
+        \Psi_{\vec{v}}:\:\tspace{q}{Q} \to & \tspace{\vec{v}}{\tspace{q}{Q}}: \\ 
         & \Psi_{\vec{v}}(\vec{w})\,f = \left. \dv{}{t} f(\vec{v} + t\vec{w})\right |_{t = 0}
         \qquad q \in Q,\:\: \vec{v},\vec{w}\in \tspace{q}{Q},\:\: f \in \functions{\tbundle{Q}}.
     \end{split}
@@ -27,7 +29,7 @@ The vertical lift can also lift entire sections of \(\tbundle{Q}\) by simply app
 
 Using the concept of the vertical lift, we can define the \emph{vertical isomorphism} \(S\) from the double tangent bundle to itself, first by projecting with \((\pi_Q)_*\) and then lifting again:
 \begin{equation}
-     S: \tbundle{\tbundle{Q}} \to \tbundle{\tbundle{Q}}: \quad S(q, \vec{v})\,u = \qty(\Psi_{\vec{v}} \circ (\pi_Q)_*)\,u \qquad u \in \tspace{(q, \vec{v})}{\tbundle{Q}}.
+    S:\:\tbundle{\tbundle{Q}} \to \tbundle{\tbundle{Q}}:\:\; S(q, \vec{v})\,u = \big(\Psi_{\vec{v}} \circ (\pi_Q)_*\big)\,u \qquad u \in \tspace{(q, \vec{v})}{\tbundle{Q}}.
 \end{equation}
 The action of \(S\) can also be stated in the form of the following diagram:
 \begin{center}
@@ -62,9 +64,10 @@ The corresponding differential equations are
 \begin{equation}
      \dv{q^i}{t} = v^i \qquad \dv{v^i}{t} = F^i,
 \end{equation}
-which means that the second-order vector field coincides with the notion of a `second-order differential equation' in \(q^i\).
+which means that the second-order vector field coincides with the notion of a second-order differential equation in \(q^i\).
 
-\section{The Euler-Lagrange equations} With the infrastructure set up in the preceding section, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function \(L \in \functions{\tbundle{Q}}\), define the \emph{Lagrange 1-form}\footnote
+\section{The Euler-Lagrange equations} 
+With the infrastructure established in the preceding section, we can now define the precise geometric setting of Lagrangian mechanics. Given a Lagrangian function \(L \in \functions{\tbundle{Q}}\), define the \emph{Lagrange 1-form}\footnote
 {\citet{Carinena1990} calls \(\theta\) the Euler-Poincaré 1-form.}
 \begin{equation}
     \theta_L \coloneq \dd{L} \circ S = \sum_{j=1}^n \pdv{L}{v^j}\dd{q^j}.
@@ -74,7 +77,7 @@ Secondly, we define the \emph{Lagrange 2-form} as: \cite{Abraham1978,Carinena199
 \begin{equation}
     \omega_L \coloneq - \dd{\theta}_L = \pdv[2]{L}{v^i}{v^j}\wedgep{\dd{q^j}}{\dd{v^i}} + \pdv[2]{L}{q^i}{v^j}\wedgep{\dd{q^j}}{\dd{q^i}}.
 \end{equation}
-Because the exterior derivative and the pullback commute, the Lagrange 2-form is equal to the pullback of the symplectic 2-form under the Legendre transform. If the rank of the Hessian \( \pdv[2]{L}{v^i}{v^j}\) is full (and constant), then \(\omega_L\) is nondegenerate and therefore defines a symplectic structure on \(\tbundle{Q}\). However, observe that whether \(\omega_L\) is symplectic or not depends on the nature of the Lagrangian, while the symplectic structure in the Hamiltonian setting is canonically derived from the cotangent bundle itself --- there is no need for the Hamiltonian to be regular.
+Because the exterior derivative and the pullback commute, the Lagrange 2-form is equal to the pullback of the symplectic 2-form under the Legendre transform. If the rank of the Hessian \( \pdv[2]{L}{v^i}{v^j}\) is full (and constant), then \(\omega_L\) is nondegenerate and therefore defines a symplectic structure on \(\tbundle{Q}\). However, observe that \(\omega_L\) being symplectic or not depends on the nature of the Lagrangian, while the symplectic structure in the Hamiltonian setting is canonically derived from the cotangent bundle itself --- there is no need for the Hamiltonian to be regular.
 
 The final ingredient for the Euler-Lagrange equations is the \emph{energy function}
 \begin{equation}
@@ -110,15 +113,15 @@ We therefore have that \(A^j = v^j\), but \emph{only} if the Hessian of \(L\) wi
 \begin{equation}
      \sum_{i} B^i \pdv[2]{L}{v^i}{v^j} = \pdv{L}{q^j} - \sum_{i} v^i \pdv[2]{L}{q^i}{v^j}.
 \end{equation}
-The Hessian of \(L\) in the velocities \(M_{ij} = \pdv[2]{L}{v^i}{v^j}\) is also called the mass matrix of the system. We have already assumed that this matrix is invertible (i.e. \(L\) is regular). As such, we have that
+The Hessian of \(L\) in the velocities \(M_{ij} = \pdv[2]{L}{v^i}{v^j}\) is also called the mass matrix of the system. We have already assumed that this matrix is invertible. As such, we have that
 \begin{equation}
      \sum_{i}\pdv[2]{L}{v^i}{v^j}\dv[2]{q^j}{t} + \sum_{i} \pdv[2]{L}{q^i}{v^j}\dv{q^i}{t} = \pdv{L}{q^j},
 \end{equation}
 or equivalently
 \begin{equation}
-     \dv{}{t}\qty(\pdv{L}{v^j}) - \pdv{L}{q^j} = 0,
+     \dv{}{t}\qty(\pdv{L}{v^j}) - \pdv{L}{q^j} = 0.
 \end{equation}
-which is the traditional form of the Euler-Lagrange equations.
+This is the traditional form of the Euler-Lagrange equations.
 
 Provided that \(X_L\) is a second-order vector field, the equation \cref{eq:EL_nocomp} is equivalent to the following statement:
 \begin{equation}
@@ -140,4 +143,4 @@ The fact that \(X_L\) is second-order implies that \(\intpr{X_L}{\theta_L} = Z(L
         \intpr{X_L}{\omega_L} &= \dd{E}.
     \end{split}
 \end{equation*}
-Lagrangians are not unique: from \cref{eq:EL_nocomp} we can deduce that the addition of a closed 1-form (as a map from \(\tbundle{Q} \to \real\)) to the Lagrangian will not alter the Euler-Lagrange equations. The closed 1-forms on \(Q\)  therefore constitute the \emph{gauge group} of Lagrangian mechanics. An equivalent statement is that the Euler-Lagrange equations remain invariant if a total derivative is added to the Lagrangian function. \cite{Abraham1978}
+Lagrangians are not unique: from \cref{eq:EL_nocomp} we can deduce that the addition of a closed 1-form (as a map from \(\tbundle{Q} \to \real\)) to the Lagrangian will not alter the Euler-Lagrange equations. The closed 1-forms on \(Q\)  therefore constitute the \emph{gauge group} of Lagrangian mechanics. An equivalent statement is that the Euler-Lagrange equations remain invariant if a total derivative is added to the Lagrangian function \cite{Abraham1978}.
