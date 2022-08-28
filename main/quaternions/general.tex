@@ -213,7 +213,7 @@ Formally, an algebra is a vector space combined \(V\) over a field \field, combi
 \end{itemize}
 
 An \emph{algebra isomorphism} is an isomorphism between vector spaces that also commutes with the respective product operations in both vector spaces. If \((V, \bullet)\) and \((W, \diamond)\) are vector spaces equipped with their respective product operations $\bullet$ and $\diamond$, then \(\phi: V \to W\) is an algebra isomorphism if \cite{Lang2002}
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
     \item \(\phi\) is a vector space isomorphism between \(V\) and \(W\), and 
     \item the isomorphism commutes with the product operation, i.e. 
     \begin{equation}
@@ -277,7 +277,7 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
     The determinant property also shows us what the regime of the product of two split-quaternions is; this is shown in \cref{tab:multiplication_class}.
         \begin{table}[h!]
         \centering
-        \caption{Regime transition under the action of split-quaternion multiplication. The timelike split-quaternions form a group under multiplication, the timelike and spacelike split-quaternions do not: timelike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
+        \caption{Regime transition under the action of split-quaternion multiplication. The timelike split-quaternions form a group under multiplication, the lightlike and spacelike split-quaternions do not: lightlike split-quaternions do not have an inverse and the spacelike split-quaternions are not closed.}
         \label{tab:multiplication_class}
         \begin{tabular}{c|ccc}
             \toprule
@@ -334,12 +334,11 @@ An overview of the correspondence between matrix and split-quaternion properties
 
 \section{Dynamical systems as split-quaternions}
 \label{sec:system_classification}
-In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by relating a basis vector field to each of the split-quaternion basis elements. Subsequently, in \cref{ssec:system_classification} we show how the relation between the eigenvalues of a matrix and the (vector) norm of the split-quaternion leads to an easy classification procedure. Finally, we use those same properties, to obtain the system solution (through the exponential) as well in \cref{ssec:exponential}.
+In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by establishing the split-quaternion representation of a dynamical system. Subsequently, in \cref{ssec:system_classification} we show how the split-quaternion representation leads to a more convenient procedure for system classification. Finally, we exploit the split-quaternion properties to compute the solution of the corresponding dynamical system in \cref{ssec:exponential}.
 
-\subsection{The algebra of vector fields}
+\subsection{The Lie algebra of vector fields}
 \label{ssec:vf_algebra}
-A linear dynamical system is specified by a linear vector field on a vector space. In our context, the vector space is $\real^2$. Combined with the \emph{Lie bracket}, these vector fields form a so-called \emph{Lie algebra}.
-%In this section, we demonstrate how the split-quaternions algebra relate to the algebra of linear vector fields on $\real^2$.
+A linear dynamical system is specified by a linear vector field on a vector space. In our context, the vector space is $\real^2$. Combined with the Lie bracket, these vector fields form a so-called \emph{Lie algebra}. We demonstrate in this section how the Lie algebra of vector fields can be specified in terms of split-quaternions.
 
 \subsubsection{Lie algebras}
 The split-quaternions form an associative, noncommutative unital algebra over the real numbers, which is isomorphic (as an algebra) to the algebra of $2\times 2$-matrices. Every associative algebra can be turned into a \emph{Lie algebra} by defining the \emph{Lie bracket} as the \emph{commutator} of the multiplication operator of the algebra\footnote{By definition, the multiplication operation is bilinear, and the commutator is alternating. The associative property is needed for the Jacobi identity to be satisfied, which is the third criterion for a Lie algebra \cite{bourbaki1975}.}. For the split-quaternion algebra, the Lie bracket is defined as
@@ -352,25 +351,17 @@ In analogous fashion, we have the equivalent definition for the matrix algebra:
 \end{equation}
 Clearly, these Lie algebras are isomorphic.
 
-The Lie algebras defined above are \emph{abstract} notions, which is to say that they are not defined in terms of a specific Lie group. The Lie algebra of $2\times 2$-matrices combined with the bracket defined above isomorphic to the Lie algebra $\glalg{2}{\real}$ (it is often even defined this way). These are the linear vector fields on a vector space: the vector field is a section of the tangent bundle, and the mapping that defines the section must preserve the linear structure of the vector space. 
+The Lie algebras defined above are abstract, which is to say that they are not defined in terms of a specific Lie group. The Lie algebra of $2\times 2$-matrices combined with the bracket defined above isomorphic to the Lie algebra $\glalg{2}{\real}$ (it is often even defined this way). These are the linear vector fields on a vector space: the vector field is a section of the tangent bundle, and the mapping that defines the section must preserve the linear structure of the vector space. 
 
-The algebra $\glalg{2}{\real}$ is the Lie algebra of the general linear group $\glgroup{2}{\real}$, which is the group of all automorphisms of $\real^2$ (as a vector space). Hence, the elements of $\glgroup{2}{\real}$ are the infinitesimal automorphisms of that vector space. From the vector field perspective, the Lie bracket of vector fields $A$ and $B$ is equal the \emph{Lie derivative} of $A$ with respect to $B$:
+The algebra $\glalg{2}{\real}$ is the Lie algebra of the general linear group $\glgroup{2}{\real}$, which is the group of all automorphisms of $\real^2$ (as a vector space). Hence, the elements of $\glgroup{2}{\real}$ are the infinitesimal automorphisms of that vector space. From the vector field perspective, the Lie bracket of vector fields $X$ and $Y$ is equal the \emph{Lie derivative} of $X$ with respect to $Y$:
 \begin{equation}
-    \liebr{A}{B} = \lied{A}{B}.
+    \liebr{X}{Y} = \lied{X}{Y}.
 \end{equation}
-If the bracket of $A$ and $B$ vanishes, $A$ and $B$ are said to \emph{commute}. If two vector fields commute, then the associated transformations (i.e. elements of $\glgroup{n}{\real}$) do so as well: it does not matter in which order the transformations are applied.
+If the bracket of $X$ and $Y$ vanishes, $X$ and $Y$ are said to \emph{commute}. If two vector fields commute, then the associated transformations (i.e. elements of $\glgroup{n}{\real}$) do so as well: it does not matter in which order the transformations are applied.
 
 \subsubsection{Basis vector fields}
 Because of the isomorphism between the Lie algebra of split-quaternions and $\glalg{2}{\real}$, the linear vector fields (i.e. linear dynamical systems) on $\real^2$ can be represented by a split-quaternion. Since the linear vector fields are directly represented by a matrix, it suffices to map that matrix to a split-quaternion using \cref{eq:inv_quat_isom}. In particular, because we are dealing with a vector space (of vector fields) we can relate the split-quaternion basis elements each to a specific basis vector field. Any other linear vector field can then be constructed by taking linear combinations of these basis vector fields. 
 
-\begin{itemize}
-    \item The identity element 1 corresponds to the identity matrix; the associated vector field $X_1$ is given by $X_1 = x\pdv{}{x} + y\pdv{}{y}$, where $x$ and $y$ are coordinates for $\real^2$. These are \emph{infinitesimal dilations} of the plane. The integral curves are star-shaped.
-    \item The element $\quati$ corresponds to the vector field $X_{\quati} = y\pdv{}{x} - x\pdv{}{y}$, which represents an \emph{infinitesimal circular rotation} (clockwise). The integral curves are concentric circles centered at the origin.
-    \item The element $\quatj$ corresponds to the vector field $X_{\quatj} = y\pdv{x} + x\pdv{}{y}$, which represents an \emph{infinitesimal squeeze mapping} or \emph{infinitesimal hyperbolic rotations}. The integral curves are rectangular hyperbolae, whose asymptotes are the lines specified by the equations $x = y$ and $x = -y$.  
-    \item Finally, $\quatk$ corresponds to the vector field $X_{\quatk} = x\pdv{x} - y\pdv{}{y}$. This vector field also represents an \emph{infinitesimal squeeze mapping} or \emph{hyperbolic rotation}, but the asympotes of the hyperbolae are the $x$- and $y$-axis instead.
-\end{itemize}
-
-The four basis vector fields and their integral curves are visualized in \cref{fig:basis_vf}.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/basis_vectorfields}
@@ -378,70 +369,112 @@ The four basis vector fields and their integral curves are visualized in \cref{f
     \label{fig:basis_vf}
 \end{figure}
 
-Importantly, $X_{\quati}$, $X_{\quatj}$ and $X_{\quatk}$ are \emph{volume-preserving transformations}: the vector fields are divergence-free. Any linear combination of these vector fields also preserves volume. Because the divergence of a linear vector field is equal to the trace of its matrix represntation, these are all the matrices with \emph{zero trace}. As a result, the vector part of a split-quaternion (or a split-quaternion with zero real part) represents the volume-preserving component of the vector field. 
+The four basis vector fields and their integral curves are visualized in \cref{fig:basis_vf}.
+\begin{itemize}
+    \item The identity element 1 corresponds to the identity matrix; the associated vector field $X_1$ is given by $X_1 = x\pdv{}{x} + y\pdv{}{y}$, where $x$ and $y$ are coordinates for $\real^2$. These are \emph{infinitesimal dilations} of the plane. The integral curves are star-shaped.
+    \item The element $\quati$ corresponds to the vector field $X_{\quati} = y\pdv{}{x} - x\pdv{}{y}$, which represents an \emph{infinitesimal circular rotation} (clockwise). The integral curves are concentric circles centered at the origin.
+    \item The element $\quatj$ corresponds to the vector field $X_{\quatj} = y\pdv{x} + x\pdv{}{y}$, which represents an \emph{infinitesimal squeeze mapping} or \emph{infinitesimal hyperbolic rotations}. The integral curves are rectangular hyperbolae, whose asymptotes are the lines specified by the equations $x = y$ and $x = -y$.  
+    \item Finally, $\quatk$ corresponds to the vector field $X_{\quatk} = x\pdv{x} - y\pdv{}{y}$. This vector field also represents an \emph{infinitesimal squeeze mapping} or \emph{hyperbolic rotation}, but the asympotes of the hyperbolae are the $x$- and $y$-axis instead.
+\end{itemize}
 
-The volume-preserving linear transformations form a subgroup of $\glgroup{2}{\real}$: this is the special linear group $\slgroup{2}{\real}$. The associated algebra $\slalg{2}{\real}$ is isomorphic to the algebra of traceless matrices, or equivalently, the split-quaternions with no real part.
+\paragraph{Volume-preserving vector fields}
+Importantly, $X_{\quati}$, $X_{\quatj}$ and $X_{\quatk}$ are \emph{volume-preserving transformations}: the vector fields are divergence-free. Any linear combination of these vector fields also preserves volume. Because the divergence of a linear vector field is equal to the trace of its matrix representation, these are all the matrices with \emph{zero trace}. As a result, the vector part of a split-quaternion (or a split-quaternion with zero real part) represents the volume-preserving component of the vector field. 
 
-Because we are dealing with $\real^2$, the conservation of volume is the same as conservation of \emph{area} --- this is manifestly \emph{not} the case for higher dimensions.  Indeed, the special linear group $\slgroup{n}{\real}$ is isomorphic to the \emph{symplectic group} $\spgroup{n}$ only if $n = 2$. The associated Lie algebra $\spalg{2}$ comprises the volume-preserving vector fields, which are also called \emph{symplectic} or \emph{Hamiltonian}\footnote{In general, every symplectic vector field is Hamiltonian, but not the other way around. As a consequence of the Poincaré Lemma (a special case of the de Rham cohomology) these notions are identical for contractible spaces. Clearly, $\real^2$ falls under this category.}.
+The volume-preserving linear transformations form a subgroup of $\glgroup{2}{\real}$: this is the special linear group $\slgroup{2}{\real}$. If represented as a matrix subgroup of $\glgroup{2}{\real}$, $\slgroup{2}{\real}$ consists of all the matrices with a determinant of 1. The associated algebra $\slalg{2}{\real}$ is isomorphic to the algebra of traceless matrices, or equivalently, the split-quaternions with no real part.
+
+Because we are dealing with $\real^2$, the conservation of volume is the same as conservation of \emph{area} --- this is manifestly \emph{not} the case for higher dimensions.  Indeed, the special linear group $\slgroup{n}{\real}$ is isomorphic to the \emph{symplectic group} $\spgroup{n}$ only if $n = 2$. The associated Lie algebra $\spalg{2}$ comprises the volume-preserving vector fields, which are also called \emph{symplectic} or \emph{Hamiltonian}\footnote{In general, every symplectic vector field is Hamiltonian, but not the other way around. As a consequence of the Poincaré Lemma (a special case of the de Rham cohomology) these notions are identical for contractible spaces. Clearly, $\real^2$ falls under this category.}. The Hamiltonian function that generates each of these vector fields through the symplectic form $\omega = \wedgep{\dd{x}}{\dd{y}}$ is simply equal to the implicit equation of the integral curves. An overview of the split-quaternion - vector field correspondence and the Hamiltonian functions (if applicable) is given in \cref{tab:basis_vf}.
 
 \begin{table}[ht!]
     \centering
-    \caption{Vector field representation of the split-quaternion basis elements.}
+    \caption{Vector field representation of the split-quaternion basis elements. The Hamiltonian is the function that generates the associated vector field through Hamilton's equations: $\dot{x} = \pdv{H}{y}$ and $\dot{y} = -\pdv{H}{x}$.}
     \label{tab:basis_vf}
     \begin{tabular}{ccccl}
         \toprule
         $\spquaternions$ &  $ \real^{2\times 2} $ & \textbf{Vector field} & \textbf{Hamiltonian} & \textbf{Transformation} \\
         \midrule
         $1$ & $\mqty(1 & 0 \\ 0 & 1) $ & $\displaystyle x\pdv{}{x} + y\pdv{}{y} $ & --- & Dilation \\[0.4cm]
-
-        $\quati$ & $\mqty(0 & 1 \\ -1 & 0) $ & $\displaystyle y\pdv{}{x} - x\pdv{}{y} $ & $ x^2 + y^2 $ & Clockwise rotation \\[0.4cm]
-
-        $\quatj$ & $\mqty(0 & 1 \\ 1 & 0) $ & $\displaystyle y\pdv{}{x} + x\pdv{}{y} $ & $ y^2 - x^2 $ & Squeeze mapping \\[0.4cm]
-
+        $\quati$ & $\mqty(0 & 1 \\ -1 & 0) $ & $\displaystyle y\pdv{}{x} - x\pdv{}{y} $ & $ \tfrac{1}{2}\qty(x^2 + y^2) $ & Clockwise rotation \\[0.4cm]
+        $\quatj$ & $\mqty(0 & 1 \\ 1 & 0) $ & $\displaystyle y\pdv{}{x} + x\pdv{}{y} $ & $ \tfrac{1}{2}\qty(y^2 - x^2) $ & Squeeze mapping \\[0.4cm]
         $\quatk$ & $\mqty(1 & 0 \\ 0 & -1) $ & $\displaystyle x\pdv{}{x} + -y\pdv{}{y} $ & $ xy $ & Squeeze mapping \\[0.4cm]
-
         \bottomrule
     \end{tabular}
 \end{table}
 
-\subsection{Classification of dynamical systems}
+\paragraph{Commuting vector fields}
+The \emph{center} of a Lie algebra consists of all those elements for which the Lie bracket operation produces zero, \emph{regardless} of which other algebra element is the second argument. For $\glalg{2}{\real}$, these are all the scalar multiples of the identity, which are the split-quaternions that have \emph{no vector part}. For this reason, the real part and vector part of the split-quaternion coincide with a natural decomposition of the associated vector field into a volume/area preserving component of the vector field, and the infinitesimal increase (or decrease) in volume. These components can be considered \emph{independently} precisely because the associated transformations commute.
+
+\subsection{System classification with split-quaternions}
 \label{ssec:system_classification}
-The classification of two-dimensional linear dynamical systems is important, for they also locally represent the fixed points of general nonlinear systems. Traditionally, this decomposition is done according to the eigenvalues of the state transition matrix \(A\), or equivalently, through a Poincaré diagram as shown in \cref{fig:poincare_diagram}. Because the split-quaternion norms are directly related to the real and imaginary part of the eigenvalues of the associated matrix, we propose that the split-quaternion representation offers a more convenient alternative, based on their squared (vector) norm, on par with the regimes defined in \cref{tab:class_combinations}.
+In this section, we demonstrate how the properties of the split-quaternion representation can be exploited to classify the associated dynamical system in a convenient and exhaustive manner. In system theory, the classification of a linear dynamical system gives one an idea about the overall qualitative behavior of the system solution. Moreover, this practice is vital for the study of nonlinear systems too: the linearization of a nonlinear system around one of its fixed points replicates in many cases the correct behavior (cf. the Hartman-Grobmann theorem) \cite{Khalil2015}. This means that qualitative findings derived from the linearized system remain to be true --- at least locally --- for the nonlinear system as well.
+
+Consider the linear dynamical system given by the differential equation
+\begin{equation}
+    \dot{\vec{x}} = A\vec{x} \qquad A \in \real^{2\times 2},
+    \label{eq:dynamical_system}
+\end{equation}
+where $A$ is the \emph{state matrix}; we henceforth denote the associated split-quaternion by $a \coloneq \phi^{-1}(A)$. Usually, (the fixed point of) a linear dynamical system is classified based on the eigenvalues of $A$ into one of several categories:
+\begin{itemize}[nosep,label=-]
+    \item saddle point,
+    \item source or sink,
+    \item spiral,
+    \item center,
+    \item ...
+\end{itemize}
+Other types of fixed points may arise when $A$ has one or more zero eigenvalues. As will become clear, it are especially those degenerate cases which are handled remarkably well by the split-quaternion representation, i.e. without being considered exceptions to the rule.
+
+The classification procedure using the split-quaternion representation makes use of three properties (cf. \cref{ssec:quat_isomorphism}): 
+\begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
+    \item The regime of the squared total norm $\mathscr{N}(a)$, equal to the determinant of $A$;
+    \item The regime of the squared vector norm $\mathscr{N}(\vec{a})$, equal to the square of the imaginary part of the eigenvalues of $A$;
+    \item The regime of the real part $a_0$, equal to half the trace of $A$.
+\end{enumerate}
+The classic \emph{Poincare diagram} can be restated in terms of split-quaternion properties, as shown in \cref{fig:poincare_diagram}. For the split-quaternion representation, this diagram classifies based on the regime (i.e. sign) of both the total and vector norm, and the real part which determines stability in some cases.
+
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/poincare_diagram}
-    \caption{The classic Poincaré diagram, is based on the conventional classification of fixed points based on the trace and determinant of the state transition matrix \(A\). The corresponding split-quaternion regimes defined in \cref{tab:class_combinations} are displayed as well. The determinant axis coincides with the squared norm of the split quaternion being 0, while all the points on the parabolic line correspond to split-quaternions with zero \emph{vector} norm. A further distinction is made with the scalar part of the split-quaternion, which, for each of the regimes, determines (asymptotic) (in)stability.}
+    \caption{The split-quaternion Poincaré diagram is based on the regime combinations defined in \cref{tab:class_combinations}. The determinant axis coincides with the squared norm of the split quaternion being 0. The parabolic double stroke line corresponds to the split-quaternions with zero \emph{vector} norm. 
+    A further distinction is made with the scalar part of the split-quaternion, which, for each of the regimes, determines (asymptotic) (in)stability.}
     \label{fig:poincare_diagram}
 \end{figure}
 
-\subsubsection*{Spacelike split-quaternion norm}
+However, this classification in \cref{fig:poincare_diagram} not completely exhaustive, for it does not distinguish between the degenerate cases when $\mathscr{N}(\vec{a}) = 0$.
+We will therefore discuss all the regime combinations listed in \cref{tab:class_combinations} and the corresponding class of dynamical systems in more detail; adhering to the same numbering scheme.
+
+\subsubsection*{Spacelike total norm}
     \begin{itemize}
-        \item[\circled{1}] For spacelike split-quaternions, there is only one possibility: a negative split-quaternion norm corresponds to a negative determinant, which means that the fixed point is a \emph{saddle}. We can distinguish one particular case: if the scalar part of the split-quaternion is zero (\(a_0 = 0\)), the saddle is `balanced' and generates a proper \emph{squeeze mapping}, which is a symplectomorphism of the phase space. The split-quaternion is therefore Hamiltonian. An example of the latter is the linearization of the unstable fixed point of a rotational pendulum.
+        \item[\circled{1}] For spacelike split-quaternions, there is only one possibility: a negative split-quaternion norm corresponds to a negative determinant, which means that the fixed point is a \emph{saddle point}. We can distinguish one particular case: if the scalar part of the split-quaternion is zero (\(a_0 = 0\)), the saddle is balanced and generates a proper \emph{squeeze mapping}, which is a symplectomorphism of the phase space. The split-quaternion is therefore Hamiltonian. An example of the latter is the linearization of the unstable fixed point of a rotational pendulum.
     \end{itemize}
 
-\subsubsection*{Lightlike split-quaternion norm}
+\subsubsection*{Lightlike total norm}
     \begin{itemize}
-        \item[\circled{2}] \emph{Spacelike vector norm}: in this case, there is not just a fixed point but a fixed line in the phase space. This fixed line is stable or unstable depending on the sign of the scalar part of the quaternion. 
+        \item[\circled{2}] \emph{Spacelike vector norm}: in this case, there is not just a single fixed point but an entire fixed line in the phase space. This fixed line is stable or unstable depending on the sign of $a_0$. 
         \item[\circled{3}] \emph{Lightlike vector norm}: this case is degenerate to the second degree; it coincides with the origin in the Poincaré diagram. The associated vector field is purely translational. An example is an object in uniform motion.
     \end{itemize}
-\subsubsection*{Timelike split-quaternion norm}
+\subsubsection*{Timelike total norm}
     \begin{itemize}
         \item[\circled{4}] \emph{Spacelike vector norm}: this case gives rise to eigenvalues that are purely real; the fixed point is called a \emph{node}. Depending on the sign of the scalar part, the fixed point can be an unstable node or \emph{source} (\(a_0 > 0\)) or a stable node or \emph{sink} (\(a_0 < 0\)). An example of such a system is the overdamped harmonic oscillator.
-        \item[\circled{5}] \emph{Lightlike vector norm}: In this case, the two eigenvalues are equal to each other. This can be seen from the expression of the vector norm in terms of the matrix properties: 
+        \item[\circled{5}] \emph{Lightlike vector norm}: in this case, the two eigenvalues are equal to each other. This can be easily seen from \cref{eq:quat_eigvals}: 
             \begin{equation}
-                 \mathscr{N}(\vec{a}) = \mathscr{N}(a - a_0) = \det(A - \frac{\trace(A)}{2}I).
+                \lambda_A = a_0 \pm \norm{\vec{a}}\ii = a_0\qquad a_0 \neq 0,
             \end{equation}
-        When the two eigenvalues are identical, \(\trace(A) = 2\lambda\), the above expression necessarily vanishes and the split-quaternion, therefore, has a lightlike vector part. There are then two subcategories to be distinguished, depending on whether the matrix is diagonalizable or not:
-        \begin{itemize}
-            \item If the matrix is diagonalizable, it \emph{must} be a scalar multiple of the identity \cite{Edwards2018}. This is because the rank of the matrix \( A - \lambda I\) must be equal to 0 for the eigenspace to be two-dimensional. The corresponding split-quaternion is then \emph{purely real}; i.e. \(a = \lambda\). Because it has no vector part, the vector is then lightlike in the most trivial fashion. The associated fixed point is then a \emph{star}, which can either be stable or unstable depending on the sign of the real part (this particular case is not shown in \cref{fig:poincare_diagram}). 
-            \item Conversely, if the vector norm is zero but the vector part is not, the matrix is not diagonalizable for the reason mentioned above: the null space of \( A - \lambda I\) is one-dimensional, and can therefore not be spanned by two independent eigenvectors. The fixed point is an \emph{improper node}, which is again stable or unstable depending on the sign of the real part.
+        i.e. both eigenvalues are equal to the real part of a. From the perspective of the matrix, we have
+        \begin{equation}
+            \mathscr{N}(\vec{a}) = \det\qty(A - \frac{\tr a}{2} I).
+        \end{equation}
+        If the squared vector norm vanishes, the null space of the matrix $A - a_0 I$ is
+
+        There are then two subcategories to be distinguished, corresponding to whether the associated matrix is diagonalizable or not:
+        \begin{enumerate}[label=(\alph*)]
+            \item If the matrix is diagonalizable, it \emph{must} be a scalar multiple of the identity \cite{Edwards2018}. This is because the rank of the matrix \( A - \lambda I\) must be equal to 0 for the eigenspace to be two-dimensional; \( A - \lambda I\) i.e. the zero matrix. The corresponding split-quaternion is then \emph{purely real}; i.e. \(a = \lambda\). Because it has no vector part, the vector is then lightlike in the most trivial fashion. The associated fixed point is a \emph{star}, which can either be stable or unstable depending on the sign of the real part (this particular case is not shown in \cref{fig:poincare_diagram}). 
+            \item Conversely, if \emph{the vector norm is zero but the vector part is not}, the matrix is not diagonalizable: the null space of \(A - \lambda I\) is one-dimensional, and can therefore not be spanned by two independent eigenvectors. The fixed point is an \emph{improper node}, which is again stable or unstable depending on the sign of the real part.
+            An example of this type of system is the critically damped harmonic oscillator.
             %the eigenvalues of the associated matrix are real and equal; this type of fixed point is named a \emph{degenerate node}. More specifically, in the unstable case (\(a_0 > 0\)) it is called a \emph{degenerate source}, while in the stable case it is referred to as a \emph{degenerate sink}. An example is a critically damped harmonic oscillator. 
-        \end{itemize}
-        An example of this type of system is the critically damped harmonic oscillator.
-        \item[\circled{6}] \emph{Timelike vector norm}: this really is the only general case where the eigenvalues of \(A\) are complex. If \(a_0 = 0\), the eigenvalues are imaginary and the fixed point is a \emph{center}. Again, for \(a_0 > 0\) it is an \emph{unstable spiral node} and for \(a_0 < 0\) a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
+        \end{enumerate}
+        \item[\circled{6}] \emph{Timelike vector norm}: this is the case where the eigenvalues of \(A\) are complex. If \(a_0 = 0\), the eigenvalues are imaginary and the fixed point is a \emph{center}. Again, for \(a_0 > 0\) it is an \emph{unstable spiral node} and for \(a_0 < 0\) a \emph{stable spiral node}. An example is an underdamped (or even undamped) harmonic oscillator.
     \end{itemize}
 
-It is clear from the present discussion that the split-quaternions offer a very natural representation of linear dynamical systems, and their natural properties translate directly to the classification of the qualitative behavior of these systems. 
+It is clear from the present discussion that the split-quaternions offer a very natural representation of linear dynamical systems, in particular because of the relation between the split-quaternion norms and real part, and the eigenvalues of the state matrix. All six cases are again summarized in \cref{tab:system_classification}.
 
 \begin{table}[ht]
     \centering
@@ -466,44 +499,47 @@ It is clear from the present discussion that the split-quaternions offer a very 
 
 \subsection{The exponential function of split-quaternions}
 \label{ssec:exponential}
-Just like the concept of the exponential function was originally generalized for square matrices, we can do the same for split-quaternions in an analogous manner. As such, the \emph{split-quaternion exponential function} is defined as
+In order to obtain the system solution, one usually computes the matrix exponential of the state matrix $A$. In this section, we demonstrate that the same can be done for the split-quaternion representation, which has some computational advantages. The exponential function for split-quaternions is defined in an analogous fashion to its matrix equivalent, i.e. in terms of a Taylor-like series:
 \begin{equation}
-     \exp(a) \coloneq \sum_{k=0}^\infty \frac{a^k}{k!} \qquad a \in \spquaternions.
+     \exp:\:\spquaternions \to \spquaternions:\:\; \exp(a) \coloneq \sum_{k=0}^\infty \frac{a^k}{k!}.
 \end{equation}
-Because this definition is identical to the one for matrices, we may, as a result of the isomorphism defined in \cref{ssec:quat_isomorphism}, also expect the exact same result; i.e.
+Because this definition is completely analogous to the one for matrices, the exponentials in the split-quaternion domain or the matrix domain are equivalent, given the isomorphism $\phi$ defined by \cref{eq:quat_isom}:
 \begin{equation}
-     \exp(a) = \phi^{-1}(\exp(\phi(a)))
+     \exp(a) = \phi^{-1}(\exp(\phi(a))).
 \end{equation}
-where the second exponential function refers to the matrix exponential instead.
+In this expression, the first `exp' refers to the split-quaternion exponential, while the second `exp' is the matrix exponential.
 
-To evaluate the exponential function of a split-quaternion, let us first use the following property of the matrix exponential \cite{Hall2013}
+To evaluate the exponential function of a split-quaternion, let us first use the following property of the (split-quaternion) exponential\footnote{This is a consequence of the Baker-Campbell-Haussdorf formula, which applies to Lie algebras in general.} \cite{Hall2013}
 \begin{equation}
-     AB = BA \quad \Rightarrow \quad \exp(A + B),
+    \liebr{a}{b} = 0 \quad \Rightarrow \quad \exp(a + b),
 \end{equation}
-i.e. we can only `split' the exponential of a sum if the two elements \emph{commute}. We can regard an arbitrary split-quaternion
+i.e. we can only decompose the exponential of a sum if the two elements \emph{commute}. We can regard an arbitrary split-quaternion
 \begin{equation}
      a = \quat{a_0}{a_1}{a_2}{a_3}
 \end{equation}
-as the sum of \(a_0\) and \(\quatvec{a_1}{a_2}{a_3}\). The real part is distinguished from the other three parts in the sense that it commutes
-with every other element (cf. \cref{ssec:vf_algebra}). We may therefore use the former property and apply it to the split-quaternion exponential as well:
+as the sum of the real part \(a_0\) and the vector part \(\quatvec{a_1}{a_2}{a_3}\). As discussed in \cref{ssec:vf_algebra}, the real part is distinguished from the other three parts in the sense that it commutes with every other element. As a result, we have:
 \begin{equation}
      \exp(a) \, = \,\ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}).
 \end{equation}
-We therefore only have to be considered with the evaluation exponential of \(\vec{a}\). To do so, observe that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. This means that \( \conj{\vec{a}} = -\vec{a} \), and the squared vector norm is simply the negative of the square of the vector part:
+It is important to emphasize that this is \emph{not} possible for the other individual vector components, since $\quati$, $\quatj$ and $\quatk$ do \emph{not} commute with each other. We therefore only have to be considered with the evaluation of \(\exp(\vec{a})\). To do so, recall that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. We, have by definition, that \( \conj{\vec{a}} = -\vec{a} \), which means taht the squared vector norm is simply the negative of the square of the vector part, i.e.:
 \begin{equation}
      \mathscr{N}(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2.
 \end{equation}
+
 Let us now introduce the concept of \emph{unit split-quaternion vectors}, which are vector split-quaternions with a vector norm of \(\pm 1\). The unit vector may be obtained by normalization of the vector part:
 \begin{equation}
-     \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}(\vec{a})}}} \qquad \mathscr{N}(\vec{a}) \neq 0,
+     \hat{\vec{a}} = \frac{\vec{a}}{\sqrt{\abs{\mathscr{N}(\vec{a})}}}, \qquad \mathscr{N}(\vec{a}) \neq 0,
 \end{equation}
 which squares to
 \begin{equation}
      \hat{\vec{a}}^2 = - \mathscr{N}(\hat{\vec{a}}) 
                    = - \frac{\mathscr{N}(\vec{a})}{\abs{\mathscr{N}(\vec{a})}} 
-                   = - \sgn(\mathscr{N}(\vec{a})).
+                   = - \sgn(\mathscr{N}(\vec{a})), \qquad \mathscr{N}(\vec{a}) \neq 0.
 \end{equation}
-Normalizing lightlike vectors is not possible, because they have all the same length of zero: there is no point in making the distinction between vector and unit vector. Based on the regime of the vector part, three possibilities arise: \cite{Motter1998,Harkin2004}
+
+Normalizing lightlike vectors is not possible, because they have all the same length of zero: there is no point in making the distinction between vector and unit vector. 
+
+Based on the regime of the vector part, three possibilities arise: \cite{Motter1998,Harkin2004}
 \begin{itemize}
     \item If \(\vec{a}\) is timelike, then \(\uvec{a}^2 = -1\). We can therefore say that the unit vector `behaves' like the imaginary unit \(\ii\) (\(\ii^2 = -1\)). In general, we can identify the split-quaternion (with timelike vector part) \( a_0 + \norm{a}\uvec{a}\) with the \emph{complex number} \(a_0 + \norm{\vec{a}}\ii\). 
     \item If \(\vec{a}\) is lightlike, then \(\vec{a}^2 = 0\), and the notion of the unit vector is not well-defined. Because the vector is nilpotent with degree 2, it is analogous to the nilpotent unit \(\epsilon\) (for which we have that \(\epsilon^2 = 0\)). Split-quaternions with timelike vector part can be identified with the \emph{dual number} \(a_0 + \epsilon\). 
@@ -515,28 +551,30 @@ Normalizing lightlike vectors is not possible, because they have all the same le
 The connection between split-quaternions and the generalized complex numbers\footnote
 {For a more detailed account of generalized complex numbers, the reader is referred to \citet{Harkin2004}.}
 (i.e. complex, dual and split-complex)
-sheds some additional light on the behavior of the eigenvalues of the associated matrix \(A\) by means of the root locus plot (see \cref{eq:quat_eigvals}). A typical branch of the  root locus consists of a complex pole pair approaching the real axis when the gain is increased. When they finally collide on the real axis, they each go their opposite ways on the real axis, essentially breaking the symmetry with respect to the real axis. The split-quaternions and hypercomplex numbers paint a slightly more elegant picture, which is shown in \cref{fig:root_locus}:
+sheds some additional light on the behavior of the eigenvalues of the associated matrix \(A\) by means of the root locus plot (see \cref{eq:quat_eigvals}). A typical branch of the  root locus consists of a complex pole pair approaching the real axis when the gain is increased. When they finally collide on the real axis, they each go their opposite ways on the real axis, essentially breaking the symmetry with respect to the real axis. 
+
+In contrast, the split-quaternions and their relation with hypercomplex numbers paint a slightly more elegant picture, which is shown in \cref{fig:root_locus}:
 \begin{itemize}
     \item As shown above, when the pole pair is complex, the associated split-quaternion vector is timelike. The eigenvalues are naturally conjugate with respect to the real axis, i.e.
         \begin{equation}
              \lambda_A = a_0 \pm \norm{\vec{a}}\ii.
         \end{equation}
-    \item When the pole pair collides on the real axis (often called the \emph{branch point}), the imaginary part of the eigenvalue is zero, and the vector is timelike. Observe that we can make the case that, because the branches continue afterward in a separate manner, they cannot be \emph{exactly} the same. Indeed, the eigenvalues are
+    \item When the pole pair collides on the real axis (often called the \emph{branch point}), the imaginary part of the eigenvalue is zero, and the vector is lightlike. Observe that we can make the case that, because the branches continue separately afterward, they cannot be \emph{exactly} the same. Indeed, the eigenvalues are
         \begin{equation}
              \lambda_A = a_0 \pm \epsilon.
         \end{equation}
-        The nilpotent unit \(\epsilon\) is often interpreted as a differential, or an infinitesimally small quantity.\footnote{A common application of dual numbers is automatic differentiation: because higher powers vanish, they can be used to generate first-order polynomial approximations. The unit `circle' for dual numbers consists of two vertical lines crossing the horizontal axis at \(\pm 1\). These lines can again be interpreted as linear approximations of the actual unit circle (or unit hyperbola) associated with (split-)complex numbers. The plane is spanned by the \(\jj\)-axis and the real axis is the split-complex plane. The `projection' to the real axis is in this plane a reflection with respect to the light cone (first diagonal).} We argue that in this case, the pole pair is still conjugate, but the poles differ only by an infinitesimal amount.
-    \item When the gain is increased further, the poles are real and the symmetry with respect to the real axis is broken. However, we can infer from the preceding discussion that the imaginary part is now hyperbolic instead, i.e.
+        The nilpotent unit \(\epsilon\) is often interpreted as a differential, or an infinitesimally small quantity.\footnote{A common application of dual numbers is automatic differentiation: because higher powers vanish, they can be used to generate first-order polynomial approximations. The unit `circle' for dual numbers consists of two vertical lines crossing the horizontal axis at \(\pm 1\). These lines can again be interpreted as linear approximations of the actual unit circle (or unit hyperbola) associated with (split-)complex numbers. The plane is spanned by the \(\jj\)-axis and the real axis is the split-complex plane. The `projection' to the real axis is in this plane a reflection with respect to the light cone (first diagonal).} We argue that, in this case, the pole pair is still conjugate, but the poles differ only by an infinitesimal amount.
+    \item When the gain is increased even further, the poles are real and the symmetry with respect to the real axis is broken. However, we can infer from the preceding discussion that the imaginary part is now hyperbolic instead, i.e.
         \begin{equation}
              \lambda_A = a_0 \pm \norm{\vec{a}}\jj.
         \end{equation}
-        Of course, it is possible to project these points on the real axis, but this obscures the natural symmetry of the root locus branch. In \cref{fig:root_locus}, we, therefore, put the hyperbolic part on a third axis.
+        Of course, it is possible to project these points on the real axis, but this obscures the natural symmetry of the root locus branch. In \cref{fig:root_locus}, we therefore place the hyperbolic part on a third axis.
 \end{itemize}
 
 \begin{figure}[ht]
     \centering
     \input{media/tikz/root_locus}
-    \caption{A generalized version of a root locus plot in terms of hypercomplex numbers. The traditional root locus is set in the complex \(s\)-plane (shown in blue), but we added a third axis for the hyperbolic part of the eigenvalue. When the gain is increased, the initially complex pole pair ventures towards the real axis. If the pole pair is critically damped, both poles are separated from the real axis by an infinitesimal distance of \(\epsilon\). Increasing the gain, even more, pushes the pole pair into the hyperbolic regime (the associated split-quaternion vector is now spacelike). Observe that in this picture, the symmetry with respect to the real axis is preserved. In the traditional root locus, these points are projected onto the real axis, indicated by the dashed lines. }
+    \caption{A generalized version of a root locus plot in terms of hypercomplex numbers. The traditional root locus is set in the complex \(s\)-plane (shown in blue), but we added a third axis for the hyperbolic part of the eigenvalue. When the gain is increased, the initially complex pole pair ventures towards the real axis. If the pole pair is critically damped, both poles are separated from the real axis by an infinitesimal distance of \(\epsilon\). Increasing the gain even more pushes the pole pair into the hyperbolic regime (the associated split-quaternion vector is now spacelike). Observe that in this picture, the symmetry with respect to the real axis is preserved. In the traditional root locus, these points are projected onto the real axis, indicated by the dashed lines. }
     \label{fig:root_locus}
 \end{figure}
 
@@ -557,11 +595,12 @@ Once again, there are three possibilities, depending on the regime of \(\vec{a}\
         \begin{equation}
             \begin{split}
                 \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k}\,\qty(-1)^k}{(2k)!} + \uvec{a}\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k+1} \, \qty(-1)^k}{(2k+1)!}], \\
-                        &= \ec^{a_0}\qty\big[\cos(\norm{a})  + \uvec{a}\sin(\norm{a})]. \\
+                        &= \ec^{a_0}\qty\big[\cos(\norm{\vec{a}})  + \uvec{a}\sin(\norm{\vec{a}})]. \\
             \end{split}
         \end{equation}
-        This is roughly equivalent to the Euler identity for complex numbers, which is not at all surprising since we found before that \(\uvec{a}\) can be associated with the imaginary unit if \(\vec{a}\) is timelike.
-    \item Secondly, if \(\vec{a}\) is \emph{lightlike}, we can simply use the definition of the exponential in its original form: \footnote{We can also use the `split' expression, defining that \(0^0 \equiv 1\), a common convention in power series and algebra. Observe that the trigonometric functions associated with the dual numbers (i.e. the lightlike vectors) are then equal to the small-angle approximation for \(\sin\) and \(\cos\) \cite{Graham1994, Harkin2004}.}
+        This is roughly equivalent to the Euler identity for complex numbers. 
+    \item Secondly, if \(\vec{a}\) is \emph{lightlike}, we can simply use the definition of the exponential in its original form:
+        %\footnote{We can also use the `split' expression, defining that \(0^0 \equiv 1\), a common convention in power series and algebra. Observe that the trigonometric functions associated with the dual numbers (i.e. the lightlike vectors) are then equal to the small-angle approximation for \(\sin\) and \(\cos\) \cite{Graham1994, Harkin2004}.}
         \begin{equation}
             \begin{split}
                 \exp(a) &= \ec^{a_0}\,\sum^{\infty}_{k=0} \frac{\vec{a}^k}{k!}, \\
@@ -574,19 +613,16 @@ Once again, there are three possibilities, depending on the regime of \(\vec{a}\
             \begin{split}
                 \exp(a) &= \ec^{a_0}\qty[\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k}}{(2k)!} 
                            + \uvec{a}\sum_{k=0}^\infty \frac{\norm{\vec{a}}^{2k+1}}{(2k+1)!}], \\
-                        &= \ec^{a_0}\qty\big[\cosh(\norm{a}) + \uvec{a}\sinh(\norm{a})]. \\
+                        &= \ec^{a_0}\qty\big[\cosh(\norm{\vec{a}}) + \uvec{a}\sinh(\norm{\vec{a}})]. \\
             \end{split}
         \end{equation}
 \end{itemize}
-The exponential map of a split-quaternion can be used to obtain the solution of the corresponding linear differential equation. For the linear ordinary differential equation
+
+The dynamical system given in \cref{eq:dynamical_system} has the following solution \cite{Arnold1984}
 \begin{equation}
-     \dv{\vec{x}}{t} = A\vec{x}
+    \vec{x}(t) = \exp(At)\vec{x}_0 = \phi\big(\exp(at)\big)\vec{x}_0\qquad t \in \real^+,
 \end{equation}
-has the following solution \cite{Arnold1984}
-\begin{equation}
-     \vec{x}(t) = \exp(At)\vec{x}_0,
-\end{equation}
-where the one-parameter group of transformations generated by \(\exp(A t)\) is referred to as the \emph{flow} of the vector field \(A\vec{x}\). Hence, for two-dimensional systems, the matrix \(A\) can be represented by a split-quaternion, and we have just derived easy and insightful ways to evaluate its exponential: 
+where the exponential of $at$ takes the following value: 
 \begin{equation}
     \exp(a t) = 
     \begin{cases}
@@ -596,4 +632,8 @@ where the one-parameter group of transformations generated by \(\exp(A t)\) is r
     \end{cases}
     \label{eq:system_solution}
 \end{equation}
-Evaluating a matrix exponential by hand usually involves diagonalizing (strictly speaking, finding the Jordan form). The convenience of using split-quaternions instead resides in the fact that they resolve the ambiguity that is naturally present in the eigenvectors of the matrix \(A\); especially when they are complex. In the next section, the relation between the eigenvectors and the unit vector \(\uvec{a}\) are discussed in greater detail \cite{Moler2003}.
+
+Computing the split-quaternion exponential instead of the traditional matrix exponential avoids the need for either generalized eigenvectors (in the degenerate case) and/or complex eigenvectors, which arguably offers a computational advantage. 
+
+In the next section, we replace the general dynamical system by a mechanical system so as to give the split-quaternion representation a physical interpretation.
+

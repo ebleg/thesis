@@ -1,34 +1,47 @@
 \section{Application to mechanical systems}
 \label{sec:mechanical}
-We will now proceed by using a mechanical `prototype' example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as already discussed in \cref{ssec:serial_damping}. The reason for this is twofold: first, it helps to establish the connection between this chapter and \cref{chap:geometric_structures}, and secondly, it allows us to gain a physical intuition behind the split-quaternion representation. 
+We will now proceed by using a mechanical prototype example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as discussed in \cref{ssec:serial_damping}. The reason for this is twofold: first, it helps to establish the connection between this chapter and \cref{chap:geometric_structures}, and secondly, it allows us to gain a physical intuition behind the split-quaternion representation. 
 
-In particular, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper `fills' the one entry that would otherwise remain zero in the state transition matrix in case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
+In particular, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper fills the one entry in the state matrix that would otherwise remain zero in the case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
 
-\subsection{System dynamics}
+\subsection{Equations of motion}
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, and its equations of motion are given by \cref{eq:serial_eom_raw}. In matrix form, the equations of motion are:
 \begin{equation*}
     \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p).
 \end{equation*}
-Alternatively, using the \(\gamma_p = b_p/m\), \(\gamma_s = k/b_s\), and \(\Omega_n = \sqrt{k/m}\), we have the following:
+Alternatively, using the \(\gamma_p \coloneq b_p/m\), \(\gamma_s \coloneq k/b_s\), and \(\Omega_n \coloneq \sqrt{k/m}\), we have the following:
 \begin{equation}
     \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & \frac{1}{m} \\ -m\Omega_n^2 & - \gamma_p)}_A \mqty(q \\ p).
     \label{eq:ddho_eom}
 \end{equation}
 
-The split-quaternion associated with the \(A\)-matrix of the doubly damped system can easily be found using the mapping defined by \cref{eq:inv_quat_isom}. We must, however, be careful when dealing with physical systems, because the entries of the \(A\)-matrix are not dimensionless. In a vector space, we associate the units with the basis vectors, not with the components. For example, in a two-dimensional vector space spanned by a axis for apples and and an axis for pears, and we wish to represent that someone possesses three apples and four pairs, the \emph{components} of that vector are \((3, 4)\), and the \emph{unit vectors} are \((1 \text{ apple}, 1\text{ pear})\). Along the same line, we must define the units in the \(A\)-matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and \(m_0, t_0\). The basis elements are then mapped in terms of these reference quantities:
+Although the above matrix can represent all possible linear two-dimensional systems \emph{in theory}, we will make some assumptions regarding the parameters in order to enforce that the system is an actual oscillator:
+\begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
+    \item The damping coefficients are larger than or equal to zero: $\lambda_s \geq 0, \lambda_p \geq 0$;
+    \item The mass is strictly positive: $m > 0$;
+    \item The spring constant is strictly positive: $k > 0$.
+\end{enumerate}
+These assumptions imply that the determinant of the matrix given in \cref{eq:ddho_eom} is strictly larger than zero, which precludes the fixed point from being a saddle \circled{1}, an (un)stable line \circled{2} or uniform motion \circled{3}. Furthermore, because the damping is positive of zero, the system is stable in the sense of Lyapunov (i.e. the solutions are at least bounded).
+
+The split-quaternion associated with the state matrix of the doubly damped system can easily be found using the mapping defined by \cref{eq:inv_quat_isom}. We must, however, be careful when dealing with physical systems, because the entries of the \(A\)-matrix are not dimensionless. 
+
+In a vector space, units are associated with the basis vectors, not with the vector components. For example, consider a two-dimensional vector space spanned by an axis for apples and and an axis for pears. If we wish to represent that someone possesses three apples and four pears, the \emph{components} of that vector are \((3, 4)\), and the \emph{unit vectors} are \((1 \text{ apple}, 1\text{ pear})\). 
+
+Along the same line, we must define the units in the state matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, we define the reference quantities and \(m_0, t_0\). The basis elements are then mapped in terms of these reference quantities:
+\begin{gather}
+     \phi\qty(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \qquad 
+    \phi\qty(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  -\tfrac{m_0}{t_0^2} & 0), \\
+    \phi\qty(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  \tfrac{m_0}{t_0^2} & 0), \qquad
+    \phi\qty(\quatk) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & -\tfrac{1}{t_0}).
+\end{gather}
+If we would use SI units, \(m_0 = \SI{1}{\kilogram}\) and \(t_0 = \SI{1}{\second}\). 
+
+Using these reference quantities, the split-quaternion associated with the state matrix given in \cref{eq:ddho_eom} becomes
 \begin{equation}
-     \phi(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \quad 
-    \phi(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  -\tfrac{m_0}{t_0^2} & 0), \quad
-    \phi(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  \tfrac{m_0}{t_0^2} & 0), \quad
-    \phi(\quatk) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & -\tfrac{1}{t_0}), \quad
-\end{equation}
-where, in case we would use SI units, \(m_0 = \SI{1}{\kilogram}\) and \(t_0 = \SI{1}{\second}\). As a result, the split-quaternion associated with the \(A\)-matrix given in \cref{eq:ddho_eom} becomes
-\begin{equation}
-    a\:=\: -\frac{1}{2}\qty(t_0\gamma_s + t_0\gamma_p)\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quati\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quatj\:+\:\frac{1}{2}\qty(t_0\gamma_p - t_0\gamma_s)\quatk. 
+    a\:=\: -\frac{1}{2}\qty(t_0\gamma_s + t_0\gamma_p)1\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quati\:+\:\frac{1}{2}\qty(\frac{m_0}{m} + \frac{m\Omega_n^2 t_0^2}{m_0})\quatj\:+\:\frac{1}{2}\qty(t_0\gamma_p - t_0\gamma_s)\quatk. 
     \label{eq:ddho_quat_units}
 \end{equation}
-
-Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, we are translating the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should only add them when returning from the split-quaternions back to the realm of the matrices. 
+Clearly, all the components of the split-quaternion are dimensionless. This really is not too wild of an idea: after all, the split-quaternion represents the matrix itself, and \emph{not} the two-dimensional vector space that it acts on. The units are inherited from the vector space, so we should add them only when returning from the split-quaternions back to the realm of the matrices. 
 
 The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any significance? To answer this question, we first note that `rescaling of units' is a linear operation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
 \begin{equation}
@@ -40,7 +53,7 @@ A geometric explanation is that the eigenvectors of the identity matrix and the 
 \begin{equation}
      p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q,
 \end{equation}
-such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This would essentially resolve this `unit problem', because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
+such that the Hamiltonian reverts to a particularly convenient form. We can see that this is precisely the transformation that kills the \quatj-component of the split-quaternion. This would essentially resolve this unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
 
 In contrast the common practice of rescaling the units, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group \((\real^*)^2\). Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix \(N\) to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of \(n^{-1} a n\) (where \(n = \phi^{-1}(N)\)) produces a split-quaternion with zero \(\quatj\)-component. 
 
@@ -56,7 +69,7 @@ Leaving out the reference quantities requires the silent understanding that all 
 In the next section, we investigate the influence that of each of the split-quaternion components has on the physical behavior of the mechanical system.
 
 \subsection{Physical interpretation of the split-quaternion representation}
-As mentioned previously, the qualitative regime of the dynamical system can be deduced from the sign of its split-quaternion and vector norm. In the particular case of the harmonic oscillator with two dampers, we assume that the damping coefficients \(\gamma_s, \gamma_p\) are either positive or zero and that mass \(m\) and the spring constant \(k\) are both strictly positive. The norm of the split-quaternion given in \cref{eq:ddho_quat} is
+As mentioned previously, the qualitative regime of the dynamical system can be deduced from the sign of its split-quaternion and vector norm.  The norm of the split-quaternion given in \cref{eq:ddho_quat} is
 \begin{equation}
      \mathscr{N}(a) = m \Omega_n^2 + \gamma_p \gamma_s.
 \end{equation}
