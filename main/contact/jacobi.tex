@@ -85,6 +85,9 @@ It can be shown that any Jacobi structure can be uniquely defined in terms of a 
 \begin{equation}
      \jacobi{f}{g} = \Lambda(\dd{f}, \dd{g}) + f (\intpr{R}{\dd{g}}) - g (\intpr{R}{\dd{f}}).
 \end{equation}
+%<symbol: \Lambda> <expl: Bivector (Jacobi structure)> <tags: greek, geometry>
+%<symbol: \liebr{\,}{}> <expl: Lie bracket> <tags: misc, geometry>
+%<symbol: \schouten{\,}{}> <expl: Schouten bracket> <tags: misc, geometry>
 
 Not just any combination of a bivector field and vector field give rise to a Jacobi structure. As shown by \citet{lichnerowicz1977}, \(\Lambda\) and \(R\) must satisfy two conditions:
 \begin{equation}
@@ -257,6 +260,7 @@ For computational convenience, this mapping can also be represented by a matrix:
     \label{eq:matrix_jacobi_mapping}
 \end{equation}
 where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla K\) is the gradient of \(K\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually canceled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
+%<symbol: \nabla> <expl: Function gradient> <tags: misc, geometry>
 
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are

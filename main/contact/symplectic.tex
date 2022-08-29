@@ -38,6 +38,8 @@ as\footnote
     \theta = \sum_{i = 1} p_i\dd{q^i}.
 \end{equation}
 Hence, the Liouville form tells us which momentum coordinate corresponds to a given position coordinate and vice versa. This turns out to be an essential piece of the geometric structure that underpins classical mechanics.
+%<symbol: \phi^*> <expl: Pullback of the map $\phi$> <tags: ornament, geometry>
+%<symbol: \phi_*> <expl: Pushforward of the map $\phi$> <tags: ornament, geometry>
 
 Every cotangent bundle is canonically endowed with a Liouville form. The exterior derivative of the Liouville form produces a \emph{symplectic} 2-form. By convention, we define this symplectic form as follows:\footnote
 {
@@ -68,6 +70,8 @@ To produce the equations of motion, the symplectic structure provides a mapping 
     \label{eq:symplectic_isomorphism}
 \end{equation}
 Because \(\omega\) is nondegenerate by definition, the mapping \(\toDual{\omega}\) is an isomorphism. Thus, the inverse mapping is well-defined and is denoted by \(\fromDual{\omega}\) \cite{Libermann1987}.
+%<symbol: X_H> <expl: Hamiltonian vector field with respect to $H$> <tags: letter, geometry>
+%<symbol: \bundle{M}{\pi}{B}> <expl: Bundle with total space $M$, projection $\pi$ and base $B$> <tags: misc, geometry>
 
 For the notation used here, the difference between the manifolds \(Q\) and \(M\) is crucial. In the context of mechanics, we have that the symplectic manifold \(M\) is the cotangent bundle of \(Q\). Hence, since the Hamiltonian is a function on \(M = \ctbundle{Q}\), \(\dd{H}\) and \(X_H\) are sections of \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) respectively. This is illustrated by the diagram below (the projection arrows from \(\ctbundle{\ctbundle{Q}}\) and \(\tbundle{\ctbundle{Q}}\) indicate the bundle structure but are left unnamed).
 \begin{center}
@@ -124,6 +128,9 @@ Poisson brackets are anticommutative, bilinear, and satisfy the Jacobi identity.
      \poisson{f}{gh} = \poisson{f}{g}h + \poisson{f}{h}g.
 \end{equation}
 The Poisson brackets defined in terms of the symplectic structure make symplectic manifolds to be also Poisson manifolds. In \cref{sec:contact,sec:jacobi} the notion of Poisson manifolds is generalized to \emph{Jacobi manifolds} to cover more general mechanical systems. In contrast to the Poisson structure, a Jacobi structure does \emph{not} satisfy the Leibniz property \cite{Arnold1989,Libermann1987}.
+%<symbol: \poisson{\,}{}> <expl: Poisson / Jacobi bracket> <tags: misc, geometry>
+%<symbol: \functions{M}> <expl: Smooth functions on the manifold $M$> <tags: misc, geometry>
+%<symbol: \lied{X}{\eta}> <expl: Lie derivative of $\eta$ with respect to $X$> <tags: misc, geometry>
 
 The usefulness of Poisson brackets is due to the fact that they provide a convenient way to calculate the time rate of change of an observable \(f\): 
 \begin{equation}

@@ -57,7 +57,7 @@ nomencl = Nomenclature(os.path.join(HOME, "backmatter"), [os.path.join(HOME, "ma
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_pt1.tex"),
                                     "Chapters 2 and 3", 
-                                    filter_fcn=lambda symbol: set(("econ", "geometry")).intersection(set(symbol.tags)), 
+                                    filter_fcn=lambda symbol: set(("econ", "geometry", "numberset")).intersection(set(symbol.tags)), 
                                     level=1)
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", 

@@ -67,7 +67,7 @@ class Nomenclature(object):
                 if sortkey_match := re.search(r"(?<=<sortkey:\s).+?(?=>)", line):
                     sortkey = sortkey_match.group(0)
                 elif "letter" in tags:
-                    sortkey = symbol.lower()
+                    sortkey = symbol
                 elif "greek"in tags:
                     for char in GREEK_LETTER:
                         if re.search(char, symbol.lower()):

@@ -26,6 +26,8 @@ In contrast to symplectic manifolds, contact manifolds are odd-dimensional. A co
      \xi\vert_x = \ker{\alpha}\vert_x.
 \end{equation}
 It is worth pointing out that the correspondence between a hyperplane and the kernel of a 1-form is not one-to-one. Indeed, multiplying \(\alpha\) by any nonzero function yields a different 1-form with the same kernel. The contact forms are different, but they give rise to the same contact structure. This ambiguity is essential, and will play a vital role in the process of symplectification discussed in \cref{ssec:symplectification}.
+%<symbol: \xi> <expl: Contact hyperplane distribution> <tags: greek, geometry>
+%<symbol: \alpha> <expl: Contact 1-form> <tags: greek, geometry>
 
 For the hyperplane distribution to be maximally nonintegrable, it means that one cannot find codimension-1 foliations that are everywhere tangent to the distribution of hyperplanes \cite{Geiges2008}. This is analogous to a nonholonomic constraint on a mechanical system: these constraints cannot be integrated to obtain a submanifold of the configuration space that contains all the allowable positions. Indeed, the condition for nonholonomicity applies here as well: for \(\xi\) to be nonintegrable, the associated contact form \(\alpha\) must satisfy the Frobenius condition 
 \begin{equation}
@@ -59,6 +61,10 @@ where \(\vsfields{c}{M}\) is the collection of infinitesimal strict contactomorp
     \label{eq:contact_vf_condition}
 \end{equation}
 where \(s\) is an arbitrary smooth function on \(M\). This condition is based on the fact any nonzero multiple of a given contact form determines the same contact structure.
+%<symbol: \vfields{c}{M}> <expl: Vector fields on the manifold $M$> <tags: misc, geometry>
+%<symbol: \vsfields{c}{M}> <expl: Contact Hamiltonian vector fields / inf. contactomorphisms on $M$> <tags: misc, geometry>
+%<symbol: K> <expl: Contact / Jacobi Hamiltonian > <tags: letter, geometry>
+%<symbol: \Psi_{\alpha}> <expl: Hamiltonian isomorphism for the contact form $\alpha$> <tags: greek, geometry>
 
 \subsubsection{Horizontal and vertical vector fields} 
 To obtain the vector field from a Hamiltonian function, we are interested in the inverse mapping \(\Psi^{-1}_\alpha\). This mapping is not quite straightforward, for it has to map the general class of smooth functions back to a very specific subclass of vector fields. The trick is to use a splitting of the (co)tangent bundle, decomposing the vector field into two components: horizontal and vertical. 
@@ -72,6 +78,7 @@ i.e. they can only intersect at the origin. Consequently, we can define the foll
      \tbundle{M} = \ker{\alpha}\oplus\ker{\dd{\alpha}},
 \end{equation}
 where \(\oplus\) denotes the Whitney sum\footnote{The Whitney sum applies to vector bundles, and is roughly speaking, a `fibered' version of the direct sum for vector spaces. The Whitney sum of two vector bundles (over the same base space) is a vector bundle over that base space, where every fiber is equal to the direct sum of the fibers of the original vector bundles.}. Vector fields that are in the kernel of \(\alpha\) are called \emph{horizontal}; they form a subbundle of rank \(2n\), which coincides with the hyperplane distribution specified by the contact structure. In contrast, \emph{vertical} vector fields are in the kernel of \(\dd{\alpha}\), which is a subbundle of rank 1 \cite{Libermann1987}.
+%<symbol: \oplus> <expl: Whitney sum> <tags: misc, geometry>
 
 The \emph{Reeb vector field} \(R_\alpha\) associated with \(\alpha\) is a `unit' vertical vector field, defined by the conditions\footnote{The Reeb vector field is not uniquely associated with a contact structure and depends on the particular choice of contact form.}
     \begin{equation}
@@ -82,6 +89,7 @@ In the Darboux coordinates as given in \cref{eq:contact_darboux}, the Reeb vecto
      R_\alpha = \pdv{}{q^0}.
 \end{equation} 
 Because the space of vertical vector fields is of rank 1, every vertical vector field is colinear with the Reeb vector field.
+%<symbol: R_\alpha> <expl: Reeb vector field of the contact form $\alpha$ > <tags: letter, geometry>
 
 An arbitrary vector field \(X \in \vfields{M}\) can be canonically decomposed into a horizontal and a vertical component as follows:
 \begin{equation}
@@ -99,6 +107,7 @@ An arbitrary vector field \(X \in \vfields{M}\) can be canonically decomposed in
 \subsubsection{Semi-basic forms} 
 Similar to the splitting of the tangent bundle, the cotangent bundle may be decomposed into two subbundles as well. The first subbundle consists of the annihilators of the horizontal vector fields. This is a subbundle of rank 1 that contains all the multiples of the contact form; they generate the contact structure. The other subbundle contains the \emph{semi-basic forms}, which annihilate the vertical vector fields \cite{Libermann1987}.
 
+%<symbol: \bsection{M}> <expl: Smooth sections of the bundle $M$ > <tags: misc, geometry>
 Any 1-form \(\zeta \in \bsection{\ctbundle{M}}\) can be canonically decomposed into a semi-basic component and a multiple of \(\alpha\) as follows:
 \begin{equation}
     \zeta = \underbrace{(\intpr{R_\alpha}{\zeta})\alpha}_\text{contact struct.} + \underbrace{\zeta - (\intpr{R_\alpha}{\zeta})\alpha}_\text{semi-basic}. 
@@ -178,6 +187,9 @@ This equation can be equivalently expressed as the fact that the 1-form
     \label{eq:first_law_contact}
 \end{equation}
 should pull back to zero over the physical trajectories of the systems.
+%<symbol: U> <expl: Internal / dissipated energy> <tags: letter, geometry>
+%<symbol: \eta> <expl: Heat 1-form> <tags: greek, geometry>
+%<symbol: \beta> <expl: Work 1-form> <tags: greek, geometry>
 
 \paragraph{The Gibbs 1-form} For the purposes of illustration, we now apply this concept to what is arguably the most simple thermodynamic system: the ideal gas in a piston. 
 
@@ -421,10 +433,12 @@ To make the process of symplectification mathematically precise, we first need t
 \begin{equation}
      (q_e, q) \in Q_e.
 \end{equation}
+%<symbol: Q_e> <expl: Extended configuration manifold> <tags: letter, geometry>
 
 \paragraph{The manifold of contact elements} Consider now the \emph{manifold of contact elements} of \(Q_e\). This is a fiber bundle with base \(Q_e\), and the fibers at each point are the space of lines (through the origin) in the tangent space to \(Q_e\) at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
 
 The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line \(\mathbb{P}\real\). The fibers are therefore compact manifolds. It can be shown that the manifold of contact elements of \(Q_e\) (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by \(\pctbundle{Q_e}\) \cite{Cannas2001,Arnold1989,Libermann1987}.
+%<symbol: \mathbb{P}\real> <expl: Projective real line> <tags: numberset, geometry>
 
 \begin{figure}
     \centering
@@ -435,6 +449,7 @@ The fibers of this bundle are projective spaces; more specifically, they are dif
 
 The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider a chart for \(\pctbundle{Q_e}\) with coordinates \( (q_e, q, p) \),
 where \(p\) represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point \(p = \infty\) (in this specific chart). 
+%<symbol: \pctbundle{M}> <expl: Projectivized cotangent bundle to $M$> <tags: misc, geometry>
 
 Because \(p\) is meant to represent momentum just like in the previous section, and infinite momentum lies outside our realm of interest, this space can be thought of as \emph{roughly} equivalent (for practical purposes) to \(M\). That is to say, by disregarding the point \(p = \infty\), we end up with a manifold that is diffeomorphic to \(M\).
 
@@ -503,6 +518,7 @@ Observe that this is precisely the Liouville form on the cotangent bundle \(\ctb
 The coordinate \(\lambda\), and therefore \(\rho_e\) and \(\rho\), are not canonical coordinates, for they depend on the particular choice of the contact form, to begin with. Indeed, in this particular choice of \(\alpha_e\) one point in the fiber is left out (\(p = \infty\)), which effectively rules all the points for which \(\rho_e = 0\). 
 
 In reality, only the points for which \emph{both} \(\rho\) and \(\rho_e\) vanish should be taken out of the manifold, because the other cases can be covered by picking a different coordinate chart (this will be made clear later). The resulting space is the cotangent bundle of \(Q_e\) without its zero section, denoted by \( \ctzbundle{Q_e}\) \cite{VanderSchaft2021a,Libermann1987}.
+%<symbol: \ctzbundle{M}> <expl: Cotangent bundle to $M$ with zero section removed> <tags: misc, geometry>
 
 As illustrated by the point above, the former discussion relies heavily on the choice of the particular coordinate chart. Therefore, we wish to make the symplectification procedure more mathematically precise using the language of principal bundles.
 
@@ -528,6 +544,10 @@ then
      \sigma':\: P \to P/G:\quad x \mapsto [x]_\sim,
 \end{equation}
 with \([x]_\sim\) being the equivalence class with respect to \(\sim\) and \(P/G = P/\sim\).\footnote{This is the definition used in the lectures of F. P. Schuller, see \cite{Schuller2014}.}
+%<symbol: \raction{G}> <expl: Group action of the group $G$> <tags: misc, geometry>
+%<symbol: \sim> <expl: Equivalence relation> <tags: misc, geometry>
+%<symbol: M / \sim> <expl: Quotient set of $M$ with respect to $\sim$> <tags: misc, geometry>
+%<symbol: \mgroup> <expl: Real multiplicative group / real numbers without zero> <tags: numberset, geometry>
 
 \paragraph{Principal \texorpdfstring{\(\mgroup\)}{R}-bundles} In our context of symplectification, the Lie group in question is the real multiplicative group \(\mgroup\). The group acts on the cotangent bundle of \(Q_e\) without zero section\footnote
 {
@@ -613,6 +633,7 @@ In the coordinates defined above, this is equivalent to:
      \mathscr{H}(q_e, q, \lambda \rho_e, \lambda \rho) = \lambda\mathscr{H}(q_e, q, \rho_e, \rho) \qquad \lambda \in \mgroup,
 \end{equation}
 which is to say that \(\mathscr{H}\) \emph{commutes} with the group action $\raction{}$.
+%<symbol: \mathscr{H}> <expl: Homogeneous (Liouville) Hamiltonian> <tags: letter, geometry> <sortkey: Hz>
 
 Thus, we have an isomorphism between the vector fields preserving the Liouville structure and the homogeneous functions on the manifold. 
 Because we are dealing with a symplectic manifold, the Hamiltonian isomorphism is defined in terms of the symplectic form \(\omega_e\) like so (and in an identical fashion to \cref{eq:symplectic_isomorphism}),
@@ -893,6 +914,4 @@ since the cross terms in \(\pdv{}{U}\) cancel out. Next to the familiar dissipat
      \gamma_s kq^2 = \underbrace{\gamma_s q}_\text{\textsc{flow}} \: \times \underbrace{kq}_\text{\textsc{effort}},
 \end{equation} 
 in the dynamics of \(U\). Hence, this vector field yields the correct dynamics for \(p\) and \(q\) as given by \cref{eq:serial_eom_pq}, in addition to the internal energy \(U\).
-
-%<symbol: \gamma> <expl: Damping coefficient> <tags: greek, mech, geometry>
 

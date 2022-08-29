@@ -14,6 +14,9 @@ The structure of this chapter is as follows. First, in \cref{sec:symplectic_ee},
 A collection of goods forms the basis of any economic system. These goods can be physical (e.g., bushels of wheat) but also more abstract notions such as capital in the financial analogy \cite{Kruimer2021}. The \emph{economic configuration space} \(Q\) is analogous to the configuration space of mechanics and consists of all the possible combinations of goods in the economy. 
 Hence, in economic engineering, the goods are analogous to the \emph{(generalized) positions} in classical mechanics. 
 
+%<symbol: \vec{v}> <expl: Vector (bold notation)> <tags: letter, geometry>
+%<symbol: q^i> <expl: Generalized position / stock level> <tags: letter,econ>
+%<symbol: \dot{q}^i> <expl: Generalized velocity / flow of goods> <tags: letter,econ> <sortkey: q>
 The natural coordinates for this space are the number of each of the goods in the economic system, denoted by \(q = (q^1, q^2, \ldots, q^n)\), also called \emph{stock levels}. We say that each of these coordinates is measured in units of \emph{quantity}, denoted by `\(\qty[\si{\quantity}]\)'. 
 
 In many cases, the economic configuration manifold is simply a vector space containing all the goods, subject to a total constraint on the total \emph{endowment} for each of the goods (i.e., the total number of goods available). This is also referred to as an \emph{Edgeworth box} in the two-dimensional case. However, we will not assume in general that $Q$ is a vector space, for it may be constructed from holonomic constraints imposed on a larger space.
@@ -25,6 +28,14 @@ The \emph{dual space} of \(\tspace{x}{Q}\) is the cotangent space \(\ctspace{x}{
     \vec{p}(\vec{\dot{q}}) = p_i\,\dot{q}^i,
 \end{equation}
 i.e., it produces the total value associated with this change in goods.
+%<symbol: p_i> <expl: Generalized momentum / price> <tags: letter, econ>
+%<symbol: Q> <expl: Configuration manifold> <tags: letter, geometry>
+%<symbol: M> <expl: Phase space> <tags: letter, geometry>
+
+%<symbol: \tbundle{M}> <expl: Tangent bundle of the manifold $M$> <tags: misc, math, geometry> <sortkey: a3>
+%<symbol: \ctbundle{M}> <expl: Cotangent bundle of the manifold $M$> <tags: misc, math, geometry> <sortkey: a4>
+%<symbol: \tspace{x}{M}> <expl: Tangent space to the manifold $M$ at the point $x$> <tags: misc, math, geometry> <sortkey: a1>
+%<symbol: \ctspace{x}{M}> <expl: Cotangent space of the manifold $M$ at the point $x$> <tags: misc, math, geometry> <sortkey: a2>
 
 The \emph{cotangent bundle} \(\ctbundle{Q}\) of the economic configuration manifold is the space of prices and quantities: we call it the \emph{economic phase space}. Like in mechanics, a point in this space determines the state of the economic system: points in this space specify the amount of each of the goods in the system and their associated price.
 
@@ -33,12 +44,16 @@ The economic phase space has a natural structure that pairs each price coordinat
     \theta \coloneq  p_i \dd{q}^i.
 \end{equation}
 Even more so than in mechanics, this Liouville 1-form has a very intuitive interpretation in economic engineering: it relates the goods and their prices. When integrated over a curve in \(\ctbundle{Q}\), it measures the total accumulation of value along that curve.
+%<symbol: \theta> <expl: Liouville 1-form> <tags: greek, geometry>
+%<symbol: \dd{}> <expl: Exterior derivative> <tags: misc, geometry>
 
 The (negative of) the exterior derivative of the Liouville form is a \emph{symplectic 2-form} \(\omega\):
 \begin{equation}
     \omega \coloneq -\dd{\theta} = \wedgep{\dd{q}^i}{\dd{p}_i}.
 \end{equation}
 When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency \([\si{\money}]\). This quantity is analogous to \emph{action} in classical mechanics. The symplectic 2-form relates every price to the associated stock level and thereby encodes the fundamental structure of the economic phase space.  
+%<symbol: \wedgep{}{}> <expl: Exterior (wedge) product> <tags: misc, geometry>
+%<symbol: \omega> <expl: Symplectic form> <tags: greek, geometry>
 
 The link between symplectic geometry and economics has been recognized by (more mathematically inclined) researchers outside the field of economic engineering as well, most notably \citet{Russell2011} and \citet{Swierstra2014}.
 
@@ -47,17 +62,18 @@ The role of symplectic geometry in economics begs the question of whether the co
 \section{Lagrangian mechanics in economic engineering}
 \label{sec:lagrangian_ee}
 
+%<symbol: L> <expl: Lagrangian> <tags: letter, geometry>
+%<symbol: \real> <expl: Real numbers> <tags: numberset, geometry>
 The \emph{Lagrangian} is a function on the tangent bundle of the configuration manifold:
 \begin{equation}
      L : \tbundle{Q} \to \real.
 \end{equation}
 Lagrangian mechanics is based on \emph{Hamilton's principle} which states that the physical motion \(\gamma: \interval{t_0}{t_1} \to \tbundle{M}\) is the one for which the \emph{action functional} $\mathscr{A}$.
-%\begin{eqbox}{Action functional}
-%    The action functional of a curve $\gamma$ is defined as:
+%<symbol: \mathscr{A}> <expl: Action functional> <tags: letter, geometry> <sortkey: A}
+%<symbol: \circ> <expl: Function composition> <tags: misc, geometry>
 \begin{equation}
     \mathscr{A}[\gamma] \coloneq \int_{t_0}^{t_1} (L\circ\gamma)\dd{t}
 \end{equation}
-%\end{eqbox}
 is stationary\footnote{Although often referred to as the `Principle of \emph{minimum} action', this is inaccurate: Hamilton's principle only asserts that the first variation of the functional vanishes, which does not necessarily imply a minimum.} \cite{Arnold1989}.
 
 A necessary and sufficient condition for a curve to satisfy Hamilton's principle is given by the set of \(n\) \emph{Euler-Lagrange equations}:
@@ -117,6 +133,14 @@ Using the vertical isomorphism, the \emph{Lagrange 1-form} is defined as
     \theta_L \coloneq \dd{L}\circ S = \pdv{L}{\dot{q}^i}\dd{q^i}.
 \end{equation}
 The Lagrange 1-form has an interpretation similar to the Liouville form in the previous section. Recall that \(\pdv{L}{\dot{q}^i}\) are equal to the prices, so \(\theta_L\) computes the `valuation' of a flow of goods based on the price levels dictated by the Lagrangian. 
+%<symbol: \otimes> <expl: Tensor product> <tags: misc, geometry>
+%<symbol: \theta_L> <expl: Lagrange 1-form> <tags: greek, geometry>
+%<symbol: \omega_L> <expl: Lagrange 2-form> <tags: greek, geometry>
+
+%<symbol: E> <expl: Mechanical energy> <tags: letter, geometry>
+
+%<symbol: \toDual{\omega}> <expl: Flat mapping to the cotangent bundle  based on $\omega$> <tags: ornament, geometry>
+%<symbol: \fromDual{\omega}> <expl: Sharp mapping to the tangent bundle based on $\omega$> <tags: ornament, geometry>
 
 Similarly, the negative of the exterior derivative of \(\theta_L\) yields the \emph{Lagrange 2-form} \(\omega_L\):
 \begin{equation}
@@ -160,6 +184,8 @@ where \(E\) is the previously defined energy function and \(\mathscr{F}L\) is th
     \mathscr{F}L: \tbundle{Q} \to \ctbundle{Q}: \quad [\mathscr{F}L(\vec{v})](\vec{w}) = \left .\dv{}{s}\right|_{s = 0} L(\vec{v} + s\vec{w}),
 \end{equation}
 where \(\vec{v}, \vec{w}\) are vectors in \(\tspace{q}{Q}\). The fiber derivative maps a flow of goods to the associated price vector. As a result, the Hamiltonian function is simply equal to the energy function \(E\) but expressed in terms of the price coordinates \(p_i\) rather than \(\dot{q}^i\). The fiber derivative is a local diffeomorphism only if the Lagrangian is regular.
+%<symbol: H> <expl: (Symplectic) Hamiltonian> <tags: letter, geometry>
+%<symbol: \mathscr{F}> <expl: Fiber derivative> <tags: letter, geometry> <sortkey: F>
 
 Since the energy function and the Hamiltonian are numerically equal, the economic interpretation of the Hamiltonian is also \emph{profit} (from the perspective of the firm). This fact has been recognized by economists as well, in the so-called \emph{duality theory}. The duality theory states that \emph{profit function} and \emph{cost function} are dual representations of the same firm (in literature, this is called a \emph{technology}) \cite{blume2020,varianhalr1992}.
 
@@ -188,13 +214,14 @@ Hamilton's equations are derived by applying the symplectic isomorphism to the g
     \dd{H} = \intpr{X_H}{\omega},
 \end{equation}
 or in alternative notation \(X_H = \fromDual{\omega}(\dd{H})\). Here, $\omega$ is the symplectic 2-form on $\ctbundle{Q}$ (cf. \cref{sec:symplectic_ee}). The symplectic isomorphism (and Hamilton's equations) are covered in greater detail in \cref{chap:geometric_structures}.
+%<symbol: \intpr{}{}> <expl: Interior product> <tags: misc, geometry>
 
 Conventionally, the symplectic 2-form is equal to $\wedgep{\dd{q}^i}{\dd{p}_i}$, and Hamilton's equations are:
 \begin{equation}
     \dot{q}^i = \pdv{H}{p_i}, \qquad \qquad \dot{p}_i = -\pdv{H}{q^i}.
     \label{eq:legendre_trans_alternative}
 \end{equation}
-It is easy to see that these equations of motion are equivalent to the Euler-Lagrange equations, given that \(p_i = \pdv{L}{\dot{q}^i}\). We will go a lot more into detail on the (geometric) nature of Hamilton's equations in \cref{chap:geometric_structures}; the discussion here is limited to their interpretation in economic engineering.
+It is easy to see that these equations of motion are equivalent to the Euler-Lagrange equations, given that \(p_i = \pdv*{L}{\dot{q}^i}\). We will go a lot more into detail on the (geometric) nature of Hamilton's equations in \cref{chap:geometric_structures}; the discussion here is limited to their interpretation in economic engineering.
 
 The first Hamilton equation is equivalent to \emph{Hotelling's lemma}, which states that the demand for a particular good is that the supply (i.e. \(\dot{q}^i\)) of a good \(i\) is equal to the derivative of the profit function with respect to the price \(p_i\). It is usually emphasized that this is only the case when the price is the \emph{optimal} price for profit, but this is built into the definition of \(p_i\). As given by \cref{eq:legendre_trans_alternative}, the price value \(p_i = \pdv*{L}{\dot{q}^i}\) is exactly the one for which the profit function
 \begin{equation}
@@ -231,7 +258,4 @@ Given the prominent role that the Hamiltonian and Lagrangian formalism play in t
 \end{table}
 \renewcommand{\arraystretch}{1}
 
-%<symbol: p> <expl: Price> <tags: letter,econ>
-%<symbol: q> <expl: Quantity; amount of goods> <tags: letter,econ>
-%<symbol: \dot{q}> <expl: Quantity demanded; quantity supplied; flow of goods> <tags: letter,econ>
 
