@@ -186,11 +186,11 @@ The geometric structure of a mechanical system has four components:
      \alpha = \dd{U} - \beta,
 \end{equation}
         where \(\beta = \pi^*\beta_{\ctbundle{Q}}\) is a pullback of a form on \(\ctbundle{Q}\), which means that it cannot depend on \(U\). When there is no dissipation, \(\beta = 0\).
-    \item A \emph{Hamiltonian function} \(H \in \functions{M}\), equal to the sum of the mechanical energy of the system and the internal energy:
-        \begin{equation}
-     H = E + U,
-\end{equation}
-        with \(E = E\qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) the mechanical energy of the system.
+    \item A \emph{Hamiltonian function} \(K \in \functions{M}\), equal to the sum of the mechanical energy of the system and the internal energy:
+    \begin{equation}
+        K = E + U,
+    \end{equation}
+    with \(E = E\qty(q^1, \ldots, q^n,\, p_1, \ldots, p_n)\) the mechanical energy of the system.
 \end{itemize}
 
 In the purely conservative case discussed in \cref{sec:symplectic}, there is no dissipation, so the extra dimension in \(U\) does not play a role, and the system may be completely described on \(\ctbundle{Q}\) with its symplectic structure. 
@@ -239,24 +239,24 @@ Using the coordinates defined above, we find:
 
 The dynamics of the general mechanical system are then equal to 
 \begin{equation} 
-    X_H = \fromDual{\Lambda}(\dd{H}), 
+    X_K = \fromDual{\Lambda}(\dd{K}), 
     \label{eq:general_isomorphism}
 \end{equation}
-assuming again that \(H\) is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear. 
+assuming again that \(K\) is numerically equal to zero, so as to make the vertical component of the Hamiltonian vector field disappear. 
 
 For computational convenience, this mapping can also be represented by a matrix: 
 \begin{equation}
     \begin{split}
         \mqty(\dot{\vec{q}} \\ \dot{\vec{p}} \\ \dot{U}) 
               &= \qty[\mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) 
-                - \mqty(0 \\ 0 \\ 1) \wedge \mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) \mqty(\vec{\beta}_{q} \\ \vec{\beta}_{p}\\0)](\nabla H) \\
+                - \mqty(0 \\ 0 \\ 1) \wedge \mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) \mqty(\vec{\beta}_{q} \\ \vec{\beta}_{p}\\0)](\nabla K) \\
               &= \qty[\mqty( 0 & I_n & 0 \\  -I_n & 0 & 0 \\ 0 & 0 & 0) 
-                 - \mqty(0 & 0 & -\vec{\beta}_p \\ 0 & 0 & \vec{\beta}_q \\ \vec{\beta}_p &  -\vec{\beta}_q & 0 )](\nabla H) \\
-              &= \mqty( 0 & I_n & \vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ -\vec{\beta}_p & \vec{\beta}_q & 0)(\nabla H),
+                 - \mqty(0 & 0 & -\vec{\beta}_p \\ 0 & 0 & \vec{\beta}_q \\ \vec{\beta}_p &  -\vec{\beta}_q & 0 )](\nabla K) \\
+              &= \mqty( 0 & I_n & \vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ -\vec{\beta}_p & \vec{\beta}_q & 0)(\nabla K),
     \end{split}
     \label{eq:matrix_jacobi_mapping}
 \end{equation}
-where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla H\) is the gradient of \(H\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually canceled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
+where \(\vec{\beta}_q\) and \(\vec{\beta}_p\) represent the \(q\)- and \(p\)-components of the form \(\beta\), and \(\nabla K\) is the gradient of \(K\). The minus sign in front of the \(\vec{\beta}_p\)-components is usually canceled because those components often already carry a minus sign as a consequence of the power direction of the bond connecting the 0- and 1-junctions on which they are defined (e.g. in the case of the serial damper in \cref{ssec:serial_damping}).
 
 \subsubsection{Application to 2-DOF mechanical system}
 We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The four structure components are
@@ -273,13 +273,13 @@ We now revisit the mechanical system shown in \cref{fig:mdof_oscillator}. The fo
 \end{equation}
     \item The Hamiltonian is equal to the sum of kinetic, potential, and internal energy in the system:
         \begin{equation}
-     H = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1\qty(q^1)^2 + \frac{1}{2}k_3\qty(q^2)^2 + \frac{1}{2}k_2\qty(q^2 - q^1)^2 + U.
+     K = \frac{p^2_1}{2m_1} + \frac{p^2_2}{2m_2} + \frac{1}{2}k_1\qty(q^1)^2 + \frac{1}{2}k_3\qty(q^2)^2 + \frac{1}{2}k_2\qty(q^2 - q^1)^2 + U.
 \end{equation}
 \end{itemize}
 
- The expression for \(\beta\) is given by \cref{eq:mdof_form} as a part of the dissipation form \(\alpha\). The exterior derivative of \(H\) is 
+ The expression for \(\beta\) is given by \cref{eq:mdof_form} as a part of the dissipation form \(\alpha\). The exterior derivative of \(K\) is 
      \begin{equation}
-     \dd{H} = \qty(\frac{p_1}{m_1})\dd{p_1} + \qty(\frac{p_2}{m_2})\dd{p_2} +  \qty[k_1q^1 + k_2\qty(q^1 - q^2)]\dd{q^1} + \qty[k_3q^2 + k_2\qty(q^2 - q^1)]\dd{q^2} + \dd{U}.
+     \dd{K} = \qty(\frac{p_1}{m_1})\dd{p_1} + \qty(\frac{p_2}{m_2})\dd{p_2} +  \qty[k_1q^1 + k_2\qty(q^1 - q^2)]\dd{q^1} + \qty[k_3q^2 + k_2\qty(q^2 - q^1)]\dd{q^2} + \dd{U}.
 \end{equation}
  Using either \cref{eq:general_bivector,eq:general_isomorphism} or \cref{eq:matrix_jacobi_mapping}, we obtain the correct equations of motion for the system:
  \begin{equation}
@@ -305,12 +305,12 @@ For the purposes of control, the above formalism may also be extended with exter
 
 When subject to external inputs, the vector field \(X\) governing the dynamics of the mechanical system is the superposition of the time-dependent `input vector field` \(X_u\) and the Hamiltonian vector field generated by the Jacobi-structure:
 \begin{equation}
-    X = X_u + X_H.
+    X = X_u + X_K.
 \end{equation}
 
 In matrix form, the equations of motion given by \cref{eq:matrix_jacobi_mapping} become
 \begin{equation}
-    \mqty(\dot{\vec{q}} \\ \dot{\vec{p}} \\ \dot{U}) = \mqty( 0 & I_n & \vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ -\vec{\beta}_p & \vec{\beta}_q & 0)(\nabla H)
+    \mqty(\dot{\vec{q}} \\ \dot{\vec{p}} \\ \dot{U}) = \mqty( 0 & I_n & \vec{\beta}_p \\  -I_n & 0 & -\vec{\beta}_q \\ -\vec{\beta}_p & \vec{\beta}_q & 0)(\nabla K)
     + \mqty(\vec{u}_\vec{q} \\\vec{u}_\vec{p} \\ u_\vec{U}),
 \end{equation}
 where \(\vec{u}_\vec{q}\), \(\vec{u}_\vec{q}\) and \(u_\vec{U}\) represent the flow sources, effort sources and source of internal energy (i.e. a heat source).

@@ -55,21 +55,15 @@ nomencl = Nomenclature(os.path.join(HOME, "backmatter"), [os.path.join(HOME, "ma
                                                           os.path.join(HOME, "backmatter", "appendix"), 
                                                           os.path.join(HOME, "preamble")])
 
-nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_econ.tex"),
-                                    "Economic engineering", 
-                                    filter_fcn=lambda symbol: set(("econ", "test")).intersection(set(symbol.tags)), 
-                                    level=1)
-
-nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_geometry.tex"), 
-                                    "Geometric structures", 
-                                    filter_fcn=lambda symbol: set(("geometry",)).intersection(set(symbol.tags)), 
+nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", "symbols_pt1.tex"),
+                                    "Chapters 2 and 3", 
+                                    filter_fcn=lambda symbol: set(("econ", "geometry")).intersection(set(symbol.tags)), 
                                     level=1)
 
 nomencl.create_nomenclature_section("nomenclature_template.tex", os.path.join(HOME, "backmatter", 
-                                    "symbols_quaternions.tex"), "Split-quaternions", 
+                                    "symbols_pt2.tex"), "Chapter 4", 
                                     filter_fcn=lambda symbol: set(("quaternions",)).intersection(set(symbol.tags)), 
                                     level=1)
-
 
 # --------------------------------------------------------------------------------------------------------------------
 # Clean directory

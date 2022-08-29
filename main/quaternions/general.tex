@@ -176,6 +176,7 @@ In the remainder of this chapter, the split-quaternion properties that are defin
 In contrast to the overall split-quaternion, the vector part of the split-quaternion does live in a space with a Lorentz structure, having three dimensions instead of four. In general, the \emph{Lorentzian $n$-space} is defined as the real vector $\real^n$ space equipped with the \emph{Lorentzian inner product}. 
 \begin{equation}
      \lorinner{\vec{a}}{\vec{b}} \coloneq a_1b_1 - a_2b_2 - \ldots - a_nb_n, \qquad \vec{a}, \vec{b} \in \real^n.
+     \label{eq:lorinner}
 \end{equation}
 Since the Lorentzian inner product has signature $(+, -, \ldots, -)$, the Lorentzian $n$-space is denoted by $\real^{1, n-1}$. For $n = 4$, the Lorentzian space is equal to \emph{Minkowski spacetime}, which forms the mathematical setting of the theory of special relativity. 
 
@@ -193,6 +194,7 @@ their Lorentzian cross-product is defined as: \cite{Jafari2014}
 \begin{gather}
         \lorcrossp{\vec{a}}{\vec{b}} \coloneq \det\mqty(-\quati & \quatj & \quatk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3) \qquad \vec{a}, \vec{b} \\
             = \qty(a_3b_2 - a_2b_3)\quati + \qty(a_3b_1 - a_1b_3)\quatj + \qty(a_1b_2 - a_3b_1)\quatk,
+        \label{eq:lorcross}
 \end{gather}
 where we have assumed $\quati, \quatj, \quatk$ as basis vectors.
 
