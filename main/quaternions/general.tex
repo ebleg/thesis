@@ -23,6 +23,8 @@ The algebra of split-quaternions is associative but not commutative --- formally
         \bottomrule
     \end{tabular}
 \end{table}
+%<symbol: 1,\quati,\quatj,\quatk> <expl: Split-quaternion basis-elements> <tags: quaternions, letter>
+%<symbol: \spquaternions> <expl: Split-quaternions> <tags: numbersets, quaternions>
 
 The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The difference `metric' signature makes the split-quaternion number system different from its conventional quaternion counterpart.
 
@@ -36,6 +38,7 @@ On their own, the basis elements of the split-quaternions \(\qty{1, \quati, \qua
     \caption{The dihedral group \digroup{4} is the symmetry group of a square. This group is isomorphic to the group formed by \(1, \quati, \quatj\) and \quatk under multiplication.}
     \label{fig:square_symmetry}
 \end{figure}
+%<symbol: \digroup{n}> <expl: Dihedral group; symmetry group of an $n$-polygon> <tags: group, quaternions>
 
 The structure of the dihedral group can be visualized by means of its \emph{cycle graph} in \cref{fig:cycle_graph}. Many important properties of the split-quaternion algebra and the applications in this chapter can be traced back to the shape of this cycle graph. One example is the `split' nature of the quaternions: the \quati-element generates an order-4 cycle, while \quatj and \quatk generate order-2 cycles. In contrast, the cycle graph for conventional quaternions is entirely symmetric for all these elements \cite{Dummit2004}.
 \begin{figure}[h!]
@@ -59,6 +62,28 @@ and the vector part is
 \begin{equation} 
     \vecpart{a} \coloneq \quatvec{a_1}{a_2}{a_3}.
 \end{equation}
+%<symbol: a> <expl: General split-quaternion> <tags: letter, quaternions> <sortkey: aa>
+%<symbol: \scapart{a}> <expl: Scalar part of the split-quaternion $a$> <tags: letter, quaternions> <sortkey: a1>
+%<symbol: a_0> <expl: Shorthand notation for $\scapart{a}$> <tags: letter, quaternions> <sortkey: a2>
+%<symbol: \vecpart{a}> <expl: Vector part of the split-quaternion $a$> <tags: letter, quaternions> <sortkey: a3>
+%<symbol: \vec{a}> <expl: Shorthand notation for $\vecpart{a}$> <tags: letter, quaternions> <sortkey: a4>
+%<symbol: \uvec{a}> <expl: Unit vector (part)> <tags: letter, quaternions> <sortkey: a5>
+%<symbol: \conj{a}> <expl: Split-quaternion conjugate of $a$> <tags: letter, quaternions>
+%<symbol: \mathscr{N}(a)> <expl: Squared total norm of $a$> <tags: misc, quaternions>
+%<symbol: \norm{a}> <expl: Total norm of $a$> <tags: misc, quaternions>
+%<symbol: \mathscr{N}(\vec{a})> <expl: Squared vector norm of $a$> <tags: misc, quaternions>
+%<symbol: \norm{\vec{a}}> <expl: Vector norm of $a$> <tags: misc, quaternions>
+
+%<symbol: \lorinner{\,}{}> <expl: Lorentzian inner product> <tags: misc, quaternions>
+%<symbol: \lorcrossp{}{}> <expl: Lorentzian cross product> <tags: misc, quaternions>
+%<symbol: \inner{\,}{}> <expl: Euclidean inner product> <tags: misc, quaternions>
+
+%<symbol: \phi> <expl: Ring / algebra isomorphism between real $(2\times 2)$-matrices and split-quaternions> <tags: misc, quaternions>
+
+%<symbol: \Re> <expl: Real part (complex number)> <tags: misc, quaternions>
+%<symbol: \Im> <expl: Imaginary part (complex number)> <tags: misc, quaternions>
+
+%<symbol: \zeta> <expl: Damping ratio> <tags: greek, quaternions>
 
 Because the vector part and real part are used so often in this chapter, we adopt a more convenient shorthand notation for them, instead of $\scapart{}$ and $\vecpart{}$. Given any split-quaternion, the real part is denoted by the same symbol with a subscript of 0, without having to explicitly define the split-quaternion components as we did in \cref{eq:spquaternion}. In addition, the vector part is denoted by the symbol of the split-quaternion, but set in \textbf{boldface}. For instance, for the split-quaternion $b$, we denote its real part by $b_0 \coloneq \scapart{b}$ and its vector part by $\vec{b} \coloneq \vecpart{b}$. An alternative expression for $b$ is then
 \begin{equation}
@@ -219,7 +244,7 @@ An \emph{algebra isomorphism} is an isomorphism between vector spaces that also 
     \item \(\phi\) is a vector space isomorphism between \(V\) and \(W\), and 
     \item the isomorphism commutes with the product operation, i.e. 
     \begin{equation}
-         \phi(v_1 \bullet v_2) = \phi(v_1)\diamond\phi(v_2) \qquad v_1, v_2 \in V.
+        \phi(\vec{v}_1 \bullet \vec{v}_2) = \phi(\vec{v}_1)\diamond\phi(\vec{v}_2) \qquad \vec{v}_1, v_2 \in V.
     \end{equation}
 \end{enumerate}
 
@@ -304,13 +329,11 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
         where $\norm{\vec{a}}$ is imaginary if $\vec{a}$ is spacelike. 
         Hence, the \emph{real part and the vector norm the split-quaternion coincide with the real and imaginary parts of the eigenvalues of the matrix}, where the latter is multiplied by the imaginary unit $\ii$. When the vector either is spacelike or timelike, the $\ii$ cancels, and the overall eigenvalue is real. This striking correspondence is the main reason for the benefits of the split-quaternion representation of dynamical systems, which is discussed in \cref{ssec:system_classification}.
 \end{itemize}
+%<symbol: \ii> <expl: Imaginary unit> <tags: letter, quaternions>
+%<symbol: \jj> <expl: Hyperbolic unit> <tags: letter, quaternions>
+%<symbol: \epsilon> <expl: Idempotent unit> <tags: greek, quaternions>
 
 An overview of the correspondence between matrix and split-quaternion properties is given in \cref{tab:spquat_matrices}.
-
-%<symbol: a> <expl: Split-quaternion> <tags: quaternions, letter>
-%<symbol: \vec{a}> <expl: Vector part of the split-quaternion \(a\)> <tags: quaternions, letter>
-%<symbol: \uvec{a}> <expl: Normalized (unit) vector part of the split-quaternion \(a\)> <tags: quaternions, letter>
-%<symbol: 1,\quati,\quatj,\quatk> <expl: Split-quaternion basis elements> <tags: quaternions, letter>
 
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[ht!]
@@ -360,6 +383,15 @@ The algebra $\glalg{2}{\real}$ is the Lie algebra of the general linear group $\
     \liebr{X}{Y} = \lied{X}{Y}.
 \end{equation}
 If the bracket of $X$ and $Y$ vanishes, $X$ and $Y$ are said to \emph{commute}. If two vector fields commute, then the associated transformations (i.e. elements of $\glgroup{n}{\real}$) do so as well: it does not matter in which order the transformations are applied.
+%<symbol: \liebr{\,}{}> <expl: Lie bracket> <tags: misc, quaternions>
+%<symbol: \glgroup{n}{\real}> <expl: General linear group over $\real^n$> <tags: group, quaternions>
+%<symbol: \glgroup{n}{\real}> <expl: Lie algebra of the general linear group over $\real^n$> <tags: group, quaternions>
+%<symbol: \slgroup{n}{\real}> <expl: Special linear group over $\real^n$> <tags: group, quaternions>
+%<symbol: \slgroup{n}{\real}> <expl: Lie algebra of the special linear group over $\real^n$> <tags: group, quaternions>
+%<symbol: \spgroup{n}> <expl: Symplectic group group over $\real^n$> <tags: group, quaternions>
+%<symbol: \spalg{n}> <expl: Lie algebra of the symplectic group group over $\real^n$> <tags: group, quaternions>
+%<symbol: X_1, X_{\quati}, X_{\quatj}, X_{\quatk}> <expl: Vector fields associated with $1, \quati, \quatj, \quatk$> <tags: letter, quaternions>
+
 
 \subsubsection{Basis vector fields}
 Because of the isomorphism between the Lie algebra of split-quaternions and $\glalg{2}{\real}$, the linear vector fields (i.e. linear dynamical systems) on $\real^2$ can be represented by a split-quaternion. Since the linear vector fields are directly represented by a matrix, it suffices to map that matrix to a split-quaternion using \cref{eq:inv_quat_isom}. In particular, because we are dealing with a vector space (of vector fields) we can relate the split-quaternion basis elements each to a specific basis vector field. Any other linear vector field can then be constructed by taking linear combinations of these basis vector fields. 
@@ -462,7 +494,7 @@ We will therefore discuss all the regime combinations listed in \cref{tab:class_
             \end{equation}
         i.e. both eigenvalues are equal to the real part of a. From the perspective of the matrix, we have
         \begin{equation}
-            \mathscr{N}(\vec{a}) = \det\qty(A - \frac{\tr a}{2} I).
+            \mathscr{N}(\vec{a}) = \det\qty(A - \frac{\tr A}{2} I).
         \end{equation}
         If the squared vector norm vanishes, the null space of the matrix $A - a_0 I$ is
 
