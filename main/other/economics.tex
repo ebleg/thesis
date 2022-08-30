@@ -25,7 +25,7 @@ The tangent space \(\tspace{x}{Q}\) to a point \(x\) in \(Q\) is the vector spac
 
 The \emph{dual space} of \(\tspace{x}{Q}\) is the cotangent space \(\ctspace{x}{Q}\) containing all the linear functions that map vectors in the tangent space to a real number. This is the natural setting of the \emph{prices} in the economy: as a function, they assign a \emph{value to a change in goods}. These prices are measured in units of currency per quantity, i.e. \(\qty[\si{\money \per \quantity}]\). A covector in the cotangent space is denoted by \(\vec{p} = (p_1, p_2, \ldots, p_n)\). The action of a price covector on a vector measuring the change in goods is (observing the summation convention):
 \begin{equation}
-    \vec{p}(\vec{\dot{q}}) = p_i\,\dot{q}^i,
+    \vec{p}\,(\vec{\dot{q}}) = \sum_{i = 1}^n p_i\,\dot{q}^i,
 \end{equation}
 i.e., it produces the total value associated with this change in goods.
 %<symbol: p_i> <expl: Generalized momentum / price> <tags: letter, econ>
@@ -41,17 +41,17 @@ The \emph{cotangent bundle} \(\ctbundle{Q}\) of the economic configuration manif
 
 The economic phase space has a natural structure that pairs each price coordinate to the associated stock level coordinate. From a mathematical perspective, this is equivalent to the fact that the cotangent bundle of any manifold has a 1-form canonically defined on it: the Liouville form (also called tautological 1-form or canonical 1-form), defined as
 \begin{equation} 
-    \theta \coloneq  p_i \dd{q}^i.
+    \theta \coloneq \sum_{i = 1}^n p_i \dd{q}^i.
 \end{equation}
 Even more so than in mechanics, this Liouville 1-form has a very intuitive interpretation in economic engineering: it relates the goods and their prices. When integrated over a curve in \(\ctbundle{Q}\), it measures the total accumulation of value along that curve.
 %<symbol: \theta> <expl: Liouville 1-form> <tags: greek, geometry>
 %<symbol: \dd{}> <expl: Exterior derivative> <tags: misc, geometry>
 
-The (negative of) the exterior derivative of the Liouville form is a \emph{symplectic 2-form} \(\omega\):
+The (negative of) the exterior derivative $\dd{}$ of the Liouville form is a \emph{symplectic 2-form} \(\omega\):
 \begin{equation}
-    \omega \coloneq -\dd{\theta} = \wedgep{\dd{q}^i}{\dd{p}_i}.
+    \omega \coloneq -\dd{\theta} = \sum_{i = 1}^n \wedgep{\dd{q}^i}{\dd{p}_i},
 \end{equation}
-When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency \([\si{\money}]\). This quantity is analogous to \emph{action} in classical mechanics. The symplectic 2-form relates every price to the associated stock level and thereby encodes the fundamental structure of the economic phase space.  
+where $\wedgep{}{}$ denotes the exterior (wedge) product. When integrated over, this form measures the \emph{oriented area} in the economic phase space, with units of currency \([\si{\money}]\). This quantity is analogous to \emph{action} in classical mechanics. The symplectic 2-form relates every price to the associated stock level and thereby encodes the fundamental structure of the economic phase space.  
 %<symbol: \wedgep{}{}> <expl: Exterior (wedge) product> <tags: misc, geometry>
 %<symbol: \omega> <expl: Symplectic form> <tags: greek, geometry>
 
@@ -96,7 +96,7 @@ where the \(m_{ij}\) are referred to as \emph{price elasticities}. In the simple
 
 In mechanics, the part of the Lagrangian that depends on \(\dot{\vec{q}}\) is called the \emph{kinetic co-energy}\footnote{We make the distinction between the kinetic energy \(T\) and co-energy \(T^*\): they are dual representations related through the Legendre transform. Because work is the integral of force over distance, kinetic energy is naturally represented in terms of \emph{momentum}, rather than velocity, for which we need to apply the Legendre transform first \cite{Jeltsema2009}. The difference between the kinetic energy and kinetic co-energy is illustrated by \cref{fig:kinetic_energy}.} \(T^*\):
 \begin{equation}
-    T^* = \frac{1}{2}m_{ij}\dot{q}^i \dot{q}^j.
+    T^* = \sum_i \sum_j \frac{1}{2}m_{ij}\dot{q}^i \dot{q}^j.
 \end{equation} 
 The kinetic co-energy is equivalent to the \emph{cost} associated with a flow of goods: the factor of one-half is there to subtract the market surplus from the total expenditure (which is equal to \(\vec{p}(\dot{\vec{q}})\)).
 
@@ -109,11 +109,11 @@ The kinetic co-energy is equivalent to the \emph{cost} associated with a flow of
 
 Traditionally, microeconomics makes the distinction between \emph{firm theory} and \emph{consumer theory}. In economic engineering, we dispense with this explicit distinction, for we argue that they are fundamentally based on the same mathematical principles. However, it is important to keep in mind that the situation for firms and consumers is typically mirrored: the cost of one represents the surplus of the other, and vice versa. Also, a flow of goods that a consumer buys from a firm has an opposite direction depending on the perspective of the firm or the consumer: this is the reason why a demand curve typically slopes downwards and the supply curve upwards, because their associated surplus is flipped around. In the grand scheme of things, both perspectives are two sides of the same coin. The `minimization principle' can therefore just as well be considered to be a `maximization principle' if the signs flip due to a change in perspective.
 
-If the matrix of elasticities is positive definite, the kinetic energy expression forms a \emph{Riemannian metric} on the economic configuration manifold. Level lines of the metric are \emph{indifference curves}: they represent a constant level of (dis)utility or cost for different combinations of flows of goods. Furthermore, in more complicated situations, the price elasticities are allowed to vary with the stock levels, i.e. \( m = m(q^1, q^2, \ldots, q^n)\), which would (under appropriate conditions) imply that the configuration manifold exhibits \emph{Riemannian curvature}.
+If the matrix of elasticities is positive definite, the kinetic energy expression forms a \emph{Riemannian metric} on the economic configuration manifold. Level lines of the metric are \emph{indifference curves}: they represent a constant level of (dis)utility or cost for different combinations of flows of goods. Furthermore, in more complicated situations, the price elasticities are allowed to vary with the stock levels, i.e. \( m = m\qty(q^1, q^2, \ldots, q^n)\), which would (under appropriate conditions) imply that the configuration manifold exhibits \emph{Riemannian curvature}.
 
 In the language of bond graphs, we say that the kinetic energy (or market surplus) is stored in an I-element. As such, in economic engineering, I-elements represent a local `piece' of demand or a `market' where an exchange of goods can occur.
 
-\subsection{Potential energy} In mechanics, the part of the Lagrangian that does not depend on \(\dot{\vec{q}}\) is called the \emph{potential energy} \(V = V(q^1, q^2, \ldots, q^n)\). In economic engineering, we say that potential energy either represents the \emph{benefits} of holding a good, also called \emph{convenience yield}. It gives rise to a restoring force that provides an incentive \emph{against} exchanging goods on the market.  
+\subsection{Potential energy} In mechanics, the part of the Lagrangian that does not depend on \(\dot{\vec{q}}\) is called the \emph{potential energy} \(V = V\qty(q^1, q^2, \ldots, q^n)\). In economic engineering, we say that potential energy either represents the \emph{benefits} of holding a good, also called \emph{convenience yield}. It gives rise to a restoring force that provides an incentive \emph{against} exchanging goods on the market.  
 
 When the potential energy is quadratic in \(q\), we have something similar to a spring force acting on the system. In a bond graph, this is called a C-element: it measures or stores\footnote{With `measuring' we mean that this element makes a particular quantity part of the dynamics of the system, which is to say that they are measurable. For example, if there are no C-elements, one can still conceptualize the stock level, but they do not influence the system and can therefore not be measured.} the number of goods in the system.
 
@@ -123,11 +123,11 @@ Furthermore, a detailed account of the geometry of Lagrangian mechanics is given
 
 The geometry of Lagrangian mechanics is based on the geometry of the so-called \emph{double tangent bundle} \(\tbundle{\tbundle{Q}}\). This is because we consider the amount of goods \(q\) and the flow of goods \(\dot{q}^i\) to be separate coordinates, but of course, the flow of goods \(\dot{q}^i\) should \emph{also} be the time rate of change of the associated amount of goods\footnote{In this context, the `dot' simply distinguishes the coordinates, but does not intrinsically imply that one is the time derivative of the other.}. This extra constraint pairing the \(q^i\)'s with their associated \(\dot{q}^i\) is embedded in the canonical structure of the double tangent bundle. Said otherwise, the significance of this structure is equivalent to Newton's law being second-order.
 
-The pairing of flows and amounts of goods is specified by the \emph{vertical isomorphism}, which is a tensor of valence \((1,1)\) on \(\tbundle{Q}\): \cite{Carinena1990}
+The pairing of flows and amounts of goods is specified by the \emph{vertical isomorphism} $S$, which is a tensor of valence \((1,1)\) on \(\tbundle{Q}\): \cite{Carinena1990}
 \begin{equation}
-    S = \pdv{}{\dot{q}^i}\otimes \dd{q^i}.
+    S = \pdv{}{\dot{q}^i}\otimes \dd{q^i},
 \end{equation}
-Using the vertical isomorphism, the \emph{Lagrange 1-form} is defined as
+where $\otimes$ is the tensor product. Using the vertical isomorphism, the \emph{Lagrange 1-form} $\theta_L$ is defined as
 \begin{equation}
     \theta_L \coloneq \dd{L}\circ S = \pdv{L}{\dot{q}^i}\dd{q^i}.
 \end{equation}
@@ -155,7 +155,8 @@ We will, however, not go into the implications of this (potential) relation and 
 
 The Lagrange 2-form can be used to state the Euler-Lagrange equations in a geometric language. Define the \emph{energy function} \(E\) as\footnote{There is also a coordinate-free definition involving the Liouville vector field, which is given in \cref{app:symplectic_geometry}.}
 \begin{equation}
-    E: \tbundle{Q} \to \real: \quad E \coloneq \pdv{L}{\dot{q}^i}\dot{q}^i - L.
+    E: \tbundle{Q} \to \real: \quad E \coloneq 
+    \sum_i \pdv{L}{\dot{q}^i}\dot{q}^i - L.
 \end{equation}
 From the perspective of the firm, the energy function is analogous to \emph{profit} since it is equal to the Lagrangian (being the cost function) subtracted from the total revenue of the firm \(\pdv{L}{\dot{q}^i}\dot{q}^i\).
     
@@ -163,7 +164,10 @@ The dynamics of the mechanical system are then given by the \emph{Lagrangian vec
 \begin{equation}
     \intpr{X_L}{\omega_L} = \dd{E}, 
 \end{equation}
-or alternatively denoted as \(X_L = \fromDual{\omega_L}(\dd{E})\)\footnote{This notation is further explained in \cref{chap:geometric_structures}}.
+with $\intpr{\,}{\,}$ being the interior product. Alternatively, this expression can written as\footnote{This notation is further explained in \cref{chap:geometric_structures}.}
+\begin{equation}
+    X_L = \fromDual{\omega_L}(\dd{E}).
+\end{equation}
 
 The Lagrange 2-form is a symplectic form \emph{if} the matrix of price elasticities is regular. In an economic context, this means that there are no `zero price directions'; i.e. there every change in the amounts of goods is associated with some change in value. Usually, an even stronger condition is assumed on \(L\), namely that it is \emph{convex} in the flows of products, which is sometimes known as the \emph{Legendre condition}. In economics, this means that the prices increase in the same direction as the flow of goods\footnote{This makes intuitive sense, although there are exceptions; for example, the negative yield on some government bonds in recent years.}. If this is indeed the case, the \emph{Legendre transform} can be used to pass from the Lagrangian representation to the Hamiltonian representation and back; this is the subject of the next section. 
 
@@ -224,9 +228,9 @@ It is easy to see that these equations of motion are equivalent to the Euler-Lag
 
 The first Hamilton equation is equivalent to \emph{Hotelling's lemma}, which states that the demand for a particular good is that the supply (i.e. \(\dot{q}^i\)) of a good \(i\) is equal to the derivative of the profit function with respect to the price \(p_i\). It is usually emphasized that this is only the case when the price is the \emph{optimal} price for profit, but this is built into the definition of \(p_i\). As given by \cref{eq:legendre_trans_alternative}, the price value \(p_i = \pdv*{L}{\dot{q}^i}\) is exactly the one for which the profit function
 \begin{equation}
-     p_i\,\dot{q}^i - L,
+     \sum_i p_i\,\dot{q}^i - L,
 \end{equation}
-is maximized, provided \(L\) is convex in \(\dot{q}^i\). 
+is maximized, provided that \(L\) is convex in \(\dot{q}^i\). 
 
 The second Hamilton equation provides the change in momentum or \emph{force}. In economic engineering, these forces are analogous to \emph{economic wants}, i.e. what drives a price up or down. The equation can be interpreted as the \emph{law of scarcity}, i.e. economic wants arise as a consequence of the stock levels/amount of goods in the system, pushing the price of the goods up or down.
 

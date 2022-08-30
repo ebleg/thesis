@@ -6,8 +6,8 @@ In this section, we present the split-quaternion number system, its basic proper
 \label{ssec:quat_basics}
 Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which are denoted by 1, \quati, \quatj, and \quatk.\footnote
 {Even though they behave similarly, the imaginary unit \(\ii\) is not to be confused with the split-quaternion basis element \quati, because they each belong to an entirely different number system.}
-The algebra of split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative (unital) ring}. The multiplication table for the split-quaternion algebra is shown in \cref{tab:quat_table}. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
-{The set of (split-)quaternions `\(\mathbb{H}\)' is named in honor of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis \cite{Stillwell2008}.}
+The multiplication operation for split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative (unital) ring}. The multiplication table for the split-quaternion basis elements is shown in \cref{tab:quat_table}; multiplication of general split-quaternions follows from this table by distributivity. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
+{The set of (split-)quaternions `\(\mathbb{H}/\spquaternions\)' is named in honor of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis \cite{Stillwell2008}.}
 \begin{table}[ht!]
     \centering
     \caption{Multiplication table for the split-quaternion algebra.}
@@ -28,7 +28,7 @@ The algebra of split-quaternions is associative but not commutative --- formally
 
 The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The difference `metric' signature makes the split-quaternion number system different from its conventional quaternion counterpart.
 
-Importantly, the split-quaternion algebra can also be seen as an \emph{algebra}; i.e. a four-dimensional vector space over the real numbers combined with the split-quaternion product operation. More specifically, the split-quaternions form a \emph{unital noncommutative associative algebra}.
+Importantly, the split-quaternion number system can also be seen as an \emph{algebra}; i.e. a four-dimensional vector space over the real numbers combined with the split-quaternion product operation. More specifically, the split-quaternions form a \emph{unital noncommutative associative algebra}.
 
 \subsubsection{The dihedral group} 
 On their own, the basis elements of the split-quaternions \(\qty{1, \quati, \quatj, \quatk}\) form a \emph{finite group} under multiplication, namely the \emph{dihedral group} \digroup{4}. This group represents all the symmetries of a square: the identity, a 90-degree rotation, and two reflections, as illustrated in \cref{fig:square_symmetry} \cite{Dummit2004}.
@@ -105,7 +105,7 @@ Using the conjugate, we can define the \emph{squared split-quaternion norm}:
     \label{eq:quat_norm}
 \end{equation}
 
-The split-quaternion norm is (in stark contrast to the norm defined for quaternions) \emph{indefinite}: it can be positive, negative or zero. Split-quaternions can therefore be categorized into three regimes based on the sign of their squared norm. In the tradition of special relativity, these regimes are named
+The split-quaternion norm is (in stark contrast to the norm defined for quaternions) \emph{indefinite}: it can be positive, negative or zero. Split-quaternions can therefore be categorized into three regimes based on the sign of their squared norm. In the tradition of special relativity, these regimes are named as follows:
 \begin{itemize}
     \item $a$ is \emph{timelike} if \( \mathscr{N}(a) > 0 \),
     \item $a$ is \emph{lightlike} if \( \mathscr{N}(a) = 0 \), 
@@ -120,7 +120,7 @@ Based on the squared split-quaternion norm, the \emph{split-quaternion norm} is 
 Because of the indefiniteness of $\mathscr{N}$, $\norm{a}$ is an imaginary number if $a$ is spacelike, for its squared norm is negative in that case.
 
 \subsubsection{Vector norm}
-Apart from the split-quaternion norm, we may also define a (squared) norm that only considers the \emph{vector part} of the split-quaternion. The \emph{squared vector norm} is defined in accordance with the total squared split-quaternion norm given by \cref{eq:quat_norm}:
+Apart from the split-quaternion norm, we may also define a (squared) norm that of \emph{vector part} alone. The \emph{squared vector norm} is defined in accordance with the total squared split-quaternion norm given by \cref{eq:quat_norm}:
 \begin{equation}
      \mathscr{N}(\vec{a}) = a_1^2 - a^2_2 - a^2_3.
      \label{eq:vector_norm}
@@ -130,16 +130,16 @@ This is not an abuse of notation, for \(\vec{a}\) can be seen as a split-quatern
     \norm{\vec{a}} = \sqrt{\mathscr{N}(\vec{a})} = \sqrt{a_1^2 - a_2^2 - a_3^2}. 
 \end{equation}
 
-In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and its squared vector norm plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the squared \emph{total} norm, and to \(\mathscr{N}(\vec{a})\) as the squared \emph{vector} norm. Likewise, we refer to $\norm{a}$ as the \emph{total} norm, and to $\norm{\vec{a}}$ as the \emph{vector} norm of that split-quaternion.
+In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and the squard norm of the vector part plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the squared \emph{total} norm, and to \(\mathscr{N}(\vec{a})\) as the squared \emph{vector} norm. Likewise, we refer to $\norm{a}$ as the \emph{total} norm, and to $\norm{\vec{a}}$ as the \emph{vector} norm of that split-quaternion.
 
-The quadratic form given in \cref{eq:vector_norm} is also not positive-definite. As a result, we can establish a classification based on the vector norm instead of the total norm as well:
+The quadratic form given in \cref{eq:vector_norm} is also not positive-definite. As a result, we can establish a classification based on the squared vector norm (instead of the squared total norm) as well:
 \begin{itemize}
     \item \vec{a} is \emph{timelike} / $a$ has a timelike vector if $\mathscr{N}(\vec{a}) > 0$,
     \item \vec{a} is \emph{lightlike} / $a$ has a lightlike vector if $\mathscr{N}(\vec{a}) = 0$,
     \item \vec{a} is \emph{spacelike} / $a$ has a spacelike vector if $\mathscr{N}(\vec{a}) < 0$.
 \end{itemize}
 
-Because one can classify based on both the (squared) squared norm and the (squared) total norm, one may identify nine hypothetical cases, since each falls into one of three regimes. However, the squared vector norm is not completely independent from the squared total norm: observe that 
+Because one can classify based on both the (squared) vector norm and the (squared) total norm, one may identify nine hypothetical cases, since each falls into one of three regimes. However, the squared vector norm is not completely independent from the squared total norm: observe that 
 \begin{equation}
     \mathscr{N}(a) < 0\quad \Rightarrow \quad \mathscr{N}(\vec{a}) < 0,
 \end{equation} 
@@ -167,9 +167,9 @@ These two statements rule out three hypothetical combinations for the regimes of
 \end{table}
 %As such, we can identify a grand total of \emph{nine} categories for split-quaternions, based on each possible combination of quaternion and vector norm `sign' (these can be chosen completely independent from each other). 
 
-The classification given by \cref{tab:class_combinations} is very important because it corresponds directly to the qualitative classification of dynamical systems discussed in \cref{ssec:system_classification}.
+The importance of the classification in \cref{tab:class_combinations} will become relevant in \cref{ssec:system_classification}, where it is applied to the qualitative classification of dynamical systems.
 
-In the remainder of this chapter, the split-quaternion properties that are defined above are used profusely. For the convenience of the reader, an overview of these properties and their definitions is provided in \cref{tab:spquat_properties}. 
+In the remainder of this chapter, the split-quaternion properties that are defined above are used extensively. For the convenience of the reader, an overview of these properties and their definitions is provided in \cref{tab:spquat_properties}. 
 
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[ht!]
@@ -198,7 +198,7 @@ In the remainder of this chapter, the split-quaternion properties that are defin
 \renewcommand{\arraystretch}{1}
  
 \subsubsection{Lorentzian 3-space}
-In contrast to the overall split-quaternion, the vector part of the split-quaternion does live in a space with a Lorentz structure, having three dimensions instead of four. In general, the \emph{Lorentzian $n$-space} is defined as the real vector $\real^n$ space equipped with the \emph{Lorentzian inner product}. 
+In contrast to the entire split-quaternion, the vector part of the split-quaternion does live in a space with a Lorentz structure, having three dimensions instead of four. In general, the \emph{Lorentzian $n$-space} is defined as the real vector $\real^n$ space equipped with the \emph{Lorentzian inner product}. 
 \begin{equation}
      \lorinner{\vec{a}}{\vec{b}} \coloneq a_1b_1 - a_2b_2 - \ldots - a_nb_n, \qquad \vec{a}, \vec{b} \in \real^n.
      \label{eq:lorinner}
@@ -217,13 +217,13 @@ For the Lorentzian 3-space $\real^{1, 2}$, the Lorentzian norm coincides with th
 Next to the Lorentzian inner product, we can also define a \emph{Lorentzian cross product}, which exists only for $\real^{1, 2}$. Given two vectors $\vec{a}, \vec{b}$, in $\real^{1, 2}$
 their Lorentzian cross-product is defined as: \cite{Jafari2014}
 \begin{gather}
-        \lorcrossp{\vec{a}}{\vec{b}} \coloneq \det\mqty(-\quati & \quatj & \quatk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3) \qquad \vec{a}, \vec{b} \\
+        \lorcrossp{\vec{a}}{\vec{b}} \coloneq \det\mqty(-\quati & \quatj & \quatk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3)  \\
             = \qty(a_3b_2 - a_2b_3)\quati + \qty(a_3b_1 - a_1b_3)\quatj + \qty(a_1b_2 - a_3b_1)\quatk,
         \label{eq:lorcross}
 \end{gather}
 where we have assumed $\quati, \quatj, \quatk$ as basis vectors.
 
-The split-quaternion product can be conveniently expressed in terms of the Lorentzian inner product and cross product. For two split-quaternions $a$ and $b$ with their respective vector parts $\vec{a}$ and $\vec{b}$, we have the following relation:
+The split-quaternion product can be concisely expressed in terms of the Lorentzian inner product and cross product. For two split-quaternions $a$ and $b$ with their respective vector parts $\vec{a}$ and $\vec{b}$, we have the following relation:
 \begin{equation}
     ab = a_0 b_0 - \lorinner{\vec{a}}{\vec{b}} + a_0 \vec{b} + b_0 \vec{a} + \lorcrossp{\vec{a}}{\vec{b}}.
 \end{equation}
@@ -233,34 +233,35 @@ The split-quaternion product can be conveniently expressed in terms of the Loren
 In this section, we demonstrate how the split-quaternion algebra relates to the algebra of real $2\times2$-matrices.
 
 \subsubsection{Algebra isomorphisms} 
-Formally, an algebra is a vector space combined \(V\) over a field \field, combined with an \field-bilinear product operation \cite{Schuller2014}:
+Formally, an algebra is a vector space \(V\) over a field \field, combined with an \field-bilinear product operation \cite{Schuller2014}:
 \begin{itemize}
-    \item The split-quaternion algebra is an algebra over the field real numbers (\(\field = \real\)), where the multiplication is the split-quaternion multiplication (see \cref{tab:quat_table});
+    \item The split-quaternion algebra is an algebra over the field real numbers (\(\field = \real\)), where the product operation is split-quaternion multiplication (see \cref{tab:quat_table});
     \item The \(2\times2\)-matrices also form an \real-vector space; the product operation is matrix multiplication.
 \end{itemize}
 
-An \emph{algebra isomorphism} is an isomorphism between vector spaces that also commutes with the respective product operations in both vector spaces. If \((V, \bullet)\) and \((W, \diamond)\) are vector spaces equipped with their respective product operations $\bullet$ and $\diamond$, then \(\phi: V \to W\) is an algebra isomorphism if \cite{Lang2002}
+An \emph{algebra isomorphism} is an isomorphism between vector spaces that also commutes with the respective product operations in both vector spaces. With slight abuse of notation, let  $\spquaternions$ and $\real^{2\times 2}$ denote the respective algebras of split-quaternions and matrices as well as the underlying sets. A map $\phi: \spquaternions \to \real^{2 \times 2}$ is  an algebra isomorphism if \cite{Lang2002}
 \begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
-    \item \(\phi\) is a vector space isomorphism between \(V\) and \(W\), and 
-    \item the isomorphism commutes with the product operation, i.e. 
+    \item \(\phi \) is a bijective mapping between $\spquaternions$ and $\real^{2\times 2}$ (as sets);
+    \item \(\phi\) is linear with respect to the vector addition and $\real$-multiplication;   
+    \item \(\phi\) commutes with the product operations for matrices and split-quaternions. For two split-quaternions $a, b$ and the corresponding matrices $\phi(a)$ and $\phi(b)$, this means that:
     \begin{equation}
-        \phi(\vec{v}_1 \bullet \vec{v}_2) = \phi(\vec{v}_1)\diamond\phi(\vec{v}_2) \qquad \vec{v}_1, v_2 \in V.
+        \phi(ab) = \phi(a)\phi(b).
     \end{equation}
 \end{enumerate}
 
-In the case of the split-quaternions and two-dimensional matrices, it is sufficient to map the basis elements of the split-quaternions to four linearly independent `basis' matrices, and show that the resulting matrices observe the same multiplication rules as defined in \cref{tab:quat_table}. Indeed, define the mapping \(\phi\) by 
+Because we are dealing with vector spaces, it is sufficient to map the basis elements of the split-quaternions to four linearly independent `basis' matrices, and show that the resulting matrices observe the same multiplication rules as defined in \cref{tab:quat_table}. Indeed, define the mapping \(\phi\) by 
 \begin{equation}
     \begin{split}
         \phi: \: \spquaternions \to \real^{2\times2}: \quad &  
          1 \mapsto  \mqty(1 & 0 \\ 0 & 1) \qquad
         \quati \mapsto  \mqty(0 & 1 \\  -1 & 0) \\
         & \quatj \mapsto  \mqty(0 & 1 \\  1 & 0)\qquad 
-        \quatk \mapsto  \mqty(1 & 0 \\  0 & -1) \\
+        \quatk \mapsto  \mqty(1 & 0 \\  0 & -1). \\
     \end{split}
     \label{eq:basis_elements}
 \end{equation}
 
-It is easily verified that (i) these matrices span \(\real^{2\times2}\) and (ii) that the multiplication rules for split-quaternions are in accordance when mapped to the respective matrices under matrix multiplication. Due to the bilinearity of the product, any linear combination of the basis elements will therefore satisfy the rules as well. Hence, we have established an algebra isomorphism between the split-quaternions and the \(2\times 2\)-matrices. 
+It is easily verified that (i) these matrices span \(\real^{2\times2}\) and (ii) that the isomorphism commutes with the multiplication operation for split-quaternions and matrices (cf. \cref{tab:quat_table}). Due to the bilinearity of the product operation, any linear combination of the basis elements will therefore satisfy the rules as well. Hence, we have established an algebra isomorphism between the split-quaternions and the \(2\times 2\)-matrices. 
 
 Based on the mapping \(\phi\) for the basis vectors, a general quaternion $a$ maps to:
 \begin{equation}
@@ -276,11 +277,11 @@ Likewise, the inverse mapping of an arbitrary matrix yields
 \subsubsection{Relation between matrix and split-quaternion properties} 
 A striking feature of the isomorphism \(\phi\) is that it maps the natural properties of the split-quaternion to the natural properties of the associated matrix. Given that \(A = \phi(a)\) with \(a \in \spquaternions\) and \(A \in \real^{2\times2}\), we have the following correspondence: 
 \begin{itemize}
-    \item The \emph{sum of matrices} is equivalent to the \emph{sum of the split-quaternions}. If \(A = \phi(a)\) and \(B = \phi(b)\), then
+    \item The \emph{sum of matrices} corresponds to the \emph{sum of the split-quaternions}. If \(B = \phi(b)\), then
         \begin{equation}
             A + B = \phi(a + b).
         \end{equation}
-    \item \emph{Matrix multiplication} is equivalent to \emph{split-quaternion multiplication}. If \(A = \phi(a)\) and \(B = \phi(b)\), then
+    \item \emph{Matrix multiplication} corresponds to \emph{split-quaternion multiplication}:
         \begin{equation}
               AB = \phi(ab).
         \end{equation}
@@ -289,7 +290,7 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
         \begin{equation}
              \adjugate(A) = \phi(\conj{a}).
         \end{equation}
-    \item The \emph{trace} of the matrix coincides with twice the \emph{real or scalar part} of the split-quaternion:
+    \item The \emph{trace} of isi equal to twice the \emph{real or scalar part} of the split-quaternion:
         \begin{equation}
              \frac{\trace(A)}{2} = \scapart{a} = a_0.
         \end{equation}
@@ -359,7 +360,7 @@ An overview of the correspondence between matrix and split-quaternion properties
 
 \section{Dynamical systems as split-quaternions}
 \label{sec:system_classification}
-In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We commence in \cref{ssec:vf_algebra} by establishing the split-quaternion representation of a dynamical system. Subsequently, in \cref{ssec:system_classification} we show how the split-quaternion representation leads to a more convenient procedure for system classification. Finally, we exploit the split-quaternion properties to compute the solution of the corresponding dynamical system in \cref{ssec:exponential}.
+In this section, we show how split-quaternions can be used to represent two-dimensional linear dynamical systems in their full generality. We start of in \cref{ssec:vf_algebra} by establishing the split-quaternion representation of a dynamical system. Subsequently, in \cref{ssec:system_classification} we show how the split-quaternion representation leads to a more convenient procedure for system classification. Finally, we exploit the split-quaternion properties to compute the solution of the corresponding dynamical system in \cref{ssec:exponential}.
 
 \subsection{The Lie algebra of vector fields}
 \label{ssec:vf_algebra}
@@ -472,7 +473,7 @@ The classic \emph{Poincare diagram} can be restated in terms of split-quaternion
     \label{fig:poincare_diagram}
 \end{figure}
 
-However, this classification in \cref{fig:poincare_diagram} not completely exhaustive, for it does not distinguish between the degenerate cases when $\mathscr{N}(\vec{a}) = 0$.
+However, the classification in \cref{fig:poincare_diagram} is not completely exhaustive, for it does not distinguish between the degenerate cases if $\mathscr{N}(\vec{a}) = 0$.
 We will therefore discuss all the regime combinations listed in \cref{tab:class_combinations} and the corresponding class of dynamical systems in more detail; adhering to the same numbering scheme.
 
 \subsubsection*{Spacelike total norm}
