@@ -413,7 +413,7 @@ In this section, we use a procedure called \emph{symplectification} to cast the 
 \begin{quote}
     ``One is advised to calculate symplectically but to think rather in contact geometry terms.''
 \end{quote}
-In addition, we show that the resulting `symplectified' Hamiltonian system explains the particular form of a widely adopted existing model for the damped harmonic oscillator: the time-dependent Caldirola-Kanai Hamiltonian.
+In addition, we show that the resulting symplectified Hamiltonian system explains the particular form of a widely adopted existing model for the damped harmonic oscillator: the time-dependent Caldirola-Kanai Hamiltonian.
 
 \subsubsection{Symplectification of contact manifolds}
 To make the process of symplectification mathematically precise, we first need to move to a slightly different space than the manifold \(M\) used in the previous section. \(M\) is the product manifold of the cotangent bundle of \(Q\) (the space of the position \(q\)) with the real line to accommodate for the internal energy \(U\). In contrast, we now start with the \emph{extended configuration manifold} \(Q_e \cong \real^2\), equipped with an extra position coordinate \(q_e\)\footnote{In this case, the `0' is a label for the extra position coordinate $q_e$ --- we wish not to refer to the other position as $q^1$ because there is only one real position of the mass. Because the other coordinates are not numbered, we do not make the notational distinction between contravariant and covariant components, and use a subscript to label the extra coordinates.}. That is,
@@ -424,7 +424,7 @@ To make the process of symplectification mathematically precise, we first need t
 
 \paragraph{The manifold of contact elements} Consider now the \emph{manifold of contact elements} of \(Q_e\). This is a fiber bundle with base \(Q_e\), and the fibers at each point are the space of lines (through the origin) in the tangent space to \(Q_e\) at that specific point. For more details about the manifold of contact elements, the reader is referred to \cref{app:contact_geometry}.
 
-The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the one-dimensional real projective line \(\mathbb{P}\real\). The fibers are therefore compact manifolds. It can be shown that the manifold of contact elements of \(Q_e\) (or any manifold) is diffeomorphic to the projectivization of its tangent bundle: we denote this by \(\pctbundle{Q_e}\) \cite{Cannas2001,Arnold1989,Libermann1987}.
+The fibers of this bundle are projective spaces; more specifically, they are diffeomorphic to the real projective line \(\mathbb{P}\real\). The fibers are therefore compact manifolds. It can be shown that the manifold of contact elements of \(Q_e\) (or any manifold) is diffeomorphic to the projectivization of its cotangent bundle $\ctbundle{Q_e}$: we denote this by \(\pctbundle{Q_e}\) \cite{Cannas2001,Arnold1989,Libermann1987}.
 %<symbol: \mathbb{P}\real> <expl: Projective real line> <tags: numberset, geometry>
 
 \begin{figure}
@@ -438,7 +438,7 @@ The manifold \(\pctbundle{Q_e}\) is three-dimensional. Consider a chart for \(\p
 where \(p\) represents the \emph{slope} of the line in the tangent space, illustrated in \cref{fig:manifold_contact_elements}. This chart cannot cover the entire manifold, for the fiber is compactified at the point \(p = \infty\) (in this specific chart). 
 %<symbol: \pctbundle{M}> <expl: Projectivized cotangent bundle to $M$> <tags: misc, geometry>
 
-Because \(p\) is meant to represent momentum just like in the previous section, and infinite momentum lies outside our realm of interest, this space can be thought of as \emph{roughly} equivalent (for practical purposes) to \(M\). That is to say, by disregarding the point \(p = \infty\), we end up with a manifold that is diffeomorphic to \(M\).
+Because \(p\) is meant to represent momentum, and infinite momentum lies outside our realm of interest, this space can be thought of as \emph{roughly} equivalent (for practical purposes) to \(M\). That is to say, by disregarding the point \(p = \infty\), we end up with a manifold that is diffeomorphic to \(M\).
 
 The manifold of contact elements \(\pctbundle{Q_e}\) is equipped with a natural contact structure \cite{Arnold1989}, represented by
 \begin{equation}
@@ -484,7 +484,7 @@ The symplectification procedure exploits the natural ambiguity that contact form
     \lambda (\dd{q_e} - p \dd{q}). 
     \label{eq:lambda_alpha}
 \end{equation}
-The above expression gives a representation of \emph{all} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
+The above expression represents \emph{all} the contact forms that give rise to the same contact structure as \(\alpha_e\). Hence, if \(\lambda\) is considered to be an additional coordinate in its own right, we move to a four-dimensional space with coordinates \((q_e, q, p, \lambda)\); this is the space of all contact forms on the contact manifold. 
 
 We now adopt the coordinates $\rho$ and $\rho_e$, defined as follows
 \begin{equation}
@@ -570,7 +570,7 @@ The group action \(\raction{\mgroup}\) manifests itself as dilations of the fibe
 
 The space of all orbits is a circle with antipodal points identified, which is again diffeomorphic to a circle: this is the space \(\mathbb{P}\real\), and it is the fiber \(\pctspace{x}{Q_e}\) of \(\pctbundle{Q_e}\) at the point \(x\). The projection map that takes a point in \(\pctspace{x}{Q_e}\) to its associated point in the orbit space is \(\sigma\). 
 
-In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_e\), which is as the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one `point' (i.e. orbit): the north and south poles of the circle on the right.
+In \cref{fig:principal_bundle}, the coordinate chart used for \(\pctbundle{Q_e}\) is indicated as well: \(p = -\rho/\rho_e\), which is the negative of the slope of that line. This coordinate chart covers almost the entire fiber, apart from one point (representing an orbit): the north and south poles of the circle on the right.
 
 From the perspective of \(\pctbundle{Q_e}\), \(\rho_e\) and \(\rho\) can also be seen as \emph{homogeneous coordinates} for this space.
 
@@ -602,11 +602,11 @@ The topology of the orbit space, and therefore of the space of transfer matrices
 \subsubsection{Homogeneous Hamiltonian systems}
 In this section, we will lift the contact Hamiltonian system defined in \cref{ssec:contact_dissipation} to the symplectified manifold, resulting in a symplectic Hamiltonian system with a \emph{Liouville structure}.
 
-\paragraph{Liouville structures} The symplectified space \(\ctzbundle{Q_e}\) has a symplectic structure because the cotangent bundle (with zero section removed) is canonically equipped with one. Moreover, the group action that makes it into a principal bundle provides an additional structure: a \emph{symplectic Liouville structure}, which requires that the symplectic 2-form is \emph{homogeneous of degree 1} with respect to the group action \(\raction{\mgroup}\). That is,
+\paragraph{Liouville structures} The symplectified space \(\ctzbundle{Q_e}\) has a symplectic structure because the cotangent bundle (with zero section removed) is canonically equipped with one. Moreover, the group action that makes it into a principal bundle provides an augmented structure: a \emph{symplectic Liouville structure}, which requires that the symplectic 2-form is \emph{homogeneous of degree 1} with respect to the group action \(\raction{\mgroup}\). That is,
 \begin{equation}
      (\raction{\lambda})^* \omega_e = \lambda\,\omega_e, \qquad \lambda \in \mgroup,
 \end{equation}
-which is indeed the case for \(\omega_e\) as defined in \cref{eq:symplectic_form_extended} \cite{Libermann1987}. Because the group action \(\raction{\mgroup}\) is free, the symplectic Liouville structure is said to be \emph{fibered} \cite{Libermann1987}.
+where $^*$ refers to the \emph{pullback} of the mapping $\raction{\lambda}$. This condition is indeed satisfied for \(\omega_e\) as defined in \cref{eq:symplectic_form_extended} \cite{Libermann1987}. Because the group action \(\raction{\mgroup}\) is free, the symplectic Liouville structure is said to be \emph{fibered} \cite{Libermann1987}.
 
 It can be shown that there is again a mapping between the smooth functions on the manifold with Liouville structure and vector fields that preserve this structure\footnote
 {For a vector field \(X\) to preserve the Liouville structure means (i) that it preserves \(\omega_e\), i.e. \(\lied{X}{\omega_e} = 0\), and (ii) that it is invariant under the group action: \( (\raction{\lambda})_* X = X\) (\(\lambda \in \mgroup)\). }, along the same line as for the symplectic manifolds in \cref{sec:symplectic} and the contact manifolds earlier in this section.
@@ -632,11 +632,11 @@ This gives rise to the notion of \emph{homogeneous Hamiltonian systems}, consist
 
 \paragraph{Equations of motion for the symplectified system} The contact Hamiltonian system for the damped harmonic oscillator, as defined by \cref{eq:dho_contact_hamiltonian_e}, can now be lifted to a homogeneous Hamiltonian system on the symplectified space. The relation between the contact Hamiltonian and the corresponding homogeneous Hamiltonian is defined as \cite{VanderSchaft2021a,Libermann1987,Arnold1989}
 \begin{equation}
-     K_e(q_e, q, p) = \mathscr{H}(q_e, q, -1, \rho),
+     K_e(q_e, q, p) = \mathscr{H}(q_e, q, -1, p),
 \end{equation}
 or equivalently
 \begin{equation}
-    \mathscr{H}(q_e, q, \rho_e, \rho) \coloneq \rho_e K_e\qty(q_e, q, -\frac{\rho}{\rho_e}).
+    \mathscr{H}(q_e, q, \rho_e, \rho) \coloneq -\rho_e K_e\qty(q_e, q, -\frac{\rho}{\rho_e}).
     \label{eq:H_contact_homo}
 \end{equation}
 
@@ -684,35 +684,36 @@ The homogeneous Hamiltonian vector field is then
 %        &\dot{\rho}     = \rho_e \pdv{H}{q}.
 %    \end{split}
 %\end{equation}
-The equations of motion \(q_e\) and \(q\) remain identical to those obtained earlier. This is to be expected since otherwise, the dynamics of the symplectified system could not correspond to the dynamics of the contact Hamiltonian system. 
+The equations of motion \(q_e\) and \(q\) remain identical to those obtained earlier. This is to be expected, since otherwise, the dynamics of the symplectified system could not correspond to the dynamics of the contact Hamiltonian system. 
 
 For \(\rho_e\), we have
 \begin{equation}
-     \dot{\rho}_0 = \rho_e \pdv{K_e}{q_e} = \rho_e \pdv{K_e}{q_e}  = \gamma\rho_e \quad \Rightarrow \quad \rho_e = C\ec^{\gamma t},
+     \dot{\rho}_e = \rho_e \pdv{K_e}{q_e} = \rho_e \pdv{K_e}{q_e}  = \gamma\rho_e \quad \Rightarrow \quad \rho_e = C\ec^{\gamma t},
 \end{equation} 
 where \(C\) is an integration constant which we can choose to be 1, so \(\rho_e(t) = \ec^{\gamma t}\).
 
 In addition, \(\dot{\rho} = \rho_e kq = \ec^{\gamma t} kq\). Since \(p = -\rho/\rho_e\), the dynamics of \(p\) can be obtained from  \(\dot{\rho}_e\) and \(\dot{\rho}\) using the product rule:
 \begin{equation} 
-    \dot{p} = -\frac{\dot{\rho}}{\rho_e} + \frac{\rho}{\rho_e}\frac{\dot{\rho}_0}{\rho_e} = -kq - \gamma p,
+    \dot{p} = -\frac{\dot{\rho}}{\rho_e} + \frac{\rho}{\rho_e}\frac{\dot{\rho}_e}{\rho_e} = -kq - \gamma p,
     \label{eq:pdot}
 \end{equation}
 which is equivalent to the expression obtained in \cref{ssec:contact_dissipation}.
 
-Observe that these equations of motion are invariant under the earlier defined group action \(\raction{\mgroup}\), which means that the vector field indeed preserves the Liouville structure. The other condition is that it preserves \(\omega_e\), but this is satisfied rather trivially as a result of the mapping \(\fromDual{\omega_e}\).
+Observe that these equations of motion are invariant under the earlier defined group action \(\raction{\mgroup}\), which means that the vector field indeed preserves the Liouville structure. 
+%The other condition is that it preserves \(\omega_e\), but this is satisfied rather trivially as a result of the mapping \(\fromDual{\omega_e}\).
 %The Hamiltonian vector field then becomes
 %\begin{equation}
 %    X_{\mathscr{H}} = -\frac{1}{m}\frac{\rho}{\rho_e}\pdv{}{q}\: + \: \qty[\frac{1}{2m}\qty(\frac{\rho}{\rho_e})^2 - \frac{1}{2}kq^2 - \gamma q_e]\pdv{}{q_e}\: + \: \rho_e kq \pdv{}{\rho}\: + \: \gamma \rho_e \pdv{}{\rho_e}.
 %    \label{eq:homo_vf}
 %\end{equation}
 
-\paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that the contact Hamiltonian should numerically be equal to zero for the equations of motion to represent a physical trajectory. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
+\paragraph{Liouville submanifolds} In \cref{ssec:contact_dissipation} we devoted considerable attention to the fact that the contact Hamiltonian should be numerically  equal to zero for the equations of motion to represent a physical trajectory. This is equivalent to stating that the trajectories lie in Legendre submanifolds.
 
 As pointed out by \citet{VanderSchaft2021a} and \citet{Libermann1987}, because of the equivalence between contact and Liouville structures, the notion of Legendre submanifolds can be lifted to the symplectified space as well. Indeed, from \cref{eq:liouville_form_extended} we can observe that if \(\alpha_e\) pulls back to zero on the trajectories in the contact manifold, so should \(\theta_e\) on the lifted trajectories, for they only differ by multiplication with \(\rho_e\). These are called \emph{Liouville submanifolds}; they are a special subclass of Lagrangian submanifolds\footnote{Lagrangian submanifolds satisfy the weaker condition that the symplectic 2-form \(\omega_e\) vanishes when restricted to them. This is implied by the vanishing of \(\theta_e\), but the converse is not necessarily true.}
 
-Using \cref{eq:hom_ham_vf}, we find that 
+Using \cref{eq:hom_ham_vf}, we find the following (numerical) equality 
 \begin{equation}
-     \intpr{X_\mathscr{H}}{\theta_e} = -K_e,
+    [\intpr{X_\mathscr{H}}{\theta_e}](q_e, q, \rho_e, \rho) = -\rho_e K_e\qty(q_e, q, -\frac{\rho}{\rho_e}),
 \end{equation}
 which means that the contact Hamiltonian (i.e. the total energy in the system)
 must be equal to zero for the lifted trajectories to lie in a Liouville submanifold.
@@ -735,7 +736,7 @@ In this section, we show that the homogeneous Hamiltonian is equivalent to a wel
 
 The Caldirola-Kanai Hamiltonian, commonly attributed to \citet{Caldirola1941} and \citet{Kanai1948}, is a method to describe the linearly damped harmonic oscillator using a Lagrangian or Hamiltonian function that explicitly depends on time. It was originally motivated for the purposes of quantum mechanics.
 
-We depart from the Lagrangian function for it depends directly on the physical coordinates \(q\) and \(\dot{q}\), as opposed to the Hamiltonian. The Caldirola-Kanai Lagrangian is
+We depart from the Lagrangian function, for it depends directly on the physical coordinates \(q\) and \(\dot{q}\), as opposed to the Hamiltonian. The Caldirola-Kanai Lagrangian is
 \begin{equation}
     \Lck(q, \dot{q}, t) = \ec^{\gamma t}\qty(\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2).
     \label{eq:lag_CK}
@@ -778,9 +779,9 @@ The suspension is important because it allows us to perform the time-dependent t
 \(\phi: (q, \Pcan, t) \mapsto (q, \ec^{\gamma t}p, t).\)
 The transformed vector field in terms of the physical coordinates \(p, q, t\) is
 \begin{equation}
-     \phi_*(\tilde{X}_{\Hck}) = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t}.
+     \phi_*(\tilde{X}_{\Hck}) = \qty(-kq - \gamma p)\pdv{}{p} + \frac{p}{m}\pdv{}{q} + \pdv{}{t},
 \end{equation}
-The extra term in \(p\) arises as a consequence of the fact that the mapping from \(\rho\) to \(p\) depends also on \(t\). 
+where $\phi_*$ is the \emph{pushforward} of the mapping $\phi$. The extra term in \(p\) arises as a consequence of the fact that the mapping from \(\rho\) to \(p\) depends also on \(t\). 
 
 The similarity between the derivation of the equations of motion --- in particular, the crucial role of the product rule --- and the one given by \cref{eq:pdot} is striking. Indeed, if we substitute into the Caldirola-Kanai Hamiltonian \(-\rho_e = \ec^{\gamma t}\), we obtain
 \begin{equation}
@@ -788,11 +789,11 @@ The similarity between the derivation of the equations of motion --- in particul
 \end{equation}
 which is precisely equal to the homogeneous Hamiltonian given in \cref{eq:H_dho_homo} excluding the term in \(q_e\). The dependence on \(q_e\) is not required, since it is replaced by an explicit dependence on time that would otherwise be used to produce the exponential factor \(\ec^{\gamma t}\). 
 
-Many interpretations have already been given for the particular form of \(\Hck\); for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as  directly equivalent to the homogeneous Hamiltonian system, where the dynamics of the additional coordinates \(\rho_e\) and \(q_e\) are replaced by their explicit solution in time. Additionally, the role of the `mysterious' canonical momentum \(\rho\) is explained as being a coordinate of the symplectified space, or as a homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
+Many interpretations have already been given for the particular form of \(\Hck\); for example through time-dependent canonical transformations, or by a rescaling of time itself (see i.a. \citet{Tokieda2021}, \citet{Caldirola1941} and \citet{Bravetti2017}). Here we can see that the Caldirola-Kanai can be regarded as alternative form of the homogeneous Hamiltonian system, where the dynamics of the additional coordinates \(\rho_e\) and \(q_e\) are replaced by their explicit solution in time. Additionally, the role of the mysterious canonical momentum \(\rho\) is explained as being a coordinate of the symplectified space, or as a homogeneous coordinate for the underlying contact space\footnote{This has caused considerable confusion in literature, as stated by \citet{Schuch1997}.}.
 
 \subsection{The harmonic oscillator with serial damping}
 \label{ssec:serial_damping}
-In this section, we extend the method outlined in \cref{ssec:contact_dissipation} to a harmonic oscillator with two dampers: one in series and one in parallel. This system will play an important role in \cref{chap:quaternion}.
+In this section, we extend the method outlined in \cref{ssec:contact_dissipation} to a harmonic oscillator with two dampers: one in series and one in parallel. This system plays an important role in \cref{chap:quaternion}.
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/double_damped_oscillator}
@@ -801,7 +802,7 @@ In this section, we extend the method outlined in \cref{ssec:contact_dissipation
 \end{figure}
 
 \subsubsection{System dynamics}
-The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, together with the corresponding bond graph representation. Comparing this to \cref{fig:dho}, there is another 0-junction present in the system that compares flows (velocities) rather than efforts (forces). The equations of motion can be readily derived:
+The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc} together with the corresponding bond graph representation. Comparing this to \cref{fig:dho}, there is another 0-junction present in the system that compares flows (velocities) rather than efforts (forces). The equations of motion can be readily derived:
 \begin{equation}
     \begin{split}
         m\ddot{q}_1 &= -kq - b_p \dot{q}_1 \\
