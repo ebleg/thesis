@@ -6,7 +6,9 @@ In this section, we present the split-quaternion number system, its basic proper
 \label{ssec:quat_basics}
 Like conventional quaternions, the split-quaternions form a number system that consists of linear combinations of four basis elements, which are denoted by 1, \quati, \quatj, and \quatk.\footnote
 {Even though they behave similarly, the imaginary unit \(\ii\) is not to be confused with the split-quaternion basis element \quati, because they each belong to an entirely different number system.}
-The multiplication operation for split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative (unital) ring}. The multiplication table for the split-quaternion basis elements is shown in \cref{tab:quat_table}; multiplication of general split-quaternions follows from this table by distributivity. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
+The multiplication operation for split-quaternions is associative but not commutative --- formally speaking, we are dealing with an algebraic structure called a \emph{noncommutative (unital) ring}. 
+
+The multiplication table for the split-quaternion basis elements is shown in \cref{tab:quat_table}; multiplication of general split-quaternions follows from this table by distributivity. The set of split-quaternions is denoted by \spquaternions, since \quaternions is reserved for conventional quaternions.\footnote
 {The set of (split-)quaternions `\(\mathbb{H}/\spquaternions\)' is named in honor of sir William Rowan Hamilton, who also developed the Hamiltonian formalism: the fruits of his work truly form the central theme in this thesis \cite{Stillwell2008}.}
 \begin{table}[ht!]
     \centering
@@ -26,7 +28,7 @@ The multiplication operation for split-quaternions is associative but not commut
 %<symbol: 1,\quati,\quatj,\quatk> <expl: Split-quaternion basis-elements> <tags: quaternions, letter>
 %<symbol: \spquaternions> <expl: Split-quaternions> <tags: numbersets, quaternions>
 
-The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The difference `metric' signature makes the split-quaternion number system different from its conventional quaternion counterpart.
+The distinctive feature that sets split-quaternions apart from conventional quaternions resides in the diagonal elements of \cref{tab:quat_table}. For quaternions, all basis elements but 1 square to \(-1\), which is not the case for the split-quaternions (only \quati does). This is also the reason why split-quaternions are `split', for this difference in sign makes their norm (to be defined later) into an indefinite quadratic form. That is to say, whereas quaternions have a `metric signature' (in a very imprecise sense of the word metric) of \((+, +, +, +)\), the split-quaternions have \((+, +, -, -)\). The different metric signature makes the split-quaternion number system different from its conventional quaternion counterpart.
 
 Importantly, the split-quaternion number system can also be seen as an \emph{algebra}; i.e. a four-dimensional vector space over the real numbers combined with the split-quaternion product operation. More specifically, the split-quaternions form a \emph{unital noncommutative associative algebra}.
 
@@ -113,24 +115,24 @@ The split-quaternion norm is (in stark contrast to the norm defined for quaterni
 \end{itemize}
 Like the space of split-quaternions, Minkowski spacetime is also four-dimensional. However, the signature of the Minkowski metric is different from the split-quaternion signature: it is either \((-, +, +, +)\) or equivalently \( (+, -, -, -)\) depending on the sign convention one chooses to adhere to. The terminology (i.e. spacelike, timelike, lightlike) applies nonetheless \cite{Misner1970,Landau1971}.
 
-Based on the squared split-quaternion norm, the \emph{split-quaternion norm} is then defined as
+Based on the squared split-quaternion norm, the \emph{split-quaternion norm} is defined as
 \begin{equation}
      \norm{}:\, \spquaternions \to \complex: \;\: \norm{a} \coloneq \sqrt{\mathscr{N}(a)} = \sqrt{a_0^2 + a_1^2 - a_2^2 - a_3^2}.
 \end{equation}
 Because of the indefiniteness of $\mathscr{N}$, $\norm{a}$ is an imaginary number if $a$ is spacelike, for its squared norm is negative in that case.
 
 \subsubsection{Vector norm}
-Apart from the split-quaternion norm, we may also define a (squared) norm that of \emph{vector part} alone. The \emph{squared vector norm} is defined in accordance with the total squared split-quaternion norm given by \cref{eq:quat_norm}:
+Apart from the split-quaternion norm, we may also define a (squared) norm of the \emph{vector part} alone. The \emph{squared vector norm} is defined in accordance with the total squared split-quaternion norm given by \cref{eq:quat_norm}:
 \begin{equation}
      \mathscr{N}(\vec{a}) = a_1^2 - a^2_2 - a^2_3.
      \label{eq:vector_norm}
 \end{equation}
-This is not an abuse of notation, for \(\vec{a}\) can be seen as a split-quaternion in its own right with the same vector part as \(a\) but with a zero scalar part. It is therefore a valid argument for the split-quaternion norm, and we can use the same function with no ambiguity. The \emph{vector norm} is then defined in accordance 
+This is not an abuse of notation, for \(\vec{a}\) can be seen as a split-quaternion in its own right with the same vector part as \(a\) but with a zero scalar part. It is therefore a valid argument for the split-quaternion norm, and we can use the same function with no ambiguity. The \emph{vector norm} is then defined in accordance:
 \begin{equation}
     \norm{\vec{a}} = \sqrt{\mathscr{N}(\vec{a})} = \sqrt{a_1^2 - a_2^2 - a_3^2}. 
 \end{equation}
 
-In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and the squard norm of the vector part plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the squared \emph{total} norm, and to \(\mathscr{N}(\vec{a})\) as the squared \emph{vector} norm. Likewise, we refer to $\norm{a}$ as the \emph{total} norm, and to $\norm{\vec{a}}$ as the \emph{vector} norm of that split-quaternion.
+In the remainder of this chapter, the distinction between the squared norm of the entire split-quaternion and the squared norm of the vector part plays a crucial role. Therefore, we will refer to \(\mathscr{N}(a)\) as the squared \emph{total} norm, and to \(\mathscr{N}(\vec{a})\) as the squared \emph{vector} norm. Likewise, we refer to $\norm{a}$ as the \emph{total} norm, and to $\norm{\vec{a}}$ as the \emph{vector} norm of the split-quaternion $a$.
 
 The quadratic form given in \cref{eq:vector_norm} is also not positive-definite. As a result, we can establish a classification based on the squared vector norm (instead of the squared total norm) as well:
 \begin{itemize}
@@ -235,7 +237,7 @@ In this section, we demonstrate how the split-quaternion algebra relates to the 
 \subsubsection{Algebra isomorphisms} 
 Formally, an algebra is a vector space \(V\) over a field \field, combined with an \field-bilinear product operation \cite{Schuller2014}:
 \begin{itemize}
-    \item The split-quaternion algebra is an algebra over the field real numbers (\(\field = \real\)), where the product operation is split-quaternion multiplication (see \cref{tab:quat_table});
+    \item The split-quaternion algebra is an algebra over the field of real numbers (\(\field = \real\)), where the product operation is split-quaternion multiplication (see \cref{tab:quat_table});
     \item The \(2\times2\)-matrices also form an \real-vector space; the product operation is matrix multiplication.
 \end{itemize}
 
@@ -290,7 +292,7 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
         \begin{equation}
              \adjugate(A) = \phi(\conj{a}).
         \end{equation}
-    \item The \emph{trace} of isi equal to twice the \emph{real or scalar part} of the split-quaternion:
+    \item The \emph{trace} of the matrix is equal to twice the \emph{real or scalar part} of the split-quaternion:
         \begin{equation}
              \frac{\trace(A)}{2} = \scapart{a} = a_0.
         \end{equation}
@@ -328,7 +330,7 @@ A striking feature of the isomorphism \(\phi\) is that it maps the natural prope
             \label{eq:quat_eigvals}
         \end{equation}
         where $\norm{\vec{a}}$ is imaginary if $\vec{a}$ is spacelike. 
-        Hence, the \emph{real part and the vector norm the split-quaternion coincide with the real and imaginary parts of the eigenvalues of the matrix}, where the latter is multiplied by the imaginary unit $\ii$. When the vector either is spacelike or timelike, the $\ii$ cancels, and the overall eigenvalue is real. This striking correspondence is the main reason for the benefits of the split-quaternion representation of dynamical systems, which is discussed in \cref{ssec:system_classification}.
+        Hence, the \emph{real part and the vector norm the split-quaternion coincide with the real and imaginary parts of the eigenvalues of the matrix}, where the latter is multiplied by the imaginary unit $\ii$. When the vector is either spacelike or timelike, the $\ii$ cancels, and the overall eigenvalue is real. This striking correspondence is the main reason for the benefits of the split-quaternion representation of dynamical systems, which is discussed in \cref{ssec:system_classification}.
 \end{itemize}
 %<symbol: \ii> <expl: Imaginary unit> <tags: letter, quaternions>
 %<symbol: \jj> <expl: Hyperbolic unit> <tags: letter, quaternions>
@@ -377,7 +379,7 @@ In analogous fashion, we have the equivalent definition for the matrix algebra:
 \end{equation}
 Clearly, these Lie algebras are isomorphic.
 
-The Lie algebras defined above are abstract, which is to say that they are not defined in terms of a specific Lie group. The Lie algebra of $2\times 2$-matrices combined with the bracket defined above isomorphic to the Lie algebra $\glalg{2}{\real}$ (it is often even defined this way). These are the linear vector fields on a vector space: the vector field is a section of the tangent bundle, and the mapping that defines the section must preserve the linear structure of the vector space. 
+The Lie algebras defined above are abstract, which is to say that they are not defined in terms of a specific Lie group. The Lie algebra of $2\times 2$-matrices combined with the bracket defined above is isomorphic to the Lie algebra $\glalg{2}{\real}$ (it is often even defined this way). These are the linear vector fields on a vector space: the vector field is a section of the tangent bundle, and the mapping that defines the section must preserve the linear structure of the vector space. 
 
 The algebra $\glalg{2}{\real}$ is the Lie algebra of the general linear group $\glgroup{2}{\real}$, which is the group of all automorphisms of $\real^2$ (as a vector space). Hence, the elements of $\glgroup{2}{\real}$ are the infinitesimal automorphisms of that vector space. From the vector field perspective, the Lie bracket of vector fields $X$ and $Y$ is equal the \emph{Lie derivative} of $X$ with respect to $Y$:
 \begin{equation}
@@ -421,7 +423,7 @@ Because we are dealing with $\real^2$, the conservation of volume is the same as
 
 \begin{table}[ht!]
     \centering
-    \caption{Vector field representation of the split-quaternion basis elements. The Hamiltonian is the function that generates the associated vector field through Hamilton's equations: $\dot{x} = \pdv{H}{y}$ and $\dot{y} = -\pdv{H}{x}$.}
+    \caption{Vector field representation of the split-quaternion basis elements. The Hamiltonian is the function that generates the associated vector field through Hamilton's equations: $\dot{x} = \pdv*{H}{y}$ and $\dot{y} = -\pdv*{H}{x}$.}
     \label{tab:basis_vf}
     \begin{tabular}{ccccl}
         \toprule
@@ -430,13 +432,13 @@ Because we are dealing with $\real^2$, the conservation of volume is the same as
         $1$ & $\mqty(1 & 0 \\ 0 & 1) $ & $\displaystyle x\pdv{}{x} + y\pdv{}{y} $ & --- & Dilation \\[0.4cm]
         $\quati$ & $\mqty(0 & 1 \\ -1 & 0) $ & $\displaystyle y\pdv{}{x} - x\pdv{}{y} $ & $ \tfrac{1}{2}\qty(x^2 + y^2) $ & Clockwise rotation \\[0.4cm]
         $\quatj$ & $\mqty(0 & 1 \\ 1 & 0) $ & $\displaystyle y\pdv{}{x} + x\pdv{}{y} $ & $ \tfrac{1}{2}\qty(y^2 - x^2) $ & Squeeze mapping \\[0.4cm]
-        $\quatk$ & $\mqty(1 & 0 \\ 0 & -1) $ & $\displaystyle x\pdv{}{x} + -y\pdv{}{y} $ & $ xy $ & Squeeze mapping \\[0.4cm]
+        $\quatk$ & $\mqty(1 & 0 \\ 0 & -1) $ & $\displaystyle x\pdv{}{x}  -y\pdv{}{y} $ & $ xy $ & Squeeze mapping \\[0.4cm]
         \bottomrule
     \end{tabular}
 \end{table}
 
 \paragraph{Commuting vector fields}
-The \emph{center} of a Lie algebra consists of all those elements for which the Lie bracket operation produces zero, \emph{regardless} of which other algebra element is the second argument. For $\glalg{2}{\real}$, these are all the scalar multiples of the identity, which are the split-quaternions that have \emph{no vector part}. For this reason, the real part and vector part of the split-quaternion coincide with a natural decomposition of the associated vector field into a volume/area preserving component of the vector field, and the infinitesimal increase (or decrease) in volume. These components can be considered \emph{independently} precisely because the associated transformations commute.
+The \emph{center} of a Lie algebra consists of all those elements for which the Lie bracket operation produces zero, \emph{regardless} of which other algebra element is the second argument. For $\glalg{2}{\real}$, these are all the scalar multiples of the identity, which are the split-quaternions that have \emph{no vector part}. For this reason, the real part and vector part of the split-quaternion coincide with a natural decomposition of the associated vector field into a volume/area preserving component of the vector field, and the infinitesimal increase (or decrease) in volume. These components can be considered \emph{independently}, precisely because the associated transformations commute.
 
 \subsection{System classification with split-quaternions}
 \label{ssec:system_classification}
@@ -474,7 +476,7 @@ The classic \emph{Poincare diagram} can be restated in terms of split-quaternion
 \end{figure}
 
 However, the classification in \cref{fig:poincare_diagram} is not completely exhaustive, for it does not distinguish between the degenerate cases if $\mathscr{N}(\vec{a}) = 0$.
-We will therefore discuss all the regime combinations listed in \cref{tab:class_combinations} and the corresponding class of dynamical systems in more detail; adhering to the same numbering scheme.
+We will therefore discuss all the regime combinations listed in \cref{tab:class_combinations} and the corresponding class of dynamical systems in more detail (adhering to the same numbering scheme).
 
 \subsubsection*{Spacelike total norm}
     \begin{itemize}
@@ -493,10 +495,11 @@ We will therefore discuss all the regime combinations listed in \cref{tab:class_
             \begin{equation}
                 \lambda_A = a_0 \pm \norm{\vec{a}}\ii = a_0\qquad a_0 \neq 0,
             \end{equation}
-        i.e. both eigenvalues are equal to the real part of a. From the perspective of the matrix, we have
-        \begin{equation}
-            \mathscr{N}(\vec{a}) = \det\qty(A - \frac{\tr A}{2} I).
-        \end{equation}
+        i.e. both eigenvalues are equal to the real part of a \emph{if} $\norm{\vec{a}} = 0$. 
+        %From the perspective of the matrix, we have
+        %\begin{equation}
+        %    \mathscr{N}(\vec{a}) = \det\qty(A - \frac{\tr A}{2} I).
+        %\end{equation}
         If the squared vector norm vanishes, the null space of the matrix $A - a_0 I$ is
 
         There are then two subcategories to be distinguished, corresponding to whether the associated matrix is diagonalizable or not:
@@ -542,11 +545,11 @@ Because this definition is completely analogous to the one for matrices, the exp
 \begin{equation}
      \exp(a) = \phi^{-1}(\exp(\phi(a))).
 \end{equation}
-In this expression, the first `exp' refers to the split-quaternion exponential, while the second `exp' is the matrix exponential.
+In this expression, the `exp' on the left hand side refers to the split-quaternion exponential, while the `exp' on the right is the matrix exponential.
 
 To evaluate the exponential function of a split-quaternion, let us first use the following property of the (split-quaternion) exponential\footnote{This is a consequence of the Baker-Campbell-Haussdorf formula, which applies to Lie algebras in general.} \cite{Hall2013}
 \begin{equation}
-    \liebr{a}{b} = 0 \quad \Rightarrow \quad \exp(a + b),
+    \liebr{a}{b} = 0 \quad \Rightarrow \quad \exp(a + b) = \exp(a)\exp(b),
 \end{equation}
 i.e. we can only decompose the exponential of a sum if the two elements \emph{commute}. We can regard an arbitrary split-quaternion
 \begin{equation}
@@ -556,7 +559,7 @@ as the sum of the real part \(a_0\) and the vector part \(\quatvec{a_1}{a_2}{a_3
 \begin{equation}
      \exp(a) \, = \,\ec^{a_0}\,\exp(\quatvec{a_1}{a_2}{a_3}).
 \end{equation}
-It is important to emphasize that this is \emph{not} possible for the other individual vector components, since $\quati$, $\quatj$ and $\quatk$ do \emph{not} commute with each other. We therefore only have to be considered with the evaluation of \(\exp(\vec{a})\). To do so, recall that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. We, have by definition, that \( \conj{\vec{a}} = -\vec{a} \), which means taht the squared vector norm is simply the negative of the square of the vector part, i.e.:
+It is important to emphasize that this is \emph{not} possible for the other individual vector components, since $\quati$, $\quatj$ and $\quatk$ do \emph{not} commute with each other. We therefore only have to be concerned with the evaluation of \(\exp(\vec{a})\). To do so, recall that we can consider the vector part of a split-quaternion to be a split-quaternion in its own right, but with zero real part. We, have by definition, that \( \conj{\vec{a}} = -\vec{a} \), which means that the squared vector norm is simply the negative of the square of the vector part, i.e.:
 \begin{equation}
      \mathscr{N}(\vec{a}) = \vec{a} \conj{\vec{a}} = -\vec{a}^2.
 \end{equation}

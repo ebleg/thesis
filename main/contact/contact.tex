@@ -805,15 +805,15 @@ In this section, we extend the method outlined in \cref{ssec:contact_dissipation
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc} together with the corresponding bond graph representation. Comparing this to \cref{fig:dho}, there is another 0-junction present in the system that compares flows (velocities) rather than efforts (forces). The equations of motion can be readily derived:
 \begin{equation}
     \begin{split}
-        m\ddot{q}_1 &= -kq - b_p \dot{q}_1 \\
+        m\ddot{q}_1 &= -kq - b_p \dot{q}_1, \\
         kq &= b_s(\dot{q}_1 - \dot{q}) \\
     \end{split}
     \label{eq:serial_eom_raw}
 \end{equation}
 Due to the presence of the serial damper, the situation is somewhat curious, since there are two positions in the system; one measuring the spring deflection \(q\) and the position of the mass \(q_1\). The subscript `1' refers to the fact that \(q_1\) is the position measured at the 1-junction in the bond graph shown in \cref{fig:dho}. However, the node connecting the serial damper and the spring has no mass, and therefore no second-order dynamics: as such, the overall order of the system is two. 
 
-Position is stored in the spring, but momentum is stored in a mass.
-Hence, we let \(p = m\dot{q}_1\) --- but \(\dot{q} \neq p/m\) in general. That is to say, the spring is naturally associated with a position coordinate, while the mass has momentum, though its position does not partake in the dynamics directly.
+Whereas position is stored in a spring, but momentum is stored in a mass.
+Hence, we let \(p = m\dot{q}_1\) --- but \(\dot{q} \neq p/m\) in general. That is to say, a spring is naturally associated with a position coordinate, while a mass has momentum, though its position does not partake in the dynamics directly.
 
 Using the damping coefficients $\gamma_s \coloneq k/b_s$ and $\gamma_p \coloneq b_p/m$, the equations of motion become:
 \begin{equation}
@@ -844,24 +844,24 @@ Using the damping coefficients $\gamma_s \coloneq k/b_s$ and $\gamma_p \coloneq 
 \subsubsection{Contact Hamiltonian system} 
 In order to establish the contact structure for the harmonic oscillator with two dampers, we must find the expression for the work done by the system on the dampers. We will do so using the structure of the bond graph shown in \cref{fig:double_damped_osc}. 
 
-Bonds carry two signals: an effort and a flow. Both can be assigned with a `direction'; they are always opposite. The direction indicates whether either the effort or flow should be regarded as the `input' of the element attached to the bond. For example, \emph{traditionally} (though this is a matter of convention), an I-element takes efforts as an input, and returns a flow. That is to say, one applies a force to a mass, with a change in velocity as a result. Conversely, a spring is stretched along a certain distance to return a force proportional to it; it takes a flow and returns an effort \cite{Borutzky2010}. In a bond graph, this is indicated by a causality stroke, which is placed at the side of the bond that determines the flow.
+Bonds carry two signals: an effort and a flow. Both can be assigned with a direction; they are always opposite. The direction indicates whether either the effort or flow should be regarded as the input of the element attached to the bond. For example, \emph{traditionally} (though this is a matter of convention), an I-element takes efforts as an input, and returns a flow. That is to say, one applies a force to a mass with a change in velocity as a result. Conversely, a spring is stretched along a certain distance to return a force proportional to it; it takes a flow and returns an effort \cite{Borutzky2010}. In a bond graph, this is indicated by a causality stroke, which is placed at the side of the bond that determines the flow.
 
 If a causality convention is chosen, all the I- and C-elements in the bond graph should conform to this convention\footnote{Not doing so leads to a differential algebraic system (DAE).}. This is \emph{not} the case for R-elements; they are \emph{indifferent to causality}. The reason for this is that there is no integral/derivative present in the mathematical description of their dynamic behavior: they relate an effort and flow, which are both time derivatives. So, depending on the system architecture, a particular R-element may receive an effort and return a flow, or vice versa \cite{Borutzky2010}.
 
 This can be observed from \cref{fig:double_damped_osc}: the serial damper (on the 0-junction) receives an effort and returns a flow, while the parallel damper receives a flow and returns an effort (1-junction). This distinction is reflected in the work form associated with the damper. For the parallel damper, we have
 \begin{equation}
-     \beta_p = \underbrace{\gamma_p p}_\text{\textsc{effort}} \times \underbrace{\dd{q}.}_\text{\textsc{flow}}
+     \beta_q = \underbrace{\gamma_p \,p}_\text{\textsc{effort}} \times \underbrace{\dd{q}.}_\text{\textsc{flow}}
 \end{equation}
-The variable that is `varied' externally is the flow, hence \(\dd{q}\).
+The variable that is varied externally is the flow, hence \(\dd{q}\).
 
 For the serial damper, we have the opposite situation. Here, the effort is varied externally, which is equal to \(-\dd{p}\). The minus sign is a consequence of the power direction in the bond connecting the 1-junction and 0-junction\footnote{Intuitively, it is clear from \cref{fig:double_damped_osc} that the force acting \emph{on} the damper is proportional to the \emph{decrease} in momentum. Also, in \cref{eq:serial_eom_pq} we can observe that the damping force is negatively proportional to \(\dot{q}_1\), which is itself positively proportional to the momentum of the mass.}. The flow is equal to \(\dot{q}_1 - \dot{q} = kq/b_s = \gamma_s q\) (using \cref{eq:serial_eom_raw}). Hence, we have
 \begin{equation}
-     \beta_s = \underbrace{\gamma_s q}_\text{\textsc{flow}} \times \underbrace{-\dd{p}.}_\text{\textsc{effort}}
+     \beta_p = \underbrace{\gamma_s\, q}_\text{\textsc{flow}} \times \underbrace{-\dd{p}.}_\text{\textsc{effort}}
 \end{equation}
 
 Combining these work forms, we find the contact form for the system with two dampers:
 \begin{equation}
-    \alpha = \dd{U} - \gamma_p p\dd{q} + \gamma_s q \dd{p}.
+    \alpha = \dd{U} - \beta_q - \beta_p = \dd{U} - \gamma_p\,p\dd{q} + \gamma_s\,q \dd{p}.
     \label{eq:serial_dho_contact_form}
 \end{equation}
 The exterior derivative of the contact form \(\alpha\) is then equal to
@@ -876,7 +876,7 @@ and the Reeb vector field is simply
 Now to find the Hamiltonian and the system dynamics. In the following, we will only consider the horizontal component of the Hamiltonian vector field, for the various reasons pointed out in \cref{ssec:contact_dissipation,ssec:symplectification}. The horizontal component is given by (cf. \cref{eq:horizontal_vf}):
 \begin{equation}
     \begin{split}
-        X^\text{hor}_K &= \fromDual{\dd{\alpha}}\qty(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\alpha) \\
+        X^\text{hor}_K &= \fromDual{\dd{\alpha}}\big(\dd{K} - (\intpr{R_\alpha}{\dd{K}})\,\alpha\big) \\
                        &= \fromDual{\dd{\alpha}}\qty(\qty(\pdv{K}{q} + \gamma_p p \pdv{K}{U})\dd{q} + \qty(\pdv{K}{p} - \gamma_s q \pdv{K}{U})\dd{p}).
     \end{split}
 \end{equation}
@@ -886,7 +886,7 @@ The mapping \(\fromDual{\dd{\alpha}}\) acts on the basis 1-forms as follows:
      \fromDual{\dd{\alpha}}(\dd{p}) = \frac{1}{\gamma_s + \gamma_p}\qty(\pdv{}{q} + \gamma_p p\pdv{}{U}) \qquad
     \fromDual{\dd{\alpha}}(\dd{q}) = \frac{1}{\gamma_s + \gamma_p}\qty(-\pdv{}{p} + \gamma_s q\pdv{}{U}).
 \end{equation}
-The extra terms in \(\pdv{}{U}\) appear again to ensure that the vector field is horizontal.
+The extra terms in \( \pdv*{}{U}\) appear again to ensure that the vector field is horizontal.
 
 Using the same reasoning applied in \cref{ssec:contact_dissipation}, we can observe that the contact Hamiltonian must be proportional to the sum of the mechanical and internal energy of the system. In addition, we wish to cancel the factor \((\gamma_s + \gamma_p)\) present in the mapping \(\fromDual{\dd{\alpha}}\) by multiplying the contact Hamiltonian with the same factor. Hence we, have
 \begin{equation}
@@ -897,9 +897,9 @@ Assuming again that \(K = 0\), the contact Hamiltonian vector field is then:
 \begin{equation}
      X_K = X_K^\text{hor} = \qty(\frac{p}{m} - \gamma_s q)\pdv{}{q} + \qty(-kq -\gamma_p p)\pdv{}{p} + \qty(\gamma_p\frac{p^2}{m} + \gamma_s kq^2 )\pdv{}{U},
 \end{equation}
-since the cross terms in \(\pdv{}{U}\) cancel out. Next to the familiar dissipated power for the parallel damper, we also have the dissipated power of the serial damper
+since the cross terms in \(\pdv*{}{U}\) cancel out. Next to the familiar dissipated power for the parallel damper, we also have the dissipated power of the serial damper
 \begin{equation}
      \gamma_s kq^2 = \underbrace{\gamma_s q}_\text{\textsc{flow}} \: \times \underbrace{kq}_\text{\textsc{effort}},
 \end{equation} 
-in the dynamics of \(U\). Hence, this vector field yields the correct dynamics for \(p\) and \(q\) as given by \cref{eq:serial_eom_pq}, in addition to the internal energy \(U\).
+in the dynamics of \(U\). Hence, this vector field yields the correct dynamics for \(p\) and \(q\) as given by \cref{eq:serial_eom_pq}, as well as for the internal energy \(U\).
 

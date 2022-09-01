@@ -1,21 +1,21 @@
 \section{Application to mechanical systems}
 \label{sec:mechanical}
-We will now proceed by using a mechanical prototype example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as discussed in \cref{ssec:serial_damping}. The reason for this particular mechanical system is twofold: first, it helps to establish the connection between this chapter and \cref{chap:geometric_structures}, and second, it allows us to gain a physical intuition behind the split-quaternion representation. 
+We will now proceed by using a mechanical prototypical example instead of the generic dynamical system of the preceding section. This mechanical system is the harmonic oscillator with two dampers: one in series and one in parallel, as discussed in \cref{ssec:serial_damping}. The reason for this particular mechanical system is twofold: first, it helps to establish the connection between this chapter and \cref{chap:geometric_structures}, and second, it allows us to gain a physical intuition behind the split-quaternion representation. 
 
-Furthermore, the oscillator with two dampers is chosen because the corresponding state transition matrix the extra damper fills the one entry in the state matrix that would otherwise remain zero in the case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
+Furthermore, the oscillator with two dampers is chosen because the extra damper fills the one entry in the corresponding state matrix that would otherwise remain zero in the case of the conventional damped harmonic oscillator. Therefore, this system can represent (in theory) all the possible two-dimensional systems discussed in the previous section.
 
 \subsection{Equations of motion}
 The harmonic oscillator with two dampers is shown in \cref{fig:double_damped_osc}, and its equations of motion are given by \cref{eq:serial_eom_raw}. In matrix form, the equations of motion are:
 \begin{equation*}
     \mqty(\dot{q}\\\dot{p}) = \mqty(-\tfrac{k}{b_s} & \tfrac{1}{m} \\ -k & - \tfrac{b_p}{m})\mqty(q \\ p).
 \end{equation*}
-Alternatively, using the \(\gamma_p \coloneq b_p/m\), \(\gamma_s \coloneq k/b_s\), and \(\Omega_n \coloneq \sqrt{k/m}\), we have the following:
+Alternatively, using the parameters \(\gamma_p \coloneq b_p/m\), \(\gamma_s \coloneq k/b_s\), and \(\Omega_n \coloneq \sqrt{k/m}\), we have the following:
 \begin{equation}
     \mqty(\dot{q}\\\dot{p}) = \underbrace{\mqty(-\gamma_s & \frac{1}{m} \\ -m\Omega_n^2 & - \gamma_p)}_A \mqty(q \\ p).
     \label{eq:ddho_eom}
 \end{equation}
 
-Although the above matrix can represent all possible linear two-dimensional systems \emph{in theory}, we will make some assumptions regarding the parameters in order to enforce that the system is indeed an actual oscillator:
+Although the above state matrix can represent all possible linear two-dimensional systems \emph{in theory}, we will make some assumptions regarding the parameters in order to enforce that the system is indeed an actual oscillator:
 \begin{enumerate}[label=(\roman*), align=left, leftmargin=1.5cm]
     \item The damping coefficients are larger than or equal to zero: $\lambda_s \geq 0, \lambda_p \geq 0$;
     \item The mass is strictly positive: $m > 0$;
@@ -27,7 +27,7 @@ The split-quaternion associated with the state matrix of the doubly damped syste
 
 In a vector space, units are associated with the basis vectors, not with the vector components. For example, consider a two-dimensional vector space spanned by an axis for apples and and an axis for pears. If we wish to represent that someone possesses three apples and four pears, the \emph{components} of that vector are \((3, 4)\), and the \emph{unit vectors} are \((1 \text{ apple}, 1\text{ pear})\). 
 
-Along the same line, we must define the units in the state matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, define the reference quantities and \(m_0, t_0\). The basis elements are then mapped in terms of these reference quantities:
+Along the same line, we must define the units in the state matrix in the split-quaternion basis elements 1, \quati, \quatj, \quatk. To do so, define the reference quantities \(m_0\) and \(t_0\). The basis elements are then mapped in terms of these reference quantities:
 \begin{gather}
     \phi\qty(1) = \mqty(\tfrac{1}{t_0} & 0 \\ 0 & \tfrac{1}{t_0}), \qquad 
     \phi\qty(\quati) = \mqty(0 & \tfrac{1}{m_0} \\  -\tfrac{m_0}{t_0^2} & 0), \\
@@ -45,17 +45,17 @@ Clearly, all the components of the split-quaternion are dimensionless. This real
 
 The preceding argument only explains why we can work around this issue without performing illegal operations, but it does not give a satisfactory answer as to why we would be interested to add numbers that are seemingly incompatible. Indeed, observe that \(\gamma_s\) and \(\gamma_p\) have the same units, whereas \(\tfrac{1}{m}\) and \(\Omega_n^2\) do not. So, in which sense can the \(\quati\) and \(\quatj\)-components be of any significance? To answer this question, note that the rescaling of units is a linear transformation on the vector space given by a diagonal matrix (with nonzero diagonal entries): 
 \begin{equation}
-     N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*,
+     N = \mqty(\dmat[0]{\nu_1}{\nu_2}) \qquad \nu_1, \nu_2 \in \real^*.
 \end{equation}
-which form the group isomorphic to \((\real^*)^2\). This transformation of the vector space manifests itself on the \(A\)-matrix as 
+These matrices form the group isomorphic to \((\real^*)^2\). This transformation of the vector space manifests itself on the \(A\)-matrix as 
 \begin{equation} 
     A' = N^{-1}A N.
 \end{equation}
 It is easy to see that the basis matrices (or vector fields) for 1 and \quatk are invariant under this transformation, while the \quati and \quatj-matrices are not (that is, without making use of the reference quantities). 
 
-A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes; and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. For example, it is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
+A geometric explanation is that the eigenvectors of the identity matrix and the \quatk-matrix point along the axes, and are therefore invariant under rescaling of these axes. As a result of this fact, the \quati and \quatj components will not transform properly under a unit transformation. For example, it is common practice in physics to rescale the state space of the undamped harmonic oscillator as follows \cite{Dekker1981,Dedene1980}
 \begin{equation}
-     p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega q,
+     p \mapsto \frac{p}{m} \qquad q \mapsto m\Omega_n q,
 \end{equation}
 such that the Hamiltonian reverts to the standard quadratic form $\tfrac{1}{2}\qty(q^2 + p^2)$. This is precisely the transformation that removes the \quatj-component of the split-quaternion. This would essentially resolve this unit problem, because it only arises when we attempt to make the \emph{distinction} between the \quati and \quatj-component.
 However, we are interested in the full range of geometrical properties that the trajectories in the phase plane can exhibit, including those that are not invariant under the action of the structure group \((\real^*)^2\). %Furthermore, many invariants, such as the split-quaternion (vector) norm, scalar part, etc. that we use to draw conclusions about the nature of the system \emph{do} commute with this group action, and are therefore remain valid. It is even possible to effect unit transformations within the split-quaternion transformations by translating the matrix \(N\) to the appropriate split-quaternion using the isomorphism. We can indeed observe that the action of \(n^{-1} a n\) (where \(n = \phi^{-1}(N)\)) produces a split-quaternion with zero \(\quatj\)-component. 
@@ -69,7 +69,7 @@ To conclude, it is not so much the case that unit transformations are not allowe
 \end{equation}
 Leaving out the reference quantities requires the silent understanding that all the components are dimensionless, and that we are not just adding apples and pears. 
 
-In the next section, we investigate the influence that of each of the split-quaternion components has on the physical behavior of the mechanical system.
+In the next section, we investigate the influence that each of the split-quaternion components has on the physical behavior of the mechanical system.
 
 \subsection{Physical interpretation of the split-quaternion representation}
 In this section, we look at various aspects of the split-quaternion representation and relate them to the physical properties of the oscillator described in the previous section. 
@@ -79,16 +79,16 @@ The squared total norm of the split-quaternion given in \cref{eq:ddho_quat} is e
 \begin{equation}
      \mathscr{N}(a) = m \Omega_n^2 + \gamma_p \gamma_s.
 \end{equation}
-The assumptions made earlier regarding the sign of $m, k, \lambda_s$ and $\lambda_p$ ensure that this is a positive number; which is to say that the split-quaternion $a$ as a whole is timelike.
+The assumptions made earlier regarding the sign of $m, k, \lambda_s$ and $\lambda_p$ ensure that this is a positive number, which is to say that the split-quaternion $a$ as a whole is timelike.
 
-The interpretation of the squared total norm is the parameter of the \emph{effective potential energy} in the system. Indeed, when there is no damping, $\mathscr{N}(a)$ is equal to $m\Omega_n^2 = $, i.e. the spring constant of the oscillator. The second term appears only if both $\gamma_p$ \emph{and} $\gamma_s$ are nonzero. This is because the presence of both dampers introduces a phase shift in the damping. Whereas the parallel damper dissipates in proportion the momentum $p$, the serial damper damps in proportion to the position $q$. Hence, their combined presence shifts the phase of the damping action in the cycle of the oscillator. The term $\gamma_p \gamma_s$ can be seen as a correction term to take into account this phase shift, if one where to express the equation entirely in terms of the position of the mass (cf. \cref{eq:serial_eom_raw}).
+The squared total norm can be interpreted as the \emph{effective potential energy} in the system. Indeed, when there is no damping, $\mathscr{N}(a) = m\Omega_n^2 $, i.e. the spring constant of the oscillator. The second term appears only if both $\gamma_p$ \emph{and} $\gamma_s$ are nonzero. This is because the presence of both dampers introduces a phase shift in the damping. Whereas the parallel damper dissipates in proportion the momentum $p$, the serial damper damps in proportion to the position $q$. Hence, their combined presence shifts the phase of the damping action in the cycle of the oscillator. The term $\gamma_p \gamma_s$ can be seen as a correction term to take into account this phase shift, if one where to express the equation entirely in terms of the position of the mass (cf. \cref{eq:serial_eom_raw}).
 
 \subsubsection{Real part} 
 The real part of the split-quaternion representation of the harmonic oscillator with two dampers is (cf. \cref{eq:ddho_quat}),
 \begin{equation}
      a_0 = -\tfrac{1}{2}(\gamma_s + \gamma_p).
 \end{equation}
-This real part therefore effect represents the \emph{combined effect of both dampers}.
+This real part therefore represents the \emph{combined effect of both dampers}.
 
 As can be observed from \cref{eq:system_solution} and \cref{fig:basis_vf}, the real part \(a_0\) appears in the system solution as part of the argument of the exponential that envelopes the inner part of the solution, but it does not influence it in any other fashion. This is a consequence of the fact that the vector fields proportional to \(X_1\) commute with all the other vector fields, as discussed in \cref{ssec:vf_algebra}. 
 
@@ -96,7 +96,7 @@ In the context of the mechanical system, this commuting of vector fields means t
 
 The first is a purely exponential contraction of the phase space (assuming \(\gamma_s, \gamma_p > 0\)), which is the overall effect of the dampers. We call this transformation \emph{nonconservative}, for it removes mechanical energy from the system. 
 
-Second, we have the remaining transformation that is generated by the combined effect of the vector part \(\vec{a}\). The latter cannot be decomposed into separate \(\quati\), \(\quatj\) and \(\quatk\) \emph{transformations}, because the vector fields that generate them do not commute. The transformations generated by the vector part of \(a\) are \emph{conservative} (in contrast to the exponential contraction): this decomposition of the transformations therefore amounts to separating the dissipative and conservative effects in present in the mechanical system. That is to say, we decompose the system solution into two parts:
+Second, we have the remaining transformation that is generated by the overall effect of the vector part \(\vec{a}\). The latter cannot be decomposed into separate \(\quati\), \(\quatj\) and \(\quatk\) \emph{transformations}, because the vector fields that generate them do not commute. The transformations generated by the vector part of \(a\) are \emph{conservative} (in contrast to the exponential contraction): this decomposition of the transformations therefore amounts to separating the dissipative and conservative effects in present in the mechanical system. That is to say, we decompose the system solution into two parts:
 \begin{equation}
      \exp(a t) = \underbrace{\exp(a_0 t)}_{\text{\tiny dissipative}} \: \underbrace{\exp(\vec{a} t)}_{\text{\tiny conservative}}.
 \end{equation}
@@ -138,12 +138,12 @@ The \emph{damping ratio} is defined as
 \begin{equation}
     \zeta \coloneq \frac{\Re(\lambda_A)}{\abs{\lambda_A}} = \frac{a_0}{\sqrt{a_0^2 + \mathscr{N}(\vec{a})}}.
 \end{equation}
-Hence, if \(\mathscr{N}(\vec{a})\) vanishes (provided that the system is indeed damped, so \(a_0 \neq 0\)), then \(\zeta = 1\) and the system is critically damped. Likewise, if \(\mathscr{N}(\vec{a}) > 0\), \(\zeta < 1\), then the system is underdamped and vice versa.
+Hence, if \(\mathscr{N}(\vec{a})\) vanishes (provided that the system is indeed damped, so \(a_0 \neq 0\)), then \(\zeta = 1\) and the system is critically damped. Likewise, if \(\mathscr{N}(\vec{a}) > 0\) we have that \(\zeta < 1\) and the system is underdamped (and vice versa).
 
 More generally, one can see that the vector norm measures whether either the `circular' \(\quati\)-component is dominant, or otherwise the combination of \(\quatj\) and \(\quatk\). In the former case, the solution trajectory is elliptic, while in the latter case it is hyperbolic.
 
 \paragraph{Normalized vector part} 
-By looking only at the vector part of the split-quaternion in \cref{eq:ddho_quat}, we have removed the real part from the eigenvalues of the associated matrix. The remaining vector part with the conservative component of the vector field. To show that the real part of the split-quaternion does not influence the eigenvectors of the matrix, observe that
+By looking only at the vector part of the split-quaternion in \cref{eq:ddho_quat}, we have removed the real part from the eigenvalues of the associated matrix. The remaining vector part corresponds to the conservative component of the vector field. To show that the real part of the split-quaternion does not influence the eigenvectors of the matrix, observe that
 \begin{equation}
      (A - \lambda I)\vec{v} = \big[(A + s I)  - (s + \lambda) I\big]\vec{v}.
      \label{eq:eigvec_realpart}
@@ -229,7 +229,7 @@ In addition, we have:
     \label{eq:hyperb_coordinate_relations}
 \end{equation}
 
-The geometry of an elliptic trajectory is determined by its \emph{aspect ratio} and its \emph{tilt angle}, as shown in \cref{fig:ellipse}. For the aspect ratio many measures exist, of which the \emph{eccentricity} \(e\) is the best known. The other measures are listed in \cref{tab:ellipse}; especially the third flattening and third eccentricity play an important role in the remainder of the discussion.
+The geometry of an elliptic trajectory is determined by its \emph{aspect ratio} and its \emph{tilt angle}, as shown in \cref{fig:ellipse}. For the aspect ratio many measures exist, of which the \emph{eccentricity} \(e\) is the best known. Other measures of eccentricity are listed in \cref{tab:ellipse}; especially the third flattening and third eccentricity play an important role in the remainder of the discussion.
 
 \begin{figure}[ht]
     \centering
@@ -262,7 +262,7 @@ The geometry of an elliptic trajectory is determined by its \emph{aspect ratio} 
 \end{table}
 \renewcommand{\arraystretch}{1}
 
-To relate the normalized vector part (in pseudospherical coordinates) to the geometric features of the elliptic integral curves, the solution trajectories of the basis vector fields given by \cref{tab:basis_vf} can be weighed by the vector components to obtain the overall implicit form of the elliptic trajectories.
+To relate the normalized vector part (in pseudospherical coordinates) to the geometric features of the elliptic integral curves, the solution trajectories of the basis vector fields given by \cref{tab:basis_vf} can be weighted by the vector components to obtain the overall implicit form of the elliptic trajectories.
 
 For \(X_\quati\), the solution curves have the implicit form 
 \begin{equation}
@@ -320,15 +320,15 @@ Rather unsurprisingly, the \(\quati\)-component does not play a role in the tilt
      \tan(\theta) = \frac{\cos(\sigma) - 1}{\sin(\sigma)} = -\tan(\frac{\sigma}{2}).
 \end{equation}
 
-Hence, we obtain that the \emph{tilt angle is equal to half the pseudospherical angle, oppositely oriented}:
+Hence, we infer that the \emph{tilt angle is equal to half the pseudospherical angle, oppositely oriented}:
 \begin{equation}
      \theta = -\frac{\sigma}{2}.
 \end{equation}
 
 \subsubsection{Orientation} 
-The two-sheet hyperboloid consists of two disconnected surfaces; this begs the question what the significance is of either of those surfaces. The hyperboloids are directed along the \(\quati\)-axis; therefore, the sign of the \(\quati\)-component of \(\vec{a}\) determines on which hyperboloid the vector is located. Physically, the sign of the \(\quati\)-component determines whether the rotational part of the vector field has a clockwise or counterclockwise rotation. By default, \(X_\quati\) is an infinitesimal clockwise rotation (cf. \cref{fig:basis_vf}): as a result, if \(a_0\) is positive the rotation is clockwise and vice versa.
+The two-sheet hyperboloid consists of two disconnected surfaces. This begs the question what the significance is of either of those surfaces. The hyperboloids are directed along the \(\quati\)-axis; therefore, the sign of the \(\quati\)-component of \(\vec{a}\) determines on which hyperboloid the vector is located. Physically, the sign of the \(\quati\)-component determines whether the rotational part of the vector field has a clockwise or counterclockwise rotation. By default, \(X_\quati\) is an infinitesimal clockwise rotation (cf. \cref{fig:basis_vf}): as a result, if \(a_0\) is positive the rotation is clockwise and vice versa.
 
-The obtained relations show that the pseudospherical coordinates \(\sigma\) and \(\tau\) are directly related to respectively the tilt angle and the eccentricity of the elliptic trajectories. We will now investigate the role of these coordinates in two common projections of the two-sheet hyperboloid, being the \emph{Poincaré model} and the \emph{Cayley-Klein} model. As it turns out, the coordinates in these projections correspond with the eccentricity parameters defined \cref{tab:ellipse}.
+The obtained relations show that the pseudospherical coordinates \(\sigma\) and \(\tau\) are directly related to respectively the tilt angle and the eccentricity of the elliptic trajectories. We will now investigate the role of these coordinates in two common projections of the two-sheet hyperboloid, being the \emph{Poincaré model} and the \emph{Cayley-Klein model}. As it turns out, the coordinates in these projections correspond with the eccentricity parameters defined \cref{tab:ellipse}.
 
 \subsubsection{Relation with models of the hyperbolic plane}
 The \emph{hyperbolic plane} is a plane that has everywhere a constant negative Gaussian curvature. The geometry of the hyperbolic plane is known as \emph{hyperbolic geometry}, as opposed to \emph{Euclidean geometry} and \emph{spherical geometry}, which are associated with surfaces of no curvature and constant positive curvature respectively. 
@@ -342,11 +342,11 @@ Both the Poincaré disk and the Cayley-Klein disk arise by projecting the hyperb
 \begin{figure}[ht!]
     \centering
     \input{media/tikz/hyperboloid_projection}
-    \caption{Illustration of the projection on the Poincaré disk and the Cayley-Klein disk. The Lorentzian 3-space is intersected along the $\quati$-$\quatj$-plane; both disks therefore appear as a line segment with radius 1.}
+    \caption{Illustration of the projection on the Poincaré disk and the Cayley-Klein disk. The Lorentzian 3-space is intersected along the $\quati$-$\quatj$-plane; both disks therefore appear as a line segment with `radius' 1.}
     \label{fig:hyperboloid_projection}
 \end{figure}
 
-\paragraph{The Cayley-Klein disk} The Cayley-Klein is the result of \emph{gnomonic projection} of the positive hyperboloid sheet. The advantage of gnomonic projection is that geodesics on the hyperboloid map to straight lines in the disk. On the downside, this projection method is not conformal (it does not preserve angles). As shown in \cref{fig:hyperboloid_projection} and \cref{fig:cayley_disk}, the projection of a point on the hyperboloid is the intersection of the line segment of that point with the origin and the disk with unit radius, centered at the point \(\quati\) (i.e. the point in Lorentzian 3-space with coordinates \((1, 0, 0)\)). 
+\paragraph{The Cayley-Klein disk} The Cayley-Klein is the result of \emph{gnomonic projection} of the positive hyperboloid sheet \cite{Benedetti1992}. The advantage of gnomonic projection is that geodesics on the hyperboloid map to straight lines in the disk. On the downside, this projection method is not conformal (it does not preserve angles). As shown in \cref{fig:hyperboloid_projection} and \cref{fig:cayley_disk}, the projection of a point on the hyperboloid is the intersection of the line segment of that point with the origin and the disk with unit radius, centered at the point \(\quati\) (i.e. the point in Lorentzian 3-space with coordinates \((1, 0, 0)\)). 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=1]{media/other/cayley_disk-eps-converted-to}
@@ -362,7 +362,7 @@ We can now use \cref{eq:e_pseudosphere_coords} to relate the radial coordinate t
 \begin{equation}
     e = \sqrt{\frac{2\sinh(\tau)}{\cosh(\tau) + \sinh(\tau)}} = \sqrt{\frac{2r_\text{k}}{1 + r_\text{k}}}. 
 \end{equation}
-This expression shows that the \emph{radius in the Cayley-Klein disk is equal to the square of the third eccentricity of the elliptic trajectory} \(e''\), also denoted by `\(m\)' in literature (we will not do so here, for it is already reserved for mass). In terms of the major and minor axes (\(r_+\) and \(r_-\) respectively), this we have: \cite{Rapp1991}
+This expression shows that the \emph{radius in the Cayley-Klein disk is equal to the square of the third eccentricity of the elliptic trajectory} \(e''\), also denoted by `\(m\)' in literature (we will not do so here, for it is already reserved for mass). In terms of the major and minor axes (\(r_+\) and \(r_-\) respectively), we thus have: \cite{Rapp1991}
 \begin{equation}
     r_\text{p} = \frac{r_+^2 - r_-^2}{r_+^2 + r_-^2} = \qty(e'')^2.
     \label{eq:eccentricity_cayley}
@@ -392,7 +392,7 @@ Hence, we gather that the \emph{Poincaré radius is equal to the third flattenin
 \end{equation}
 
 \subsubsection{Relation with eigenvectors} 
-As mentioned, the normalized vector part \(a\) encodes the same information as the eigenvectors of the associated matrix \(A\). For an underdamped system, both the eigenvectors and the eigenvalues of the matrix are complex. These complex eigenvectors are not directly interpretable; they can be multiplied by any complex number to obtain another eigenvector of the system. In one particular instance (i.e. a specific length in \(\complex^2\)), the real and imaginary part of the eigenvectors align with the major and minor axes (\(r^+, r^-\)) of the elliptic trajectory, but this requires additional computation to find the correct multiplication factor for the eigenvectors \cite{Edwards2018}. 
+As mentioned, the normalized vector part \(\uvec{a}\) encodes the same information as the eigenvectors of the associated matrix \(A\). For an underdamped system, both the eigenvectors and the eigenvalues of the matrix are complex. These complex eigenvectors are not directly interpretable; they can be multiplied by any complex number to obtain another eigenvector of the system. In one particular instance (i.e. a specific length in \(\complex^2\)), the real and imaginary part of the eigenvectors align with the major and minor axes (\(r^+, r^-\)) of the elliptic trajectory, but this requires additional computation to find the correct multiplication factor for the eigenvectors \cite{Edwards2018}. 
 
 Conversely, as demonstrated in the above discussion, the normalized split-quaternions are naturally parameterized in way that corresponds directly to the shape parameters of the solution trajectories. As vectors in the phase plane, the semi-major and semi-minor axes can be expressed in terms of \(\sigma\) and \(\tau\) as follows (where the semi-major axis has length 1):
 \renewcommand{\arraystretch}{1.4}
@@ -428,7 +428,7 @@ The eigenvalues of \( [\vec{a}_{\lorcrossp{}{}}] \)  are \(\qty{0, \pm \ii\sqrt{
 We can find the correct basis by relating the major axes of the elliptic trajectory generated by \( [\vec{a}_{\lorcrossp{}{}}] \), denoted by \((\vec{s}_+, \vec{s}_-)\) (also shown in \cref{fig:cross_product})
 to the major axes of the elliptic trajectory \((\vec{r}_+, \vec{r}_-)\) given by \cref{eq:major_axes}. 
 
-The semi-major axis \(\vec{s}_+\) of the elliptic trajectory generated by the Lorentzian cross-product can be obtained by projecting the matrix \(\vec{a}\) on the plane that is Lorentz orthogonal to it. The semi-minor axis is simply found by applying the Lorentzian cross-product to the semi-major axis. That is,
+The semi-major axis \(\vec{s}_+\) of the elliptic trajectory generated by the Lorentzian cross-product can be obtained by projecting the vector \(\vec{a}\) on the plane that is Lorentz orthogonal to it. The semi-minor axis is simply found by applying the Lorentzian cross-product to the semi-major axis. That is,
 \begin{equation}
     \begin{split}
         \vec{s}_+ &= \vec{a} - \frac{ \inner{\vec{a}}{\uvec{n}} }{ \inner{\uvec{n}}{\uvec{n}} } \uvec{n}, \\
@@ -441,7 +441,7 @@ where \(\uvec{n} = a_1\quati - a_2\quatj - a_3\quatk\) is the normal vector to t
 \begin{proof}
     For convenience, we will use the normalized vector $\uvec{a}$ in place of $\vec{a}$ without loss of generality. 
     A unit normal vector to the Lorentz-orthogonal subspace is 
-    \[\uvec{n} = \hat{a}_1\quati - \hat{a}_2\quatj - \hat{a}_3\quatk\]. 
+    \[\uvec{n} = \hat{a}_1\quati - \hat{a}_2\quatj - \hat{a}_3\quatk.\] 
     Following \cref{eq:crossp_basis_vectors}, the basis vectors are
     \begin{equation}
         \begin{split}
@@ -491,7 +491,7 @@ where \(\uvec{n} = a_1\quati - a_2\quatj - a_3\quatk\) is the normal vector to t
     The latter is the scalar multiple of the vector \(\vec{s}_+ + \vec{s}_-\) by \(-\ii\) - hence, this is indeed an eigenvector of the corresponding matrix. This means that indeed, \(\vec{s}_+ + \vec{s}_-\) are the principal axes of the elliptic trajectoy generated by the Lorentzian cross-product.
 \end{proof}
 
-Knowing the eigenvectors of both matrices, the state transition matrix \(A\) and matrix generated by the Lorentzian cross-product \([\vec{a}_{\lorcrossp{}{}}]\) can be related through the following similarity transformation:
+Knowing the eigenvectors of both matrices, the state matrix \(A\) and matrix generated by the Lorentzian cross-product \([\vec{a}_{\lorcrossp{}{}}]\) can be related through the following similarity transformation:
 \begin{equation}
      A = T^{-1}\,[\vec{a}_{\lorcrossp{}{}}]\,T,
 \end{equation}
